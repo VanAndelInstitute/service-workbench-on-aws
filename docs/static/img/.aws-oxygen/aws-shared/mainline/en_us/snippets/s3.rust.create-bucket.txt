@@ -1,0 +1,16 @@
+async fn make_bucket(client: &Client, bucket: &str, region: &str) -> Result<(), Error> {
+    let constraint = BucketLocationConstraint::from(region);
+    let cfg = CreateBucketConfiguration::builder()
+        .location_constraint(constraint)
+        .build();
+
+    client
+        .create_bucket()
+        .create_bucket_configuration(cfg)
+        .bucket(bucket)
+        .send()
+        .await?;
+    println!("Created bucket.");
+
+    Ok(())
+}

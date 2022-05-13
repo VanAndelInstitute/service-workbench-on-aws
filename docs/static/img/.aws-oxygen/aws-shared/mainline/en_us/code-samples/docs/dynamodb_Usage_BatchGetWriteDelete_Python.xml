@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Create functions to wrap &DDB; batch operations.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Batching_imports.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.CreateTable.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.BatchGetItem.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.PutItem_BatchWriter.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.BatchGetItem_CallBatchGet.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create a function to archive data from one table to another.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Usage_ArchiveMovies.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Call your functions to create tables, fill them with movie data from a JSON file, and archive items in another table.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Usage_BatchFunctions.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

@@ -1,0 +1,3 @@
+    err = svc.WaitUntilDBSnapshotAvailable(&rds.DescribeDBSnapshotsInput{
+        DBInstanceIdentifier: clusterID,
+    })

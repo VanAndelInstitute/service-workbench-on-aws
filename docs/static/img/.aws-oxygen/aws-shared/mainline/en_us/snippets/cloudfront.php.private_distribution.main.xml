@@ -1,0 +1,39 @@
+<programlisting>
+function signPrivateDistribution($cloudFrontClient, $resourceKey, $expires, 
+    $privateKey, $keyPairId)
+{
+    try {
+        $result = $cloudFrontClient->getSignedUrl([
+            'url' => $resourceKey,
+            'expires' => $expires,
+            'private_key' => $privateKey,
+            'key_pair_id' => $keyPairId
+        ]);
+
+        return $result;
+    
+    } catch (AwsException $e) {
+        return 'Error: ' . $e->getAwsErrorMessage();
+    }
+}
+
+function signAPrivateDistribution()
+{
+    $resourceKey = 'https://d13l49jEXAMPLE.cloudfront.net/my-file.txt';
+    $expires = time() + 300; // 5 minutes (5 * 60 seconds) from now.
+    $privateKey = dirname(__DIR__) . '/cloudfront/my-private-key.pem';
+    $keyPairId = 'AAPKAJIKZATYYYEXAMPLE';
+    
+    $cloudFrontClient = new CloudFrontClient([
+        'profile' => 'default',
+        'version' => '2014-11-06',
+        'region' => 'us-east-1'
+    ]);
+    
+    echo signPrivateDistribution($cloudFrontClient, $resourceKey, $expires, 
+        $privateKey, $keyPairId);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// signAPrivateDistribution();
+</programlisting>

@@ -1,0 +1,16 @@
+<programlisting>
+  # Creates an access key for a user.
+  #
+  # @param user [Aws::IAM::User] The user that owns the key.
+  # @return [Aws::IAM::AccessKeyPair] The newly created access key.
+  def create_access_key_pair(user)
+    user_key = user.create_access_key_pair
+    puts("Created access key pair for user.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't create access keys for user #{user.name}.")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    user_key
+  end
+</programlisting>

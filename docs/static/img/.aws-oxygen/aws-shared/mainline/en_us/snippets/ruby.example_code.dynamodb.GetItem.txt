@@ -1,0 +1,14 @@
+  # Gets movie data from the table for a specific movie.
+  #
+  # @param title [String] The title of the movie.
+  # @param year [Integer] The release year of the movie.
+  # @return [Hash] The data about the requested movie.
+  def get_movie(title, year)
+    response = @table.get_item(key: {"year" => year, "title" => title})
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't get movie #{title} from table #{@table.name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    response.item
+  end

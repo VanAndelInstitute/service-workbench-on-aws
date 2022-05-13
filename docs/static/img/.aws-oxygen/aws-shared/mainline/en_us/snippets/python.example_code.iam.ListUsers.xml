@@ -1,0 +1,16 @@
+<programlisting>
+def list_users():
+    """
+    Lists the users in the current account.
+
+    :return: The list of users.
+    """
+    try:
+        users = list(iam.users.all())
+        logger.info("Got %s users.", len(users))
+    except ClientError:
+        logger.exception("Couldn't get users.")
+        raise
+    else:
+        return users
+</programlisting>

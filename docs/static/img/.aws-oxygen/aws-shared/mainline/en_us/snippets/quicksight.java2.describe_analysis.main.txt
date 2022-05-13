@@ -1,0 +1,20 @@
+    public static void describeSpecificAnalysis(QuickSightClient qsClient, String account,String analysisId) {
+
+        try {
+
+            DescribeAnalysisRequest analysisRequest = DescribeAnalysisRequest.builder()
+                    .awsAccountId(account)
+                    .analysisId(analysisId)
+                    .build();
+
+            DescribeAnalysisResponse analysisResponse = qsClient.describeAnalysis(analysisRequest);
+            System.out.println("The Analysis ARN value is "+ analysisResponse.analysis().arn());
+            System.out.println("The Analysis ARN name is "+ analysisResponse.analysis().name());
+            System.out.println("The Analysis theme ARN value is "+ analysisResponse.analysis().themeArn());
+            System.out.println("The Analysis dataSet ARN  is "+ analysisResponse.analysis().dataSetArns());
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

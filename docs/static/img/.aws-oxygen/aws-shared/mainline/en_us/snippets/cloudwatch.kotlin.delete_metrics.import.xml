@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.cloudwatch.CloudWatchClient
+import aws.sdk.kotlin.services.cloudwatch.model.DeleteAlarmsRequest
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,9 @@
+class SesReceiptHandler:
+    """Encapsulates Amazon SES receipt handling functions."""
+    def __init__(self, ses_client, s3_resource):
+        """
+        :param ses_client: A Boto3 Amazon SES client.
+        :param s3_resource: A Boto3 Amazon S3 resource.
+        """
+        self.ses_client = ses_client
+        self.s3_resource = s3_resource

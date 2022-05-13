@@ -1,0 +1,13 @@
+    suspend fun createNewTrail(trailName: String, s3BucketNameVal: String) {
+
+        val request = CreateTrailRequest {
+            name = trailName
+            s3BucketName = s3BucketNameVal
+            isMultiRegionTrail = true
+        }
+
+        CloudTrailClient { region = "us-east-1" }.use { cloudTrail ->
+            val trailResponse = cloudTrail.createTrail(request)
+            println("The trail ARN is ${trailResponse.trailArn}")
+        }
+    }

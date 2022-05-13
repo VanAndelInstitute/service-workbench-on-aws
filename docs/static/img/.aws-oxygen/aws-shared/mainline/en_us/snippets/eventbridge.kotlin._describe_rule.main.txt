@@ -1,0 +1,13 @@
+suspend fun describeSpecificRule(ruleName: String) {
+
+           val request = DescribeRuleRequest {
+               name = ruleName
+               eventBusName = "default"
+           }
+
+           EventBridgeClient { region = "us-west-2" }.use { eventBrClient ->
+              val ruleResponse = eventBrClient.describeRule(request)
+              println("The rule ARN is ${ruleResponse.arn}")
+              println("The rule description is ${ruleResponse.description}")
+           }
+}

@@ -1,0 +1,20 @@
+<programlisting>
+    public static void deleteFacesCollection(RekognitionClient rekClient,
+                                             String collectionId,
+                                             String faceId) {
+
+        try {
+            DeleteFacesRequest deleteFacesRequest = DeleteFacesRequest.builder()
+                .collectionId(collectionId)
+                .faceIds(faceId)
+                .build();
+
+            rekClient.deleteFaces(deleteFacesRequest);
+            System.out.println("The face was deleted from the collection.");
+
+        } catch(RekognitionException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

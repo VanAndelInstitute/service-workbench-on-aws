@@ -1,0 +1,5 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Firehose\FirehoseClient; 
+use Aws\Exception\AwsException;

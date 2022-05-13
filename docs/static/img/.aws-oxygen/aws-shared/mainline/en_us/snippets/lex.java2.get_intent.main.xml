@@ -1,0 +1,19 @@
+<programlisting>
+    public static void getSpecificIntent(LexModelBuildingClient lexClient, String intentName, String intentVersion) {
+
+        try {
+
+            GetIntentRequest intentRequest = GetIntentRequest.builder()
+                    .name(intentName)
+                    .version(intentVersion)
+                    .build();
+
+            GetIntentResponse intentResponse = lexClient.getIntent(intentRequest);
+            System.out.println("The description is "+ intentResponse.description());
+
+        } catch (LexModelBuildingException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

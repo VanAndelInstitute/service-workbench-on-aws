@@ -1,0 +1,12 @@
+suspend fun getSpecificTemplate( stackNameVal: String) {
+
+        val request = GetTemplateRequest {
+            stackName = stackNameVal
+        }
+
+        CloudFormationClient { region = "us-east-1" }.use { cfClient ->
+         val response = cfClient.getTemplate(request)
+         val body = response.templateBody
+         println(body)
+        }
+}

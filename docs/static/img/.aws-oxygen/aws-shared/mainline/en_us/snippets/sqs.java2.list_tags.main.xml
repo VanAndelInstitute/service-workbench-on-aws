@@ -1,0 +1,25 @@
+<programlisting>
+    public static void listTags(SqsClient sqsClient, String queueName) {
+
+       try {
+           GetQueueUrlRequest urlRequest =  GetQueueUrlRequest.builder()
+                   .queueName(queueName)
+                   .build();
+
+           GetQueueUrlResponse getQueueUrlResponse = sqsClient.getQueueUrl(urlRequest);
+           String queueUrl = getQueueUrlResponse.queueUrl();
+
+           ListQueueTagsRequest listQueueTagsRequest = ListQueueTagsRequest.builder()
+                   .queueUrl(queueUrl)
+                   .build();
+
+           ListQueueTagsResponse listQueueTagsResponse = sqsClient.listQueueTags(listQueueTagsRequest);
+           System.out.println(String.format("ListQueueTags: \tTags for queue %s are %s.\n",
+                   queueName, listQueueTagsResponse.tags() ));
+
+       } catch (SqsException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }
+</programlisting>

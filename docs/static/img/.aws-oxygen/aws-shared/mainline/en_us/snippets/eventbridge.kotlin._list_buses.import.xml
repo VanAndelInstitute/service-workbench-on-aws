@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.eventbridge.EventBridgeClient
+import aws.sdk.kotlin.services.eventbridge.model.ListEventBusesResponse
+import aws.sdk.kotlin.services.eventbridge.model.ListEventBusesRequest
+</programlisting>

@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.services.iam.model.CreateAccessKeyRequest;
+import software.amazon.awssdk.services.iam.model.CreateAccessKeyResponse;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.iam.IamClient;
+import software.amazon.awssdk.services.iam.model.IamException;
+</programlisting>

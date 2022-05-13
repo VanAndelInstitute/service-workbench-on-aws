@@ -1,0 +1,27 @@
+<programlisting>
+    def enable_disable_key(self, key_id):
+        """
+        Disables and then enables a key. Gets the key state after each state change.
+        """
+        answer = input("Do you want to disable and then enable that key (y/n)? ")
+        if answer.lower() == 'y':
+            try:
+                self.kms_client.disable_key(KeyId=key_id)
+                key = self.kms_client.describe_key(KeyId=key_id)['KeyMetadata']
+            except ClientError as err:
+                logging.error(
+                    "Couldn't disable key '%s'. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                print(f"AWS KMS says your key state is: {key['KeyState']}.")
+
+            try:
+                self.kms_client.enable_key(KeyId=key_id)
+                key = self.kms_client.describe_key(KeyId=key_id)['KeyMetadata']
+            except ClientError as err:
+                logging.error(
+                    "Couldn't enable key '%s'. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                print(f"AWS KMS says your key state is: {key['KeyState']}.")
+</programlisting>

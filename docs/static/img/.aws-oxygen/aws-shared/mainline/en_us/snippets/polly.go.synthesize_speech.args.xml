@@ -1,0 +1,8 @@
+<programlisting>
+    fileName := flag.String("f", "", "The file to translate into speech")
+    flag.Parse()
+
+    if *fileName == "" {
+        fmt.Println("You must supply a file name (-f FILENAME)")
+    }
+</programlisting>

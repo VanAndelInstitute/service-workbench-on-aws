@@ -1,0 +1,28 @@
+<programlisting>
+async fn show_jobs(client: &Client) -> Result<(), Error> {
+    let job_details = client.list_training_jobs().send().await?;
+
+    println!("Jobs:");
+
+    for j in job_details.training_job_summaries().unwrap_or_default() {
+        let name = j.training_job_name().unwrap_or_default();
+        let creation_time = j.creation_time().unwrap().to_chrono_utc();
+        let training_end_time = j.training_end_time().unwrap().to_chrono_utc();
+
+        let status = j.training_job_status().unwrap();
+        let duration = training_end_time - creation_time;
+
+        println!("  Name:               {}", name);
+        println!(
+            "  Creation date/time: {}",
+            creation_time.format("%Y-%m-%d@%H:%M:%S")
+        );
+        println!("  Duration (seconds): {}", duration.num_seconds());
+        println!("  Status:             {}", status.as_ref());
+
+        println!();
+    }
+
+    Ok(())
+}
+</programlisting>

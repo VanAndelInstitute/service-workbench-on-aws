@@ -1,0 +1,13 @@
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+$result = $ec2Client->describeInstances();
+echo "Instances: \n";
+foreach ($result['Reservations'] as $reservation) {
+    foreach ($reservation['Instances'] as $instance) {
+        echo "InstanceId: {$instance['InstanceId']} - {$instance['State']['Name']} \n";
+    }
+}
+

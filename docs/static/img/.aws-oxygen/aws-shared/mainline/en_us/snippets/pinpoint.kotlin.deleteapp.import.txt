@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.DeleteAppRequest
+import kotlin.system.exitProcess

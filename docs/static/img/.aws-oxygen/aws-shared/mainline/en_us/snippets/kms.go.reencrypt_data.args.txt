@@ -1,0 +1,9 @@
+    keyID := flag.String("k", "", "The ID of a KMS key")
+    data := flag.String("d", "", "The data to reencrypt, as a string")
+    flag.Parse()
+
+    if *keyID == "" || *data == "" {
+        fmt.Println("You must supply the ID of a KMS key and data")
+        fmt.Println("-k KEY-ID -d DATA")
+        return
+    }

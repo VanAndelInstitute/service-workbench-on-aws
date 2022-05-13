@@ -1,0 +1,24 @@
+<programlisting>
+    public static void merge(CodeCommitClient codeCommitClient,
+                      String repoName,
+                      String targetBranch,
+                      String sourceReference,
+                      String destinationCommitId) {
+
+        try {
+            MergeBranchesByFastForwardRequest fastForwardRequest = MergeBranchesByFastForwardRequest.builder()
+                .destinationCommitSpecifier(destinationCommitId)
+                .targetBranch(targetBranch)
+                .sourceCommitSpecifier(sourceReference)
+                .repositoryName(repoName)
+                .build();
+
+            MergeBranchesByFastForwardResponse response = codeCommitClient.mergeBranchesByFastForward(fastForwardRequest);
+            System.out.println("The commit id is "+response.commitId());
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

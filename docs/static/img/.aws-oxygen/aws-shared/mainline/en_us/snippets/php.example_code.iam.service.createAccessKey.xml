@@ -1,0 +1,9 @@
+<programlisting>
+    public function createAccessKey(string $userName)
+    {
+        $result = $this->iamClient->createAccessKey([
+            'UserName' => $userName,
+        ]);
+        return $result['AccessKey'];
+    }
+</programlisting>

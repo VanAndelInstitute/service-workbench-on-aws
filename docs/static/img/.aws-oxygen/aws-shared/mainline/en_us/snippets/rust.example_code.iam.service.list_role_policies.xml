@@ -1,0 +1,18 @@
+<programlisting>
+pub async fn list_role_policies(
+    client: &iamClient,
+    role_name: &str,
+    marker: Option<String>,
+    max_items: Option<i32>,
+) -> Result<ListRolePoliciesOutput, SdkError<ListRolePoliciesError>> {
+    let response = client
+        .list_role_policies()
+        .role_name(role_name)
+        .set_marker(marker)
+        .set_max_items(max_items)
+        .send()
+        .await?;
+
+    Ok(response)
+}
+</programlisting>

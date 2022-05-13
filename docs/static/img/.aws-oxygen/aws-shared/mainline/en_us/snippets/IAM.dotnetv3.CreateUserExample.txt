@@ -1,0 +1,35 @@
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.IdentityManagement;
+    using Amazon.IdentityManagement.Model;
+
+    public class CreateUser
+    {
+        /// <summary>
+        /// Initializes the IAM Client object and then uses it to create
+        /// a new IAM User.
+        /// </summary>
+        public static async Task Main()
+        {
+            var client = new AmazonIdentityManagementServiceClient();
+            User readOnlyUser;
+            string userName = "IAMUser";
+            var userRequest = new CreateUserRequest
+            {
+                UserName = userName,
+            };
+
+            var response = await client.CreateUserAsync(userRequest);
+            readOnlyUser = response.User;
+
+            if (readOnlyUser is not null)
+            {
+                Console.WriteLine($"Successfully created {readOnlyUser.UserName}");
+            }
+            else
+            {
+                Console.WriteLine("Could not create user.");
+            }
+        }
+    }
+

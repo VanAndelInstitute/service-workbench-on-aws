@@ -1,0 +1,30 @@
+async fn save_mp3_file(
+    verbose: bool,
+    client: &aws_sdk_s3::Client,
+    bucket: &str,
+    filename: &str,
+) -> String {
+    if verbose {
+        println!("Saving file {} to bucket {}", filename, bucket);
+        println!();
+    }
+    let body = aws_sdk_s3::types::ByteStream::from_path(Path::new(filename))
+        .await
+        .unwrap();
+
+    client
+        .put_object()
+        .bucket(bucket)
+        .key(filename)
+        .body(body)
+        .send()
+        .await
+        .unwrap();
+
+    let mut uri: String = "s3://".to_owned();
+    uri.push_str(bucket);
+    uri.push('/');
+    uri.push_str(filename);
+
+    uri
+}

@@ -1,0 +1,12 @@
+    ctx, cancelFn := context.WithTimeout(context.TODO(), 20*time.Second)
+    defer cancelFn()
+
+    resp, err := svc.GetObjectWithContext(ctx, &s3.GetObjectInput{
+        Bucket: bucket,
+        Key:    object,
+    })
+    if err != nil {
+        return body, err
+    }
+
+    return resp.Body, nil

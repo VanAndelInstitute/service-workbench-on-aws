@@ -1,0 +1,32 @@
+<programlisting>
+    svc := iam.New(sess)
+
+    numUsers := 0
+    numAdmins := 0
+
+    // Get list of users
+    user := "User"
+    input := &iam.GetAccountAuthorizationDetailsInput{Filter: []*string{&user}}
+    resp, err := svc.GetAccountAuthorizationDetails(input)
+    if err != nil {
+        return 0, 0, err
+    }
+
+    // The policy name that indicates administrator access
+    adminName := "AdministratorAccess"
+
+    // Wade through resulting users
+    for _, user := range resp.UserDetailList {
+        numUsers++
+
+        isAdmin, err := isUserAdmin(svc, user, adminName)
+        if err != nil {
+            return 0, 0, err
+        }
+
+        if isAdmin {
+            fmt.Println(*user.UserName)
+            numAdmins++
+        }
+    }
+</programlisting>

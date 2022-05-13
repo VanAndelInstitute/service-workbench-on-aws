@@ -1,0 +1,6 @@
+    rule := s3.CORSRule{
+        AllowedHeaders: aws.StringSlice([]string{"Authorization"}),
+        AllowedOrigins: aws.StringSlice([]string{"*"}),
+        MaxAgeSeconds:  aws.Int64(3000),
+        AllowedMethods: aws.StringSlice(methods),
+    }

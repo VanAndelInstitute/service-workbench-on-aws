@@ -1,0 +1,31 @@
+<programlisting>
+// Create a Task Definition for the container to start
+const taskDefinition = new ecs.Ec2TaskDefinition(this, 'TaskDef');
+taskDefinition.addContainer('TheContainer', {
+  image: ecs.ContainerImage.fromAsset(this, 'EventImage', { directory: 'eventhandler-image' }),
+  memoryLimitMiB: 256,
+  logging: new ecs.AwsLogDriver(this, 'TaskLogging', { streamPrefix: 'EventDemo' })
+});
+
+// An EventRule that describes the event trigger (in this case a scheduled run)
+const rule = new events.EventRule(this, 'Rule', {
+  scheduleExpression: 'rate(1 minute)',
+});
+
+// Use Ec2TaskEventRuleTarget as the target of the EventRule
+const target = new ecs.Ec2EventRuleTarget(this, 'EventTarget', {
+  cluster,
+  taskDefinition,
+  taskCount: 1
+});
+
+// Pass an environment variable to the container 'TheContainer' in the task
+rule.addTarget(target, {
+  jsonTemplate: JSON.stringify({
+    containerOverrides: [{
+      name: 'TheContainer',
+      environment: [{ name: 'I_WAS_TRIGGERED', value: 'From CloudWatch Events' }]
+    }]
+  })
+});
+</programlisting>

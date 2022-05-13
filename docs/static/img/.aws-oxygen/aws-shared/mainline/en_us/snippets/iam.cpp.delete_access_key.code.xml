@@ -1,0 +1,21 @@
+<programlisting>
+        Aws::IAM::IAMClient iam;
+
+        Aws::IAM::Model::DeleteAccessKeyRequest request;
+        request.SetUserName(user_name);
+        request.SetAccessKeyId(key_id);
+
+        auto outcome = iam.DeleteAccessKey(request);
+
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error deleting access key " << key_id << " from user "
+                << user_name << ": " << outcome.GetError().GetMessage() <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted access key " << key_id
+                << " for IAM user " << user_name << std::endl;
+        }
+</programlisting>

@@ -1,0 +1,17 @@
+<programlisting>
+def create_user(user_name):
+    """
+    Creates a user. By default, a user has no permissions or access keys.
+
+    :param user_name: The name of the user.
+    :return: The newly created user.
+    """
+    try:
+        user = iam.create_user(UserName=user_name)
+        logger.info("Created user %s.", user.name)
+    except ClientError:
+        logger.exception("Couldn't create user %s.", user_name)
+        raise
+    else:
+        return user
+</programlisting>

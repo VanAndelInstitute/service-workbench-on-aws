@@ -1,0 +1,21 @@
+<programlisting>
+    async fn real_list_objects(
+        s3: s3::Client,
+        bucket: &str,
+        prefix: &str,
+        continuation_token: Option<String>,
+    ) -> Result<ListObjectsResult, Box<dyn Error + Send + Sync + 'static>> {
+        let response = s3
+            .list_objects_v2()
+            .bucket(bucket)
+            .prefix(prefix)
+            .set_continuation_token(continuation_token)
+            .send()
+            .await?;
+        Ok(ListObjectsResult {
+            objects: response.contents().unwrap_or_default().to_vec(),
+            continuation_token: response.continuation_token().map(|t| t.to_string()),
+            has_more: response.is_truncated(),
+        })
+    }
+</programlisting>

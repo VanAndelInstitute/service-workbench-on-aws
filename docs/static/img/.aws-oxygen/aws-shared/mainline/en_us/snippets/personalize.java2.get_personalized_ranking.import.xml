@@ -1,0 +1,13 @@
+<programlisting>
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalizeruntime.PersonalizeRuntimeClient;
+import software.amazon.awssdk.services.personalizeruntime.model.GetPersonalizedRankingRequest;
+import software.amazon.awssdk.services.personalizeruntime.model.GetPersonalizedRankingResponse;
+import software.amazon.awssdk.services.personalizeruntime.model.PersonalizeRuntimeException;
+import software.amazon.awssdk.services.personalizeruntime.model.PredictedItem;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+</programlisting>

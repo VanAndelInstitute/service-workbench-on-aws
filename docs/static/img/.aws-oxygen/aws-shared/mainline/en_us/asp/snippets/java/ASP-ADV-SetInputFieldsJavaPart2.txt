@@ -1,0 +1,8 @@
+public static String getPayNowWidgetForm
+(
+    String amount, 
+    String description, 
+    String referenceId,
+    //... 
+    // add the formal parameters you need for your button
+)

@@ -1,0 +1,11 @@
+    // Create the expression to fill the input struct.
+    // Get all movies in that year; we'll pull out those with a higher rating later
+    filt := expression.Name("Year").Equal(expression.Value(year))
+
+    // Or we could get the movies by ratings and pull out those with the right year later
+    //    filt := expression.Name("info.rating").GreaterThan(expression.Value(min_rating))
+
+    // Get back the title, year, and rating
+    proj := expression.NamesList(expression.Name("Title"), expression.Name("Year"), expression.Name("Rating"))
+
+    expr, err := expression.NewBuilder().WithFilter(filt).WithProjection(proj).Build()

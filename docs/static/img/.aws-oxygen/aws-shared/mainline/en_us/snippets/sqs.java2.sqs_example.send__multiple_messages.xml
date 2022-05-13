@@ -1,0 +1,8 @@
+<programlisting>
+            SendMessageBatchRequest sendMessageBatchRequest = SendMessageBatchRequest.builder()
+                .queueUrl(queueUrl)
+                .entries(SendMessageBatchRequestEntry.builder().id("id1").messageBody("Hello from msg 1").build(),
+                        SendMessageBatchRequestEntry.builder().id("id2").messageBody("msg 2").delaySeconds(10).build())
+                .build();
+            sqsClient.sendMessageBatch(sendMessageBatchRequest);
+</programlisting>

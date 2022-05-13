@@ -1,0 +1,112 @@
+<!-- Entities used in the EC2-related packages -->
+ 
+ <!-- AMIs -->
+<!ENTITY AMI "AMI">
+<!ENTITY ami "&AMI;">
+<!ENTITY LinuxAMI "Amazon Linux AMI">
+<!ENTITY AMIlong "Amazon Machine Image">
+			
+ <!-- PuTTY -->
+<!ENTITY putty 'PuTTY'>
+<!ENTITY puttygen 'PuTTYgen'>
+<!ENTITY puttyexamplepkfile '&examplekpfile;.ppk'>
+<!ENTITY img-puttygen-key-loaded-popup '/images/puttygen-key-loaded-popup.png'>
+<!ENTITY img-puttygen-key-loaded-main '/images/puttygen-key-loaded-main.png'>
+<!ENTITY img-puttygen-save-confirmation '/images/puttygen-save-confirmation.png'>
+<!ENTITY img-puttygen-main '/images/puttygen-main.png'>
+<!ENTITY img-putty-auth-config '/images/putty-auth-config.png'>
+<!ENTITY img-putty-session-config '/images/putty-session-config.png'>
+ 
+ <!-- Example identifiers and values -->
+ <!ENTITY downloadwebsite '<ulink region="SEA;IAD;BJS" url="http://&awsdomain;/developertools/351">Amazon EC2 CLI Tools</ulink><ulink region="DCA" url="http://s3.&region-dca-1;.&api-domain;/ec2-ux-downloads/ec2-api-tools.zip">Amazon EC2 CLI Tools</ulink>'>
+<!ENTITY publickeywebsite '<ulink url="http://&awsdomain;/security/ec2-pkgs-public-key/">EC2 Packages Public Key</ulink>'>
+ 
+<!ENTITY exampleproductcode '774F4FF8'>
+<!ENTITY exampleproductcode2 '6883959E'>
+ 
+<!ENTITY examplethumb 'HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE'>
+<!ENTITY exampleuid '111122223333'>
+<!ENTITY exampleuidr '&exampleuid;'>
+<!ENTITY exampleuid2 '444455556666'>
+<!ENTITY publicuid '475219833042'>
+<!ENTITY publicuidr '&publicuid;'>
+ 
+<!ENTITY amiprefix 'ami-'>
+<!ENTITY exampleakid 'AKIAIOSFODNN7EXAMPLE'>
+<!ENTITY exampleamiid '&amiprefix;2bb65342'>
+<!ENTITY examplepubamiid '&amiprefix;4ca2529b'>
+<!ENTITY exampleexpamiid '&amiprefix;5da964c3'>
+<!ENTITY clusterreferenceami 'ami-42a2532b'>
+<!ENTITY clusterreferencelinuxami 'ami-321eed5b'>
+<!ENTITY ws2012ami 'ami-173d747e'>
+<!ENTITY exampleaminame 'getting-started.manifest.xml'>
+<!ENTITY exampleamimanifest 'getting-started.manifest.xml'>
+<!ENTITY exampleproductmanifest 'awesome-amis/easy-webserver.manifest.xml'>
+ 
+<!ENTITY instanceprefix 'i-'>
+<!ENTITY exampleinstanceid '&instanceprefix;10a64379'>
+<!ENTITY exampleinstanceid2 '&instanceprefix;10a64380'>
+<!ENTITY exampleinstanceidlong '&instanceprefix;1234567890abcdef0'>
+<!ENTITY exampleinstanceidlong2 '&instanceprefix;0598c7d356eba48d7'>
+ 
+<!ENTITY reservationprefix 'r-'>
+<!ENTITY examplereservationid '&reservationprefix;fea54097'>
+<!ENTITY examplereservationid2 '&reservationprefix;fea54098'>
+ 
+<!ENTITY examplehostname 'ec2-203-0-113-25'>
+<!ENTITY examplehostname2 'ec2-198-51-100-245'>
+<!ENTITY exampleprivatehostname 'ip-10-251-50-12'>
+<!ENTITY exampleprivatehostname2 'ip-10-251-50-104'>
+<!ENTITY publicinstancedns '&examplehostname;.compute-1.&api-domain;'>
+<!ENTITY privateinstancedns '&examplehostname;.ec2.internal'>
+<!ENTITY examplepublicinstancedns '&examplehostname;.compute-1.&api-domain;'>
+<!ENTITY exampleprivateinstancedns '&exampleprivatehostname;.ec2.internal'>
+<!ENTITY publicinstanceip '203.0.113.25'>
+<!ENTITY privateinstanceip '10.251.50.12'>
+ 
+<!ENTITY examplefsfilename 'my-image.fs'>
+<!ENTITY examplefsmnt '/mnt/ec2-fs'>
+<!ENTITY exampleyumconf 'yum-xen.conf'>
+ 
+<!ENTITY examplegrpid 'my-security-group'>
+<!ENTITY examplegrpid2 'another-security-group'>
+<!ENTITY examplesecretkey 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'>
+ 
+<!ENTITY examplekpid 'gsg-keypair'>
+<!ENTITY examplekeypairname 'my-key-pair'>
+<!ENTITY examplekeyhash '1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f'>
+<!ENTITY exampleprivatekey '---- BEGIN RSA PRIVATE KEY ----
+ MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
+ VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
+ b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
+ BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
+ MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
+ VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
+ b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
+ YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
+ 21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
+ rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
+ Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
+ nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
+ FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
+ NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE
+ -----END RSA PRIVATE KEY-----'>
+<!ENTITY exampleprivatekeymaterial 'MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
+ VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
+ b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
+ BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
+ MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
+ VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
+ b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
+ YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
+ 21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
+ rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
+ Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
+ nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
+ FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
+ NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE'>
+<!ENTITY examplekpfile 'id_rsa-&examplekpid;'>
+<!ENTITY examplekeyfile 'pk-&examplethumb;.pem'>
+<!ENTITY examplecertfile 'cert-&examplethumb;.pem'>
+<!ENTITY awsaccesskey 'AWS_ACCESS_KEY'>
+<!ENTITY awssecretkey 'AWS_SECRET_KEY'>

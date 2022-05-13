@@ -1,0 +1,4 @@
+<programlisting>
+$user = $service->createUser("iam_demo_user_$uuid");
+echo "Created user with the arn: {$user['Arn']}\n";
+</programlisting>

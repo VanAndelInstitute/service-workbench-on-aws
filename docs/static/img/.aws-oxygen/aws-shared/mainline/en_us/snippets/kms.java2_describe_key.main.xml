@@ -1,0 +1,18 @@
+<programlisting>
+    public static void describeSpecifcKey(KmsClient kmsClient,String keyId ){
+
+       try {
+            DescribeKeyRequest keyRequest = DescribeKeyRequest.builder()
+                .keyId(keyId)
+                .build();
+
+            DescribeKeyResponse response = kmsClient.describeKey(keyRequest);
+            System.out.println("The key description is "+response.keyMetadata().description());
+            System.out.println("The key ARN is "+response.keyMetadata().arn());
+
+       } catch (KmsException e) {
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+    }
+</programlisting>

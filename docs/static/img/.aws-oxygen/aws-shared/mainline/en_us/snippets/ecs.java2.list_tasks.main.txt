@@ -1,0 +1,20 @@
+    public static void getAllTasks(EcsClient ecsClient,  String clusterArn, String taskId) {
+
+
+        try {
+            DescribeTasksRequest tasksRequest = DescribeTasksRequest.builder()
+                .cluster(clusterArn)
+                .tasks(taskId)
+                .build();
+
+            DescribeTasksResponse response = ecsClient.describeTasks(tasksRequest);
+            List<Task> tasks = response.tasks();
+            for (Task task: tasks) {
+                System.out.println("The task ARN is "+task.taskDefinitionArn());
+            }
+
+        } catch (EcsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

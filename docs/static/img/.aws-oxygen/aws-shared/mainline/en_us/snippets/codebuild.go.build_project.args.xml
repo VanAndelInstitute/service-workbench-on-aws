@@ -1,0 +1,9 @@
+<programlisting>
+    project := flag.String("p", "", "The name of the project")
+    flag.Parse()
+
+    if *project == "" {
+        fmt.Println("You must supply the name of the project to build")
+        return
+    }
+</programlisting>

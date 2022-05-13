@@ -1,0 +1,27 @@
+    def update_code(self, code):
+        """
+        Updates the code that runs in the application. The code must run in the
+        runtime environment of the application, such as SQL. Application code
+        typically reads data from in-application streams and transforms it in some way.
+
+        :param code: The code to upload. This completely replaces any existing code
+                     in the application.
+        :return: Metadata about the application.
+        """
+        try:
+            response = self.analytics_client.update_application(
+                ApplicationName=self.name,
+                CurrentApplicationVersionId=self.version_id,
+                ApplicationConfigurationUpdate={
+                    'ApplicationCodeConfigurationUpdate': {
+                        'CodeContentTypeUpdate': 'PLAINTEXT',
+                        'CodeContentUpdate': {
+                            'TextContentUpdate': code}}})
+            details = response['ApplicationDetail']
+            self.version_id = details['ApplicationVersionId']
+            logger.info("Update code for application %s.", self.name)
+        except ClientError:
+            logger.exception("Couldn't update code for application %s.", self.name)
+            raise
+        else:
+            return details

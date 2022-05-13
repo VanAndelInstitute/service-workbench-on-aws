@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Restored " + *item + " to " + *bucket)
+</programlisting>

@@ -1,0 +1,6 @@
+<programlisting>
+    fmt.Println("Alarms:")
+    for _, alarm := range resp.MetricAlarms {
+        fmt.Println("    " + *alarm.AlarmName)
+    }
+</programlisting>

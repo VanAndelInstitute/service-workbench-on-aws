@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+
+<section id="EMR_SetUp_SSH"  role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Follow these steps to set up SSH access to the &EMR; master node when integrating with &DDBlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="EMR_SetUp_SSH.title">Step 3: SSH into the Master Node</title>
+    <titleabbrev>Step 3: SSH into the Master Node</titleabbrev>
+    <para>When the &cluster;’s status is <code>WAITING</code>, the master node is ready for
+        you to connect to it. With an active SSH session into the master node, you can execute
+        command line operations. </para>
+    
+    <procedure>
+        <title>To locate the public DNS name of the master node</title>
+        <step>
+            <para>In the &EMR; console, select the cluster from the list of running &cluster;s in
+                the <code>WAITING</code> state.</para>
+            <para><informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="&url-emr-dev;images/master-dns-setting.png" format="PNG" scale="80"/>
+                    </imageobject>
+                    <textobject>
+                        <phrase>Get the DNS Name</phrase>
+                    </textobject>
+                </mediaobject>
+            </informalfigure>  </para>                     
+            
+            <para> The DNS name you use to connect to the instance is listed as <guilabel>Master
+                    Public DNS Name</guilabel>. </para>
+            
+        </step>
+    </procedure>
+    
+
+            
+            <procedure id="SSH_unix_mac"><title id="SSH_unix_mac.title">To connect to the master node using Mac OS X/Linux/UNIX</title>
+                <step><para>Go to the command prompt on your system. (On Mac OS X, use the <guilabel>Terminal</guilabel>
+                program in <code>/Applications/Utilities/Terminal</code>.)</para></step>
+                <step><para>Set the permissions on the <code>.pem</code> file for your &EC2; key pair so that only the key
+                owner has permissions to access the key. For example, if you saved the file as
+                    <code>mykeypair.pem</code> in the user's home directory, the command is:</para>
+                    <programlisting format="linespecific">chmod og-rwx ~/mykeypair.pem </programlisting>
+                    <para>If you do not perform this step, SSH returns an error saying that your private key file is unprotected and rejects the key. 
+                        You only need to perform this step the first time you use the private key to connect.</para>
+                </step>      
+                <step><para>To establish the connection to the master node, enter the following command line, which
+                assumes the <code>.pem</code> file is in the user's home directory. Replace
+                    <replaceable>master-public-dns-name</replaceable> with the Master Public DNS
+                Name of your &cluster; and replace <replaceable>~/mykeypair.pem</replaceable> with
+                the location and filename of your <code>.pem</code> file.</para>
+                    <programlisting format="linespecific">
+ssh hadoop@<replaceable>master-public-dns-name</replaceable> -i <replaceable>~/mykeypair.pem</replaceable> 
+                    </programlisting>
+                    <para>A warning states that the authenticity of the host you are connecting to can't be verified.</para>
+                </step>
+                <step><para> Type <code>yes</code> to continue.</para>
+                    <note><para>If you are asked to log in, enter <code>hadoop</code>.</para></note>
+                </step>
+                
+            </procedure>
+    
+    <procedure id="PuTTY_windows"><title id="PuTTY_windows.title">To install and configure PuTTY on Windows</title>
+        <step><para>Download PuTTYgen.exe and PuTTY.exe to your computer from 
+            <ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</ulink>.</para></step>
+        <step><para>Launch PuTTYgen.</para>
+        </step>      
+        <step><para>Click <guilabel>Load</guilabel>. </para>
+        </step>
+        <step><para>Select the PEM file you created earlier. Note that you may have to change the search parameters
+            from file of type “PuTTY Private Key Files (*.ppk) to “All Files
+            (*.*)”.</para>
+            
+        </step>
+        <step><para>Click <guilabel>Open</guilabel>.</para></step>
+        <step><para>Click <guilabel>OK</guilabel> on the PuTTYgen notice telling you the key was successfully imported.</para></step>
+        <step><para>Click <guilabel>Save private key</guilabel> to save the key in the PPK format.</para></step>
+        <step><para>When PuTTYgen prompts you to save the key without a pass phrase, click <guilabel>Yes</guilabel>.</para></step>
+        <step><para>Enter a name for your PuTTY private key, such as <code>mykeypair.ppk</code>.</para></step> 
+        <step><para>Click <guilabel>Save</guilabel>. </para></step>
+        <step><para>Close PuTTYgen.</para></step>   
+    </procedure>
+    
+    <procedure id="SSH_windows"><title id="SSH_windows.title">To connect to the master node using PuTTY on Windows</title>
+        <step><para>Start PuTTY. </para></step>           
+        <step><para>Select <guilabel>Session</guilabel> in the Category list. Enter <code>hadoop@DNS</code> in the Host Name field. The input looks similar to <code>hadoop@ec2-184-72-128-177.compute-1.amazonaws.com</code>. </para></step>  
+        <step><para>In the Category list, expand <guilabel>Connection</guilabel>, expand <guilabel>SSH</guilabel>, 
+            and then select <guilabel>Auth</guilabel>. The <guilabel>Options controlling the SSH authentication</guilabel> pane appears. </para> 
+            <para><informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="&url-emr-dev;images/EMR_PuTTy.gif" format="GIF"/>
+                    </imageobject>
+                    <textobject>
+                        <phrase>SSH Options in PuTTy</phrase>
+                    </textobject>
+                </mediaobject>
+            </informalfigure>  </para>                   
+        </step>
+        <step><para>For <guilabel>Private key file for authentication</guilabel>, click <guilabel>Browse</guilabel> and select the private key file you generated earlier. If you are following this guide, the file name is <code>mykeypair.ppk</code>.</para></step> 
+        <step><para>Click <guilabel>Open</guilabel>. </para>
+            <para>A PuTTY Security Alert pops up.</para></step>   
+        <step><para>Click <guilabel>Yes</guilabel> for the PuTTY Security Alert.</para>
+            <note><para>If you are asked to log in, enter <code>hadoop</code>.</para></note></step>     
+        
+    </procedure>
+    
+
+    
+    <para>After you connect to the master node using either SSH or PuTTY, you should see a Hadoop command prompt and you are ready to start a Hive
+        interactive session.</para>
+</section>

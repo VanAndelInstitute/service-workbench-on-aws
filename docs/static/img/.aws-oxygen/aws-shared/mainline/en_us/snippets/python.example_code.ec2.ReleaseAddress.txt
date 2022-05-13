@@ -1,0 +1,16 @@
+def release_elastic_ip(allocation_id):
+    """
+    Releases an Elastic IP address. After the Elastic IP address is released,
+    it can no longer be used.
+
+    :param allocation_id: The allocation ID assigned to the Elastic IP address when
+                          it was created.
+    """
+    try:
+        elastic_ip = ec2.VpcAddress(allocation_id)
+        elastic_ip.release()
+        logger.info("Released Elastic IP address %s.", allocation_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't release Elastic IP address %s.", allocation_id)
+        raise

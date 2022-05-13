@@ -1,0 +1,9 @@
+    ruleName := flag.String("r", "", "The name of the rule")
+    roleARN := flag.String("a", "", "The ARN of the role")
+    schedule := flag.String("s", "", "The schedule expression")
+    flag.Parse()
+
+    if *ruleName == "" || *roleARN == "" || *schedule == "" {
+        fmt.Println("You must supply a rule name (-r RULE), role ARN (-a ROLE-ARN), and schedule expression (-s EXPRESSION)")
+        return
+    }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::ElastiCache::SecurityGroupIngress -->
+<section id="aws-properties-elasticache-security-group-ingress" role="topic">
+   <title id="aws-properties-elasticache-security-group-ingress.title">AWS::ElastiCache::SecurityGroupIngress</title>
+
+   <para>The AWS::ElastiCache::SecurityGroupIngress type authorizes ingress to a cache security group from hosts in
+      specified EC2 security groups. For more information about ElastiCache security group ingress, go to <ulink
+         url="http://&domain;/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html"
+         >AuthorizeCacheSecurityGroupIngress</ulink> in the <emphasis>Amazon ElastiCache API Reference
+         Guide</emphasis>.</para>
+   <para>When you specify an AWS::ElastiCache::SecurityGroup type as an argument to the <code>Ref</code> function,
+      &CFN; returns the value of the <code>CacheSecurityGroupName</code> property.</para>
+   <para>The following properties are available with the ElastiCache Security Group Ingress type.</para>
+
+   <informaltable>
+      <tgroup cols="4">
+         <colspec colnum="1" colname="c1" colwidth="2.3*"/>
+         <colspec colnum="2" colname="c2" colwidth="1.0*"/>
+         <colspec colnum="3" colname="c3" colwidth="1.11*"/>
+         <colspec colnum="4" colname="c4" colwidth="3.93*"/>
+         <thead>
+            <row>
+               <entry>Property</entry>
+               <entry>Type</entry>
+               <entry>Required</entry>
+               <entry>Notes</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <para>CacheSecurityGroupName</para>
+               </entry>
+               <entry>
+                  <para>String</para>
+               </entry>
+               <entry>
+                  <para>Yes</para>
+               </entry>
+               <entry>
+                  <para>The name of the Cache Security Group to authorize.</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>EC2SecurityGroupName</para>
+               </entry>
+               <entry>
+                  <para>String</para>
+               </entry>
+               <entry>
+                  <para>Yes</para>
+               </entry>
+               <entry>
+                  <para>Name of the EC2 Security Group to include in the authorization.</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>EC2SecurityGroupOwnerId</para>
+               </entry>
+               <entry>
+                  <para>String</para>
+               </entry>
+               <entry>
+                  <para>No</para>
+               </entry>
+               <entry>
+                  <para>Specifies the AWS Account ID of the owner of the EC2 security group specified in the
+                     EC2SecurityGroupName property. The AWS Access Key ID is not an acceptable value.</para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
+

@@ -1,0 +1,15 @@
+    def list_jobs(self):
+        """
+        Lists topic modeling jobs for the current account.
+
+        :return: The list of jobs.
+        """
+        try:
+            response = self.comprehend_client.list_topics_detection_jobs()
+            jobs = response['TopicsDetectionJobPropertiesList']
+            logger.info("Got %s topic detection jobs.", len(jobs))
+        except ClientError:
+            logger.exception("Couldn't get topic detection jobs.")
+            raise
+        else:
+            return jobs

@@ -1,0 +1,26 @@
+<programlisting>
+    cognitoClient := cognitoidentityprovider.New(sess)
+
+    results, err := cognitoClient.ListUsers(
+        &cognitoidentityprovider.ListUsersInput{
+            UserPoolId: userPoolIDPtr})
+    if err != nil {
+        fmt.Println("Got error listing users")
+        os.Exit(1)
+    }
+
+    // Show their names an email addresses
+    for _, user := range results.Users {
+        attributes := user.Attributes
+
+        for _, a := range attributes {
+            if *a.Name == "name" {
+                fmt.Println("Name:  " + *a.Value)
+            } else if *a.Name == "email" {
+                fmt.Println("Email: " + *a.Value)
+            }
+        }
+
+        fmt.Println("")
+    }
+</programlisting>

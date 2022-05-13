@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+
+
+  <procedure>
+   <info>
+    <title>To navigate to the source repositories for a project</title>
+   </info>
+   <step>
+    &CAWS-console-signin;
+    <para>Make sure that you are navigating the project where you want to create or work with a source repository.</para>
+   </step>
+   <step>
+    <para>In the side navigation menu, choose <guilabel>Code</guilabel>, and then choose <guilabel>Source repositories</guilabel>.</para>
+   </step>
+   <step>
+    <para>Choose the name of the repository from the list of source repositories for the project. To create a source repository, choose <guilabel>Create repository</guilabel>.</para>  
+    <tip><para>You can filter the list of repositories by typing part of the repository name in the filter bar.</para></tip>
+   </step>
+  </procedure>
+ 
+
+

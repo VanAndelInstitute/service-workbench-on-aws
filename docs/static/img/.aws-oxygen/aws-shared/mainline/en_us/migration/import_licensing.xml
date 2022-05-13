@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared; 
+]>
+<section id="licensing">
+    <info>
+        <title id="licensing.title">Licensing Options</title>
+    </info>
+    <para>When you create a new replication job, the &SMSlong; console provides a <guilabel>License
+            type</guilabel> option. The possible values include:</para>
+    <itemizedlist>
+        <listitem>
+            <para><guilabel>Auto</guilabel> (default)</para>
+            <para>Detects the source-system operating system (OS) and applies the appropriate
+                license to the migrated virtual machine (VM).</para>
+        </listitem>
+        <listitem>
+            <para><guilabel>AWS</guilabel></para>
+            <para>Replaces the source-system license with an AWS license, if appropriate, on the
+                migrated VM.</para>
+        </listitem>
+        <listitem>
+            <para><guilabel>BYOL</guilabel></para>
+            <para>Retains the source-system license, if appropriate, on the migrated VM.</para>
+        </listitem>
+    </itemizedlist>
+    <note>
+        <para>If you choose a license type that is incompatible with your VM, the replication job
+            fails with an error message. For more information, see the OS-specific information
+            below.</para>
+    </note>
+    <para>The same licensing options are available through the &SMS; API and CLI. For
+        example:</para>
+    <programlisting><userinput>aws sms create-replication-job --license-type <replaceable>&lt;value></replaceable></userinput></programlisting>
+    <para>The value of the <code>--license-type</code> parameter can be AWS or BYOL. Leaving it
+        unset is the same as choosing <guilabel>Auto</guilabel> in the console. </para>
+    <section id="linux">
+        <info>
+            <title id="linux.title">Licensing for Linux</title>
+        </info>
+        <para>Linux operating systems support only BYOL licenses. Choosing <guilabel>Auto</guilabel>
+            (the default) means that &SMS; uses a BYOL license.</para>
+        <para>Migrated Red Hat Enterprise Linux (RHEL) VMs must use Cloud Access (BYOL)
+            licenses. For more information, see <ulink
+                url="https://www.redhat.com/en/technologies/cloud-computing/cloud-access">Red
+                Hat Cloud Access</ulink> on the Red Hat website.</para>
+        <para>Migrated SUSE Linux Enterprise Server VMs must use SUSE Public Cloud Program
+            (BYOS) licenses. For more information, see <ulink
+                url="https://www.suse.com/docrep/documents/h4jlnjpfx3/suse_public_cloud_program_bring_your_own_subscription_faq_external.pdf"
+                >SUSE Public Cloud Program—Bring Your Own Subscription</ulink>.</para>
+    </section>
+    <section id="windows">
+        <info>
+            <title id="windows.title">Licensing for Windows</title>
+        </info>
+        <para>Windows server operating systems support either BYOL or AWS licenses. Windows client
+            operating systems (such as Windows 10) support only BYOL licenses. </para>
+        <para>If you choose <guilabel>Auto</guilabel> (the default), &SMS; uses the AWS license if
+            the VM has a server OS. Otherwise, the BYOL license is used. </para>
+        <para>The following rules apply when you use your BYOL Microsoft license, either through
+            MSDN or <ulink
+                url="http://download.microsoft.com/download/5/c/7/5c727885-ec15-4920-818b-4d140ec6c38a/Windows_SA_per_User_at_a_Glance.pdf"
+                >Windows Software Assurance Per User</ulink>:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Your BYOL instances are priced at the prevailing &EC2; Linux instance pricing,
+                    provided that you meet the following conditions: </para>
+                <itemizedlist>
+                    <listitem><para>Run on a Dedicated Host (<ulink url="&url-ec2-user;dedicated-hosts-overview.html">Dedicated
+                                Hosts</ulink>)</para></listitem>
+                    <listitem><para>Launch from VMs sourced from software binaries provided by you using &SMS;, which are subject
+                            to the current terms and abilities of &SMS;</para></listitem>
+                    <listitem><para>Designate the instances as BYOL instances</para></listitem>
+                    <listitem><para>Run the instances within your designated AWS regions, and where AWS offers the BYOL
+                            model</para></listitem>
+                    <listitem><para>Activate using Microsoft keys that you provide or which are used in your key management
+                            system</para></listitem>
+                </itemizedlist>
+            </listitem>
+            <listitem>
+                <para>You must account for the fact that when you start an &EC2; instance, it can
+                    run on any one of many servers within an Availability Zone. This means that each
+                    time you start an &EC2; instance (including a stop/start), it may run on a
+                    different server within an Availability Zone. You must account for this fact in
+                    light of the limitations on license reassignment, as described in the Microsoft
+                    Volume Licensing Product Terms available at <ulink
+                        url="https://www.microsoft.com/en-us/licensing/product-licensing/products.aspx"
+                        >Licensing Terms</ulink>, or
+                    consult your specific use rights to determine if your rights are consistent with
+                    this usage.</para>
+            </listitem>
+            <listitem>
+                <para>You must be eligible to use the BYOL program for the applicable Microsoft
+                    software under your agreements with Microsoft, for example, under your MSDN user
+                    rights or under your Windows Software Assurance Per User Rights. You are solely
+                    responsible for obtaining all required licenses and for complying with all
+                    applicable Microsoft licensing requirements, including the PUR/PT. Further, you
+                    must have accepted Microsoft's End User License Agreement (Microsoft EULA), and
+                    by using the Microsoft Software under the BYOL program, you agree to the
+                    Microsoft EULA.</para>
+            </listitem>
+            <listitem>
+                <para>AWS recommends that you consult with your own legal and other advisers to
+                    understand and comply with the applicable Microsoft licensing requirements.
+                    Usage of the Services (including usage of the <guilabel>licenseType</guilabel>
+                    parameter and <guilabel>BYOL</guilabel> flag) in violation of your agreements
+                    with Microsoft is not authorized or permitted.</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>

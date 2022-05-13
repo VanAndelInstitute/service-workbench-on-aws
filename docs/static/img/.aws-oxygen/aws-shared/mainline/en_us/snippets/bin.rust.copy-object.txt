@@ -1,0 +1,26 @@
+async fn cp_object(
+    client: &Client,
+    source_bucket: &str,
+    destination_bucket: &str,
+    source_object: &str,
+    destination_object: &str,
+) -> Result<(), Error> {
+    // Create source of object:
+    //   source-bucket-name/source-object-name
+    let mut source_bucket_and_object: String = "".to_owned();
+    source_bucket_and_object.push_str(source_bucket);
+    source_bucket_and_object.push('/');
+    source_bucket_and_object.push_str(source_object);
+
+    client
+        .copy_object()
+        .copy_source(source_bucket_and_object)
+        .bucket(destination_bucket)
+        .key(destination_object)
+        .send()
+        .await?;
+
+    println!("Object copied.");
+
+    Ok(())
+}

@@ -1,0 +1,30 @@
+<programlisting>
+    def grant_log_delivery_access(self):
+        """
+        Grant the AWS Log Delivery group write access to the bucket so that
+        Amazon S3 can deliver access logs to the bucket. This is the only recommended
+        use of an S3 bucket ACL.
+        """
+        try:
+            acl = self.bucket.Acl()
+            # Putting an ACL overwrites the existing ACL. If you want to preserve
+            # existing grants, append new grants to the list of existing grants.
+            grants = acl.grants if acl.grants else []
+            grants.append({
+                'Grantee': {
+                    'Type': 'Group',
+                    'URI': 'http://acs.amazonaws.com/groups/s3/LogDelivery'
+                },
+                'Permission': 'WRITE'
+            })
+            acl.put(
+                AccessControlPolicy={
+                    'Grants': grants,
+                    'Owner': acl.owner
+                }
+            )
+            logger.info("Granted log delivery access to bucket '%s'", self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't add ACL to bucket '%s'.", self.bucket.name)
+            raise
+</programlisting>

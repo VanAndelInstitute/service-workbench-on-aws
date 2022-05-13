@@ -1,0 +1,11 @@
+<programlisting>
+    public static void startInstance(Ec2Client ec2, String instanceId) {
+
+        StartInstancesRequest request = StartInstancesRequest.builder()
+                .instanceIds(instanceId)
+                .build();
+
+        ec2.startInstances(request);
+        System.out.printf("Successfully started instance %s", instanceId);
+    }
+</programlisting>

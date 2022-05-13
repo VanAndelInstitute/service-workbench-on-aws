@@ -1,0 +1,6 @@
+<programlisting>
+    result, err := svc.ReEncrypt(&kms.ReEncryptInput{
+        CiphertextBlob:   *blob,
+        DestinationKeyId: keyID,
+    })
+</programlisting>

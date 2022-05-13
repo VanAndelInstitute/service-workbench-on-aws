@@ -1,0 +1,8 @@
+<programlisting>
+// Create service client module using ES6 syntax.
+import { IAMClient } from "@aws-sdk/client-iam";
+// Set the AWS Region.
+export const REGION = "REGION"; // For example, "us-east-1".
+// Create an Amazon S3 service client object.
+export const iamClient = new IAMClient({ region: REGION });
+</programlisting>

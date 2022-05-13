@@ -1,0 +1,18 @@
+    public static void describePREvents(CodeCommitClient codeCommitClient, String prId) {
+
+        try {
+            DescribePullRequestEventsRequest eventsRequest = DescribePullRequestEventsRequest.builder()
+                    .pullRequestId(prId)
+                    .build();
+
+            DescribePullRequestEventsResponse eventsResponse = codeCommitClient.describePullRequestEvents(eventsRequest);
+            List<PullRequestEvent> events = eventsResponse.pullRequestEvents();
+            for (PullRequestEvent event : events) {
+                System.out.println("The event name is: "+event.pullRequestEventType().toString());
+            }
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

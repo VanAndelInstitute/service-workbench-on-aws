@@ -1,0 +1,22 @@
+<programlisting>
+// Create an S3Client
+$s3Client = new S3Client([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2006-03-01'
+]);
+
+
+//Copy objects within S3
+$copier = new MultipartCopy($s3Client, '/bucket/key?versionId=foo', [
+    'bucket' => 'your-bucket',
+    'key' => 'my-file.zip',
+]);
+
+try {
+    $result = $copier->copy();
+    echo "Copy complete: {$result['ObjectURL']}\n";
+} catch (MultipartUploadException $e) {
+    echo $e->getMessage() . "\n";
+}
+</programlisting>

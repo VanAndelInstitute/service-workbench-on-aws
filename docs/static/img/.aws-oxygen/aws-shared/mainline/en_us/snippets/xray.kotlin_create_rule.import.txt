@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.xray.XRayClient
+import aws.sdk.kotlin.services.xray.model.CreateSamplingRuleRequest
+import aws.sdk.kotlin.services.xray.model.CreateSamplingRuleResponse
+import aws.sdk.kotlin.services.xray.model.SamplingRule
+import kotlin.system.exitProcess

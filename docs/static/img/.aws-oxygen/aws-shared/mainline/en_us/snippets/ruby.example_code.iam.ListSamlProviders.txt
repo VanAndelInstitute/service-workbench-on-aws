@@ -1,0 +1,12 @@
+  # Lists up to a specified number of SAML providers for the account.
+  #
+  # @param count [Integer] The maximum number of providers to list.
+  def list_saml_providers(count)
+    @iam_resource.saml_providers.limit(count).each do |provider|
+      puts("\t#{provider.arn}")
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't list SAML providers. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end

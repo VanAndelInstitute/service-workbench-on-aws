@@ -1,0 +1,14 @@
+    public static void describeTrainJob(SageMakerClient sageMakerClient, String trainingJobName) {
+
+       try {
+            DescribeTrainingJobRequest trainingJobRequest = DescribeTrainingJobRequest.builder()
+                .trainingJobName(trainingJobName)
+                .build();
+
+            DescribeTrainingJobResponse jobResponse = sageMakerClient.describeTrainingJob(trainingJobRequest);
+            System.out.println("The job status is "+ jobResponse.trainingJobStatusAsString());
+       } catch (SageMakerException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }

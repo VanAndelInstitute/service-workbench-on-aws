@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &LAM; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &LAM; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &LAM; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &LAM; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &LAM; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &LAM;
+            actions with &AWS; SDKs. These excerpts call the &LAM; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&LAM; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_lambda_CreateFunction_section" role="topic">
+            <info>
+                <title id="example_lambda_CreateFunction_section.title">Create a &LAM; function using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_CreateFunction_section.titleabbrev">Create a function</titleabbrev>
+                <abstract>
+                    <para>Create a &LAM; function using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_CreateFunction_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_CreateFunction_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_DeleteFunction_section" role="topic">
+            <info>
+                <title id="example_lambda_DeleteFunction_section.title">Delete a &LAM; function using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_DeleteFunction_section.titleabbrev">Delete a function</titleabbrev>
+                <abstract>
+                    <para>Delete a &LAM; function using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_DeleteFunction_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_DeleteFunction_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_GetFunction_section" role="topic">
+            <info>
+                <title id="example_lambda_GetFunction_section.title">Get a &LAM; function using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_GetFunction_section.titleabbrev">Get a function</titleabbrev>
+                <abstract>
+                    <para>Get a &LAM; function using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_GetFunction_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_GetFunction_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_Invoke_section" role="topic">
+            <info>
+                <title id="example_lambda_Invoke_section.title">Invoke a &LAM; function using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_Invoke_section.titleabbrev">Invoke a function</titleabbrev>
+                <abstract>
+                    <para>Invoke a &LAM; function using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_Invoke_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_Invoke_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_ListFunctions_section" role="topic">
+            <info>
+                <title id="example_lambda_ListFunctions_section.title">List &LAM; functions using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_ListFunctions_section.titleabbrev">List functions</titleabbrev>
+                <abstract>
+                    <para>List &LAM; functions using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_ListFunctions_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_ListFunctions_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_UpdateFunctionCode_section" role="topic">
+            <info>
+                <title id="example_lambda_UpdateFunctionCode_section.title">Update &LAM; function code using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_UpdateFunctionCode_section.titleabbrev">Update function code</titleabbrev>
+                <abstract>
+                    <para>Update &LAM; function code using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_UpdateFunctionCode_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_UpdateFunctionCode_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lambda_UpdateFunctionConfiguration_section" role="topic">
+            <info>
+                <title id="example_lambda_UpdateFunctionConfiguration_section.title">Update &LAM; function configuration using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_UpdateFunctionConfiguration_section.titleabbrev">Update function configuration</titleabbrev>
+                <abstract>
+                    <para>Update &LAM; function configuration using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_UpdateFunctionConfiguration_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_UpdateFunctionConfiguration_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &LAM; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &LAM; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &LAM;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &LAM;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_lambda_Scenario_GettingStartedFunctions_section" role="topic">
+            <info>
+                <title id="example_lambda_Scenario_GettingStartedFunctions_section.title">Get started creating and invoking &LAM; functions using an &AWS; SDK</title>
+                <titleabbrev id="example_lambda_Scenario_GettingStartedFunctions_section.titleabbrev">Get started with functions</titleabbrev>
+                <abstract>
+                    <para>Get started creating and invoking &LAM; functions using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_Scenario_GettingStartedFunctions_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lambda/latest/dg/getting-started-create-function.html">Create a &LAM; function with the console</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lambda_Scenario_GettingStartedFunctions_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &LAM; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &LAM; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &LAM;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_ApiGatewayDataTracker_section" role="topic">
+            <info>
+                <title id="example_cross_ApiGatewayDataTracker_section.title">Create an &ABP; REST API to track COVID-19 data</title>
+                <titleabbrev id="example_cross_ApiGatewayDataTracker_section.titleabbrev">Create a REST API to track COVID-19 data</titleabbrev>
+                <abstract>
+                    <para>Create an &ABP; REST API to track COVID-19 data</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ApiGatewayDataTracker_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ApiGatewayDataTracker_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_AuroraRestLendingLibrary_section" role="topic">
+            <info>
+                <title id="example_cross_AuroraRestLendingLibrary_section.title">Create a lending library REST API</title>
+                <titleabbrev id="example_cross_AuroraRestLendingLibrary_section.titleabbrev">Create a lending library REST API</titleabbrev>
+                <abstract>
+                    <para>Create a lending library REST API</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_AuroraRestLendingLibrary_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_AuroraRestLendingLibrary_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_StepFunctionsMessenger_section" role="topic">
+            <info>
+                <title id="example_cross_StepFunctionsMessenger_section.title">Create a messenger application with &SFN;</title>
+                <titleabbrev id="example_cross_StepFunctionsMessenger_section.titleabbrev">Create a messenger application</titleabbrev>
+                <abstract>
+                    <para>Create a messenger application with &SFN;</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_StepFunctionsMessenger_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_StepFunctionsMessenger_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_ApiGatewayWebsocketChat_section" role="topic">
+            <info>
+                <title id="example_cross_ApiGatewayWebsocketChat_section.title">Create a websocket chat application with &ABP;</title>
+                <titleabbrev id="example_cross_ApiGatewayWebsocketChat_section.titleabbrev">Create a websocket chat application</titleabbrev>
+                <abstract>
+                    <para>Create a websocket chat application with &ABP;</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ApiGatewayWebsocketChat_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ApiGatewayWebsocketChat_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LambdaForBrowser_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaForBrowser_section.title">Invoke a &LAM; function from a browser</title>
+                <titleabbrev id="example_cross_LambdaForBrowser_section.titleabbrev">Invoke a &LAM; function from a browser</titleabbrev>
+                <abstract>
+                    <para>Invoke a &LAM; function from a browser</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaForBrowser_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaForBrowser_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LambdaAPIGateway_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaAPIGateway_section.title">Use &ABP; to invoke a &LAM; function</title>
+                <titleabbrev id="example_cross_LambdaAPIGateway_section.titleabbrev">Use &ABP; to invoke a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Use &ABP; to invoke a &LAM; function</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_ServerlessWorkflows_section" role="topic">
+            <info>
+                <title id="example_cross_ServerlessWorkflows_section.title">Use &SFN; to invoke &LAM; functions</title>
+                <titleabbrev id="example_cross_ServerlessWorkflows_section.titleabbrev">Use &SFN; to invoke &LAM; functions</titleabbrev>
+                <abstract>
+                    <para>Use &SFN; to invoke &LAM; functions</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LambdaScheduledEvents_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaScheduledEvents_section.title">Use scheduled events to invoke a &LAM; function</title>
+                <titleabbrev id="example_cross_LambdaScheduledEvents_section.titleabbrev">Use scheduled events to invoke a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Use scheduled events to invoke a &LAM; function</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

@@ -1,0 +1,19 @@
+<programlisting>
+def list_policies(policy_filter, orgs_client):
+    """
+    Lists the policies for the account, limited to the specified filter.
+
+    :param policy_filter: The kind of policies to return.
+    :param orgs_client: The Boto3 Organizations client.
+    :return: The list of policies found.
+    """
+    try:
+        response = orgs_client.list_policies(Filter=policy_filter)
+        policies = response['Policies']
+        logger.info("Found %s %s policies.", len(policies), policy_filter)
+    except ClientError:
+        logger.exception("Couldn't get %s policies.", policy_filter)
+        raise
+    else:
+        return policies
+</programlisting>

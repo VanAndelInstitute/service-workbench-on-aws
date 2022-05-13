@@ -1,0 +1,21 @@
+<programlisting>
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+$instanceId = 'InstanceId';
+
+$result = $ec2Client->modifyInstanceAttribute(array(
+    'DryRun' => false,
+    // InstanceId is required
+    'InstanceId' => $instanceId,
+    'Attribute' => 'string',
+    'Value' => 'string'
+));
+
+var_dump($result);
+ 
+ 
+</programlisting>

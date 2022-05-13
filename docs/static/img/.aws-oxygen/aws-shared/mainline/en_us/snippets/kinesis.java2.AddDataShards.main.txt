@@ -1,0 +1,17 @@
+    public static void addShards(KinesisClient kinesisClient, String name , int goalShards) {
+
+        try {
+             UpdateShardCountRequest request = UpdateShardCountRequest.builder()
+                .scalingType("UNIFORM_SCALING")
+                .streamName(name)
+                .targetShardCount(goalShards)
+                .build();
+
+            UpdateShardCountResponse response = kinesisClient.updateShardCount(request);
+            System.out.println(response.streamName() + " has updated shard count to " + response.currentShardCount());
+
+        } catch (KinesisException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

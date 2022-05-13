@@ -1,0 +1,31 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+  		MESSAGE123
+		</wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+	  	http://www.w3.org/2005/08/addressing/anonymous
+		</wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		  GetTransactionStatus:Response
+		</wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+  		urn:uuid:10d09e74-ba0a-4b3b-9eea-f873e589f496
+		</wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <GetTransactionStatusResponse 
+    xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <GetTransactionStatusResult>
+       <TransactionId>13N9ZL42F2SJLLIGH7RB6Q8IO8BTM62LGI3</TransactionId>
+       <TransactionStatus>Success</TransactionStatus>
+       <CallerReference>ReferenceString????6geW12275895867941</CallerReference>
+       <StatusCode>Success</StatusCode>
+       <StatusMessage>message</StatusMessage>
+     </GetTransactionStatusResult>
+     <ResponseMetadata>
+       <RequestId>10d09e74-ba0a-4b3b-9eea-f873e589f496:0</RequestId>
+     </ResponseMetadata>
+   </GetTransactionStatusResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

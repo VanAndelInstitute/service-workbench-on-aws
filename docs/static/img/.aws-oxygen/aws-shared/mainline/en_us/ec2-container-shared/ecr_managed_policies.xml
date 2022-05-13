@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<section id="ecr_managed_policies" role="topic">
+    <info>
+        <title id="ecr_managed_policies.title">&ECR; Managed Policies</title>
+    </info>
+
+    <para>&ECR; provides several managed policies that you can attach to &IAM; users or EC2
+        instances that allow differing levels of control over &ECR; resources and API operations.
+        You can apply these policies directly, or you can use them as starting points for creating
+        your own policies. For more information about each API operation mentioned in these
+        policies, see <ulink url="&url-ecr-api;API_Operations.html">Actions</ulink> in the
+            <emphasis>&guide-ecr-api;</emphasis>.</para>
+    <para role="topiclist"/>
+    <section id="AmazonEC2ContainerRegistryFullAccess">
+        <info>
+            <title id="AmazonEC2ContainerRegistryFullAccess.title"
+                    ><code>AmazonEC2ContainerRegistryFullAccess</code></title>
+        </info>
+        <para>This managed policy is a starting point for customers who are looking to provide an
+            &IAM; user or role with full administrator access to manage their use of &ECR;. The
+                <ulink type="documentation" url="AmazonECR/latest/userguide/LifecyclePolicies.html"
+                >&ECR; Lifecycle Policies</ulink> feature enables customers to specify the lifecycle
+            management of images in a repository. Lifecycle policy events are reported as &CT;
+            events, and &ECR; is integrated with &CTlong; to display a customer's lifecycle policy
+            events directly in the &ECR; console. The
+                <code>AmazonEC2ContainerRegistryFullAccess</code> managed IAM policy includes the
+                <code>cloudtrail:LookupEvents</code> permission to facilitate this behavior.</para>
+        <programlisting language="json"><xi:include href="file://AWSShared/ec2-container-shared/iam_policies/AmazonEC2ContainerRegistryFullAccess.json" parse="text"/></programlisting>
+    </section>
+    <section id="AmazonEC2ContainerRegistryPowerUser">
+        <info>
+            <title id="AmazonEC2ContainerRegistryPowerUser.title"
+                    ><code>AmazonEC2ContainerRegistryPowerUser</code></title>
+        </info>
+
+        <para>This managed policy allows power user access to &ECR;, which allows read and write
+            access to repositories, but does not allow users to delete repositories or change the
+            policy documents applied to them. </para>
+        <programlisting language="json"><xi:include href="file://AWSShared/ec2-container-shared/iam_policies/AmazonEC2ContainerRegistryPowerUser.json" parse="text"/></programlisting>
+    </section>
+    <section id="AmazonEC2ContainerRegistryReadOnly">
+        <info>
+            <title id="AmazonEC2ContainerRegistryReadOnly.title"
+                    ><code>AmazonEC2ContainerRegistryReadOnly</code></title>
+        </info>
+
+        <para>This managed policy allows read-only access to &ECR;, such as the ability to list
+            repositories and the images within the repositories, and also to pull images from &ECR;
+            with the Docker CLI. </para>
+        <programlisting language="json"><xi:include href="file://AWSShared/ec2-container-shared/iam_policies/AmazonEC2ContainerRegistryReadOnly.json" parse="text"/></programlisting>
+    </section>
+</section>

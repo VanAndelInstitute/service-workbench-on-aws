@@ -1,0 +1,9 @@
+<!ENTITY apiversion "2008-10-17">
+<!ENTITY servicename_uc "Access Policy Language">
+<!ENTITY servicename "access policy language">
+<!ENTITY dc "distributed capability">
+<!ENTITY ex_policyid "cd3ad3d9-2776-4ef1-a904-4c229d1642ee">
+<!ENTITY ex_policyid_2 "as4dc2f8-9497-7ia2-m610-3d89k2361jp">
+<!ENTITY ex_principal_1 "123456789012">
+<!ENTITY ex_principal_2 "999999999999">
+<!ENTITY ex_sqs_resource_1 "/987654321000/queue2">

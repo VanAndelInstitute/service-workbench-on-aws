@@ -1,0 +1,18 @@
+def list_aliases():
+    """
+    Gets the list of aliases for the current account. An account has at most one alias.
+
+    :return: The list of aliases for the account.
+    """
+    try:
+        response = iam.meta.client.list_account_aliases()
+        aliases = response['AccountAliases']
+        if len(aliases) > 0:
+            logger.info("Got aliases for your account: %s.", ','.join(aliases))
+        else:
+            logger.info("Got no aliases for your account.")
+    except ClientError:
+        logger.exception("Couldn't list aliases for your account.")
+        raise
+    else:
+        return response['AccountAliases']

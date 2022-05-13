@@ -1,0 +1,13 @@
+#include <iostream>
+#include <aws/core/Aws.h>
+#include <aws/s3/model/Permission.h>
+#include <aws/s3/model/Type.h>
+#include <aws/s3/S3Client.h>
+#include <aws/s3/model/Owner.h>
+#include <aws/s3/model/Grantee.h>
+#include <aws/s3/model/Grant.h>
+#include <aws/s3/model/AccessControlPolicy.h>
+#include <aws/s3/model/AccessControlPolicy.h>
+#include <aws/s3/model/GetObjectAclRequest.h>
+#include <aws/s3/model/PutObjectAclRequest.h>
+#include <awsdoc/s3/s3_examples.h>

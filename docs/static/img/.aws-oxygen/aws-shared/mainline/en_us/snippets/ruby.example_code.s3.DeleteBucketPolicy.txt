@@ -1,0 +1,7 @@
+  def delete_policy
+    @bucket_policy.delete
+    true
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't delete the policy from #{@bucket_policy.bucket.name}. Here's why: #{e.message}"
+    false
+  end

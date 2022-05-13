@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.personalizeruntime.PersonalizeRuntimeClient
+import aws.sdk.kotlin.services.personalizeruntime.model.GetRecommendationsRequest
+import kotlin.system.exitProcess

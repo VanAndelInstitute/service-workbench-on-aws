@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cognitoidentity.CognitoIdentityClient;
+import software.amazon.awssdk.services.cognitoidentity.model.CreateIdentityPoolRequest;
+import software.amazon.awssdk.services.cognitoidentity.model.CreateIdentityPoolResponse;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.CognitoIdentityProviderException;
+</programlisting>

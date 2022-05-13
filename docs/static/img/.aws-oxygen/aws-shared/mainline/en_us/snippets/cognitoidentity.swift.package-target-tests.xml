@@ -1,0 +1,10 @@
+<programlisting>
+        .testTarget(
+            name: "CognitoIdentityHandlerTests",
+            dependencies: [
+                "FindOrCreateIdentityPool",
+                .product(name: "AWSCognitoIdentity", package: "AWSSwiftSDK"),
+            ],
+            path: "./Tests/CognitoIdentityHandlerTests"
+        ),
+</programlisting>

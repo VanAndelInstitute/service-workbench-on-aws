@@ -1,0 +1,47 @@
+    Aws::IAM::IAMClient iam;
+
+    Aws::IAM::Model::ListAttachedRolePoliciesRequest list_request;
+    list_request.SetRoleName(role_name);
+
+    bool done = false;
+    while (!done)
+    {
+        auto list_outcome = iam.ListAttachedRolePolicies(list_request);
+        if (!list_outcome.IsSuccess())
+        {
+            std::cout << "Failed to list attached policies of role " <<
+                role_name << ": " << list_outcome.GetError().GetMessage() <<
+                std::endl;
+            return;
+        }
+
+        const auto& policies = list_outcome.GetResult().GetAttachedPolicies();
+        if (std::any_of(policies.cbegin(), policies.cend(),
+            [=](const Aws::IAM::Model::AttachedPolicy& policy)
+        {
+            return policy.GetPolicyArn() == policy_arn;
+        }))
+        {
+            std::cout << "Policy " << policy_arn <<
+                " is already attached to role " << role_name << std::endl;
+            return;
+        }
+
+        done = !list_outcome.GetResult().GetIsTruncated();
+        list_request.SetMarker(list_outcome.GetResult().GetMarker());
+    }
+
+    Aws::IAM::Model::AttachRolePolicyRequest request;
+    request.SetRoleName(role_name);
+    request.SetPolicyArn(policy_arn);
+
+    auto outcome = iam.AttachRolePolicy(request);
+    if (!outcome.IsSuccess())
+    {
+        std::cout << "Failed to attach policy " << policy_arn << " to role " <<
+            role_name << ": " << outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    std::cout << "Successfully attached policy " << policy_arn << " to role " <<
+        role_name << std::endl;

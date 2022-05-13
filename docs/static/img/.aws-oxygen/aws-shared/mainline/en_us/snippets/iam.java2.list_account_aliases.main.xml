@@ -1,0 +1,16 @@
+<programlisting>
+    public static void listAliases(IamClient iam) {
+
+        try {
+            ListAccountAliasesResponse response = iam.listAccountAliases();
+
+            for (String alias : response.accountAliases()) {
+                System.out.printf("Retrieved account alias %s", alias);
+            }
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

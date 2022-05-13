@@ -1,0 +1,14 @@
+    zipFile := flag.String("z", "", "The name of the ZIP file (without the .zip extension)")
+    bucket := flag.String("b", "", "the name of bucket to which the ZIP file is uploaded")
+    function := flag.String("f", "", "The name of the Lambda function")
+    handler := flag.String("h", "", "The name of the package.class handling the call")
+    resource := flag.String("a", "", "The ARN of the role that calls the function")
+    runtime := flag.String("r", "", "The runtime for the function")
+
+    flag.Parse()
+
+    if *zipFile == "" || *bucket == "" || *function == "" || *handler == "" || *resource == "" || *runtime == "" {
+        fmt.Println("You must supply a zip file name, bucket name, function name, handler, Amazon Resource Name (ARN), and runtime.")
+        fmt.Println("-z ZIP-FILE -b BUCKET -f FUNCTION-NAME -h HANDLER -a ROLE-ARN -r RUNTIME")
+        return
+    }

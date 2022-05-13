@@ -1,0 +1,7 @@
+<programlisting>
+import * as core from '@aws-cdk/core';
+import { MyWidgetServiceStack } from '../lib/my_widget_service-stack';
+
+const app = new core.App();
+new MyWidgetServiceStack(app, 'MyWidgetServiceStack');
+</programlisting>

@@ -1,0 +1,6 @@
+HTTP/1.x 201
+Content-Length: 0
+Location: https://payments.amazon.com/mps/v1/payauth/123456789
+X-Amz-RequestID: 123456
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+X-Amz-SessionTTL: 900

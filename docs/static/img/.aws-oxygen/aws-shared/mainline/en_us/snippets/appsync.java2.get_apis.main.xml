@@ -1,0 +1,18 @@
+<programlisting>
+public static void getApis(AppSyncClient appSyncClient) {
+
+    try {
+        ListGraphqlApisResponse apisResponse = appSyncClient.listGraphqlApis();
+        List<GraphqlApi> graphList = apisResponse.graphqlApis();
+        for (GraphqlApi graph: graphList) {
+            System.out.println("The name of the graph api is "+graph.name());
+            System.out.println("The API Id is "+graph.apiId());
+            System.out.println("The API URI is "+graph.uris());
+        }
+
+    } catch (AppSyncException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

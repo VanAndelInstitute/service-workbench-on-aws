@@ -1,0 +1,4 @@
+    _, err := svc.UpdateUser(&iam.UpdateUserInput{
+        UserName:    userName,
+        NewUserName: newName,
+    })

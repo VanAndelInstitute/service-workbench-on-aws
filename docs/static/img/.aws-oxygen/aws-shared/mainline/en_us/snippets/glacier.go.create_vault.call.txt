@@ -1,0 +1,3 @@
+    _, err := svc.CreateVault(&glacier.CreateVaultInput{
+        VaultName: name,
+    })

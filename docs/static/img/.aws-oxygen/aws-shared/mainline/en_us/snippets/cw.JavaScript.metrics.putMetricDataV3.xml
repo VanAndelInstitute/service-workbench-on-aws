@@ -1,0 +1,36 @@
+<programlisting>
+
+// Import required AWS SDK clients and commands for Node.js
+import { PutMetricDataCommand } from "@aws-sdk/client-cloudwatch";
+import { cwClient } from "./libs/cloudWatchClient.js";
+
+// Set the parameters
+export const params = {
+  MetricData: [
+    {
+      MetricName: "PAGES_VISITED",
+      Dimensions: [
+        {
+          Name: "UNIQUE_PAGES",
+          Value: "URLS",
+        },
+      ],
+      Unit: "None",
+      Value: 1.0,
+    },
+  ],
+  Namespace: "SITE/TRAFFIC",
+};
+
+export const run = async () => {
+  try {
+    const data = await cwClient.send(new PutMetricDataCommand(params));
+    console.log("Success", data.$metadata.requestId);
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+// Uncomment this line to run execution within this file.
+// run();
+</programlisting>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-create" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to create a push messaging-enabled app with &AMHlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-create.title">Adding an Android App With &AMHlong;</title>
+    <para>&AMHlong; provides quickstart code that includes all of the functionality necessary for an
+        Android app to receive push notifications from Amazon Pinpoint. This topic shows how to
+        generate the quickstart app code using the &AMHlong; console.</para>
+    <para>If you want to integrate Amazon Pinpoint push notifications with your own Android app, we
+        recommend that you generate the &AMHlong; quickstart app code by following the procedure in
+        this topic, so that you can download and examine the code for guidance.</para>
+    <procedure>
+        <title>To add an Android app</title>
+        <step>
+            <para>Sign in to the AWS Management Console and open the &AMHlong; console at <ulink
+                    url="&url-console-domain;mobilehub/"
+                >&url-console-domain;mobilehub/</ulink>.</para>
+        </step>
+        <step>
+            <para>If you have other &AMHlong; projects, choose <guilabel>Create new mobile
+                    project</guilabel>. If this is your first project, skip this step because you
+                will be taken directly to the page for creating a new project.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-create-project.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>Provide a project name. The name you enter will be the name of your app in the
+                &PIN; console.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-enter-project-name.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>For the region, keep <guilabel>US East (Virginia)</guilabel>. </para>
+        </step>
+        <step>
+            <para>Choose <guilabel>Create project</guilabel>. &AMHlong; creates the project and
+                shows the <guilabel>Pick and configure features for your project</guilabel>
+                page.</para>
+        </step>
+        <step>
+            <para>Choose <guilabel>User Engagement</guilabel>.</para>
+        </step>
+        <step>
+            <para>On the <guilabel>User Engagement</guilabel> page, choose <guilabel>Enable
+                    engagement</guilabel>.</para>
+        </step>
+        <step>
+            <para>For <guilabel>What platforms do you want to send push notification messages
+                    to</guilabel>, choose <guilabel>Android</guilabel>.</para>
+        </step>
+        <step>
+            <para>Enter the following credentials, which are available from your push
+                messaging-enabled project in Firebase or Google Cloud Platform:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>For <guilabel>API Key</guilabel>, enter your server key.</para>
+                </listitem>
+                <listitem>
+                    <para>For <guilabel>Sender ID</guilabel>, enter your sender ID. In Google Cloud
+                        Platform, the sender ID is called project number.</para>
+                </listitem>
+            </itemizedlist>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-enter-creds.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>Choose <guilabel>Save changes</guilabel>. &AMHlong; opens the
+                    <guilabel>Integrate</guilabel> page for your app.</para>
+            <orderedlist>
+                <listitem>
+                    <para>You can download a working sample app that demonstrates &PIN; features.
+                        Then, you can <link linkend="getting-started-ios-sampleapp">add the sample
+                            app to &PIN;</link> and send a test push notification.</para>
+                </listitem>
+                <listitem>
+                    <para>You can download a package that includes the required SDKs for your
+                        project. Then, you can follow the instructions in the &AMHlong; console to
+                        integrate &PIN; with your app.</para>
+                </listitem>
+            </orderedlist>
+        </step>
+    </procedure>
+</section>

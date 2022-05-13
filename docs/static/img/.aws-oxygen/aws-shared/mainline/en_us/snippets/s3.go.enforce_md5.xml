@@ -1,0 +1,85 @@
+<programlisting>
+package main
+
+import (
+    "crypto/md5"
+    "encoding/base64"
+    "flag"
+    "fmt"
+    "net/http"
+    "strings"
+    "time"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// SetMd5 enforces an MD5 checksum on the object uploaded to a bucket
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     bucket is the name of the bucket
+//     key is the key of the object
+// Output:
+//     If success, an HTTP response object and nil
+//     Otherwise, nil and an error from the call to PutObjectRequest
+func SetMd5(sess *session.Session, bucket, key *string) (*http.Response, error) {
+    svc := s3.New(sess)
+
+    h := md5.New()
+    content := strings.NewReader("")
+    _, err := content.WriteTo(h)
+    if err != nil {
+        return nil, err
+    }
+
+    resp, _ := svc.PutObjectRequest(&s3.PutObjectInput{
+        Bucket: bucket,
+        Key:    key,
+    })
+
+    md5s := base64.StdEncoding.EncodeToString(h.Sum(nil))
+    resp.HTTPRequest.Header.Set("Content-MD5", md5s)
+
+    url, err := resp.Presign(15 * time.Minute)
+    if err != nil {
+        return nil, err
+    }
+
+    req, err := http.NewRequest("PUT", url, strings.NewReader(""))
+    req.Header.Set("Content-MD5", md5s)
+    if err != nil {
+        return nil, err
+    }
+
+    defClient, err := http.DefaultClient.Do(req)
+    if err != nil {
+        return nil, err
+    }
+
+    return defClient, nil
+}
+
+func main() {
+    bucket := flag.String("b", "", "The name of the bucket")
+    key := flag.String("k", "", "The object key")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET) and key name (-k KEY)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    defClient, err := SetMd5(sess, bucket, key)
+    if err != nil {
+        fmt.Println("Got an error setting MD5:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(defClient, err)
+}
+</programlisting>

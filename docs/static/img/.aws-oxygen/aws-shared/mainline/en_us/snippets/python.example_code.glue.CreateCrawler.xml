@@ -1,0 +1,30 @@
+<programlisting>
+    def create_crawler(self, name, role_arn, db_name, db_prefix, s3_target):
+        """
+        Creates a crawler that can crawl the specified target and populate a
+        database in your AWS Glue Data Catalog with metadata that describes the data
+        in the target.
+
+        :param name: The name of the crawler.
+        :param role_arn: The Amazon Resource Name (ARN) of an AWS Identity and Access
+                         Management (IAM) role that grants permission to let AWS Glue
+                         access the resources it needs.
+        :param db_name: The name to give the database that is created by the crawler.
+        :param db_prefix: The prefix to give any database tables that are created by
+                          the crawler.
+        :param s3_target: The URL to an S3 bucket that contains data that is
+                          the target of the crawler.
+        """
+        try:
+            self.glue_client.create_crawler(
+                Name=name,
+                Role=role_arn,
+                DatabaseName=db_name,
+                TablePrefix=db_prefix,
+                Targets={'S3Targets': [{'Path': s3_target}]})
+        except ClientError as err:
+            logger.error(
+                "Couldn't create crawler. Here's why: %s: %s",
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+</programlisting>

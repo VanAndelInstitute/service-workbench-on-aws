@@ -1,0 +1,12 @@
+<programlisting>
+    userName := flag.String("u", "", "The name of the user")
+    orgID := flag.String("o", "", "Your organization ID")
+
+    flag.Parse()
+
+    if *userName == "" || *orgID == "" {
+        fmt.Println("You must supply the ID of the organization and a user name")
+        fmt.Println("-o ORG-ID -u USER-NAME")
+        return
+    }
+</programlisting>

@@ -1,0 +1,67 @@
+    public static void createS3Job( S3ControlClient s3ControlClient,
+                                    String accountId,
+                                    String iamRoleArn,
+                                    String manifestLocation,
+                                    String reportBucketName,
+                                    String uuid  ) {
+
+       try {
+           ArrayList tagSet = new ArrayList<S3Tag>();
+
+           S3Tag s3Tag = S3Tag.builder()
+                .key("keyOne")
+                .value("ValueOne")
+                .build();
+
+            tagSet.add(s3Tag);
+
+            S3SetObjectTaggingOperation objectTaggingOperation = S3SetObjectTaggingOperation.builder()
+                .tagSet(s3Tag)
+                .build();
+
+            JobOperation jobOperation = JobOperation.builder()
+                .s3PutObjectTagging(objectTaggingOperation)
+                .build();
+
+            JobManifestLocation jobManifestLocation = JobManifestLocation.builder()
+                .objectArn(manifestLocation)
+                .eTag("60e460c9d1046e73f7dde5043ac3ae85")
+                .build();
+
+            JobManifestSpec manifestSpec = JobManifestSpec.builder()
+                .fieldsWithStrings(new String[]{"Bucket", "Key"})
+                .format("S3BatchOperations_CSV_20180820")
+                .build();
+
+            JobManifest jobManifest = JobManifest.builder()
+                .spec(manifestSpec)
+                .location(jobManifestLocation)
+                .build();
+
+            JobReport jobReport = JobReport.builder()
+                .bucket(reportBucketName)
+                .prefix("reports")
+                .format("Report_CSV_20180820")
+                .enabled(true)
+                .reportScope("AllTasks")
+                .build();
+
+            CreateJobRequest jobRequest = CreateJobRequest.builder()
+                .accountId(accountId)
+                .description("Job created using the AWS Java SDK")
+                .manifest(jobManifest)
+                .operation(jobOperation)
+                .report(jobReport)
+                .priority(42)
+                .roleArn(iamRoleArn)
+                .clientRequestToken(uuid)
+                .confirmationRequired(false)
+                .build();
+
+            s3ControlClient.createJob(jobRequest);
+
+       } catch (S3ControlException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }

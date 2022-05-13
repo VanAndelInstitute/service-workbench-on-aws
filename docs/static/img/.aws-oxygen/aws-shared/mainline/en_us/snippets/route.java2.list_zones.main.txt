@@ -1,0 +1,16 @@
+    public static void listZones(Route53Client route53Client) {
+
+        try {
+
+            ListHostedZonesResponse zonesResponse = route53Client.listHostedZones();
+            List<HostedZone> checklist = zonesResponse.hostedZones();
+
+            for (HostedZone check: checklist) {
+                System.out.println("The name is : "+check.name());
+            }
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,26 @@
+--------------------------
+transactionId: 14GKD9GE66FAA63E6O6B2JDPZKN53LZ7F22
+statusMessage: The transaction is awaiting a response from the backend payment processor.
+transactionDate: 1254815482
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference05
+operation: RESERVE
+transactionStatus: PENDING
+transactionAmount: USD 1.00
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: NvFCZMralNEepynuIhhXJc+jpK1ZMdFLBMcXFv6Vq1jhpdLX/B9T0lluOUv74I6xgO8L2UemgV4S
+ZCejlQZ3glwKnEM75lKVlHx34IKp1RFm1DjQOO5KaYGQUNMu1ouYK1YmQUHCuktdLnTXjkxjn0lv
+9U4EyzDe8l/tLp2nlAqRF4J7PIhdTkWvBYNYhZrEy5A895OMf9uFtwX8Eyg4lTDMVwEWJoG8CTxJ
+qtcsKabmbF9Blwhfe3f+viTnv39YRDb+PZKnpl/XqkKYdNEXClRy3g6xpF/14FJ4hA+A1UP+A+No
+17b6lZuKmd5dbdvqTQKOxEAfR6lL1gTzAYY/8w==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: Reserve
+statusCode: PendingNetworkResponse
+--------------------------
+

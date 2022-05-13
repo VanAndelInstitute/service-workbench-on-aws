@@ -1,0 +1,9 @@
+import aws.sdk.kotlin.services.lexmodelbuildingservice.LexModelBuildingClient
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.Intent
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.Message
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.Statement
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.ContentType
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.PutBotRequest
+import aws.sdk.kotlin.services.lexmodelbuildingservice.model.Locale
+import java.util.ArrayList
+import kotlin.system.exitProcess

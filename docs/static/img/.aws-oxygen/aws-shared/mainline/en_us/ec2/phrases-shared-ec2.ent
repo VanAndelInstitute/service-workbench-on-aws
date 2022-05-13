@@ -1,0 +1,858 @@
+<!-- Entities used in the EC2-related packages -->
+
+<!-- WSDL entities -->
+
+<!ENTITY apiversion '2015-10-01'>
+<!ENTITY wsdlnamespace "http://ec2.&api-domain;/doc/&apiversion;/">
+
+<!-- The service entity is used by the IAM blurb -->
+<!ENTITY service "Amazon EC2" >
+
+<!-- The service-specific sites -->
+
+<!ENTITY forum-ec2 '<ulink url="&url-forum-domain;forum.jspa?forumID=30">&EC2; forum</ulink>'>
+
+<!-- Custom prompts (see ../common/phrases-shared.ent for others) -->
+<!ENTITY rootprompt "<prompt># </prompt>">
+
+<!-- Environment variables -->
+<!ENTITY JAVA_HOME_ENV "<envar>JAVA_HOME</envar>">
+<!ENTITY AES_XINO_URL_ENV "<envar>EC2_URL</envar>">
+<!ENTITY PRIVATE_KEY_ENV "<envar>EC2_PRIVATE_KEY</envar>">
+<!ENTITY CERT_ENV "<envar>EC2_CERT</envar>">
+<!ENTITY USER_HOME_ENV "<envar>EC2_HOME</envar>">
+
+<!ENTITY EnvironmentVariableNoteLinux '		<note os="linux">
+			<simpara>
+				The <function>export</function> command applies only to the current shell session. 
+				To permanently create or update an environment variable, include the command in a start-up script.
+				For example, if you use Bash shell, you can include commands in your <filename>~/.bashrc</filename> or <filename>/etc/profile</filename> file.
+			</simpara>
+		</note>'>
+
+<!ENTITY EnvironmentVariableNoteWindows '		<note os="windows">
+			<simpara>The Windows environment variables are reset when you close
+				the command window. You might want to set them
+				permanently with the <function>setx</function> command.</simpara>
+		</note>'>
+
+<!-- Regions and AZs-->
+<!ENTITY region_api_default "us-east-1">
+<!ENTITY region_console_default "us-west-2">
+
+<!ENTITY region_nrt "ap-northeast-1">
+<!ENTITY region_sin "ap-southeast-1">
+<!ENTITY region_syd "ap-southeast-2">
+<!ENTITY region_fra "eu-central-1">
+<!ENTITY region_dub "eu-west-1">
+<!ENTITY region_gru "sa-east-1">
+<!ENTITY region_iad "us-east-1">
+<!ENTITY region_icn "ap-northeast-2">
+<!ENTITY region_sfo "us-west-1">
+<!ENTITY region_pdx "us-west-2">
+
+<!ENTITY az1 "a">
+<!ENTITY az2 "b">
+<!ENTITY az3 "c">
+<!ENTITY az4 "d">
+<!ENTITY az5 "e">
+		
+<!-- EBS -->
+<!ENTITY PIOPS "Provisioned IOPS SSD">
+<!ENTITY io1 "<code>io1</code>">
+
+<!ENTITY Standard "Magnetic">
+<!ENTITY standard "<code>standard</code>">
+
+<!ENTITY GP2 "General Purpose SSD">
+<!ENTITY gp2 "<code>gp2</code>">
+
+<!ENTITY Throughput "Throughput Optimized HDD">
+<!ENTITY st1 "<code>st1</code>">
+
+<!ENTITY Cold "Cold HDD">
+<!ENTITY sc1 "<code>sc1</code>">
+
+
+<!--  DO NOT USE (standardizing volume type entities) -->
+<!ENTITY PIOPSlong "provisioned IOPS (input/output operations per second)">
+<!ENTITY PIOPSlongtitle "Provisioned IOPS SSD">
+<!ENTITY PIOPSconsole "Provisioned IOPS SSD">
+<!ENTITY PIOPStitle "Provisioned IOPS SSD">
+<!ENTITY Standardconsole "Magnetic">
+<!ENTITY GP2console "General Purpose SSD">
+<!--  END DEPRECATED ENTITIES -->
+
+
+<!ENTITY ebs-optimized-min "500">
+<!ENTITY ebs-optimized-max "10,000">
+<!ENTITY minIOPS "100">
+<!ENTITY maxIOPS "20,000">
+<!ENTITY minIOPSint "100">
+<!ENTITY maxIOPSint "20000">
+<!ENTITY minIOPSGP2 "100">
+<!ENTITY maxIOPSGP2 "10,000">
+<!ENTITY minIOPSGP2int "3">
+<!ENTITY maxIOPSGP2int "10000">
+<!ENTITY IOPSst1 "500">
+<!ENTITY IOPSsc1 "250">
+
+<!ENTITY restricted_az_ssd_warning "<note>
+        <para>Some AWS accounts created before 2012 might have access to Availability Zones in
+          &region_iad;, &region_sfo;, or &region_nrt; that do not support &PIOPS; (&io1;) volumes. If
+          you are unable to create an &io1; volume (or launch an instance with an &io1;
+          volume in its block device mapping) in one of these regions, try a different Availability
+          Zone in the region. You can verify that an Availability Zone supports &io1; volumes
+          by creating a 4 GiB &io1; volume in that zone.</para>
+      </note>">
+      
+<!ENTITY block_device_name_note '<para os="linux">Depending on the block device driver of the kernel, the device might
+                be attached with a different name than what you specify. For example, if you specify
+                a device name of <filename>/dev/sdh</filename>, your device might be renamed
+                  <filename>/dev/xvdh</filename> or <filename>/dev/hdh</filename> by the kernel; in
+                most cases, the trailing letter remains the same. In some versions of Red Hat
+                Enterprise Linux (and its variants, such as CentOS), even the trailing letter might
+                also change (where <filename>/dev/sda</filename> could become
+                  <filename>/dev/xvde</filename>). In these cases, each device name trailing letter
+                is incremented the same number of times. For example, <filename>/dev/sdb</filename>
+                would become <filename>/dev/xvdf</filename> and <filename>/dev/sdc</filename> would
+                become <filename>/dev/xvdg</filename>. Amazon Linux AMIs create a symbolic link with the name you specify at launch
+                that points to the renamed device path, but other AMIs might behave
+                differently.</para>' >
+
+<!ENTITY windows_volume_size_caveats '
+    <note os="windows">
+        <para>The following &EBS; volume considerations apply to Windows boot volumes:
+            <itemizedlist>
+                <listitem><para>Windows 2003 instances do not boot if the boot volume is 2 TiB (2048 GiB) or greater.</para></listitem>
+                <listitem><para>Windows boot volumes must use an MBR partition table, which limits the usable space to 2 TiB, regardless of volume size.</para></listitem>
+                <listitem><para>Windows boot volumes of 2 TiB (2048 GiB) that have been converted to use a dynamic MBR partition table display an error when examined with Disk Manager.</para></listitem>
+            </itemizedlist> 
+  The following &EBS; volume considerations apply to Windows data (non-boot) volumes: 
+            <itemizedlist>
+                <listitem><para>Windows volumes 2 TiB (2048 GiB) or greater must use a GPT partition table to access the entire volume.</para></listitem>
+                <listitem><para>&EBS; volumes over 2048 GiB that are attached to Windows instances at launch are automatically formatted with a GPT partition table.</para></listitem>
+                <listitem><para>&EBS; volumes attached to Windows instances after launch must be manually initialized with a GPT partition table. For more information, see <ulink url="&url-ec2-winuser;ebs-using-volumes.html">Making an &EBS; Volume Available for Use</ulink>.</para></listitem>
+            </itemizedlist>
+        </para>
+    </note>'>
+      
+<!ENTITY linux_boot_volume_size_caveats '<note os="linux"><para>Linux &AMI;s require GPT partition tables and GRUB 2 for boot volumes 2 TiB (2048 GiB) or
+        larger. Many Linux &AMI;s today use the MBR partitioning scheme, which only supports up to
+        2047 GiB boot volumes. If your instance does not boot with a boot volume that is 2 TiB or
+        larger, the &AMI; you are using may be limited to a 2047 GiB boot volume size. Non-boot
+        volumes do not have this limitation on Linux instances.</para></note>'>
+
+<!ENTITY vs_note_detect '<note><simpara>Volume status is based on the volume status checks, and does not reflect the volume state. 
+Therefore, volume status does not indicate volumes in the <code>error</code> state (for example, when a volume is incapable of accepting I/O.)</simpara></note>'>
+
+<!-- Instance metadata -->
+<!ENTITY user-data-base-uri 'http://169.254.169.254/'>
+<!ENTITY user-data-uri 'http://169.254.169.254/&apiversion;/'>
+<!ENTITY user-data-uri-latest 'http://169.254.169.254/latest/meta-data/'>
+<!ENTITY user-data-uri-user-only 'http://169.254.169.254/latest/user-data/'>
+<!ENTITY user-data-uri-version '&apiversion;'>
+<!ENTITY user-data-max-size '16K'>
+
+<!-- ClassicLink -->
+<!ENTITY classiclink 'ClassicLink'>
+
+<!-- VPC -->
+<!ENTITY rfc1918url "http://www.faqs.org/rfcs/rfc1918.html">
+<!ENTITY rfc1631url "http://www.faqs.org/rfcs/rfc1631.html">
+<!ENTITY vpgateway 'virtual private gateway' >
+<!ENTITY vpgatewayTitleCaps 'Virtual Private Gateway' >
+<!ENTITY vpgatewaySentenceCap 'Virtual private gateway' >
+<!ENTITY EC2Classic "EC2-Classic">
+<!ENTITY EC2Vpc "EC2-VPC">
+<!ENTITY EC2Compat "EC2-Classic, default VPC">
+<!ENTITY VpcCompat "nondefault VPC">
+<!ENTITY amazondns 'AmazonProvidedDNS'>
+
+<!-- Reserved Instances -->
+<!ENTITY heavyri 'Heavy Utilization'>
+<!ENTITY mediumri 'Medium Utilization'>
+<!ENTITY lightri 'Light Utilization'>
+<!ENTITY ritiers "Reserved Instance pricing tiers">
+<!ENTITY rimarket "Reserved Instance Marketplace">
+
+<!-- Spot Instances -->
+<!ENTITY spot_az_note 'Although you can specify an Availability Zone or Availability Zone group when placing a Spot Instances request, 
+the Spot Price does not vary by Availability Zone. ' >
+
+<!ENTITY spot_az_support '<para>When you use the <code>availability-zone</code> option, this command describes the price history for the specified Availability Zone
+with the most recent set of prices listed first. If you don&apos;t specify an Availability Zone, the command returns the prices across all Availability Zones, 
+starting with the most recent set. However, if you use this command with versions of the API earlier than the 2011-05-15 version, this command returns the 
+lowest price across the region for the given time period. The prices returned are listed in chronological order &mdash; from the oldest to the most recent.</para>'>
+
+<!ENTITY spot_no_stop_start '
+Although Spot Instances can use Amazon EBS-backed AMIs, be aware that you can&apos;t stop 
+and start Spot Instances launched from an AMI that has an Amazon EBS root device. For information about Amazon EBS, see <ulink url="&url-ec2-user;AmazonEBS.html">Amazon Elastic Block Store (Amazon EBS).</ulink>
+'>
+
+<!ENTITY spot_noascli '<para>If you don&apos;t have the Auto Scaling CLI tools installed on your computer, you must install them to do this walkthrough. For information, 
+		see <ulink url="&url-ec2-user;spot-as-tools.html">Tools for Managing Auto Scaling with Spot Instances</ulink> in the <emphasis>&guide-ec2-user;</emphasis>. 
+		You can also use the information in <ulink url="&url-as-dev;UsingTheCommandLineTools.html">Install the Command Line Interface</ulink> 
+		in the <emphasis>&guide-as-dev;</emphasis>.</para>'>
+
+
+<!-- marketplace -->
+<!ENTITY MARKETPLACECODE "a1b2c3d4e5f6g7h8i9j10k11">
+<!ENTITY marketplaceinfo '<para>For an overview of the &MKT;, see  
+				<ulink url="&url-mkt-domain;marketplace/help/200900000">Introducing &MKT;</ulink>.</para>'>
+
+<!--marketplace entities for notes in CLI, API and user guide about operations and attributes that cannot be changed with a marketplace product code -->
+<!ENTITY mp_detach_volume '<para>When a volume with an &MKT; product code is detached from an instance, the product code is no longer associated with the instance.</para>'>
+<!ENTITY mp_create_snapshot '<para>When a snapshot is created from a volume with an &MKT; product code, the product code is propagated to the snapshot.</para>'>
+<!ENTITY mp_create_snapshot_inline 'Any &MKT; product codes from the volume are propagated to the snapshot.'>
+<!ENTITY mp_create_volume 'Any &MKT; product codes from the snapshot are propagated to the volume.'>
+<!ENTITY mp_modify_image_attribute_note '<note><para>You can&apos;t modify &MKT; product codes. Images with &MKT; product codes can&apos;t be made public.</para></note>'>
+<!ENTITY mp_modify_snaphot_attribute_note '<note><para>Snapshots with &MKT; product codes can&apos;t be made public.</para></note>'>
+<!ENTITY mp_register_image_note '<note><para>You can&apos;t register an image if a secondary (non-root) snapshot has &MKT; product codes.</para></note>'>
+<!ENTITY mp_run_instances_note '<note><para>Users must be subscribed to the required product to run an instance with &MKT; product codes.</para></note>'>
+<!ENTITY mp_request_spot_note '<note><para>Users must be subscribed to the required product to run an instance with &MKT; product codes.</para></note>'>
+<!ENTITY mp_attach_volume '<note><para>If a volume has an &MKT; product code:</para>
+<itemizedlist>
+ <listitem><para>The volume can be attached only to a stopped instance.</para></listitem>
+ <listitem><para>&MKT; product codes are copied from the volume to the instance.</para></listitem>
+ <listitem><para>You must be subscribed to the product.</para></listitem>
+ <listitem><para>The instance type and operating system of the instance must support the product. For example, you can&apos;t detach a volume from a Windows instance and attach it to a Linux instance.</para></listitem>
+</itemizedlist>
+&marketplaceinfo;
+</note>'>
+
+<!-- AMIs -->
+<!ENTITY AMI "AMI">
+<!ENTITY ami "&AMI;">
+<!ENTITY LinuxAMI "Amazon Linux AMI">
+
+<!--  these entities have been moved to AWSEC2Docs; please don't modify here -->
+<!ENTITY al-ami-version-current "2015.03">
+<!ENTITY al-ami-version-previous "2014.09">
+<!ENTITY al-ami-image-id 'image_name="amzn-ami-hvm"
+image_version="2015.03"
+image_arch="x86_64"
+image_file="amzn-ami-hvm-2015.03.0.x86_64.ext4.gpt"
+image_stamp="366c-fff6"
+image_date="20150318153038"
+recipe_name="amzn ami"
+recipe_id="1c207c1f-6186-b5c9-4e1b-9400-c2d8-a3b2-3d11fdf8"' >
+<!--  end of deprecated entities -->
+
+<!ENTITY AMIlong "Amazon Machine Image">
+<!ENTITY EC2AMICopy "EC2 AMI copy">
+<!ENTITY amazon-owner-alias 'amazon'>
+<!ENTITY examples3bucket '&lt;your-s3-bucket&gt;'>
+<!ENTITY ami_upload_bundled_ami '
+          <para>You must upload the bundled &AMI; to &S3; before &EC2; can access it. This
+					task is necessary when you create &EC2; instance store-backed AMIs from an existing instance or from a
+					loopback. Use the <ulink url="&url-ec2-clt;CLTRG-ami-upload-bundle.html">ec2-upload-bundle</ulink> command to upload the bundled &AMI;
+					that you created earlier. &S3; stores data objects in buckets, which are similar to
+					directories. All buckets must have globally unique names. The <command>ec2-upload-bundle</command>
+					command uploads the bundled &AMI; to a specified bucket. If the specified bucket exists and belongs to another AWS
+					account, the <command>ec2-upload-bundle</command> command will fail. </para>
+					<important>
+						<simpara>The specified &S3; bucket must exist, and it must have been created in the same region 
+					    as the instance being uploaded.</simpara>
+					</important>
+
+				<section>
+					<title>To upload the bundled &AMI;</title>
+						<para>Use the <command>ec2-upload-bundle</command> command as follows:</para>
+						<programlisting>&prompt;<userinput>ec2-upload-bundle -b <replaceable>&examples3bucket;</replaceable> -m <replaceable>&lt;manifest_path&gt;</replaceable> -a <replaceable>&lt;access_key&gt;</replaceable> -s <replaceable>&lt;secret_key&gt;</replaceable></userinput></programlisting>
+						<itemizedlist>
+							<listitem>
+								<para><parameter>&examples3bucket;</parameter> is the &S3; bucket that the bundle will be uploaded to. You can also upload the
+									bundle to a subfolder of the bucket, such as <code>my-awsbucket/uploaded-images/image-1</code>. If the subfolder does not exist, it will be created.</para>
+							</listitem>
+							<listitem>
+								<para>
+									<parameter>&lt;manifest_path&gt;</parameter> is the full path to the manifest file (for example, <code>/tmp/image.manifest.xml</code>). The manifest file will reside in the destination directory that was 
+									specified in the <ulink url="&url-ec2-clt;CLTRG-ami-bundle-vol.html">ec2-bundle-vol</ulink> command.
+								</para>
+							</listitem>
+							<listitem>
+								<para><parameter>&lt;access_key&gt;</parameter> is your AWS access key ID.</para>
+							</listitem>
+							<listitem>
+								<para><parameter>&lt;secret_key&gt;</parameter> is your AWS secret key.</para>
+							</listitem>
+						</itemizedlist>
+					<para>The &AMI; manifest file and all image parts are uploaded to &S3;. The
+						manifest file is encrypted with the &EC2; public key before being uploaded.
+					</para>
+				</section>
+'>
+<!ENTITY bundle_task_list_time_limit_note 'Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. <phrase audience="clt">Just use the <function>ec2-register</function> command with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</phrase><phrase audience="api">Just use the <function>RegisterImage</function> action with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</phrase>' >
+
+<!ENTITY ami_register_ami '
+				<para>You must register your image with &EC2;, so that &EC2; can locate it and run
+					instances based on it. This task is necessary when you create &EC2; instance store-backed AMIs from
+					an existing file or from a loopback. If you make any changes to the source image stored in &S3;, you must
+						reregister the image. </para>
+
+				<section>
+					<title>To register the &AMI; that you created and uploaded to &S3;</title>
+					<para>Use the <ulink url="&url-ec2-clt;ApiReference-cmd-RegisterImage.html">ec2-register</ulink> command
+					(which is part of the EC2 CLI tools, not the AMI tools) as follows:</para>
+					<programlisting>&prompt;<userinput>ec2-register <replaceable>&examples3bucket;/&lt;path&gt;</replaceable>/image.manifest.xml -n <replaceable>&lt;image_name&gt;</replaceable> -O <replaceable>&lt;your_access_key&gt;</replaceable> -W <replaceable>&lt;your_secret_key&gt;</replaceable></userinput></programlisting>
+					
+				<para></para>
+					<important>
+						<simpara>The capitalization of the bucket name and path in
+								<parameter>&examples3bucket;/&lt;path&gt;</parameter> must match exactly what was passed in the 
+								<ulink url="&url-ec2-clt;CLTRG-ami-upload-bundle.html">ec2-upload-bundle</ulink> command.</simpara>
+					</important>
+					<para>This command registers the AMI in the default region. To specify a different region, set the <envar>EC2_URL</envar> environment variable, or use the 
+					   <command>--region</command> option with the <command>ec2-register</command> command.</para>
+					<para>&EC2; returns an &AMI; identifier, the value next to the <computeroutput>IMAGE</computeroutput> tag,
+						that you can use to run instances.</para>
+				</section>
+'>
+
+<!ENTITY encrypted_ami_copy_note "<note>
+			<para>&AMI;s with encrypted volumes cannot be copied using the &console;. Instead, you
+				must copy each volume's snapshot to the target region and create a new &AMI; in that
+				region using the copied snapshots in the block device mappings.</para>
+		</note>" >
+
+<!-- Regions and AZs -->
+<!ENTITY describe_availability_zones_example_1 '<programlisting format="linespecific">&genprompt; <userinput><command>ec2-describe-availability-zones</command></userinput>
+<computeroutput>AVAILABILITYZONE	&region_api_default;&az1;	available	&region_api_default;
+AVAILABILITYZONE	&region_api_default;&az2;	available	&region_api_default;
+AVAILABILITYZONE	&region_api_default;&az3;	available	&region_api_default;</computeroutput></programlisting>'>
+
+<!ENTITY describe_availability_zones_example_2 '<programlisting format="linespecific">&genprompt; <userinput><command>ec2-describe-availability-zones</command> --region &region_api_default;</userinput>
+<computeroutput>AVAILABILITYZONE	&region_api_default;&az1;	available	&region_api_default;
+AVAILABILITYZONE	&region_api_default;&az2;	available	&region_api_default;
+<code>AVAILABILITYZONE	&region_api_default;&az3;	available	&region_api_default;
+AVAILABILITYZONE	&region_api_default;&az4;	available	&region_api_default;</code></computeroutput></programlisting>'>
+
+<!ENTITY describe_regions_example '
+<programlisting>&genprompt;<userinput><command>ec2-describe-regions</command></userinput>
+REGION &region_api_default;  ec2.&region_api_default;.&api-domain;
+<code>REGION  &region_nrt;  ec2.&region_nrt;.&api-domain;
+REGION  &region_sin;  ec2.&region_sin;.&api-domain;
+..</code></programlisting>
+'>
+
+<!-- Instances -->
+
+<!ENTITY general_purpose_instances '&general_purpose_instances_current; | &general_purpose_instances_previous;'>
+
+<!ENTITY general_purpose_instances_current '&resource_credit_instances; 
+| <code>m4.large</code> 
+| <code>m4.xlarge</code> 
+| <code>m4.2xlarge</code> 
+| <code>m4.4xlarge</code> 
+| <code>m4.10xlarge</code>
+| <code>m4.16xlarge</code>
+| <code>m3.medium</code> 
+| <code>m3.large</code> 
+| <code>m3.xlarge</code> 
+| <code>m3.2xlarge</code>
+'>
+
+<!ENTITY general_purpose_instances_previous '<code>m1.small</code> | <code>m1.medium</code> | <code>m1.large</code> | <code>m1.xlarge</code>'>
+   
+<!ENTITY compute_optimized_instances '&compute_optimized_instances_current; | &compute_optimized_instances_previous;'>
+<!ENTITY compute_optimized_instances_current '<code>c4.large</code> | <code>c4.xlarge</code> | <code>c4.2xlarge</code> | <code>c4.4xlarge</code> | <code>c4.8xlarge</code> | <code>c3.large</code> | <code>c3.xlarge</code> | <code>c3.2xlarge</code> | <code>c3.4xlarge</code> | <code>c3.8xlarge</code>'>
+<!ENTITY compute_optimized_instances_previous '<code>c1.medium</code> | <code>c1.xlarge</code> | <code>cc2.8xlarge</code>'>
+
+<!ENTITY memory_optimized_instances '&memory_optimized_instances_current; | &memory_optimized_instances_previous;'>
+<!ENTITY memory_optimized_instances_current '<code>r3.large</code> | <code>r3.xlarge</code> | <code>r3.2xlarge</code> | <code>r3.4xlarge</code> | <code>r3.8xlarge</code>'>
+<!ENTITY memory_optimized_instances_previous '<code>m2.xlarge</code> | <code>m2.2xlarge</code> | <code>m2.4xlarge</code> | <code>cr1.8xlarge</code>'>
+
+<!ENTITY gpu_instances '&gpu_instances_current; | &gpu_instances_previous;'>
+<!ENTITY gpu_instances_current '<code>g2.2xlarge</code> | <code>g2.8xlarge</code>'>
+<!ENTITY gpu_instances_previous '<code>cg1.4xlarge</code>'>
+
+<!ENTITY storage_optimized_instances '&storage_optimized_instances_current; | &storage_optimized_instances_previous;'>
+<!ENTITY storage_optimized_instances_current '<code>i2.xlarge</code> | <code>i2.2xlarge</code> | <code>i2.4xlarge</code> | <code>i2.8xlarge</code> | <code>d2.xlarge</code> | <code>d2.2xlarge</code> | <code>d2.4xlarge</code> | <code>d2.8xlarge</code>'>
+<!ENTITY storage_optimized_instances_previous '<code>hi1.4xlarge</code> | <code>hs1.8xlarge</code>'>
+   
+<!ENTITY micro_instances '<code>t1.micro</code>'>
+
+
+<!ENTITY resource_credit_instances '<code>t2.nano</code> | <code>t2.micro</code> | <code>t2.small</code> | <code>t2.medium</code> | <code>t2.large</code>'>
+
+<!ENTITY ec2_run_instances_instance_types '
+   &general_purpose_instances; | 
+   &compute_optimized_instances; | 
+   &memory_optimized_instances; | 
+   &storage_optimized_instances; | 
+   &micro_instances; |
+   &gpu_instances;'>
+
+<!ENTITY ec2_spot_instances_instance_types '<code>t1.micro</code> | <code>m1.small</code> | <code>m1.medium</code> | <code>m1.large</code> | <code>m1.xlarge</code> | 
+<code>m3.xlarge</code> | <code>m3.2xlarge</code> | <code>c1.medium</code> | <code>c1.xlarge</code> | <code>c3.4xlarge</code> | <code>c3.8xlarge</code>
+| <code>cc1.4xlarge</code> | <code>cc2.8xlarge</code> | <code>cg1.4xlarge</code> | <code>cr1.8xlarge</code> | <code>g2.2xlarge</code> | 
+<code>m2.xlarge</code> | <code>m2.2xlarge</code> | <code>m2.4xlarge</code>'>
+
+<!-- VM Import/Export -->
+
+<!ENTITY linux_instances '<itemizedlist>
+                <listitem>
+                    <para>General purpose: <code>t2.micro</code> | <code>t2.small</code> | <code>t2.medium</code> | <code>m3.medium</code> | <code>m3.large</code> | <code>m3.xlarge</code> | <code>m3.2xlarge</code></para>
+                </listitem>
+                <listitem>
+                    <para>Compute optimized: <code>c3.large</code> | <code>c3.xlarge</code> | <code>c3.2xlarge</code> | <code>c3.4xlarge</code> | <code>c3.8xlarge</code> | <code>cc1.4xlarge</code></para>
+                </listitem>
+                <listitem>
+                    <para>Memory optimized: <code>r3.large</code> | <code>r3.xlarge</code> | <code>r3.2xlarge</code> | <code>r3.4xlarge</code> | <code>r3.8xlarge</code></para>
+                </listitem>
+                <listitem>
+                    <para>Storage optimized: <code>i2.xlarge</code> | <code>i2.2xlarge</code> | <code>i2.4xlarge</code> | <code>i2.8xlarge</code></para>
+                </listitem>
+            </itemizedlist>'>
+
+<!ENTITY supported-os '
+    <formalpara>
+        <title>Windows (32- and 64-bit)</title>
+        <para>            
+            <itemizedlist>
+                <listitem>
+                    <para>Microsoft Windows Server 2003 (Standard, Datacenter, Enterprise) with
+                        Service Pack 1 (SP1) or later (32- and 64-bit)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows Server 2003 R2 (Standard, Datacenter, Enterprise) (32-
+                        and 64-bit)</para>
+                </listitem>
+               <listitem>
+                    <para>Microsoft Windows Server 2008 (Standard, Datacenter, Enterprise)  (32- and
+                        64-bit)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows Server 2008 R2 (Standard, Datacenter, Enterprise)
+                        (64-bit only)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows Server 2012 (Standard, Datacenter) (64-bit only)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows Server 2012 R2 (Standard, Datacenter) (64-bit only)
+                        (Nano Server installation not supported)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows Server 2016 (Standard, Datacenter) (64-bit only)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows 7 (Professional, Enterprise, Ultimate) (US English) (32- and
+                        64-bit)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows 8 (Professional, Enterprise) (US English) (32- and 64-bit)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows 8.1 (Professional, Enterprise) (US English) (64-bit only)</para>
+                </listitem>
+                <listitem>
+                    <para>Microsoft Windows 10 (Professional, Enterprise, Education) (US English)
+                        (64-bit only)</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </formalpara>
+            
+    <formalpara>
+        <title>Linux/Unix (64-bit)</title>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Ubuntu 12.04, 12.10, 13.04, 13.10, 14.04, 14.10, 15.04, 16.04,
+                        16.10</para>
+                </listitem>
+                <listitem>
+                    <para>Red Hat Enterprise Linux (RHEL) 5.1-5.11, 6.1-6.6, 7.0-7.1 (6.0 lacks
+                        required drivers)</para>
+                </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 11 with Service Pack 1 and kernel
+                        2.6.32.12-0.7</para>
+                </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 11 with Service Pack 2 and kernel
+                        3.0.13-0.27</para>
+                </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 11 with Service Pack 3 and kernel
+                        3.0.76-0.11, 3.0.101-0.8, or 3.0.101-0.15</para>
+               </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 11 with Service Pack 4 and kernel
+                        3.0.101-63</para>
+                </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 12 with kernel 3.12.28-4</para>
+                </listitem>
+                <listitem>
+                    <para>SUSE Linux Enterprise Server 12 with Service Pack 1 and kernel
+                        3.12.49-11</para>
+                </listitem>
+                <listitem>
+                    <para>CentOS 5.1-5.11, 6.1-6.6, 7.0-7.2 (6.0 lacks required drivers)</para>
+                </listitem>
+                <listitem>
+                    <para>Debian 6.0.0-6.0.8, 7.0.0-7.8.0, 8.0.0</para>
+                </listitem>
+                <listitem>
+                    <para>Oracle Linux 6.1-6.6, 7.0-7.1</para>
+                </listitem>
+                <listitem>
+                    <para>Fedora Server 19-21</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </formalpara>
+            '>
+ 
+<!ENTITY supported-filesystem '
+            <formalpara>
+                <title>Windows (32&ndash; and 64-bit)</title>
+                <para>MBR-partitioned volumes that are formatted using the NTFS file system. GUID
+                Partition Table (GPT) partitioned volumes are not supported.</para>
+            </formalpara>
+            <formalpara>
+                <title>Linux/Unix (64-bit)</title>
+                <para>MBR-partitioned volumes that are formatted using the ext2, ext3, ext4, Btrfs, JFS,
+                or XFS file system. GUID Partition Table (GPT) partitioned volumes are not
+                supported.</para>
+            </formalpara>
+                '>   
+
+
+<!-- DNS -->
+
+<!ENTITY dhcp_options_table '<informaltable>
+			<tgroup cols="2">
+				<colspec colnum="1" colname="col1" colwidth="1*"/>
+				<colspec colnum="2" colname="col2" colwidth="3*"/>
+				<thead>
+					<row>
+						<entry>DHCP Option Name</entry>
+						<entry>Description</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<simpara>domain-name-servers</simpara>
+						</entry>
+						<entry>
+							<simpara>The IP addresses of up to four domain name servers, or &amazondns;. 
+							   The default DHCP option set specifies &amazondns;.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>domain-name</simpara>
+						</entry>
+						<entry>
+							<simpara>If you&apos;re using &amazondns; in <code>us-east-1</code>, specify <code>ec2.internal</code>. 
+							    If you&apos;re using &amazondns; in another region, specify <emphasis>region</emphasis>.compute.internal
+							    (for example, <code>ap-northeast-1.compute.internal</code>).
+							    Otherwise, specify a domain name (for example, <code>MyCompany.com</code>).</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>ntp-servers</simpara>
+						</entry>
+						<entry>
+							<simpara>The IP addresses of up to four Network Time Protocol (NTP) servers.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>netbios-name-servers</simpara>
+						</entry>
+						<entry>
+							<simpara>The IP addresses of up to four NetBIOS name servers.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>netbios-node-type</simpara>
+						</entry>
+						<entry>
+							<simpara>The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). 
+							    For more information about these node types, see <ulink url="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</ulink>. </simpara>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>'>
+			
+<!-- PuTTY -->
+<!ENTITY putty 'PuTTY'>
+<!ENTITY puttygen 'PuTTYgen'>
+<!ENTITY puttyexamplepkfile '&examplekpfile;.ppk'>
+<!ENTITY img-puttygen-key-loaded-popup '/images/puttygen-key-loaded-popup.png'>
+<!ENTITY img-puttygen-key-loaded-main '/images/puttygen-key-loaded-main.png'>
+<!ENTITY img-puttygen-save-confirmation '/images/puttygen-save-confirmation.png'>
+<!ENTITY img-puttygen-main '/images/puttygen-main.png'>
+<!ENTITY img-putty-auth-config '/images/putty-auth-config.png'>
+<!ENTITY img-putty-session-config '/images/putty-session-config.png'>
+
+<!-- Cloudwatch -->
+<!ENTITY cloudwatch_console_blurb '
+<para>The AWS Management Console contains a console for Amazon CloudWatch. In the Amazon CloudWatch console you can search and browse all your AWS resource metrics, view graphs to troubleshoot issues and discover trends, create and edit alarms to be notified of problems, and see at-a-glance overviews of your alarms and AWS resources. For more information, see <ulink url="&url-cw-dev;choosing_your_cloudwatch_interface.html">AWS Management Console</ulink> in the <emphasis>&guide-cw-dev;</emphasis>.</para>
+'>
+
+<!-- Example identifiers and values -->
+<!ENTITY downloadwebsite '<ulink region="SEA;IAD;BJS" url="http://&awsdomain;/developertools/351">Amazon EC2 CLI Tools</ulink><ulink region="DCA" url="http://s3.&region-dca-1;.&api-domain;/ec2-ux-downloads/ec2-api-tools.zip">Amazon EC2 CLI Tools</ulink>'>
+<!ENTITY publickeywebsite '<ulink url="http://&awsdomain;/security/ec2-pkgs-public-key/">EC2 Packages Public Key</ulink>'>
+
+<!ENTITY exampleproductcode '774F4FF8'>
+<!ENTITY exampleproductcode2 '6883959E'>
+
+<!ENTITY examplethumb 'HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE'>
+<!ENTITY exampleuid '111122223333'>
+<!ENTITY exampleuidr '&exampleuid;'>
+<!ENTITY exampleuid2 '444455556666'>
+<!ENTITY publicuid '475219833042'>
+<!ENTITY publicuidr '&publicuid;'>
+
+<!ENTITY amiprefix 'ami-'>
+<!ENTITY exampleakid 'AKIAIOSFODNN7EXAMPLE'>
+<!ENTITY exampleamiid '&amiprefix;2bb65342'>
+<!ENTITY examplepubamiid '&amiprefix;4ca2529b'>
+<!ENTITY exampleexpamiid '&amiprefix;5da964c3'>
+<!ENTITY clusterreferenceami 'ami-42a2532b' >
+<!ENTITY clusterreferencelinuxami 'ami-321eed5b' >
+<!ENTITY ws2012ami 'ami-173d747e'>
+<!ENTITY exampleaminame 'getting-started.manifest.xml'>
+<!ENTITY exampleamimanifest 'getting-started.manifest.xml'>
+<!ENTITY exampleproductmanifest 'awesome-amis/easy-webserver.manifest.xml'>
+
+<!ENTITY instanceprefix 'i-'>
+<!ENTITY exampleinstanceid '&instanceprefix;10a64379'>
+<!ENTITY exampleinstanceid2 '&instanceprefix;10a64380'>
+<!ENTITY exampleinstanceidlong '&instanceprefix;1234567890abcdef0'>
+<!ENTITY exampleinstanceidlong2 '&instanceprefix;0598c7d356eba48d7'>
+
+<!ENTITY reservationprefix 'r-'>
+<!ENTITY examplereservationid '&reservationprefix;fea54097'>
+<!ENTITY examplereservationid2 '&reservationprefix;fea54098'>
+
+<!ENTITY examplehostname 'ec2-203-0-113-25'>
+<!ENTITY examplehostname2 'ec2-198-51-100-245'>
+<!ENTITY exampleprivatehostname 'ip-10-251-50-12'>
+<!ENTITY exampleprivatehostname2 'ip-10-251-50-104'>
+<!ENTITY publicinstancedns '&examplehostname;.compute-1.&api-domain;'>
+<!ENTITY privateinstancedns '&examplehostname;.ec2.internal'>
+<!ENTITY examplepublicinstancedns '&examplehostname;.compute-1.&api-domain;'>
+<!ENTITY exampleprivateinstancedns '&exampleprivatehostname;.ec2.internal'>
+<!ENTITY publicinstanceip '203.0.113.25'>
+<!ENTITY privateinstanceip '10.251.50.12'>
+
+<!ENTITY examplefsfilename 'my-image.fs'>
+<!ENTITY examplefsmnt '/mnt/ec2-fs'>
+<!ENTITY exampleyumconf 'yum-xen.conf'>
+
+<!ENTITY examplegrpid 'my-security-group'>
+<!ENTITY examplegrpid2 'another-security-group'>
+<!ENTITY examplesecretkey 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'>
+
+<!ENTITY examplekpid 'gsg-keypair'>
+<!ENTITY examplekeypairname 'my-key-pair'>
+<!ENTITY examplekeyhash '1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f'>
+<!ENTITY exampleprivatekey '---- BEGIN RSA PRIVATE KEY ----
+MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
+VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
+b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
+BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
+MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
+VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
+b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
+YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
+21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
+rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
+Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
+nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
+FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
+NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE
+-----END RSA PRIVATE KEY-----'>
+<!ENTITY exampleprivatekeymaterial 'MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
+VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
+b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
+BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
+MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
+VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
+b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
+YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
+21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
+rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
+Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
+nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
+FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
+NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE'>
+<!ENTITY examplekpfile 'id_rsa-&examplekpid;'>
+<!ENTITY examplekeyfile 'pk-&examplethumb;.pem'>
+<!ENTITY examplecertfile 'cert-&examplethumb;.pem'>
+<!ENTITY awsaccesskey 'AWS_ACCESS_KEY'>
+<!ENTITY awssecretkey 'AWS_SECRET_KEY'>
+
+<!-- Security -->
+<!ENTITY client_token_description '
+Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <ulink url="&url-ec2-user;Run_Instance_Idempotency.html">How to Ensure Idempotency</ulink> in the <emphasis>&guide-ec2-user;</emphasis>.
+'>
+
+<!ENTITY import_keypair_description '
+<para>Imports the public key from an RSA key pair that you created with a third-party tool. Compare this with <phrase audience="clt"><function>ec2-create-keypair</function></phrase><phrase audience="api"><function>CreateKeyPair</function></phrase>, in which AWS creates the key pair and gives the keys to you (AWS keeps a copy of the public key). With <phrase audience="clt"><function>ec2-import-keypair</function></phrase><phrase audience="api"><function>ImportKeyPair</function></phrase>, you create the key pair and give AWS just the public key. The private key is never transferred between you and AWS.</para>
+
+<para>You can easily create an RSA key pair using the <function>ssh-keygen</function> command line tool (provided with the standard OpenSSH installation). Standard library support for RSA key pair creation is also available in Java, Ruby, Python, and many other programming languages.</para>
+
+<para>Supported formats:</para>
+<itemizedlist>
+	<listitem><para>OpenSSH public key format (the format in ~/.ssh/authorized_keys)</para></listitem>
+	<listitem><para>Base64 encoded DER format</para></listitem>
+	<listitem><para>SSH public key file format as specified in <ulink url="http://tools.ietf.org/html/rfc4716">RFC4716</ulink></para></listitem>
+</itemizedlist>
+<para>DSA keys are not supported. Make sure your key generator is set up to create RSA keys.</para>
+			
+<para>Supported lengths: 1024, 2048, and 4096.</para>
+
+<para>Note that you can have up to five thousand key pairs per region.</para>
+'>
+
+<!ENTITY import_keypair_example_response_1 '
+<programlisting format="linespecific"><![CDATA[<ImportKeyPairResponse xmlns="http://ec2.&api-domain;/doc/]]>&apiversion;<![CDATA[/">
+   <requestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</requestId>
+   <keyName>gsg-keypair</keyName>
+   <keyFingerprint>
+     00:00:00: 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00
+   </keyFingerprint>
+</ImportKeyPairResponse>]]></programlisting>
+'>
+
+<!ENTITY ec2_vpc_security_group_limit_note '<note>
+			<simpara>In Amazon EC2, you can create up to 500 security groups in each region for each account, with
+				up to 100 rules per security group. In Amazon VPC, you can have up to 100 security
+				groups, with up to 50 rules per security group, in each VPC. The security groups for Amazon VPC
+				do not count against the security group limit for Amazon EC2.</simpara>
+		</note>' >
+
+<!ENTITY ec2_policy_example '		    	
+<programlisting>{
+   "Version": "2012-10-17",
+   "Statement": [{
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume"
+      ],
+      "Resource": "arn:aws:ec2:&region_api_default;:123456789012:instance/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:ResourceTag/department": "dev"
+        }
+      }
+   },
+   {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume"
+      ],
+      "Resource": "arn:aws:ec2:&region_api_default;:123456789012:volume/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:ResourceTag/volume_user": "${aws:username}"
+        }
+      }
+   }
+  ]
+}</programlisting>'>
+
+<!-- Tags -->
+
+<!ENTITY tags_cli_example_1 '
+<para>This example command describes all your tags.</para>
+<programlisting><userinput>&genprompt;<command>ec2-describe-tags</command></userinput>
+TAG  ami-1a2b3c4d  image  webserver
+TAG  ami-1a2b3c4d  image  stack  Production
+TAG  i-5f4e3d2a  instance  webserver
+TAG  i-5f4e3d2a  instance  stack  Production
+TAG  i-12345678  instance  database_server
+TAG  i-12345678  instance  stack  Test</programlisting>
+'>
+
+<!ENTITY tags_cli_example_2 '
+<para>This example command describes the tags for your resource with ID ami-1a2b3c4d.</para>
+<programlisting><userinput>&genprompt;<command>ec2-describe-tags</command> --filter "resource-id=ami-1a2b3c4d"</userinput>
+TAG  ami-1a2b3c4d  image  webserver
+TAG  ami-1a2b3c4d  image  stack  Production</programlisting>
+'>
+
+<!ENTITY tags_cli_example_3 '
+<para>This example command describes the tags for all your instances.</para>
+<programlisting><userinput>&genprompt;<command>ec2-describe-tags</command> --filter "resource-type=instance"</userinput>
+TAG  i-5f4e3d2a  instance  webserver
+TAG  i-5f4e3d2a  instance  stack  Production
+TAG  i-12345678  instance  database_server
+TAG  i-12345678  instance  stack  Test</programlisting>
+'>
+
+<!ENTITY tags_cli_example_4 '
+<para>This example command describes the tags for all your instances that have a tag with the key <code>webserver</code>.</para>
+<programlisting><userinput>&genprompt;<command>ec2-describe-tags</command> --filter "resource-type=instance" --filter "key=webserver"</userinput>
+TAG  i-5f4e3d2a  instance  webserver</programlisting>
+'>
+
+<!ENTITY tags_cli_example_5 '
+<para>This example command describes the tags for all your instances that have a tag with the key <code>stack</code> and a value of either <code>Test</code> or <code>Production</code>.</para>
+<programlisting><userinput>&genprompt;<command>ec2-describe-tags</command> --filter "resource-type=instance" --filter "key=stack" --filter "value=Test" --filter "value=Production"</userinput>
+TAG  i-5f4e3d2a  instance  stack  Production
+TAG  i-12345678  instance  stack  Test</programlisting>
+'>
+
+<!ENTITY tags_cli_example_6 '
+<para>This example command describes the tags for all your instances that have a tag with the key <code>Purpose</code> and no value.</para>
+<programlisting><userinput>&genprompt; <command>ec2-describe-tags</command> --filter "resource-type=instance" --filter "key=Purpose" --filter "value="</userinput></programlisting>
+'>
+ 
+<!ENTITY ec2_describe_instance_status_example1 '<programlisting>INSTANCE	i-1a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	active	
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+INSTANCE	i-2a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	active	
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+INSTANCE	i-3a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	active	
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+INSTANCE	i-4a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	retiring	YYYY-MM-DDTHH:MM:SS+0000
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+EVENT	instance-stop	YYYY-MM-DDTHH:MM:SS+0000	The instance is running on degraded hardware
+INSTANCE	i-5a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	retiring	YYYY-MM-DDTHH:MM:SS+0000
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+EVENT	instance-retiring	YYYY-MM-DDTHH:MM:SS+0000	The instance is running on degraded hardware
+INSTANCE	i-6a2b3c4d	&region_api_default;&az4;	running	16	ok	ok	retiring	YYYY-MM-DDTHH:MM:SS+0000
+SYSTEMSTATUS	reachability	passed	
+INSTANCESTATUS	reachability	passed	
+EVENT	instance-stop	YYYY-MM-DDTHH:MM:SS+0000	The instance is running on degraded hardware</programlisting>
+'>
+ 
+<!ENTITY ec2_snapshot_timing_note '<para>You can take a snapshot of an attached volume that is in use. However, snapshots only
+      capture data that has been written to your &EBS; volume at the time the snapshot command is
+      issued. This might exclude any data that has been cached by any applications or the operating
+      system. If you can pause any file writes to the volume long enough to take a snapshot, your
+      snapshot should be complete. However, if you can&apos;t pause all file writes to the volume, you
+      should unmount the volume from within the instance, issue the snapshot command, and then
+      remount the volume to ensure a consistent and complete snapshot. You can remount and use your volume while
+      the snapshot status is <code>pending</code>.</para> 
+      
+      <para>To create a snapshot for &EBS; volumes that serve as root devices, you should stop the
+      instance before taking the snapshot.</para>
+      
+      <para os="linux">To unmount the volume in Linux, use the following command:</para>
+      <programlisting os="linux">umount -d <emphasis>device_name</emphasis></programlisting>
+      <para os="linux">Where <emphasis>device_name</emphasis> is the device name (for example, <filename>/dev/sdh</filename>).</para>
+      
+      <para os="windows">To unmount the volume in Windows, open Disk Management, right-click the volume to unmount, and select <guilabel>Change
+      Drive Letter and Path</guilabel>. Select the mount point to remove, and then click <guilabel>Remove</guilabel>.</para>
+'>
+						

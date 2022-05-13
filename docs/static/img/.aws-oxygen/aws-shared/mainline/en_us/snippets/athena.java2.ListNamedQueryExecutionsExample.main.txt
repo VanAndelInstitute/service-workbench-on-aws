@@ -1,0 +1,15 @@
+    public static void listQueryIds(AthenaClient athenaClient) {
+
+       try {
+             ListQueryExecutionsRequest listQueryExecutionsRequest = ListQueryExecutionsRequest.builder().build();
+             ListQueryExecutionsIterable listQueryExecutionResponses = athenaClient.listQueryExecutionsPaginator(listQueryExecutionsRequest);
+
+            for (ListQueryExecutionsResponse listQueryExecutionResponse : listQueryExecutionResponses) {
+                List<String> queryExecutionIds = listQueryExecutionResponse.queryExecutionIds();
+                System.out.println("\n" +queryExecutionIds);
+          }
+    } catch (AthenaException e) {
+        e.printStackTrace();
+        System.exit(1);
+    }
+  }

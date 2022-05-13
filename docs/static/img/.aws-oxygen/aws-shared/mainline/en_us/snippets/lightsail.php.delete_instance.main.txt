@@ -1,0 +1,17 @@
+$client = new Aws\Lightsail\LightsailClient([
+    'profile' => 'default',
+    'version' => '2016-11-28',
+    'region' => 'us-east-2'
+]);
+
+$instanceName = 'AWS_SDK_PHP-Amazon_Linux';
+
+try {
+    $result = $client->deleteInstance([
+        'instanceName' => $instanceName,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}

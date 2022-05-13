@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Create classes to wrap &REKlong; functions.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.image_detection_imports.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.RekognitionImage.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.RekognitionImage.from_file.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.RekognitionImage.from_bucket.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.DetectFaces.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.DetectLabels.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.RecognizeCelebrities.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.CompareFaces.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.DetectModerationLabels.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.DetectText.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create helper functions to draw bounding boxes and polygons.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.imports.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.show_bounding_boxes.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.show_polygons.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create classes to parse objects returned by &REK;.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionFace.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionCelebrity.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionPerson.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionLabel.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionModerationLabel.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.helper.RekognitionText.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Use the wrapper classes to detect elements in images and display their bounding boxes. The images used in this example can be found on GitHub along with instructions and more code.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.rekognition.Usage_ImageDetection.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

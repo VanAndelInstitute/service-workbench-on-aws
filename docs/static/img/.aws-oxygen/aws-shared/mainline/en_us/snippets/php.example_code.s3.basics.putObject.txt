@@ -1,0 +1,12 @@
+$file_name = "local-file-" . uniqid();
+try {
+    $s3client->putObject([
+        'Bucket' => $bucket_name,
+        'Key' => $file_name,
+        'SourceFile' => 'testfile.txt'
+    ]);
+    echo "Uploaded $file_name to $bucket_name.\n";
+} catch (Exception $exception) {
+    echo "Failed to upload $file_name with error: " . $exception->getMessage();
+    exit("Please fix error with file upload before continuing.");
+}

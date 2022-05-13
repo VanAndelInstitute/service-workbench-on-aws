@@ -1,0 +1,57 @@
+<!ENTITY CAWS 'Code.AWS'>
+<!ENTITY CAWSlong 'Code.AWS'>
+<!ENTITY caws-common-keywords '
+          <keyword>AWS</keyword>
+          <keyword>Developer Tools</keyword>
+          <keyword>Developer Tools Console</keyword>
+          <keyword>Developer Tools Services</keyword>
+          <keyword>Developer Tools AWS</keyword>
+          <keyword>CI/CD</keyword>
+          <keyword>continuous integration</keyword>
+          <keyword>continuous delivery</keyword>
+          <keyword>DevOps</keyword>
+'>
+<!ENTITY CAWS-console-url 'https://integ.stage.quokka.codes/'>
+<!ENTITY CAWS-clone-url 'quokka.clone-url-tbd' >
+<!ENTITY CAWS-console-signin '<para>Open the &CAWS; console at <ulink url="&CAWS-console-url;">&CAWS-console-url;</ulink>.</para>' >
+<!ENTITY CAWS-signup-proc '<procedure>
+   <step>
+    &CAWS-console-signin;
+   </step>
+   <step>
+    <para>Choose <guilabel>Sign in</guilabel>.</para>
+   </step>
+   <step>
+    <para>Follow the bouncing ball.</para>
+   </step>
+  </procedure>' >
+<!ENTITY CAWS-commit-long '<step>
+  <para>Choose <guibutton>Commit</guibutton> to commit your changes. For more information, see
+      <ulink type="documentation" url="XXXXX">XXXXX</ulink>.</para>
+  </step>' >
+
+<!ENTITY CAWS-sample-project-name 'MyExampleProject' >
+<!ENTITY CAWS-admin-user 'MaryMajor' >
+<!ENTITY CAWS-dev1 'LiJuan' >
+<!ENTITY CAWS-dev2 'SaanviSarkar' >
+<!ENTITY CAWS-dev3 'JorgeSouza' >
+<!ENTITY CAWS-dev4 'MateoJackson'>
+<!ENTITY CAWS-dev5 'WangXiulan' >
+<!ENTITY CAWS-dev6 'EfuaOwusu'  >
+<!ENTITY CAWS-example-clone-url 'https://<replaceable>&CAWS-dev1;</replaceable>@&CAWS-clone-url;/<replaceable>&CAWS-sample-project-name;</replaceable>'>
+
+<!-- These are used as the tablistentry identifiers for the tabs for workflow actions. Using common identifiers allows the user to always have the last tab selected. -->
+<!ENTITY workflow-tabid-console 'workflow-tab-console'>
+<!ENTITY workflow-tabid-yaml 'workflow-tab-yaml'>
+
+<!-- These are used as the tablistentry titles for the tabs for workflow actions. Using common identifiers allows the user to always have the last tab selected. -->
+<!ENTITY workflow-tab-console-title 'Console UI'>
+<!ENTITY workflow-tab-yaml-title 'YAML'>
+
+<!-- Until we have firm commitment on what the role names will be -->
+<!ENTITY CAWS-project-admin 'Project administrator' >
+<!ENTITY CAWS-contributor 'Developer' >
+<!ENTITY CAWS-reviewer 'Approver' >
+<!ENTITY CAWS-viewer 'Viewer' >
+<!ENTITY CAWS-org-admin 'Organization administrator' >
+<!ENTITY CAWS-org-member 'Organization member' >

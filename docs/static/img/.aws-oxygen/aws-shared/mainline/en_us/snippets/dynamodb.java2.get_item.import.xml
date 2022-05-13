@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
+import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+import software.amazon.awssdk.services.dynamodb.model.GetItemRequest;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+</programlisting>

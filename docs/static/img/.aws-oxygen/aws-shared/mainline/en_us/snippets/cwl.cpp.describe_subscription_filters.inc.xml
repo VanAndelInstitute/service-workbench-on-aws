@@ -1,0 +1,9 @@
+<programlisting>
+#include <aws/core/Aws.h>
+#include <aws/core/utils/Outcome.h>
+#include <aws/logs/CloudWatchLogsClient.h>
+#include <aws/logs/model/DescribeSubscriptionFiltersRequest.h>
+#include <aws/logs/model/DescribeSubscriptionFiltersResult.h>
+#include <iostream>
+#include <iomanip>
+</programlisting>

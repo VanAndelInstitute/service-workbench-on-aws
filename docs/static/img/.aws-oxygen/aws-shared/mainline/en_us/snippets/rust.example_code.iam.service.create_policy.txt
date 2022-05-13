@@ -1,0 +1,13 @@
+pub async fn create_policy(
+    client: &iamClient,
+    policy_name: &str,
+    policy_document: &str,
+) -> Result<Policy, iamError> {
+    let policy = client
+        .create_policy()
+        .policy_name(policy_name)
+        .policy_document(policy_document)
+        .send()
+        .await?;
+    Ok(policy.policy.unwrap())
+}

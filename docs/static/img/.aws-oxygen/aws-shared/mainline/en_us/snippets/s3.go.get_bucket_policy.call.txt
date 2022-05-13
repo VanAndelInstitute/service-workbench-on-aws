@@ -1,0 +1,5 @@
+    svc := s3.New(sess)
+
+    result, err := svc.GetBucketPolicy(&s3.GetBucketPolicyInput{
+        Bucket: bucket,
+    })

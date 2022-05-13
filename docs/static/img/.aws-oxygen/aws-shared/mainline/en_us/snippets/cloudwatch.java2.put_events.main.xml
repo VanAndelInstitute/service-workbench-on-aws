@@ -1,0 +1,28 @@
+<programlisting>
+    public static void putCWEvents(CloudWatchEventsClient cwe, String resourceArn ) {
+
+        try {
+
+            final String EVENT_DETAILS =
+                "{ \"key1\": \"value1\", \"key2\": \"value2\" }";
+
+            PutEventsRequestEntry requestEntry = PutEventsRequestEntry.builder()
+                    .detail(EVENT_DETAILS)
+                    .detailType("sampleSubmitted")
+                    .resources(resourceArn)
+                    .source("aws-sdk-java-cloudwatch-example")
+                    .build();
+
+            PutEventsRequest request = PutEventsRequest.builder()
+                    .entries(requestEntry)
+                    .build();
+
+            cwe.putEvents(request);
+            System.out.println("Successfully put CloudWatch event");
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

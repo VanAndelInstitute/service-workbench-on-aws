@@ -1,0 +1,11 @@
+<programlisting>
+    jsonFile := flag.String("j", "", "The JSON file containing the items to add to the table")
+    table := flag.String("d", "", "The name of the database table")
+    flag.Parse()
+
+    if *jsonFile == "" || *table == "" {
+        fmt.Println("You must supply a JSON file name and database table name")
+        fmt.Println("-j JSON-FILE -d TABLE")
+        return
+    }
+</programlisting>

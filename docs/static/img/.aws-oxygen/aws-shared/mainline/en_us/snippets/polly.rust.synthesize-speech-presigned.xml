@@ -1,0 +1,20 @@
+<programlisting>
+async fn make_request(
+    client: &Client,
+    content: &str,
+    expires_in: u64,
+) -> Result<(), Box<dyn Error>> {
+    let expires_in = Duration::from_secs(expires_in);
+    let presigned_request = client
+        .synthesize_speech()
+        .output_format(OutputFormat::Mp3)
+        .text(content)
+        .voice_id(VoiceId::Joanna)
+        .presigned(PresigningConfig::expires_in(expires_in)?)
+        .await?;
+
+    println!("From client: {:?}", presigned_request);
+
+    Ok(())
+}
+</programlisting>

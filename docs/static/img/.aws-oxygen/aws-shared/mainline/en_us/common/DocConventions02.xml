@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    chapter 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" 
+  "file://zonbook/docbookx.dtd"
+>
+<chapter id="docconventions" role="topic" xreflabel="Document Conventions">
+	<chapterinfo>
+		<abstract>
+			<para>Consult this guide to common typographical and symbol use conventions for AWS technical
+				publications. </para>
+		</abstract>
+	</chapterinfo>
+	<title id="docconventions.title">Document Conventions</title>
+	<remark>Obsolete; use DocConventions03.xml instead.</remark>
+	<para>This section lists the common typographical and symbol use conventions for AWS technical publications. </para>
+	<section id="textconventions">
+		<title id="textconventions.title">Typographical Conventions</title>
+		<para>This section describes common typographical use conventions. </para>
+		<informaltable>
+			<tgroup cols="2">
+				<?dbhtml table-width="100%" ?>
+				<?dbfo table-width="95%" ?>
+				<colspec colname="col1" colnum="1" colwidth="0.97*"/>
+				<colspec colname="col2" colnum="2" colwidth="3.02*"/>
+				<thead>
+					<row>
+						<entry>Convention</entry>
+						<entry>Description/Example</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<simpara>Call-outs</simpara>
+						</entry>
+						<entry>
+							<simpara>A call-out is a number in the body text to give you a visual reference. <co label="1"/> The reference point is for further discussion elsewhere. </simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Code in text</simpara>
+						</entry>
+						<entry>
+							<simpara>Inline code samples (including XML) and commands are identified with a special font.</simpara>
+							<simpara>You can use the command <code>java -version</code>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Code blocks</simpara>
+						</entry>
+						<entry>
+							<simpara>Blocks of sample code are set apart from the body and marked accordingly.</simpara>
+							<programlisting format="linespecific">
+# ls -l /var/www/html/index.html
+-rw-rw-r--  1 root root 1872 Jun 21 09:33 /var/www/html/index.html
+# date
+Wed Jun 21 09:33:42 EDT 2006</programlisting>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Emphasis</simpara>
+						</entry>
+						<entry>
+							<simpara>Unusual or important words and phrases are marked with a special font. </simpara>
+							<simpara>You <emphasis>must</emphasis> sign up for an account before you can use the service.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Internal cross references</simpara>
+						</entry>
+						<entry>
+							<simpara>References to a section in the same document are marked.</simpara>
+							<simpara>For more information, see <xref endterm="docconventions.title"
+									linkend="docconventions"/>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Logical values, constants, and regular expressions, abstracta</simpara>
+						</entry>
+						<entry>
+							<simpara>A special font is used for expressions that are important to identify, but are not code.</simpara>
+							<simpara>If the value is <code>null</code>, the returned response will be <code>false</code>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Product and feature names</simpara>
+						</entry>
+						<entry>
+							<simpara>Named AWS products and features are identified on first use.</simpara>
+							<simpara>Create an <firstterm>Amazon Machine Image</firstterm> (AMI).</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Operations</simpara>
+						</entry>
+						<entry>
+							<simpara>In-text references to operations.</simpara>
+							<simpara>Use the <function>GetHITResponse</function> operation.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Parameters</simpara>
+						</entry>
+						<entry>
+							<simpara>In-text references to parameters.</simpara>
+							<simpara>The operation accepts the parameter <parameter>AccountID</parameter>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Response elements</simpara>
+						</entry>
+						<entry>
+							<simpara>In-text references to responses.</simpara>
+							<simpara>A container for one <code>CollectionParent</code> and one or more <code>CollectionItems</code>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Technical publication references</simpara>
+						</entry>
+						<entry>
+							<simpara>References to other AWS publications. If the reference is hyperlinked, it is also underscored. </simpara>
+							<simpara>For detailed conceptual information, refer to the <citetitle>Amazon Mechanical Turk Developer Guide</citetitle>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>User entered values</simpara>
+						</entry>
+						<entry>
+							<simpara>A special font marks text that the user types.</simpara>
+							<simpara>At the password prompt, type <userinput>MyPassword</userinput>. </simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>User interface controls and labels</simpara>
+						</entry>
+						<entry>
+							<simpara>Denotes named items on the UI for easy identification.</simpara>
+							<simpara>On the <guilabel>File</guilabel> menu, click <guilabel>Properties</guilabel>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Variables</simpara>
+						</entry>
+						<entry>
+							<simpara>When you see this style, you must change the value of the content when you copy the text of a sample to a command line.</simpara>
+							<simpara>% ec2-register &example-s3-bucket;/image.manifest</simpara>
+							<simpara>See also the following symbol convention.</simpara>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
+	</section>
+	<section id="symbolconventions">
+		<title id="symbolconventions.title">Symbol Conventions</title>
+		<para>This section describes the common use of symbols. </para>
+		<informaltable>
+			<tgroup cols="3">
+				<?dbhtml table-width="100%" ?>
+				<?dbfo table-width="95%" ?>
+				<colspec colname="col1" colnum="1" colwidth="0.8*"/>
+				<colspec colname="col2" colnum="2" colwidth="1*"/>
+				<colspec colname="col3" colnum="3" colwidth="3*"/>
+				<thead>
+					<row>
+						<entry>Convention</entry>
+						<entry>Symbol</entry>
+						<entry>Description/Example</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<simpara>Mutually exclusive parameters</simpara>
+						</entry>
+						<entry>
+							<simpara>(Parentheses | and | vertical | bars)</simpara>
+						</entry>
+						<entry>
+							<simpara>Within a code description, bar separators denote options from which one must be chosen.</simpara>
+							<programlisting>% data = hdfread (start | stride | edge)</programlisting>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Optional parameters</simpara>
+							<simpara>XML variable text</simpara>
+						</entry>
+						<entry>
+							<simpara>[square brackets]</simpara>
+						</entry>
+						<entry>
+							<simpara>Within a code description, square brackets denote completely optional commands or parameters.</simpara>
+							<programlisting>% sed [-n, -quiet]</programlisting>
+							<simpara>Use square brackets in XML examples to differentiate them from tags.</simpara>
+							<programlisting>&lt;CustomerId&gt;[ID]&lt;/CustomerId&gt;</programlisting>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>Variables</simpara>
+						</entry>
+						<entry>
+							<simpara>&lt;arrow brackets&gt;</simpara>
+						</entry>
+						<entry>
+							<simpara>Within a code sample, arrow brackets denote a variable that must be replaced with a valid value.</simpara>
+							<programlisting>% ec2-register &lt;DOC-EXAMPLE-BUCKET&gt;/image.manifest</programlisting>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
+	</section>
+</chapter>

@@ -1,0 +1,44 @@
+    @staticmethod
+    def stop_model(lookoutvision_client, project_name, model_version):
+        """
+        Stops a running Lookout for Vision Model.
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        :param project_name: The name of the project that contains the version of
+                             the model that you want to stop hosting.
+        :param model_version:  The version of the model that you want to stop hosting.
+        """
+        try:
+            logger.info("Stopping model version %s for %s", model_version, project_name)
+            response = lookoutvision_client.stop_model(
+                ProjectName=project_name, ModelVersion=model_version)
+            logger.info("Stopping hosting...")
+
+            status = response["Status"]
+            finished = False
+
+            # Wait until stopped or failed.
+            while finished is False:
+                model_description = lookoutvision_client.describe_model(
+                    ProjectName=project_name, ModelVersion=model_version)
+                status = model_description["ModelDescription"]["Status"]
+
+                if status == "STOPPING_HOSTING":
+                    logger.info("Host stopping in progress...")
+                    time.sleep(10)
+                    continue
+
+                if status == "TRAINED":
+                    logger.info("Model is no longer hosted.")
+                    finished = True
+                    continue
+
+                logger.info("Failed to stop model: %s ", status)
+                finished = True
+
+            if status != "TRAINED":
+                logger.error("Error stopping model: %s", status)
+                raise Exception(f"Error stopping model: {status}")
+        except ClientError:
+            logger.exception("Couldn't stop hosting model.")
+            raise

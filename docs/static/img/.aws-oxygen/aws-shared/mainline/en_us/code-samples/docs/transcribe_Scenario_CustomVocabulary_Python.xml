@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Transcribe an audio file that contains a reading of Jabberwocky by Lewis Carroll. Start by creating functions that wrap &TSC; actions.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.StartTranscriptionJob.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.GetTranscriptionJob.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.DeleteTranscriptionJob.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.CreateVocabulary.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.GetVocabulary.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.UpdateVocabulary.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.ListVocabularies.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.DeleteVocabulary.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Call the wrapper functions to transcribe audio without a custom vocabulary and then with different versions of a custom vocabulary to see improved results.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.transcribe.Scenario_CustomVocabulary.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

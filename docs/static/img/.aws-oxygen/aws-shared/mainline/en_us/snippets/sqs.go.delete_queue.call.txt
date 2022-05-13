@@ -1,0 +1,3 @@
+    _, err := svc.DeleteQueue(&sqs.DeleteQueueInput{
+        QueueUrl: queueURL,
+    })

@@ -1,0 +1,1 @@
+    fmt.Println("URL: " + *result.QueueUrl)

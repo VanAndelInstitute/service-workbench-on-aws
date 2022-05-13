@@ -1,0 +1,12 @@
+ suspend fun createCustomAlias(targetKeyIdVal: String?, aliasNameVal: String?) {
+
+    val request = CreateAliasRequest {
+        aliasName = aliasNameVal
+        targetKeyId = targetKeyIdVal
+    }
+
+    KmsClient { region = "us-west-2" }.use { kmsClient ->
+             kmsClient.createAlias(request)
+             println("$aliasNameVal was successfully created")
+    }
+}

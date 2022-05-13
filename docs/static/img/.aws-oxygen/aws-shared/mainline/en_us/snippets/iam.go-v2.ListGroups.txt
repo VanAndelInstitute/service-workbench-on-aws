@@ -1,0 +1,12 @@
+	// ListGroups
+
+	listGroupsResult, err := service.ListGroups(context.Background(), &iam.ListGroupsInput{})
+
+	if err != nil {
+		panic("Couldn't list groups! " + err.Error())
+	}
+
+	for _, group := range listGroupsResult.Groups {
+		fmt.Printf("group %s - %s\n", *group.GroupId, *group.Arn)
+	}
+

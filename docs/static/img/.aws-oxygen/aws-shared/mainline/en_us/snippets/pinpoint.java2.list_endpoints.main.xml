@@ -1,0 +1,26 @@
+<programlisting>
+    public static void listAllEndpoints(PinpointClient pinpoint,
+                                        String applicationId,
+                                       String userId ) {
+
+        try {
+            GetUserEndpointsRequest endpointsRequest = GetUserEndpointsRequest.builder()
+                    .userId(userId)
+                    .applicationId(applicationId)
+                    .build();
+
+            GetUserEndpointsResponse response = pinpoint.getUserEndpoints(endpointsRequest);
+            List<EndpointResponse> endpoints = response.endpointsResponse().item();
+
+            // Display the results
+            for (EndpointResponse endpoint: endpoints) {
+                System.out.println("The channel type is: "+endpoint.channelType());
+                System.out.println("The address is  "+endpoint.address());
+            }
+
+        } catch ( PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

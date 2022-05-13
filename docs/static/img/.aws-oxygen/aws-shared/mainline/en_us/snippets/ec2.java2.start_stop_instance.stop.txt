@@ -1,0 +1,9 @@
+    public static void stopInstance(Ec2Client ec2, String instanceId) {
+
+        StopInstancesRequest request = StopInstancesRequest.builder()
+                .instanceIds(instanceId)
+                .build();
+
+        ec2.stopInstances(request);
+        System.out.printf("Successfully stopped instance %s", instanceId);
+    }

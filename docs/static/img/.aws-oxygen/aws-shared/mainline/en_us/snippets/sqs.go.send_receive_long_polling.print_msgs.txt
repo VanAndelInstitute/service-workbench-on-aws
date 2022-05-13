@@ -1,0 +1,5 @@
+    fmt.Println("Message IDs:")
+    
+    for _, msg := range results.Messages {
+        fmt.Println("    " + *msg.MessageId)
+    }

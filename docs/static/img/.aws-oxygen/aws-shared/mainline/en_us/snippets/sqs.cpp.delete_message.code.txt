@@ -1,0 +1,16 @@
+    Aws::SQS::Model::DeleteMessageRequest dm_req;
+    dm_req.SetQueueUrl(queue_url);
+    dm_req.SetReceiptHandle(message.GetReceiptHandle());
+
+    auto dm_out = sqs.DeleteMessage(dm_req);
+    if (dm_out.IsSuccess())
+    {
+        std::cout << "Successfully deleted message " << message.GetMessageId()
+            << " from queue " << queue_url << std::endl;
+    }
+    else
+    {
+        std::cout << "Error deleting message " << message.GetMessageId() <<
+            " from queue " << queue_url << ": " <<
+            dm_out.GetError().GetMessage() << std::endl;
+    }

@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun describeEC2Account() {
+
+    Ec2Client { region = "us-west-2" }.use { ec2 ->
+        val accountResults = ec2.describeAccountAttributes(DescribeAccountAttributesRequest{})
+        accountResults.accountAttributes?.forEach { attribute ->
+            println("The name of the attribute is ${attribute.attributeName}")
+
+                attribute.attributeValues?.forEach {myValue->
+                    println("The value of the attribute is ${myValue.attributeValue}")
+                }
+        }
+    }
+ }
+</programlisting>

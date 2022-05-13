@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0-Octane" service="//cloudtrail//" type="all-apis"  origin="octane" value="csctemplate-awsdocs-cloudtrail-1.0-octane"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+
+ <!ENTITY SERVICE "SHORT-NAME-FOR-THE-SERVICE"> 
+ <!ENTITY SERVICElong "LONG-NAME-FOR-THE-SERVICE">
+
+]>
+<!--This is the template for &AWS; services that you can interact with using the command line interface provided by &AWS; CloudShell. 
+  
+If your service is accessed using &AWS; CLI commands, you can boost usage and engagement by showing users how quickly they can start running commands from the shell interface.  
+
+For background and steps regarding CloudShell integration with other services, see 
+https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/AWSCloudShell/ 
+
+Template instructions: 
+
+* Add this template to your user guide package (suggested filename: cloudshell-yourservicename.xml).
+* Remove the following entities from the top of this page and add them to your local phrases-shared.ent file. Replace placeholder values with the names of your &AWS; service:
+  
+       <!ENTITY SERVICE "SHORT-NAME-FOR-THE-SERVICE"> 
+       <!ENTITY SERVICElong "LONG-NAME-FOR-THE-SERVICE">
+            
+* If you choose to insert this topic beneath an existing chapter or section in your documentation, make sure to change the "chapter" tag to "section".
+* Review the content in comments and remarks. Remove both after you've customized the template for your specific service. 
+-->
+<chapter role="topic" id="using-aws-with-cloudshell">
+  <info>
+    <title id="using-aws-with-cloudshell.title">Using &CShell; to work with &SERVICElong;</title>
+    <titleabbrev id="using-aws-with-cloudshell.titleabbrev">Using &CShell;</titleabbrev>
+    <abstract>
+      <para>Learn about how you can use &CShell; to work with &SERVICElong;.</para>
+    </abstract>
+  </info>
+  <remark>Ensure you replace the placeholder values for &SERVICElong; and &SERVICE; with versions of
+    your service name</remark>
+  <para>&CShell; is a browser-based, pre-authenticated shell that you can launch directly from the
+    &console;. You can run &CLI; commands against &AWS; services (including &SERVICElong;) using
+    your preferred shell (Bash, PowerShell or Z shell). And you can do this without needing to
+    download or install command line tools.</para>
+  <para>You <ulink type="documentation"
+      url="cloudshell/latest/userguide/working-with-cloudshell.html#launch-options"
+      >launch &CShell; from the &console;</ulink>, and the &AWS; credentials you used to sign in to
+    the console are automatically available in a new shell session. This pre-authentication of
+    &CShell; users allows you to skip configuring credentials when interacting with &AWS; services
+    such as &SERVICE; using &CLI; version 2 (pre-installed on the shell's compute
+    environment).</para>
+  <section id="cloudshell-permissions">
+    <info>
+      <title id="cloudshell-permissions.title">Obtaining &IAM; permissions for &CShell;</title>
+    </info>
+    <para>Using the access management resources provided by &IAMlong;, administrators can grant
+      permissions to &IAM; users so they can access &CShell; and use the environment's
+      features.</para>
+    <para>The quickest way for an administrator to grant access to users is through an &AWS; managed
+      policy. An <ulink type="documentation" 
+        url="IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies">&AWS; managed
+        policy</ulink> is a standalone policy that's created and administered by &AWS;. The
+      following &AWS; managed policy for &CShellshort; can be attached to &IAM; identities:</para>
+    <itemizedlist>
+      <listitem>
+        <para><code>AWSCloudShellFullAccess</code>: Grants permission to use &CShell; with full
+          access to all features.</para>
+      </listitem>
+    </itemizedlist>
+    <para> If you want to limit the scope of actions that an &IAM; user can perform with &CShell;,
+      you can create a custom policy that uses the <code>AWSCloudShellFullAccess</code> managed
+      policy as a template. For more information about limiting the actions that are available to
+      users in &CShellshort;, see <ulink type="documentation" url="cloudshell/latest/userguide/sec-auth-with-identities.html"
+        >Managing &CShell; access and usage with &IAM; policies</ulink> in the
+        <emphasis>&guide-cshell-user;</emphasis>.</para>
+    <remark>Customize the note below with information about the policies required for an &IAM;
+      entity interacting with your service using &CLI; commands.</remark>
+    <note>
+      <para>Your &IAM; identity also requires a policy that grants permission to make calls to
+        &SERVICE;.<remark>For more information, see <emphasis role="bold">REPLACE WITH LINK TO IAM
+            POLICY INFO FOR YOUR SERVICE</emphasis>.</remark></para>
+    </note>
+  </section>
+  <section id="cshell-examples">
+    <info>
+      <title id="cshell-examples.title">Interacting with &SERVICE; using &CShell;</title>
+    </info>
+    <para>After you launch &CShell; from the &console;, you can immediately start to interact with
+      &SERVICE; using the command line interface. </para>
+    <remark>Replace the following commented-out &S3; example with an example of how you can
+      make calls to your own service.</remark>
+    <!--  
+    <para>In this example, you create an &S3; bucket and then use the <emphasis role="bold"
+        >PutObject</emphasis> method to add your code file as an object in that bucket.</para>
+    -->
+    <note>
+      <para>When using &CLI; in &CShell;, you don't need to download or install any additional
+        resources. Moreover, because you're already authenticated within the shell, you don't need
+        to configure credentials before making calls.</para>
+    </note>
+    <remark>Ensure that you have at least one procedure to walk users through the process of using
+      &CShellshort; to interact with your &AWS; service.</remark>
+    <procedure>
+      <info>
+        <title><remark>Customize this procedure title: </remark>&SERVICE; task using
+          &CShell;</title>
+      </info>
+      <remark>Keep the following steps in your version of the procedure because they apply to all
+        &CShellshort; tasks:</remark>
+      <step>
+        <para>From the &console;, you can launch &CShellshort; by choosing the following options
+          available on the navigation bar:</para>
+        <itemizedlist>
+          <listitem>
+            <para> Choose the &CShellshort; icon. </para>
+          </listitem>
+          <listitem>
+            <para>Start typing "cloudshell" in Search box and then choose the &CShellshort;
+              option.</para>
+          </listitem>
+        </itemizedlist>
+        <remark>Replace the rest of the steps with custom ones related to your service. &CLI;
+          commands work in the standard way in &CShellshort;</remark>
+      </step>
+      <step>
+        <para><remark>ADD YOUR SERVICE STEPS HERE</remark></para>
+      </step>
+      <!--Example of using CloudShell for a task that creates an S3 bucket and then uploads a file to that bucket. Replace with one or more  tasks for your service.  
+     
+      <step>               
+        
+        <para>To create a bucket in a specified &AWS; Region, enter the following command in the
+          CloudShell command line:</para>
+        
+        <programlisting>aws s3api create-bucket - -bucket insert-unique-bucket-name-here - -region us-east-1</programlisting>
+        
+        <para>If the call is successful, the command line displays a response from the service
+          similar to the following output:</para>
+        
+        <programlisting>{
+    "Location": "/insert-unique-bucket-name-here"
+}</programlisting>
+        
+        <note>
+          <para>If you don't adhere to the <ulink
+              url="&url-s3-dev;BucketRestrictions.html#bucketnamingrules">rules for naming
+              buckets</ulink> (using only lowercase letters, for example), the following error is
+            displayed: <errortext>An error occurred (InvalidBucketName) when calling the
+              CreateBucket operation: The specified bucket is not valid.</errortext></para>
+        </note>
+        
+       </step>
+      
+      <step>
+        <para>To upload a file and add it as an object to the bucket that was just created, call the
+            <command>PutObject</command> method: </para>
+        
+        <programlisting>aws s3api put-object - -bucket insert-unique-bucket-name-here - -key add_prog - -body add_prog.py</programlisting>
+        
+        <para>If the object is successfully uploaded to the &S3; bucket, the command line displays a
+          response from the service similar to the following output:</para>
+        
+        <programlisting>{
+           "ETag": "\"ab123c1:w:wad4a567d8bfd9a1234ebeea56\""}</programlisting>
+        
+        <para>The <code>ETag</code> is the hash of the object that's been stored. It can be used to
+            <ulink url="https://aws.amazon.com/premiumsupport/knowledge-center/data-integrity-s3/"
+            >check the integrity of the object uploaded to &S3;</ulink>.</para>
+            
+      </step>   -->
+    </procedure>
+  </section>
+</chapter>

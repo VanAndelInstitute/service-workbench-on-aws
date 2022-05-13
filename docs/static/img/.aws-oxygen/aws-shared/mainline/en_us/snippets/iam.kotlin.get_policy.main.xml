@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun getIAMPolicy(policyArnVal: String?) {
+
+    val request = GetPolicyRequest {
+        policyArn = policyArnVal
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+        val response = iamClient.getPolicy(request)
+        println("Successfully retrieved policy ${response.policy?.policyName}")
+    }
+}
+</programlisting>

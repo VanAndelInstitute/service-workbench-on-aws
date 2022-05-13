@@ -1,0 +1,42 @@
+<programlisting>
+// Import required AWS SDK clients and commands for Node.js.
+import { BatchExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
+import { ddbDocClient } from "../libs/ddbDocClient.js";
+
+const tableName = process.argv[2];
+const movieYear1 = process.argv[3];
+const movieTitle1 = process.argv[4];
+const movieYear2 = process.argv[5];
+const movieTitle2 = process.argv[6];
+
+export const run = async (
+  tableName,
+  movieYear1,
+  movieTitle1,
+  movieYear2,
+  movieTitle2
+) => {
+  try {
+    const params = {
+      Statements: [
+        {
+          Statement: "DELETE FROM " + tableName + "  where year=? and title=?",
+          Parameters: [{ N: movieYear1 }, { S: movieTitle1 }],
+        },
+        {
+          Statement: "DELETE FROM " + tableName + "  where year=? and title=?",
+          Parameters: [{ N: movieYear2 }, { S: movieTitle2 }],
+        },
+      ],
+    };
+    const data = await ddbDocClient.send(
+      new BatchExecuteStatementCommand(params)
+    );
+    console.log("Success. Items deleted.", data);
+    return "Run successfully"; // For unit tests.
+  } catch (err) {
+    console.error(err);
+  }
+};
+run(tableName, movieYear1, movieTitle1, movieYear2, movieTitle2);
+</programlisting>

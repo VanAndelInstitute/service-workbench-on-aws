@@ -1,0 +1,9 @@
+	// DeleteUser
+
+	_, err = service.DeleteUser(context.Background(), &iam.DeleteUserInput{
+		UserName: aws.String(ExampleUserName),
+	})
+
+	if err != nil {
+		panic("Couldn't delete user: " + err.Error())
+	}

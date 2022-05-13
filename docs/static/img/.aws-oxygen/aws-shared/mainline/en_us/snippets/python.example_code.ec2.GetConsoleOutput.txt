@@ -1,0 +1,15 @@
+def get_console_output(instance_id):
+    """
+    Gets the console output of the specified instance.
+
+    :param instance_id: The ID of the instance.
+    :return: The console output as a string.
+    """
+    try:
+        output = ec2.Instance(instance_id).console_output()['Output']
+        logger.info("Got console output for instance %s.", instance_id)
+    except ClientError:
+        logger.exception(("Couldn't get console output for instance %s.", instance_id))
+        raise
+    else:
+        return output

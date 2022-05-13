@@ -1,0 +1,10 @@
+	// Delete a single object.
+	fmt.Println("Delete an object from a bucket")
+	_, err := client.DeleteObject(context.TODO(), &s3.DeleteObjectInput{
+		Bucket: aws.String(name),
+		Key:    aws.String("other/file.jpg"),
+	})
+	if err != nil {
+		panic("Couldn't delete object!")
+	}
+

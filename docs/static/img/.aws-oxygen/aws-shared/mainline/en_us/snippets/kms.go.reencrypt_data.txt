@@ -1,0 +1,59 @@
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/kms"
+    "github.com/aws/aws-sdk-go/service/kms/kmsiface"
+)
+
+// ReEncryptText reencrypts some text using a new AWS Key Management Service (AWS KMS) key (KMS key).
+// Inputs:
+//     svc is an AWS KMS service client
+//     keyID is the ID of a different KMS key
+// Output:
+//     If success, information about the reencrypted text and nil
+//     Otherwise, nil and an error from the call to ReEncrypt
+func ReEncryptText(svc kmsiface.KMSAPI, blob *[]byte, keyID *string) (*kms.ReEncryptOutput, error) {
+    result, err := svc.ReEncrypt(&kms.ReEncryptInput{
+        CiphertextBlob:   *blob,
+        DestinationKeyId: keyID,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    keyID := flag.String("k", "", "The ID of a KMS key")
+    data := flag.String("d", "", "The data to reencrypt, as a string")
+    flag.Parse()
+
+    if *keyID == "" || *data == "" {
+        fmt.Println("You must supply the ID of a KMS key and data")
+        fmt.Println("-k KEY-ID -d DATA")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := kms.New(sess)
+
+    blob := []byte(*data)
+
+    result, err := ReEncryptText(svc, &blob, keyID)
+    if err != nil {
+        fmt.Println("Got error reencrypting data:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Blob (base-64 byte array):")
+    fmt.Println(result.CiphertextBlob)
+}

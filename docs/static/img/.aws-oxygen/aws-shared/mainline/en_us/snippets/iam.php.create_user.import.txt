@@ -1,0 +1,5 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Iam\IamClient; 
+use Aws\Exception\AwsException;

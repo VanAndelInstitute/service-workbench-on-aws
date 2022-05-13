@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Create a class that wraps &CMPlong; operations.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.ComprehendDetect_imports.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.ComprehendDetect.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectDominantLanguage.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectEntities.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectKeyPhrases.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectPiiEntities.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectSentiment.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.DetectSyntax.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Call functions on the wrapper class to detect entities, phrases, and more in a document.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.comprehend.Usage_DetectApis.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

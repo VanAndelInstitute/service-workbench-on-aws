@@ -1,0 +1,9 @@
+    userPtr := flag.String("u", "", "User for whom info is retrieved")
+    orgPtr := flag.String("o", "", "Your organization ID")
+
+    flag.Parse()
+
+    if *userPtr == "" || *orgPtr == "" {
+        flag.PrintDefaults()
+        os.Exit(1)
+    }

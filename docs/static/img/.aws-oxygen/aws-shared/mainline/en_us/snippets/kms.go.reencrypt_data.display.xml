@@ -1,0 +1,4 @@
+<programlisting>
+    fmt.Println("Blob (base-64 byte array):")
+    fmt.Println(result.CiphertextBlob)
+</programlisting>

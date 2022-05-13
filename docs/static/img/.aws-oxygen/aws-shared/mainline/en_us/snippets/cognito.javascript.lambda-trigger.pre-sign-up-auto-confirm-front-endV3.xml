@@ -1,0 +1,40 @@
+<programlisting>
+const attributeList = [];
+const dataEmail = {
+  Name: "email",
+  Value: "EMAIL", // Your email here
+};
+const dataPhoneNumber = {
+  Name: "phone_number",
+  Value: "PHONE_NUMBER", // Your phone number here with +country code and no delimiters in front
+};
+
+const dataEmailDomain = {
+  Name: "custom:domain",
+  Value: "example.com",
+};
+const attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+const attributePhoneNumber = new AmazonCognitoIdentity.CognitoUserAttribute(
+  dataPhoneNumber
+);
+const attributeEmailDomain = new AmazonCognitoIdentity.CognitoUserAttribute(
+  dataEmailDomain
+);
+
+attributeList.push(attributeEmail);
+attributeList.push(attributePhoneNumber);
+attributeList.push(attributeEmailDomain);
+
+const cognitoUser;
+userPool.signUp("username", "password", attributeList, null, function (
+  err,
+  result
+) {
+  if (err) {
+    alert(err);
+    return;
+  }
+  cognitoUser = result.user;
+  console.log("user name is " + cognitoUser.getUsername());
+});
+</programlisting>

@@ -1,0 +1,20 @@
+<programlisting>
+$client = new IamClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2010-05-08'
+]);
+
+try {
+    $result = $client->uploadSSHPublicKey([
+        'SSHPublicKeyBody' => 'SSH_KEY', // REQUIRED
+        'UserName' => 'IAM_USER_NAME', // REQUIRED
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 
+</programlisting>

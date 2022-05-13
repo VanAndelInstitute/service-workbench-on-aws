@@ -1,0 +1,20 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    params := s3.PutBucketWebsiteInput{
+        Bucket: bucket,
+        WebsiteConfiguration: &s3.WebsiteConfiguration{
+            IndexDocument: &s3.IndexDocument{
+                Suffix: indexPage,
+            },
+        },
+    }
+
+    if len(*errorPage) > 0 {
+        params.WebsiteConfiguration.ErrorDocument = &s3.ErrorDocument{
+            Key: errorPage,
+        }
+    }
+
+    _, err := svc.PutBucketWebsite(&params)
+</programlisting>

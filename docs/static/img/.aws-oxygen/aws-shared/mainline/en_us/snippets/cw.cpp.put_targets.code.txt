@@ -1,0 +1,23 @@
+        Aws::CloudWatchEvents::EventBridgeClient cwe;
+
+        Aws::CloudWatchEvents::Model::Target target;
+        target.SetArn(lambda_arn);
+        target.SetId(target_id);
+
+        Aws::CloudWatchEvents::Model::PutTargetsRequest request;
+        request.SetRule(rule_name);
+        request.AddTargets(target);
+
+        auto putTargetsOutcome = cwe.PutTargets(request);
+        if (!putTargetsOutcome.IsSuccess())
+        {
+            std::cout << "Failed to create CloudWatch events target for rule "
+                << rule_name << ": " <<
+                putTargetsOutcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout <<
+                "Successfully created CloudWatch events target for rule "
+                << rule_name << std::endl;
+        }

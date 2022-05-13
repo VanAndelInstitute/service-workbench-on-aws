@@ -1,0 +1,37 @@
+function enableAlarmActions($cloudWatchClient, $alarmNames)
+{
+    try {
+        $result = $cloudWatchClient->enableAlarmActions([
+            'AlarmNames' => $alarmNames
+        ]);
+        
+        if (isset($result['@metadata']['effectiveUri']))
+        {
+            return 'At the effective URI of ' . 
+                $result['@metadata']['effectiveUri'] . 
+                ', actions for any matching alarms have been enabled.';
+        } else {
+            return'Actions for some matching alarms ' . 
+                'might not have been enabled.';
+        }
+
+    } catch (AwsException $e) {
+        return 'Error: ' . $e->getAwsErrorMessage();
+    }
+}
+
+function enableTheAlarmActions()
+{
+    $alarmNames = array('my-alarm');
+
+    $cloudWatchClient = new CloudWatchClient([
+        'profile' => 'default',
+        'region' => 'us-east-1',
+        'version' => '2010-08-01'
+    ]);
+
+    echo enableAlarmActions($cloudWatchClient, $alarmNames);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// enableTheAlarmActions();

@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+     "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="emailTemplatesForNotification" role="topic">
+    <title id="emailTemplatesForNotification.title">Email Notification Templates</title>
+    <indexterm>
+        <primary>payments, notification</primary>
+    </indexterm>
+    <para>Many transactions generate email messages from Amazon Payments, sent to either the buyer, seller, or web site owner in the case of a marketplace transaction. Transaction details are listed in the body of the email message. The content of the email message sent out depends on the transaction and its status.</para>
+    <para>The table here defines the templates that are used, and provides a link to an example message for each.</para>
+    <informaltable>
+        <?dbhtml table-width="100%" ?>
+        <?dbfo table-width="95%" ?>
+        <tgroup cols="2">
+            <colspec colname="col1" colnum="1" colwidth="1.22*"/>
+            <colspec colname="col2" colnum="2" colwidth="1.0*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Email Template Name</para>
+                    </entry>
+                    <entry>
+                        <para>Description</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ACHFailureFCRA">ACHFailureFCRA</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bank account payment not authorized by the bank</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ACHFailureFCRA1.2">ACHFailureFCRA1.2</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bank account payment not authorized by the bank</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ASPMarketplacePaymentSuccessIPN">ASPMarketplacePaymentSuccessIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>IPN message sent after a successful Amazon Simple Pay marketplace
+                            button payment.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ASPMarketplaceRefundIPN">ASPMarketplaceRefundIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>IPN message sent after a refund of an Amazon Simple Pay marketplace
+                            button payment.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPayFailureEmailToRecipient-Don.html">ASPPayFailureEmailToRecipient <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay donation button payment has failed to complete.
+                            The recipient has not received the intended funds.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPayFailureEmailToRecipient-Mkt.html">ASPPayFailureEmailToRecipient <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button payment has failed to
+                            complete. The recipient has not received the intended funds.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPayFailureEmailToRecipient-Std.html">ASPPayFailureEmailToRecipient <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay standard button payment has failed to complete.
+                            The recipient has not received the intended funds.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPaySuccessEmailToRecipient-Don.html">ASPPaySuccessEmailToRecipient <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay donation button payment has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPaySuccessEmailToRecipient-Mkt.html">ASPPaySuccessEmailToRecipient <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button payment has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPPaySuccessEmailToRecipient-Std.html">ASPPaySuccessEmailToRecipient <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay standard button payment has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ASPPaymentSuccessIPN">ASPPaymentSuccessIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>IPN message sent after a successful Amazon Simple Pay standard button
+                            payment.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ASPPromoRegistration">ASPPromoRegistration</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Amazon Payments Business Account created.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPRefundFailedEmailToRecipient.html">ASPRefundFailedEmailToRecipient</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay button refund has failed to complete. The
+                            recipient has not received the intended funds.</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ASPRefundIPN">ASPRefundIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>IPN message sent after a refund of an Amazon Simple Pay standard
+                            button payment.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPRefundSuccessEmailToRecipient-Don.html">ASPRefundSuccessEmailToRecipient <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay donation button refund has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPRefundSuccessEmailToRecipient-Mkt.html">ASPRefundSuccessEmailToRecipient <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button refund has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPRefundSuccessEmailToRecipient-Std.html">ASPRefundSuccessEmailToRecipient <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay standard button refund has succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPReserveFailureEmailToMerchant-Mkt.html">ASPReserveFailureEmailToMerchant <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button reserve request has
+                            failed.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPReserveFailureEmailToMerchant-Std.html">ASPReserveFailureEmailToMerchant <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay standard button reserve request has
+                            failed.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPReserveSuccessEmailToMerchant-Mkt.html">ASPReserveSuccessEmailToMerchant <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button reserve request has
+                            succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPReserveSuccessEmailToMerchant-Std.html">ASPReserveSuccessEmailToMerchant <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay standard button reserve request has
+                            succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPSettleFailureEmailToMerchant.html">ASPSettleFailureEmailToMerchant</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay button settle request has failed.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPSettleSuccessEmailToMerchant-Mkt.html">ASPSettleSuccessEmailToMerchant <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button settle request has
+                            succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ASPSettleSuccessEmailToMerchant-Std.html">ASPSettleSuccessEmailToMerchant <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>An Amazon Simple Pay marketplace button settle request has
+                            succeeded.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/BAVerifFailed.html">BAVerifFailed</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Bank account verification failed</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/BAVerifStartedForBasicPremier.html">BAVerifStartedForPersonalBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Bank account verification started for personal and business account</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/BAVerifStartedForDeveloper.html">BAVerifStartedForDeveloper</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Bank account verification started for developer account</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/BAVerifSuccess.html">BAVerifSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Bank account verification successful</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/BasicInternalPayACHRecovery">PersonalInternalPayACHRecovery</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Pay ACH transaction failed for personal internal account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                <!-- row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc" -->
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CCVerifFailedDeveloper">CCVerifFailedDeveloper</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Credit card verification failed for developer account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/CCVerifFailedPremier.html">CCVerifFailedBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Credit card verification failed for business account</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CashbackRefundSuccess">CashbackRefundSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bing cashback reversed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CashbackRefundSuccessClaimed">CashbackRefundSuccessClaimed</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bing cashback claimed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CashbackRefundSuccessUnclaimed">CashbackRefundSuccessUnclaimed</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bing cashback unclaimed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CertigyReport">CertigyReport</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Transaction failed by Certigy</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CertigyReport.NOT_USED">CertigyReport.NOT_USED</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Transaction failed by Certigy</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ChargebackNotify">ChargebackNotify</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Chargeback initiated on a transaction. Email has been sent to inform the recipient that the chargeback is contestable.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ChargebackNotify.NOT_USED">ChargebackNotify.NOT_USED</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Chargeback initiated on a transaction. Email has been sent to inform the recipient that the chargeback contestable.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ConfirmEmailBasic.html">ConfirmEmailPersonal</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Email confirmation sent to confirm the email address for the personal account.</para>
+                    </entry>
+                </row>
+                <row condition="fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ConfirmEmailDeveloper.html">ConfirmEmailDeveloper</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Email confirmation sent to confirm the email address for a developer account.</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/ConfirmEmailPremium.html">ConfirmEmailBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Email confirmation sent to confirm the email address for a business account.</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ContactSeller">ContactSeller</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Contact the seller regarding a customer question.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CorporateBAAddedBasicPremier">CorporateBAAddedPersonalBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bank account added to personal or business account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/CorporateBAAddedDeveloper">CorporateBAAddedDeveloper</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bank account added to developer account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/DailySummary.html">DailySummary</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Daily summary of transactions</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/DepositFailure.html">DepositFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Deposit failed</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DepositFailureAfterHold">DepositFailureAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Deposit failed after funds were released</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/DepositFundsInitiated.html">DepositFundsInitiated</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Request to deposit funds initiated</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/DepositSuccess.html">DepositSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Deposit successful</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DevPromoActivation">DevPromoActivation</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Free payment processing activated for developer account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DevPromoDeactivation">DevPromoDeactivation</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Free payment processing offer deactivated</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DevPromoExpiry">DevPromoExpiry</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Free payment processing offer expired</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DevPromoRegistration">DevPromoRegistration</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Free payment processing registration</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/DeveloperRegistrationCompleted.html">DeveloperRegistrationCompleted</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Developer registration complete</para>
+                    </entry>
+                </row>
+                
+                <!-- ******* BBEGIN EU Direct Debit emails ***** -->
+                <row condition="fps-api">
+                    <entry>
+                        <para><xref linkend="DDI001" endterm="DDI001.title"/></para>
+                    </entry>
+                    <entry>
+                        <para>Direct Debit notification to acknowledge receipt of Direct Debit Instruction (DDI).</para>
+                    </entry>
+                </row>
+                <row condition="fps-api">
+                    <entry>
+                        <para><xref linkend="DDI-02" endterm="DDI-02.title"/></para>
+                    </entry>
+                    <entry>
+                        <para>Direct Debit notification for confirmation of Direct Debit Instruction setup.</para>
+                    </entry>
+                </row>
+                <row condition="fps-api">
+                    <entry>
+                        <para><xref linkend="DDI-03" endterm="DDI-03.title"/></para>
+                    </entry>
+                    <entry>
+                        <para>Direct Debit notificaton for a Direct Debit Instruction setup failure.</para>
+                    </entry>
+                </row>
+                <row condition="fps-api">
+                    <entry>
+                        <para><xref linkend="DDI-04" endterm="DDI-04.title"/></para>
+                    </entry>
+                    <entry>
+                        <para>Direct Debit notificaton to confirm a transaction request.</para>
+                    </entry>
+                </row>
+                <row condition="fps-api">
+                    <entry>
+                        <para><xref linkend="DDI-05" endterm="DDI-05.title"/></para>
+                    </entry>
+                    <entry>
+                        <para>Direct Debit notificaton of a transaction failure.</para>
+                    </entry>
+                </row>
+                <!-- ******* END EU Direct Debit emails ***** -->
+                
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DispProvCreditReversed">DispProvCreditReversed</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Provisional credit is released</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeComplaintNotAccepted">DisputeComplaintNotAccepted</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Reply to the customer who disputed a transaction that the dispute was not accepted</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeErrCorrectionAfterProvCredit">DisputeErrCorrectionAfterProvCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Email informing customer that provisional credit can be considered as the reimbursement for a transaction in dispute</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeErrorCorrection">DisputeErrorCorrection</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Email informing customer that funds have been reimbursed for the transaction in dispute</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeProvisionalCredit">DisputeProvisionalCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Email stating the provisional credit has been provided in lieu of dispute</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeRecdConfm">DisputeRecdConfm</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Confirmation that a dispute has been received</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeUnauthCorrectionAfterProvCredit">DisputeUnauthCorrectionAfterProvCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Email informing customer that provisional credit given can be considered as a reimbursement for the unauthorized transaction in dispute</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/DisputeUnauthorisedTxnCorrection">DisputeUnauthorisedTxnCorrection</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Email informing customer that funds have been reimbursed for the unauthorized transactions in dispute</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/EmailVerification">EmailVerification</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Account activation email for 1 pay account</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ErrorUnauthorisedCorr">ErrorUnauthorisedCorr</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Credit amount has been put back in your account in lieu of a complaint on your transaction</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/FavorOfSubwayNoCredit">FavorOfSubwayNoCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Transaction investigation found it to be neither erroneous nor unauthorized</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/FavorOfSubwayRevCredit">FavorOfSubwayRevCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Credit reversal due to unauthorized transaction</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/FileMetaInfo">FileMetaInfo</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Should not be in the list</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/FreeForm">FreeForm</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>General purpose email template</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/FundPrepaidFailure.html">FundPrepaidFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Prepaid balance purchase failure</para>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/FundPrepaidSuccess.html">FundPrepaidSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Prepaid balance purchase success</para>
+                    </entry>
+                </row>
+                
+                <!-- Hide Guest Checkout Changes for now
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail1</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment authorization installation email notification sent to guest checkout buyer. Used for multi-use tokens. </para>
+                    </entry>
+                </row>
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail2</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment success email notification sent to guest checkout buyer. Used for multi-use tokens.</para>
+                    </entry>
+                </row>
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail3</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment failure email notification sent to guest checkout buyer. Used for multi-use and single-use token.</para>
+                    </entry>
+                </row>
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail4</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment cancellation email notification sent to guest checkout buyer. Used for multi-use tokens.</para>
+                    </entry>
+                </row>
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail5</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment success email notification sent to guest checkout buyer. Used for single-use tokens.</para>
+                    </entry>
+                </row>
+                <row condition="asp;asp-adv;fps-api">
+                    <entry>
+                        <para><xref linkend="GuestCheckoutEmailExamples" endterm="GuestCheckoutEmailExamples.title">GuestCheckoutEmail6</xref></para>
+                    </entry>
+                    <entry>
+                        <para>Payment refund success email notification sent to guest checkout buyer.</para>
+                    </entry>
+                </row>
+                -->
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_FAILURE">KYC_FAILURE</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>KYC verification has failed for a customer</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_FIRST_LEVEL_FAILURE">KYC_FIRST_LEVEL_FAILURE</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>First-level KYC verification has failed for a customer</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_REMINDER">KYC_REMINDER</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Reminder email to customer who has to enter verification information for KYC checks</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_REMINDER2">KYC_REMINDER2</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Second reminder email to customer who has to enter verification information for KYC checks</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_SECOND_LEVEL_FAILURE">KYC_SECOND_LEVEL_FAILURE</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Second-level KYC verification has failed for a customer</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/KYC_SSN_ENTERED">KYC_SSN_ENTERED</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>KYC SSN Entered</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MonthlyNotif.html">MonthlyNotif</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Notification for monthly statement</para>
+                    </entry>
+                </row>
+                <row condition="asp-don;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MPFeeRegistrationCallerPaysFee.html">MPFeeRegistrationCallerPaysFee</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Marketplace Quickstart</emphasis> </phrase>MarketPlace registration email, fee paid by caller</para>
+                    </entry>
+                </row>
+                <row condition="asp-don;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MPFeeRegistrationRecipientPaysFee.html">MPFeeRegistrationRecipientPaysFee</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Marketplace Quickstart</emphasis> </phrase>MarketPlace registration email, fee paid by recipient</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub;fps-agg;fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MultiPaymentFailure.html">MultiPaymentFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Payment failure from a multi use token (payment authorizations)</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub;fps-agg;fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MultiPaymentSuccess.html">MultiPaymentSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Payment success from a multi use token (payment authorizations)</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/MultiPaymentSuccessACH">MultiPaymentSuccessACH</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Payment success from a multi use token (payment authorizations) for ACH payment method</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MultiuseTokenCancel.html">MultiuseTokenCancel</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Multi-use token has been canceled</para>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/MultiuseTokenInstall.html">MultiuseTokenInstall</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Mulit-use token has been installed</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/Notification.dtd">Notification.dtd</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Data type definition, should not be in this list</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;fps-bas;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentACHInit.html">OnetimePaymentACHInit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Basic and Marketplace Quickstarts</emphasis> </phrase>One-time payment (ACH) initiated</para>
+                    </entry>
+                </row>
+                <row condition="fps-bas;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentFailure.html">OnetimePaymentFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Marketplace Quickstart</emphasis> </phrase>One-time payment failed</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentFailure-Don.html">OnetimePaymentFailure <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time donation button payment failed</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentFailure-Mkt.html">OnetimePaymentFailure <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time marketplace button payment failed</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentFailure-Std.html">OnetimePaymentFailure <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time payment failed for standard button</para>
+                    </entry>
+                </row>
+                <row condition="fps-bas;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentSuccess.html">OnetimePaymentSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Basic and Marketplace Quickstarts</emphasis> </phrase>One-time payment successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentSuccess-Don.html">OnetimePaymentSuccess <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time donation button payment successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentSuccess-Mkt.html">OnetimePaymentSuccess <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time marketplace button payment successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentSuccess-Std.html">OnetimePaymentSuccess <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>One-time standard button payment successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;fps-bas;fps-mkt;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/OnetimePaymentSuccessACH.html">OnetimePaymentSuccessACH</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Basic and Marketplace Quickstarts</emphasis> </phrase>One-time ACH payment successful</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/PBA_IPN">PBA_IPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>IPN Notifications from PBA</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                <!-- row condition="asp-std;asp-don;asp-mkt;fps-bas;fps-mkt" -->
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/PayACHFailure">PayACHFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>ACH payment failed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                <!-- row condition="asp-std;asp-don;asp-mkt;fps-bas;fps-mkt" -->
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/PayACHFailureAfterHold">PayACHFailureAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>ACH payment failed after bank released funds</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/PayACHFailureDuringHold">PayACHFailureDuringHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>ACH payment failed after bank released funds</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/PostpaidTokenCancel.html">PostpaidTokenCancel</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Postpaid token canceled</para>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/PostpaidTokenInstall.html">PostpaidTokenInstall</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Postpaid token installed</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ProvisionalCredit">ProvisionalCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Provisional credit applied to account subject to inquiry</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/RandomDepositFailure">RandomDepositFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Bank account random deposits (for verificaton) failed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/RecipientAccountUsageThresholdBreach">RecipientAccountUsageThresholdBreach</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Recipient account usage limit has been breached</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RecurringPaymentFailure.html">RecurringPaymentFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Recurring payment has failed</para>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RecurringPaymentSuccess.html">RecurringPaymentSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Recurring payment has succeeded</para>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RecurringPaymentSuccessACH.html">RecurringPaymentSuccessACH</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Recurring ACH payment has succeeded</para>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RecurringTokenCancel.html">RecurringTokenCancel</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Recurring token is canceled</para>
+                    </entry>
+                </row>
+                <row condition="fps-adv;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RecurringTokenInstall.html">RecurringTokenInstall</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Advanced Quickstart</emphasis> </phrase>Recurring token is installed</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RefundSuccess-Don.html">RefundSuccess <emphasis role="strong">Donation Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Refund of donation charge successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RefundSuccess-Mkt.html">RefundSuccess <emphasis role="strong">Marketplace Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Refund of marketplace button charge successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RefundSuccess-Std.html">RefundSuccess <emphasis role="strong">Standard Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Refund of standard button successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/RefundSuccess-Sub.html">RefundSuccess <emphasis role="strong">Subscription Button</emphasis></ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Refund of subscription charge successful</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/ReverseCredit">ReverseCredit</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Research on inquiry complete. Provisional credit is now credit.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SenderAccountUsageThresholdBreach">SenderAccountUsageThresholdBreach</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Sender account usage limit threshhold breached</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SettleDebtFailure.html">SettleDebtFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Settle debt transaction failed</para>
+                    </entry>
+                </row>
+                <row condition="fps-agg;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SettleDebtSuccess.html">SettleDebtSuccess</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Aggregated Quickstart</emphasis> </phrase>Settle debt transaction succeeded</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <!-- asp-sub, but we don't expose it any longer -->
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionCancellationByFPSToRecipient">SubscriptionCancellationByFPSToRecipient</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled due to payment failure</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCancellationByFPSToSender.html">SubscriptionCancellationByFPSToSender</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled due to payment failure</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCancellationByRecipientToRecipient.html">SubscriptionCancellationByRecipientToRecipient</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled by subscriber</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCancellationByRecipientToSender.html">SubscriptionCancellationByRecipientToSender</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled notification from merchant to subscriber</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCancellationBySenderToRecipient.html">SubscriptionCancellationBySenderToRecipient</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled notification from merchant</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCancellationBySenderToSender.html">SubscriptionCancellationBySenderToSender</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription canceled notification form merchant</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionCancellationIPN">SubscriptionCancellationIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription cancelation IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionCompletedIPN">SubscriptionCompletedIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription completed IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCreatedEmailForMerchant.html">SubscriptionCreatedEmailForMerchant</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription created notification to merchant</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionCreatedEmailForSender.html">SubscriptionCreatedEmailForSender</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription created notification to subscriber</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionCreatedIPN">SubscriptionCreatedIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription created IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionIPN">SubscriptionIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionPayFailureEmailForMerchant.html">SubscriptionPayFailureEmailForMerchant</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Notify merchant that payment for subscription has failed</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionPayFailureIPN">SubscriptionPayFailureIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription pament failue IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                <!-- row condition="asp-sub" -->
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionPayInitiatedIPN">SubscriptionPayInitiatedIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription payment initiated IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionPaymentMethodChangeEmail.html">SubscriptionPaymentMethodChangeEmail</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription payment failed to subscriber</para>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionPaySuccessEmailForMerchant.html">SubscriptionPaySuccessEmailForMerchant</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Notify merchant that a subscription payment is successful</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/SubscriptionPaySuccessIPN">SubscriptionPaySuccessIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription payment success IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-sub">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/SubscriptionPreNotifEmail.html">SubscriptionPreNotifEmail</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription payment due</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TMITDispatchEmail">TMITDispatchEmail</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>General template used by Amazon to send custom mails</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TokenCancellationWebServiceCallback">TokenCancellationWebServiceCallback</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>This is a deprecated message and not published.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TransactionResultIPN">TransactionResultIPN</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Transaction Result IPN xml</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TransactionResultWebServiceCallback">TransactionResultWebServiceCallback</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>This is a deprecated message and not published.</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustChargebackNotify">TrustChargebackNotify</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Notify sender that chargeback has been received</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustTelecheckPSFDepositAfterHold">TrustTelecheckPSFDepositAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Post settlement failure on a deposit after hold period is over when payment is processed via Telecheck</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustTelecheckPSFPayAfterHold">TrustTelecheckPSFPayAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Post settlement failure on a Pay ACH after hold period is over when payment is processed via Telecheck</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustPSFDepositAfterHold">TrustPSFDepositAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Post settlement failure on a deposit after hold period is over</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustPSFPayACHAfterHold">TrustPSFPayACHAfterHold</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Post settlement failure on a Pay ACH after hold period is over</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/TrustPSFWithdrawFailure">TrustPSFWithdrawFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Withdrawl PSF failure</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/UpgradeBasicToPremium.html">UpgradePersonalToBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Upgrade to business account successful</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/VerifyEmailSuccessBasic.html">VerifyEmailSuccessPersonal</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Email address verified for personal account</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/VerifyEmailSuccessPremier.html">VerifyEmailSuccessBusiness</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Email address verified for business account</para>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/WithdrawFailure.html">WithdrawFailure</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Withdraw failed, bank unable to accept electronic transaction</para>
+                    </entry>
+                </row>
+                <row condition="hidden">
+                    <entry>
+                        <para><ulink url="https://svn.amazon.co.in:3443/Repository/fps/workspaces/trunk/platform-apps/notif/notif-service/src/main/resources/amazon/subway/mapps/notif/eventregistration/WithdrawFailureOnReservePolicy">WithdrawFailureOnReservePolicy</ulink></para>
+                    </entry>
+                    <entry>
+                        <para>Early withdrawl request failed</para>
+                        <simpara>This is a deprecated message and no longer sent.</simpara>
+                    </entry>
+                </row>
+                <row condition="asp-std;asp-don;asp-mkt;asp-sub;fps-acc;fps-api">
+                    <entry>
+                        <para><ulink url="http://&domain;/AmazonFPS/2008-09-17/FPSEmailExamples/WithdrawFundsInitiated.html">WithdrawFundsInitiated</ulink></para>
+                    </entry>
+                    <entry>
+                        <para><phrase condition="fps-api"><emphasis role="strong">Account Management Quickstart</emphasis> </phrase>Withdraw funds has been initiated</para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+   
+    
+    <section id="DirectDebitEmailExamples" condition="fps-api">
+        <title id="DirectDebitEmailExamples.title" >Direct Debit Emails</title>
+        <para>The following sections show example emails.</para>
+        <section id="DDI001">
+            <title  id="DDI001.title">DDI001</title>
+            <para><guilabel>Acknowledge Receipt of Direct Debit Instruction</guilabel></para>
+            <programlisting width="79">Subject: Amazon Payments - Confirmation of the set-up of your Direct Debit Instruction
+
+Amazon Payments Europe S.C.A.
+5 Rue Plaetis, L-2338 Luxembourg
+ 
+Greetings from Amazon Payments,
+Thank you for using Amazon Payments and setting up the Direct Debit Instruction on your Bank Account. 
+By using Direct Debit, you will be able to add funds to your Amazon Payments account.  
+
+Having accepted your Direct Debit details, we would like you to confirm if they are correct. 
+We request you to please check the details below:
+Account name: Thomas Jefferson
+Account number: xxxxx345
+Bank Sort Code: xxxx234
+If any of the above details are incorrect please contact us as soon as possible at https://payments.amazon.co.uk. 
+If your details are correct, you don’t need to do anything and your Direct Debit will be processed as normal. 
+
+Please provide 10 business days before initiating a transaction using Direct Debit on Amazon Payments. 
+You have the right to cancel your Direct Debit at any time. A copy of the Direct Debit Guarantee is below.
+
+For your information, the collections will be made using this reference.
+Service User Number: 
+Reference: 
+
+Thank you for using Amazon Payments. 
+
+For further information, please visit our Help Pages: 
+https://payments.amazon.co.uk
+            </programlisting>
+        </section>
+        
+        <section id="DDI-02" >
+            <title id="DDI-02.title">DDI-02</title>
+            <para><guilabel>Confirmation of setup of Direct Debit Instruction</guilabel></para>
+            <programlisting width="79">Subject: Amazon Payments – Confirmation of your Direct Debit request
+
+Greetings from Amazon Payments,
+
+Thank you for using Amazon Payments. This is a confirmation that your Direct Debit Instruction has been successfully accepted by your bank. 
+You can now use Direct Debit to add funds to your Amazon Payments account.     
+
+The details of your Direct Debit instruction are below:
+Account name: Thomas Jefferson
+Account number: xxxxx345
+Bank Sort Code: xxxx234
+If any of the above details are incorrect please contact us as soon as possible at https://payments.amazon.co.uk. 
+If your transaction details are correct, you don’t need to do anything and your Direct Debit will be processed as normal. 
+
+Thank you for using Amazon Payments. 
+
+For further information, please visit our Help Pages: 
+https://payments.amazon.co.uk
+            </programlisting>
+        </section>
+
+        <section id="DDI-03">
+            <title id="DDI-03.title">DDI-03</title>
+            <para><guilabel>Failure of Direct Debit Instruction Setup</guilabel></para>
+            <programlisting width="79">Subject: Amazon Payments – Important information regarding your Direct Debit request
+
+Greetings from Amazon Payments,
+
+Thank you for using Amazon Payments. 
+This is to inform you that your recent Direct Debit Instruction request was not processed and we received a failure message from your Bank. 
+
+We request you to please check the details of your Direct Debit instruction below:
+Account name: Thomas Jefferson
+Account number: xxxxx345
+Bank Sort Code: xxxx234
+If any of the above details are incorrect please contact us as soon as possible at https://payments.amazon.co.uk. 
+If your Direct Debit Instruction details are accurate we request you to kindly contact your bank to know more about the reason for failure. 
+
+You will not be able to use your Bank Account to add funds to your Amazon Payments account if the Direct Debit Instruction is not set up. 
+We apologize for the inconvenience. 
+
+For further information, please visit our Help Pages: 
+https://payments.amazon.co.uk              
+            </programlisting>
+        </section>
+        
+        <section id="DDI-04">
+            <title id="DDI-04.title">DDI-04</title>
+            <para><guilabel>Direct Debit Transaction Confirmation</guilabel></para>
+            <programlisting width="79">Subject: Amazon Payments – Confirmation of your Direct Debit Transaction request
+								 
+Amazon Payments Europe S.C.A.
+5 Rue Plaetis, L-2338 Luxembourg
+ 
+Greetings from Amazon Payments,
+
+Thank you for using Amazon Payments. 
+This is a confirmation of the Direct Debit transaction you initiated on the [insert date] to add funds to your Amazon Payments account.     
+Having accepted your Direct Debit details, we would like you to confirm if they are correct. 
+
+We request you to please check the details below:
+Account name: Thomas Jefferson
+Account number: xxxxx345
+Amount:  
+Date of Transaction: 
+If any of the above details are incorrect please contact us as soon as possible at https://payments.amazon.co.uk. 
+If your transaction details are correct, you don’t need to do anything, your Direct Debit will be processed as normal
+and you will receive the funds in your Amazon Payments account within 5-7 days of the transaction date. 
+
+Thank you for using Amazon Payments. 
+
+For further information, please visit our Help Pages: 
+https://payments.amazon.co.uk
+            </programlisting>
+        </section>
+        
+        <section id="DDI-05">
+            <title id="DDI-05.title">DDI-05</title>
+             <para><guilabel>Direct Debit Transaction Failure</guilabel></para>
+            <programlisting width="79">Subject: Amazon Payments – Failure of Direct Debit transaction request
+Greetings from Amazon Payments,
+Thank you for using Amazon Payments. 
+This is to inform you that your recent Direct Debit transaction request was not successful and we received a failure message from your bank. 
+
+We request you to contact your bank to know more about the reason this transaction failed.  
+Below are the details of the transaction that was not successful:
+Account name: Thomas Jefferson
+Account number: xxxxx345
+Amount:  
+Date of Transaction: 
+
+Please note your bank account has not been debited for the above amount, 
+and we request you to kindly contact your bank to know more about the reason for failure. 
+
+We apologize for the inconvenience. 
+
+For further information, please visit our Help Pages: 
+https://payments.amazon.co.uk
+          </programlisting>
+        </section>
+     </section>
+        
+</section>

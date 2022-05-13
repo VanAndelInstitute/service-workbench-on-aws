@@ -1,0 +1,15 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.quicksight.QuickSightClient;
+import software.amazon.awssdk.services.quicksight.model.DataSetReference;
+import software.amazon.awssdk.services.quicksight.model.DashboardSourceTemplate;
+import software.amazon.awssdk.services.quicksight.model.DashboardSourceEntity;
+import software.amazon.awssdk.services.quicksight.model.UpdateDashboardRequest;
+import software.amazon.awssdk.services.quicksight.model.UpdateDashboardResponse;
+import software.amazon.awssdk.services.quicksight.model.QuickSightException;
+import software.amazon.awssdk.services.quicksight.model.TemplateSourceAnalysis;
+import software.amazon.awssdk.services.quicksight.model.TemplateSourceEntity;
+import software.amazon.awssdk.services.quicksight.model.CreateTemplateRequest;
+import software.amazon.awssdk.services.quicksight.model.CreateTemplateResponse;
+import java.util.UUID;
+</programlisting>

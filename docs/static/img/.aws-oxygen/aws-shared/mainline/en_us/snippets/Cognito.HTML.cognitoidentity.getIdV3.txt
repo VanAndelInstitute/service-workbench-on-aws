@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Amazon Cognito credentials example</title>
+    <meta charset="utf-8" />
+    <script src="./main.ts"></script>
+    <script>
+      showId();
+    </script>
+  </head>
+  <body onload="showId();">
+    <div id="results">data</div>
+  </body>
+</html>

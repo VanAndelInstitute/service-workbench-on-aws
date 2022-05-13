@@ -1,0 +1,3 @@
+    _, err := svc.DeleteVerifiedEmailAddress(&ses.DeleteVerifiedEmailAddressInput{
+        EmailAddress: address,
+    })

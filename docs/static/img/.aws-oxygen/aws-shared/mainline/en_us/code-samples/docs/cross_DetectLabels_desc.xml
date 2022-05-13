@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code example shows how to:</para>
+    <itemizedlist>
+        <listitem><para>Get EXIF information from a a JPG, JPEG, or PNG file.</para></listitem>
+        <listitem><para>Upload the image file to an &S3long; (&S3;) bucket.</para></listitem>
+        <listitem><para>Use &REKlong; (&REK;) to identify the three top attributes (labels in &REK;) in the file.</para></listitem>
+        <listitem><para>Add the EXIF and label information to a &DDBlong; (&DDB;) table in the Region.</para></listitem>
+    </itemizedlist>
+</block>

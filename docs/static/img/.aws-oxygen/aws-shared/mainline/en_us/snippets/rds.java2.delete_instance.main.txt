@@ -1,0 +1,16 @@
+    public static void deleteDatabaseInstance( RdsClient rdsClient, String dbInstanceIdentifier) {
+        try {
+            DeleteDbInstanceRequest deleteDbInstanceRequest = DeleteDbInstanceRequest.builder()
+                    .dbInstanceIdentifier(dbInstanceIdentifier)
+                    .deleteAutomatedBackups(true)
+                    .skipFinalSnapshot(true)
+                    .build();
+
+            DeleteDbInstanceResponse response = rdsClient.deleteDBInstance(deleteDbInstanceRequest);
+            System.out.print("The status of the database is " + response.dbInstance().dbInstanceStatus());
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }

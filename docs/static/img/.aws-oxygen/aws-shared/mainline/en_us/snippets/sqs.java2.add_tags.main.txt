@@ -1,0 +1,28 @@
+    public static void addTags(SqsClient sqsClient, String queueName) {
+
+        try {
+            GetQueueUrlRequest urlRequest =  GetQueueUrlRequest.builder()
+                    .queueName(queueName)
+                    .build();
+
+            GetQueueUrlResponse getQueueUrlResponse = sqsClient.getQueueUrl(urlRequest);
+            String queueUrl = getQueueUrlResponse.queueUrl();
+
+            HashMap<String, String> addedTags = new HashMap<>();
+            addedTags.put("Team", "Development");
+            addedTags.put("Priority", "Beta");
+            addedTags.put("Accounting ID", "456def");
+
+            TagQueueRequest tagQueueRequest = TagQueueRequest.builder()
+                    .queueUrl(queueUrl)
+                    .tags(addedTags)
+                    .build();
+
+            sqsClient.tagQueue(tagQueueRequest);
+            System.out.println("Tags have been applied to "+queueName);
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

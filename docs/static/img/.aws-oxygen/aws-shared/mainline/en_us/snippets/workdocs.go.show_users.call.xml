@@ -1,0 +1,5 @@
+<programlisting>
+    result, err := svc.DescribeUsers(&workdocs.DescribeUsersInput{
+        OrganizationId: orgID,
+    })
+</programlisting>

@@ -1,0 +1,21 @@
+<programlisting>
+async fn show_log_events(
+    client: &aws_sdk_cloudwatchlogs::Client,
+    group: &str,
+    stream: &str,
+) -> Result<(), aws_sdk_cloudwatchlogs::Error> {
+    let log_events = client
+        .get_log_events()
+        .log_group_name(group)
+        .log_stream_name(stream)
+        .send()
+        .await?;
+    let events = log_events.events().unwrap_or_default();
+    println!("Found {} events:", events.len());
+    for event in events {
+        println!("message: {}", event.message().unwrap_or_default());
+    }
+
+    Ok(())
+}
+</programlisting>

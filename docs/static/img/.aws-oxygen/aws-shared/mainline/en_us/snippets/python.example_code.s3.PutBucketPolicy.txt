@@ -1,0 +1,13 @@
+    def put_policy(self, policy):
+        """
+        Apply a security policy to the bucket. Policies control users' ability
+        to perform specific actions, such as listing the objects in the bucket.
+
+        :param policy: The policy to apply to the bucket.
+        """
+        try:
+            self.bucket.Policy().put(Policy=json.dumps(policy))
+            logger.info("Put policy %s for bucket '%s'.", policy, self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't apply policy to bucket '%s'.", self.bucket.name)
+            raise

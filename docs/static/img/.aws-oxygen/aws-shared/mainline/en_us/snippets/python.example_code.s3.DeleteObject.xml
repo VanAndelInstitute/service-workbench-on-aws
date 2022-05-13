@@ -1,0 +1,17 @@
+<programlisting>
+    def delete(self):
+        """
+        Deletes the object.
+        """
+        try:
+            self.object.delete()
+            self.object.wait_until_not_exists()
+            logger.info(
+                "Deleted object '%s' from bucket '%s'.",
+                self.object.key, self.object.bucket_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't delete object '%s' from bucket '%s'.",
+                self.object.key, self.object.bucket_name)
+            raise
+</programlisting>

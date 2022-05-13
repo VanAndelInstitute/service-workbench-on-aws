@@ -1,0 +1,9 @@
+    orgID := flag.String("o", "", "The ID of your organization")
+
+    flag.Parse()
+
+    if *orgID == "" {
+        fmt.Println("You must supply the organization ID")
+        fmt.Println("-o ORG-ID")
+        return
+    }

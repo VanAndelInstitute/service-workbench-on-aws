@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::IAM::AccessKey -->
+<section id="aws-properties-iam-accesskey" role="topic">
+   <title id="aws-properties-iam-accesskey.title">AWS::IAM::AccessKey</title>
+
+   <para>The AWS::IAM::AccessKey resource type generates a secret access key and assigns it to an IAM user or AWS
+      account.</para>
+
+   <para condition="json">This type supports updates. For more information about updating stacks, see <xref
+         linkend="using-cfn-updating-stacks" endterm="using-cfn-updating-stacks.title"/>.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type": "AWS::IAM::AccessKey",
+   "Properties": {
+      "<link linkend="cfn-iam-accesskey-serial">Serial</link>": <replaceable>Integer</replaceable>,
+      "<link linkend="cfn-iam-accesskey-status">Status</link>": <replaceable>String</replaceable>,
+      "<link linkend="cfn-iam-accesskey-username">UserName</link>": <replaceable>String</replaceable>
+   }
+}     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>Type: AWS::IAM::AccessKey
+Properties:
+  <link linkend="cfn-iam-accesskey-serial">Serial</link>: <replaceable>Integer</replaceable>
+  <link linkend="cfn-iam-accesskey-status">Status</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-iam-accesskey-username">UserName</link>: <replaceable>String</replaceable></programlisting>
+	</section>
+
+   <section id="aws-properties-iam-accesskey-prop">
+      <title id="aws-properties-iam-accesskey-prop.title">Properties</title>
+
+      <variablelist>
+         <varlistentry id="cfn-iam-accesskey-serial">
+            <term>Serial</term>
+            <listitem>
+               <para>This value is specific to &CFN; and can only be <emphasis>incremented</emphasis>. Incrementing this
+                  value notifies &CFN; that you want to rotate your access key. When you update your stack, &CFN; will
+                  replace the existing access key with a new key.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: Integer</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-accesskey-status">
+            <term>Status</term>
+            <listitem>
+               <para>The status of the access key.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para><emphasis>Valid values:</emphasis>
+                  <code condition="json">"Active" or "Inactive"</code>
+               	  <code condition="yaml">Active or Inactive</code>
+               </para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-accesskey-username">
+            <term>UserName</term>
+            <listitem>
+               <para>THe name of the user that the new key will belong to.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section id="aws-properties-iam-accesskey-ref">
+      <title id="aws-properties-iam-accesskey-ref.title">Return Values</title>
+
+      <section>
+         <title>Ref</title>
+         <para>Specifying this resource ID to the intrinsic <function>Ref</function> function will return the
+               <parameter>AccessKeyId</parameter>. For example: <code>AKIAIOSFODNN7EXAMPLE</code>.</para>
+         <para>&ref-more-info;</para>
+      </section>
+
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>SecretAccessKey</term>
+               <listitem>
+                  <para>Returns the secret access key for the specified <type>AWS::IAM::AccessKey</type> resource. For
+                     example: <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY</code>.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>&getatt-more-info;</para>
+      </section>
+   </section>
+
+   <section condition="json">
+      <title>Template Examples</title>
+      <para>To view AWS::IAM::AccessKey snippets, see <link linkend="scenario-iam-accesskey"
+      endterm="scenario-iam-accesskey.title"/>.</para>
+   </section>
+</section>

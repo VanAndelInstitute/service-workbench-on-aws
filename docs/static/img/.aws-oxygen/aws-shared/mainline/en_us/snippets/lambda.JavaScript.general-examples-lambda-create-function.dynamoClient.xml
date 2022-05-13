@@ -1,0 +1,19 @@
+<programlisting>
+const { CognitoIdentityClient } = require ( "@aws-sdk/client-cognito-identity" );
+const { fromCognitoIdentityPool } = require ( "@aws-sdk/credential-provider-cognito-identity" );
+const { DynamoDBClient } = require ( "@aws-sdk/client-dynamodb" );
+
+const REGION = "REGION";
+const IDENTITY_POOL_ID = "IDENTITY_POOL_ID"; // An Amazon Cognito Identity Pool ID.
+
+// Create an Amazon DynamoDB service client object.
+const dynamoClient = new DynamoDBClient({
+  region: REGION,
+  credentials: fromCognitoIdentityPool({
+    client: new CognitoIdentityClient({ region: REGION }),
+    identityPoolId: IDENTITY_POOL_ID,
+  }),
+});
+
+module.exports = { dynamoClient };
+</programlisting>

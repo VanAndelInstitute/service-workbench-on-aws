@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun createIAMUser(usernameVal: String?): String? {
+
+    val request = CreateUserRequest {
+        userName = usernameVal
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+         val response = iamClient.createUser(request)
+         return response.user?.userName
+    }
+ }
+</programlisting>

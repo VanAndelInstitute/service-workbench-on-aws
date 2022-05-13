@@ -1,0 +1,25 @@
+<programlisting>
+    public static void describeVoice(PollyClient polly) {
+
+       try {
+        DescribeVoicesRequest voicesRequest = DescribeVoicesRequest.builder()
+                .languageCode("en-US")
+                .build();
+
+         DescribeVoicesResponse enUsVoicesResult = polly.describeVoices(voicesRequest);
+         Collection<Voice> voices = enUsVoicesResult.voices();
+         Iterator<Voice> iterator = voices.iterator();
+
+           // Get each voice
+           while (iterator.hasNext()) {
+               Voice myVoice = iterator.next();
+               System.out.println("The ID of the voice is " +myVoice.id());
+               System.out.println("The gender of the voice is " + myVoice.gender());
+           }
+
+        } catch (PollyException e) {
+            System.err.println("Exception caught: " + e);
+           System.exit(1);
+        }
+    }
+</programlisting>

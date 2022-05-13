@@ -1,0 +1,18 @@
+    public static void descCluster(EcsClient ecsClient, String clusterArn) {
+
+        try {
+            DescribeClustersRequest clustersRequest = DescribeClustersRequest.builder()
+                    .clusters(clusterArn)
+                   .build();
+
+            DescribeClustersResponse response = ecsClient.describeClusters(clustersRequest);
+            List<Cluster> clusters = response.clusters();
+            for (Cluster cluster: clusters) {
+                System.out.println("The cluster name is "+cluster.clusterName());
+            }
+
+        } catch (EcsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

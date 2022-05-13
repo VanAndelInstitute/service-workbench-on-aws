@@ -1,0 +1,23 @@
+<programlisting>
+    def update_alias(self, alias, current_key_id):
+        """
+        Updates an alias by assigning it to another key.
+
+        :param alias: The alias to reassign.
+        :param current_key_id: The ARN or ID of the key currently associated with the alias.
+        """
+        new_key_id = input(
+            f"Alias {alias} is currently associated with {current_key_id}. "
+            f"Enter another key ID or ARN that you want to associate with {alias}: ")
+        if new_key_id != '':
+            try:
+                self.kms_client.update_alias(AliasName=alias, TargetKeyId=new_key_id)
+            except ClientError as err:
+                logger.error(
+                    "Couldn't associate alias %s with key %s. Here's why: %s",
+                    alias, new_key_id, err.response['Error']['Message'])
+            else:
+                print(f"Alias {alias} is now associated with key {new_key_id}.")
+        else:
+            print("Skipping alias update.")
+</programlisting>

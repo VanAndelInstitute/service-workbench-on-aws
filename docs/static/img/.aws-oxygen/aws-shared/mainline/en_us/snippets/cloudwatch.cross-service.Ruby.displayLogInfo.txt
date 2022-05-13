@@ -1,0 +1,46 @@
+# Displays log information for all of the log streams in a log group in
+# Amazon CloudWatch Logs.
+#
+# Prerequisites:
+#
+# - A log group in Amazon CloudWatch Logs.
+#
+# @param cloudwatchlogs_client [Amazon::CloudWatchLogs::Client] An initialized
+#   Amazon CloudWatch Logs client.
+# @param log_group_name [String] The name of the log group.
+# @example
+#   display_log_data(
+#     Amazon::CloudWatchLogs::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-cloudwatch-log'
+#   )
+def display_log_data(cloudwatchlogs_client, log_group_name)
+  puts 'Attempting to display log stream data for the log group ' \
+    "named '#{log_group_name}'..."
+  describe_log_streams_response = cloudwatchlogs_client.describe_log_streams(
+    log_group_name: log_group_name,
+    order_by: 'LastEventTime',
+    descending: true
+  )
+  if describe_log_streams_response.key?(:log_streams) &&
+      describe_log_streams_response.log_streams.count.positive?
+    describe_log_streams_response.log_streams.each do |log_stream|
+      get_log_events_response = cloudwatchlogs_client.get_log_events(
+        log_group_name: log_group_name,
+        log_stream_name: log_stream.log_stream_name
+      )
+      puts "\nLog messages for '#{log_stream.log_stream_name}':"
+      puts '-' * (log_stream.log_stream_name.length + 20)
+      if get_log_events_response.key?(:events) &&
+          get_log_events_response.events.count.positive?
+        get_log_events_response.events.each do |event|
+          puts event.message
+        end
+      else
+        puts 'No log messages for this log stream.'
+      end
+    end
+  end
+rescue StandardError => e
+  puts 'Error getting information about the log streams or their messages: ' \
+    "#{e.message}"
+end

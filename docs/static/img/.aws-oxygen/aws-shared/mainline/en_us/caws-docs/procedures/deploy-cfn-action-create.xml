@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+     <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+<tablist>
+    <tablistentry id="&workflow-tabid-console;">
+        <tabname>&workflow-tab-console-title;</tabname>
+        <tabcontent>
+            <procedure>
+                <title>To add the 'Deploy &CFNshort; stack' action</title>
+                <step>&CAWS-console-signin;</step>
+                <step>
+                    <para>On the left, choose <guilabel>CI/CD</guilabel> and then choose
+                            <guilabel>Workflows</guilabel>.</para>
+                </step>
+                <step>
+                    <para>Choose a workflow you created earlier. For details, see <xref
+                            linkend="deploy-cfn-action-create-workflow"/></para>
+                </step>
+                <step>
+                    <para>Choose <guilabel>
+                            <inlinemediaobject role="polaris-icon">
+                                <imageobject style="notreatment">
+                                    <imagedata role="edit|normal" depth="10px" width="10px"
+                                        scalefit="1"/>
+                                </imageobject>
+                            </inlinemediaobject> Visual</guilabel>. </para>
+                </step>
+                <step>
+                    <para>Choose <guilabel>
+                            <inlinemediaobject role="polaris-icon">
+                                <imageobject style="notreatment">
+                                    <imagedata role="add-plus|normal" depth="10px" width="10px"
+                                        scalefit="1"/>
+                                </imageobject>
+                            </inlinemediaobject> Add</guilabel>. </para>
+                </step>
+                <step>
+                    <para>In the <guilabel>Select an action</guilabel> area, drag <guilabel>Deploy
+                            &CFNshort; stack</guilabel> to the desired position in the
+                        workflow.</para>
+                </step>
+                <step>
+                    <para>Specify information on the <guilabel>Inputs</guilabel>,
+                            <guilabel>Config</guilabel>, and <guilabel>Outputs</guilabel> tabs. For
+                        details, see the following procedures. </para>
+                </step>
+            </procedure>
+            <procedure>
+                <title>(Optional) To configure the Inputs tab</title>
+                <step>
+                    <para>XXX(Optional) For <guilabel>Action inputs</guilabel>, choose an artifact
+                        that contains the &CFNshort; template you want to deploy. If your &CFNshort;
+                        template is not contained within an artifact, leave <guilabel>Action
+                            inputs</guilabel> empty. </para>
+                    <note>
+                        <para>For the beta release, you can only specify one input artifact.</para>
+                    </note>
+                    <note>
+                        <para>Also specify the artifact in the <guilabel>Template</guilabel> field
+                            described below.</para>
+                    </note>
+                </step>
+            </procedure>
+            <procedure>
+                <title>To configure the Config tab</title>
+                <step>
+                    <para>For <guilabel>Action name</guilabel>, specify the name of the
+                        action.</para>
+                    <para>Default:<guilabel>Deploy &CFNshort; action</guilabel>.</para>
+                </step>
+                <step>
+                    <para>For <guilabel>Stack name</guilabel>, specify the name of the &CFNshort;
+                        stack you want to deploy.</para>
+                </step>
+                <step>
+                    <para>XXX(Optional) <guilabel>Stack description - optional</guilabel>: A
+                        description for the &CFNshort; stack you want to deploy.</para>
+                </step>
+                <step>
+                    <para>Under <guilabel>Stack template</guilabel>, do one of the following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>XXXIf your &CFNshort; template resides in an artifact, choose
+                                    <guilabel>From workflow</guilabel>, and then do the
+                                following:</para>
+                            <orderedlist>
+                                <listitem>
+                                    <para>For <guilabel>Template input source</guilabel>, choose the
+                                        XXXworkflow action that creates this artifact.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>For <guilabel>Template path</guilabel>, enter
+                                                <userinput><replaceable>ArtifactName::TemplateFileName</replaceable></userinput>
+                                        where <replaceable>ArtifactName</replaceable> is replaced
+                                        with the name of the artifact that contains your &CFNshort;
+                                        template, and <replaceable>TemplateFileName</replaceable> is
+                                        replaced with the path and filename of the &CFNshort;
+                                        template within the artifact. For example:</para>
+                                    <para>
+                                        <code>My&CFNshort;Artifact::source/My&CFNshort;TemplateFile.yml</code></para>
+                                    <note>
+                                        <para>Also specify the artifact on the <code>Inputs</code>
+                                            tab described above.</para>
+                                    </note>
+                                </listitem>
+                            </orderedlist>
+                        </listitem>
+                        <listitem>
+                            <para>XXXIf your &CFNshort; template resides in an &S3; bucket, choose
+                                    <guilabel>From path</guilabel>, and then for <guilabel>Template
+                                    path</guilabel>, enter the template's &S3; <guilabel>Object
+                                    URL</guilabel>, which you can find in the &S3; console. For
+                                example:</para>
+                            <para>
+                                <code>https://my-bucket.s3.region.amazonaws.com/filepath/My&CFNshort;TemplateFile.yml</code></para>
+                        </listitem>
+                    </itemizedlist>
+                </step>
+                <step>
+                    <para>XXX Under <guilabel>Accessing &CFN;</guilabel>, do the following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>For <guilabel>Administration role ARN</guilabel>, specify the ARN
+                                of the administration role you created earlier. For details on this
+                                role, see <xref linkend="deploy-cfn-action-create-admin-role"
+                                />.</para>
+                        </listitem>
+                        <listitem>
+                            <para>For <guilabel>Stack role ARN</guilabel>, specify the ARN of the
+                                stack role you created earlier. For details on this role, see <xref
+                                    linkend="deploy-cfn-action-create-stack-role"/>.</para>
+                        </listitem>
+                    </itemizedlist>
+                </step>
+                <step>
+                    <para>(Optional) Under <guilabel>Rollback and safety</guilabel>, do the
+                        following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>(Optional) For <guilabel>Rollback on failure</guilabel>, choose
+                                    <guilabel>Enable</guilabel> to allow the action to undo all its
+                                changes, including &CFNshort; changes, if the action
+                                fails.XXXWHATIFROLLBACKSDIFFERENTINCFN?? Choose
+                                    <guilabel>Disable</guilabel> to preserve all the changes made by
+                                the action up until the point of failure.</para>
+                            <para>Default: Enable</para>
+                        </listitem>
+                    </itemizedlist>
+                </step>
+                <step>
+                    <para>(Optional) Under <guilabel>Monitoring</guilabel>, do the following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>(Optional) For <guilabel>Alarm ARN</guilabel>, specify the ARN of
+                                the &CWlong; alarm that you want to use as a rollback
+                                trigger.</para>
+                            <para>You can have a maximum of five rollback
+                                triggers.XXXGOTINFOFROMCFNDOCS</para>
+                        </listitem>
+                        <listitem>
+                            <para>(Optional) For <guilabel>Monitoring time in minutes</guilabel>,
+                                specify a an amount of time between 0-180 minutes during which
+                                &CFNshort; monitors the specified alarms. Monitoring begins
+                                    <emphasis>after</emphasis> the stack is created or updated. If
+                                the specified alarm occurs within the specified monitoring time,
+                                then the deployment fails, and is rolled back or not rolled back
+                                depending on how you have set the <guilabel>Rollback on
+                                    failure</guilabel> setting.</para>
+                            <para>Default: 0 (XXXXdisabled, meaning the specified alarms are always
+                                monitored
+                                https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html)</para>
+                        </listitem>
+                    </itemizedlist>
+                </step>
+            </procedure>
+            <itemizedlist>
+                <title>To configure the Outputs tab</title>
+                <para>Specifies your output variables. For more information, see <xref
+                        linkend="configure-output-variables-deployment"
+                        endterm="configure-output-variables-deployment.title"/>.</para>
+                <listitem>
+                    <para><guilabel>Variable</guilabel>: Specifies a variable that you want to make
+                        available to downstream stages in the
+                        workflow.XXXWHEREDOESTHISCOMEFROM?</para>
+                </listitem>
+                <listitem>
+                    <para><guilabel>Value</guilabel>: A value for the variable.
+                        XXXANYMOREDOCSHERE?</para>
+                </listitem>
+            </itemizedlist>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry id="&workflow-tabid-yaml;">
+        <tabname>&workflow-tab-yaml-title;</tabname>
+        <tabcontent>
+            <procedure>
+                <title>To add the 'Deploy &CFNshort; stack' action</title>
+                <step>&CAWS-console-signin;</step>
+                <step>
+                    <para>On the left, choose <guilabel>CI/CD</guilabel> and then choose
+                            <guilabel>Workflows</guilabel>.</para>
+                </step>
+                <step>
+                    <para>Choose a workflow from the list, or create one. For details on creating a
+                        workflow, see <xref linkend="workflows-getting-started"
+                            endterm="workflows-getting-started.title"/>.</para>
+                </step>
+                <step>
+                    <para>Choose <guilabel>
+                            <inlinemediaobject role="polaris-icon">
+                                <imageobject style="notreatment">
+                                    <imagedata role="edit|normal" depth="10px" width="10px"
+                                        scalefit="1"/>
+                                </imageobject>
+                            </inlinemediaobject> YAML</guilabel>. </para>
+                </step>
+                <step>
+                    <para>Choose <guilabel>
+                            <inlinemediaobject role="polaris-icon">
+                                <imageobject style="notreatment">
+                                    <imagedata role="add-plus|normal" depth="10px" width="10px"
+                                        scalefit="1"/>
+                                </imageobject>
+                            </inlinemediaobject> Add</guilabel>. </para>
+                </step>
+                <step>
+                    <para>In the <guilabel>Select an action</guilabel> area, choose <guilabel>Deploy
+                            &CFNshort; stack</guilabel>. The YAML code for the action appears on the
+                        left.</para>
+                </step>
+                <step>
+                    <para>Modify the properties in the YAML code according to your needs. An
+                        explanation of each available property is provided below.</para>              
+                </step>
+            </procedure>
+            <xi:include href="file://AWSShared/caws-docs/snippets/deploy-cfn-action-yaml.xml"/>
+        </tabcontent>
+    </tablistentry>
+</tablist>

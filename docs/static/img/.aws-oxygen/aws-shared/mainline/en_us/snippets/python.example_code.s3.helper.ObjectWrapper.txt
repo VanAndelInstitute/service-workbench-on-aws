@@ -1,0 +1,4 @@
+class ObjectWrapper:
+    def __init__(self, s3_object):
+        self.object = s3_object
+        self.key = self.object.key

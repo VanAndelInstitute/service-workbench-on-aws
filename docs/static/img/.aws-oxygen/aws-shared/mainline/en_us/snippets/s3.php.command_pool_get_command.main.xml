@@ -1,0 +1,21 @@
+<programlisting>
+$client = new S3Client([
+    'region'  => 'us-standard',
+    'version' => '2006-03-01'
+]);
+
+$bucket = 'example';
+$commands = [
+    $client->getCommand('HeadObject', ['Bucket' => $bucket, 'Key' => 'a']),
+    $client->getCommand('HeadObject', ['Bucket' => $bucket, 'Key' => 'b']),
+    $client->getCommand('HeadObject', ['Bucket' => $bucket, 'Key' => 'c'])
+];
+
+$pool = new CommandPool($client, $commands);
+
+// Initiate the pool transfers
+$promise = $pool->promise();
+
+// Force the pool to complete synchronously
+$promise->wait();
+</programlisting>

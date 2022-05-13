@@ -1,0 +1,20 @@
+<programlisting>
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::UpdateAccessKeyRequest request;
+        request.SetUserName(user_name);
+        request.SetAccessKeyId(accessKeyId);
+        request.SetStatus(status);
+
+        auto outcome = iam.UpdateAccessKey(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "Successfully updated status of access key " <<
+                accessKeyId << " for user " << user_name << std::endl;
+        }
+        else
+        {
+            std::cout << "Error updated status of access key " << accessKeyId <<
+                " for user " << user_name << ": " <<
+                outcome.GetError().GetMessage() << std::endl;
+        }
+</programlisting>

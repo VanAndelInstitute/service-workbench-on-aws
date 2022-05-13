@@ -1,0 +1,7 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    _, err := svc.DeleteBucketPolicy(&s3.DeleteBucketPolicyInput{
+        Bucket: bucket,
+    })
+</programlisting>

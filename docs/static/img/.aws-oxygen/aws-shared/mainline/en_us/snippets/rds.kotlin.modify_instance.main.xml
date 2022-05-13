@@ -1,0 +1,17 @@
+<programlisting>
+suspend  fun updateIntance(dbInstanceIdentifierVal: String?, masterUserPasswordVal: String?) {
+
+
+    val request = ModifyDbInstanceRequest {
+            dbInstanceIdentifier = dbInstanceIdentifierVal
+            publiclyAccessible = true
+            masterUserPassword = masterUserPasswordVal
+    }
+
+    RdsClient { region = "us-west-2" }.use { rdsClient ->
+        val instanceResponse = rdsClient.modifyDbInstance(request)
+        println("The ARN of the modified database is ${instanceResponse.dbInstance?.dbInstanceArn}")
+
+    }
+}
+</programlisting>

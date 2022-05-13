@@ -1,0 +1,12 @@
+<programlisting>
+    orgPtr := flag.String("o", "", "The ID of your organization")
+    userPtr := flag.String("u", "", "User for whom info is retrieved")
+
+    flag.Parse()
+
+    if *orgPtr == "" {
+        fmt.Println("You must supply the organization ID")
+        flag.PrintDefaults()
+        os.Exit(1)
+    }
+</programlisting>

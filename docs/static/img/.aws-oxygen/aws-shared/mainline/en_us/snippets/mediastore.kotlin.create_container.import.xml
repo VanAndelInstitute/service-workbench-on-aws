@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.mediastore.MediaStoreClient
+import aws.sdk.kotlin.services.mediastore.model.CreateContainerRequest
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,80 @@
+<programlisting>
+def archive_movies(movie_table, movie_data):
+    """
+    Archives a list of movies to a newly created archive table and then deletes the
+    movies from the original table.
+
+    Uses the Boto3 Table.batch_writer() function to handle putting items into the
+    archive table and deleting them from the original table. Shows how to configure
+    the batch_writer to ensure there are no duplicates in the batch. If a batch
+    contains duplicates, Amazon DynamoDB rejects the request and returns a
+    ValidationException.
+
+    :param movie_table: The table that contains movie data.
+    :param movie_data: The list of keys that identify the movies to archive.
+    :return: The newly created archive table.
+    """
+    try:
+        # Copy the schema and attribute definition from the original movie table to
+        # create the archive table.
+        archive_table = dynamodb.create_table(
+            TableName=f'{movie_table.name}-archive',
+            KeySchema=movie_table.key_schema,
+            AttributeDefinitions=movie_table.attribute_definitions,
+            ProvisionedThroughput={
+                'ReadCapacityUnits':
+                    movie_table.provisioned_throughput['ReadCapacityUnits'],
+                'WriteCapacityUnits':
+                    movie_table.provisioned_throughput['WriteCapacityUnits']
+            })
+        logger.info("Table %s created, wait until exists.", archive_table.name)
+        archive_table.wait_until_exists()
+    except ClientError:
+        logger.exception("Couldn't create archive table for %s.", movie_table.name)
+        raise
+
+    try:
+        # When the list of items in the batch contains duplicates, Amazon DynamoDB
+        # rejects the request. By default, the batch_writer keeps duplicates.
+        with archive_table.batch_writer() as archive_writer:
+            for item in movie_data:
+                archive_writer.put_item(Item=item)
+        logger.info("Put movies into %s.", archive_table.name)
+    except ClientError as error:
+        if error.response['Error']['Code'] == 'ValidationException':
+            logger.info(
+                "Got expected exception when trying to put duplicate records into the "
+                "archive table.")
+        else:
+            logger.exception(
+                "Got unexpected exception when trying to put duplicate records into "
+                "the archive table.")
+            raise
+
+    try:
+        # When `overwrite_by_pkeys` is specified, the batch_writer overwrites any
+        # duplicate in the batch with the new item.
+        with archive_table.batch_writer(
+                overwrite_by_pkeys=['year', 'title']) as archive_writer:
+            for item in movie_data:
+                archive_writer.put_item(Item=item)
+        logger.info("Put movies into %s.", archive_table.name)
+    except ClientError:
+        logger.exception(
+            "Couldn't put movies into %s.", archive_table.name)
+        raise
+
+    try:
+        with movie_table.batch_writer(
+                overwrite_by_pkeys=['year', 'title']) as movie_writer:
+            for item in movie_data:
+                movie_writer.delete_item(
+                    Key={'year': item['year'], 'title': item['title']})
+        logger.info("Deleted movies from %s.", movie_table.name)
+    except ClientError:
+        logger.exception(
+            "Couldn't delete movies from %s.", movie_table.name)
+        raise
+
+    return archive_table
+</programlisting>

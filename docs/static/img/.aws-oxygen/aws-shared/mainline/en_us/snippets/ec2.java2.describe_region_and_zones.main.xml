@@ -1,0 +1,35 @@
+<programlisting>
+    public static void describeEC2RegionsAndZones( Ec2Client ec2) {
+        try {
+
+            DescribeRegionsResponse regionsResponse = ec2.describeRegions();
+
+            for(Region region : regionsResponse.regions()) {
+                System.out.printf(
+                        "Found Region %s " +
+                                "with endpoint %s",
+                        region.regionName(),
+                        region.endpoint());
+                System.out.println();
+            }
+
+            DescribeAvailabilityZonesResponse zonesResponse =
+                    ec2.describeAvailabilityZones();
+
+            for(AvailabilityZone zone : zonesResponse.availabilityZones()) {
+                System.out.printf(
+                        "Found Availability Zone %s " +
+                                "with status %s " +
+                                "in region %s",
+                        zone.zoneName(),
+                        zone.state(),
+                        zone.regionName());
+                System.out.println();
+            }
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

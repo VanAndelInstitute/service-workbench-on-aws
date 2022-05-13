@@ -1,0 +1,27 @@
+<programlisting>
+async fn add_item(
+    client: &Client,
+    item: Item,
+) -> Result<(), SdkError<aws_sdk_dynamodb::error::PutItemError>> {
+    let user_av = AttributeValue::S(item.value);
+    let type_av = AttributeValue::S(item.utype);
+    let age_av = AttributeValue::S(item.age);
+    let first_av = AttributeValue::S(item.first_name);
+    let last_av = AttributeValue::S(item.last_name);
+
+    match client
+        .put_item()
+        .table_name(item.table)
+        .item(item.key, user_av)
+        .item("account_type", type_av)
+        .item("age", age_av)
+        .item("first_name", first_av)
+        .item("last_name", last_av)
+        .send()
+        .await
+    {
+        Ok(_) => Ok(()),
+        Err(e) => Err(e),
+    }
+}
+</programlisting>

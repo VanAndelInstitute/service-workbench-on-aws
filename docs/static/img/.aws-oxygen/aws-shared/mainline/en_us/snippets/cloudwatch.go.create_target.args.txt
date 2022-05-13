@@ -1,0 +1,9 @@
+    rule := flag.String("r", "", "The name of the rule")
+    lambdaARN := flag.String("l", "", "The ARN of the Lambda function that is invoked")
+    targetID := flag.String("t", "", "The identifier for the target")
+    flag.Parse()
+
+    if *rule == "" || *lambdaARN == "" || *targetID == "" {
+        fmt.Println("You must supply a rule name (-r RULE), Lambda ARN (-l LAMBDA) and target ID (-t TARGET)")
+        return
+    }

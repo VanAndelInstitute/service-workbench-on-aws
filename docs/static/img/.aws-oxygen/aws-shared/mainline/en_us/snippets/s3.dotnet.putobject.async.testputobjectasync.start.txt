@@ -1,0 +1,17 @@
+        public static void TestPutObjectAsync(string bucket)
+        {
+            // Create a client
+            AmazonS3Client client = new AmazonS3Client();
+
+            PutObjectResponse response;
+            IAsyncResult asyncResult;
+
+            //
+            // Create a PutObject request object using the supplied bucket name.
+            //
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = bucket,
+                Key = "Item0-Synchronous",
+                ContentBody = "Put S3 object synchronously."
+            };

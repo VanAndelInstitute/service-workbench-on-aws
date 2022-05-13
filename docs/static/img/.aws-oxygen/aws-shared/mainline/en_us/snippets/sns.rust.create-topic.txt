@@ -1,0 +1,10 @@
+async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
+    let resp = client.create_topic().name(topic_name).send().await?;
+
+    println!(
+        "Created topic with ARN: {}",
+        resp.topic_arn().unwrap_or_default()
+    );
+
+    Ok(())
+}

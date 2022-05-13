@@ -1,0 +1,18 @@
+    public static void subTextSNS( SnsClient snsClient, String topicArn, String phoneNumber) {
+
+        try {
+            SubscribeRequest request = SubscribeRequest.builder()
+                .protocol("sms")
+                .endpoint(phoneNumber)
+                .returnSubscriptionArn(true)
+                .topicArn(topicArn)
+                .build();
+
+            SubscribeResponse result = snsClient.subscribe(request);
+            System.out.println("Subscription ARN: " + result.subscriptionArn() + "\n\n Status is " + result.sdkHttpResponse().statusCode());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

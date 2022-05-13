@@ -1,0 +1,14 @@
+<programlisting>
+try {
+    $file = $s3client->getObject([
+        'Bucket' => $bucket_name,
+        'Key' => $file_name,
+    ]);
+    $body = $file->get('Body');
+    $body->rewind();
+    echo "Downloaded the file and it begins with: {$body->read(26)}.\n";
+} catch (Exception $exception) {
+    echo "Failed to download $file_name from $bucket_name with error: " . $exception->getMessage();
+    exit("Please fix error with file downloading before continuing.");
+}
+</programlisting>

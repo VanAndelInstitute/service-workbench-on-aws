@@ -1,0 +1,9 @@
+    resp, _ := svc.PutObjectRequest(&s3.PutObjectInput{
+        Bucket: bucket,
+        Key:    key,
+    })
+
+    md5s := base64.StdEncoding.EncodeToString(h.Sum(nil))
+    resp.HTTPRequest.Header.Set("Content-MD5", md5s)
+
+    url, err := resp.Presign(15 * time.Minute)

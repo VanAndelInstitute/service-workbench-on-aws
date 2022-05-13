@@ -1,0 +1,15 @@
+    public static void revokeKeyGrant(KmsClient kmsClient, String keyId, String grantId) {
+
+        try {
+            RevokeGrantRequest grantRequest = RevokeGrantRequest.builder()
+                .keyId(keyId)
+                .grantId(grantId)
+                .build();
+
+            kmsClient.revokeGrant(grantRequest);
+
+        } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }

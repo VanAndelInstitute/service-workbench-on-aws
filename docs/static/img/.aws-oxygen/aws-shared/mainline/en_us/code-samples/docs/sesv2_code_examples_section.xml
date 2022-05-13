@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<section id="service_code_examples_sesv2" role="topic">
+    <info>
+        <title id="service_code_examples_sesv2.title">Code examples for &SESv2; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples_sesv2.titleabbrev">&SESv2; examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &SESv2; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &SESv2; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_sesv2_actions" role="topic">
+        <info>
+            <title id="service_code_examples_sesv2_actions.title">Actions for &SESv2; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_sesv2_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SESv2; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &SESv2;
+            actions with &AWS; SDKs. These excerpts call the &SESv2; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&SESv2; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_sesv2_CreateContact_section" role="topic">
+            <info>
+                <title id="example_sesv2_CreateContact_section.title">Create an &SESv2; contact in a contact list using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_CreateContact_section.titleabbrev">Create a contact in a contact list</titleabbrev>
+                <abstract>
+                    <para>Create an &SESv2; contact in a contact list using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContact_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContact_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sesv2_CreateContactList_section" role="topic">
+            <info>
+                <title id="example_sesv2_CreateContactList_section.title">Create an &SESv2; contact list using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_CreateContactList_section.titleabbrev">Create a contact list</titleabbrev>
+                <abstract>
+                    <para>Create an &SESv2; contact list using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContactList_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContactList_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sesv2_GetEmailIdentity_section" role="topic">
+            <info>
+                <title id="example_sesv2_GetEmailIdentity_section.title">Get information about an &SESv2; identity using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_GetEmailIdentity_section.titleabbrev">Get identity information</titleabbrev>
+                <abstract>
+                    <para>Get information about an &SESv2; identity using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_GetEmailIdentity_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_GetEmailIdentity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sesv2_ListContactLists_section" role="topic">
+            <info>
+                <title id="example_sesv2_ListContactLists_section.title">List the &SESv2; contact lists using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_ListContactLists_section.titleabbrev">List the contact lists</titleabbrev>
+                <abstract>
+                    <para>List the &SESv2; contact lists using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContactLists_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContactLists_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sesv2_ListContacts_section" role="topic">
+            <info>
+                <title id="example_sesv2_ListContacts_section.title">List the contacts in an &SESv2; contact list using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_ListContacts_section.titleabbrev">List the contacts in a contact list</titleabbrev>
+                <abstract>
+                    <para>List the contacts in an &SESv2; contact list using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContacts_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContacts_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sesv2_SendEmail_section" role="topic">
+            <info>
+                <title id="example_sesv2_SendEmail_section.title">Send an &SESv2; email using an &AWS; SDK</title>
+                <titleabbrev id="example_sesv2_SendEmail_section.titleabbrev">Send an email</titleabbrev>
+                <abstract>
+                    <para>Send an &SESv2; email using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_SendEmail_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sesv2_SendEmail_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</section>

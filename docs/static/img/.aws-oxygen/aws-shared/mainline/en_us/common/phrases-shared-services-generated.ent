@@ -1,0 +1,4034 @@
+<!--Account Management-->
+
+  <!ENTITY ACCTlong "AWS Account Management">
+  <!ENTITY ACCT "Account Management">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-account "&ACCTlong;">
+<!--**************************************-->
+
+<!--Activate Console-->
+
+  <!ENTITY ActivateConsolelong "AWS Activate Console">
+  <!ENTITY ActivateConsole "Activate Console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-activate-console "&ActivateConsolelong;">
+<!--**************************************-->
+
+<!--
+    	        AWS Agent Service
+    	    -->
+
+  <!ENTITY AGTSVClong "AWS Agent Service">
+  <!ENTITY AGTSVC "AWS Agent Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AgentService "&AGTSVClong;">
+<!--**************************************-->
+
+<!--Alexa for Business-->
+
+  <!ENTITY ABUSlong "Alexa for Business">
+  <!ENTITY ABUS "Alexa for Business">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-a4b "&ABUSlong;">
+<!--**************************************-->
+
+<!--Alexa Top Sites-->
+
+  <!ENTITY ATSlong "Alexa Top Sites">
+  <!ENTITY ATS "Alexa Top Sites">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ats "&ATSlong;">
+<!--**************************************-->
+
+<!--Alexa Web Information Service-->
+
+  <!ENTITY AWISlong "Alexa Web Information Service">
+  <!ENTITY AWIS "Alexa Web Information Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awis "&AWISlong;">
+<!--**************************************-->
+
+<!--Amplify-->
+
+  <!ENTITY AMPLIFYlong "AWS Amplify">
+  <!ENTITY AMPLIFY "Amplify">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-amplify "&AMPLIFYlong;">
+<!--**************************************-->
+
+<!--API Gateway-->
+
+  <!ENTITY ABPlong "Amazon API Gateway">
+  <!ENTITY ABP "API Gateway">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-apigateway "&ABPlong;">
+<!--**************************************-->
+
+<!--
+                AWS AppConfig
+            -->
+
+  <!ENTITY APPClong "AWS AppConfig">
+  <!ENTITY APPC "AWS AppConfig">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-appconfig "&APPClong;">
+<!--**************************************-->
+
+<!--
+                AWS AppConfig Data
+            -->
+
+  <!ENTITY AppConfigDatalong "AWS AppConfig Data">
+  <!ENTITY AppConfigData "AWS AppConfig Data">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-appconfig-appconfigdata "&AppConfigDatalong;">
+<!--**************************************-->
+
+<!--Amazon AppFlow-->
+
+  <!ENTITY APFLlong "Amazon AppFlow">
+  <!ENTITY APFL "Amazon AppFlow">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-apfl "&APFLlong;">
+<!--**************************************-->
+
+<!--Application Discovery Service-->
+
+  <!ENTITY APP-DSlong "AWS Application Discovery Service">
+  <!ENTITY APP-DS "Application Discovery Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-applicationdiscoveryservice "&APP-DSlong;">
+<!--**************************************-->
+
+<!--Application Migration Service-->
+
+  <!ENTITY MGNlong "AWS Application Migration Service">
+  <!ENTITY MGN "Application Migration Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mgn "&MGNlong;">
+<!--**************************************-->
+
+<!--CloudWatch Application Insights-->
+
+  <!ENTITY AIlong "Amazon CloudWatch Application Insights">
+  <!ENTITY AI "CloudWatch Application Insights">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ai "&AIlong;">
+<!--**************************************-->
+
+<!--App Mesh-->
+
+  <!ENTITY MESHlong "AWS App Mesh">
+  <!ENTITY MESH "App Mesh">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lattice "&MESHlong;">
+<!--**************************************-->
+
+<!--App Runner-->
+
+  <!ENTITY ARlong "AWS App Runner">
+  <!ENTITY AR "App Runner">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-apprunner "&ARlong;">
+<!--**************************************-->
+
+<!--AppStream 2.0-->
+
+  <!ENTITY AAS2long "Amazon AppStream 2.0">
+  <!ENTITY AAS2 "AppStream 2.0">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-appstream2 "&AAS2long;">
+<!--**************************************-->
+
+<!--Amazon AppStream-->
+
+  <!ENTITY AASlong "Amazon AppStream">
+  <!ENTITY AAS "Amazon AppStream">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-appstream "&AASlong;">
+<!--**************************************-->
+
+<!--
+    			AWS AppSync
+    		-->
+
+  <!ENTITY APSYlong "AWS AppSync">
+  <!ENTITY APSY "AWS AppSync">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-appsync "&APSYlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Artifact
+    		-->
+
+  <!ENTITY ARTlong "AWS Artifact">
+  <!ENTITY ART "AWS Artifact">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-artifact "&ARTlong;">
+<!--**************************************-->
+
+<!--Athena-->
+
+  <!ENTITY ATElong "Amazon Athena">
+  <!ENTITY ATE "Athena">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-athena "&ATElong;">
+<!--**************************************-->
+
+<!--Audit Manager-->
+
+  <!ENTITY AMlong "AWS Audit Manager">
+  <!ENTITY AM "Audit Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-am "&AMlong;">
+<!--**************************************-->
+
+<!--Aurora-->
+
+  <!ENTITY AURlong "Amazon Aurora">
+  <!ENTITY AUR "Aurora">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurora "&AURlong;">
+<!--**************************************-->
+
+<!--Aurora PostgreSQL-->
+
+  <!ENTITY AURlongPostgres "Amazon Aurora PostgreSQL">
+  <!ENTITY AURPostgres "Aurora PostgreSQL">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-rds.aurora.postgresql "&AURlongPostgres;">
+<!--**************************************-->
+
+<!--Aurora PostgreSQL-Compatible-->
+
+  <!ENTITY AURlongPostgresmed "Amazon Aurora PostgreSQL-Compatible">
+  <!ENTITY AURPostgresmed "Aurora PostgreSQL-Compatible">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurpostgresmed "&AURlongPostgresmed;">
+<!--**************************************-->
+
+<!--Aurora PostgreSQL-Compatible Edition-->
+
+  <!ENTITY AURlongPostgreslong "Amazon Aurora PostgreSQL-Compatible Edition">
+  <!ENTITY AURPostgreslong "Aurora PostgreSQL-Compatible Edition">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurpostgreslong "&AURlongPostgreslong;">
+<!--**************************************-->
+
+<!--Aurora MySQL-->
+
+  <!ENTITY AURlongMySQL "Amazon Aurora MySQL">
+  <!ENTITY AURMySQL "Aurora MySQL">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurmysql "&AURlongMySQL;">
+<!--**************************************-->
+
+<!--Aurora MySQL-Compatible-->
+
+  <!ENTITY AURlongMySQLmed "Amazon Aurora MySQL-Compatible">
+  <!ENTITY AURMySQLmed "Aurora MySQL-Compatible">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurmysqlmed "&AURlongMySQLmed;">
+<!--**************************************-->
+
+<!--Aurora MySQL-Compatible Edition-->
+
+  <!ENTITY AURlongMySQLlong "Amazon Aurora MySQL-Compatible Edition">
+  <!ENTITY AURMySQLlong "Aurora MySQL-Compatible Edition">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aurmysqllong "&AURlongMySQLlong;">
+<!--**************************************-->
+
+<!--Auto Scaling Plans-->
+
+  <!ENTITY AWS-ASPlanslong "AWS Auto Scaling Plans">
+  <!ENTITY AWS-ASPlans "Auto Scaling Plans">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-autoscalingplans "&AWS-ASPlanslong;">
+<!--**************************************-->
+
+<!--
+                AWS Auto Scaling
+            -->
+
+  <!ENTITY AWS-ASlong "AWS Auto Scaling">
+  <!ENTITY AWS-AS "AWS Auto Scaling">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AWS-AS "&AWS-ASlong;">
+<!--**************************************-->
+
+<!--Application Auto Scaling-->
+
+  <!ENTITY APP-ASlong "Application Auto Scaling">
+  <!ENTITY APP-AS "Application Auto Scaling">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-applicationautoscaling "&APP-ASlong;">
+<!--**************************************-->
+
+<!--Auto Scaling-->
+
+  <!ENTITY ASlong "Amazon EC2 Auto Scaling">
+  <!ENTITY AS "Auto Scaling">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-autoscaling "&ASlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Backup
+    		-->
+
+  <!ENTITY BKPlong "AWS Backup">
+  <!ENTITY BKP "AWS Backup">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Cryo "&BKPlong;">
+<!--**************************************-->
+
+<!--Backup gateway-->
+
+  <!ENTITY BGWlong "AWS Backup gateway">
+  <!ENTITY BGW "Backup gateway">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-backup-gateway "&BGWlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Batch
+    		-->
+
+  <!ENTITY BATCHlong "AWS Batch">
+  <!ENTITY BATCH "AWS Batch">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-batch "&BATCHlong;">
+<!--**************************************-->
+
+<!--Billing and Cost Management-->
+
+  <!ENTITY ABlong "AWS Billing and Cost Management">
+  <!ENTITY AB "Billing and Cost Management">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awsbillingconsole "&ABlong;">
+<!--**************************************-->
+
+<!--Billing Conductor-->
+
+  <!ENTITY ABClong "AWS Billing Conductor">
+  <!ENTITY ABC "Billing Conductor">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-billingconductor "&ABClong;">
+<!--**************************************-->
+
+<!--Cost Management Console-->
+
+  <!ENTITY CMConsolelong "AWS Cost Management Console">
+  <!ENTITY CMConsole "Cost Management Console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awscostmanagementconsole "&CMConsolelong;">
+<!--**************************************-->
+
+<!--
+                AWS Documentation
+            -->
+
+  <!ENTITY AWSDOCSlong "AWS Documentation">
+  <!ENTITY AWSDOCS "AWS Documentation">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awsdocs "&AWSDOCSlong;">
+<!--**************************************-->
+
+<!--
+                AWS Management Console
+            -->
+
+  <!ENTITY consolelong "AWS Management Console">
+  <!ENTITY console "AWS Management Console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awsmanagementconsole "&consolelong;">
+<!--**************************************-->
+
+<!--
+                AWS Console Home
+            -->
+
+  <!ENTITY consolehomelong "AWS Console Home">
+  <!ENTITY consolehome "AWS Console Home">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-consolehome "&consolehomelong;">
+<!--**************************************-->
+
+<!--
+                AWS Marketing Website
+            -->
+
+  <!ENTITY MarketingSitelong "AWS Marketing Website">
+  <!ENTITY MarketingSite "AWS Marketing Website">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awsmarketingwebsite "&MarketingSitelong;">
+<!--**************************************-->
+
+<!--Cost Explorer-->
+
+  <!ENTITY ce-long "AWS Cost Explorer">
+  <!ENTITY ce "Cost Explorer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ce "&ce-long;">
+<!--**************************************-->
+
+<!--Blox-->
+
+  <!ENTITY BLXlong "Blox">
+  <!ENTITY BLX "Blox">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-BLX "&BLXlong;">
+<!--**************************************-->
+
+<!--Braket-->
+
+  <!ENTITY BRAKETlong "Amazon Braket">
+  <!ENTITY BRAKET "Braket">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-braket "&BRAKETlong;">
+<!--**************************************-->
+
+<!--
+                AWS BugBust
+            -->
+
+  <!ENTITY ABBlong "AWS BugBust">
+  <!ENTITY ABB "AWS BugBust">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-bugbust "&ABBlong;">
+<!--**************************************-->
+
+<!--ACM-->
+
+  <!ENTITY ACMlong "AWS Certificate Manager">
+  <!ENTITY ACM "ACM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-certificatemanager "&ACMlong;">
+<!--**************************************-->
+
+<!--
+                AWS Chatbot
+            -->
+
+  <!ENTITY CBTlong "AWS Chatbot">
+  <!ENTITY CBT "AWS Chatbot">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CBT "&CBTlong;">
+<!--**************************************-->
+
+<!--Amazon Chime-->
+
+  <!ENTITY CHMlong "Amazon Chime">
+  <!ENTITY CHM "Amazon Chime">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-chime "&CHMlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Cloud9
+    		-->
+
+  <!ENTITY AC9long "AWS Cloud9">
+  <!ENTITY AC9 "AWS Cloud9">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloud9 "&AC9long;">
+<!--**************************************-->
+
+<!--
+                AWS CDI
+            -->
+
+  <!ENTITY CDIlong "AWS Cloud Digital Interface">
+  <!ENTITY CDI "AWS CDI">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CDI "&CDIlong;">
+<!--**************************************-->
+
+<!--
+    	        AWS CDK
+    	    -->
+
+  <!ENTITY CDKlong "AWS Cloud Development Kit (CDK)">
+  <!ENTITY CDK "AWS CDK">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws-cdk "&CDKlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Cloud Map
+    		-->
+
+  <!ENTITY CMAPlong "AWS Cloud Map">
+  <!ENTITY CMAP "AWS Cloud Map">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-servicediscovery "&CMAPlong;">
+<!--**************************************-->
+
+<!--
+    	        AWS CloudFormation
+    	    -->
+
+  <!ENTITY CFNlong "AWS CloudFormation">
+  <!ENTITY CFN "AWS CloudFormation">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudformation "&CFNlong;">
+<!--**************************************-->
+
+<!--CloudFront-->
+
+  <!ENTITY CFlong "Amazon CloudFront">
+  <!ENTITY CF "CloudFront">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudfront "&CFlong;">
+<!--**************************************-->
+
+<!--
+    			AWS CloudHSM
+    		-->
+
+  <!ENTITY HSMlong "AWS CloudHSM">
+  <!ENTITY HSM "AWS CloudHSM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudhsmv2 "&HSMlong;">
+<!--**************************************-->
+
+<!--
+    			AWS CloudHSM Classic
+    		-->
+
+  <!ENTITY HSMClassiclong "AWS CloudHSM Classic">
+  <!ENTITY HSMClassic "AWS CloudHSM Classic">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudhsm "&HSMClassiclong;">
+<!--**************************************-->
+
+<!--Amazon CloudSearch-->
+
+  <!ENTITY CSlong "Amazon CloudSearch">
+  <!ENTITY CS "Amazon CloudSearch">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudsearch "&CSlong;">
+<!--**************************************-->
+
+<!--CloudShell-->
+
+  <!ENTITY CShell "AWS CloudShell">
+  <!ENTITY CShellshort "CloudShell">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CShellshort "&CShell;">
+<!--**************************************-->
+
+<!--CloudTrail-->
+
+  <!ENTITY CTlong "AWS CloudTrail">
+  <!ENTITY CT "CloudTrail">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudtrail "&CTlong;">
+<!--**************************************-->
+
+<!--CloudWatch-->
+
+  <!ENTITY CWlong "Amazon CloudWatch">
+  <!ENTITY CW "CloudWatch">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudwatch "&CWlong;">
+<!--**************************************-->
+
+<!--CloudWatch Events-->
+
+  <!ENTITY CWElong "Amazon CloudWatch Events">
+  <!ENTITY CWE "CloudWatch Events">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudwatchevents "&CWElong;">
+<!--**************************************-->
+
+<!--CloudWatch Logs-->
+
+  <!ENTITY CWLlong "Amazon CloudWatch Logs">
+  <!ENTITY CWL "CloudWatch Logs">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudwatchlogs "&CWLlong;">
+<!--**************************************-->
+
+<!--CodeArtifact-->
+
+  <!ENTITY ACAlong "AWS CodeArtifact">
+  <!ENTITY ACA "CodeArtifact">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ACA "&ACAlong;">
+<!--**************************************-->
+
+<!--CodeBuild-->
+
+  <!ENTITY ACBlong "AWS CodeBuild">
+  <!ENTITY ACB "CodeBuild">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-codebuild "&ACBlong;">
+<!--**************************************-->
+
+<!--CodeCommit-->
+
+  <!ENTITY ACClong "AWS CodeCommit">
+  <!ENTITY ACC "CodeCommit">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-codecommit "&ACClong;">
+<!--**************************************-->
+
+<!--CodeDeploy-->
+
+  <!ENTITY ACDlong "AWS CodeDeploy">
+  <!ENTITY ACD "CodeDeploy">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-codedeploy "&ACDlong;">
+<!--**************************************-->
+
+<!--CodePipeline-->
+
+  <!ENTITY ACPlong "AWS CodePipeline">
+  <!ENTITY ACP "CodePipeline">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-codepipeline "&ACPlong;">
+<!--**************************************-->
+
+<!--CodeGuru-->
+
+  <!ENTITY GURUALLlong "Amazon CodeGuru">
+  <!ENTITY GURUALLshort "CodeGuru">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GURUALLshort "&GURUALLlong;">
+<!--**************************************-->
+
+<!--CodeGuru Profiler-->
+
+  <!ENTITY ACPRlong "Amazon CodeGuru Profiler">
+  <!ENTITY ACPR "CodeGuru Profiler">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ACPR "&ACPRlong;">
+<!--**************************************-->
+
+<!--CodeGuru Reviewer-->
+
+  <!ENTITY ACRElong "Amazon CodeGuru Reviewer">
+  <!ENTITY ACRE "CodeGuru Reviewer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ACRE "&ACRElong;">
+<!--**************************************-->
+
+<!--AWS CodeStar-->
+
+  <!ENTITY ACSlong "AWS CodeStar">
+  <!ENTITY ACS "AWS CodeStar">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-codestar "&ACSlong;">
+<!--**************************************-->
+
+<!--Amazon Cognito-->
+
+  <!ENTITY COGlong "Amazon Cognito">
+  <!ENTITY COG "Amazon Cognito">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cognito "&COGlong;">
+<!--**************************************-->
+
+<!--Amazon Cognito Sync-->
+
+  <!ENTITY COGSYNClong "Amazon Cognito Sync">
+  <!ENTITY COGSYNC "Amazon Cognito Sync">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cognitosync "&COGSYNClong;">
+<!--**************************************-->
+
+<!--
+                AWS CLI
+            -->
+
+  <!ENTITY CLIlong "AWS Command Line Interface">
+  <!ENTITY CLI "AWS CLI">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CLI "&CLIlong;">
+<!--**************************************-->
+
+<!--Amazon Comprehend-->
+
+  <!ENTITY CMPlong "Amazon Comprehend">
+  <!ENTITY CMP "Amazon Comprehend">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Comprehend "&CMPlong;">
+<!--**************************************-->
+
+<!--Amazon Comprehend Medical-->
+
+  <!ENTITY CMPMlong "Amazon Comprehend Medical">
+  <!ENTITY CMPM "Amazon Comprehend Medical">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-comprehendmedical "&CMPMlong;">
+<!--**************************************-->
+
+<!--Compute Optimizer-->
+
+  <!ENTITY COlong "AWS Compute Optimizer">
+  <!ENTITY CO "Compute Optimizer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CO "&COlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Config
+    		-->
+
+  <!ENTITY CClong "AWS Config">
+  <!ENTITY CC "AWS Config">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awsconfig "&CClong;">
+<!--**************************************-->
+
+<!--Cloud Control API-->
+
+  <!ENTITY CCAPIlong "AWS Cloud Control API">
+  <!ENTITY CCAPI "Cloud Control API">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-cloudcontrolapi "&CCAPIlong;">
+<!--**************************************-->
+
+<!--
+                AWS Config Rules
+            -->
+
+  <!ENTITY CCRlong "AWS Config Rules">
+  <!ENTITY CCR "AWS Config Rules">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CCR "&CCRlong;">
+<!--**************************************-->
+
+<!--Amazon Connect-->
+
+  <!ENTITY CONlong "Amazon Connect">
+  <!ENTITY CON "Amazon Connect">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lily "&CONlong;">
+<!--**************************************-->
+
+<!--Connector Service-->
+
+  <!ENTITY AWSConnectorServicelong "AWS Connector Service">
+  <!ENTITY AWSConnectorService "Connector Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-acs "&AWSConnectorServicelong;">
+<!--**************************************-->
+
+<!--Console Mobile Application-->
+
+  <!ENTITY CMAlong "AWS Console Mobile Application">
+  <!ENTITY CMA "Console Mobile Application">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CMA "&CMAlong;">
+<!--**************************************-->
+
+<!--
+                AWS Control Tower
+            -->
+
+  <!ENTITY CTowerlong "AWS Control Tower">
+  <!ENTITY CTower "AWS Control Tower">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CTower "&CTowerlong;">
+<!--**************************************-->
+
+<!--Cost Explorer Service-->
+
+  <!ENTITY AWSCostExplorerServicelong "AWS Cost Explorer Service">
+  <!ENTITY AWSCostExplorerService "Cost Explorer Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AWSCostExplorer "&AWSCostExplorerServicelong;">
+<!--**************************************-->
+
+<!--Amazon Data Lifecycle Manager-->
+
+  <!ENTITY DLMlong "Amazon Data Lifecycle Manager">
+  <!ENTITY DLM "Amazon Data Lifecycle Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dlm "&DLMlong;">
+<!--**************************************-->
+
+<!--
+                AWS Data Exchange
+            -->
+
+  <!ENTITY ADElong "AWS Data Exchange">
+  <!ENTITY ADE "AWS Data Exchange">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dataexchange "&ADElong;">
+<!--**************************************-->
+
+<!--
+    			AWS Data Pipeline
+    		-->
+
+  <!ENTITY AWSDPlong "AWS Data Pipeline">
+  <!ENTITY AWSDP "AWS Data Pipeline">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-datapipeline "&AWSDPlong;">
+<!--**************************************-->
+
+<!--
+    			AWS DMS
+    		-->
+
+  <!ENTITY DMSlong "AWS Database Migration Service">
+  <!ENTITY DMS "AWS DMS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-databasemigrationservice "&DMSlong;">
+<!--**************************************-->
+
+<!--DataSync-->
+
+  <!ENTITY DSYlong "AWS DataSync">
+  <!ENTITY DSY "DataSync">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-datasync "&DSYlong;">
+<!--**************************************-->
+
+<!--DLAMI-->
+
+  <!ENTITY dlalong "AWS Deep Learning AMI">
+  <!ENTITY dla "DLAMI">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dla "&dlalong;">
+<!--**************************************-->
+
+<!--
+    			AWS DeepLens
+    		-->
+
+  <!ENTITY DLlong "AWS DeepLens">
+  <!ENTITY DL "AWS DeepLens">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-deeplens "&DLlong;">
+<!--**************************************-->
+
+<!--
+    			AWS DeepRacer
+    		-->
+
+  <!ENTITY AWSDeepRacerlong "AWS DeepRacer">
+  <!ENTITY AWSDeepRacer "AWS DeepRacer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-deepracer "&AWSDeepRacerlong;">
+<!--**************************************-->
+
+<!--Detective-->
+
+  <!ENTITY DETlong "Amazon Detective">
+  <!ENTITY DET "Detective">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-DET "&DETlong;">
+<!--**************************************-->
+
+<!--Device Farm-->
+
+  <!ENTITY ATPlong "AWS Device Farm">
+  <!ENTITY ATP "Device Farm">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-devicefarm "&ATPlong;">
+<!--**************************************-->
+
+<!--DevOps Guru-->
+
+  <!ENTITY CGOlong "Amazon DevOps Guru">
+  <!ENTITY CGO "DevOps Guru">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-devops-guru "&CGOlong;">
+<!--**************************************-->
+
+<!--Amazon DevPay-->
+
+  <!ENTITY DPlong "Amazon DevPay">
+  <!ENTITY DP "Amazon DevPay">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-DP "&DPlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Direct Connect
+    		-->
+
+  <!ENTITY AWS-DC-long "AWS Direct Connect">
+  <!ENTITY AWS-DC "AWS Direct Connect">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-directconnect "&AWS-DC-long;">
+<!--**************************************-->
+
+<!--
+    			AWS Directory Service
+    		-->
+
+  <!ENTITY ADSlong "AWS Directory Service">
+  <!ENTITY ADS "AWS Directory Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-directoryservice "&ADSlong;">
+<!--**************************************-->
+
+<!--
+                AWS Directory Service
+            -->
+
+  <!ENTITY GXYlong "AWS Directory Service">
+  <!ENTITY GXY "AWS Directory Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GXY "&GXYlong;">
+<!--**************************************-->
+
+<!--
+                AWS Managed Microsoft AD
+            -->
+
+  <!ENTITY managed-ad-long "AWS Directory Service for Microsoft Active Directory">
+  <!ENTITY managed-ad "AWS Managed Microsoft AD">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-managed-ad "&managed-ad-long;">
+<!--**************************************-->
+
+<!--Cloud Directory-->
+
+  <!ENTITY CDSlong "Amazon Cloud Directory">
+  <!ENTITY CDS "Cloud Directory">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-clouddirectory-pod-0 "&CDSlong;">
+<!--**************************************-->
+
+<!--Amazon DocumentDB-->
+
+  <!ENTITY DocDBlong "Amazon DocumentDB (with MongoDB compatibility)">
+  <!ENTITY DocDB "Amazon DocumentDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-amazondocdb "&DocDBlong;">
+<!--**************************************-->
+
+<!--DynamoDB-->
+
+  <!ENTITY DDBlong "Amazon DynamoDB">
+  <!ENTITY DDB "DynamoDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dynamodb "&DDBlong;">
+<!--**************************************-->
+
+<!--DAX-->
+
+  <!ENTITY DAXlong "DynamoDB Accelerator">
+  <!ENTITY DAX "DAX">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dax "&DAXlong;">
+<!--**************************************-->
+
+<!--DynamoDB Encryption Client-->
+
+  <!ENTITY DDBEClong "Amazon DynamoDB Encryption Client">
+  <!ENTITY DDBEC "DynamoDB Encryption Client">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-DDBEC "&DDBEClong;">
+<!--**************************************-->
+
+<!--DynamoDB Streams-->
+
+  <!ENTITY DSlong "Amazon DynamoDB Streams">
+  <!ENTITY DS "DynamoDB Streams">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ddbstreams "&DSlong;">
+<!--**************************************-->
+
+<!--Amazon EBS-->
+
+  <!ENTITY EBSlong "Amazon Elastic Block Store">
+  <!ENTITY EBS "Amazon EBS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ebs "&EBSlong;">
+<!--**************************************-->
+
+<!--Amazon EC2-->
+
+  <!ENTITY EC2long "Amazon Elastic Compute Cloud">
+  <!ENTITY EC2 "Amazon EC2">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2 "&EC2long;">
+<!--**************************************-->
+
+<!--Amazon EC2 console-->
+
+  <!ENTITY EC2Consolelong "Amazon Elastic Compute Cloud console">
+  <!ENTITY EC2Console "Amazon EC2 console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2console "&EC2Consolelong;">
+<!--**************************************-->
+
+<!--Amazon EC2 Dedicated Hosts-->
+
+  <!ENTITY EC2DedicatedHostslong "Amazon Elastic Compute Cloud Dedicated Hosts">
+  <!ENTITY EC2DedicatedHosts "Amazon EC2 Dedicated Hosts">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2dedicatedhosts "&EC2DedicatedHostslong;">
+<!--**************************************-->
+
+<!--EC2Launch-->
+
+  <!ENTITY EC2LV2long "EC2Launch v2">
+  <!ENTITY EC2LV2 "EC2Launch">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-EC2LV2long "&EC2LV2long;">
+<!--**************************************-->
+
+<!--Amazon ECR-->
+
+  <!ENTITY ECRlong "Amazon Elastic Container Registry">
+  <!ENTITY ECR "Amazon ECR">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2containerregistry "&ECRlong;">
+<!--**************************************-->
+
+<!--Amazon ECR Public-->
+
+  <!ENTITY ECRPubliclong "Amazon Elastic Container Registry Public">
+  <!ENTITY ECRPublic "Amazon ECR Public">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ECRPublic "&ECRPubliclong;">
+<!--**************************************-->
+
+<!--Amazon ECS-->
+
+  <!ENTITY ECSlong "Amazon Elastic Container Service">
+  <!ENTITY ECS "Amazon ECS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2containerservice "&ECSlong;">
+<!--**************************************-->
+
+<!--Fargate-->
+
+  <!ENTITY FARGATElong "AWS Fargate">
+  <!ENTITY FARGATE "Fargate">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FARGATE "&FARGATElong;">
+<!--**************************************-->
+
+<!--Amazon EKS-->
+
+  <!ENTITY EKSlong "Amazon Elastic Kubernetes Service">
+  <!ENTITY EKS "Amazon EKS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-EKS "&EKSlong;">
+<!--**************************************-->
+
+<!--Elastic Beanstalk-->
+
+  <!ENTITY AEBlong "AWS Elastic Beanstalk">
+  <!ENTITY AEB "Elastic Beanstalk">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elasticbeanstalk "&AEBlong;">
+<!--**************************************-->
+
+<!--Elastic Disaster Recovery-->
+
+  <!ENTITY DRSlong "AWS Elastic Disaster Recovery">
+  <!ENTITY DRS "Elastic Disaster Recovery">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-drs "&DRSlong;">
+<!--**************************************-->
+
+<!--Amazon EFS-->
+
+  <!ENTITY EFSlong "Amazon Elastic File System">
+  <!ENTITY EFS "Amazon EFS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elasticfilesystem "&EFSlong;">
+<!--**************************************-->
+
+<!--Elastic Inference-->
+
+  <!ENTITY EIAlong "Amazon Elastic Inference">
+  <!ENTITY EIA "Elastic Inference">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-EIA "&EIAlong;">
+<!--**************************************-->
+
+<!--Elastic Load Balancing-->
+
+  <!ENTITY ELBlong "Elastic Load Balancing">
+  <!ENTITY ELB "Elastic Load Balancing">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elb "&ELBlong;">
+<!--**************************************-->
+
+<!--Network Load Balancer-->
+
+  <!ENTITY NLBlong "Network Load Balancer">
+  <!ENTITY NLB "Network Load Balancer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elb_nlb "&NLBlong;">
+<!--**************************************-->
+
+<!--ElastiCache-->
+
+  <!ENTITY ELClong "Amazon ElastiCache">
+  <!ENTITY ELC "ElastiCache">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elasticache "&ELClong;">
+<!--**************************************-->
+
+<!--ElastiCache for Redis-->
+
+  <!ENTITY ELCRlong "Amazon ElastiCache for Redis">
+  <!ENTITY ELCR "ElastiCache for Redis">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ELCR "&ELCRlong;">
+<!--**************************************-->
+
+<!--ElastiCache for Memcached-->
+
+  <!ENTITY ELCMlong "Amazon ElastiCache for Memcached">
+  <!ENTITY ELCM "ElastiCache for Memcached">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ELCM "&ELCMlong;">
+<!--**************************************-->
+
+<!--OpenSearch Service-->
+
+  <!ENTITY ESlong "Amazon OpenSearch Service">
+  <!ENTITY ES "OpenSearch Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elasticsearchservice "&ESlong;">
+<!--**************************************-->
+
+<!--Conductor File-->
+
+  <!ENTITY ECFlong "AWS Elemental Conductor File">
+  <!ENTITY ECF "Conductor File">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ECF "&ECFlong;">
+<!--**************************************-->
+
+<!--Conductor Live-->
+
+  <!ENTITY ECL3long "AWS Elemental Conductor Live">
+  <!ENTITY ECL3 "Conductor Live">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ECL3 "&ECL3long;">
+<!--**************************************-->
+
+<!--AWS Elemental Cloud-->
+
+  <!ENTITY ECLDlong "AWS Elemental Cloud">
+  <!ENTITY ECLD "AWS Elemental Cloud">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ECLD "&ECLDlong;">
+<!--**************************************-->
+
+<!--Delta-->
+
+  <!ENTITY EDLTlong "AWS Elemental Delta">
+  <!ENTITY EDLT "Delta">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-EDLT "&EDLTlong;">
+<!--**************************************-->
+
+<!--AWS Elemental Link-->
+
+  <!ENTITY ELNKlong "AWS Elemental Link">
+  <!ENTITY ELNK "AWS Elemental Link">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ELNK "&ELNKlong;">
+<!--**************************************-->
+
+<!--Elemental Live-->
+
+  <!ENTITY ELVlong "AWS Elemental Live">
+  <!ENTITY ELV "Elemental Live">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ELV "&ELVlong;">
+<!--**************************************-->
+
+<!--MediaConnect-->
+
+  <!ENTITY EMXlong "AWS Elemental MediaConnect">
+  <!ENTITY EMX "MediaConnect">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mediaconnect "&EMXlong;">
+<!--**************************************-->
+
+<!--MediaConvert-->
+
+  <!ENTITY EMClong "AWS Elemental MediaConvert">
+  <!ENTITY EMC "MediaConvert">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mediaconvert "&EMClong;">
+<!--**************************************-->
+
+<!--MediaLive-->
+
+  <!ENTITY EMLlong "AWS Elemental MediaLive">
+  <!ENTITY EML "MediaLive">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-medialive "&EMLlong;">
+<!--**************************************-->
+
+<!--MediaPackage-->
+
+  <!ENTITY EMPlong "AWS Elemental MediaPackage">
+  <!ENTITY EMP "MediaPackage">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mediapackage "&EMPlong;">
+<!--**************************************-->
+
+<!--MediaStore-->
+
+  <!ENTITY EMSlong "AWS Elemental MediaStore">
+  <!ENTITY EMS "MediaStore">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mediastore "&EMSlong;">
+<!--**************************************-->
+
+<!--MediaTailor-->
+
+  <!ENTITY EMTlong "AWS Elemental MediaTailor">
+  <!ENTITY EMT "MediaTailor">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-MediaTailor "&EMTlong;">
+<!--**************************************-->
+
+<!--AWS Elemental Server-->
+
+  <!ENTITY ESRVRlong "AWS Elemental Server">
+  <!ENTITY ESRVR "AWS Elemental Server">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ESRVR "&ESRVRlong;">
+<!--**************************************-->
+
+<!--Statmux-->
+
+  <!ENTITY ESMXlong "AWS Elemental Statmux">
+  <!ENTITY ESMX "Statmux">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ESMX "&ESMXlong;">
+<!--**************************************-->
+
+<!--Amazon EMR-->
+
+  <!ENTITY EMRlong "Amazon EMR">
+  <!ENTITY EMR "Amazon EMR">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-emr "&EMRlong;">
+<!--**************************************-->
+
+<!--
+                AWS Encryption SDK
+            -->
+
+  <!ENTITY CryptoSDKlong "AWS Encryption SDK">
+  <!ENTITY CryptoSDK "AWS Encryption SDK">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CryptoSDK "&CryptoSDKlong;">
+<!--**************************************-->
+
+<!--Elastic Transcoder-->
+
+  <!ENTITY ETlong "Amazon Elastic Transcoder">
+  <!ENTITY ET "Elastic Transcoder">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-elastictranscoder "&ETlong;">
+<!--**************************************-->
+
+<!--EventBridge-->
+
+  <!ENTITY EVlong "Amazon EventBridge">
+  <!ENTITY EV "EventBridge">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-eventbridge "&EVlong;">
+<!--**************************************-->
+
+<!--
+                AWS FIS
+            -->
+
+  <!ENTITY FISlong "AWS Fault Injection Simulator">
+  <!ENTITY FIS "AWS FIS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FIS "&FISlong;">
+<!--**************************************-->
+
+<!--FinSpace-->
+
+  <!ENTITY FSlong "Amazon FinSpace">
+  <!ENTITY FS "FinSpace">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-finspace "&FSlong;">
+<!--**************************************-->
+
+<!--Firewall Manager-->
+
+  <!ENTITY FMSlong "AWS Firewall Manager">
+  <!ENTITY FMS "Firewall Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-fms "&FMSlong;">
+<!--**************************************-->
+
+<!--the framework-->
+
+  <!ENTITY FFlong "AWS Flow Framework">
+  <!ENTITY FF "the framework">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FF "&FFlong;">
+<!--**************************************-->
+
+<!--Forecast-->
+
+  <!ENTITY FORlong "Amazon Forecast">
+  <!ENTITY FOR "Forecast">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FOR "&FORlong;">
+<!--**************************************-->
+
+<!--Amazon FPS-->
+
+  <!ENTITY FPSlong "Amazon Flexible Payments Service">
+  <!ENTITY FPS "Amazon FPS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FPS "&FPSlong;">
+<!--**************************************-->
+
+<!--Amazon Fraud Detector-->
+
+  <!ENTITY AFDlong "Amazon Fraud Detector">
+  <!ENTITY AFD "Amazon Fraud Detector">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AFD "&AFDlong;">
+<!--**************************************-->
+
+<!--FreeRTOS-->
+
+  <!ENTITY RTOSlong "FreeRTOS">
+  <!ENTITY RTOS "FreeRTOS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-freertosota "&RTOSlong;">
+<!--**************************************-->
+
+<!--Amazon FSx-->
+
+  <!ENTITY FSXlong "Amazon FSx">
+  <!ENTITY FSX "Amazon FSx">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FSx "&FSXlong;">
+<!--**************************************-->
+
+<!--FSx for Lustre-->
+
+  <!ENTITY FSXLustrelong "Amazon FSx for Lustre">
+  <!ENTITY FSXLustre "FSx for Lustre">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FSXLustre "&FSXLustrelong;">
+<!--**************************************-->
+
+<!--FSx for ONTAP-->
+
+  <!ENTITY FSxONTAPlong "Amazon FSx for NetApp ONTAP">
+  <!ENTITY FSxONTAP "FSx for ONTAP">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-fsx-ontap "&FSxONTAPlong;">
+<!--**************************************-->
+
+<!--FSx for OpenZFS-->
+
+  <!ENTITY FSxOpenZFSlong "Amazon FSx for OpenZFS">
+  <!ENTITY FSxOpenZFS "FSx for OpenZFS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-fsx-openzfs "&FSxOpenZFSlong;">
+<!--**************************************-->
+
+<!--FSx for Windows File Server-->
+
+  <!ENTITY FSXWindowslong "Amazon FSx for Windows File Server">
+  <!ENTITY FSXWindows "FSx for Windows File Server">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FSXWindows "&FSXWindowslong;">
+<!--**************************************-->
+
+<!--Amazon FWS-->
+
+  <!ENTITY FWSlong "Amazon Fulfillment Web Service">
+  <!ENTITY FWS "Amazon FWS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FWS "&FWSlong;">
+<!--**************************************-->
+
+<!--GameLift-->
+
+  <!ENTITY AGSlong "Amazon GameLift">
+  <!ENTITY AGS "GameLift">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-gamelift "&AGSlong;">
+<!--**************************************-->
+
+<!--S3 Glacier-->
+
+  <!ENTITY GLlong "Amazon S3 Glacier">
+  <!ENTITY GL "S3 Glacier">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-glacier "&GLlong;">
+<!--**************************************-->
+
+<!--Global Accelerator-->
+
+  <!ENTITY GAXlong "AWS Global Accelerator">
+  <!ENTITY GAX "Global Accelerator">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GAX "&GAXlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Glue
+    		-->
+
+  <!ENTITY GLUlong "AWS Glue">
+  <!ENTITY GLU "AWS Glue">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-glue "&GLUlong;">
+<!--**************************************-->
+
+<!--
+                AWSGlueSchemaRegistry
+            -->
+
+  <!ENTITY dsrlong "AWSGlueSchemaRegistry">
+  <!ENTITY dsr "AWSGlueSchemaRegistry">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-dsr "&dsrlong;">
+<!--**************************************-->
+
+<!--Data Catalog-->
+
+  <!ENTITY GLUDCLong "AWS Glue Data Catalog">
+  <!ENTITY GLUDC "Data Catalog">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GLUDC "&GLUDCLong;">
+<!--**************************************-->
+
+<!--Jobs system-->
+
+  <!ENTITY JESlong "AWS Glue Jobs system">
+  <!ENTITY JES "Jobs system">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-JES "&JESlong;">
+<!--**************************************-->
+
+<!--DataBrew-->
+
+  <!ENTITY BRUlong "AWS Glue DataBrew">
+  <!ENTITY BRU "DataBrew">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-databrew "&BRUlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Greengrass
+    		-->
+
+  <!ENTITY GGlong "AWS IoT Greengrass">
+  <!ENTITY GG "AWS IoT Greengrass">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-greengrass "&GGlong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Greengrass V1
+            -->
+
+  <!ENTITY GG1long "AWS IoT Greengrass Version 1">
+  <!ENTITY GG1 "AWS IoT Greengrass V1">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-greengrassv1 "&GG1long;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Greengrass V2
+            -->
+
+  <!ENTITY GG2long "AWS IoT Greengrass Version 2">
+  <!ENTITY GG2 "AWS IoT Greengrass V2">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-greengrassv2 "&GG2long;">
+<!--**************************************-->
+
+<!--
+                AWS Ground Station
+            -->
+
+  <!ENTITY GRSlong "AWS Ground Station">
+  <!ENTITY GRS "AWS Ground Station">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GRS "&GRSlong;">
+<!--**************************************-->
+
+<!--GuardDuty-->
+
+  <!ENTITY GDUlong "Amazon GuardDuty">
+  <!ENTITY GDU "GuardDuty">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-guardduty "&GDUlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Health
+    		-->
+
+  <!ENTITY awshealthlong "AWS Health">
+  <!ENTITY awshealth "AWS Health">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-awshealth "&awshealthlong;">
+<!--**************************************-->
+
+<!--
+                AWS Health Dashboard
+            -->
+
+  <!ENTITY phdlong "AWS Health Dashboard">
+  <!ENTITY phd "AWS Health Dashboard">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-phd-console "&phdlong;">
+<!--**************************************-->
+
+<!--IAM-->
+
+  <!ENTITY IAMlong "AWS Identity and Access Management">
+  <!ENTITY IAM "IAM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iam "&IAMlong;">
+<!--**************************************-->
+
+<!--IAM Access Analyzer-->
+
+  <!ENTITY iam-citadel-long "AWS Identity and Access Management Access Analyzer">
+  <!ENTITY iam-citadel "IAM Access Analyzer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iam-citadel "&iam-citadel-long;">
+<!--**************************************-->
+
+<!--Image Builder-->
+
+  <!ENTITY IBlong "EC2 Image Builder">
+  <!ENTITY IB "Image Builder">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-IB "&IBlong;">
+<!--**************************************-->
+
+<!--
+                AWSTOE
+            -->
+
+  <!ENTITY TOElong "AWS Task Orchestrator and Executor">
+  <!ENTITY TOE "AWSTOE">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TOE "&TOElong;">
+<!--**************************************-->
+
+<!--
+                AWS Import/Export
+            -->
+
+  <!ENTITY IElong "AWS Import/Export">
+  <!ENTITY IE "AWS Import/Export">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-IE "&IElong;">
+<!--**************************************-->
+
+<!--Disk-->
+
+  <!ENTITY Disklong "AWS Import/Export Disk">
+  <!ENTITY Disk "Disk">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-importexportdisk "&Disklong;">
+<!--**************************************-->
+
+<!--Snowball-->
+
+  <!ENTITY Frozenlong "AWS Snowball">
+  <!ENTITY Frozen "Snowball">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-importexportsnowball "&Frozenlong;">
+<!--**************************************-->
+
+<!--Signer-->
+
+  <!ENTITY Signerlong "AWS Signer">
+  <!ENTITY Signer "Signer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-signer "&Signerlong;">
+<!--**************************************-->
+
+<!--Snowball Edge-->
+
+  <!ENTITY SnowballEdgelong "AWS Snowball Edge">
+  <!ENTITY SnowballEdge "Snowball Edge">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-snowballedge "&SnowballEdgelong;">
+<!--**************************************-->
+
+<!--Snowcone-->
+
+  <!ENTITY SNClong "AWS Snowcone">
+  <!ENTITY SNC "Snowcone">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SNC "&SNClong;">
+<!--**************************************-->
+
+<!--
+                AWS OpsHub
+            -->
+
+  <!ENTITY OpsHublong "AWS OpsHub for Snow Family">
+  <!ENTITY OpsHub "AWS OpsHub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-OpsHub "&OpsHublong;">
+<!--**************************************-->
+
+<!--Amazon Inspector Classic-->
+
+  <!ENTITY INS1long "Amazon Inspector Classic">
+  <!ENTITY INS1 "Amazon Inspector Classic">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-inspector "&INS1long;">
+<!--**************************************-->
+
+<!--Amazon Inspector-->
+
+  <!ENTITY INSlong "Amazon Inspector">
+  <!ENTITY INS "Amazon Inspector">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-inspector2 "&INSlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT
+    		-->
+
+  <!ENTITY IoTlong "AWS IoT">
+  <!ENTITY IoT "AWS IoT">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iot "&IoTlong;">
+<!--**************************************-->
+
+<!--
+                AVS for AWS IoT
+            -->
+
+  <!ENTITY IoTAlexa "Alexa Voice Service (AVS) Integration for AWS IoT">
+  <!ENTITY IoTAlexashort "AVS for AWS IoT">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-IoTAlexashort "&IoTAlexa;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Analytics
+    		-->
+
+  <!ENTITY ITAlong "AWS IoT Analytics">
+  <!ENTITY ITA "AWS IoT Analytics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotanalytics "&ITAlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT data
+    		-->
+
+  <!ENTITY IoTDatalong "AWS IoT data">
+  <!ENTITY IoTData "AWS IoT data">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotdata "&IoTDatalong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Device Defender
+    		-->
+
+  <!ENTITY ITDDlong "AWS IoT Device Defender">
+  <!ENTITY ITDD "AWS IoT Device Defender">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotdevicedefender "&ITDDlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Device Management
+    		-->
+
+  <!ENTITY ITDMlong "AWS IoT Device Management">
+  <!ENTITY ITDM "AWS IoT Device Management">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotdevicemanagement "&ITDMlong;">
+<!--**************************************-->
+
+<!--Fleet Hub-->
+
+  <!ENTITY IoTMonitorlong "Fleet Hub for AWS IoT Device Management">
+  <!ENTITY IoTMonitor "Fleet Hub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-IoTMonitor "&IoTMonitorlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Events
+    		-->
+
+  <!ENTITY ITElong "AWS IoT Events">
+  <!ENTITY ITE "AWS IoT Events">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotevents "&ITElong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Events-Data
+            -->
+
+  <!ENTITY ITEDlong "AWS IoT Events-Data">
+  <!ENTITY ITED "AWS IoT Events-Data">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ioteventsdata "&ITEDlong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Identity
+            -->
+
+  <!ENTITY IoTIdentitylong "AWS IoT Identity">
+  <!ENTITY IoTIdentity "AWS IoT Identity">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotidentity "&IoTIdentitylong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT 1-Click
+    		-->
+
+  <!ENTITY ITOClong "AWS IoT 1-Click">
+  <!ENTITY ITOC "AWS IoT 1-Click">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iot1click "&ITOClong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Jobs SDK release
+            -->
+
+  <!ENTITY IoTJobsSDKreleaselong "AWS IoT Jobs SDK release">
+  <!ENTITY IoTJobsSDKrelease "AWS IoT Jobs SDK release">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iot-jobs-data "&IoTJobsSDKreleaselong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT Secure Tunneling
+            -->
+
+  <!ENTITY IoTSecureTunnellong "AWS IoT Secure Tunneling">
+  <!ENTITY IoTSecureTunnel "AWS IoT Secure Tunneling">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotsecuredtunneling "&IoTSecureTunnellong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT SiteWise
+    		-->
+
+  <!ENTITY ITSWlong "AWS IoT SiteWise">
+  <!ENTITY ITSW "AWS IoT SiteWise">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotsitewise "&ITSWlong;">
+<!--**************************************-->
+
+<!--SiteWise Monitor-->
+
+  <!ENTITY ITSWMlong "AWS IoT SiteWise Monitor">
+  <!ENTITY ITSWM "SiteWise Monitor">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iotsitewise-iotblackpearl "&ITSWMlong;">
+<!--**************************************-->
+
+<!--
+    			AWS IoT Things Graph
+    		-->
+
+  <!ENTITY ITTGlong "AWS IoT Things Graph">
+  <!ENTITY ITTG "AWS IoT Things Graph">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-thingsgraph "&ITTGlong;">
+<!--**************************************-->
+
+<!--
+                AWS IoT TwinMaker
+            -->
+
+  <!ENTITY IoTTMlong "AWS IoT TwinMaker">
+  <!ENTITY IoTTM "AWS IoT TwinMaker">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iottwinmaker "&IoTTMlong;">
+<!--**************************************-->
+
+<!--Amazon Kendra-->
+
+  <!ENTITY KENlong "Amazon Kendra">
+  <!ENTITY KEN "Amazon Kendra">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-KEN "&KENlong;">
+<!--**************************************-->
+
+<!--Amazon Keyspaces-->
+
+  <!ENTITY KEYlong "Amazon Keyspaces (for Apache Cassandra)">
+  <!ENTITY KEY "Amazon Keyspaces">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-KEY "&KEYlong;">
+<!--**************************************-->
+
+<!--
+    			AWS KMS
+    		-->
+
+  <!ENTITY KMSlong "AWS Key Management Service">
+  <!ENTITY KMS "AWS KMS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kms "&KMSlong;">
+<!--**************************************-->
+
+<!--KMS key-->
+
+  <!ENTITY kms-key-long "AWS KMS key">
+  <!ENTITY kms-key "KMS key">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kms-key "&kms-key-long;">
+<!--**************************************-->
+
+<!--KMS keys-->
+
+  <!ENTITY kms-keys-long "AWS KMS keys">
+  <!ENTITY kms-keys "KMS keys">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kms-keys "&kms-keys-long;">
+<!--**************************************-->
+
+<!--Kinesis-->
+
+  <!ENTITY AKlong "Amazon Kinesis">
+  <!ENTITY AK "Kinesis">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AK "&AKlong;">
+<!--**************************************-->
+
+<!--Kinesis Data Analytics-->
+
+  <!ENTITY AKAlong "Amazon Kinesis Data Analytics">
+  <!ENTITY AKA "Kinesis Data Analytics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kinesisanalytics "&AKAlong;">
+<!--**************************************-->
+
+<!--Kinesis Data Firehose-->
+
+  <!ENTITY FHlong "Amazon Kinesis Data Firehose">
+  <!ENTITY FH "Kinesis Data Firehose">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FH "&FHlong;">
+<!--**************************************-->
+
+<!--Kinesis Data Firehose-->
+
+  <!ENTITY AKFlong "Amazon Kinesis Data Firehose">
+  <!ENTITY AKF "Kinesis Data Firehose">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kinesisfirehose "&AKFlong;">
+<!--**************************************-->
+
+<!--HealthLake-->
+
+  <!ENTITY AHLlong "Amazon HealthLake">
+  <!ENTITY AHL "HealthLake">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AHL "&AHLlong;">
+<!--**************************************-->
+
+<!--Incident Manager-->
+
+  <!ENTITY commander-long "AWS Systems Manager Incident Manager">
+  <!ENTITY commander "Incident Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-commander "&commander-long;">
+<!--**************************************-->
+
+<!--Kinesis Data Streams-->
+
+  <!ENTITY AKSlong "Amazon Kinesis Data Streams">
+  <!ENTITY AKS "Kinesis Data Streams">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-kinesis "&AKSlong;">
+<!--**************************************-->
+
+<!--Kinesis Video Streams-->
+
+  <!ENTITY AKVSlong "Amazon Kinesis Video Streams">
+  <!ENTITY AKVS "Kinesis Video Streams">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AKVS "&AKVSlong;">
+<!--**************************************-->
+
+<!--Kinesis video stream-->
+
+  <!ENTITY AKVS-res-long "Amazon Kinesis video stream">
+  <!ENTITY AKVS-res "Kinesis video stream">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AKVS-res "&AKVS-res-long;">
+<!--**************************************-->
+
+<!--Amazon IVS-->
+
+  <!ENTITY IVSlong "Amazon Interactive Video Service">
+  <!ENTITY IVS "Amazon IVS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-IVS "&IVSlong;">
+<!--**************************************-->
+
+<!--Lake Formation-->
+
+  <!ENTITY LFlong "AWS Lake Formation">
+  <!ENTITY LF "Lake Formation">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lakeformation "&LFlong;">
+<!--**************************************-->
+
+<!--Lambda-->
+
+  <!ENTITY LAMlong "AWS Lambda">
+  <!ENTITY LAM "Lambda">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lambda "&LAMlong;">
+<!--**************************************-->
+
+<!--Lambda console-->
+
+  <!ENTITY LAMConsolelong "AWS Lambda console">
+  <!ENTITY LAMConsole "Lambda console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lambda-lambda-console "&LAMConsolelong;">
+<!--**************************************-->
+
+<!--Launch Wizard-->
+
+  <!ENTITY LWlong "AWS Launch Wizard">
+  <!ENTITY LW "Launch Wizard">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-LW "&LWlong;">
+<!--**************************************-->
+
+<!--Amazon Lex MBS-->
+
+  <!ENTITY LEXMBSlong "Amazon Lex Model Building Service">
+  <!ENTITY LEXMBS "Amazon Lex MBS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-models.lex "&LEXMBSlong;">
+<!--**************************************-->
+
+<!--Amazon Lex-->
+
+  <!ENTITY LEXlong "Amazon Lex">
+  <!ENTITY LEX "Amazon Lex">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-runtime.lex "&LEXlong;">
+<!--**************************************-->
+
+<!--Amazon Lex-->
+
+  <!ENTITY LEX2long "Amazon Lex">
+  <!ENTITY LEX2 "Amazon Lex">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-LEX2 "&LEX2long;">
+<!--**************************************-->
+
+<!--License Manager-->
+
+  <!ENTITY LIClong "AWS License Manager">
+  <!ENTITY LIC "License Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-license-manager "&LIClong;">
+<!--**************************************-->
+
+<!--License Manager master account SLR-->
+
+  <!ENTITY LICMasterAcctSlrlong "AWS License Manager master account SLR">
+  <!ENTITY LICMasterAcctSlr "License Manager master account SLR">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-license-manager-master-account-slr "&LICMasterAcctSlrlong;">
+<!--**************************************-->
+
+<!--License Manager member account SLR-->
+
+  <!ENTITY LICMemberAcctSlrlong "AWS License Manager member account SLR">
+  <!ENTITY LICMemberAcctSlr "License Manager member account SLR">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-license-manager-member-account-slr "&LICMemberAcctSlrlong;">
+<!--**************************************-->
+
+<!--Lightsail-->
+
+  <!ENTITY lightsaillong "Amazon Lightsail">
+  <!ENTITY lightsail "Lightsail">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-lightsail "&lightsaillong;">
+<!--**************************************-->
+
+<!--Amazon Location-->
+
+  <!ENTITY ALlong "Amazon Location Service">
+  <!ENTITY ALshort "Amazon Location">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ALshort "&ALlong;">
+<!--**************************************-->
+
+<!--Lumberyard-->
+
+  <!ENTITY ALYlong "Amazon Lumberyard">
+  <!ENTITY ALY "Lumberyard">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ALY "&ALYlong;">
+<!--**************************************-->
+
+<!--Lookout for Equipment-->
+
+  <!ENTITY HOGlong "Amazon Lookout for Equipment">
+  <!ENTITY HOG "Lookout for Equipment">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-HOG "&HOGlong;">
+<!--**************************************-->
+
+<!--Lookout for Metrics-->
+
+  <!ENTITY LFMlong "Amazon Lookout for Metrics">
+  <!ENTITY LFM "Lookout for Metrics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-LFM "&LFMlong;">
+<!--**************************************-->
+
+<!--Lookout for Vision-->
+
+  <!ENTITY LYRAlong "Amazon Lookout for Vision">
+  <!ENTITY LYRA "Lookout for Vision">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-LYRA "&LYRAlong;">
+<!--**************************************-->
+
+<!--Amazon ML-->
+
+  <!ENTITY MLlong "Amazon Machine Learning">
+  <!ENTITY ML "Amazon ML">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-machinelearning "&MLlong;">
+<!--**************************************-->
+
+<!--Macie-->
+
+  <!ENTITY MCElong "Amazon Macie">
+  <!ENTITY MCE "Macie">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-macie "&MCElong;">
+<!--**************************************-->
+
+<!--Managed Blockchain-->
+
+  <!ENTITY AMBlong "Amazon Managed Blockchain">
+  <!ENTITY AMB "Managed Blockchain">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AMB "&AMBlong;">
+<!--**************************************-->
+
+<!--Amazon Managed Grafana-->
+
+  <!ENTITY GRAlong "Amazon Managed Grafana">
+  <!ENTITY GRA "Amazon Managed Grafana">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-GRA "&GRAlong;">
+<!--**************************************-->
+
+<!--Amazon Managed Service for Prometheus-->
+
+  <!ENTITY PROlong "Amazon Managed Service for Prometheus">
+  <!ENTITY PRO "Amazon Managed Service for Prometheus">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PRO "&PROlong;">
+<!--**************************************-->
+
+<!--AMS-->
+
+  <!ENTITY AMSlong "AWS Managed Services">
+  <!ENTITY AMS "AMS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AMS "&AMSlong;">
+<!--**************************************-->
+
+<!--Amazon MSK-->
+
+  <!ENTITY MSKlong "Amazon Managed Streaming for Apache Kafka">
+  <!ENTITY MSK "Amazon MSK">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-msk "&MSKlong;">
+<!--**************************************-->
+
+<!--management portal-->
+
+  <!ENTITY AMPlong "AWS Management Portal for vCenter">
+  <!ENTITY AMP "management portal">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AMP "&AMPlong;">
+<!--**************************************-->
+
+<!--connector-->
+
+  <!ENTITY AMPClong "AWS Connector for vCenter">
+  <!ENTITY AMPC "connector">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AMPC "&AMPClong;">
+<!--**************************************-->
+
+<!--
+                AWS Marketplace Catalog API
+            -->
+
+  <!ENTITY MKTCAPIlong "AWS Marketplace Catalog API">
+  <!ENTITY MKTCAPI "AWS Marketplace Catalog API">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws_marketplace_catalog "&MKTCAPIlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Marketplace Commerce Analytics
+    		-->
+
+  <!ENTITY MKTCAlong "AWS Marketplace Commerce Analytics">
+  <!ENTITY MKTCA "AWS Marketplace Commerce Analytics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-marketplacecommerceanalytics "&MKTCAlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Marketplace Entitlement Service
+    		-->
+
+  <!ENTITY MKTESlong "AWS Marketplace Entitlement Service">
+  <!ENTITY MKTES "AWS Marketplace Entitlement Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-marketplaceentitlement "&MKTESlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Marketplace Metering Service
+    		-->
+
+  <!ENTITY MKTMSlong "AWS Marketplace Metering Service">
+  <!ENTITY MKTMS "AWS Marketplace Metering Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-marketplacemetering "&MKTMSlong;">
+<!--**************************************-->
+
+<!--Mechanical Turk-->
+
+  <!ENTITY MTlong "Amazon Mechanical Turk">
+  <!ENTITY MT "Mechanical Turk">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mturk-requester "&MTlong;">
+<!--**************************************-->
+
+<!--MemoryDB-->
+
+  <!ENTITY MDBlong "Amazon MemoryDB for Redis">
+  <!ENTITY MDB "MemoryDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-memorydb "&MDBlong;">
+<!--**************************************-->
+
+<!--Migration Hub-->
+
+  <!ENTITY MHBlong "AWS Migration Hub">
+  <!ENTITY MHB "Migration Hub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-migrationhub "&MHBlong;">
+<!--**************************************-->
+
+<!--Refactor Spaces-->
+
+  <!ENTITY MHBRefactorlong "AWS Migration Hub Refactor Spaces">
+  <!ENTITY MHBRefactor "Refactor Spaces">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-flux "&MHBRefactorlong;">
+<!--**************************************-->
+
+<!--Mobile Analytics-->
+
+  <!ENTITY MAlong "Amazon Mobile Analytics">
+  <!ENTITY MA "Mobile Analytics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-mobileanalytics "&MAlong;">
+<!--**************************************-->
+
+<!--Mobile Hub-->
+
+  <!ENTITY AMHlong "AWS Mobile Hub">
+  <!ENTITY AMH "Mobile Hub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AMH "&AMHlong;">
+<!--**************************************-->
+
+<!--Molecular Modeling-->
+
+  <!ENTITY MMlong "AWS Molecular Modeling">
+  <!ENTITY MM "Molecular Modeling">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-MM "&MMlong;">
+<!--**************************************-->
+
+<!--Amazon Monitron-->
+
+  <!ENTITY MONlong "Amazon Monitron">
+  <!ENTITY MON "Amazon Monitron">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-MON "&MONlong;">
+<!--**************************************-->
+
+<!--Amazon MQ-->
+
+  <!ENTITY AMQlong "Amazon MQ">
+  <!ENTITY AMQ "Amazon MQ">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-amazonmq "&AMQlong;">
+<!--**************************************-->
+
+<!--Neptune-->
+
+  <!ENTITY neptunelong "Amazon Neptune">
+  <!ENTITY neptune "Neptune">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-neptune "&neptunelong;">
+<!--**************************************-->
+
+<!--Neptune DB instance-->
+
+  <!ENTITY nep_dbinstancelong "Amazon Neptune DB instance">
+  <!ENTITY nep_dbinstance "Neptune DB instance">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-nep_dbinstance "&nep_dbinstancelong;">
+<!--**************************************-->
+
+<!--Network Firewall-->
+
+  <!ENTITY NWFWlong "AWS Network Firewall">
+  <!ENTITY NWFW "Network Firewall">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-NWFW "&NWFWlong;">
+<!--**************************************-->
+
+<!--Network Manager-->
+
+  <!ENTITY NMlong "Transit Gateway Network Manager">
+  <!ENTITY NM "Network Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-NM "&NMlong;">
+<!--**************************************-->
+
+<!--Nimble Studio-->
+
+  <!ENTITY ANSlong "Amazon Nimble Studio">
+  <!ENTITY ANS "Nimble Studio">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ANS "&ANSlong;">
+<!--**************************************-->
+
+<!--OpenSearch Service-->
+
+  <!ENTITY AOSlong "Amazon OpenSearch Service">
+  <!ENTITY AOS "OpenSearch Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-opensearchservice "&AOSlong;">
+<!--**************************************-->
+
+<!--
+    			AWS OpsWorks
+    		-->
+
+  <!ENTITY OPSlong "AWS OpsWorks">
+  <!ENTITY OPS "AWS OpsWorks">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-opsworks "&OPSlong;">
+<!--**************************************-->
+
+<!--
+                AWS OpsWorks for Chef Automate
+            -->
+
+  <!ENTITY OPSCAlong "AWS OpsWorks for Chef Automate">
+  <!ENTITY OPSCA "AWS OpsWorks for Chef Automate">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-OPSCA "&OPSCAlong;">
+<!--**************************************-->
+
+<!--OpsWorks for Puppet Enterprise-->
+
+  <!ENTITY OPSPUPlong "AWS OpsWorks for Puppet Enterprise">
+  <!ENTITY OPSPUP "OpsWorks for Puppet Enterprise">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-OPSPUP "&OPSPUPlong;">
+<!--**************************************-->
+
+<!--
+    			AWS OpsWorks CM
+    		-->
+
+  <!ENTITY OPSCMlong "AWS OpsWorks CM">
+  <!ENTITY OPSCM "AWS OpsWorks CM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-opsworks-cm "&OPSCMlong;">
+<!--**************************************-->
+
+<!--Organizations-->
+
+  <!ENTITY AOlong "AWS Organizations">
+  <!ENTITY AO "Organizations">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-organizations "&AOlong;">
+<!--**************************************-->
+
+<!--OrigamiServiceGateway-->
+
+  <!ENTITY OSGlong "AWSOrigamiServiceGateway">
+  <!ENTITY OSG "OrigamiServiceGateway">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws-osg "&OSGlong;">
+<!--**************************************-->
+
+<!--
+                AWS Outposts
+            -->
+
+  <!ENTITY OUTlong "AWS Outposts">
+  <!ENTITY OUT "AWS Outposts">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-OUT "&OUTlong;">
+<!--**************************************-->
+
+<!--
+                AWS Panorama
+            -->
+
+  <!ENTITY PANlong "AWS Panorama">
+  <!ENTITY PAN "AWS Panorama">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PAN "&PANlong;">
+<!--**************************************-->
+
+<!--
+                AWS ParallelCluster
+            -->
+
+  <!ENTITY parallelclusterlong "AWS ParallelCluster">
+  <!ENTITY parallelcluster "AWS ParallelCluster">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws-parallelcluster "&parallelclusterlong;">
+<!--**************************************-->
+
+<!--
+                AWSPaymentsGatewayService
+            -->
+
+  <!ENTITY PMNTGatewaylong "AWSPaymentsGatewayService">
+  <!ENTITY PMNTGateway "AWSPaymentsGatewayService">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws-payments-gateway "&PMNTGatewaylong;">
+<!--**************************************-->
+
+<!--PA-API-->
+
+  <!ENTITY PAAPIlong "Product Advertising API">
+  <!ENTITY PAAPI "PA-API">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PAAPI "&PAAPIlong;">
+<!--**************************************-->
+
+<!--
+                AWS Partner
+            -->
+
+  <!ENTITY APNlong "AWS Partner Network">
+  <!ENTITY APN "AWS Partner">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-APN "&APNlong;">
+<!--**************************************-->
+
+<!--Amazon Personalize-->
+
+  <!ENTITY PERSlong "Amazon Personalize">
+  <!ENTITY PERS "Amazon Personalize">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-personalize "&PERSlong;">
+<!--**************************************-->
+
+<!--Policy Simulator-->
+
+  <!ENTITY PSlong "IAM Policy Simulator">
+  <!ENTITY PS "Policy Simulator">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PS "&PSlong;">
+<!--**************************************-->
+
+<!--ACM PCA-->
+
+  <!ENTITY PCAlong "AWS Certificate Manager Private Certificate Authority">
+  <!ENTITY PCA "ACM PCA">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ACMPrivateCA "&PCAlong;">
+<!--**************************************-->
+
+<!--Amazon Pinpoint-->
+
+  <!ENTITY PINlong "Amazon Pinpoint">
+  <!ENTITY PIN "Amazon Pinpoint">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-pinpoint "&PINlong;">
+<!--**************************************-->
+
+<!--Amazon Polly-->
+
+  <!ENTITY POLlong "Amazon Polly">
+  <!ENTITY POL "Amazon Polly">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-polly "&POLlong;">
+<!--**************************************-->
+
+<!--Porting Assistant for .NET-->
+
+  <!ENTITY EClong "Porting Assistant for .NET">
+  <!ENTITY EC "Porting Assistant for .NET">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-EC "&EClong;">
+<!--**************************************-->
+
+<!--
+                AWS Pricing Calculator
+            -->
+
+  <!ENTITY APClong "AWS Pricing Calculator">
+  <!ENTITY APC "AWS Pricing Calculator">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-APC "&APClong;">
+<!--**************************************-->
+
+<!--interface endpoint-->
+
+  <!ENTITY interface-endpoint-long "interface VPC endpoint">
+  <!ENTITY interface-endpoint "interface endpoint">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-interface-endpoint "&interface-endpoint-long;">
+<!--**************************************-->
+
+<!--
+                AWS Proton
+            -->
+
+  <!ENTITY ARWlong "AWS Proton">
+  <!ENTITY ARW "AWS Proton">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ARW "&ARWlong;">
+<!--**************************************-->
+
+<!--QLDB-->
+
+  <!ENTITY QLDBlong "Amazon QLDB">
+  <!ENTITY QLDB "QLDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-QLDB "&QLDBlong;">
+<!--**************************************-->
+
+<!--Amazon QuickSight-->
+
+  <!ENTITY QSlong "Amazon QuickSight">
+  <!ENTITY QS "Amazon QuickSight">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-quicksight "&QSlong;">
+<!--**************************************-->
+
+<!--
+    			AWS RAM
+    		-->
+
+  <!ENTITY RAMlong "AWS Resource Access Manager">
+  <!ENTITY RAM "AWS RAM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ram "&RAMlong;">
+<!--**************************************-->
+
+<!--Amazon RDS-->
+
+  <!ENTITY RDSlong "Amazon Relational Database Service">
+  <!ENTITY RDS "Amazon RDS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-rds "&RDSlong;">
+<!--**************************************-->
+
+<!--RDS for MariaDB-->
+
+  <!ENTITY RDSlongMaria "Amazon RDS for MariaDB">
+  <!ENTITY RDSMaria "RDS for MariaDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSMaria "&RDSlongMaria;">
+<!--**************************************-->
+
+<!--Amazon RDS for SQL Server-->
+
+  <!ENTITY RDSlongMSlong "Amazon RDS for Microsoft SQL Server">
+  <!ENTITY RDSlongMS "Amazon RDS for SQL Server">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSlongMS "&RDSlongMSlong;">
+<!--**************************************-->
+
+<!--RDS for SQL Server-->
+
+  <!ENTITY RDSMSlong "RDS for Microsoft SQL Server">
+  <!ENTITY RDSMS "RDS for SQL Server">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSMS "&RDSMSlong;">
+<!--**************************************-->
+
+<!--RDS for MySQL-->
+
+  <!ENTITY RDSlongMySQL "Amazon RDS for MySQL">
+  <!ENTITY RDSMySQL "RDS for MySQL">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSMySQL "&RDSlongMySQL;">
+<!--**************************************-->
+
+<!--RDS for Oracle-->
+
+  <!ENTITY RDSlongOra "Amazon RDS for Oracle">
+  <!ENTITY RDSOra "RDS for Oracle">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSOra "&RDSlongOra;">
+<!--**************************************-->
+
+<!--RDS for PostgreSQL-->
+
+  <!ENTITY RDSlongPostgres "Amazon RDS for PostgreSQL">
+  <!ENTITY RDSPostgres "RDS for PostgreSQL">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RDSPostgres "&RDSlongPostgres;">
+<!--**************************************-->
+
+<!--Reachability Analyzer-->
+
+  <!ENTITY RAlong "VPC Reachability Analyzer">
+  <!ENTITY RA "Reachability Analyzer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RA "&RAlong;">
+<!--**************************************-->
+
+<!--Amazon Remote Configuration-->
+
+  <!ENTITY RClong "Amazon Remote Configuration">
+  <!ENTITY RC "Amazon Remote Configuration">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-RC "&RClong;">
+<!--**************************************-->
+
+<!--Amazon Redshift-->
+
+  <!ENTITY RSlong "Amazon Redshift">
+  <!ENTITY RS "Amazon Redshift">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-redshift "&RSlong;">
+<!--**************************************-->
+
+<!--Redshift Spectrum-->
+
+  <!ENTITY SPClong "Amazon Redshift Spectrum">
+  <!ENTITY SPC "Redshift Spectrum">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SPC "&SPClong;">
+<!--**************************************-->
+
+<!--Amazon Rekognition-->
+
+  <!ENTITY REKlong "Amazon Rekognition">
+  <!ENTITY REK "Amazon Rekognition">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-rekognition "&REKlong;">
+<!--**************************************-->
+
+<!--Resilience Hub-->
+
+  <!ENTITY ARHlong "AWS Resilience Hub">
+  <!ENTITY ARH "Resilience Hub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-resiliencehub "&ARHlong;">
+<!--**************************************-->
+
+<!--Resource Groups-->
+
+  <!ENTITY ARGlong "AWS Resource Groups">
+  <!ENTITY ARG "Resource Groups">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ARG "&ARGlong;">
+<!--**************************************-->
+
+<!--Resource Groups Tagging API-->
+
+  <!ENTITY ARGTAPIlong "AWS Resource Groups Tagging API">
+  <!ENTITY ARGTAPI "Resource Groups Tagging API">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-resourcegroupstaggingapi "&ARGTAPIlong;">
+<!--**************************************-->
+
+<!--
+                AWS RoboMaker
+            -->
+
+  <!ENTITY RBMlong "AWS RoboMaker">
+  <!ENTITY RBM "AWS RoboMaker">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-robomaker "&RBMlong;">
+<!--**************************************-->
+
+<!--Route 53-->
+
+  <!ENTITY R53long "Amazon Route 53">
+  <!ENTITY R53 "Route 53">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-R53 "&R53long;">
+<!--**************************************-->
+
+<!--Route 53 Public Data Plane-->
+
+  <!ENTITY R53PDPlong "Amazon Route 53 Public Data Plane">
+  <!ENTITY R53PDP "Route 53 Public Data Plane">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53 "&R53PDPlong;">
+<!--**************************************-->
+
+<!--
+    			Route 53 AWS Integration
+    		-->
+
+  <!ENTITY R53AWSIntlong "Amazon Route 53 AWS Integration">
+  <!ENTITY R53AWSInt "Route 53 AWS Integration">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53awsintegration "&R53AWSIntlong;">
+<!--**************************************-->
+
+<!--Route 53 Private DNS for VPCs-->
+
+  <!ENTITY R53PDNSVPClong "Amazon Route 53 Private DNS for VPCs">
+  <!ENTITY R53PDNSVPC "Route 53 Private DNS for VPCs">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53privatedns "&R53PDNSVPClong;">
+<!--**************************************-->
+
+<!--Route 53 domain registration-->
+
+  <!ENTITY R53DRlong "Amazon Route 53 domain registration">
+  <!ENTITY R53DR "Route 53 domain registration">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53domains "&R53DRlong;">
+<!--**************************************-->
+
+<!--Route 53 Resolver-->
+
+  <!ENTITY R53Rlong "Amazon Route 53 Resolver">
+  <!ENTITY R53R "Route 53 Resolver">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53resolver "&R53Rlong;">
+<!--**************************************-->
+
+<!--Route 53 ARC-->
+
+  <!ENTITY R53ARClong "Amazon Route 53 Application Recovery Controller">
+  <!ENTITY R53ARC "Route 53 ARC">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-route53-application-recovery-controller "&R53ARClong;">
+<!--**************************************-->
+
+<!--SageMaker-->
+
+  <!ENTITY SMlong "Amazon SageMaker">
+  <!ENTITY SM "SageMaker">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sagemaker "&SMlong;">
+<!--**************************************-->
+
+<!--Ground Truth-->
+
+  <!ENTITY SAIlong "Amazon SageMaker Ground Truth">
+  <!ENTITY SAI "Ground Truth">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SAI "&SAIlong;">
+<!--**************************************-->
+
+<!--Amazon A2I-->
+
+  <!ENTITY a2ilong "Amazon Augmented AI">
+  <!ENTITY a2ishort "Amazon A2I">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-a2ishort "&a2ilong;">
+<!--**************************************-->
+
+<!--SageMaker-->
+
+  <!ENTITY SMRuntimelong "Amazon SageMaker">
+  <!ENTITY SMRuntime "SageMaker">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sagemakerruntime "&SMRuntimelong;">
+<!--**************************************-->
+
+<!--Amazon S3-->
+
+  <!ENTITY S3long "Amazon Simple Storage Service">
+  <!ENTITY S3 "Amazon S3">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-S3 "&S3long;">
+<!--**************************************-->
+
+<!--S3 on Outposts-->
+
+  <!ENTITY S3onOutpostsLong "Amazon S3 on Outposts">
+  <!ENTITY S3onOutposts "S3 on Outposts">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-S3onOutposts "&S3onOutpostsLong;">
+<!--**************************************-->
+
+<!--Amazon S3 Control-->
+
+  <!ENTITY S3Controllong "Amazon S3 Control">
+  <!ENTITY S3Control "Amazon S3 Control">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-s3-control "&S3Controllong;">
+<!--**************************************-->
+
+<!--
+                AWS SCT
+            -->
+
+  <!ENTITY AWSSCTlong "AWS Schema Conversion Tool">
+  <!ENTITY AWSSCT "AWS SCT">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-AWSSCT "&AWSSCTlong;">
+<!--**************************************-->
+
+<!--Mobile SDK for Android-->
+
+  <!ENTITY Androidlong "AWS Mobile SDK for Android">
+  <!ENTITY Android "Mobile SDK for Android">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Android "&Androidlong;">
+<!--**************************************-->
+
+<!--SDK for C++-->
+
+  <!ENTITY CPPlong "AWS SDK for C++">
+  <!ENTITY CPP "SDK for C++">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-CPP "&CPPlong;">
+<!--**************************************-->
+
+<!--SDK for Go-->
+
+  <!ENTITY Golong "AWS SDK for Go">
+  <!ENTITY Go "SDK for Go">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Go "&Golong;">
+<!--**************************************-->
+
+<!--Mobile SDK for iOS-->
+
+  <!ENTITY iOSlong "AWS Mobile SDK for iOS">
+  <!ENTITY iOS "Mobile SDK for iOS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-iOS "&iOSlong;">
+<!--**************************************-->
+
+<!--SDK for Java-->
+
+  <!ENTITY Javalong "AWS SDK for Java">
+  <!ENTITY Java "SDK for Java">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Java "&Javalong;">
+<!--**************************************-->
+
+<!--SDK for Java 2.x-->
+
+  <!ENTITY JavaV2long "AWS SDK for Java 2.x">
+  <!ENTITY JavaV2 "SDK for Java 2.x">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-JavaV2 "&JavaV2long;">
+<!--**************************************-->
+
+<!--SDK for JavaScript-->
+
+  <!ENTITY JSBlong "AWS SDK for JavaScript">
+  <!ENTITY JSB "SDK for JavaScript">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-JSB "&JSBlong;">
+<!--**************************************-->
+
+<!--SDK Metrics-->
+
+  <!ENTITY SDKMlong "AWS SDK Metrics for Enterprise Support">
+  <!ENTITY SDKM "SDK Metrics">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SDKM "&SDKMlong;">
+<!--**************************************-->
+
+<!--
+                AWS SDK for .NET
+            -->
+
+  <!ENTITY NETlong "AWS SDK for .NET">
+  <!ENTITY NET "AWS SDK for .NET">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-NET "&NETlong;">
+<!--**************************************-->
+
+<!--SDK for PHP-->
+
+  <!ENTITY PHPlong "AWS SDK for PHP">
+  <!ENTITY PHP "SDK for PHP">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PHP "&PHPlong;">
+<!--**************************************-->
+
+<!--SDK for PHP-->
+
+  <!ENTITY PHP2long "AWS SDK for PHP">
+  <!ENTITY PHP2 "SDK for PHP">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-PHP2 "&PHP2long;">
+<!--**************************************-->
+
+<!--SDK for Python-->
+
+  <!ENTITY Pythonlong "AWS SDK for Python (Boto)">
+  <!ENTITY Python "SDK for Python">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Python "&Pythonlong;">
+<!--**************************************-->
+
+<!--SDK for Python (Boto3)-->
+
+  <!ENTITY Python3long "AWS SDK for Python (Boto3)">
+  <!ENTITY Python3 "SDK for Python (Boto3)">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Python3 "&Python3long;">
+<!--**************************************-->
+
+<!--SDK for Ruby-->
+
+  <!ENTITY Rubylong "AWS SDK for Ruby">
+  <!ENTITY Ruby "SDK for Ruby">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Ruby "&Rubylong;">
+<!--**************************************-->
+
+<!--
+    			AWS SMS
+    		-->
+
+  <!ENTITY SMSlong "AWS Server Migration Service">
+  <!ENTITY SMS "AWS SMS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sms "&SMSlong;">
+<!--**************************************-->
+
+<!--Secrets Manager-->
+
+  <!ENTITY ASMlong "AWS Secrets Manager">
+  <!ENTITY ASM "Secrets Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-secretsmanager "&ASMlong;">
+<!--**************************************-->
+
+<!--Security Hub-->
+
+  <!ENTITY ASHlong "AWS Security Hub">
+  <!ENTITY ASH "Security Hub">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-securityhub "&ASHlong;">
+<!--**************************************-->
+
+<!--
+                AWS SAM
+            -->
+
+  <!ENTITY SAMlong "AWS Serverless Application Model">
+  <!ENTITY SAM "AWS SAM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SAM "&SAMlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Serverless Application Repository
+    		-->
+
+  <!ENTITY SARlong "AWS Serverless Application Repository">
+  <!ENTITY SAR "AWS Serverless Application Repository">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-serverlessrepo "&SARlong;">
+<!--**************************************-->
+
+<!--Service Authorization Reference-->
+
+  <!ENTITY SAZRlong "Service Authorization Reference">
+  <!ENTITY SAZR "Service Authorization Reference">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SAZR "&SAZRlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Service Catalog
+    		-->
+
+  <!ENTITY SClong "AWS Service Catalog">
+  <!ENTITY SC "AWS Service Catalog">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-servicecatalog "&SClong;">
+<!--**************************************-->
+
+<!--
+                AWS Service Catalog AppRegistry
+            -->
+
+  <!ENTITY SCARlong "AWS Service Catalog AppRegistry">
+  <!ENTITY SCAR "AWS Service Catalog AppRegistry">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-scar "&SCARlong;">
+<!--**************************************-->
+
+<!--Service Quotas-->
+
+  <!ENTITY SQlong "Service Quotas">
+  <!ENTITY SQ "Service Quotas">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-servicequotas "&SQlong;">
+<!--**************************************-->
+
+<!--Amazon SES-->
+
+  <!ENTITY SESlong "Amazon Simple Email Service">
+  <!ENTITY SES "Amazon SES">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ses "&SESlong;">
+<!--**************************************-->
+
+<!--
+                AWS SFTP
+            -->
+
+  <!ENTITY SFTPlong "AWS Transfer for SFTP">
+  <!ENTITY SFTP "AWS SFTP">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SFTP "&SFTPlong;">
+<!--**************************************-->
+
+<!--Shield-->
+
+  <!ENTITY SHDlong "AWS Shield">
+  <!ENTITY SHD "Shield">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Shield "&SHDlong;">
+<!--**************************************-->
+
+<!--Shield Standard-->
+
+  <!ENTITY SHDSTDlong "AWS Shield Standard">
+  <!ENTITY SHDSTD "Shield Standard">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SHDSTD "&SHDSTDlong;">
+<!--**************************************-->
+
+<!--Shield Advanced-->
+
+  <!ENTITY SHDADVlong "AWS Shield Advanced">
+  <!ENTITY SHDADV "Shield Advanced">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SHDADV "&SHDADVlong;">
+<!--**************************************-->
+
+<!--Amazon Silk-->
+
+  <!ENTITY SLKlong "Amazon Silk">
+  <!ENTITY SLK "Amazon Silk">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SLK "&SLKlong;">
+<!--**************************************-->
+
+<!--Amazon Simple Pay-->
+
+  <!ENTITY SPlong "Amazon Simple Pay">
+  <!ENTITY SP "Amazon Simple Pay">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SP "&SPlong;">
+<!--**************************************-->
+
+<!--
+    			AWS SSO
+    		-->
+
+  <!ENTITY SSOlong "AWS Single Sign-On">
+  <!ENTITY SSO "AWS SSO">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sso "&SSOlong;">
+<!--**************************************-->
+
+<!--Snow Device Management-->
+
+  <!ENTITY SDMlong "AWS Snow Device Management">
+  <!ENTITY SDM "Snow Device Management">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-snow-device-management "&SDMlong;">
+<!--**************************************-->
+
+<!--SPEKE-->
+
+  <!ENTITY SPKlong "Secure Packager and Encoder Key Exchange">
+  <!ENTITY SPK "SPEKE">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SPK "&SPKlong;">
+<!--**************************************-->
+
+<!--Sumerian-->
+
+  <!ENTITY sumerianlong "Amazon Sumerian">
+  <!ENTITY sumerian "Sumerian">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sumerian "&sumerianlong;">
+<!--**************************************-->
+
+<!--Systems Manager-->
+
+  <!ENTITY SYSlong "AWS Systems Manager">
+  <!ENTITY SYS "Systems Manager">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ec2simplesystemsmanager "&SYSlong;">
+<!--**************************************-->
+
+<!--SSM-->
+
+  <!ENTITY SSMlong "Amazon EC2 Systems Manager">
+  <!ENTITY SSM "SSM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-SSM "&SSMlong;">
+<!--**************************************-->
+
+<!--Systems Manager Explorer-->
+
+  <!ENTITY SYSElong "AWS Systems Manager Explorer">
+  <!ENTITY SYSE "Systems Manager Explorer">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ssm-explorer "&SYSElong;">
+<!--**************************************-->
+
+<!--Amazon SimpleDB-->
+
+  <!ENTITY SDBlong "Amazon SimpleDB">
+  <!ENTITY SDB "Amazon SimpleDB">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-simpledb "&SDBlong;">
+<!--**************************************-->
+
+<!--Amazon SNS-->
+
+  <!ENTITY SNSlong "Amazon Simple Notification Service">
+  <!ENTITY SNS "Amazon SNS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sns "&SNSlong;">
+<!--**************************************-->
+
+<!--Amazon SQS-->
+
+  <!ENTITY SQSlong "Amazon Simple Queue Service">
+  <!ENTITY SQS "Amazon SQS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sqs "&SQSlong;">
+<!--**************************************-->
+
+<!--Step Functions-->
+
+  <!ENTITY SFNlong "AWS Step Functions">
+  <!ENTITY SFN "Step Functions">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-states "&SFNlong;">
+<!--**************************************-->
+
+<!--Step Functions - Sync Express-->
+
+  <!ENTITY SFNSElong "AWS Step Functions - Sync Express">
+  <!ENTITY SFNSE "Step Functions - Sync Express">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-states-states-sync-express "&SFNSElong;">
+<!--**************************************-->
+
+<!--Storage Gateway-->
+
+  <!ENTITY AWSSGlong "AWS Storage Gateway">
+  <!ENTITY AWSSG "Storage Gateway">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-storagegateway "&AWSSGlong;">
+<!--**************************************-->
+
+<!--
+    			AWS STS
+    		-->
+
+  <!ENTITY STSlong "AWS Security Token Service">
+  <!ENTITY STS "AWS STS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-sts "&STSlong;">
+<!--**************************************-->
+
+<!--
+    			AWS Support
+    		-->
+
+  <!ENTITY SUPlong "AWS Support">
+  <!ENTITY SUP "AWS Support">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-support "&SUPlong;">
+<!--**************************************-->
+
+<!--Support Center Console-->
+
+  <!ENTITY SUPCtrConsolelong "AWS Support Center Console">
+  <!ENTITY SUPCtrConsole "Support Center Console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-support-center-console "&SUPCtrConsolelong;">
+<!--**************************************-->
+
+<!--Amazon SWF-->
+
+  <!ENTITY SWFlong "Amazon Simple Workflow Service">
+  <!ENTITY SWF "Amazon SWF">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-swf "&SWFlong;">
+<!--**************************************-->
+
+<!--Amazon Textract-->
+
+  <!ENTITY TEXTRACTlong "Amazon Textract">
+  <!ENTITY TEXTRACT "Amazon Textract">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-textract "&TEXTRACTlong;">
+<!--**************************************-->
+
+<!--Timestream-->
+
+  <!ENTITY TIMElong "Amazon Timestream">
+  <!ENTITY TIME "Timestream">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TIME "&TIMElong;">
+<!--**************************************-->
+
+<!--Toolkit for Eclipse-->
+
+  <!ENTITY TElong "AWS Toolkit for Eclipse">
+  <!ENTITY TE "Toolkit for Eclipse">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TE "&TElong;">
+<!--**************************************-->
+
+<!--
+                AWS Toolkit for JetBrains
+            -->
+
+  <!ENTITY JBIDEToolkitlong "AWS Toolkit for JetBrains">
+  <!ENTITY JBIDEToolkit "AWS Toolkit for JetBrains">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-JBIDEToolkit "&JBIDEToolkitlong;">
+<!--**************************************-->
+
+<!--Toolkit for Visual Studio-->
+
+  <!ENTITY TVSlong "AWS Toolkit for Visual Studio">
+  <!ENTITY TVS "Toolkit for Visual Studio">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TVS "&TVSlong;">
+<!--**************************************-->
+
+<!--VS Code-->
+
+  <!ENTITY VSCIDElong "Visual Studio Code">
+  <!ENTITY VSCIDE "VS Code">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-VSCIDE "&VSCIDElong;">
+<!--**************************************-->
+
+<!--Toolkit for VS Code-->
+
+  <!ENTITY VSCIDEToolkit "AWS Toolkit for Visual Studio Code">
+  <!ENTITY VSCIDEToolkitshort "Toolkit for VS Code">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-VSCIDEToolkitshort "&VSCIDEToolkit;">
+<!--**************************************-->
+
+<!--
+                AWS Toolkit for Azure DevOps
+            -->
+
+  <!ENTITY TTSlong "AWS Toolkit for Microsoft Azure DevOps">
+  <!ENTITY TTS "AWS Toolkit for Azure DevOps">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TTS "&TTSlong;">
+<!--**************************************-->
+
+<!--Tools for Windows PowerShell-->
+
+  <!ENTITY TWPlong "AWS Tools for Windows PowerShell">
+  <!ENTITY TWP "Tools for Windows PowerShell">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TWP "&TWPlong;">
+<!--**************************************-->
+
+<!--Tools for PowerShell-->
+
+  <!ENTITY TWPALLlong "AWS Tools for PowerShell">
+  <!ENTITY TWPALL "Tools for PowerShell">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TWPALL "&TWPALLlong;">
+<!--**************************************-->
+
+<!--Tools for PowerShell Core-->
+
+  <!ENTITY TPClong "AWS Tools for PowerShell Core">
+  <!ENTITY TPC "Tools for PowerShell Core">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-TPC "&TPClong;">
+<!--**************************************-->
+
+<!--Transfer Family-->
+
+  <!ENTITY TFlong "AWS Transfer Family">
+  <!ENTITY TF "Transfer Family">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-transfer "&TFlong;">
+<!--**************************************-->
+
+<!--
+                AWS FTP
+            -->
+
+  <!ENTITY FTPlong "AWS Transfer for FTP">
+  <!ENTITY FTP "AWS FTP">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FTP "&FTPlong;">
+<!--**************************************-->
+
+<!--
+                AWS FTPS
+            -->
+
+  <!ENTITY FTPSlong "AWS Transfer for FTPS">
+  <!ENTITY FTPS "AWS FTPS">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-FTPS "&FTPSlong;">
+<!--**************************************-->
+
+<!--Amazon Translate-->
+
+  <!ENTITY TSLlong "Amazon Translate">
+  <!ENTITY TSL "Amazon Translate">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Translate "&TSLlong;">
+<!--**************************************-->
+
+<!--Amazon Transcribe-->
+
+  <!ENTITY TSClong "Amazon Transcribe">
+  <!ENTITY TSC "Amazon Transcribe">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-Transcribe "&TSClong;">
+<!--**************************************-->
+
+<!--
+    			Trusted Advisor
+    		-->
+
+  <!ENTITY AWS-TA-long "AWS Trusted Advisor">
+  <!ENTITY AWS-TA "Trusted Advisor">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-trustedadvisor "&AWS-TA-long;">
+<!--**************************************-->
+
+<!--VM Import/Export-->
+
+  <!ENTITY VMIElong "VM Import/Export">
+  <!ENTITY VMIE "VM Import/Export">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-vmimportexport "&VMIElong;">
+<!--**************************************-->
+
+<!--Amazon VPC-->
+
+  <!ENTITY VPClong "Amazon Virtual Private Cloud">
+  <!ENTITY VPC "Amazon VPC">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-VPC "&VPClong;">
+<!--**************************************-->
+
+<!--Amazon VPC Console-->
+
+  <!ENTITY VPCConsolelong "Amazon Virtual Private Cloud Console">
+  <!ENTITY VPCConsole "Amazon VPC Console">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-vpcconsole "&VPCConsolelong;">
+<!--**************************************-->
+
+<!--IPAM-->
+
+  <!ENTITY ipam-long "Amazon VPC IP Address Manager">
+  <!ENTITY ipam "IPAM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-aws-ipam "&ipam-long;">
+<!--**************************************-->
+
+<!--Transit Gateway-->
+
+  <!ENTITY AWSTGlong "AWS Transit Gateway">
+  <!ENTITY AWSTG "Transit Gateway">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-transit_gateway "&AWSTGlong;">
+<!--**************************************-->
+
+<!--Client VPN-->
+
+  <!ENTITY CVPNlong "AWS Client VPN">
+  <!ENTITY CVPN "Client VPN">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-clientvpn "&CVPNlong;">
+<!--**************************************-->
+
+<!--Site-to-Site VPN-->
+
+  <!ENTITY S2Slong "AWS Site-to-Site VPN">
+  <!ENTITY S2S "Site-to-Site VPN">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-S2S "&S2Slong;">
+<!--**************************************-->
+
+<!--
+    			AWS VPN
+    		-->
+
+  <!ENTITY VPNlong "AWS Virtual Private Network">
+  <!ENTITY VPN "AWS VPN">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-vpnvpc "&VPNlong;">
+<!--**************************************-->
+
+<!--
+    			AWS WAF
+    		-->
+
+  <!ENTITY WAFlong "AWS WAF">
+  <!ENTITY WAF "AWS WAF">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-waf "&WAFlong;">
+<!--**************************************-->
+
+<!--
+                AWS WAFV2
+            -->
+
+  <!ENTITY WAFv2long "AWS WAFV2">
+  <!ENTITY WAFv2 "AWS WAFV2">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-wafv2 "&WAFv2long;">
+<!--**************************************-->
+
+<!--
+    			AWS WAF
+    		-->
+
+  <!ENTITY WAFRegionallong "AWS WAF">
+  <!ENTITY WAFRegional "AWS WAF">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-waf-regional "&WAFRegionallong;">
+<!--**************************************-->
+
+<!--Wavelength-->
+
+  <!ENTITY WAVElong "AWS Wavelength">
+  <!ENTITY WAVE "Wavelength">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-WAVE "&WAVElong;">
+<!--**************************************-->
+
+<!--
+                AWS WA Tool
+            -->
+
+  <!ENTITY WATlong "AWS Well-Architected Tool">
+  <!ENTITY WAT "AWS WA Tool">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-WAT "&WATlong;">
+<!--**************************************-->
+
+<!--WorkSpaces-->
+
+  <!ENTITY WSPlong "Amazon WorkSpaces">
+  <!ENTITY WSP "WorkSpaces">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-workspaces "&WSPlong;">
+<!--**************************************-->
+
+<!--Amazon WAM-->
+
+  <!ENTITY WAMlong "Amazon WorkSpaces Application Manager">
+  <!ENTITY WAM "Amazon WAM">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-wam "&WAMlong;">
+<!--**************************************-->
+
+<!--Amazon WorkLink-->
+
+  <!ENTITY WLKlong "Amazon WorkLink">
+  <!ENTITY WLK "Amazon WorkLink">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-worklink "&WLKlong;">
+<!--**************************************-->
+
+<!--Amazon WorkMail-->
+
+  <!ENTITY WMlong "Amazon WorkMail">
+  <!ENTITY WM "Amazon WorkMail">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-workmail "&WMlong;">
+<!--**************************************-->
+
+<!--Amazon WorkDocs-->
+
+  <!ENTITY WDlong "Amazon WorkDocs">
+  <!ENTITY WD "Amazon WorkDocs">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-workdocs "&WDlong;">
+<!--**************************************-->
+
+<!--Amazon WorkDocs-->
+
+  <!ENTITY ZCLlong "Amazon WorkDocs">
+  <!ENTITY ZCL "Amazon WorkDocs">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-ZCL "&ZCLlong;">
+<!--**************************************-->
+
+<!--X-Ray-->
+
+  <!ENTITY xraylong "AWS X-Ray">
+  <!ENTITY xray "X-Ray">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-xray "&xraylong;">
+<!--**************************************-->
+
+<!--Zelkova Service-->
+
+  <!ENTITY zelkovalong "AWS Zelkova Service">
+  <!ENTITY zelkova "Zelkova Service">
+
+  <!--Use for RIPConfig autogen region tables only. Do NOT use in regular docs-->
+  <!ENTITY autogen-name-zelkova "&zelkovalong;">
+<!--**************************************-->
+
+  <!ENTITY ad-connector "AD Connector">
+  <!ENTITY ALB "Application Load Balancer">
+  <!ENTITY ALBs "Application Load Balancers">
+  <!ENTITY AMR "AWS Managed Rules">
+  <!ENTITY AMRrg "AWS Managed Rules rule group">
+  <!ENTITY AMRrgs "AWS Managed Rules rule groups">
+  <!ENTITY AMS-Acclong "AMS Accelerate">
+  <!ENTITY ASMshort "Secrets Manager">
+  <!ENTITY AWS "AWS">
+  <!ENTITY AWS-always "AWS">
+  <!ENTITY AWSlong "Amazon Web Services">
+  <!ENTITY AWS-account "AWS account">
+  <!ENTITY AWS-accounts "AWS accounts">
+  <!ENTITY AWS-Cloud "AWS Cloud">
+  <!ENTITY AWS-DC-Long "AWS Direct Connect">
+  <!ENTITY AWS-DClong "AWS Direct Connect">
+  <!ENTITY aws-managed-key "AWS managed key">
+  <!ENTITY aws-managed-keys "AWS managed keys">
+  <!ENTITY aws-owned-key "AWS owned key">
+  <!ENTITY aws-owned-keys "AWS owned keys">
+  <!ENTITY AWS-Region "AWS Region">
+  <!ENTITY AWS-Regions "AWS Regions">
+  <!ENTITY AWS-service "AWS service">
+  <!ENTITY AWS-services "AWS services">
+  <!ENTITY AWS-TA-Long "AWS Trusted Advisor">
+  <!ENTITY AWS-Training "AWS Training">
+  <!ENTITY Billinglong "AWS Billing">
+  <!ENTITY Billing "Billing">
+  <!ENTITY Budgetslong "AWS Budgets">
+  <!ENTITY Bulda "Snowball client">
+  <!ENTITY CCLong "AWS Config">
+  <!ENTITY CDKshort "CDK">
+  <!ENTITY CFNLong "AWS CloudFormation">
+  <!ENTITY CFNshort "CloudFormation">
+  <!ENTITY CFNGUARDlong "AWS CloudFormation Guard">
+  <!ENTITY CFNGUARDshort "Guard">
+  <!ENTITY CHM_plus "plus license">
+  <!ENTITY CHM_pro "pro license">
+  <!ENTITY CHMPro "Amazon Chime Pro">
+  <!ENTITY CLB "Classic Load Balancer">
+  <!ENTITY CLBs "Classic Load Balancers">
+  <!ENTITY cluster "cluster">
+  <!ENTITY Cluster "Cluster">
+  <!ENTITY CMG "AWS Cost Management">
+  <!ENTITY COGID "Amazon Cognito Identity">
+  <!ENTITY COGUP "Amazon Cognito user pools">
+  <!ENTITY CryptoSDKC "AWS Encryption SDK for C">
+  <!ENTITY CryptoSDKJava "AWS Encryption SDK for Java">
+  <!ENTITY CryptoSDKJS "AWS Encryption SDK for JavaScript">
+  <!ENTITY CryptoSDKPy "AWS Encryption SDK for Python">
+  <!ENTITY CSC "AWS CodeStar connections">
+  <!ENTITY CURlong "AWS Cost and Usage Report">
+  <!ENTITY cust-key "customer managed key">
+  <!ENTITY cust-keys "customer managed keys">
+  <!ENTITY cust-key-cap "Customer managed key">
+  <!ENTITY cust-keys-cap "Customer managed keys">
+  <!ENTITY data-key "data key">
+  <!ENTITY data-keys "data keys">
+  <!ENTITY data-key-cap "Data key">
+  <!ENTITY data-keys-cap "Data keys">
+  <!ENTITY DCV "NICE DCV">
+  <!ENTITY EBSapis "EBS direct APIs">
+  <!ENTITY EBSencrypt "Amazon EBS encryption">
+  <!ENTITY EBSencrypt_capitalized "Amazon EBS Encryption">
+  <!ENTITY ecr-public-gallery "Amazon ECR Public Gallery">
+  <!ENTITY ECRfirst "Amazon Elastic Container Registry (Amazon ECR)">
+  <!ENTITY ECSfirst "Amazon Elastic Container Service (Amazon ECS)">
+  <!ENTITY EMR-EKS "Amazon EMR on EKS">
+  <!ENTITY ES-OPEN "OpenSearch">
+  <!ENTITY FARGATEfirst "AWS Fargate (Fargate)">
+  <!ENTITY FGW-S3long "Amazon S3 File Gateway">
+  <!ENTITY FGW-S3 "S3 File Gateway">
+  <!ENTITY FGW-FSxWlong "Amazon FSx File Gateway">
+  <!ENTITY FGW-FSxW "FSx File Gateway">
+  <!ENTITY flex "FlexMatch">
+  <!ENTITY GLB "Gateway Load Balancer">
+  <!ENTITY GLBs "Gateway Load Balancers">
+  <!ENTITY GLshort "S3 Glacier">
+  <!ENTITY GLUAPI "AWS Glue API">
+  <!ENTITY GLverylong "Amazon Simple Storage Service Glacier">
+  <!ENTITY govcloud-us "AWS GovCloud (US)">
+  <!ENTITY govcloud-us-region "AWS GovCloud (US) Region">
+  <!ENTITY GSG "Getting Started with AWS">
+  <!ENTITY IntellijIDE "IntelliJ IDE">
+  <!ENTITY iot-lorawan "AWS IoT Core for LoRaWAN">
+  <!ENTITY iot-wireless-api "AWS IoT Wireless">
+  <!ENTITY IoTAYSDK "AWS IoT Device SDK for Arduino Yún">
+  <!ENTITY IoTC "AWS IOT Device SDK for C">
+  <!ENTITY IoTCEmbeddedSDK "AWS IoT Device SDK for Embedded C">
+  <!ENTITY IoTCore "AWS IoT Core">
+  <!ENTITY IoTCPPSDK "AWS IoT Device SDK for C++">
+  <!ENTITY IoTDA "Device Advisor">
+  <!ENTITY IoTDAlong "AWS IoT Core Device Advisor">
+  <!ENTITY IoTDD "AWS IoT Device Defender">
+  <!ENTITY IoTDSDK "AWS IoT Device SDK">
+  <!ENTITY IoTDT "AWS IoT Device Tester">
+  <!ENTITY IoTFH "AWS IoT Fleet Hub">
+  <!ENTITY IoTJavaSDK "AWS IoT Device SDK for Java">
+  <!ENTITY IoTJobsData "AWS IoT jobs data">
+  <!ENTITY IoTJS "AWS IoT Device SDK for JavaScript">
+  <!ENTITY IoTJSSDK "AWS IoT Device SDK for JavaScript">
+  <!ENTITY IoTPythonSDK "AWS IoT Device SDK for Python">
+  <!ENTITY ITE-data "AWS IoT Events Data">
+  <!ENTITY ITTG-data-model "AWS IoT Things Graph Data Model">
+  <!ENTITY ITTGconsole "AWS IoT Things Graph console">
+  <!ENTITY ITTGmapdes "AWS IoT Things Graph mapping designer">
+  <!ENTITY ITTGmodel "AWS IoT Things Graph model editor">
+  <!ENTITY JBIDE "JetBrains">
+  <!ENTITY JBIDEToolkitIntelliJ "AWS Toolkit for IntelliJ">
+  <!ENTITY JBIDEToolkitPyCharm "AWS Toolkit for PyCharm">
+  <!ENTITY JBToolkitMarketName "AWS Toolkit">
+  <!ENTITY JDKlong "Amazon Corretto">
+  <!ENTITY JDKlong8 "Amazon Corretto 8">
+  <!ENTITY JDKlong11 "Amazon Corretto 11">
+  <!ENTITY JDKlong15 "Amazon Corretto 15">
+  <!ENTITY JDKlong16 "Amazon Corretto 16">
+  <!ENTITY JDKlong17 "Amazon Corretto 17">
+  <!ENTITY JDKlongpreview "Amazon Corretto 8">
+  <!ENTITY JDKpreview "Corretto 8">
+  <!ENTITY JDKshort "Corretto">
+  <!ENTITY JDKshort8 "Corretto 8">
+  <!ENTITY JDKshort11 "Corretto 11">
+  <!ENTITY JDKshort15 "Corretto 15">
+  <!ENTITY JDKshort16 "Corretto 16">
+  <!ENTITY JDKshort17 "Corretto 17">
+  <!ENTITY MGMTACCT-NoCaps "management account">
+  <!ENTITY MGMTACCT-Caps "Management account">
+  <!ENTITY MKT "AWS Marketplace">
+  <!ENTITY MKTlong "AWS Marketplace">
+  <!ENTITY MMPlong "AWS Marketplace Management Portal">
+  <!ENTITY MSExtractlong "AWS Microservice Extractor for .NET">
+  <!ENTITY MSExtract "Microservice Extractor">
+  <!ENTITY NLBs "Network Load Balancers">
+  <!ENTITY opensearch "OpenSearch">
+  <!ENTITY OPSStack "AWS OpsWorks Stacks">
+  <!ENTITY PCAshort "ACM Private CA">
+  <!ENTITY PClong "AWS Promotional Credit">
+  <!ENTITY PIN-Email-API "Amazon Pinpoint Email API">
+  <!ENTITY PIN-SMS-Voice-API "Amazon Pinpoint SMS and Voice API">
+  <!ENTITY PLlong "AWS Price List">
+  <!ENTITY privatelink "AWS PrivateLink">
+  <!ENTITY PyCharmIDE "PyCharm IDE">
+  <!ENTITY QLDBfirst "Amazon Quantum Ledger Database (Amazon QLDB)">
+  <!ENTITY RDS-VMW "Amazon RDS on VMware">
+  <!ENTITY REKimg "Amazon Rekognition Image">
+  <!ENTITY REKvid "Amazon Rekognition Video">
+  <!ENTITY REPOST "AWS re:Post">
+  <!ENTITY root-key "root key">
+  <!ENTITY root-keys "root keys">
+  <!ENTITY root-key-cap "Root key">
+  <!ENTITY root-keys-cap "Root keys">
+  <!ENTITY S3-storage-class-glacier "S3 Glacier Flexible Retrieval">
+  <!ENTITY S3-storage-class-glacier-ir "S3 Glacier Instant Retrieval">
+  <!ENTITY S3-storage-class-deep-archive "S3 Glacier Deep Archive">
+  <!ENTITY SDKCodeSampCat "AWS Code Sample Catalog">
+  <!ENTITY simple-ad "Simple AD">
+  <!ENTITY Swift "SDK for Swift">
+  <!ENTITY Swiftlong "AWS SDK for Swift">
+  <!ENTITY Snowball "Snowball">
+  <!ENTITY Snowballlong "AWS Snowball">
+  <!ENTITY Snowconsole "AWS Snow Family Management Console">
+  <!ENTITY Snowlong "Snowball appliance">
+  <!ENTITY SnowDevices "Snow Family devices">
+  <!ENTITY SnowDeviceslong "AWS Snow Family devices">
+  <!ENTITY SnowFamily "Snow Family">
+  <!ENTITY SnowFamilylong "AWS Snow Family">
+  <!ENTITY SP-singular "Savings Plan">
+  <!ENTITY SPs "Savings Plans">
+  <!ENTITY SLN "Amazon States Language">
+  <!ENTITY STSshort "AWS STS">
+  <!ENTITY SvrlessAppTitle "AWS Serverless Application">
+  <!ENTITY TFW "AWS Tools for Windows">
+  <!ENTITY TIME-query "Amazon Timestream Query">
+  <!ENTITY TIME-write "Amazon Timestream Write">
+  <!ENTITY TTSshort "Toolkit for Azure DevOps">
+  <!ENTITY VS "Visual Studio">
+  <!ENTITY VS-req-ver "Visual Studio 2010 or later">
+  <!ENTITY VSCTKMarketName "AWS Toolkit for Visual Studio Code">
+  <!ENTITY WAFclassic "AWS WAF Classic">
+  <!ENTITY WAFClassicRegional "AWS WAF Classic Regional">
+  <!ENTITY WAMfirst "Amazon WorkSpaces Application Manager (Amazon WAM)">
+  <!ENTITY xray-dotnetsdk "AWS X-Ray SDK for .NET">
+  <!ENTITY xray-javasdk "AWS X-Ray SDK for Java">
+  <!ENTITY xray-nodejssdk "AWS X-Ray SDK for Node.js">
+  <!ENTITY xray-pythonsdk "AWS X-Ray SDK for Python">
+  <!ENTITY DCA-top-secret "">
+  <!ENTITY LCK-secret "">

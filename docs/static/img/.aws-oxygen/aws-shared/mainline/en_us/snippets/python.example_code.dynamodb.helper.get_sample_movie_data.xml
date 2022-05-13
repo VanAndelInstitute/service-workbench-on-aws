@@ -1,0 +1,27 @@
+<programlisting>
+def get_sample_movie_data(movie_file_name):
+    """
+    Gets sample movie data, either from a local file or by first downloading it from
+    the Amazon DynamoDB developer guide.
+
+    :param movie_file_name: The local file name where the movie data is stored in JSON format.
+    :return: The movie data as a dict.
+    """
+    if not os.path.isfile(movie_file_name):
+        print(f"Downloading {movie_file_name}...")
+        movie_content = requests.get(
+            'https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/moviedata.zip')
+        movie_zip = ZipFile(BytesIO(movie_content.content))
+        movie_zip.extractall()
+
+    try:
+        with open(movie_file_name) as movie_file:
+            movie_data = json.load(movie_file, parse_float=Decimal)
+    except FileNotFoundError:
+        print(f"File {movie_file_name} not found. You must first download the file to "
+              "run this demo. See the README for instructions.")
+        raise
+    else:
+        # The sample file lists over 4000 movies, return only the first 250.
+        return movie_data[:250]
+</programlisting>

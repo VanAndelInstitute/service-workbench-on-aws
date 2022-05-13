@@ -1,0 +1,50 @@
+<programlisting>
+suspend fun createNewTable(tableNameVal: String, key: String): String? {
+
+        val  attDef = AttributeDefinition {
+            attributeName = key
+            attributeType = ScalarAttributeType.S
+        }
+
+        val keySchemaVal =  KeySchemaElement{
+            attributeName = key
+            keyType = KeyType.Hash
+        }
+
+        val provisionedVal =  ProvisionedThroughput {
+            readCapacityUnits = 10
+            writeCapacityUnits = 10
+        }
+
+        val request = CreateTableRequest {
+            attributeDefinitions = listOf(attDef)
+            keySchema = listOf(keySchemaVal)
+            provisionedThroughput = provisionedVal
+            tableName = tableNameVal
+        }
+
+        DynamoDbClient { region = "us-east-1" }.use { ddb ->
+
+            val response = ddb.createTable(request)
+            val tableActive = false
+
+            // Wait until the table is in Active state.
+            while (!tableActive)
+            {
+                val tableStatus = checkTableStatus(ddb, tableNameVal)
+                if (tableStatus.equals("ACTIVE"))
+                    break
+                delay(500)
+            }
+            return response.tableDescription?.tableArn
+        }
+    }
+
+    suspend fun checkTableStatus(ddb: DynamoDbClient, tableNameVal: String) : String {
+
+             val tableInfo = ddb.describeTable(DescribeTableRequest {
+                 tableName = tableNameVal
+             })
+             return tableInfo.table?.tableStatus.toString()
+         }
+</programlisting>

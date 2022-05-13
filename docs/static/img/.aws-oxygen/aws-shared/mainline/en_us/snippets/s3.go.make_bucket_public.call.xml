@@ -1,0 +1,10 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    params := &s3.PutBucketAclInput{
+        Bucket: bucket,
+        ACL:    aws.String("public-read"),
+    }
+
+    _, err := svc.PutBucketAcl(params)
+</programlisting>

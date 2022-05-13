@@ -1,0 +1,47 @@
+// Load data into the table.
+suspend fun loadData(tableName: String, fileName:String) {
+
+    val parser = JsonFactory().createParser(File(fileName))
+    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
+    val iter: Iterator<JsonNode> = rootNode.iterator()
+    var currentNode: ObjectNode
+
+    var t = 0
+
+    while (iter.hasNext()) {
+
+        if (t == 200)
+            break
+
+        currentNode = iter.next() as ObjectNode
+        val year = currentNode.path("year").asInt()
+        val title = currentNode.path("title").asText()
+        val info = currentNode.path("info").toString()
+        putMovie(tableName, year, title, info)
+        t++
+    }
+}
+suspend fun putMovie(
+    tableNameVal: String,
+    year: Int,
+    title: String,
+    info: String
+) {
+    val itemValues = mutableMapOf<String, AttributeValue>()
+    val strVal = year.toString()
+    // Add all content to the table.
+    itemValues["year"] = AttributeValue.N(strVal)
+    itemValues["title"] = AttributeValue.S(title)
+    itemValues["info"] =  AttributeValue.S(info)
+
+
+    val request = PutItemRequest {
+        tableName=tableNameVal
+        item = itemValues
+    }
+
+    DynamoDbClient { region = "us-east-1" }.use { ddb ->
+        ddb.putItem(request)
+        println("Added $title to the Movie table.")
+    }
+}

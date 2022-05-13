@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("URL for long polling queue " + *queue + ": " + url)
+</programlisting>

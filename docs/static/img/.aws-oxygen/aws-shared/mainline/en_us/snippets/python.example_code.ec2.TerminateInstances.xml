@@ -1,0 +1,15 @@
+<programlisting>
+def terminate_instance(instance_id):
+    """
+    Terminates an instance. The request returns immediately. To wait for the
+    instance to terminate, use Instance.wait_until_terminated().
+
+    :param instance_id: The ID of the instance to terminate.
+    """
+    try:
+        ec2.Instance(instance_id).terminate()
+        logger.info("Terminating instance %s.", instance_id)
+    except ClientError:
+        logging.exception("Couldn't terminate instance %s.", instance_id)
+        raise
+</programlisting>

@@ -1,0 +1,7 @@
+<programlisting>
+            sqsClient.sendMessage(SendMessageRequest.builder()
+                .queueUrl(queueUrl)
+                .messageBody("Hello world!")
+                .delaySeconds(10)
+                .build());
+</programlisting>

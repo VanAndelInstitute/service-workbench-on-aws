@@ -1,0 +1,31 @@
+<programlisting>
+
+// Delete an album from the bucket
+const deleteAlbum = async (albumName) => {
+  const albumKey = encodeURIComponent(albumName) + "/";
+  try {
+    const params = { Bucket: albumBucketName, Prefix: albumKey };
+    const data = await s3.send(new ListObjectsCommand(params));
+    const objects = data.Contents.map(function (object) {
+      return { Key: object.Key };
+    });
+    try {
+      const params = {
+        Bucket: albumBucketName,
+        Delete: { Objects: objects },
+        Quiet: true,
+      };
+      const data = await s3.send(new DeleteObjectsCommand(params));
+      listAlbums();
+      return alert("Successfully deleted album.");
+    } catch (err) {
+      return alert("There was an error deleting your album: ", err.message);
+    }
+  } catch (err) {
+    return alert("There was an error deleting your album1: ", err.message);
+  }
+};
+// Make deleteAlbum function available to the browser
+window.deleteAlbum = deleteAlbum;
+
+</programlisting>

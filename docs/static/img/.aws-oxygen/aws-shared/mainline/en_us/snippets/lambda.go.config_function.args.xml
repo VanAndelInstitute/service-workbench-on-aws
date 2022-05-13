@@ -1,0 +1,11 @@
+<programlisting>
+    function := flag.String("f", "", "The name of the Lambda function")
+    s3ARN := flag.String("a", "", "The ARN of the Amazon S3 bucket sending a notification to the function")
+    flag.Parse()
+
+    if *function == "" || *s3ARN == "" {
+        fmt.Println("You must supply the name of a Lambda function and the ARN of an S3 bucket")
+        fmt.Println("-f FUNCTION -a ARN")
+        return
+    }
+</programlisting>

@@ -1,0 +1,14 @@
+    def list_distributions(self):
+        print("CloudFront distributions:\n")
+        distributions = self.cloudfront_client.list_distributions()
+        if distributions['DistributionList']['Quantity'] > 0:
+            for distribution in distributions['DistributionList']['Items']:
+                print(f"Domain: {distribution['DomainName']}")
+                print(f"Distribution Id: {distribution['Id']}")
+                print(f"Certificate Source: "
+                      f"{distribution['ViewerCertificate']['CertificateSource']}")
+                if distribution['ViewerCertificate']['CertificateSource'] == "acm":
+                    print(f"Certificate: {distribution['ViewerCertificate']['Certificate']}")
+                print("")
+        else:
+            print("No CloudFront distributions detected.")

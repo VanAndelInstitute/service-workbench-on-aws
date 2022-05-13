@@ -1,0 +1,9 @@
+    bucket := flag.String("b", "", "The name of the bucket")
+    indexPage := flag.String("i", "", "The name of the index page")
+    errorPage := flag.String("e", "", "The name of the error page (optional)")
+    flag.Parse()
+
+    if *bucket == "" || *indexPage == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET) and index page (-i INDEX)")
+        return
+    }

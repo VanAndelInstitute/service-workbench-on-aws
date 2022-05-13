@@ -1,0 +1,19 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::GetServerCertificateRequest request;
+        request.SetServerCertificateName(cert_name);
+
+        auto outcome = iam.GetServerCertificate(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error getting server certificate " << cert_name <<
+                ": " << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            const auto &certificate = outcome.GetResult().GetServerCertificate();
+            std::cout << "Name: " <<
+                certificate.GetServerCertificateMetadata().GetServerCertificateName()
+                << std::endl << "Body: " << certificate.GetCertificateBody() <<
+                std::endl << "Chain: " << certificate.GetCertificateChain() <<
+                std::endl;
+        }

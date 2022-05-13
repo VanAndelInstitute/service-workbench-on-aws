@@ -1,0 +1,46 @@
+<programlisting>
+
+import fs from "fs";
+import * as R from "ramda";
+import { ddbDocClient } from "../libs/ddbDocClient.js";
+import { BatchWriteCommand } from "@aws-sdk/lib-dynamodb";
+
+export const writeData = async () => {
+  // Before you run this example, download 'movies.json' from https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Js.02.html,
+  // and put it in the same folder as the example.
+  // Get the movie data parse to convert into a JSON object.
+  const allMovies = JSON.parse(fs.readFileSync("moviedata.json", "utf8"));
+  // Split the table into segments of 25.
+  const dataSegments = R.splitEvery(25, allMovies);
+  const TABLE_NAME = "TABLE_NAME"
+  try {
+    // Loop batch write operation 10 times to upload 250 items.
+    for (let i = 0; i < 10; i++) {
+      const segment = dataSegments[i];
+      for (let j = 0; j < 25; j++) {
+        const params = {
+          RequestItems: {
+            [TABLE_NAME]: [
+              {
+                // Destination Amazon DynamoDB table name.
+                PutRequest: {
+                  Item: {
+                    year: segment[j].year,
+                    title: segment[j].title,
+                    info: segment[j].info,
+                  },
+                },
+              },
+            ],
+          },
+        };
+        const data = ddbDocClient.send(new BatchWriteCommand(params));
+      }
+      console.log("Success, table updated.");
+    }
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+writeData();
+</programlisting>

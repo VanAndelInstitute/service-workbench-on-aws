@@ -1,0 +1,3 @@
+    result, err := svc.ListAccountAliases(&iam.ListAccountAliasesInput{
+        MaxItems: maxItems,
+    })

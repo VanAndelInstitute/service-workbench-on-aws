@@ -1,0 +1,15 @@
+    def delete(self):
+        """
+        Deletes a state machine and all associated run information.
+        """
+        if self.state_machine_arn is None:
+            raise ValueError
+        try:
+            self.stepfunctions_client.delete_state_machine(
+                stateMachineArn=self.state_machine_arn)
+            logger.info("Deleted state machine %s.", self.state_machine_name)
+            self._clear()
+        except ClientError:
+            logger.exception(
+                "Couldn't delete state machine %s.", self.state_machine_name)
+            raise

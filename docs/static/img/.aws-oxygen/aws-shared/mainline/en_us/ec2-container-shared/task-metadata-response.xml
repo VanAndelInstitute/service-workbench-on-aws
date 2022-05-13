@@ -1,0 +1,215 @@
+<!DOCTYPE variablelist PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<variablelist>
+    <varlistentry>
+        <term><code>Cluster</code></term>
+        <listitem>
+            <para>The &ECS; cluster to which the task belongs.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>TaskARN</code></term>
+        <listitem>
+            <para>The full Amazon Resource Name (ARN) of the task to which the container
+                belongs.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>Family</code></term>
+        <listitem>
+            <para>The family of the &ECS; task definition for the task.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>Revision</code></term>
+        <listitem>
+            <para>The revision of the &ECS; task definition for the task.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>DesiredStatus</code></term>
+        <listitem>
+            <para>The desired status for the task from &ECS;.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>KnownStatus</code></term>
+        <listitem>
+            <para>The known status for the task from &ECS;.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>Containers</code></term>
+        <listitem>
+            <para>A list of container metadata for each container associated with the task.</para>
+            <variablelist>
+                <varlistentry>
+                    <term><code>DockerId</code></term>
+                    <listitem>
+                        <para>The Docker ID for the container.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Name</code></term>
+                    <listitem>
+                        <para>The name of the container as specified in the task definition.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>DockerName</code></term>
+                    <listitem>
+                        <para>The name of the container supplied to Docker. The &ECS; container
+                            agent generates a unique name for the container to avoid name collisions
+                            when multiple copies of the same task definition are run on a single
+                            instance.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Image</code></term>
+                    <listitem>
+                        <para>The image for the container.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>ImageID</code></term>
+                    <listitem>
+                        <para>The SHA-256 digest for the image.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Ports</code></term>
+                    <listitem>
+                        <para>Any ports exposed for the container. This parameter is omitted if
+                            there are no exposed ports.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Labels</code></term>
+                    <listitem>
+                        <para>Any labels applied to the container. This parameter is omitted if
+                            there are no labels applied.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>DesiredStatus</code></term>
+                    <listitem>
+                        <para>The desired status for the container from &ECS;.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>KnownStatus</code></term>
+                    <listitem>
+                        <para>The known status for the container from &ECS;.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>ExitCode</code></term>
+                    <listitem>
+                        <para>The exit code for the container. This parameter is omitted if the
+                            container has not exited.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Limits</code></term>
+                    <listitem>
+                        <para>The resource limits specified at the container level (such as CPU and
+                            memory). This parameter is omitted if no resource limits are
+                            defined.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>CreatedAt</code></term>
+                    <listitem>
+                        <para>The time stamp for when the container was created. This parameter is
+                            omitted if the container has not been created yet.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>StartedAt</code></term>
+                    <listitem>
+                        <para>The time stamp for when the container started. This parameter is
+                            omitted if the container has not started yet.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>FinishedAt</code></term>
+                    <listitem>
+                        <para>The time stamp for when the container stopped. This parameter is
+                            omitted if the container has not stopped yet.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Type</code></term>
+                    <listitem>
+                        <para>The type of the container. Containers that are specified in your task
+                            definition are of type <code>NORMAL</code>. You can ignore other
+                            container types, which are used for internal task resource provisioning
+                            by the &ECS; container agent.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><code>Networks</code></term>
+                    <listitem>
+                        <para>The network information for the container, such as the network mode
+                            and IP address. This parameter is omitted if no network information is
+                            defined.</para>
+                    </listitem>
+                </varlistentry>
+                <!--<varlistentry>
+                            <term><code>Health</code></term>
+                            <listitem>
+                                <para>The container health status. This parameter is omitted if
+                                    container health checks are not defined in the task
+                                    definition.</para>
+                            </listitem>
+                        </varlistentry>-->
+            </variablelist>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>Limits</code></term>
+        <listitem>
+            <para>The resource limits specified at the task level (such as CPU and memory). This
+                parameter is omitted if no resource limits are defined.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>PullStartedAt</code></term>
+        <listitem>
+            <para>The time stamp for when the first container image pull began.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>PullStoppedAt</code></term>
+        <listitem>
+            <para>The time stamp for when the last container image pull finished.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>ExecutionStoppedAt</code></term>
+        <listitem>
+            <para>The time stamp for when the tasks <code>DesiredStatus</code> moved to
+                    <code>STOPPED</code>. This occurs when an essential container moves to
+                    <code>STOPPED</code>.</para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><code>AvailabilityZone</code></term>
+        <listitem>
+            <para>The Availability Zone the task is in.</para>
+            <note>
+                <para>The Availability Zone metadata is not available for tasks using the
+                    &fargate-launch-type; launch type.</para>
+            </note>
+        </listitem>
+    </varlistentry>
+</variablelist>

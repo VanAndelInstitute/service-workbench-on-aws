@@ -1,0 +1,14 @@
+import software.amazon.awssdk.core.SdkBytes;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.RecognizeCelebritiesRequest;
+import software.amazon.awssdk.services.rekognition.model.Image;
+import software.amazon.awssdk.services.rekognition.model.RecognizeCelebritiesResponse;
+import software.amazon.awssdk.services.rekognition.model.Celebrity;
+import software.amazon.awssdk.services.rekognition.model.ComparedFace;
+import software.amazon.awssdk.services.rekognition.model.RekognitionException;
+import software.amazon.awssdk.services.rekognition.model.BoundingBox;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.List;

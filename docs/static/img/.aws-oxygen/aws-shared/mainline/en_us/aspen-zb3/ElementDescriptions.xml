@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="AccessPolicyLanguage_ElementDescriptions" role="topic">
+	<title id="AccessPolicyLanguage_ElementDescriptions.title">Element Descriptions</title>
+	<para role="topiclist"/>
+	<para>This section describes the elements you can use in a policy and its statements. The
+        elements are listed here in the general order you use them in a policy. <phrase
+            audience="aspen_sqs;aspen_sns">The <code>Id</code>, <code>Version</code>, and
+                <code>Statement</code> are top-level policy elements; the rest are statement-level
+            elements.</phrase><phrase audience="aspen_iam"><code>Version</code> and
+                <code>Statement</code> are top-level policy elements; the rest are statement-level
+            elements.</phrase> JSON examples are provided.</para>
+	<para>All elements are optional for the purposes of parsing the policy document itself. The
+		order of the elements doesn't matter (e.g., the <code>Resource</code> element can come
+		before the <code>Action</code> element). You're not required to specify any Conditions in
+		the policy. </para>
+	<section id="Version">
+		<title id="Version.title">Version</title>
+		<para>The <code>Version</code> is the &servicename; version. This is an optional element,
+			and currently the only allowed value is <code>2008-10-17</code>.</para>
+		<programlisting>"Version":"&apiversion;"</programlisting>
+	</section>
+	<section id="Id" audience="aspen_sqs;aspen_sns">
+		<title id="Id.title">Id</title>
+		<para audience="aspen_sqs;aspen_sns">The <code>Id</code> is an optional identifier for the
+			policy. We recommend you use a UUID for the value, or incorporate a UUID as part of the
+			ID to ensure uniqueness.</para>
+		<important audience="aspen_sqs;aspen_sns">
+			<simpara>The AWS service (e.g., SQS or Amazon SNS) implementing the &servicename; might
+				require this element and have uniqueness requirements for it. For service-specific
+				information about writing policies, see <xref
+					linkend="AccessPolicyLanguage_SpecialInfo"
+					endterm="AccessPolicyLanguage_SpecialInfo.title"/>.</simpara>
+		</important>
+		<programlisting audience="aspen_sqs;aspen_sns">"Id":"&ex_policyid;"</programlisting>
+		<para audience="aspen_iam">For IAM policies, we automatically set the policy's
+                <code>Id</code> to the policy name you assigned. If you attempt to put your own Id,
+            it will be rejected.</para>
+		<programlisting audience="aspen_iam">"Id":"Admin_Policy"</programlisting>
+	</section>
+	<section id="Statement">
+		<title id="Statement.title">Statement</title>
+		<para>The <code>Statement</code> is the main element for a statement. It can include
+			multiple elements (see the subsequent sections in this guide). </para>
+		<para>The <code>Statement</code> element contains an array of individual statements. Each
+			individual statement is a distinct JSON block enclosed in curly brackets { }. </para>
+		<programlisting>"Statement":[{...},{...},{...}]</programlisting>
+	</section>
+	<section id="Sid">
+		<title id="Sid.title">Sid</title>
+		<para>The <code>Sid</code> (statement ID) is an optional identifier you provide for the
+            policy statement. <phrase audience="aspen_sqs;aspen_sns">Essentially it is just a sub-ID
+                of the policy document's ID.</phrase>
+            <phrase audience="aspen_iam">The Sid must be unique within a single
+            policy.</phrase></para>
+		<important audience="aspen_sqs;aspen_sns">
+			<simpara>The AWS service (e.g., SQS or Amazon SNS) implementing the &servicename; might
+				require this element and have uniqueness requirements for it. For service-specific
+				information about writing policies, see <xref
+					linkend="AccessPolicyLanguage_SpecialInfo"
+					endterm="AccessPolicyLanguage_SpecialInfo.title"/>.</simpara>
+		</important>
+		<para audience="aspen_iam">The <code>Sid</code> is not exposed in the IAM API. You can't
+			retrieve a particular statement based on this ID.</para>
+		<programlisting>"Sid" : "1"</programlisting>
+	</section>
+	<section id="Effect">
+		<title id="Effect.title">Effect</title>
+		<para>The <code>Effect</code> is a required element that indicates whether you want the
+			statement to result in an allow or an explicit deny (for more information, see <xref
+				linkend="Define_HardDeny" endterm="Define_HardDeny.title"/>). </para>
+		<para>Valid values for <code>Effect</code> are <code>Allow</code> and
+			<code>Deny</code>.</para>
+		<programlisting>"Effect":"Allow"</programlisting>
+	</section>
+	<section id="Principal">
+		<title id="Principal.title">Principal</title>
+		<para audience="aspen_sqs;aspen_sns">The <code>Principal</code> is the person or persons who
+			receive or are denied permission according to the policy. You must specify the principal
+			by using the principal's AWS account ID (e.g., 1234-5678-9012, with or without the
+			hyphens). You can specify multiple principals, or a wildcard (*) to indicate all
+			possible users. You can view your account ID by logging in to your AWS account at <ulink
+                url="http://aws.amazon.com">http://aws.amazon.com</ulink> and clicking
+                <guilabel>Account Activity</guilabel>.</para>
+		<para audience="aspen_sqs;aspen_sns">In JSON, you use <code>"AWS":</code> as a prefix for
+			the principal's AWS account ID. In the following example, two principals are included in
+			the statement.</para>
+		<programlisting audience="aspen_sqs;aspen_sns">"Principal":[
+   "AWS": "&ex_principal_1;",
+   "AWS": "&ex_principal_2;"
+]</programlisting>
+		<para audience="aspen_iam">The <code>Principal</code> is the person or persons who receive
+			or are denied permission according to the policy. Although <code>Principal</code> is a
+			legitimate element in the access policy language, you must <emphasis>not</emphasis>
+            include it in IAM policies. The principal is implied and is the user or group the policy
+            is attached to. The <code>Principal</code> element is applicable if you're writing a
+            resource-based policy for an SQS queue, for example.</para>
+	</section>
+	<section id="NotPrincipal" audience="aspen_sqs">
+		<title id="NotPrincipal.title">NotPrincipal</title>
+		<para>The <code>NotPrincipal</code> element is useful if you want to make an exception to a
+			list of principals. You could use this, for example, if you want to prevent all AWS
+			accounts except a certain one. The <code>Principal</code> is the person or persons who
+			receive or are denied permission according to the policy. You must specify the principal
+			by using the principal's AWS account ID (e.g., 1234-5678-9012, with or without the
+			hyphens). You can specify multiple principals, or a wildcard (*) to indicate all
+			possible users. You can view your account ID by logging in to your AWS account at <ulink
+                url="http://aws.amazon.com">http://aws.amazon.com</ulink> and clicking
+                <guilabel>Account Activity</guilabel>.</para>
+		<para>In JSON, you use <code>"AWS":</code> as a prefix for the principal's AWS account ID.
+			In the following example, two principals are included in the statement.</para>
+		<programlisting>"Principal":[
+			"AWS": "&ex_principal_1;",
+			"AWS": "&ex_principal_2;"
+			]</programlisting>
+	</section>
+	<section id="Action">
+		<title id="Action.title">Action</title>
+		<para audience="aspen_sqs;aspen_sns">The <code>Action</code> is the specific type or types
+			of access allowed or denied (for example, read or write). You can specify multiple
+			values for this element. The values are free-form but must match values the AWS service
+			expects (for more information, see <xref linkend="AccessPolicyLanguage_SpecialInfo"
+				endterm="AccessPolicyLanguage_SpecialInfo.title"/>). You can use a wildcard (*) to
+			give the principal access to all the actions the specific AWS service lets you share
+			with other developers. <phrase audience="aspen_sqs">For example, Amazon SQS lets you
+				share only a particular subset of all the possible SQS actions. So, using the
+				wildcard doesn't give someone full control of the queue; it only gives access to
+				that particular subset of actions.</phrase></para>
+		<programlisting audience="aspen_sqs">"Action":["sqs:SendMessage","sqs:ReceiveMessage"]</programlisting>
+		<para audience="aspen_sqs">The prefix and the action name are case insensitive. For example,
+				<code>sqs:SendMessage</code> is equivalent to <code>SQS:sendmessage</code>.</para>
+		<programlisting audience="aspen_sns">"Action":["sns:Publish","sns:ConfirmSubscription"]</programlisting>
+		<para audience="aspen_sns">The prefix and the action name are case insensitive. For example,
+				<code>sns:Subscribe</code> is equivalent to <code>SNS:subscribe</code>.</para>
+		<para audience="aspen_iam">The <code>Action</code> is the specific type or types of access
+			allowed or denied (for example, read or write). You can specify one or multiple values
+			for this element. </para>
+		<programlisting audience="aspen_iam">"Action":["iam:CreateAccessKey","iam:ListAccessKeys"]</programlisting>
+		<para audience="aspen_iam">The values must be one of the expected values for the particular
+			AWS product in question, and the value must be prefixed with a namespace value
+			indicating the AWS product in question. The prefix and the action name are case
+			insensitive. For example, <code>iam:ListAccessKeys</code> is equivalent to
+				<code>IAM:listaccesskeys</code>. For information about the correct namespaces and
+			actions to use, see <xref linkend="Using_SpecificProducts"
+				endterm="Using_SpecificProducts.title"/>.</para>
+		<para audience="aspen_iam">You can use a wildcard (*) to give access to all the actions the
+			specific AWS product offers. For example, the following <code>Action</code> element
+			applies to all IAM actions.</para>
+		<programlisting audience="aspen_iam">"Action":"iam:*"</programlisting>
+		<para audience="aspen_iam">You can also use wildcards (* or ?) within the action name
+			itself. For example, the following <code>Action</code> element applies to all IAM
+			actions that include the string <code>AccessKey</code>.</para>
+		<programlisting audience="aspen_iam">"Action":"iam:*AccessKey*"</programlisting>
+	</section>
+	<section id="NotAction">
+		<title id="NotAction.title">NotAction</title>
+        <para audience="aspen_iam">The <code>NotAction</code> element is useful if you want to make
+            an exception to a list of actions. You could use this, for example, if you want your
+            users to be able to use only the SQS <function>SendMessage</function>.</para>
+        <para audience="aspen_sqs">The <code>NotAction</code> element is useful if you want to make
+            an exception to a list of actions. You could use this, for example, if you want your
+            users to be able to use only the SQS <function>SendMessage</function>.</para>
+        <para audience="aspen_iam">The following example refers to all actions
+                <emphasis>other</emphasis> than the SQS <function>SendMessage</function>. You would
+            use this in a policy with <code>"Effect":"Deny"</code> to keep users from accessing any
+            other actions.</para>
+        <para audience="aspen_sqs">The following example refers to all actions
+                <emphasis>other</emphasis> than the SQS <function>SendMessage</function>. You would
+            use this in a policy with <code>"Effect":"Deny"</code> to keep users from accessing any
+            other actions.</para>
+        <para audience="aspen_sns">The <code>NotAction</code> element matches everything except the
+            specified action. This is useful if you want to make an exception to a list of actions
+            being allowed or denied. The example below matches any action, except
+                <code>Publish</code>. </para>
+		<programlisting audience="aspen_iam;aspen_sqs">"NotAction":"sqs:SendMessage"</programlisting>
+		<programlisting audience="aspen_sns">"NotAction":"sns:Publish"</programlisting>
+	</section>
+	<section id="NotAction_s3" audience="aspen_s3">
+		<title id="NotAction_Sns.title">NotAction</title>
+		<para>The <code>NotAction</code> element is useful if you want to make an exception to a
+			list of actions. You could use this, for example, if you want your accounts to be
+			allowed the Amazon S3 <function>GetObject</function> permission.</para>
+		<programlisting>"NotAction":"s3:GetObject"</programlisting>
+	</section>
+	<section id="Resource">
+		<title id="Resource.title">Resource</title>
+		<para audience="aspen_sqs">The <code>Resource</code> is the object or objects the policy
+			covers. The value can include a multi-character match wildcard (*) or a single-character
+			match wildcard (?) anywhere in the string. The values are free-form, but must follow the
+			format the AWS service expects. For example, for Amazon SQS, you specify a queue in the
+			following format: <code>&lt;account ID of queue owner>:&lt;queue name></code>. For
+			example: <code>&ExampleAWSAccountNo1;:queue1</code>.</para>
+		<programlisting audience="aspen_sqs">"Resource":"arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1;"</programlisting>
+		<para audience="aspen_iam">The <code>Resource</code> is the object or objects the policy
+			covers. For a list of the types of resources you can specify in a policy, and the format
+			you must use (called the <emphasis>Amazon Resource Name (ARN)</emphasis>), see <xref
+				linkend="Using_Identifiers" endterm="Using_Identifiers.title"/> and also <xref
+				linkend="Using_SpecificProducts" endterm="Using_SpecificProducts.title"/>.</para>
+		<para audience="aspen_s3">The <code>Resource</code> is the object or objects the policy
+			covers. The value can include a multi-character match wildcard (*) or a single-character
+			match wildcard (?) anywhere in the string. The values are free-form, but must follow the
+			following format: <code>/&lt;account ID of queue owner>/&lt;queue name></code>. For
+			example: <code>arn:aws::s3:::mybucket/key.txt</code>.</para>
+		<para audience="aspen_iam">You can specify one or multiple resources in the policy, and you
+			can use wildcards. The following example refers to the user named Bob with path
+			/division_abc/subdivision_xyz/ in your AWS account.</para>
+		<programlisting audience="aspen_iam">"Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/division_abc/subdivision_xyz/Bob"</programlisting>
+		<para audience="aspen_iam">The following example refers to all users whose path is
+			/division_abc/subdivision_xyz/.</para>
+		<programlisting audience="aspen_iam">"Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/division_abc/subdivision_xyz/*"</programlisting>
+		<para audience="aspen_sns">The <code>Resource</code> is the object or objects the policy
+			covers. You specify the resource using the following <emphasis>Amazon Resource Name
+				(ARN)</emphasis> format. </para>
+		<programlisting audience="aspen_sns">arn:aws:&lt;vendor>:&lt;region>:&lt;namespace>:&lt;relative-id></programlisting>
+		<para audience="aspen_sns">Where:</para>
+		<itemizedlist audience="aspen_sns">
+			<listitem>
+				<para><code>vendor</code> identifies the AWS product (e.g., Amazon SNS)</para>
+			</listitem>
+			<listitem>
+				<para><code>region</code> is the Region the resource resides in (e.g., us-east-1),
+					if any</para>
+			</listitem>
+			<listitem>
+				<para><code>namespace</code> is the AWS account ID with no hyphens (e.g.,
+					123456789012)</para>
+			</listitem>
+			<listitem>
+				<para><code>relative-id</code> is the portion that identifies the specific
+					resource</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+	<section id="NotResource" audience="aspen_iam">
+		<title id="NotResource.title">NotResource</title>
+		<para audience="aspen_iam">The <code>NotResource</code> element is useful if you want to
+			make an exception to a list of resources. You could use this, for example, if you want
+            your users to be able to access a specific Amazon SQS queue belonging to the AWS
+            account. If the AWS account were to create a new queue for the company, an admin
+            wouldn't have to update the policy with the new queue's name in order to prevent users
+            from being able to use the queue. By default, the users wouldn't be able to use it. </para>
+		<para audience="aspen_iam">The following example refers to all resources
+				<emphasis>other</emphasis> than your company's queue called my_corporate_queue. You
+			would use this in a policy with <code>"Effect":"Deny"</code> to keep users from
+			accessing any queue besides my_corporate_queue.</para>
+		<programlisting audience="aspen_iam">"NotResource":"arn:aws:sqs:*:&ExampleAWSAccountNo3;:my_corporate_queue"</programlisting>
+	</section>
+	<section id="Condition">
+		<title id="Condition.title">Condition</title>
+		<para>This section describes the <code>Condition</code> element and the information you can
+			use inside the element.</para>
+		<section id="AccessPolicyLanguage_ConditionBlock">
+			<title id="AccessPolicyLanguage_ConditionBlock.title">The Condition Block</title>
+			<para>The <code>Condition</code> element is the most complex part of the policy
+				statement. We refer to it as the <emphasis>condition block</emphasis>, because
+				although it has a single <code>Condition</code> element, it can contain multiple
+				conditions, and each condition can contain multiple key-value pairs. The following
+				figure illustrates this. Unless otherwise specified for a particular key, all keys
+				can have multiple values.</para>
+			<para><inlinegraphic fileref="images/AccessPolicyLanguage_Condition_Block.gif"/></para>
+	
+			<para>When creating a condition block, you specify the name of each condition, and at
+				least one key-value pair for each condition. AWS defines the conditions and keys you
+				can use (they're listed in the subsequent sections). An example of a condition is
+					<code>NumericEquals</code>. Let's say you have a fictional resource, and you
+				want to let John use it only if some particular numeric value
+					<emphasis>foo</emphasis> equals either A or B, and another numeric value
+					<emphasis>bar</emphasis> equals C. Then you would create a condition block that
+				looks like the following figure.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Condition_Example1.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Condition block</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<para>Let's say you also want to restrict John's access to after January 1, 2009. Then
+				you would add another condition, <code>DateGreaterThan</code>, with a date equal to
+				January 1, 2009. The condition block would then look like the following
+				figure.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Condition_Example2.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Condition block</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<para>As illustrated in the following figure, we always apply a logical <code>AND</code>
+				to the conditions within a condition block, and to the keys within a condition. We
+				always apply a logical <code>OR</code> to the values for a single key. All
+				conditions must be met to return an allow or an explicit deny decision. If a
+				condition isn't met, the result is a default deny.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Condition_Block_AND.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Condition block with AND/OR</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<para>As mentioned, AWS defines the conditions and keys you can use (for example, one of
+				the keys is <code>aws:CurrentTime</code>, which lets you restrict access based on
+				the date and time). The AWS service itself can also define its own service-specific
+				keys. For a list of available keys, see <xref linkend="AvailableKeys"
+					endterm="AvailableKeys.title"/>.</para>
+			<para audience="aspen_sqs">For a concrete example that uses real keys, let's say you
+				want to let John access your Amazon SQS queue under the following three
+				conditions:</para>
+			<para audience="aspen_sns">For a concrete example that uses real keys, let's say you
+				want to let John publish to your topic under the following three conditions:</para>
+			<para audience="aspen_iam">For a concrete example that uses real keys, let's say you
+				want to let John access your Amazon resource under the following three
+				conditions:</para>
+			<itemizedlist>
+				<listitem>
+					<para>The time is after 12:00 noon on 8/16/2010</para>
+				</listitem>
+				<listitem>
+					<para>The time is before 3:00 p.m. on 8/16/2010</para>
+				</listitem>
+				<listitem>
+                    <para>The <phrase audience="aspen_sqs;aspen_iam">request</phrase><phrase
+                            audience="aspen_sns">message</phrase> comes from an IP address within
+						the 192.168.176.0/24 range or the 192.168.143.0/24 range</para>
+				</listitem>
+			</itemizedlist>
+			<para>Your condition block has three separate conditions, and all three of them must be
+				met for John to have access to your <phrase audience="aspen_sqs"
+                    >queue</phrase><phrase audience="aspen_sns">topic</phrase><phrase
+                    audience="aspen_iam">resource</phrase>.</para>
+			<para>The following shows what the condition block looks like in your policy.</para>
+            <programlisting format="linespecific">"Condition" :  {
+      "DateGreaterThan" : {
+         "aws:CurrentTime" : "2009-04-16T12:00:00Z"
+       },
+      "DateLessThan": {
+         "aws:CurrentTime" : "2009-04-16T15:00:00Z"
+       },
+       "IpAddress" : {
+          "aws:SourceIp" : ["192.168.176.0/24","192.168.143.0/24"]
+      }
+}</programlisting>
+		</section>
+		<section id="AvailableKeys">
+			<title id="AvailableKeys.title">Available Keys</title>
+			<indexterm audience="aspen_iam">
+				<primary>CurrentTime</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>aws:CurrentTime</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>SourceIp</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>aws:SourceIp</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>UserAgent</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>aws:UserAgent</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>SecureTransport</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>aws:SecureTransport</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>policy keys</primary>
+			</indexterm>
+			<indexterm audience="aspen_iam">
+				<primary>keys in policies</primary>
+			</indexterm>
+			<para>AWS provides a set of common keys supported by all AWS services that adopt the
+				&servicename; for access control. These keys are:</para>
+			<itemizedlist>
+				<listitem>
+					<para><code>aws:CurrentTime&mdash;</code>For date/time conditions (see <xref
+							linkend="Conditions_Date" endterm="Conditions_Date.title"/>)</para>
+				</listitem>
+				
+				<listitem>
+                    <para><code>aws:EpochTime&mdash;</code>The date in epoch or UNIX time, for use
+                        with date/time conditions (see <xref linkend="Conditions_Date"
+                            endterm="Conditions_Date.title"/>)</para>
+                </listitem>
+                <listitem revision="mfa_sessions">
+                    <para><code>aws:MultiFactorAuthAge&mdash;</code>Key that provides a numeric
+                        value indicating how long ago (in seconds) the MFA-validated security
+                        credentials making the request were issued using Multi-Factor Authentication
+                        (MFA). Unlike other keys, if MFA is not used successfully, this key is not
+                        present (see <xref linkend="Conditions_Null" endterm="Conditions_Null.title"
+                        />, <xref linkend="Conditions_Numeric" endterm="Conditions_Numeric.title"/>
+                        and <ulink
+                            url="http://&domain;/IAM/latest/UserGuide/Using_ManagingMFA.html"
+                            >Using Multi-Factor Authentication (MFA) Devices with
+                        AWS</ulink>).</para>
+				</listitem>
+				
+				<listitem>
+					<para><code>aws:SecureTransport&mdash;</code>Boolean representing whether the
+						request was sent using SSL (see <xref linkend="Conditions_Boolean"
+							endterm="Conditions_Boolean.title"/>)</para>
+				</listitem>
+				<listitem audience="aspen_sqs;aspen_sns">
+					<para><code>aws:SourceArn&mdash;</code>The Amazon Resource Name (ARN) of the
+						source (see <xref linkend="Conditions_ARN" endterm="Conditions_ARN.title"
+						/>)</para>
+				</listitem>
+				<listitem>
+					<para><code>aws:SourceIp&mdash;</code>The requester's IP address, for use with
+						IP address conditions (see <xref linkend="Conditions_IPAddress"
+							endterm="Conditions_IPAddress.title"/>)</para>
+				</listitem>
+				<listitem>
+					<para><code>aws:UserAgent&mdash;</code>Information about the requester's client
+						application, for use with string conditions (see <xref
+							linkend="Conditions_String" endterm="Conditions_String.title"/>)</para>
+				</listitem>
+			</itemizedlist>
+			<para>The key names are case insensitive. For example, <code>aws:CurrentTime</code> is
+				equivalent to <code>AWS:currenttime</code>.</para>
+			<note>
+				<simpara>If you use <code>aws:SourceIp</code>, and the request comes from an Amazon
+					EC2 instance, we evaluate the instance's public IP address to determine if
+					access is allowed. </simpara>
+			</note>
+			<para audience="aspen_sqs;aspen_sns">Each AWS service that uses the &servicename; might
+				also provide service-specific keys. For a list of any service-specific keys you can
+				use, see <xref linkend="AccessPolicyLanguage_SpecialInfo"
+					endterm="AccessPolicyLanguage_SpecialInfo.title"/>.</para>
+			<para audience="aspen_iam">Each AWS product that uses the &servicename; might also
+				provide product-specific keys. For a list of any product-specific keys you can use,
+				see <xref linkend="Using_SpecificProducts" endterm="Using_SpecificProducts.title"
+				/>.</para>
+		</section>
+		<section id="AccessPolicyLanguage_ConditionType">
+			<title id="AccessPolicyLanguage_ConditionType.title">Condition Types</title>
+			<para>These are the general types of conditions you can specify:</para>
+			<itemizedlist>
+				<listitem>
+					<para>String</para>
+				</listitem>
+				<listitem>
+					<para>Numeric</para>
+				</listitem>
+				<listitem>
+					<para>Date and time</para>
+				</listitem>
+				<listitem>
+					<para>Boolean</para>
+				</listitem>
+				<listitem>
+					<para>IP address</para>
+				</listitem>
+				<listitem audience="apsen_sqs">
+					<para>Amazon Resource Name (ARN)</para>
+				</listitem>
+				<listitem audience="aspen_iam_public_beta">
+					<para>...IfExists</para>
+				</listitem>
+                <listitem revision="mfa_sessions">
+                    <para>Existence of condition keys</para>
+                </listitem>
+			</itemizedlist>
+			<section id="Conditions_String">
+				<title id="Conditions_String.title">String Conditions</title>
+				<para>String conditions let you constrain using string matching rules. The actual
+					data type you use is a string.</para>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1*"/>
+						<colspec colnum="2" colname="col2" colwidth="2*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict matching</simpara>
+									<simpara>Short version: <code>streq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringNotEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict negated matching</simpara>
+									<simpara>Short version: <code>strneq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringEqualsIgnoreCase</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict matching, ignoring case</simpara>
+									<simpara>Short version: <code>streqi</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringNotEqualsIgnoreCase</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict negated matching, ignoring case</simpara>
+									<simpara>Short version: <code>strneqi</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringLike</code>
+									</simpara>
+								</entry>
+								<entry>
+                                    <simpara>Loose case-sensitive matching. The values can include a
+                                        multi-character match wildcard (*) or a single-character
+										match wildcard (?) anywhere in the string.</simpara>
+									<simpara>Short version: <code>strl</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>StringNotLike</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Negated loose case-insensitive matching. The values can
+										include a multi-character match wildcard (*) or a
+										single-character match wildcard (?) anywhere in the
+										string.</simpara>
+									<simpara>Short version: <code>strnl</code></simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_iam">For example, the following statement uses the
+						<code>StringEquals</code> condition with the <code>aws:UserAgent</code> key
+					to specify that the request must have a specific user agent.</para>
+				<programlisting audience="aspen_iam">{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":"iam:*AccessKey*",
+      "Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/*",
+      "Condition":{
+         "StringEquals":{
+            "aws:UserAgent":"Example Corp Java Client"
+            }
+         }
+      }
+   ]
+}</programlisting>
+			</section>
+			<section id="Conditions_Numeric">
+				<title id="Conditions_Numeric.title">Numeric Conditions</title>
+				<para>Numeric conditions let you constrain using numeric matching rules. You can use
+					both whole integers or decimal numbers. Fractional or irrational syntax is not
+					supported. </para>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1.9*"/>
+						<colspec colnum="2" colname="col2" colwidth="4*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict matching</simpara>
+									<simpara>Short version: <code>numeq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericNotEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict negated matching</simpara>
+									<simpara>Short version: <code>numneq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericLessThan</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>"Less than" matching</simpara>
+									<simpara>Short version: <code>numlt</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericLessThanEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>"Less than or equals" matching</simpara>
+									<simpara>Short version: <code>numlteq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericGreaterThan</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>"Greater than" matching</simpara>
+									<simpara>Short version: <code>numgt</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NumericGreaterThanEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>"Greater than or equals" matching</simpara>
+									<simpara>Short version: <code>numgteq</code></simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_iam">For example, the following statement uses the
+						<code>NumericLessThanEquals</code> condition with the s3:max-keys policy key
+					to specify that the requester can list up to 10 objects in example_bucket at a
+					time.</para>
+				<programlisting audience="aspen_iam">{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":"s3:ListBucket",
+      "Resource":"arn:aws:s3:::example_bucket",
+      "Condition":{
+         "NumericLessThanEquals":{
+            "s3:max-keys":"10"
+            }
+         }
+      }
+   ]
+}</programlisting>
+			</section>
+			<section id="Conditions_Date">
+				<title id="Conditions_Date.title">Date Conditions</title>
+				<para>Date conditions let you constrain using date and time matching rules. You must
+					specify all date/time values with one of the W3C implementations of the ISO 8601
+					date formats (for more information, go to <ulink
+						url="http://www.w3.org/TR/NOTE-datetime"
+						>http://www.w3.org/TR/NOTE-datetime</ulink>)<phrase audience="aspen_iam">,
+						or in epoch (UNIX) time</phrase>. You use these conditions with the
+						<code>aws:CurrentTime</code> key <phrase audience="aspen_iam_public_beta">or
+						the <code>aws:EpochTime</code> key</phrase> to restrict access based on
+					request time. </para>
+				<note>
+					<simpara>Wildcards are not permitted for date conditions.</simpara>
+				</note>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1.9*"/>
+						<colspec colnum="2" colname="col2" colwidth="4*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict matching</simpara>
+									<simpara>Short version: <code>dateeq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateNotEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict negated matching</simpara>
+									<simpara>Short version: <code>dateneq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateLessThan</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>A point in time at which a key stops taking
+										effect</simpara>
+									<simpara>Short version: <code>datelt</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateLessThanEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>A point in time at which a key stops taking
+										effect</simpara>
+									<simpara>Short version: <code>datelteq</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateGreaterThan</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>A point in time at which a key starts taking
+										effect</simpara>
+									<simpara>Short version: <code>dategt</code></simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>DateGreaterThanEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>A point in time at which a key starts taking
+										effect</simpara>
+									<simpara>Short version: <code>dategteq</code></simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_iam">For example, the following statement uses the
+						<code>DateLessThan</code> condition with the <code>aws:CurrentTime</code>
+					key to specify that the request must be received before June 30, 2010.</para>
+				<programlisting audience="aspen_iam">{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":"iam:*AccessKey*",
+      "Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/*",
+      "Condition":{
+         "DateLessThan":{
+            "aws:CurrentTime":"2010-06-30T00:00:00Z"
+            }
+         }
+      }
+   ]
+}</programlisting>
+			</section>
+			<section id="Conditions_Boolean">
+				<title id="Conditions_Boolean.title">Boolean Conditions</title>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1*"/>
+						<colspec colnum="2" colname="col2" colwidth="4*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>Bool</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict Boolean matching</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_iam">For example, the following statement uses the
+						<code>Bool</code> condition with the <code>aws:SecureTransport</code> key to
+					specify that the request must use SSL.</para>
+				<programlisting audience="aspen_iam">{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":"iam:*AccessKey*",
+      "Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/*",
+      "Condition":{
+         "Bool":{
+            "aws:SecureTransport":"true"
+            }
+         }
+      }
+   ]
+}</programlisting>
+			</section>
+			<section id="Conditions_IPAddress">
+				<title id="Conditions_IPAddress.title">IP Address</title>
+				<para>IP address conditions let you constrain based on IP address matching rules.
+					You use these with the <code>aws:SourceIp</code> key. The value must be in the
+					standard CIDR format (for example, 10.52.176.0/24). For more information, go to
+						<ulink url="http://www.rfc-editor.org/rfc/rfc4632.txt">RFC 4632</ulink>. </para>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1*"/>
+						<colspec colnum="2" colname="col2" colwidth="4*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>IpAddress</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Approval based on the IP address or range</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>NotIpAddress</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Denial based on the IP address or range</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_iam">For example, the following statement uses the
+						<code>IpAddress</code> condition with the <code>aws:SourceIp</code> key to
+					specify that the request must come from the 192.168.176.0/24 IP address
+					range.</para>
+				<programlisting audience="aspen_iam">{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":"iam:*AccessKey*",
+      "Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/*",
+      "Condition":{
+         "IpAddress":{
+            "aws:SourceIp":"192.168.176.0/24"
+            }
+         }
+     }
+  ]
+}</programlisting>
+			</section>
+			<section id="Conditions_ARN" audience="aspen_sqs;aspen_sns">
+				<title id="Conditions_ARN.title">Amazon Resource Name (ARN)</title>
+				<para>Amazon Resource Name (ARN) conditions let you constrain based on ARN matching
+					rules. The actual data type you use is a string.
+					<remark>Correct?</remark></para>
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colnum="1" colname="col1" colwidth="1*"/>
+						<colspec colnum="2" colname="col2" colwidth="4*"/>
+						<thead>
+							<row>
+								<entry>Condition</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>
+									<simpara>
+										<code>ArnEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict matching for ARN</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>ArnNotEquals</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Strict negated matching for ARN</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>ArnLike</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Loose case-insensitive matching of the ARN. Each of the
+										six colon-delimited components of the ARN is checked
+										separately and each can include a multi-character match
+										wildcard (*) or a single-character match wildcard
+										(?).</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry>
+									<simpara>
+										<code>ArnNotLike</code>
+									</simpara>
+								</entry>
+								<entry>
+									<simpara>Negated loose case-insensitive matching of the ARN. The
+										values can include a multi-character match wildcard (*) or a
+										single-character match wildcard (?) anywhere in the
+										string.</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para audience="aspen_sns">Following is an example of the kind of policy you need to
+					attach to any queue that you want Amazon SNS to send messages to. It gives
+					Amazon SNS permission to send messages to the queue (or queues) of your choice,
+					but only if the service is sending the messages on behalf of a particular Amazon
+					SNS topic (or topics). You specify the queue in the <code>Resource</code> field,
+					and the Amazon SNS topic as the value for the <code>SourceArn</code> key.
+						<remark>should we be showing the actual account # to use for the
+						principal?</remark></para>
+				<programlisting audience="aspen_sns">{
+   "Statement":[{
+      "Effect": "Allow",
+      "Principal": {
+         "AWS": "210987654321"
+      },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:us-east-1:01234567891:your_queue_xyz",
+      "Condition" : {
+         "ArnEquals" : {
+            "aws:SourceArn":"arn:aws:sns:us-east-1:123456789012:your_special_topic_1"}
+            }
+      }
+   ]
+   }</programlisting>
+				<para audience="aspen_s3">The following example policy grants permissions to
+					anonymous users.</para>
+				<para audience="aspen_s3">The following example policy grants permissions to
+					anonymous users. </para>
+				<programlisting audience="aspen_s3">"Version":"2008-10-17",
+  "Statement":[{
+	"Sid":"AddPerm",
+        "Effect":"Allow",
+	  "Principal": {
+            "AWS": "*"
+         },
+      "Action":["s3:ReadObject"],
+      "Resource":["arn:aws:s3:::bucket/*"
+      ]
+    }
+  ]
+}</programlisting>
+			</section>
+			<section id="Conditions_IfExists" audience="aspen_iam_public_beta">
+				<title id="Conditions_IfExists.title">...IfExists Conditions</title>
+				<para>You can add <code>IfExists</code> at the end of any condition (except the Null
+					condition). For example, StringEqualsIfExists. You would do this if you mean to
+					say: "If the particular policy key is present in the context of the request,
+					then process it as I've specified here in the policy. If it's not present in the
+					context of the request, I don't care."</para>
+			</section>
+            <section id="Conditions_Null" revision="mfa_sessions">
+                <title id="Conditions_Null.title">Existence of Condition Keys</title>
+                <para>Use a <code>Null</code> condition to check if a condition key is present at
+                    the time of authorization. In the policy statement, use either <code>true</code>
+                    (the key doesn't exist) or <code>false</code> (the key exists and its value is
+                    not null). You can use this condition to determine if a user has authenticated
+                    with MFA (Multi-Factor Authentication). For example, the following condition
+                    states that MFA authentication must exist (be <emphasis>not null</emphasis>) for
+                    the user to use the &EC2; API.</para>
+                <programlisting>{
+  "Statement":[{
+      "Action":["ec2:*"],
+      "Effect":"Allow",
+      "Resource":["*"],
+      "Condition":{
+         "Null":{"aws:MultiFactorAuthAge":"false"}
+      }
+    }
+  ]
+}</programlisting>
+            </section>
+		</section>
+	</section>
+</section>

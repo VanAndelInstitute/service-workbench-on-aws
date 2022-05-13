@@ -1,0 +1,23 @@
+    public static void listAllTemplates(QuickSightClient qsClient,String account ) {
+
+        try {
+
+            ListTemplatesRequest templateRequest = ListTemplatesRequest.builder()
+                    .awsAccountId(account)
+                    .maxResults(20)
+                    .build();
+
+            ListTemplatesResponse res  = qsClient.listTemplates(templateRequest);
+            List<TemplateSummary> templateSummaries = res.templateSummaryList();
+
+            for (TemplateSummary template: templateSummaries) {
+                System.out.println("Template ARN: "+template.arn());
+                System.out.println("Template Id: "+template.templateId());
+                System.out.println("Template Name: "+template.name());
+            }
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,25 @@
+<programlisting>
+// Create a PollyClient
+$client = new Aws\Polly\PollyClient([
+    'profile' => 'default',
+    'version' => '2016-06-10',
+    'region' => 'us-east-2'
+]);
+
+$text = 'This is a sample text to be synthesized.';
+$format = 'json'; //json|mp3|ogg_vorbis|pcm
+$voice = 'Joanna';
+
+try {
+    $result = $client->synthesizeSpeech([
+        'Text' => $text,
+        'OutputFormat' => $format,
+        'VoiceId' => $voice,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+</programlisting>

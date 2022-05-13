@@ -1,0 +1,36 @@
+<programlisting>
+        System.out.println("Executing the decision task for the history events: [");
+        for (HistoryEvent event : events) {
+            System.out.println("  " + event);
+            switch(event.getEventType()) {
+                case "WorkflowExecutionStarted":
+                    workflow_input =
+                        event.getWorkflowExecutionStartedEventAttributes()
+                             .getInput();
+                    break;
+                case "ActivityTaskScheduled":
+                    scheduled_activities++;
+                    break;
+                case "ScheduleActivityTaskFailed":
+                    scheduled_activities--;
+                    break;
+                case "ActivityTaskStarted":
+                    scheduled_activities--;
+                    open_activities++;
+                    break;
+                case "ActivityTaskCompleted":
+                    open_activities--;
+                    activity_completed = true;
+                    result = event.getActivityTaskCompletedEventAttributes()
+                                  .getResult();
+                    break;
+                case "ActivityTaskFailed":
+                    open_activities--;
+                    break;
+                case "ActivityTaskTimedOut":
+                    open_activities--;
+                    break;
+            }
+        }
+        System.out.println("]");
+</programlisting>

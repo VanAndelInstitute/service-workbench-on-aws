@@ -1,0 +1,22 @@
+<programlisting>
+    def list_keys(self):
+        """
+        Lists the keys for the current account by using a paginator.
+        """
+        try:
+            page_size = 10
+            print("\nLet's list your keys.")
+            key_paginator = self.kms_client.get_paginator('list_keys')
+            for key_page in key_paginator.paginate(PaginationConfig={'PageSize': 10}):
+                print(f"Here are {len(key_page['Keys'])} keys:")
+                pprint(key_page['Keys'])
+                if key_page['Truncated']:
+                    answer = input(f"Do you want to see the next {page_size} keys (y/n)? ")
+                    if answer.lower() != 'y':
+                        break
+                else:
+                    print("That's all your keys!")
+        except ClientError as err:
+            logging.error(
+                "Couldn't list your keys. Here's why: %s", err.response['Error']['Message'])
+</programlisting>

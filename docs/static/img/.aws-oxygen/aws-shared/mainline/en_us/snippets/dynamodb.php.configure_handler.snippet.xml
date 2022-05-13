@@ -1,0 +1,13 @@
+<programlisting>
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions',
+    'hash_key' => 'id',
+    'session_lifetime' => 3600,
+    'consistent_read' => true,
+    'locking' => false,
+    'batch_config' => [],
+    'max_lock_wait_time' => 10,
+    'min_lock_retry_microtime' => 5000,
+    'max_lock_retry_microtime' => 50000,
+]);
+</programlisting>

@@ -1,0 +1,37 @@
+   public static void createCFStack(CloudFormationClient cfClient,
+                                    String stackName,
+                                    String roleARN,
+                                    String location,
+                                    String key,
+                                    String value){
+
+        try {
+
+            CloudFormationWaiter waiter = cfClient.waiter();
+            Parameter myParameter = Parameter.builder()
+                    .parameterKey(key)
+                    .parameterValue(value)
+                    .build();
+
+            CreateStackRequest stackRequest = CreateStackRequest.builder()
+                .stackName(stackName)
+                .templateURL(location)
+                .roleARN(roleARN)
+                .onFailure(OnFailure.ROLLBACK)
+                .parameters(myParameter)
+                .build();
+
+            cfClient.createStack(stackRequest);
+            DescribeStacksRequest stacksRequest = DescribeStacksRequest.builder()
+                    .stackName(stackName)
+                    .build();
+
+            WaiterResponse<DescribeStacksResponse> waiterResponse = waiter.waitUntilStackCreateComplete(stacksRequest);
+            waiterResponse.matched().response().ifPresent(System.out::println);
+            System.out.println(stackName +" is ready");
+
+        } catch (CloudFormationException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

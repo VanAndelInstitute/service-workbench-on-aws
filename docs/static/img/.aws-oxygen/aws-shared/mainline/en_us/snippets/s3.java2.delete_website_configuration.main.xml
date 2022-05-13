@@ -1,0 +1,17 @@
+<programlisting>
+    public static void deleteBucketWebsiteConfig(S3Client s3,String bucketName ) {
+
+       DeleteBucketWebsiteRequest delReq = DeleteBucketWebsiteRequest.builder()
+                .bucket(bucketName)
+                .build();
+        try {
+            s3.deleteBucketWebsite(delReq);
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.out.println("Failed to delete website configuration!");
+            System.exit(1);
+        }
+   }
+}
+</programlisting>

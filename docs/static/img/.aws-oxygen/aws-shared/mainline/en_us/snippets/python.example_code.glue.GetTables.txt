@@ -1,0 +1,16 @@
+    def get_tables(self, db_name):
+        """
+        Gets a list of tables in a Data Catalog database.
+
+        :param db_name: The name of the database to query.
+        :return: The list of tables in the database.
+        """
+        try:
+            response = self.glue_client.get_tables(DatabaseName=db_name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't get tables %s. Here's why: %s: %s", db_name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['TableList']

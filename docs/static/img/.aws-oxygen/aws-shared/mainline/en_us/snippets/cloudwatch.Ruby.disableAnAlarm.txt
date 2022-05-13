@@ -1,0 +1,81 @@
+# Disables an alarm in Amazon CloudWatch.
+#
+# Prerequisites.
+#
+# - The alarm to disable.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client]
+#   An initialized CloudWatch client.
+# @param alarm_name [String] The name of the alarm to disable.
+# @return [Boolean] true if the alarm was disabled; otherwise, false.
+# @example
+#   exit 1 unless alarm_actions_disabled?(
+#     Aws::CloudWatch::Client.new(region: 'us-east-1'),
+#     'ObjectsInBucket'
+#   )
+def alarm_actions_disabled?(cloudwatch_client, alarm_name)
+  cloudwatch_client.disable_alarm_actions(alarm_names: [alarm_name])
+  return true
+rescue StandardError => e
+  puts "Error disabling alarm actions: #{e.message}"
+  return false
+end
+
+# Full example call:
+def run_me
+  alarm_name = 'ObjectsInBucket'
+  alarm_description = 'Objects exist in this bucket for more than 1 day.'
+  metric_name = 'NumberOfObjects'
+  # Notify this Amazon Simple Notification Service (Amazon SNS) topic when
+  # the alarm transitions to the ALARM state.
+  alarm_actions = ['arn:aws:sns:us-east-1:111111111111:Default_CloudWatch_Alarms_Topic']
+  namespace = 'AWS/S3'
+  statistic = 'Average'
+  dimensions = [
+    {
+      name: 'BucketName',
+      value: 'doc-example-bucket'
+    },
+    {
+      name: 'StorageType',
+      value: 'AllStorageTypes'
+    }
+  ]
+  period = 86_400 # Daily (24 hours * 60 minutes * 60 seconds = 86400 seconds).
+  unit = 'Count'
+  evaluation_periods = 1 # More than one day.
+  threshold = 1 # One object.
+  comparison_operator = 'GreaterThanThreshold' # More than one object.
+  # Replace us-west-2 with the AWS Region you're using for Amazon CloudWatch.
+  region = 'us-east-1'
+
+  cloudwatch_client = Aws::CloudWatch::Client.new(region: region)
+
+  if alarm_created_or_updated?(
+    cloudwatch_client,
+    alarm_name,
+    alarm_description,
+    metric_name,
+    alarm_actions,
+    namespace,
+    statistic,
+    dimensions,
+    period,
+    unit,
+    evaluation_periods,
+    threshold,
+    comparison_operator
+  )
+    puts "Alarm '#{alarm_name}' created or updated."
+  else
+    puts "Could not create or update alarm '#{alarm_name}'."
+  end
+
+  if alarm_actions_disabled?(cloudwatch_client, alarm_name)
+    puts "Alarm '#{alarm_name}' disabled."
+  else
+    puts "Could not disable alarm '#{alarm_name}'."
+  end
+end
+
+run_me if $PROGRAM_NAME == __FILE__

@@ -1,0 +1,33 @@
+<programlisting>
+    public static String createPR(CodeCommitClient codeCommitClient,
+                                  String repoName,
+                                  String destinationReference,
+                                  String sourceReference) {
+
+        try {
+             // Create a Target object that contains the destination and source
+             Target target = Target.builder()
+                .repositoryName(repoName)
+                .destinationReference(destinationReference)
+                .sourceReference(sourceReference)
+                .build();
+
+             List<Target> myList = new ArrayList<>();
+             myList.add(target);
+
+            CreatePullRequestRequest pullRequestRequest = CreatePullRequestRequest.builder()
+                .description("A Pull request created by the Java API")
+                .title("Example Pull Request")
+                .targets(myList)
+                .build();
+
+            CreatePullRequestResponse requestResponse = codeCommitClient.createPullRequest(pullRequestRequest);
+            return requestResponse.pullRequest().pullRequestId();
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

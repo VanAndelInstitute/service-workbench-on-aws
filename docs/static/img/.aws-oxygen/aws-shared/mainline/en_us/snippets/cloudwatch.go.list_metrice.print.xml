@@ -1,0 +1,18 @@
+<programlisting>
+    fmt.Println("Metrics:")
+    numMetrics := 0
+
+    for _, m := range result.Metrics {
+        fmt.Println("   Metric Name: " + *m.MetricName)
+        fmt.Println("   Namespace:   " + *m.Namespace)
+        fmt.Println("   Dimensions:")
+        for _, d := range m.Dimensions {
+            fmt.Println("      " + *d.Name + ": " + *d.Value)
+        }
+
+        fmt.Println("")
+        numMetrics++
+    }    
+
+    fmt.Println("Found " + strconv.Itoa(numMetrics) + " metrics")
+</programlisting>

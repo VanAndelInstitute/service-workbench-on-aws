@@ -1,0 +1,59 @@
+
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: Apache-2.0
+*/
+package com.example.kms;
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.kms.KmsClient;
+import software.amazon.awssdk.services.kms.model.KmsException;
+import software.amazon.awssdk.services.kms.model.EnableKeyRequest;
+
+/**
+ * To run this Java V2 code example, ensure that you have setup your development environment, including your credentials.
+ *
+ * For information, see this documentation topic:
+ *
+ * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ */
+public class EnableCustomerKey {
+
+    public static void main(String[] args) {
+
+        final String USAGE = "\n" +
+                "Usage:\n" +
+                "    <keyId> \n\n" +
+                "Where:\n" +
+                "    keyId - a key id value to enable (for example, xxxxxbcd-12ab-34cd-56ef-1234567890ab). \n\n" ;
+
+        if (args.length != 1) {
+            System.out.println(USAGE);
+            System.exit(1);
+        }
+
+        String keyId = args[0];
+        Region region = Region.US_WEST_2;
+        KmsClient kmsClient = KmsClient.builder()
+                .region(region)
+                .build();
+
+        enableKey(kmsClient, keyId);
+        kmsClient.close();
+    }
+
+    public static void enableKey(KmsClient kmsClient, String keyId) {
+
+    try {
+        EnableKeyRequest enableKeyRequest = EnableKeyRequest.builder()
+                .keyId(keyId)
+                .build();
+
+        kmsClient.enableKey(enableKeyRequest);
+
+    } catch (KmsException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+   }
+}

@@ -1,0 +1,8 @@
+<programlisting>
+
+            CreateQueueRequest createQueueRequest = CreateQueueRequest.builder()
+                .queueName(queueName)
+                .build();
+
+            sqsClient.createQueue(createQueueRequest);
+</programlisting>

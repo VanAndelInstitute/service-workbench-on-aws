@@ -1,0 +1,7 @@
+async fn start_instance(client: &Client, id: &str) -> Result<(), Error> {
+    client.start_instances().instance_ids(id).send().await?;
+
+    println!("Started instance.");
+
+    Ok(())
+}

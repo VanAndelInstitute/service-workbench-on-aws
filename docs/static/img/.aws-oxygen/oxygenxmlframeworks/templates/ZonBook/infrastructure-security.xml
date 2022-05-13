@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?template version="1.0-Oxygen" service="//Security//" type="infrastructure-security"  origin="oxygen" value="csctemplate-awsdocs-InfrastructureSecurity-1.0-oxygen"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+<!--    <!ENTITY % phrases-s3 SYSTEM "../shared/phrases-s3.ent"> 
+    %phrases-s3; -->
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;     
+     <!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+<!ENTITY SERVICENAME 'SERVICE SHORTNAME'>
+]>
+
+<!--TODO: REPLACE SERVICE NAME ENTITIES WITH REAL SERVICE NAME-->
+
+<!--The text in this template has been approved by the security and compliance team, therefore we highly recommend that you use this text as-is. However, if you have good reason to alter the wording for your specific service, you can.--> 
+
+<section id="infrastructure-security" role="topic">
+   <info>
+      <title id="infrastructure-security.title">Infrastructure Security in &SERVICENAMElong;</title>
+      <titleabbrev>Infrastructure Security</titleabbrev>
+      <abstract>
+         <para>Learn how &SERVICENAMElong; isolates service traffic.</para>
+      </abstract>
+   </info>
+   <para>As a managed service, &SERVICENAMElong; is protected by the &AWS; global network security
+      procedures that are described in the <ulink
+         url="https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf">&AWSlong;: Overview of Security Processes</ulink> whitepaper.</para>
+   <para>You use &AWS; published API calls to access &SERVICENAME; through the network. Clients must
+      support Transport Layer Security (TLS) 1.0 or later. We recommend TLS 1.2 or later. Clients
+      must also support cipher suites with perfect forward secrecy (PFS) such as Ephemeral
+      Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems
+      such as Java 7 and later support these modes.</para> 
+   
+      <para>Additionally, requests must be signed by using
+      an access key ID and a secret access key that is associated with an &IAM; principal. Or you
+      can use the <ulink type="documentation" url="STS/latest/APIReference/Welcome.html">&STSlong;</ulink> (&STS;) to generate
+      temporary security credentials to sign requests.</para>
+   <!--TODO: Does your service support resource-based access policies, which can include restrictions based on the source IP address? If yes, add the following-->
+   <!--Ideally, add an example. For example, see http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies-vpc-endpoint.html. -->
+   <!--
+    <para>You can call these API operations from any network location, but &SERVICENAME; does support resource-based access policies, which can include restrictions based on the source IP address. You can also use &SERVICENAME; policies to control access from specific Amazon Virtual Private Cloud (Amazon VPC) endpoints or specific VPCs. Effectively, this isolates network access to a given &SERVICENAME; resource from only the specific VPC within the &AWS; network.</para>
+    -->
+</section>

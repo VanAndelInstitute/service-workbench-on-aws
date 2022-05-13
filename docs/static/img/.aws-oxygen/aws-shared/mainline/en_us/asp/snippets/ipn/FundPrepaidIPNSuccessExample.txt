@@ -1,0 +1,26 @@
+--------------------------
+transactionId: 14GN2BUHUAV4KG5S8USHN79PQH1NGN5ADK4
+statusMessage: The transaction was successful and the payment instrument was charged.
+transactionDate: 1254904691
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference10
+transactionAmount: USD 1.00
+transactionStatus: SUCCESS
+operation: FUND_PREPAID
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: we8dbtnHqzj9MViz2yYzreeDy00MVrbafEnspAhjZwnLGWKowAc9pMkHEnPxiwpHjiVfHQqEmMJu
+zDuuWZI8bp/vaVmF/nCVUxhpV/EEdhGjawtyNs1XPUT6lCdzEitT+oykk3pj/p1se6s0FFyWFcX7
+a6ttWN06i0XgsQ9yl58opy683j4w0b2bOs9GySyH5uCIA7TpD7GsdnkkVpHlMSFnLy9+DFEKaNAo
+Tx3WqyqOINvyOviRnB16IbvFNFsoULXTjodHjCDhY7kkX1IsfRkSDRxPX5Fu2eB78uGSo5jZXYJA
+WAo4JGQjNVZAcSr18SvCRq12K7PpT4qrskEHoA==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: MyWish
+statusCode: Success
+--------------------------
+

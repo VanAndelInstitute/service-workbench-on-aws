@@ -1,0 +1,56 @@
+# Writes an event to a log stream in Amazon CloudWatch Logs.
+#
+# Prerequisites:
+#
+# - A log group in Amazon CloudWatch Logs.
+# - A log stream within the log group.
+#
+# @param cloudwatchlogs_client [Aws::CloudWatchLogs::Client] An initialized
+#   Amazon CloudWatch Logs client.
+# @param log_group_name [String] The name of the log group.
+# @param log_stream_name [String] The name of the log stream within
+#   the log group.
+# @param message [String] The message to write to the log stream.
+# @param sequence_token [String] If available, the sequence token from the
+#   message that was written immediately before this message. This sequence
+#   token is returned by Amazon CloudWatch Logs whenever you programmatically
+#   write a message to the log stream.
+# @return [String] The sequence token that is returned by
+#   Amazon CloudWatch Logs after successfully writing the message to the
+#   log stream.
+# @example
+#   puts log_event(
+#     Aws::EC2::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-cloudwatch-log'
+#     '2020/11/19/53f985be-199f-408e-9a45-fc242df41fEX',
+#     "Instance 'i-033c48ef067af3dEX' restarted.",
+#     '495426724868310740095796045676567882148068632824696073EX'
+#   )
+def log_event(
+  cloudwatchlogs_client,
+  log_group_name,
+  log_stream_name,
+  message,
+  sequence_token
+)
+  puts "Attempting to log '#{message}' to log stream '#{log_stream_name}'..."
+  event = {
+    log_group_name: log_group_name,
+    log_stream_name: log_stream_name,
+    log_events: [
+      {
+        timestamp: (Time.now.utc.to_f.round(3) * 1_000).to_i,
+        message: message
+      }
+    ]
+  }
+  unless sequence_token.empty?
+    event[:sequence_token] = sequence_token
+  end
+
+  response = cloudwatchlogs_client.put_log_events(event)
+  puts 'Message logged.'
+  return response.next_sequence_token
+rescue StandardError => e
+  puts "Message not logged: #{e.message}"
+end

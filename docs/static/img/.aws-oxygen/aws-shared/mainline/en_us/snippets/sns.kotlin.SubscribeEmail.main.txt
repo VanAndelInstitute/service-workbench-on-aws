@@ -1,0 +1,14 @@
+suspend fun subEmail(topicArnVal: String, email: String) : String {
+
+    val request = SubscribeRequest {
+        protocol = "email"
+        endpoint = email
+        returnSubscriptionArn = true
+        topicArn = topicArnVal
+    }
+
+    SnsClient { region = "us-east-1" }.use { snsClient ->
+        val result = snsClient.subscribe(request)
+        return result.subscriptionArn.toString()
+    }
+}

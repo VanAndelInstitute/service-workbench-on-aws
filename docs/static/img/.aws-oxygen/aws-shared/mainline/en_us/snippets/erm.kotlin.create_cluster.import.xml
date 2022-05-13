@@ -1,0 +1,11 @@
+<programlisting>
+import aws.sdk.kotlin.services.emr.EmrClient
+import aws.sdk.kotlin.services.emr.model.HadoopJarStepConfig
+import aws.sdk.kotlin.services.emr.model.Application
+import aws.sdk.kotlin.services.emr.model.JobFlowInstancesConfig
+import aws.sdk.kotlin.services.emr.model.StepConfig
+import aws.sdk.kotlin.services.emr.model.ActionOnFailure
+import aws.sdk.kotlin.services.emr.model.RunJobFlowRequest
+import aws.sdk.kotlin.services.emr.model.RunJobFlowResponse
+import kotlin.system.exitProcess
+</programlisting>

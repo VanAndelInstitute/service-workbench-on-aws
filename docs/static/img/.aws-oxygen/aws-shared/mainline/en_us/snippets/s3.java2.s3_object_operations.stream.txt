@@ -1,0 +1,4 @@
+        // Helper method to work with paginated collection of items directly
+        listRes.contents().stream()
+                .forEach(content -> System.out.println(" Key: " + content.key() + " size = " + content.size()));
+

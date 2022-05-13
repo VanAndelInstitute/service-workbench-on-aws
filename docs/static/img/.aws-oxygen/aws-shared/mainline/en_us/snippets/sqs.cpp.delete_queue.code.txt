@@ -1,0 +1,14 @@
+        Aws::SQS::Model::DeleteQueueRequest dq_req;
+        dq_req.SetQueueUrl(queue_url);
+
+        auto dq_out = sqs.DeleteQueue(dq_req);
+        if (dq_out.IsSuccess())
+        {
+            std::cout << "Successfully deleted queue with url " << queue_url <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Error deleting queue " << queue_url << ": " <<
+                dq_out.GetError().GetMessage() << std::endl;
+        }

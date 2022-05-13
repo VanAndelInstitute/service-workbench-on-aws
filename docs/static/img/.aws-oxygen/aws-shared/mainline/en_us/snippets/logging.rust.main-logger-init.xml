@@ -1,0 +1,3 @@
+<programlisting>
+    env_logger::init();
+</programlisting>

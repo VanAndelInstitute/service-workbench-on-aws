@@ -1,0 +1,83 @@
+<programlisting>
+suspend fun sendemailAttachment(
+    sender: String,
+    recipient: String,
+    subject: String,
+    bodyText: String,
+    bodyHTML: String,
+    fileLocation: String
+) {
+
+    val theFile = File(fileLocation)
+    val fileContent = Files.readAllBytes(theFile.toPath())
+    val session = Session.getDefaultInstance(Properties())
+
+    // Create a new MimeMessage object.
+    val message = MimeMessage(session)
+
+    // Add subject, from, and to lines.
+    message.setSubject(subject, "UTF-8")
+    message.setFrom(InternetAddress(sender))
+    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient))
+
+    // Create a multipart/alternative child container.
+    val msgBody = MimeMultipart("alternative")
+
+    // Create a wrapper for the HTML and text parts.
+    val wrap = MimeBodyPart()
+
+    // Define the text part.
+    val textPart = MimeBodyPart()
+    textPart.setContent(bodyText, "text/plain; charset=UTF-8")
+
+    // Define the HTML part.
+    val htmlPart = MimeBodyPart()
+    htmlPart.setContent(bodyHTML, "text/html; charset=UTF-8")
+
+    // Add the text and HTML parts to the child container.
+    msgBody.addBodyPart(textPart)
+    msgBody.addBodyPart(htmlPart)
+
+    // Add the child container to the wrapper object.
+    wrap.setContent(msgBody)
+
+    // Create a multipart/mixed parent container.
+    val msg = MimeMultipart("mixed")
+
+    // Add the parent container to the message.
+    message.setContent(msg)
+
+    // Add the multipart/alternative part to the message.
+    msg.addBodyPart(wrap)
+
+    // Define the attachment.
+    val att = MimeBodyPart()
+    val fds: DataSource =
+        ByteArrayDataSource(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+    att.dataHandler = DataHandler(fds)
+
+    val reportName = "WorkReport.xls"
+    att.fileName = reportName
+
+    // Add the attachment to the message.
+    msg.addBodyPart(att)
+
+    println("Attempting to send an email through Amazon SES using the AWS SDK for Kotlin...")
+    val outputStream = ByteArrayOutputStream()
+    message.writeTo(outputStream)
+
+    val rawMessageOb = RawMessage {
+        this.data = outputStream.toByteArray()
+    }
+
+    val rawEmailRequest = SendRawEmailRequest {
+        rawMessage = rawMessageOb
+    }
+
+    SesClient { region = "us-east-1" }.use { sesClient ->
+        sesClient.sendRawEmail(rawEmailRequest)
+     }
+    println("Email sent with attachment")
+}
+</programlisting>

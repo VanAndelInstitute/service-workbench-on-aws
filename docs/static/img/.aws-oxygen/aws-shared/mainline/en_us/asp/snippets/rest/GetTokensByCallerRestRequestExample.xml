@@ -1,0 +1,10 @@
+https://fps.sandbox.amazonaws.com?
+Action=GetTokenByCaller
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerReference=callerReferenceSingleUse10
+&Signature=7E43HRAge3s57KDtEW3%2Fv0CE3Rh4TkVuOpk%2FIU%2FJIEY%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A29%3A03.281Z
+&TokenId=543IJMECGZZ3J4K1F7BJ3TMNXFBQU9VXNT7RRCTNAJDJ8X36L1ZRKSUUPPIBTTIK
+&Version=2008-09-17

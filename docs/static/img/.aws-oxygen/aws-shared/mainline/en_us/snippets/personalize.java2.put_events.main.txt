@@ -1,0 +1,34 @@
+    public static int putEvents(PersonalizeEventsClient personalizeEventsClient,
+                                String trackingId,
+                                String userId,
+                                String itemId,
+                                String sessionId) {
+
+        int responseCode = 0;
+
+        try {
+
+            // Build an event and a putEvents request with only the required information for a minimal schema.
+            // Schema columns for this example would be itemId, userId, and timestamp.
+            Event event = Event.builder()
+                    .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
+                    .itemId(itemId)
+                    .eventType("typePlaceholder")
+                    .build();
+
+            PutEventsRequest putEventsRequest = PutEventsRequest.builder()
+                    .trackingId(trackingId)
+                    .userId(userId)
+                    .sessionId(sessionId)
+                    .eventList(event)
+                    .build();
+
+            responseCode = personalizeEventsClient.putEvents(putEventsRequest).sdkHttpResponse().statusCode();
+            System.out.println("Response code: " + responseCode);
+            return responseCode;
+
+        } catch (PersonalizeEventsException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return responseCode;
+    }

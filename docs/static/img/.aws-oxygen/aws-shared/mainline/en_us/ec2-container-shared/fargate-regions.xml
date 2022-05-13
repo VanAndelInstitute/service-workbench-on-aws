@@ -1,0 +1,113 @@
+<!DOCTYPE table PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<table frame="all">
+    <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+        <thead>
+            <row>
+                <entry>Region Name</entry>
+                <entry>Region</entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry>&region-us-east-2;</entry>
+                <entry>us-east-2</entry>
+            </row>
+            <row>
+                <entry>&region-us-east-1;</entry>
+                <entry>us-east-1</entry>
+            </row>
+            <row>
+                <entry>&region-us-west-1;</entry>
+                <entry>us-west-1</entry>
+            </row>
+            <row>
+                <entry>&region-us-west-2;</entry>
+                <entry>us-west-2</entry>
+            </row>
+            <row>
+                <entry>&region-ap-east-1;</entry>
+                <entry>ap-east-1</entry>
+            </row>
+            <row>
+                <entry>&region-ap-south-1;</entry>
+                <entry>ap-south-1</entry>
+            </row>
+            <row>
+                <entry>&region-ap-northeast-2;</entry>
+                <entry>ap-northeast-2</entry>
+            </row>
+            <row>
+                <entry>&region-ap-southeast-1;</entry>
+                <entry>ap-southeast-1</entry>
+            </row>
+            <row>
+                <entry>&region-ap-southeast-2;</entry>
+                <entry>ap-southeast-2</entry>
+            </row>
+            <row>
+                <entry>&region-ap-northeast-1;</entry>
+                <entry>ap-northeast-1</entry>
+            </row>
+            <row>
+                <entry>&region-ca-central-1;</entry>
+                <entry>ca-central-1</entry>
+            </row>
+            <row>
+                <entry>&region-cn-north-1;</entry>
+                <entry>cn-north-1</entry>
+            </row>
+            <row>
+                <entry>&region-cn-northwest-1;</entry>
+                <entry>cn-northwest-1</entry>
+            </row>
+            <row>
+                <entry>&region-eu-central-1;</entry>
+                <entry>eu-central-1</entry>
+            </row>
+            <row>
+                <entry>&region-eu-west-1;</entry>
+                <entry>eu-west-1</entry>
+            </row>
+            <row>
+                <entry>&region-eu-west-2;</entry>
+                <entry>eu-west-2</entry>
+            </row>
+            <row>
+                <entry>&region-eu-west-3;</entry>
+                <entry>eu-west-3</entry>
+            </row>
+            <row>
+                <entry>&region-eu-north-1;</entry>
+                <entry>eu-north-1</entry>
+            </row>
+            <row>
+                <entry>&region-sa-east-1;</entry>
+                <entry>sa-east-1</entry>
+            </row>
+            <row>
+                <entry>&region-me-south-1;</entry>
+                <entry>me-south-1</entry>
+            </row>
+            <row>
+                <entry>&region-gov-us-east-1;</entry>
+                <entry>us-gov-east-1</entry>
+            </row>
+            <row>
+                <entry>&region-gov-us-west-1;</entry>
+                <entry>us-gov-west-1</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</table>

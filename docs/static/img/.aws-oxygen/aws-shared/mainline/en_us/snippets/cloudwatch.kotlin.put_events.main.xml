@@ -1,0 +1,21 @@
+<programlisting>
+suspend fun putCWEvents(resourceArn: String) {
+
+        val eventDetails = "{ \"key1\": \"value1\", \"key2\": \"value2\" }"
+        val requestEntry = PutEventsRequestEntry {
+            detail = eventDetails
+            detailType = "sampleSubmitted"
+            resources = listOf(resourceArn)
+            source = "aws-sdk-java-cloudwatch-example"
+        }
+
+       val request = PutEventsRequest {
+           entries = listOf(requestEntry)
+       }
+
+       CloudWatchEventsClient { region = "us-west-2" }.use { cwe ->
+        cwe.putEvents(request)
+        println("Successfully put CloudWatch event")
+    }
+}
+</programlisting>

@@ -1,0 +1,4 @@
+	result, err := svc.Publish(&sns.PublishInput{
+		Message:  msg,
+		TopicArn: topicARN,
+	})

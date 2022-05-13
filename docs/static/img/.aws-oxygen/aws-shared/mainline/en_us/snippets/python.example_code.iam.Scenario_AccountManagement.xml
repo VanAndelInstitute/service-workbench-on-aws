@@ -1,0 +1,89 @@
+<programlisting>
+def usage_demo():
+    """Shows how to use the account functions."""
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    print('-'*88)
+    print("Welcome to the AWS Identity and Account Management account demo.")
+    print('-'*88)
+    print("Setting an account alias lets you use the alias in your sign-in URL "
+          "instead of your account number.")
+    old_aliases = list_aliases()
+    if len(old_aliases) > 0:
+        print(f"Your account currently uses '{old_aliases[0]}' as its alias.")
+    else:
+        print("Your account currently has no alias.")
+    for index in range(1, 3):
+        new_alias = f'alias-{index}-{time.time_ns()}'
+        print(f"Setting your account alias to {new_alias}")
+        create_alias(new_alias)
+    current_aliases = list_aliases()
+    print(f"Your account alias is now {current_aliases}.")
+    delete_alias(current_aliases[0])
+    print(f"Your account now has no alias.")
+    if len(old_aliases) > 0:
+        print(f"Restoring your original alias back to {old_aliases[0]}...")
+        create_alias(old_aliases[0])
+
+    print('-'*88)
+    print("You can get various reports about your account.")
+    print("Let's generate a credentials report...")
+    report_state = None
+    while report_state != 'COMPLETE':
+        cred_report_response = generate_credential_report()
+        old_report_state = report_state
+        report_state = cred_report_response['State']
+        if report_state != old_report_state:
+            print(report_state, sep='')
+        else:
+            print('.', sep='')
+        sys.stdout.flush()
+        time.sleep(1)
+    print()
+    cred_report = get_credential_report()
+    col_count = 3
+    print(f"Got credentials report. Showing only the first {col_count} columns.")
+    cred_lines = [line.split(',')[:col_count] for line
+                  in cred_report.decode('utf-8').split('\n')]
+    col_width = max([len(item) for line in cred_lines for item in line]) + 2
+    for line in cred_report.decode('utf-8').split('\n'):
+        print(''.join(element.ljust(col_width)
+                      for element in line.split(',')[:col_count]))
+
+    print('-'*88)
+    print("Let's get an account summary.")
+    summary = get_summary()
+    print("Here's your summary:")
+    pprint.pprint(summary)
+
+    print('-'*88)
+    print("Let's get authorization details!")
+    details = get_authorization_details([])
+    see_details = input("These are pretty long, do you want to see them (y/n)? ")
+    if see_details.lower() == 'y':
+        pprint.pprint(details)
+
+    print('-'*88)
+    pw_policy_created = None
+    see_pw_policy = input("Want to see the password policy for the account (y/n)? ")
+    if see_pw_policy.lower() == 'y':
+        while True:
+            if print_password_policy():
+                break
+            else:
+                answer = input("Do you want to create a default password policy (y/n)? ")
+                if answer.lower() == 'y':
+                    pw_policy_created = iam.create_account_password_policy()
+                else:
+                    break
+    if pw_policy_created is not None:
+        answer = input("Do you want to delete the password policy (y/n)? ")
+        if answer.lower() == 'y':
+            pw_policy_created.delete()
+            print("Password policy deleted.")
+
+    print("The SAML providers for your account are:")
+    list_saml_providers(10)
+
+    print('-'*88)
+    print("Thanks for watching.")
+</programlisting>

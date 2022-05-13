@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.s3.S3Client
+import aws.sdk.kotlin.services.s3.model.DeleteBucketPolicyRequest
+import kotlin.system.exitProcess
+</programlisting>

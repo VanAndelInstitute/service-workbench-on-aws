@@ -1,0 +1,5 @@
+
+require 'vendor/autoload.php';
+
+use Aws\MediaConvert\MediaConvertClient;  
+use Aws\Exception\AwsException;

@@ -1,0 +1,19 @@
+       public static void listAllModels(SageMakerClient sageMakerClient) {
+            try {
+
+                ListModelsRequest modelsRequest = ListModelsRequest.builder()
+                        .maxResults(15)
+                        .build();
+
+                ListModelsResponse modelResponse = sageMakerClient.listModels(modelsRequest);
+                List<ModelSummary> items = modelResponse.models();
+
+                for (ModelSummary item : items) {
+                    System.out.println("Model name is: " + item.modelName());
+                }
+
+            } catch (SageMakerException e) {
+                System.err.println(e.awsErrorDetails().errorMessage());
+                System.exit(1);
+            }
+        }

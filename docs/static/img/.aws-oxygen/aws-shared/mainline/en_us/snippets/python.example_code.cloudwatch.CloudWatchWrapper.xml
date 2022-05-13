@@ -1,0 +1,9 @@
+<programlisting>
+class CloudWatchWrapper:
+    """Encapsulates Amazon CloudWatch functions."""
+    def __init__(self, cloudwatch_resource):
+        """
+        :param cloudwatch_resource: A Boto3 CloudWatch resource.
+        """
+        self.cloudwatch_resource = cloudwatch_resource
+</programlisting>

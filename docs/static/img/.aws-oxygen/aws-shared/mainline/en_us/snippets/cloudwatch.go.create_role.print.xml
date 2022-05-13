@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Role ARN: " + *result.Role.Arn)
+</programlisting>

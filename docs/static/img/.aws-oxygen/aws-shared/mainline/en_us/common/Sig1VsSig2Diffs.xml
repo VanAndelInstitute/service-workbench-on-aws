@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="Sig1VsSig2Diffs" role="topic">
+    <title id="Sig1VsSig2Diffs.title">Differences Between Signing Versions</title>
+    <para>Amazon deprecated Signature version 1 on &SIG2RELEASE;, and as of &SIG1EXPIRIATION; it is no longer supported. You must use signature version 2 for signing inbound and outbound requests. Although the security benefits of the new version are significant, there are a few implementation differences between the two:</para>
+    <itemizedlist>
+        <listitem>
+            <para>You create the concatenated URL string differently:</para>
+            <table class="informaltable" rowsep="0" colsep="0"><title/>
+              <tgroup cols="1">
+                 <colspec colnum="1" colname="col1" colwidth="5*" colsep="0" rowsep="0"/>
+                 <tbody>
+                 <row>
+                 <entry><simpara>Include additional components, including null parameters</simpara></entry>
+                 </row>
+                 <row>
+                 <entry><simpara>Include the query string control characters '=' and '&amp;'</simpara></entry>
+                 </row>
+                 <row>
+                 <entry><simpara>Sort the query string parameters using byte ordering</simpara></entry>
+                 </row>
+                 <row>
+                 <entry><simpara>URL-encode the concatenated URL string before signing</simpara></entry>
+                 </row>
+                 </tbody>
+                 </tgroup>
+            </table>
+        </listitem>
+        <listitem><para>You can now use HMAC-256 for signing <glossterm linkend="inboundrequest">inbound requests</glossterm>. Although we prefer HMAC-256, HMAC-SHA1 is also supported. For outbound notifications, we support the RSA-SHA1 algorithm.</para></listitem>
+        <listitem><para>You use the new <parameter>signatureMethod</parameter> parameter to indicate the signing algorithm (valid values are <parameter>HmacSHA256</parameter> or <parameter>HmacSHA1</parameter>).</para></listitem>
+        <listitem><para>You include the new <parameter>signatureVersion</parameter> parameter, which must be set to <parameter>2</parameter>.</para></listitem>
+    </itemizedlist>
+    <para condition="asp">For examples of using signature version 2, see <link condition="asp" linkend="APPNDX_SampleCode" endterm="APPNDX_SampleCode.title"/><link condition="fps" linkend="APPNDX_SignatureSampleCode" endterm="APPNDX_SignatureSampleCode.title"/></para>
+</section>

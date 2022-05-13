@@ -1,0 +1,16 @@
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import software.amazon.awssdk.core.ResponseBytes;
+import software.amazon.awssdk.core.SdkBytes;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.model.*;
+import software.amazon.awssdk.services.rekognition.model.Image;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectResponse;
+import software.amazon.awssdk.services.s3.model.S3Exception;

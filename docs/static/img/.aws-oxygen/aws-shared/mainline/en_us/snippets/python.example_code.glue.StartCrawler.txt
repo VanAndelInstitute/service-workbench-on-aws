@@ -1,0 +1,14 @@
+    def start_crawler(self, name):
+        """
+        Starts a crawler. The crawler crawls its configured target and creates
+        metadata that describes the data it finds in the target data source.
+
+        :param name: The name of the crawler to start.
+        """
+        try:
+            self.glue_client.start_crawler(Name=name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't start crawler %s. Here's why: %s: %s", name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise

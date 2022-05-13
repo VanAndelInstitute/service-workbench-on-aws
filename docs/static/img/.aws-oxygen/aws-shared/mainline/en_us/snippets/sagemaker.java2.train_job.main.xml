@@ -1,0 +1,86 @@
+<programlisting>
+    public static void trainJob(SageMakerClient sageMakerClient,
+                                String s3UriData,
+                                String s3Uri,
+                                String trainingJobName,
+                                String roleArn,
+                                String s3OutputPath,
+                                String channelName,
+                                String trainingImage) {
+
+        try {
+            S3DataSource s3DataSource = S3DataSource.builder()
+                    .s3Uri(s3UriData)
+                    .s3DataType("S3Prefix")
+                    .s3DataDistributionType("FullyReplicated")
+                    .build();
+
+            DataSource dataSource = DataSource.builder()
+                    .s3DataSource(s3DataSource)
+                    .build();
+
+            Channel channel = Channel.builder()
+                    .channelName(channelName)
+                    .contentType("csv")
+                    .dataSource(dataSource)
+                    .build();
+
+            // Build a list of channels
+            List<Channel> myChannel = new ArrayList();
+            myChannel.add(channel);
+
+            ResourceConfig resourceConfig = ResourceConfig.builder()
+                    .instanceType(TrainingInstanceType.ML_M5_2_XLARGE) // ml.c5.2xlarge
+                     .instanceCount(10)
+                    .volumeSizeInGB(1)
+                    .build();
+
+            CheckpointConfig checkpointConfig = CheckpointConfig.builder()
+                    .s3Uri(s3Uri)
+                    .build();
+
+            OutputDataConfig outputDataConfig = OutputDataConfig.builder()
+                    .s3OutputPath(s3OutputPath)
+                    .build();
+
+            StoppingCondition stoppingCondition = StoppingCondition.builder()
+                    .maxRuntimeInSeconds(1200)
+                    .build();
+
+            AlgorithmSpecification algorithmSpecification = AlgorithmSpecification.builder()
+                   .trainingImage(trainingImage)
+                    .trainingInputMode(TrainingInputMode.FILE)
+                    .build();
+
+            // Set hyper parameters.
+            Map<String,String> hyperParameters = new HashMap<String, String>();
+            hyperParameters.put("num_round", "100");
+            hyperParameters.put("eta", "0.2");
+            hyperParameters.put("gamma", "4");
+            hyperParameters.put("max_depth", "5");
+            hyperParameters.put("min_child_weight", "6");
+            hyperParameters.put("objective", "binary:logistic");
+            hyperParameters.put("silent", "0");
+            hyperParameters.put("subsample", "0.8");
+
+            CreateTrainingJobRequest trainingJobRequest = CreateTrainingJobRequest.builder()
+                    .trainingJobName(trainingJobName)
+                    .algorithmSpecification(algorithmSpecification)
+                    .roleArn(roleArn)
+                    .resourceConfig(resourceConfig)
+                    .checkpointConfig(checkpointConfig)
+                    .inputDataConfig(myChannel)
+                    .outputDataConfig(outputDataConfig)
+                    .stoppingCondition(stoppingCondition)
+                    .hyperParameters(hyperParameters)
+                    .build();
+
+           CreateTrainingJobResponse jobResponse = sageMakerClient.createTrainingJob(trainingJobRequest);
+           System.out.println("The Amazon Resource Name (ARN) of the training job is "+ jobResponse.trainingJobArn());
+
+        } catch (SageMakerException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

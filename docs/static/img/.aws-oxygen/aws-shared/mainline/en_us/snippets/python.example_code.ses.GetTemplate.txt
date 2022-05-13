@@ -1,0 +1,19 @@
+    def get_template(self, name):
+        """
+        Gets a previously created email template.
+
+        :param name: The name of the template to retrieve.
+        :return: The retrieved email template.
+        """
+        try:
+            response = self.ses_client.get_template(TemplateName=name)
+            self.template = response['Template']
+            logger.info("Got template %s.", name)
+            self._extract_tags(
+                self.template['SubjectPart'], self.template['TextPart'],
+                self.template['HtmlPart'])
+        except ClientError:
+            logger.exception("Couldn't get template %s.", name)
+            raise
+        else:
+            return self.template

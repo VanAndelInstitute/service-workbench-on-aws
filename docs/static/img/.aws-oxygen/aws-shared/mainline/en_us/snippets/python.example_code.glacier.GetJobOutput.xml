@@ -1,0 +1,23 @@
+<programlisting>
+    @staticmethod
+    def get_job_output(job):
+        """
+        Gets the output of a job, such as a vault inventory or the contents of an
+        archive.
+
+        :param job: The job to get output from.
+        :return: The job output, in bytes.
+        """
+        try:
+            response = job.get_output()
+            out_bytes = response['body'].read()
+            logger.info("Read %s bytes from job %s.", len(out_bytes), job.id)
+            if 'archiveDescription' in response:
+                logger.info(
+                    "These bytes are described as '%s'", response['archiveDescription'])
+        except ClientError:
+            logger.exception("Couldn't get output for job %s.", job.id)
+            raise
+        else:
+            return out_bytes
+</programlisting>

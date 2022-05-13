@@ -1,0 +1,18 @@
+<programlisting>
+    public static List<Configuration> listConfigurations(MqClient mqClient) {
+
+        List<Configuration> configurationsList = new ArrayList<>();
+
+        try {
+            ListConfigurationsResponse response = mqClient.listConfigurations();
+            configurationsList = response.configurations();
+
+            return configurationsList;
+
+        } catch (MqException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return configurationsList;
+    }
+</programlisting>

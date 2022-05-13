@@ -1,0 +1,15 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.UpdateEndpointsBatchResponse;
+import software.amazon.awssdk.services.pinpoint.model.EndpointUser;
+import software.amazon.awssdk.services.pinpoint.model.EndpointBatchItem;
+import software.amazon.awssdk.services.pinpoint.model.ChannelType;
+import software.amazon.awssdk.services.pinpoint.model.EndpointBatchRequest;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;
+import software.amazon.awssdk.services.pinpoint.model.UpdateEndpointsBatchRequest;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+</programlisting>

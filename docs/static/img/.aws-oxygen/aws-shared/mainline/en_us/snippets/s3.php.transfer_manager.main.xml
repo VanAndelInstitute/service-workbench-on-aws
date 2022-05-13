@@ -1,0 +1,48 @@
+<programlisting>
+$client = new S3Client([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2006-03-01',
+]);
+
+//Uploading a Local Director to S3
+echo "Uploading Files to S3";
+
+// Where the files will be source from
+$source = '/path/to/source/files';
+
+// Where the files will be transferred to
+$dest = 's3://bucket/foo';
+
+// Create a default transfer object
+$manager = new \Aws\S3\Transfer($client, $source, $dest);
+
+// Perform the transfer synchronously
+$manager->transfer();
+
+//Downloading an S3 Bucket
+echo "Downloading Files form S3";
+
+//Switch the Source and destination to download from S3
+$source = 's3://bucket';
+$dest = '/path/to/destination/dir';
+
+// Create a default transfer object
+$manager = new \Aws\S3\Transfer($client, $source, $dest);
+
+//toggle to transfer asynchronously
+if (async) {
+    // Initiate the transfer and get a promise
+    $promise = $manager->promise();
+
+    // Do something when the transfer is complete using the then() method
+    $promise->then(function () {
+        echo 'Done!';
+    });
+} else {
+    // Perform the transfer synchronously
+    $manager->transfer();
+}
+ 
+ 
+</programlisting>

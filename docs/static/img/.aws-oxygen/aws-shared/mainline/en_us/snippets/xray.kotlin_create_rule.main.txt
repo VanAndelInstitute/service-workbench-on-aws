@@ -1,0 +1,24 @@
+suspend fun createRule(ruleNameVal: String?) {
+
+
+        val rule = SamplingRule {
+            ruleName = ruleNameVal
+                priority = 1
+                httpMethod = "*"
+                serviceType = "*"
+                serviceName = "*"
+                urlPath = "*"
+                version = 1
+                host = "*"
+                resourceArn = "*"
+        }
+
+        val ruleRequest = CreateSamplingRuleRequest {
+            samplingRule = rule
+        }
+
+        XRayClient { region = "us-east-1" }.use { xRayClient ->
+            val ruleResponse: CreateSamplingRuleResponse = xRayClient.createSamplingRule(ruleRequest)
+            println("The ARN of the new rule is ${ruleResponse.samplingRuleRecord?.samplingRule?.ruleArn}")
+        }
+ }

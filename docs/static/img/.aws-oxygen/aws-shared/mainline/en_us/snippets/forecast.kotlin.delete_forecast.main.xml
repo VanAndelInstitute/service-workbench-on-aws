@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun delForecast(forecastArnVal: String) {
+
+          val request = DeleteForecastRequest {
+              forecastArn = forecastArnVal
+          }
+
+          ForecastClient { region = "us-west-2" }.use { forecast ->
+            forecast.deleteForecast(request)
+            println("$forecastArnVal was successfully deleted")
+          }
+}
+</programlisting>

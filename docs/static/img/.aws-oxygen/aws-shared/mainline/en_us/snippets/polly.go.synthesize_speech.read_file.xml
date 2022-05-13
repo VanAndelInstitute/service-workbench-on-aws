@@ -1,0 +1,3 @@
+<programlisting>
+    contents, err := ioutil.ReadFile(*fileName)
+</programlisting>

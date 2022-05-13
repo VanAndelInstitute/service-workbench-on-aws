@@ -1,0 +1,10 @@
+    public function createPolicy(string $policyName, string $policyDocument)
+    {
+        $result = $this->customWaiter(function () use ($policyName, $policyDocument) {
+            return $this->iamClient->createPolicy([
+                'PolicyName' => $policyName,
+                'PolicyDocument' => $policyDocument,
+            ]);
+        });
+        return $result['Policy'];
+    }

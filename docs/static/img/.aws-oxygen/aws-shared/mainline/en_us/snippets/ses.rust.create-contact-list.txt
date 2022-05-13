@@ -1,0 +1,11 @@
+async fn make_list(client: &Client, contact_list: &str) -> Result<(), Error> {
+    client
+        .create_contact_list()
+        .contact_list_name(contact_list)
+        .send()
+        .await?;
+
+    println!("Created contact list.");
+
+    Ok(())
+}

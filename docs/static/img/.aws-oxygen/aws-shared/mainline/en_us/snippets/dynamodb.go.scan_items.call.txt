@@ -1,0 +1,14 @@
+    // Build the query input parameters
+    params := &dynamodb.ScanInput{
+        ExpressionAttributeNames:  expr.Names(),
+        ExpressionAttributeValues: expr.Values(),
+        FilterExpression:          expr.Filter(),
+        ProjectionExpression:      expr.Projection(),
+        TableName:                 aws.String(tableName),
+    }
+
+    // Make the DynamoDB Query API call
+    result, err := svc.Scan(params)
+    if err != nil {
+        log.Fatalf("Query API call failed: %s", err)
+    }

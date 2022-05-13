@@ -1,0 +1,20 @@
+<programlisting>
+    public static void listSegs( PinpointClient pinpoint, String appId) {
+
+        try {
+            GetSegmentsRequest request = GetSegmentsRequest.builder()
+                    .applicationId(appId)
+                    .build();
+
+            GetSegmentsResponse response = pinpoint.getSegments(request);
+            List<SegmentResponse> segments = response.segmentsResponse().item();
+
+            for(SegmentResponse segment: segments) {
+                System.out.println("Segement " + segment.id() + " " + segment.name() + " " + segment.lastModifiedDate());
+            }
+        } catch ( PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

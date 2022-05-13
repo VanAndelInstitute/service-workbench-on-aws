@@ -1,0 +1,22 @@
+<programlisting>
+    public static void getAccountAttributes(RdsClient rdsClient) {
+
+    try {
+        DescribeAccountAttributesRequest accountAttributesRequest = DescribeAccountAttributesRequest.builder()
+            .build();
+
+        DescribeAccountAttributesResponse response = rdsClient.describeAccountAttributes();
+
+        List<AccountQuota> quotasList = response.accountQuotas();
+
+        for (AccountQuota quotas: quotasList) {
+            System.out.println("Name is: "+quotas.accountQuotaName());
+            System.out.println("Max value is " +quotas.max());
+        }
+
+    } catch (RdsException e) {
+        System.out.println(e.getLocalizedMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

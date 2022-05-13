@@ -1,0 +1,4 @@
+<programlisting>
+$s3 = $sdk->createS3();
+$result = $s3->listBuckets();
+</programlisting>

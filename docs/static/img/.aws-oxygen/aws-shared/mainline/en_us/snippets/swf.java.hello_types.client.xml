@@ -1,0 +1,4 @@
+<programlisting>
+    private static final AmazonSimpleWorkflow swf =
+        AmazonSimpleWorkflowClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+</programlisting>

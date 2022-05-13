@@ -1,0 +1,7 @@
+<programlisting>
+import aws.sdk.kotlin.services.comprehend.ComprehendClient
+import aws.sdk.kotlin.services.comprehend.model.DocumentClassifierInputDataConfig
+import aws.sdk.kotlin.services.comprehend.model.CreateDocumentClassifierRequest
+import aws.sdk.kotlin.services.comprehend.model.LanguageCode
+import kotlin.system.exitProcess
+</programlisting>

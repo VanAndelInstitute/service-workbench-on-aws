@@ -1,0 +1,14 @@
+<programlisting>
+// Create a promise on a MediaConvert object
+var endpointPromise = new AWS.MediaConvert({apiVersion: '2017-08-29'}).createJob(params).promise();
+
+// Handle promise's fulfilled/rejected status
+endpointPromise.then(
+  function(data) {
+    console.log("Job created! ", data);
+  },
+  function(err) {
+    console.log("Error", err);
+  }
+);
+</programlisting>

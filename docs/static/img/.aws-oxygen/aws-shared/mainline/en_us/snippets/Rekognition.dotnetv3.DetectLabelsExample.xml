@@ -1,0 +1,38 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string photo = "del_river_02092020_01.jpg"; // "input.jpg";
+            string bucket = "igsmiths3photos"; // "bucket";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var detectlabelsRequest = new DetectLabelsRequest
+            {
+                Image = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = photo,
+                        Bucket = bucket,
+                    },
+                },
+                MaxLabels = 10,
+                MinConfidence = 75F,
+            };
+
+            try
+            {
+                DetectLabelsResponse detectLabelsResponse = await rekognitionClient.DetectLabelsAsync(detectlabelsRequest);
+                Console.WriteLine("Detected labels for " + photo);
+                foreach (Label label in detectLabelsResponse.Labels)
+                {
+                    Console.WriteLine($"Name: {label.Name} Confidence: {label.Confidence}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+</programlisting>

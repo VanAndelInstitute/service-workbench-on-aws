@@ -1,0 +1,31 @@
+<programlisting>
+
+        /// <summary>
+        /// Have the user assume the role that allows the role to be used to
+        /// list all S3 buckets.
+        /// </summary>
+        /// <param name="client">An initialized AWS STS client object.</param>
+        /// <param name="roleSession">The name of the session where the role
+        /// assumption will be active.</param>
+        /// <param name="roleToAssume">The Amazon Resource Name (ARN) of the
+        /// role to assume.</param>
+        /// <returns>The AssumedRoleUser object needed to perform the list
+        /// buckets procedure.</returns>
+        public static async Task<Credentials> AssumeS3RoleAsync(
+            AmazonSecurityTokenServiceClient client,
+            string roleSession,
+            string roleToAssume)
+        {
+            // Create the request to use with the AssumeRoleAsync call.
+            var request = new AssumeRoleRequest()
+            {
+                RoleSessionName = roleSession,
+                RoleArn = roleToAssume,
+            };
+
+            var response = await client.AssumeRoleAsync(request);
+
+            return response.Credentials;
+        }
+
+</programlisting>

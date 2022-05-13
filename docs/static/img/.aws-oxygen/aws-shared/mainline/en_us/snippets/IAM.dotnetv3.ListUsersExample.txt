@@ -1,0 +1,24 @@
+
+using System;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+
+var client = new AmazonIdentityManagementServiceClient();
+var request = new ListUsersRequest
+{
+    MaxItems = 10,
+};
+var response = await client.ListUsersAsync(request);
+
+do
+{
+    response.Users.ForEach(user =>
+    {
+        Console.WriteLine($"{user.UserName} created on {user.CreateDate}.");
+        Console.WriteLine($"ARN: {user.Arn}\n");
+    });
+
+    request.Marker = response.Marker;
+    response = await client.ListUsersAsync(request);
+} while (response.IsTruncated);
+

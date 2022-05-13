@@ -1,0 +1,4 @@
+<programlisting>
+        s3Encryption.putObject(BUCKET_NAME, ENCRYPTED_KEY, "some contents");
+        s3NonEncrypt.putObject(BUCKET_NAME, NON_ENCRYPTED_KEY, "some other contents");
+</programlisting>

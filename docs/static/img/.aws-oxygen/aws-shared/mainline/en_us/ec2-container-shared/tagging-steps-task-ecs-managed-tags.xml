@@ -1,0 +1,40 @@
+<!DOCTYPE step PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<step>
+    <para>In the <guilabel>Task tagging configuration</guilabel> section, complete the
+        following steps:</para>
+    <substeps>
+        <step>
+            <para>Select <guilabel>&enable-managed-tags;</guilabel> if you want
+                &ECS; to automatically tag each task with the &ECS; managed
+                tags. For more information, see <ulink url="&url-ecs-dev;ecs-using-tags.html">Tagging Your &ECS; Resources</ulink>.</para>
+        </step>
+        <step>
+            <para>For <guilabel>Propagate tags from</guilabel>, select one of the
+                following:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><guilabel>Do not propagate</guilabel> &ndash; This option will
+                        not propagate any tags.</para>
+                </listitem>
+                <listitem>
+                    <para><guilabel>Task Definitions</guilabel> &ndash; This option will
+                        propagate the tags specified in the task definition to
+                        the task.</para>
+                    <note>
+                        <para>If you specify a tag with the same <code>key</code> in the <guilabel>Tags</guilabel> section, it will override the tag propagated from the task definition.</para>
+                    </note>
+                </listitem>
+            </itemizedlist>
+        </step>
+    </substeps>
+</step>

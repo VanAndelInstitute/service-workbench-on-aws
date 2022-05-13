@@ -1,0 +1,4 @@
+<programlisting>
+import aws.sdk.kotlin.services.sts.StsClient
+import aws.sdk.kotlin.services.sts.model.GetCallerIdentityRequest
+</programlisting>

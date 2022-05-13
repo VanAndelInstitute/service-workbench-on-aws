@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code examples show how to:</para>
+    <itemizedlist>
+        <listitem><para>Create an &IAMlong; (&IAM;) role that grants Lambda permission to write to logs.</para></listitem>
+        <listitem><para>Create a &LAM; function and upload handler code.</para></listitem>
+        <listitem><para>Invoke the function with a single parameter and get results.</para></listitem>
+        <listitem><para>Update the function code and configure its &LAM; environment with an environment variable.</para></listitem>
+        <listitem><para>Invoke the function with new parameters and get results. Display the execution log that's returned from the invocation.</para></listitem>
+        <listitem><para>List the functions for your account.</para></listitem>
+        <listitem><para>Delete the &IAM; role and the &LAM; function.</para></listitem>
+    </itemizedlist>
+</block>

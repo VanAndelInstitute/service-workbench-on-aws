@@ -1,0 +1,29 @@
+<programlisting>
+    public static String createNewFunction(CloudFrontClient cloudFrontClient, String functionName, String filePath) {
+
+        try {
+
+            InputStream is = new FileInputStream(filePath);
+            SdkBytes functionCode = SdkBytes.fromInputStream(is);
+
+            FunctionConfig config = FunctionConfig.builder()
+                    .comment("Created by using the CloudFront Java API")
+                    .runtime(FunctionRuntime.CLOUDFRONT_JS_1_0)
+                    .build();
+
+            CreateFunctionRequest functionRequest = CreateFunctionRequest.builder()
+                    .name(functionName)
+                    .functionCode(functionCode)
+                    .functionConfig(config)
+                    .build();
+
+            CreateFunctionResponse response = cloudFrontClient.createFunction(functionRequest);
+            return response.functionSummary().functionMetadata().functionARN();
+
+        } catch (CloudFrontException | FileNotFoundException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

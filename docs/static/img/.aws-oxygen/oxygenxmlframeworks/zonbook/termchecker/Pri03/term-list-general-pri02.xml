@@ -1,0 +1,2028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+
+<!--  =========== START - AWS service names and resources - Pri03 - Fix when we can have exceptions ===========
+     Terminology checking rules for AWS service names and resources
+     Listed in alphabetical order by service name without the "Amazon" or "AWS" prefix).
+     Include rules for checking service resources in the same section at the service.      
+     -->
+
+<incorrect-terms>
+ <incorrect-term severity="warning">
+  <match type="character">&amp;</match>
+  <suggestion>and</suggestion>
+  <message>Use "and" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">APIs</match>
+  <suggestion>API operations</suggestion>
+  <message/>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">application programming interface</match>
+  <suggestion>API</suggestion>
+  <message>Don't spell out. Use "API" to refer to the entire set of operations, types, inputs, and outputs for a service. Do not use to refer to specific operations within a specific API (for example, "the CreateLambdaFunction API" is incorrect; "the CreateLambdaFunction API operation" is correct.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">3-D</match>
+  <suggestion>3D</suggestion>
+  <message>Do not use 3-D or three-dimensional.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">three-dimensional</match>
+  <suggestion>3D</suggestion>
+  <message>Do not use 3-D or three-dimensional.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">4-D</match>
+  <suggestion>4D</suggestion>
+  <message>Do not use 4-D or four-dimensional.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> AM </match>
+  <suggestion> A.M. </suggestion>
+  <message>Avoid where possible. Instead, use a 24-hour time format. Note that 24:00 is 12 A.M (midnight) and 12:00 is 12 P.M. (noon).</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Access Control List</match>
+  <suggestion>access control list (ACL)</suggestion>
+  <suggestion>ACL</suggestion>
+  <message>First use: access control list (ACL). Subsequent use: ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">acl</match>
+  <suggestion>access control list (ACL)</suggestion>
+  <suggestion>ACL</suggestion>
+  <message>First use: access control list (ACL). Subsequent use: ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Access Key</match>
+  <suggestion>access key</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">access key id</match>
+  <suggestion>access key ID</suggestion>
+  <message>All caps "ID."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Access Key Rotation</match>
+  <suggestion>access key rotation</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Active Trusted Signers</match>
+  <suggestion>active trusted signers</suggestion>
+  <message>Lowercase. CloudFront term. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">advanced encryption standard</match>
+  <suggestion>Advanced Encryption Standard (AES)</suggestion>
+  <suggestion>AES</suggestion>
+  <message>First use: Advanced Encryption Standard (AES). Subsequent use: AES.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">all-reduce</match>
+  <suggestion>allreduce</suggestion>
+  <message>allreduce</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> any cast </match>
+  <suggestion> anycast </suggestion>
+  <message>One word.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">AWS Account</match>
+  <suggestion>AWS account</suggestion>
+  <suggestion>account</suggestion>
+  <message>First use: AWS account. Subsequent use: account.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">AWS hybrid cloud</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Do not use "AWS hybrid cloud" or the "AWS public cloud." Use of the terms "hybrid," "hybrid architecture," "hybrid cloud," "public cloud," "private cloud," or "on-premises environment" may be approved, but those terms should NOT be used to describe AWS. For example, it is not approved to say "AWS hybrid cloud" or the "AWS public cloud" but you may describe how your solution enables a hybrid cloud architecture connecting AWS to an on-premises environment.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">AWS public cloud</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Do not use "AWS hybrid cloud" or the "AWS public cloud." Use of the terms "hybrid," "hybrid architecture," "hybrid cloud," "public cloud," "private cloud," or "on-premises environment" may be approved, but those terms should NOT be used to describe AWS. For example, it is not approved to say "AWS hybrid cloud" or the "AWS public cloud" but you may describe how your solution enables a hybrid cloud architecture connecting AWS to an on-premises environment.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">back end</match>
+  <suggestion>backend</suggestion>
+  <suggestion>backend system</suggestion>
+  <message>Use backend as an adjective and noun. Don't use "back end" or "back-end." </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">back-end</match>
+  <suggestion>backend</suggestion>
+  <suggestion>backend system</suggestion>
+  <message>Use backend as an adjective and noun. Don't use "back end" or "back-end." </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">backwards compatible</match>
+  <suggestion>backward compatible</suggestion>
+  <message>Not "backwards."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">backward-compatible</match>
+  <suggestion>backward compatible</suggestion>
+  <message>Not "backwards."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">backwards-compatible</match>
+  <suggestion>backward compatible</suggestion>
+  <message>Not "backwards."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Base64</match>
+  <suggestion>base64</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Basic Monitoring</match>
+  <suggestion>basic monitoring</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Bastion host</match>
+  <suggestion>bastion host</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Bastion Host</match>
+  <suggestion>bastion host</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">bastion server</match>
+  <suggestion>bastion host</suggestion>
+  <message>Do not use. Use "bastion host."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">best-in-class</match>
+  <suggestion>outstanding</suggestion>
+  <suggestion>first-rate</suggestion>
+  <suggestion>excellent</suggestion>
+  <suggestion>superb</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character"> beta </match>
+  <suggestion> Private Beta </suggestion>
+  <suggestion> Preview </suggestion>
+  <message>Use "Private Beta" for private pre-GA releases (these are gated and under NDA, there is no public announcement). Use "Preview" for public pre-GA releases (publicly available by default). Use "(Private Beta)"  or "(Preview)" on first use only, and on PDF title pages and top-level website pages only. Capitalize only as part of a service name: "Amazon RDS (Preview). This preview release...". For more information, see https://w.amazon.com/bin/view/Utility_Computing_Working_Backwards_Approval_Process/#HProperLaunchTerminology.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">border gateway protocol</match>
+  <suggestion>Border Gateway Protocol (BGP)</suggestion>
+  <suggestion>BGP</suggestion>
+  <message>First use: Border Gateway Protocol (BGP). Subsequent use: BGP.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Big Data</match>
+  <suggestion>big data</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Binlog</match>
+  <suggestion>binary log (binlog)</suggestion>
+  <suggestion>binlog</suggestion>
+  <message>First use: binary log (binlog). Subsequent use: binlog.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Binutils</match>
+  <suggestion>GNU Binary Utilities (binutils)</suggestion>
+  <suggestion>binutils</suggestion>
+  <message>First use: GNU Binary Utilities (binutils). Subsequent use: binutils.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">bit rate</match>
+  <suggestion>bitrate</suggestion>
+  <message>One word (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">bit-rate</match>
+  <suggestion>bitrate</suggestion>
+  <message>One word (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">bit map</match>
+  <suggestion>bitmap</suggestion>
+  <suggestion>BMP</suggestion>
+  <message>Refers to the BMP file format. It is widely known and understood, so just use BMP.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">bits-per-second</match>
+  <suggestion>bits per second (bps)</suggestion>
+  <suggestion>bps</suggestion>
+  <message>First use: bits per second (bps). Subsequent use: bps.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Block Device Mapping</match>
+  <suggestion>block device mapping</suggestion>
+  <message/>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">blockchain templates</match>
+  <suggestion>AWS Blockchain Templates</suggestion>
+  <message>Always use "AWS Blockchain Templates."</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">blue-green deployment</match>
+  <suggestion>blue/green deployment</suggestion>
+  <message>blue/green deployment</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">blue green deployment</match>
+  <suggestion>blue/green deployment</suggestion>
+  <message>blue/green deployment</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">bluetooth LE</match>
+  <suggestion>Bluetooth Low Energy (LE)</suggestion>
+  <suggestion>Bluetooth LE</suggestion>
+  <message>First use: Bluetooth Low Energy (LE). Subsequent use: Bluetooth LE.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">boldface</match>
+  <suggestion>bold</suggestion>
+  <message>Don't use. Use "bold" as an adjective, such as "The characters in bold type indicate..."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">boolean</match>
+  <suggestion>Boolean</suggestion>
+  <message>Uppercase. Boolean values are true and false. Avoid using a Boolean value name at the beginning of a sentence or sentence fragment. For specific programming languages, follow the usage in the language.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">border gateway protocol</match>
+  <suggestion>Border Gateway Protocol (BGP)</suggestion>
+  <suggestion>BGP</suggestion>
+  <message>First use: Border Gateway Protocol (BGP). Second use: BGP.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">autonomous system number</match>
+  <suggestion>BGP Autonomous System Number</suggestion>
+  <message>Title case. Include BGP.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Boto 3</match>
+  <suggestion>Boto3</suggestion>
+  <message>Title case and no space. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">BPS</match>
+  <suggestion>bits per second (bps)</suggestion>
+  <suggestion>bps</suggestion>
+  <message>First use: bits per second (bps). Subsequent use: bps.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">browser based  ssh terminal</match>
+  <suggestion>browser-based  SSH terminal</suggestion>
+  <message>Hyphen and uppercase "SSH"  (for example, "After you create your instance, you can easily connect to it using our browser-based SSH terminal.").
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Bucket Owner</match>
+  <suggestion>S3 bucket owner</suggestion>
+  <message>Include "S3" and lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Cluster</match>
+  <suggestion>cache cluster</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Cluster Identifier</match>
+  <suggestion>cache cluster identifier</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Engine Version</match>
+  <suggestion>cache engine version</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Node</match>
+  <suggestion>cache node</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Node Type</match>
+  <suggestion>cache node type</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Parameter Group</match>
+  <suggestion>cache parameter group</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cache Security Group</match>
+  <suggestion>cache security group</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Cached Volume</match>
+  <suggestion>cached volume</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">call out</match>
+  <suggestion>callout</suggestion>
+  <message>One word. A graphical device to point out, or "call out," something in a graphic or sample for the reader.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">call-out</match>
+  <suggestion>callout</suggestion>
+  <message>One word (no hyphen). A graphical device to point out, or "call out," something in a graphic or sample for the reader.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Capex</match>
+  <suggestion>capital expenditure (capex)</suggestion>
+  <suggestion>capex</suggestion>
+  <message>First use: capital expenditure (capex). Subsequent use: capex.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">captcha</match>
+  <suggestion>CAPTCHA</suggestion>
+  <message>Don't spell out. All instances: CAPTCHA. Stands for "Completely Automated Public Turing test to tell Computers and Humans Apart."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">cartesian</match>
+  <suggestion>Cartesian</suggestion>
+  <message>Uppercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">centOS</match>
+  <suggestion>CentOS</suggestion>
+  <message>All instances: CentOS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">cpu</match>
+  <suggestion>central processing unit (CPU)</suggestion>
+  <suggestion>CPU</suggestion>
+  <message>First use: central processing unit (CPU). Subsequent use: CPU.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> certs </match>
+  <suggestion> certificates </suggestion>
+  <message>First use: certificates. Subsequent use: certs.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">CGW</match>
+  <suggestion>customer gateway</suggestion>
+  <message>Don't use CGW. All instances: customer gateway.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">chain code</match>
+  <suggestion>chaincode</suggestion>
+  <message>One word in all instances: chaincode.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">cipher text</match>
+  <suggestion>ciphertext</suggestion>
+  <message>One word in all instances: ciphertext.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">classic load balancer</match>
+  <suggestion>Classic Load Balancer</suggestion>
+  <message>In most content, use the full name "Classic Load Balancer" (title case). On consoles, when space is limited (such as dropdown lists), it's acceptable to use the acronym "CLB" if the context is clear.  </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">classiclink</match>
+  <suggestion>ClassicLink</suggestion>
+  <message>All instances: ClassicLink. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">clearlogin</match>
+  <suggestion>Clearlogin</suggestion>
+  <message>All instances: Clearlogin.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">clear login</match>
+  <suggestion>Clearlogin</suggestion>
+  <message>All instances: Clearlogin.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">client side encryption</match>
+  <suggestion>client-side encryption</suggestion>
+  <message>Include hyphen. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">clientside encryption</match>
+  <suggestion>client-side encryption</suggestion>
+  <message>Two words with hyphen. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">co-locate</match>
+  <suggestion>collocate</suggestion>
+  <suggestion>collocated</suggestion>
+  <message>No hyphen.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> colo </match>
+  <suggestion> collocate </suggestion>
+  <suggestion> collocated </suggestion>
+  <message>Do not use "colo" except in reference to the cloud computing company of that name.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">colocate</match>
+  <suggestion>collocate</suggestion>
+  <suggestion>collocated</suggestion>
+  <message>Two "l"s.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">command-line</match>
+  <suggestion>command line</suggestion>
+  <message>Don't hyphenate, even when used as a modifier.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">command line tools</match>
+  <suggestion>command line interface</suggestion>
+  <suggestion>command line tools</suggestion>
+  <message>Use to describe any utilities or tools that come packaged with a service. Do not use as a synonym for the AWS Command Line Interface (AWS CLI).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">compute optimized</match>
+  <suggestion>compute-optimized</suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> conda </match>
+  <suggestion> Conda </suggestion>
+  <message>Conda is a common part of the Anaconda Python open source distribution. Anaconda is commonly used with big data and machine learning projects.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Configuration API</match>
+  <suggestion>configuration API</suggestion>
+  <message>Lowercase "configuration."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Configuration Template</match>
+  <suggestion>configuration template</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Container Definition</match>
+  <suggestion>container definition</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Container Instance</match>
+  <suggestion>container instance</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">convertible reserved instance</match>
+  <suggestion>Convertible Reserved Instance</suggestion>
+  <message>Use title case.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">cool-down period</match>
+  <suggestion>cooldown period</suggestion>
+  <message>One word (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> cross platform </match>
+  <suggestion> cross-platform </suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> cross region </match>
+  <suggestion> cross-Region </suggestion>
+  <suggestion> Cross-Region Replication </suggestion>
+  <message>Include hyphen and capitalize "Region." For the DynamoDB feature "Cross-Region Replication," use title case and include hyphen.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> cross-region replication </match>
+  <suggestion> Cross-Region Replication </suggestion>
+  <message>For the DynamoDB feature "Cross-Region Replication," use title case and include hyphen.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">customer-managed</match>
+  <suggestion>customer managed</suggestion>
+  <message>Do not hyphenate ( to be parallel with AWS managed keys, policies etc (which must not be hyphenated).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Customer Master Key</match>
+  <suggestion>customer master key (CMK)</suggestion>
+  <suggestion>CMK</suggestion>
+  <message>First use: customer master key (CMK). Subsequent use: CMK.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">data-at-rest</match>
+  <suggestion>data at rest</suggestion>
+  <message>Lowercase and don't hyphenate. Data stored in Amazon S3 or on Amazon EBS, Amazon RDS, or other AWS database services.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data at Rest</match>
+  <suggestion>data at rest</suggestion>
+  <message>Lowercase. Data stored in Amazon S3 or on Amazon EBS, Amazon RDS, or other AWS database services.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Center</match>
+  <suggestion>data center</suggestion>
+  <suggestion>SQL Server 2008 R2 Datacenter</suggestion>
+  <message>Lowercase and two words. Exception: SQL Server 2008 R2 Datacenter version.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">datacenter</match>
+  <suggestion>data center</suggestion>
+  <suggestion>SQL Server 2008 R2 Datacenter</suggestion>
+  <message>Lowercase and two words. Exception: SQL Server 2008 R2 Datacenter version.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Encryption Key</match>
+  <suggestion>data encryption key</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">data in flight</match>
+  <suggestion>data in transit</suggestion>
+  <message>Don't use. Use "data in transit."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data in Transit</match>
+  <suggestion>data in transit</suggestion>
+  <message>Lowercase and no hyphens. Use instead of "data in flight" for data network traffic between clients and servers and among servers.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">data-in-transit</match>
+  <suggestion>data in transit</suggestion>
+  <message>Lowercase and no hyphens. Use instead of "data in flight" for data network traffic between clients and servers and among servers.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Key</match>
+  <suggestion>data key</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Lake</match>
+  <suggestion>data lake</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Node</match>
+  <suggestion>data node</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Schema</match>
+  <suggestion>data schema</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Data Security Standards</match>
+  <suggestion>data security standards (DSS)</suggestion>
+  <suggestion>DSS</suggestion>
+  <message>First use: data security standards (DSS). Subsequent use: DSS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">datatype</match>
+  <suggestion>data type</suggestion>
+  <message>Use two words.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">datanode</match>
+  <suggestion>data node</suggestion>
+  <suggestion>DataNode</suggestion>
+  <message>Use two words and lowercase. Exception: DataNode (Hadoop term).</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Daylight Saving Time</match>
+  <suggestion>Remove and use 24-hour time notation</suggestion>
+  <message>Do not specify daylight saving time, which refers to clock settings within a time zone at  specific times of the year.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Daylight Savings Time</match>
+  <suggestion>Remove and use 24-hour time notation</suggestion>
+  <message>Do not specify daylight saving time, which refers to clock settings within a time zone at  specific times of the year.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> db </match>
+  <suggestion> DB </suggestion>
+  <message>Used in RDS as an adjective, to distinguish RDS resource types. For example:</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DB Compute Class</match>
+  <suggestion>DB compute class</suggestion>
+  <message>Lowercase "compute class."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DB Instance</match>
+  <suggestion>DB instance</suggestion>
+  <message>Lowercase "instance."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DB Parameter Group</match>
+  <suggestion>DB parameter group</suggestion>
+  <message>Lowercase "parameter group."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DB Security Group</match>
+  <suggestion>DB security group</suggestion>
+  <message>Lowercase "security group."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DB Snapshot</match>
+  <suggestion>DB snapshot</suggestion>
+  <message>Lowercase "snapshot."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">DDOS</match>
+  <suggestion>distributed denial of service (DDoS)</suggestion>
+  <suggestion>DDoS</suggestion>
+  <message>First use: distributed denial of service (DDoS). Subsequent use: DDoS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">dedicated host</match>
+  <suggestion>Dedicated Host</suggestion>
+  <message>For EC2, use "Dedicated Host" (capitalized by request of the product team).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">dedicated instance</match>
+  <suggestion>Dedicated Instance</suggestion>
+  <message>For EC2, use "Dedicated Instance" (capitalized by request of the product team).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">dedicated reserved instance</match>
+  <suggestion>Dedicated Reserved Instance</suggestion>
+  <message>For EC2, use "Dedicated Reserved Instance" (capitalized by request of the product team).</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">defense in-depth</match>
+  <suggestion>defense in depth</suggestion>
+  <message>Lowercase and don't hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Delete Marker</match>
+  <suggestion>delete marker</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Delivery Stream</match>
+  <suggestion>delivery stream</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">denylist</match>
+  <suggestion>deny list</suggestion>
+  <message>Lowercase and two words.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Deny List</match>
+  <suggestion>deny list</suggestion>
+  <message>Lowercase and two words.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Deployment Configuration</match>
+  <suggestion>deployment configuration</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Deployment Group</match>
+  <suggestion>deployment group</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">deprecated</match>
+  <suggestion>no longer supported</suggestion>
+  <message>Avoid. Instead, specify exactly what the change means: Are you halting technical support? Removing a download link? No longer updating a service, script, or other product? Details will help make your meaning clear. Consider using a two-stage process: a) An announcement explaining that support or availability of a product or feature is ending (include the month and year when access or support will no longer be available), and b) a followup notice or revision of the original announcement to indicate the change has occurred, including the date.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Device Shadow</match>
+  <suggestion>device shadow</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">devops</match>
+  <suggestion>DevOps</suggestion>
+  <message>All instances: DevOps. Development Operations (as in two departments combined).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Devops</match>
+  <suggestion>DevOps</suggestion>
+  <message>All instances: DevOps. Development and Operations (as in two departments combined).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">devsecops</match>
+  <suggestion>DevSecOps</suggestion>
+  <message>All instances: DevSecOps. Development , Security, and Operations (as in three departments combined).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Digital Rights Management</match>
+  <suggestion>digital rights management (DRM)</suggestion>
+  <suggestion>DRM</suggestion>
+  <message>First use: digital rights management (DRM). Subsequent use: DRM.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">dissociate</match>
+  <suggestion>disassociate</suggestion>
+  <message>Incorrect. Use "disassociate" in reference to disassociating an ACM certificate. Do not use dissociate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Disaster Recovery</match>
+  <suggestion>disaster recovery (DR)</suggestion>
+  <suggestion>DR</suggestion>
+  <message>First use: disaster recovery (DR). Subsequent use: DR.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> DR </match>
+  <suggestion> disaster recovery (DR) </suggestion>
+  <suggestion> DR </suggestion>
+  <message>First use: disaster recovery (DR). Subsequent use: DR.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">domain keys identified mail</match>
+  <suggestion>DomainKeys Identified Mail (DKIM)</suggestion>
+  <suggestion>DKIM</suggestion>
+  <message>First use: DomainKeys Identified Mail (DKIM). Subsequent use: DKIM.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Domain Controller</match>
+  <suggestion>domain controller</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">domain join</match>
+  <suggestion>join the instance to the domain</suggestion>
+  <suggestion>Hover to see usage notes.</suggestion>
+  <message>Do not use. Rewrite to include the object, "Join the instance to the domain....</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">double click</match>
+  <suggestion>double-click</suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">doubleclick</match>
+  <suggestion>double-click</suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">drop-down list</match>
+  <suggestion>dropdown list</suggestion>
+  <message>Do not hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> ebook </match>
+  <suggestion> e-book </suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">ecommerce</match>
+  <suggestion>e-commerce</suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">ecs-cli</match>
+  <suggestion>Tag as code</suggestion>
+  <message>Tag as code.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Edge location</match>
+  <suggestion>edge location</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">EIP</match>
+  <suggestion>Elastic IP address</suggestion>
+  <message>Do not use. Use Elastic IP address instead.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">ElasticIP</match>
+  <suggestion>Elastic IP address</suggestion>
+  <message>Do not use. Use Elastic IP address instead.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Elastic IP</match>
+  <suggestion>Elastic IP address</suggestion>
+  <message>Do not use "Elastic IP." Use Elastic IP address instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">elastic network adapter</match>
+  <suggestion>Elastic Network Adapter (ENA)</suggestion>
+  <suggestion>ENA</suggestion>
+  <message>First use: Elastic Network Adapter (ENA). Subsequent use: ENA.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Elastic Network Interface</match>
+  <suggestion>elastic network interface</suggestion>
+  <suggestion>network interface</suggestion>
+  <message>First use: elastic network interface. Subsequent use: network interface.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">ENI</match>
+  <suggestion>elastic network interface</suggestion>
+  <suggestion>network interface</suggestion>
+  <message>Do not use. First use: elastic network interface. Subsequent use: network interface.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">e-mail</match>
+  <suggestion>email</suggestion>
+  <message>Do not hyphenate. Use "email" as a singular noun or adjective to refer to the collective concept, and use "message" or "mail" for individual items. Use "send email" as the verb form. Do not use "emails" (collective noun); use "email messages" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">emails</match>
+  <suggestion>email messages</suggestion>
+  <message>Do not hyphenate. Use "email" as a singular noun or adjective to refer to the collective concept, and use "message" or "mail" for individual items. Use "send email" as the verb form. Do not use "emails" (collective noun); use "email messages" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">end user</match>
+  <suggestion>user</suggestion>
+  <message>Avoid. Use the simpler term "user" in most cases except when necessary to distinguish different levels of users (such as an organization's customers, or administrators vs. end users). </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">end-user</match>
+  <suggestion>user</suggestion>
+  <message>Avoid. Use the simpler term "user" in most cases except when necessary to distinguish different levels of users (such as an organization's customers, or administrators vs. end users). </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">end-point</match>
+  <suggestion>endpoint</suggestion>
+  <message>Do not hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">ensure</match>
+  <suggestion>achieve</suggestion>
+  <suggestion>help achieve</suggestion>
+  <suggestion>enable</suggestion>
+  <suggestion>facilitate</suggestion>
+  <suggestion>verify</suggestion>
+  <suggestion>provide</suggestion>
+  <suggestion>offer</suggestion>
+  <suggestion>warrant</suggestion>
+  <suggestion>certify</suggestion>
+  <suggestion>discontinue</suggestion>
+  <suggestion>validate</suggestion>
+  <suggestion>promote</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services. Suggested alternatives include: enable, facilitate, verify, provide, offer, warrant, certify, discontinue, validate, promote, or achieve. "Achieve" is a good option, especially when coupled with "help." "Make sure" can be used sparingly in general text, but not in reference to an AWS product or service, and only in situations where there aren't any stronger alternatives.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">examplebucket</match>
+  <suggestion>AWSDOC-EXAMPLE-BUCKET</suggestion>
+  <message>Use the AWSDOC-EXAMPLE-BUCKET1, AWSDOC-EXAMPLE-BUCKET2, etc. entities. Don't use examplebucket, which is an existing bucket that is owned by an AWS customer.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">filename</match>
+  <suggestion>file name</suggestion>
+  <message>file name</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Fine-Grained Access Control</match>
+  <suggestion>fine-grained access control</suggestion>
+  <message>Don't use in place of resource-level permissions. Use when referring to using condition keys to finely control access to specific resources. For example, using condition keys in DynamoDB to provide access to individual data items in a specific table.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Fine Grained Access Control</match>
+  <suggestion>fine-grained access control</suggestion>
+  <message>Don't use in place of resource-level permissions. Use when referring to using condition keys to finely control access to specific resources. For example, using condition keys in DynamoDB to provide access to individual data items in a specific table.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">framerate</match>
+  <suggestion>frame rate</suggestion>
+  <message>frame rate</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Fully Qualified Domain Name</match>
+  <suggestion>fully qualified domain name (FQDN)</suggestion>
+  <suggestion>FQDN</suggestion>
+  <message>Use FQDN in most cases. On first use, use the long form: fully qualified domain name (FQDN). Use "Extensible Markup Language" alone only as needed to prevent confusion.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character"> GiB </match>
+  <suggestion> gibibyte (GiB) </suggestion>
+  <suggestion> GiB </suggestion>
+  <message>First use: gibibyte (GiB). Subsequent use: GiB.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> gibibyte </match>
+  <suggestion> gibibyte(GiB) </suggestion>
+  <suggestion> GiB </suggestion>
+  <message>First use: gibibyte (GiB). Subsequent use: GiB.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Github</match>
+  <suggestion>GitHub</suggestion>
+  <message>All instances: GitHub.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">github</match>
+  <suggestion>GitHub</suggestion>
+  <message>All instances: GitHub.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Gitlab</match>
+  <suggestion>GitLab</suggestion>
+  <message>All instances: GitLab.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">gitlab</match>
+  <suggestion>GitLab</suggestion>
+  <message>All instances: GitLab.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Global Secondary Index</match>
+  <suggestion>global secondary index</suggestion>
+  <message>Lowercase. Do not abbreviate as "GSI." </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">GSI</match>
+  <suggestion>global secondary index</suggestion>
+  <message>Do not use. Spell out (lowercase).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">GMT</match>
+  <suggestion>UTC</suggestion>
+  <message>Greenwich Mean Time (archaic). Use UTC instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hard-bounce</match>
+  <suggestion>hard bounce</suggestion>
+  <message>Do not hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hard-disk drive</match>
+  <suggestion>hard disk drive (HDD)</suggestion>
+  <suggestion>HDD</suggestion>
+  <message>Do not hyphenate. First use: hard disk drive (HDD). Subsequent use: HDD.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hard Disk Drive</match>
+  <suggestion>hard disk drive (HDD)</suggestion>
+  <suggestion>HDD</suggestion>
+  <message>First use: hard disk drive (HDD). Subsequent use: HDD.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hard code</match>
+  <suggestion>hardcode</suggestion>
+  <message>One word.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hard-code</match>
+  <suggestion>hardcode</suggestion>
+  <message>One word and do not hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hardware Virtual Machine (HVM)</match>
+  <suggestion>hardware virtual machine (HVM)</suggestion>
+  <suggestion>HVM</suggestion>
+  <message>First use: hardware virtual machine (HVM). Subsequent use: HVM.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hash-based message authentication code</match>
+  <suggestion>Hash-based Message Authentication Code (HMAC)</suggestion>
+  <suggestion>HMAC</suggestion>
+  <message>First use: Hash-based Message Authentication Code (HMAC). Subsequent use: HMAC.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">health care</match>
+  <suggestion>healthcare</suggestion>
+  <message>One word.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hello world</match>
+  <suggestion>Hello World</suggestion>
+  <message>Do not use. Use "Hello World" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hello, World!</match>
+  <suggestion>Hello World</suggestion>
+  <message>Do not use. Use "Hello World" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hello World!</match>
+  <suggestion>Hello World</suggestion>
+  <message>Do not use. Use "Hello World" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hello, World</match>
+  <suggestion>Hello World</suggestion>
+  <message>Do not use. Use "Hello World" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Helper Script</match>
+  <suggestion>helper script</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">high availability</match>
+  <suggestion>high availability (HA)</suggestion>
+  <suggestion>HA</suggestion>
+  <message>First use: high availability (HA). Subsequent use: HA.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">high performance computing</match>
+  <suggestion>high performance computing (HPC)</suggestion>
+  <suggestion>HPC</suggestion>
+  <message>First use: high performance computing (HPC). Subsequent use: HPC.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> hit </match>
+  <suggestion> enter </suggestion>
+  <suggestion> press </suggestion>
+  <message>Do not use. Use "enter" or "press" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> hits </match>
+  <suggestion> search results </suggestion>
+  <suggestion> customer page views </suggestion>
+  <message>Do not use. Use "search results" or "customer page views" or something more specific.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">host name</match>
+  <suggestion>hostname</suggestion>
+  <message>One word in all instances: hostname.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Hosted Zone</match>
+  <suggestion>hosted zone</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hover</match>
+  <suggestion>pause on</suggestion>
+  <message>Don't use in reference to holding a pointer or finger over a screen object. Use "pause on."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">human intelligence task</match>
+  <suggestion>Human Intelligence Task (HIT)</suggestion>
+  <message>First use: Human Intelligence Task (HIT). Subsequent use: HIT.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">hyperledger fabric</match>
+  <suggestion>Hyperledger Fabric</suggestion>
+  <message>All instances: Hyperledger Fabric.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> IO </match>
+  <suggestion> I/O </suggestion>
+  <message>I/O</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">iaas</match>
+  <suggestion>infrastructure as a service (IaaS)</suggestion>
+  <suggestion>IaaS</suggestion>
+  <message>First use: infrastructure as a service (IaaS). Subsequent use: IaaS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Infrastructure as a Service</match>
+  <suggestion>infrastructure as a service (IaaS)</suggestion>
+  <suggestion>IaaS</suggestion>
+  <message>First use: infrastructure as a service (IaaS). Subsequent use: IaaS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Infrastructure as Code</match>
+  <suggestion>infrastructure as code (IaC)</suggestion>
+  <suggestion>IaC</suggestion>
+  <message>First use: infrastructure as code (IaC). Subsequent use: IaC.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">on AWS Marketplace</match>
+  <suggestion>in AWS Marketplace</suggestion>
+  <message>When referring to AWS Marketplace sellers, features, products, or benefits, you must use the phrasing "in" AWS Marketplace, not "on" AWS Marketplace.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Independent Software Vendor</match>
+  <suggestion>independent software vendor (ISV)</suggestion>
+  <suggestion>ISV</suggestion>
+  <message>First use: independent software vendor (ISV). Subsequent use: ISV.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">industry standards</match>
+  <suggestion>open standards</suggestion>
+  <message>Do not use. Use "open standards" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">information security management system</match>
+  <suggestion>Information Security Management System (ISMS)</suggestion>
+  <suggestion>ISMS</suggestion>
+  <message>First use: Information Security Management System (ISMS). Subsequent use: ISMS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Input/Output</match>
+  <suggestion>input/output</suggestion>
+  <suggestion>I/O</suggestion>
+  <message>Use I/O in most cases. Use "input/output" only as needed to prevent confusion.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Input/Output Operations per Second</match>
+  <suggestion>input/output operations per second (IOPS)</suggestion>
+  <suggestion>IOPS</suggestion>
+  <message>First use: input/output operations per second (IOPS). Subsequent use: IOPS.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">install in</match>
+  <suggestion>See usage notes</suggestion>
+  <message>Use "install in" for a folder, directory, or path. Use "install on" for a disk or drive or instance.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">install on</match>
+  <suggestion>See usage notes</suggestion>
+  <message>Use "install in" for a folder, directory, or path. Use "install on" for a disk or drive or instance.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Instance Family</match>
+  <suggestion>instance family</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Instance Group</match>
+  <suggestion>instance group</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">instance meta data service</match>
+  <suggestion>instance metadata service</suggestion>
+  <message>instance metadata service</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Instance Metadata Service</match>
+  <suggestion>instance metadata service</suggestion>
+  <message>instance metadata service</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">IPSec</match>
+  <suggestion>Internet Protocol Security (IPsec)</suggestion>
+  <suggestion>IPsec</suggestion>
+  <message>Internet Protocol Security (IPsec), IPsec</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">IPtables</match>
+  <suggestion>iptables</suggestion>
+  <message>iptables</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Independent Software Vendor (ISV)</match>
+  <suggestion>independent software vendor (ISV)</suggestion>
+  <suggestion>software sellers</suggestion>
+  <message>Do not use in documentation. Do not use the term 3rd-party when referring to sellers in AWS Marketplace. Instead, use "independent software vendor (ISV) (preferred)" or "software sellers."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">JavaScript object notation</match>
+  <suggestion>JavaScript Object Notation (JSON)</suggestion>
+  <suggestion>JSON</suggestion>
+  <message>FIrst use: JavaScript Object Notation (JSON). Subsequent use: JSON. In general, use as an adjective (for example, "JSON file"). Okay to use as a noun on subsequent use (for example, "edit the JSON..."). Follow the same usage as XML or HTML.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">jump host</match>
+  <suggestion>jump server</suggestion>
+  <message>jump server</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Jump Server</match>
+  <suggestion>jump server</suggestion>
+  <message>Use instead of jump host.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Junk folder</match>
+  <suggestion>junk folder</suggestion>
+  <message>junk folder</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Key Management Infrastructure</match>
+  <suggestion>key management infrastructure (KMI)</suggestion>
+  <suggestion>KMI</suggestion>
+  <message>key management infrastructure (KMI), KMI</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">key/value pair</match>
+  <suggestion>key-value pair</suggestion>
+  <message>Do not use. Use "key-value pair."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">key value pair</match>
+  <suggestion>key-value pair</suggestion>
+  <message>Do not use. Use "key-value pair."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> key space </match>
+  <suggestion> keyspace </suggestion>
+  <message>keyspace</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Kibibyte</match>
+  <suggestion>kibibyte (KiB)</suggestion>
+  <suggestion>KiB</suggestion>
+  <message>kibibyte (KiB), KiB</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Kubectl</match>
+  <suggestion>kubectl</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Kubelet</match>
+  <suggestion>kubelet</suggestion>
+  <message>kubelet</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">kubernetes</match>
+  <suggestion>Kubernetes</suggestion>
+  <message>Kubernetes</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">latency based routing</match>
+  <suggestion>latency-based routing (LBR)</suggestion>
+  <suggestion>LBR</suggestion>
+  <message>latency-based routing (LBR), LBR</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Launch Configuration</match>
+  <suggestion>launch configuration</suggestion>
+  <message>launch configuration</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Least Privilege</match>
+  <suggestion>least privilege</suggestion>
+  <message>least privilege</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Mebibyte</match>
+  <suggestion>mebibyte (MiB)</suggestion>
+  <suggestion>MiB</suggestion>
+  <message>mebibyte (MiB), MiB</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">memory optimized</match>
+  <suggestion>memory-optimized</suggestion>
+  <message>memory-optimized</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">message authentication code</match>
+  <suggestion>message authentication code (MAC)</suggestion>
+  <suggestion>MAC</suggestion>
+  <message>First use: message authentication code (MAC). Subsequent use: MAC.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">message id</match>
+  <suggestion>message ID</suggestion>
+  <message>message ID</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">meta data</match>
+  <suggestion>metadata</suggestion>
+  <message>metadata</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">microinstance</match>
+  <suggestion>micro instance</suggestion>
+  <message>micro instance</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multi-AZ</match>
+  <suggestion>Multi-AZ</suggestion>
+  <message>Multi-AZ</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multi-AZ deployment</match>
+  <suggestion>Multi-AZ deployment</suggestion>
+  <message>Multi-AZ deployment</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Multi-Factor Authentication</match>
+  <suggestion>multi-factor authentication (MFA)</suggestion>
+  <suggestion>MFA</suggestion>
+  <message>In most caes, use mult-factor authentication (MFA) on first use and MFA thereafter. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multi-Tier</match>
+  <suggestion>multi-tier</suggestion>
+  <message>multi-tier</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multi-user</match>
+  <suggestion>multiuser</suggestion>
+  <message>multiuser</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multivalued attribute</match>
+  <suggestion>multi-valued attribute</suggestion>
+  <message>multi-valued attribute</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">multi-class classification model</match>
+  <suggestion>multiclass classification model</suggestion>
+  <message>multiclass classification model</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multi-page</match>
+  <suggestion>multipage</suggestion>
+  <message>multipage</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">multi-part upload</match>
+  <suggestion>multipart upload</suggestion>
+  <message>multipart upload</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">multipurpose internet mail extensions</match>
+  <suggestion>Multipurpose Internet Mail Extensions (MIME)</suggestion>
+  <suggestion>MIME</suggestion>
+  <message>First use: Multipurpose Internet Mail Extensions (MIME). Subsequent use: MIME.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">MxNet</match>
+  <suggestion>MXNet</suggestion>
+  <message>MXNet</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">name node</match>
+  <suggestion>NameNode</suggestion>
+  <message>NameNode</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Name Server</match>
+  <suggestion>name server</suggestion>
+  <message>name server</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">name space</match>
+  <suggestion>namespace</suggestion>
+  <message>namespace</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">nano server</match>
+  <suggestion>Nano Server</suggestion>
+  <message>Nano Server</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">NAT Gateway</match>
+  <suggestion>NAT gateway</suggestion>
+  <message>Do not abbreviate as NGW. Use lowercase "gateway" for the type of NAT device, title case for the AWS managed service that controls NAT gateway resources.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">national institute of standards and technology</match>
+  <suggestion>National Institute of Standards and Technology (NIST)</suggestion>
+  <suggestion>NIST</suggestion>
+  <message>National Institute of Standards and Technology (NIST), NIST</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">navigate in</match>
+  <suggestion>navigate to</suggestion>
+  <message>navigate to</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">netbios</match>
+  <suggestion>NetBIOS</suggestion>
+  <message>NetBIOS</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">NetBios</match>
+  <suggestion>NetBIOS</suggestion>
+  <message>NetBIOS</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Network Access Control List</match>
+  <suggestion>network access control list (network ACL)</suggestion>
+  <suggestion>network ACL</suggestion>
+  <message>First use: network access control list (network ACL). Subsequent use: network ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Network ACL</match>
+  <suggestion>network ACL</suggestion>
+  <message>First use: network access control list (network ACL). Subsequent use: network ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Network Address Translation</match>
+  <suggestion>network address translation (NAT)</suggestion>
+  <suggestion>NAT</suggestion>
+  <message>First use: network address translation (NAT). Subsequent use: NAT.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">network address translation and protocol translation</match>
+  <suggestion>Network Address Translation and Protocol Translation (NAT-PT)</suggestion>
+  <suggestion>NAT-PT</suggestion>
+  <message>First use: Network Address Translation and Protocol Translation (NAT-PT). Subsequent use: NAT-PT.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Network Interface</match>
+  <suggestion>network interface (NIC)</suggestion>
+  <suggestion>NIC</suggestion>
+  <message>First use: network interface (NIC). Subsequent use: NIC.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">network load balancer</match>
+  <suggestion>Network Load Balancer</suggestion>
+  <message>In most content, use the full name. On the consoles, when space is limited (such as dropdown lists), it's acceptable to use the NLB acronym if the context is clear.  </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">NGW</match>
+  <suggestion>NAT gateway</suggestion>
+  <message>Do not abbreviate as NGW. Use lowercase "gateway" for the type of NAT device, title case for the AWS managed service that controls NAT gateway resources.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">NLB</match>
+  <suggestion>Network Load Balancer</suggestion>
+  <message>In most content, use the full name. On the consoles, when space is limited (such as dropdown lists), it's acceptable to use the NLB acronym if the context is clear.  </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">node.js</match>
+  <suggestion>Node.js</suggestion>
+  <message>Do not use. Use "Node.js" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">NodeJS</match>
+  <suggestion>Node.js</suggestion>
+  <message>Do not use. Use "Node.js" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">noecho</match>
+  <suggestion>NoEcho</suggestion>
+  <message>NoEcho</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">noSQL</match>
+  <suggestion>NoSQL</suggestion>
+  <message>NoSQL</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Null object</match>
+  <suggestion>null object</suggestion>
+  <message>null object</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Oauth</match>
+  <suggestion>OAuth</suggestion>
+  <message>An open standard for authorizing access to server resources.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">openID connect</match>
+  <suggestion>OpenID Connect (OIDC)</suggestion>
+  <message>OpenID Connect. OIDC providers are entities in IAM that describe an identity provide that supports the OpenID Connect standard. OIDC-compatible providers include Google and Salesforce.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> on prem </match>
+  <suggestion> on-premises </suggestion>
+  <suggestion> onpremises </suggestion>
+  <message>Do not use "on prem." Use on-premises as an adjective (for example, "an on-premises solution"). Or, use "on premises" to refer to the physical location. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> on premise </match>
+  <suggestion> on-premises </suggestion>
+  <suggestion> on premises </suggestion>
+  <message>Do not use "on premise." Use on-premises as an adjective (for example, "an on-premises solution"). Or, use "on premises" to refer to the physical location. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> on-premise </match>
+  <suggestion> on-premises </suggestion>
+  <suggestion> on premises </suggestion>
+  <message>Do not use "on premise." Use on-premises as an adjective (for example, "an on-premises solution"). Or, use "on premises" to refer to the physical location. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">on-line</match>
+  <suggestion>online</suggestion>
+  <message>online</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">open computing language</match>
+  <suggestion>Open Computing Language</suggestion>
+  <message>Open Computing Language</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Open Source</match>
+  <suggestion>open source</suggestion>
+  <message>Use as a predicate adjective.  When the modifier comes before a noun, use "open-source.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">openCL</match>
+  <suggestion>OpenCL</suggestion>
+  <message>OpenCL</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">openID connect</match>
+  <suggestion>OpenID Connect</suggestion>
+  <message>OpenID Connect</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">openSSL</match>
+  <suggestion>OpenSSL</suggestion>
+  <message>OpenSSL</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">OPEX</match>
+  <suggestion>operational expenditure (opex)</suggestion>
+  <suggestion>opex</suggestion>
+  <message>operational expenditure. Spell out on first use.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">optimal</match>
+  <suggestion>more efficient</suggestion>
+  <suggestion>more effective</suggestion>
+  <suggestion>better</suggestion>
+  <suggestion>peak</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services. Suggested alternatives: more efficient, more effective, better, peak</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Origin Access Identity</match>
+  <suggestion>origin access identity (OAI)</suggestion>
+  <suggestion>OAI</suggestion>
+  <message>First use: origin access identity (OAI). Subsequent use: OAI.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">over-ride</match>
+  <suggestion>override</suggestion>
+  <message>override</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">P.M.</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Avoid where possible. Use a 24-hour clock where necessary. Note that 12AM is midnight and 12PM is noon.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">para-virtual</match>
+  <suggestion>paravirtual</suggestion>
+  <message>paravirtual</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">parameter store</match>
+  <suggestion>Parameter Store</suggestion>
+  <message>Parameter Store</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Partition Key</match>
+  <suggestion>partition key</suggestion>
+  <message>partition key</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Payment Card Industry</match>
+  <suggestion>payment card industry (PCI)</suggestion>
+  <message>payment card industry (PCI)</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Pebibyte</match>
+  <suggestion>pebibyte (PiB)</suggestion>
+  <suggestion>PiB</suggestion>
+  <message>pebibyte (PiB), PiB</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Platform as a Service</match>
+  <suggestion>platform as a service (PaaS)</suggestion>
+  <suggestion>PaaS</suggestion>
+  <message>platform as a service (PaaS), PaaS</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">plug-in</match>
+  <suggestion>plugin</suggestion>
+  <message>Do not capitalize or treat as part of the product name. Exception: Capitalize if it appears as part of product name in the UI.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> PM </match>
+  <suggestion> Hover to see usage notes </suggestion>
+  <message>Avoid where possible. Use a 24-hour clock where necessary. Note that 12AM is midnight and 12PM is noon.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Port Address Translation (PAT)</match>
+  <suggestion>port address translation (PAT)</suggestion>
+  <suggestion>PAT</suggestion>
+  <message>port address translation (PAT), PAT</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">portal</match>
+  <suggestion>website</suggestion>
+  <message>Do not use as a reference to the Amazon Web Services website.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">postgreSQL</match>
+  <suggestion>PostgreSQL</suggestion>
+  <message>PostgreSQL</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Precrypto Officer</match>
+  <suggestion>precrypto officer (PRECO)</suggestion>
+  <suggestion>PRECO</suggestion>
+  <message>Capitalize the abbreviation but not precrypto officer.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">pre-release</match>
+  <suggestion>prerelease</suggestion>
+  <message>As in, "This prerelease documentation is confidential and is provided under the terms of your nondisclosure agreement with Amazon Web Services.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">pre-signed URL</match>
+  <suggestion>presigned URL</suggestion>
+  <message>presigned URL</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Primary Key</match>
+  <suggestion>primary key</suggestion>
+  <message>primary key</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Primary Shard</match>
+  <suggestion>primary shard</suggestion>
+  <message>primary shard</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Principle of Least Privilege</match>
+  <suggestion>principle of least privilege</suggestion>
+  <message>principle of least privilege</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Private Subnet</match>
+  <suggestion>private subnet</suggestion>
+  <message>private subnet</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Private Virtual Interface</match>
+  <suggestion>private virtual interface</suggestion>
+  <message>private virtual interface</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">privilege</match>
+  <suggestion>permission</suggestion>
+  <suggestion>least privilege</suggestion>
+  <message>Avoid except in "least privilege." Otherwise, use "permission."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">provisioned IOPS</match>
+  <suggestion>Provisioned IOPS</suggestion>
+  <message>Provisioned IOPS</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">real time messaging protocol</match>
+  <suggestion>Real Time Messaging Protocol (RTMP)</suggestion>
+  <suggestion>RTMP</suggestion>
+  <message>First use: Real Time Messaging Protocol (RTMP). Subsequent use: RTMP.
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">real time predictions</match>
+  <suggestion>real-time predictions</suggestion>
+  <message>real-time predictions</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">realtime</match>
+  <suggestion>real time</suggestion>
+  <suggestion>real-time</suggestion>
+  <message>Use "real-time" if the term qualifies a noun. Otherwise use "real time." Do not use "realtime."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">RESTFUL API</match>
+  <suggestion>RESTful API</suggestion>
+  <message>Use "web service" to refer to a product whose primary purpose is to manipulate XML or JSON representations of web resources using a uniform set of stateless operations.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">RESTFUL web service</match>
+  <suggestion>RESTful web service</suggestion>
+  <message>Use "web service" to refer to a product whose primary purpose is to manipulate XML or JSON representations of web resources using a uniform set of stateless operations.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Root User</match>
+  <suggestion>AWS account root user</suggestion>
+  <suggestion>root user</suggestion>
+  <message>First use: AWS account root user. Subsequent use: root user. Do not use "root account," "root identity," or "root credentials.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">root account</match>
+  <suggestion>AWS account root user</suggestion>
+  <suggestion>root user</suggestion>
+  <message>First use: AWS account root user. Subsequent use: root user.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">root credentials</match>
+  <suggestion>AWS account root user</suggestion>
+  <suggestion>root user</suggestion>
+  <message>First use: AWS account root user. Subsequent use: root user.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">root device volume</match>
+  <suggestion/>
+  <message/>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">root identity</match>
+  <suggestion>AWS account root user</suggestion>
+  <suggestion>root user</suggestion>
+  <message>First use: AWS account root user. Subsequent use: root user.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">run time</match>
+  <suggestion>runtime</suggestion>
+  <suggestion>run-time</suggestion>
+  <message>Can be noun or adjective</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Secret Access Key</match>
+  <suggestion>secret access key</suggestion>
+  <message>secret access key</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">secure sockets layer</match>
+  <suggestion>Secure Sockets Layer</suggestion>
+  <message>First use: Secure Sockets Layer (SSL). Subsequent use: SSL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Security Control Framework</match>
+  <suggestion>security control framework</suggestion>
+  <message>security control framework</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Security Group</match>
+  <suggestion>security group</suggestion>
+  <message>security group</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Server-Side Encryption (SSE)</match>
+  <suggestion>server-side encryption (SSE)</suggestion>
+  <message>server-side encryption (SSE)</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">service end-point</match>
+  <suggestion>service endpoint</suggestion>
+  <message>service endpoint</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Service Endpoint</match>
+  <suggestion>service endpoint</suggestion>
+  <message>service endpoint</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Service Role</match>
+  <suggestion>service role</suggestion>
+  <message>service role</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Shared Responsibility Model</match>
+  <suggestion>shared responsibility model</suggestion>
+  <message>Lowercase. Security model wherein AWS and customers share responsibility for security.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">simple mail transfer protocol</match>
+  <suggestion>Simple Mail Transfer Protocol</suggestion>
+  <message>Uppercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">simple object access protocol (SOAP)</match>
+  <suggestion>Simple Object Access Protocol (SOAP)</suggestion>
+  <message>Simple Object Access Protocol (SOAP)</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Single Root I/O Virtualization</match>
+  <suggestion>single root I/O virtualization</suggestion>
+  <message>single root I/O virtualization</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">single-AZ</match>
+  <suggestion>Single-AZ</suggestion>
+  <message>Single-AZ</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="warning">
+  <match type="character">Simple Object Access Protocol</match>
+  <suggestion>SOAP</suggestion>
+  <message>Always abbreviated as "SOAP" (all caps).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">software as a service</match>
+  <suggestion>software as a service (SaaS)</suggestion>
+  <message>software as a service (SaaS)</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">SQL Injection Match Condition</match>
+  <suggestion>SQL injection match condition</suggestion>
+  <message>SQL injection match condition</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">SQL Server</match>
+  <suggestion>Microsoft SQL Server</suggestion>
+  <suggestion>SQL server</suggestion>
+  <message>First use: Microsoft SQL Server. Subsequent use: SQL Server. Pronounced 'sequel'. Uses 'a' instead of 'an' (a SQL Server instance).</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">stand-alone</match>
+  <suggestion>standalone</suggestion>
+  <message>standalone</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Storage-Optimized</match>
+  <suggestion>storage-optimized</suggestion>
+  <message>storage-optimized</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Stream stream</match>
+  <suggestion>stream</suggestion>
+  <message>stream</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Streams stream</match>
+  <suggestion>stream</suggestion>
+  <message>stream</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">strike</match>
+  <suggestion>Do not use (rewrite)</suggestion>
+  <message>Avoid</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">super user</match>
+  <suggestion>superuser</suggestion>
+  <message>superuser</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">sysops</match>
+  <suggestion>SysOps</suggestion>
+  <message>Note capitalization.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">sysprep</match>
+  <suggestion>Sysprep</suggestion>
+  <message>Sysprep</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">SysPrep</match>
+  <suggestion>Sysprep</suggestion>
+  <message>Sysprep</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Tebibyte</match>
+  <suggestion>tebibyte (TiB)</suggestion>
+  <suggestion>TiB</suggestion>
+  <message>First use: tebibyte (TiB). Subsequent use: TiB.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">throughput optimized HDD</match>
+  <suggestion>Throughput Optimized HDD</suggestion>
+  <message>Throughput Optimized HDD</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">time-series data</match>
+  <suggestion>time series data</suggestion>
+  <message>no hyphen</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">time stamp</match>
+  <suggestion>timestamp</suggestion>
+  <message>timestamp</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">transparent data encryption</match>
+  <suggestion>Transparent Data Encryption</suggestion>
+  <message>Transparent Data Encryption</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">transport layer security</match>
+  <suggestion>Transport Layer Security</suggestion>
+  <message>Transport Layer Security</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Trust Policy</match>
+  <suggestion>trust policy</suggestion>
+  <message>trust policy</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">typescript</match>
+  <suggestion>TypeScript</suggestion>
+  <message>Use "TypeScript." </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> username </match>
+  <suggestion> user name </suggestion>
+  <message>Two words, unless you need to match the UI text. </message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">user-based policy</match>
+  <suggestion>user policy</suggestion>
+  <message>Only use in contrast with group policy or role policy. Use identity-based policy for all three. Do not use user-based policy.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Variable Envelope Return Path</match>
+  <suggestion>variable envelope return path</suggestion>
+  <message>First use: variable envelope return path (VERP). Subsequent use: VERP.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">vcpu</match>
+  <suggestion>vCPU</suggestion>
+  <message>First use: virtual CPU. Subsequent use: vCPU.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">VIF</match>
+  <suggestion>virtual interface</suggestion>
+  <suggestion>AWS public virtual interface</suggestion>
+  <message>First use: virtual interface or AWS public virtual interface. Subsequent use: VIF.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">virtual circuit world tour</match>
+  <suggestion>Virtual Circuit World Tour</suggestion>
+  <message>Virtual Circuit World Tour</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Virtual CPU</match>
+  <suggestion>virtual CPU</suggestion>
+  <message>First use: virtual CPU. Subsequent use: vCPU.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Virtual Machine</match>
+  <suggestion>virtual machine (VM)</suggestion>
+  <message>First use: virtual machine (VM). Subsequent use: VM.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">VPC flow logs</match>
+  <suggestion>VPC Flow Logs</suggestion>
+  <message>VPC Flow Logs</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">VPC Peering Connection</match>
+  <suggestion>VPC peering connection</suggestion>
+  <message>VPC peering connection</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">VPG</match>
+  <suggestion>virtual private gateway</suggestion>
+  <message>Always spell out as "virtual private gateway."</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">WACL</match>
+  <suggestion>web access control list (web ACL)</suggestion>
+  <suggestion>web ACL</suggestion>
+  <message>First use: web access control list (web ACL). Subsequent use: web ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Web</match>
+  <suggestion>web</suggestion>
+  <message>web</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Web Access Control List</match>
+  <suggestion>web access control list (web ACL)</suggestion>
+  <suggestion>web ACL</suggestion>
+  <message>First use: web access control list (web ACL). Subsequent use: web ACL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Web Application Firewall</match>
+  <suggestion>web application firewall</suggestion>
+  <message>web application firewall</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">web services description language</match>
+  <suggestion>Web Services Description Language (WSDL)</suggestion>
+  <suggestion>WSDL</suggestion>
+  <message>First use: Web Services Description Language (WSDL). Subsequent use: WSDL.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">web page</match>
+  <suggestion>webpage</suggestion>
+  <message>webpage</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">web site</match>
+  <suggestion>website</suggestion>
+  <message>website</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">weighted-routing policy</match>
+  <suggestion>weighted routing policy</suggestion>
+  <message>weighted routing policy</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">wish</match>
+  <suggestion>want</suggestion>
+  <suggestion>need</suggestion>
+  <message>The words "wish" and "desire" are weak versions of "want"; don't use them. Do not confuse wants with needs. Use the term that is appropriate to the situation. The word "need" connotes a requirement or obligation; "want" indicates that you have an intent, but still a choice of valid actions.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Witness Server</match>
+  <suggestion>witness server</suggestion>
+  <message>witness server</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">X.509 Certificate</match>
+  <suggestion>X.509 certificate</suggestion>
+  <message>X.509 certificate</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character"> xml </match>
+  <suggestion> XML </suggestion>
+  <suggestion> .xml </suggestion>
+  <message>Use "XML" in reference to the language. Use ".xml" in reference to files.</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">yaml</match>
+  <suggestion>YAML</suggestion>
+  <message>YAML Ain't Markup Language</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Yobibyte</match>
+  <suggestion>yobibyte (YiB)</suggestion>
+  <suggestion>YiB</suggestion>
+  <message>yobibyte (YiB), YiB</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Zebibyte</match>
+  <suggestion>zebibyte (ZiB)</suggestion>
+  <suggestion>ZiB</suggestion>
+  <message>zebibyte (ZiB), ZiB</message>
+ </incorrect-term>
+ <incorrect-term severity="warning">
+  <match type="character">Zone Awareness</match>
+  <suggestion>zone awareness</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+</incorrect-terms>

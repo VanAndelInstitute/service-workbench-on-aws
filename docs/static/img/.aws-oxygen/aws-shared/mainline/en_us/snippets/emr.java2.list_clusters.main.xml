@@ -1,0 +1,22 @@
+<programlisting>
+    public static void listAllClusters(EmrClient emrClient) {
+
+        try {
+
+            ListClustersRequest clustersRequest = ListClustersRequest.builder()
+                    .build();
+
+            ListClustersResponse response = emrClient.listClusters(clustersRequest);
+           List<ClusterSummary> clusters = response.clusters();
+
+            for (ClusterSummary cluster: clusters) {
+                System.out.println("The cluster name is : "+cluster.name());
+                System.out.println("The cluster ARN is : "+cluster.clusterArn());
+            }
+
+        } catch(EmrException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,28 @@
+<programlisting>
+
+        /// <summary>
+        /// Creates a new IAM group.
+        /// </summary>
+        /// <param name="client">The IAM Client object.</param>
+        /// <param name="groupName">The string representing the name for the
+        /// new group.</param>
+        /// <returns>Returns the response object returned by CreateGroupAsync.</returns>
+        public static async Task<CreateGroupResponse> CreateNewGroupAsync(
+            AmazonIdentityManagementServiceClient client,
+            string groupName)
+        {
+            var createGroupRequest = new CreateGroupRequest
+            {
+                GroupName = groupName,
+            };
+
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Start by creating the group...");
+            var response = await client.CreateGroupAsync(createGroupRequest);
+            Console.WriteLine($"Successfully created the group: {response.Group.GroupName}");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
+
+            return response;
+        }
+
+</programlisting>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section role="topic" id="apns-setup-apnscert">
+	<sectioninfo>
+		<abstract>
+			<para>Create an APNs SSL certificate in the Apple Developer portal.</para>
+		</abstract>
+	</sectioninfo>
+	<title id="apns-setup-apnscert.title">Step 2: Create an APNs SSL Certificate</title>
+	<para>Create an APNs SSL certificate so that you can deliver push notifications to your app through
+		APNs. You will create and download the certificate from your Apple Developer account. Then,
+		you will install the certificate in Keychain Access and export it as a .p12 file.</para>
+	<para>If you already have an SSL certificate for your app, you can skip this step.</para>
+	<!--Summarize task and as part of that, explain that you must create a production SSL certificate otherwise Dartboard cannot send push notifications to your app.-->
+	<procedure>
+		<title>To create an SSL certificate for push notifications</title>
+		<step>
+			<para>Sign in to your Apple Developer account at <ulink
+					url="https://developer.apple.com/membercenter/index.action"
+					>https://developer.apple.com/membercenter/index.action</ulink>.</para>
+		</step>
+		<step>
+			<para>Choose <guilabel>Certificates, Identifiers &amp; Profiles</guilabel>.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert04.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Certificates, identifiers, and profiles.</phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+			<!--<informalfigure><mediaobject><imageobject><imagedata revisionflag="html;htmlcond" fileref="images/ios_appcert04.png" format="PNG" scale="85"/></imageobject><imageobject><imagedata revisionflag="pdf;pdfcond" fileref="images/ios_appcert04.png" format="PNG" scale="65"/></imageobject><imageobject><imagedata revisionflag="kindle-epub-cond" fileref="images/ios_appcert04.png" format="PNG" scale="85"/></imageobject></mediaobject></informalfigure>-->
+		</step>
+		<step>
+			<para>From the <guilabel>Identifiers</guilabel> section, choose <guilabel>App
+					IDs</guilabel>.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert05.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Identifiers.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>From the list of iOS app IDs, select the app ID that you created in <xref
+					linkend="apns-setup-appid" endterm="apns-setup-appid.title"/>.</para>
+		</step>
+		<step>
+			<para>Choose <guilabel>Edit</guilabel>.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert11.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Edit
+						button.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Under <guilabel>Push Notifications</guilabel>, in the <guilabel>Production SSL
+					Certificate</guilabel> section, choose <guilabel>Create
+					Certificate...</guilabel>.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert12.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Create certificate
+						button.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>In the <guilabel>About Creating a Certificate Signing Request (CSR)</guilabel> pane, follow
+				the instructions for creating a Certificate Signing Request (CSR) file. You use the
+				Keychain Access application on your Mac to create the request and save it on your
+				local disk. When you are done, choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>In the <guilabel>Generate your certificate</guilabel> pane, choose
+					<guilabel>Choose File...</guilabel>, and then select the CSR file you
+				created.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert13.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Generate your certificate
+						pane.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>When the certificate is ready, choose <guilabel>Download</guilabel> to save the
+				certificate to your computer.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert15.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Download
+						button.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Double-click the downloaded certificate to install it to the Keychain on your
+				Mac.</para>
+		</step>
+		<step>
+			<para>On your Mac, start the Keychain Access application.</para>
+		</step>
+		<step>
+			<para>In <guilabel>My Certificates</guilabel>, find the certificate you just added. The
+				certificate is named "Apple Push Services:<replaceable>com.my.app.id</replaceable>",
+				where com.my.app.id is the app ID for which the certificate was created.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert17.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>The certificate in Keychain
+						Access.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Context-select the push certificate and then select <guilabel>Export...</guilabel>
+				from the context menu to export a file containing the certificate.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert15.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>The export certificate
+						option.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Type a name for the certificate that is easy to recognize and save it to your computer. Do
+				not provide an export password when
+				prompted.<!--Why might a user want to provide a password? Maybe skipping the password isn't always the best practice. Or will that screw up Pinpoint?-->
+				You need to upload this certificate when creating your app in &AMHlong;.</para>
+		</step>
+	</procedure>
+	<!--<para>Push notification has now been enabled for your app in development mode. Prior to releasing your app on the App Store, you will need to repeat these steps but select <guilabel>Production Push SSL Certificate</guilabel>.</para>-->
+</section>

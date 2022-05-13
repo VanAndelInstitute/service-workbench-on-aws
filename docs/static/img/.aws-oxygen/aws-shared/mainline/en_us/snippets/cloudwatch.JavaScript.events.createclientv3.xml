@@ -1,0 +1,8 @@
+<programlisting>
+
+import { CloudWatchEventsClient } from "@aws-sdk/client-cloudwatch-events";
+// Set the AWS Region.
+const REGION = "REGION"; //e.g. "us-east-1"
+// Create an Amazon CloudWatch service client object.
+export const cweClient = new CloudWatchEventsClient({ region: REGION });
+</programlisting>

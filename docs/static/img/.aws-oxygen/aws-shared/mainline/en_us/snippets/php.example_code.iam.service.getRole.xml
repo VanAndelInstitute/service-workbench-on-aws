@@ -1,0 +1,8 @@
+<programlisting>
+    public function getRole($roleName)
+    {
+        return $this->customWaiter(function () use ($roleName) {
+            return $this->iamClient->getRole(['RoleName' => $roleName]);
+        });
+    }
+</programlisting>

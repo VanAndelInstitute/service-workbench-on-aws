@@ -1,0 +1,18 @@
+<programlisting>
+suspend fun receiveMessages(queueUrlVal: String?) {
+
+    println("Retrieving messages from $queueUrlVal")
+
+    val receiveMessageRequest = ReceiveMessageRequest {
+        queueUrl = queueUrlVal
+        maxNumberOfMessages =5
+    }
+
+    SqsClient { region = "us-east-1" }.use { sqsClient ->
+        val response =  sqsClient.receiveMessage(receiveMessageRequest)
+        response.messages?.forEach { message ->
+             println(message.body)
+        }
+    }
+}
+</programlisting>

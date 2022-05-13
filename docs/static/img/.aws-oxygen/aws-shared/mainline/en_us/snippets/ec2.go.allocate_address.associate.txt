@@ -1,0 +1,4 @@
+    assocRes, err := svc.AssociateAddress(&ec2.AssociateAddressInput{
+        AllocationId: allocRes.AllocationId,
+        InstanceId:   instanceID,
+    })

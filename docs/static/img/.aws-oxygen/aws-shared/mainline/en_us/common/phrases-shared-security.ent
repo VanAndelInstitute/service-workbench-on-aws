@@ -1,0 +1,3132 @@
+<!-- SECURITY AND RELATED ENTITIES FOR CREDENTIALS, KEYS, SIGNATURES, IAM 
+ POLICIES, SIGNUP, FICTITIOUS EXAMPLES, ETC. -->
+ 
+ <!ENTITY root 'root user'>
+ <!ENTITY rootlong '<shared id="AWS-account"/> root user'>
+ <!ENTITY root-sentence 'Root user'>
+ <!ENTITY root-title 'root user'>
+ <!ENTITY rootlong-title '<shared id="AWS-account"/> root user'>
+
+<!-- SECTION 1 - KEY AND SIGNATURE ENTITIES -->
+ 
+ <!ENTITY rsa-private-key '
+ <note>
+   <para>
+     The private key is shown between -----BEGIN&nbsp;RSA&nbsp;PRIVATE&nbsp;KEY----- 
+     and -----END&nbsp;RSA&nbsp;PRIVATE&nbsp;KEY-----.
+     For security purposes, &AWS; does not display private keys or sample 
+     private keys in documentation.
+   </para>
+ </note>
+ '>
+ 
+ <!ENTITY sigversion2_procedure '
+<procedure>
+  <title>To create the signature</title>
+  <step>
+    <para>Create the canonicalized query string that you need later in this 
+      procedure:</para>
+    <substeps>
+      <step>
+        <para>Sort the UTF-8 query string components by parameter name with natural 
+          byte ordering.</para>
+        <para>The parameters can come from the GET URI or from the POST body 
+          (when <code>Content-Type</code> is <code>application/x-www-form-urlencoded
+          </code>).</para>
+      </step>
+      <step>
+        <para>URL encode the parameter name and values according to the following 
+          rules:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Do not URL encode any of the unreserved characters that 
+              RFC 3986 defines.</para>
+            <para>These unreserved characters are A-Z, a-z, 0-9, hyphen 
+              ( - ), underscore ( _ ), period ( . ), and tilde ( ~ ). </para>
+          </listitem>
+          <listitem>
+            <para>Percent encode all other characters with &#37;XY, where X and 
+              Y are hex characters 0-9 and uppercase A-F.</para>
+          </listitem>
+          <listitem>
+            <para>Percent encode extended UTF-8 characters in the form 
+              &#37;XY&#37;ZA.... </para>
+          </listitem>
+          <listitem>
+            <para>Percent encode the space character as &#37;20 (and not +, as 
+              common encoding schemes do).</para>
+          </listitem>
+        </itemizedlist>
+        <note>
+          <para>Currently all &AWS-service; parameter names use unreserved 
+            characters, so you don&apos;t need to encode them. However, you might 
+            want to include code to handle parameter names that use reserved 
+            characters, for possible future use.</para>
+        </note>
+      </step>
+      <step>
+        <para>Separate the encoded parameter names from their encoded values 
+          with the equals sign ( = ) (ASCII character 61), even if the parameter 
+          value is empty.</para>
+      </step>
+      <step>
+        <para>Separate the name-value pairs with an ampersand ( &amp; ) (ASCII 
+          character 38).</para>
+      </step>
+    </substeps> 
+  </step>
+  <step>
+    <para>Create the string to sign according to the following pseudo-grammar 
+      (the <code>"\n"</code>
+      represents an ASCII newline character).</para>
+    <programlisting>StringToSign = HTTPVerb + "\n" +
+                ValueOfHostHeaderInLowercase + "\n" +
+                HTTPRequestURI + "\n" +
+                CanonicalizedQueryString &lt;from the preceding step></programlisting>
+    <para>The HTTPRequestURI component is the HTTP absolute path component of 
+      the URI up to, but not including, the query string. If the HTTPRequestURI 
+      is empty, use a forward slash ( / ).</para>
+  </step>
+  <step>
+    <para>Calculate an RFC 2104-compliant HMAC with the string you just created, 
+      your Secret Access Key as the key, and SHA256 or SHA1 as the hash 
+      algorithm.</para>
+    <para>For more information, see <ulink url="http://www.ietf.org/rfc/rfc2104.txt">http://www.ietf.org/rfc/rfc2104.txt</ulink>.</para>
+  </step>
+  <step>
+    <para>Convert the resulting value to base64.</para>
+  </step>
+  <step>
+    <para>Use the resulting value as the value of the <code>Signature</code> request parameter.</para>
+  </step>
+</procedure>
+<important>
+  <para>The final signature you send in the request must be URL encoded as 
+    specified in RFC 3986 (for more information, see 
+    <ulink url="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</ulink>). 
+    If your toolkit URL encodes your final request,
+    then it handles the required URL encoding of the signature. If your toolkit 
+    doesn&apos;t URL encode the final request, then make sure to URL encode 
+    the signature before you include it in the request. Most importantly, make 
+    sure the signature is URL encoded <emphasis>only once</emphasis>. A common
+    mistake is to URL encode it manually during signature formation, and then 
+    again when the toolkit URL encodes the entire request.</para>
+</important>
+'>
+
+<!ENTITY sigversion2_caution '
+<warning>
+  <para>If you are currently using signature version 1: Version 1 is 
+    deprecated, and you should move to signature version 2 immediately. For 
+    information about the deprecation schedule and the differences between 
+    signature version 2 and version 1, see 
+    <ulink url="&url-forum-domain;thread.jspa?threadID=251802">Making Secure Requests to Amazon Web Services</ulink>.</para>
+</warning>
+'>
+
+ <!ENTITY aws_wide_policy_keys '
+ <!-- Para about IAM docs for service and global condition keys -->
+     <para>For a list of condition keys supported by each &AWS-service;, see 
+       <ulink url="&url-iam-user;reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for &AWS-services;</ulink> 
+       in the <emphasis>&guide-iam-user;</emphasis>. For a list of condition keys that can be used in multiple &AWS-services;, see 
+       <ulink url="&url-iam-user;reference_policies_condition-keys.html">&AWS; global condition context keys</ulink> 
+       in the <emphasis>&guide-iam-user;</emphasis>.</para>
+ '>
+ 
+<!-- SECTION 2 - SIGN UP ENTITIES -->
+
+<!ENTITY aws-signup '
+<!-- Steps to use within an existing procedure -->
+<step><para>Open <ulink url="https://portal.&home-domain;/billing/signup">https://portal.&home-domain;/billing/signup</ulink>.</para>
+    </step>
+    <step><para>Follow the online instructions.</para>
+    <para>Part of the sign-up procedure involves receiving a phone call and entering 
+        a verification code on the phone keypad.</para>
+</step>
+'>
+
+<!ENTITY console_signup '
+<!-- Procedure for signup -->
+<para>If you do not have an <shared id="AWS-account"/>, complete the following steps to create one.</para>
+<procedure>
+    <title>To sign up for an <shared id="AWS-account"/></title>
+    &aws-signup;
+</procedure>
+'>
+
+<!ENTITY section-getting-started-signup '
+<!-- Section used in the SDK developer guides "Getting Started" sections. -->
+<section id="getting-started-signup">
+    <info>
+        <title id="getting-started-signup.title">Get an <shared id="AWS-account"/> 
+            and your &root-title; credentials</title>
+    </info>
+    <para>To access &AWS;, you must sign up for an <shared id="AWS-account"/>.</para>
+    <procedure>
+        <title>To sign up for an <shared id="AWS-account"/></title>
+        &aws-signup;
+    </procedure>
+    <para> &AWS; sends you a confirmation email after the sign-up process is complete.
+        At any time, you can view your current account activity and manage your account 
+        by going to <ulink url="&url-mkt-domain;">&url-mkt-domain;</ulink> and choosing
+        <guilabel>My Account</guilabel>.</para>
+    <!--  &aws-get-keys; -->
+</section>
+'>
+<!ENTITY section-set-up-account-users '
+<!-- Sections for developer and user guides "Setting Up" sections. -->
+&section-getting-started-signup;
+<section id="getting-started-create-iam-user">
+    <info>
+        <title id="getting-started-create-iam-user.title">Creating an &IAM; user</title>
+    </info>
+<para>If your account already includes an &IAM; user with full &AWS; administrative permissions, you can skip this section.</para>
+&aws_sec_root_user_information;
+&iam-create-admin-group-and-user;
+</section>
+<section id="getting-started-signin-iam-user">
+    <info>
+        <title id="getting-started-signin-iam-user.title">Signing in as an &IAM; user</title>
+    </info>
+&aws_sec_iam_user_signin;
+</section>
+<section id="getting-started-iam-user-access-keys">
+    <info>
+        <title id="getting-started-iam-user-access-keys.title">Creating &IAM; user access keys</title>
+    </info>
+&aws-get-keys;
+</section>
+'>
+
+
+<!-- SECTION 3 - SDK GETTING STARTED ENTITIES -->
+ 
+ <!ENTITY aws-get-keys '
+<!-- Procedure used in the SDK developer guides "Getting Started" sections. -->
+    <para>Access keys consist of an access key ID and secret access key, which 
+      are used to sign programmatic requests that you make to &AWS;. If you don&apos;t 
+      have access keys, you can create them from the &console;.
+      As a best practice, do not use the &rootlong; access keys for any task where it&apos;s not required. Instead,
+      <ulink url="&url-iam-user;getting-started_create-admin-group.html">create a new administrator &IAM; user</ulink> 
+      with access keys for yourself.</para>
+    <para>The only time that you can view or download the secret access key is when you create 
+      the keys. You cannot recover them later. However, you can create new access keys at any time. 
+      You must also have permissions to perform the required &IAM; actions. For more information, see 
+      <ulink url="&url-iam-user;access_permissions-required.html">Permissions required to access &IAM; 
+        resources</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+   <procedure>
+     <title>To create access keys for an &IAM; user</title>
+     <step>&IAMConsole_DirectURL;</step>
+     <step>
+       <para>In the navigation pane, choose <guilabel>Users</guilabel>.</para>
+     </step>
+     <step>
+       <para>Choose the name of the user whose access keys you want to create, and then choose the <guilabel>Security credentials</guilabel> tab.</para>
+     </step>
+     <step>
+       <para>In the <guilabel>Access keys</guilabel> section, choose <guilabel>Create access key</guilabel>.</para>
+     </step>
+     <step>
+       <para>To view the new access key pair, choose <guilabel>Show</guilabel>. You will not have access to the
+         secret access key again after this dialog box closes. Your credentials will look something like this:</para>
+       <itemizedlist>
+         <listitem>
+           <para>Access key ID: &ExampleAccessKeyID1;</para>
+         </listitem>
+         <listitem>
+           <para>Secret access key: &ExampleSecretKey1;</para>
+         </listitem>
+       </itemizedlist>
+     </step>
+     <step>
+     <para>To download the key pair, choose <guilabel>Download .csv file</guilabel>. Store the keys 
+       in a secure location. You will not have access to the
+       secret access key again after this dialog box closes.</para>
+     <para>Keep the keys confidential in order to protect your <shared id="AWS-account"/> and never email 
+         them. Do not share them outside your organization, even if an inquiry 
+         appears to come from &AWS; or Amazon.com. No one who legitimately 
+         represents Amazon will ever ask you for your secret key.</para>
+     </step>
+     <step>
+       <para>After you download the <filename>.csv</filename> file, choose <guilabel>Close</guilabel>. When you
+         create an access key, the key pair is active by default, and you can use the pair right away.</para>
+     </step>
+   </procedure>
+   <para><phrase role="topcom">Related topics</phrase></para>
+   <itemizedlist>
+     <listitem>
+       <para><ulink url="&url-iam-user;introduction.html">What is &IAM;?</ulink> 
+       in the <emphasis>&guide-iam-user;</emphasis></para>
+     </listitem>
+     <listitem>
+       <para><ulink url="&url-aws-gen;aws-security-credentials.html">&AWS; security credentials</ulink> 
+       in <emphasis>&AWS-GEN-REF;</emphasis>
+       </para>
+     </listitem>
+   </itemizedlist>
+ '>
+ 
+ <!-- Standard credfile locations for the AWS SDKs. -->
+ <!ENTITY aws-credfile-loc-unixes '<filename>~/.aws/credentials</filename>'>
+ <!ENTITY aws-credfile-loc-windows '<filename>C:\Users\<replaceable>USERNAME</replaceable>\.aws\credentials</filename>'>
+ 
+ <!-- Hopefully, these will equal the "standard" location at some point soon... -->
+ <!ENTITY aws-cli-credfile-loc-unixes '<filename>~/.aws/config</filename>'>
+ <!ENTITY aws-cli-credfile-loc-windows '<filename>C:\Users\<replaceable>USERNAME</replaceable>\.aws\config</filename>'>
+ 
+ <!-- Used in the SDK developer guides "Getting Started" sections. Please 
+ do not change the formatting/spacing of the programlisting... -->
+ <!ENTITY listitem-set-creds-profile '
+<!-- List item used in an existing list the SDK developer guides "Getting Started" sections -->
+<listitem>
+   <para>Set your credentials in the &AWS; credentials profile file on your local 
+   system in the following location:</para>
+   <itemizedlist>
+     <listitem>
+         <para>&aws-credfile-loc-unixes; on &unixes;</para>
+     </listitem>
+     <listitem>
+         <para>&aws-credfile-loc-windows; on Windows</para>
+     </listitem>
+   </itemizedlist>
+   <para>This file must contain lines in the following format:</para>
+   <programlisting>
+ [default]
+ aws_access_key_id = <replaceable>your_access_key_id</replaceable>
+ aws_secret_access_key = <replaceable>your_secret_access_key
+ </replaceable></programlisting>
+   <para>Substitute your own &AWS; credentials values for <emphasis>your_access_key_id</emphasis> and
+     <emphasis>your_secret_access_key</emphasis>. For example, use the 
+     <code>&ExampleAccessKeyID1;</code> access key ID and the 
+     <code>&ExampleSecretKey1;</code> secret key.</para>
+ </listitem>'>
+ 
+ 
+ <!-- Used in the SDK developer guides "Getting Started" sections. Please 
+ do not change the formatting/spacing of the
+      programlisting... -->
+ <!ENTITY listitem-set-creds-environment '
+<!-- List item used in an existing list the SDK developer guides "Getting Started" sections -->
+   <listitem>
+     <para>Set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment 
+     variables.</para>
+     <para>To set these variables in &unixes;, use <command>export</command>:
+     </para>
+     <programlisting>
+ export AWS_ACCESS_KEY_ID=<replaceable>your_access_key_id</replaceable>
+ export AWS_SECRET_ACCESS_KEY=<replaceable>your_secret_access_key</replaceable>
+ </programlisting>
+     <para>To set these variables in Windows, use <command>set</command>:</para>
+     <programlisting>
+ set AWS_ACCESS_KEY_ID=<replaceable>your_access_key_id</replaceable>
+ set AWS_SECRET_ACCESS_KEY=<replaceable>your_secret_access_key</replaceable>
+ </programlisting>
+   </listitem>
+ '>
+ 
+ <!ENTITY aws-credfile-env-var 'AWS_CREDENTIAL_FILE'>
+ 
+ <!ENTITY section-set-credfile-loc '
+<!-- Section used in an existing list the SDK developer guides -->
+ <section id="aws_sec-set-credfile-loc">
+   <info>
+      <title id="aws_sec-set-credfile-loc.title">Setting an alternate credentials file location</title>
+   </info>
+   <para>Although the &Java; will load &AWS; credentials automatically from the 
+   default credentials file location, you can also specify the location yourself 
+   by setting the &aws-credfile-env-var; environment variable with the full 
+   path name to the credentials file.</para>
+   <para>This feature can be used to temporarily change the location where the 
+   &Java; looks for your credentials file (by setting this variable from the 
+   command line, for example). Or you can set the environment variable in your 
+   user or system environment to change it for the user or system-wide.</para>
+   <procedure>
+     <title>To override the default credentials file location</title>
+     <step>
+       <para>Set the &aws-credfile-env-var; environment variable to the 
+       location of your &AWS; credentials file.</para>
+ 
+       <para>On &unixes;, use <code>export</code>:</para>
+       <programlisting>export &aws-credfile-env-var;=
+       <replaceable>path/to/credentials_file</replaceable></programlisting>
+ 
+       <para>In Windows, use <code>set</code>:</para>
+       <programlisting>set &aws-credfile-env-var;=
+       <replaceable>path/to/credentials_file</replaceable></programlisting>
+     </step>
+   </procedure>
+ </section>
+ '>
+ 
+<!-- SECTION 4 - FICTITIOUS EXAMPLES ENTITIES -->
+
+ <!ENTITY account_id_example "123456789012" >
+ 
+ <!ENTITY ExampleAccessKeyID1 'AKIAIOSFODNN7EXAMPLE'>
+ <!ENTITY ExampleAccessKeyID2 'AKIAI44QH8DHBEXAMPLE'>
+ 
+<!-- <!ENTITY ExampleTempAccessKeyID1 'ASIAV3ZUEFP6NEXAMPLE'> 
+ <!ENTITY ExampleTempAccessKeyID2 'ASIAJKHVVXGFHEXAMPLE'> -->
+
+ <!ENTITY ExampleSecretKey1 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'>
+ <!ENTITY ExampleSecretKey2 'je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY'>
+ 
+ <!ENTITY BlankAccessKeyID '<replaceable>&lt;Your Access Key ID></replaceable>'>
+ <!ENTITY BlankSecretKey '<replaceable>&lt;Your Secret Key></replaceable>'>
+ 
+ <!ENTITY ExampleAWSAccountNo1 '111122223333'>
+ <!ENTITY ExampleAWSAccountNo1H '1111-2222-3333'>
+ 
+ <!ENTITY ExampleAWSAccountNo2 '444455556666'>
+ <!ENTITY ExampleAWSAccountNo2H '4444-5555-6666'>
+ 
+ <!ENTITY ExampleAWSAccountNo3 '123456789012'>
+ <!ENTITY ExampleAWSAccountNo3H '1234-5678-9012'>
+ 
+ <!ENTITY ExampleAWSAccountNo4 '777788889999'>
+ <!ENTITY ExampleAWSAccountNo4H '7777-8888-9999'>
+ 
+ <!ENTITY ExampleAWSAccountNo5 '000000000000'>
+ <!ENTITY ExampleAWSAccountNo5H '0000-0000-0000'>
+ 
+ <!ENTITY ExampleAWSAccountNo6 '111111111111'>
+ <!ENTITY ExampleAWSAccountNo6H '1111-1111-1111'>
+ 
+ <!ENTITY ExampleAWSAccountNo7 '222222222222'>
+ <!ENTITY ExampleAWSAccountNo7H '2222-2222-2222'>
+ 
+ <!ENTITY ExampleAWSAccountNo8 '333333333333'>
+ <!ENTITY ExampleAWSAccountNo8H '3333-3333-3333'>
+ 
+ <!ENTITY ExampleAWSAccountNo9 '444444444444'>
+ <!ENTITY ExampleAWSAccountNo9H '4444-4444-4444'>
+ 
+ <!ENTITY ExampleAWSAccountNo10 '555555555555'>
+ <!ENTITY ExampleAWSAccountNo10H '5555-5555-5555'>
+ 
+ <!ENTITY ExampleAWSAccountNo11 '666666666666'>
+ <!ENTITY ExampleAWSAccountNo11H '6666-6666-6666'>
+ 
+ <!ENTITY ExampleAWSAccountNo12 '777777777777'>
+ <!ENTITY ExampleAWSAccountNo12H '7777-7777-7777'>
+ 
+ <!ENTITY ExampleAWSAccountNo13 '888888888888'>
+ <!ENTITY ExampleAWSAccountNo13H '8888-8888-8888'>
+ 
+ <!ENTITY ExampleAWSAccountNo14 '999999999999'>
+ <!ENTITY ExampleAWSAccountNo14H '9999-9999-9999'>
+ 
+ <!ENTITY ExampleBucketName '&example-s3-bucket1;'>
+ <!ENTITY ExampleBucketName2 '&example-s3-bucket2;'>
+ <!ENTITY ExampleBucketName3 '&example-s3-bucket3;'>
+ 
+ <!ENTITY ExampleLogBucket '<replaceable>myLogs-</replaceable>&example-s3-bucket;'>
+ 
+ <!ENTITY ExampleCert
+ '<programlisting role="nocopy" language="none">-----BEGIN CERTIFICATE-----
+ MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMC
+ VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6
+ b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAd
+ BgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcN
+ MTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYD
+ VQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25z
+ b2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFt
+ YXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ
+ 21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9T
+ rDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpE
+ Ibb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4
+ nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0Fkb
+ FFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTb
+ NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE=
+ -----END CERTIFICATE-----</programlisting>'>
+ 
+ <!ENTITY ExampleCertELB 'MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
+ 0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZ
+ WF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIw
+ EAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5
+ jb20wHhcNMTEwNDI1MjA0NTIxWhcNMTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBh
+ MCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBb
+ WF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMx
+ HzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wgZ8wDQYJKoZIhvcNAQE
+ BBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ21uUSfwfEvySWtC2XADZ4nB+BLYgVI
+ k60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9TrDHudUZg3qX4waLG5M43q7Wgc/MbQ
+ ITxOUSQv7c7ugFFDzQGBzZswY6786m86gpEIbb3OhjZnzcvQAaRHhdlQWIMm2nr
+ AgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4nUhVVxYUntneD9+h8Mg9q6q+auN
+ KyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0FkbFFBjvSfpJIlJ00zbhNYS5f6Guo
+ EDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTbNYiytVbZPQUQ5Yaxu2jXnimvw
+ 3rrszlaEXAMPLE='>
+ 
+ 
+<!-- SECTION 5 - SIGN-IN ENTITIES -->
+ 
+ <!ENTITY aws_sec_root_user_information '
+<!-- Standalone paragraph statement about root users-->
+   <para>When you first create an &AWSlong; (&AWS;) account, you begin with a single sign-in
+     identity. That identity has complete access to all &AWS-services; and resources in the account. This
+     identity is called the <shared id="AWS-account"/> <emphasis>&root;</emphasis>. When you sign in, 
+     enter the email address and password that you used to create the account.</para>
+   <important>
+     <para>We strongly recommend that you do not use the &root; for your everyday tasks, even the
+       administrative ones. Instead, adhere to the <ulink url="&url-iam-user;best-practices.html#create-iam-users">best practice of
+         using the &root; only to create your first &IAM; user</ulink>. Then securely lock away
+       the &root; credentials and use them to perform only a few account and service management
+       tasks. To view the tasks that require you to sign in as the &root;, see <ulink
+         url="&url-aws-gen;aws_tasks-that-require-root.html">Tasks that require root
+       user credentials</ulink>.</para>
+   </important>
+ '>
+ 
+ <!ENTITY aws_sec_root_user_information-inline '
+<!-- Inline statement about root users (use within a para) -->
+   When you first create an <shared id="AWS-account"/>, you begin with a single sign-in
+     identity that has complete access to all &AWS-services; and resources in the account. This
+     identity is called the <shared id="AWS-account"/> <emphasis>&root;</emphasis> and is accessed by
+     signing in with the email address and password that you used to create the account. We 
+     strongly recommend that you do not use the &root; for your everyday tasks, even the
+       administrative ones. Instead, adhere to the <ulink url="&url-iam-user;best-practices.html#create-iam-users">best practice of
+         using the &root; only to create your first &IAM; user</ulink>. Then securely lock away
+       the &root; credentials and use them to perform only a few account and service management
+       tasks.
+ '>
+       
+ <!ENTITY aws_sec_iam_user_signin-simple '
+<!-- Paragraph for simple procedures when a user must sign in as an IAM user before completing an action -->
+<para>Sign in to the <ulink url="&url-console-domain;iam">&IAM; console</ulink> by choosing <guilabel>IAM user</guilabel> and entering your <shared id="AWS-account"/> ID or account alias. On the next page, enter your &IAM; user name and your password.</para>
+'>
+  
+ <!ENTITY aws_sec_iam_user_signin '
+<!-- Paragraph for detailed procedures when a user must sign in as an IAM user before completing an action -->
+<para> Sign in to the <ulink url="&url-console-domain;iam">&IAM; console</ulink> by choosing <guilabel>IAM user</guilabel> and entering your <shared id="AWS-account"/> ID or account alias. On the next page, enter your &IAM; user name and your password.</para>
+       <note>
+         <para>For your convenience, the &AWS; sign-in page uses a browser cookie to remember your 
+           &IAM; user name and account information. If you previously signed in as a different user, choose the sign-in link beneath the button to return to the main sign-in page. From there, you can enter your <shared id="AWS-account"/> ID or account 
+           alias to be redirected to the &IAM; user sign-in page for your account.</para>
+       </note>
+'>
+
+ 
+ <!ENTITY aws_sec_iam_user-cookies '
+<!-- Paragraph about sign-in cookies -->
+ <para>For convenience, the &AWS; sign-in page uses a browser cookie to remember the &IAM; user
+       name and account information. The next time the user goes to any page in the &console;, the
+       console uses the cookie to redirect the user to the account sign-in page.</para>
+ '>
+  
+ <!ENTITY  aws_sec_root_user_signin-simple '
+<!-- Paragraph for simple procedures when a user must sign in as the root user before completing an action -->
+<para> Sign in to the <ulink 
+   url="&url-console-domain;">&console;</ulink> as the account owner by choosing <guilabel>&root-sentence;</guilabel> and entering your <shared id="AWS-account"/> email address. On the next page, enter your password.</para>
+'>
+
+  
+ <!ENTITY  aws_sec_root_user_iam_signin-simple '
+<!-- Paragraph for simple procedures when a user must sign in as the root user AND THEN GO TO THE IAM CONSOLE before completing an action -->
+<para>Sign in to the <ulink type="console" url="iam/">&IAM; console</ulink> as the account owner by choosing <guilabel>&root-sentence;</guilabel> and entering your <shared id="AWS-account"/> email address. On the next page, enter your password.</para>
+'>
+
+ <!ENTITY  aws_sec_root_user_signin '
+<!-- Paragraph for detailed procedures when a user must sign in as the root user 
+AND THEN GO TO THE IAM CONSOLE before completing an action -->
+<para>Sign in to the <ulink type="console" url="iam/">&IAM; console</ulink> as the account owner by choosing <guilabel>&root-sentence;</guilabel> and entering your <shared id="AWS-account"/> email address. On the next page, enter your password.</para>
+   <note>
+     <para>If you see three text boxes, then you previously signed in to the console with 
+     <emphasis><ulink url="&url-iam-user;id_users.html">&IAM; user</ulink></emphasis> credentials. 
+     Your browser might remember this preference and open this 
+     account-specific sign-in page every time that you try to sign in. 
+     You cannot use the &IAM; user sign-in page to sign in as the account owner. If you see the 
+     <ulink url="&url-iam-user;console.html#user-sign-in-page">&IAM; user sign-in page</ulink>, choose 
+     <guilabel>Sign in using &root; email</guilabel> near the bottom of the page. This returns you 
+     to the main sign-in page. From there, you can sign in as the &root; using your <shared id="AWS-account"/> email address and 
+     password.</para>
+   </note>
+'>
+
+
+<!ENTITY aws_sec_user_signin_instructions_admin '
+<!-- Paragraphs for administrator about how their IAM users can sign in -->
+    <para>To use the &console;, each &IAM; user must provide an account ID or account alias in
+       addition to a user name and password. When you, as an administrator, 
+       <ulink url="&url-iam-user;id_users_create.html#id_users_create_console">create 
+       an &IAM; user in the console</ulink>, you must send the sign-in credentials to that user. These credentials must include the user name and the URL to the account sign-in page.</para>
+    <para>Depending on how you set up the &IAM; user, you might also need to provide each user with more information. 
+       If you set up a temporary password for the user to sign in for the first time, securely give them the password. 
+       If you also enabled an MFA device for the user, 
+         give them the device. For detailed information about passwords and MFA devices, see 
+         <ulink url="&url-iam-user;id_credentials_passwords.html">Managing passwords</ulink> 
+         and <ulink url="&url-iam-user;id_credentials_mfa.html">Using multi-factor authentication (MFA) in &AWS;</ulink>.</para>
+     <para>Your unique account sign-in page URL has the following pattern and is created automatically when you begin using
+       &IAM;. You do not have to do anything to use this sign-in page.</para>
+     <programlisting>https://<replaceable>12-digit-account-id</replaceable>.signin.&home-domain;/console/</programlisting>
+     <para>You can also customize the account sign-in URL for your account. For example, you can make the URL contain your 
+       company name (or other friendly identifier) instead of your <shared id="AWS-account"/> ID. For more 
+       information about creating an account alias, see 
+       <ulink url="&url-iam-user;console_account-alias.html">Your <shared id="AWS-account"/> ID and its alias</ulink>.</para>
+     <note>
+       <title>Tip</title>
+       <para>To create a bookmark for your account sign-in page in your web browser, you should
+         manually enter the sign-in URL for your account in the bookmark entry. Do not use your web
+         browser bookmark feature because redirects can obscure the sign-in URL.
+       </para>
+     </note>
+     <para>You can find the URL for your account sign-in page anytime by viewing the dashboard of the
+       &IAM; console. At the top of &IAM; <guilabel>Dashboard</guilabel> page, you can see the sign-in link text:</para>
+      <para><guilabel>&IAM; users sign-in link:</guilabel></para>
+      <para><guilabel>https://<replaceable>12-digit-account-id</replaceable>.signin.aws.amazon.com/console</guilabel></para>
+     <para>&IAM; users can also sign in using the following general sign-in endpoint and enter an
+       account ID or account alias manually:</para>
+     <programlisting><ulink url="&url-console-domain;">&url-console-domain;</ulink></programlisting>
+     <note>&aws_sec_account_id-find;</note>
+     &aws_sec_iam_user-cookies;
+ '>
+
+<!ENTITY  aws_sec_account_id-find-simple '
+In the navigation bar, choose <guilabel>Support</guilabel>, and then <guilabel>Support Center</guilabel>. Your currently signed-in 12-digit account number (ID) appears 
+in the <guilabel>Support Center</guilabel> navigation pane.
+'>
+
+ <!ENTITY aws_sec_account_id-find '
+<!-- Paragraph for finding account ID in the console -->
+<para>&aws_sec_account_id-find-simple;</para>
+'>
+ 
+ <!ENTITY aws_sec_user_signin_instructions '
+<!-- Paragraph to explain how to sign in as an IAM user -->
+     <para>To sign in to the &console; as an &IAM; user, you must provide your account ID or account 
+       alias in addition to your user name and password. When your administrator <ulink url="&url-iam-user;id_users_create.html#id_users_create_console">
+         created your &IAM; user in the console</ulink>, they should 
+       have provided you with sign-in credentials, including your user name and a URL. The URL goes to your account
+       sign-in page and is encoded with your account ID or account alias. For example:</para>
+     <programlisting>https://<replaceable>My_AWS_Account_ID</replaceable>.signin.&home-domain;/console/</programlisting>
+     <note>
+       <title>Tip</title>
+       <para>To create a bookmark for your account sign-in page in your web browser, you should
+         manually enter the sign-in URL for your account in the bookmark entry. Do not use your web
+         browser bookmark feature because redirects can obscure the sign-in URL.
+       </para>
+     </note>
+     <para>You can also sign in using the following general sign-in endpoint and enter your
+       account ID or account alias manually:</para>
+     <programlisting><ulink url="&url-console-domain;">&url-console-domain;</ulink></programlisting>
+     &aws_sec_iam_user-cookies;
+    <para>You have access only to the &AWS; resources that your administrator specifies in
+       the policy that is attached to your &IAM; user identity. To work
+       in the console, you must have permissions to perform the actions that the console performs,
+       such as listing &IAM; resources. For more information, see <ulink url="&url-iam-user;access.html">Access management</ulink> 
+      and <ulink url="&url-iam-user;access_policies_examples.html">Example policies</ulink>.</para>
+     &aws_sec_note_for_federated_sso; 
+     &aws_sec_ct_log-signin;
+ '>
+  
+ <!ENTITY aws_sec_note_for_federated_sso '<note>
+   <!-- Paragraph for single-sign-on options -->
+ 		<para>If your organization has an existing identity system, you might want to create a single
+ 			sign-on (SSO) option. SSO gives users access to the &console; for your account without 
+ 			requiring them to have an &IAM; user identity. SSO also eliminates the need for users to sign 
+ 			in to your organization&apos;s site and to &AWS; separately. For more information, 
+ 			see <ulink url="&url-iam-user;id_roles_providers_enable-console-custom-url.html">Enabling 
+ 			custom identity broker access to the &console;</ulink>.</para>
+ 	</note>
+ '> 
+
+ <!ENTITY aws_sec_ct_log-signin '
+<!-- Section for how CloudTrail logs sign-in events -->
+<section id="aws-console-signin-cloudtrail">
+  <info>
+    <title id="aws-console-signin-cloudtrail.title">Logging sign-in details in &CT;</title>
+  </info>
+       <para>If you enable &CT; to log sign-in events, you must understand how &CT; logs the
+         events. &CT; includes global and Regions log entries. Where a sign-in event is logged in &CT; depends
+      on how your users sign in. For details, see <ulink
+        url="&url-iam-user;cloudtrail-integration.html">Logging &IAM; events with
+      &CT;</ulink>.</para>
+  </section>
+ '>
+ 
+<!-- SECTION 6 - IAM ENTITIES -->
+
+
+<!--Access Level Groups for actions used in permissions -->
+<!ENTITY access_level-list 'List'>
+<!ENTITY access_level-read 'Read'>
+<!ENTITY access_level-write 'Write'>
+<!ENTITY access_level-perm 'Permissions management'>
+<!ENTITY access_level-tag 'Tagging'>
+
+
+<!ENTITY iam-credentials-cli '
+<!-- Para for use cases related to the CLI, as for access key best practices. -->
+<para>For CLI access, you need an access key ID and secret access key. Use &IAM; user access keys instead of 
+  &rootlong; access keys. &IAM; lets you securely control access to &AWS-services; and resources in your <shared id="AWS-account"/>.
+  For more information about creating access keys, see <ulink url="&url-aws-gen;aws-sec-cred-types.html">Understanding and getting your security credentials</ulink> 
+  in the <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+'>
+
+<!ENTITY iam-credentials-api '
+<!-- Para for use cases related to the API, as for access key best practices. -->
+<para>For API access, you need an access key ID and secret access key. 
+  Use &IAM; user access keys instead of 
+  &rootlong; access keys. For more information about creating access keys, see 
+  <ulink url="&url-iam-user;id_credentials_access-keys.html">Managing access keys for &IAM; users</ulink>  
+  in the <emphasis>&guide-iam-user;</emphasis>.
+</para>
+'>
+
+<!ENTITY iam-credentials-console '
+<!-- Para for credential use cases related to the console. -->
+<para>For console access, use your &IAM; 
+  user name and password to sign in to the 
+  <ulink url="&url-console-domain;console/home">&console;</ulink> 
+  from the <ulink url="&url-iam-user;console.html">&IAM; sign-in page</ulink>. 
+  &IAM; lets you securely control access to 
+  &AWS-services; and resources in your <shared id="AWS-account"/>.
+  For details about console and programmatic credentials, see 
+  <ulink url="&url-aws-gen;aws-sec-cred-types.html">Understanding and getting your security credentials</ulink> 
+  in the <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+'>
+
+<!ENTITY iam_gsg_blurb '
+<!-- Section for service GSG that is integrated with IAM, in the Where Do I Go From Here section at the end. -->
+<section id="iam-about-shared">
+  <info>
+    <title id="iam-about-shared.title"><shared id="AWS-account"/> and security credentials</title>
+  </info>
+  <para>When you signed up for the service, you created an <shared id="AWS-account"/> using an email address and 
+    password. Those are your &rootlong; credentials. As a best practice, you should not use your 
+    &root; credentials to access &AWS;. Nor should you give your credentials to anyone else. Instead, 
+    create individual users for those who need access to your <shared id="AWS-account"/>. First, create an &IAMlong; (&IAM;) 
+    administrator user for yourself and use it for your daily work. For details, see 
+    <ulink url="&url-iam-user;getting-started_create-admin-group.html">Creating your first &IAM; admin 
+      user and group</ulink> in the <emphasis>&guide-iam-user;</emphasis>. Then create additional &IAM; 
+    users for other people. For details, see 
+    <ulink url="&url-iam-user;getting-started_create-delegated-user.html">Creating your first &IAM; 
+      delegated user and group</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  <para>If you&apos;re an account owner or administrator and want to 
+    know more about &IAM;, see the product description at 
+    <ulink url="&url-mkt-domain;iam">&url-mkt-domain;iam</ulink> or the 
+    technical documentation in the <ulink url="&url-iam-user;introduction.html">&guide-iam-user;</ulink>.</para>
+</section>
+'>
+
+<!-- The following entities go in this order in the User Guide or Dev Guide 
+ for the service (if the service has both, it goes into both): -->
+<!--    1. &iam_main_blurb_part1of2;
+        2. service-specific entity (e.g., &iam_ec2_example; if the service is EC2)
+        3. &iam_main_blurb_part2of2;
+ -->
+<!ENTITY iam_main_blurb_part1of2 '
+ <!--  Confirm that you have the following entity in your local service entities file. 
+service - Add the shared entity for your service long name, like &EC2long;
+-->
+<para>&AA-SERVICENAME; is integrated with &IAMlong; (&IAM;), which offers a wide range of features:</para>
+<itemizedlist>
+  <listitem>
+    <para>Create users and groups in your <shared id="AWS-account"/>.</para>
+  </listitem>
+  <listitem>
+    <para>Easily share your &AWS; resources between the users in your <shared id="AWS-account"/>.</para>
+  </listitem>
+  <listitem>
+    <para>Assign unique security credentials to each user.</para>
+  </listitem>
+  <listitem>
+    <para>Control each user&apos;s access to services and resources.</para>
+  </listitem>
+  <listitem>
+    <para>Get a single bill for all users in your <shared id="AWS-account"/>.</para>
+  </listitem>
+</itemizedlist>
+'>
+
+<!ENTITY iam_main_blurb_part2of2 '
+<para>For more information about &IAM;, see the following:</para>
+<itemizedlist>
+  <listitem>
+    <para><ulink url="&url-mkt-domain;iam/">&IAMlong; (&IAM;)</ulink></para>
+  </listitem>
+  <listitem>
+    <para><ulink url="&url-iam-user;getting-started.html">Getting started</ulink></para>
+  </listitem>
+  <listitem>
+    <para>&link-iam-user;</para>
+  </listitem>
+</itemizedlist>
+'>
+
+<!ENTITY iam_ec2_example '<para>With &EC2;, you can use &IAM; to control which 
+  users in your <shared id="AWS-account"/> can create AMIs or launch 
+  instances.</para>'>
+
+<!ENTITY iam_vpc_example '<para>With &VPC;, you can use &IAM; to control which 
+  users in your <shared id="AWS-account"/> can create VPCs, subnets, 
+  and so on. </para>'>
+
+<!ENTITY iam_as_example '<para>For example, you can use &IAM; with &AS; to control 
+  which users in your <shared id="AWS-account"/> can create launch 
+  configurations, or &AS; groups and triggers. </para>'>
+
+<!ENTITY iam_cw_example '<para>For example, you can use &IAM; with &CW; to control 
+  which users in your <shared id="AWS-account"/> can put metric data 
+  or create monitors.</para>'>
+
+<!ENTITY iam_elb_example '<para>For example, you can use &IAM; with &ELB; to control 
+  which users in your <shared id="AWS-account"/> can create load 
+  balancers. </para>'>
+
+<!ENTITY iam_s3_example '<para>For example, you can use &IAM; with &S3; to control 
+  the type of access a user or group of users has to 
+  specific parts of an &S3; bucket your <shared id="AWS-account"/> owns.  </para>'>
+
+<!ENTITY iam_sqs_example '<para>For example, you can use &IAM; with &SQS; to control 
+  the type of access a user or group of users has 
+  to a specific queue your <shared id="AWS-account"/> owns.</para>'>
+
+<!ENTITY iam_sns_example '<para>For example, you can use &IAM; with &SNS; to control 
+  the type of access a user or group of users has 
+  to a specific topic your <shared id="AWS-account"/> owns.</para>'>
+
+<!ENTITY iam_sdb_example '<para>For example, you can use &IAM; to control access to a 
+  specific domain that your <shared id="AWS-account"/> owns.</para>'>
+
+<!ENTITY iam_rds_example '<para>For example, you can use &IAM; with &RDS; to control 
+  which users in your <shared id="AWS-account"/> can create or modify 
+  DB instances for your <shared id="AWS-account"/>.</para>'>
+
+<!ENTITY iam-create-admin-group-and-user '
+<!-- Procedure for creating your first IAM admin user -->
+<procedure>
+  <title>To create an administrator user for yourself and add the user to an administrators
+    group (console)</title>
+  <step>&aws_sec_root_user_iam_signin-simple;
+    <note>
+      <para>We strongly recommend that you adhere to the best practice of using the 
+        <userinput>Administrator</userinput> &IAM; user that follows and securely lock away 
+        the root user credentials. Sign in as the root user only to perform a few 
+        <ulink url="&url-aws-gen;aws_tasks-that-require-root.html">account and service 
+          management tasks</ulink>.</para>
+    </note>
+  </step>
+  <step>
+    <para>In the navigation pane, choose <guilabel>Users</guilabel> and then choose
+      <guilabel>Add users</guilabel>.</para>
+  </step>
+  <step>
+    <para>For <guilabel>User name</guilabel>, enter 
+      <userinput>Administrator</userinput>.</para>
+  </step>
+  <step>
+    <para>Select the check box next to <guilabel>&console; access</guilabel>. Then select
+      <guilabel>Custom password</guilabel>, and then enter your new password in the text box.</para>
+  </step>
+  <step>
+    <para>(Optional) By default, &AWS; requires the new user to create a new password when first signing in. You
+      can clear the check box next to <guilabel>User must create a new password at
+        next sign-in</guilabel> to allow the new user to reset their password after they sign
+      in.</para>
+  </step>
+  <step>
+    <para>Choose <guilabel>Next: Permissions</guilabel>.</para>
+  </step>
+  <step>
+    <para>Under <guilabel>Set permissions</guilabel>, choose <guilabel>Add user to
+      group</guilabel>.</para>
+  </step>
+  <step>
+    <para>Choose <guilabel>Create group</guilabel>.</para>
+  </step>
+  <step>
+    <para>In the <guilabel>Create group</guilabel> dialog box, for <guilabel>Group name</guilabel> enter <userinput>Administrators</userinput>.</para>
+  </step>
+  <step>
+    <para>Choose <guilabel>Filter policies</guilabel>, and then select <guilabel>&AWS; managed - job
+      function</guilabel> to filter the table contents.</para>
+  </step>
+  <step>
+    <para>In the policy list, select the check box for <guilabel>AdministratorAccess</guilabel>. Then choose <guilabel>Create group</guilabel>.</para>
+    <note>
+      <para>You must activate &IAM; user and role access to Billing before you can use the
+        <code>AdministratorAccess</code> permissions to access the &ABlong; console. To do
+        this, follow the instructions in <ulink url="&url-iam-user;tutorial_billing.html">step 1 of the tutorial
+          about delegating access to the billing console</ulink>.</para>
+    </note>
+  </step>
+  <step>
+    <para>Back in the list of groups, select the check box for your new group. Choose
+      <guilabel>Refresh</guilabel> if necessary to see the group in the list.</para>
+  </step>
+  <step>
+    <para>Choose <guilabel>Next: Tags</guilabel>.</para>
+  </step>
+  <step>
+    <para>(Optional) Add metadata to the user by attaching tags as key-value pairs. For more
+      information about using tags in &IAM;, see <ulink url="&url-iam-user;id_tags.html">Tagging &IAM; entities</ulink> 
+      in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  </step>
+  <step>
+    <para>Choose <guilabel>Next: Review</guilabel> to see the list of group memberships to be
+      added to the new user. When you are ready to proceed, choose <guilabel>Create
+        user</guilabel>.</para>
+  </step>
+</procedure>
+<para>You can use this same process to create more groups and users and to give your users
+  access to your <shared id="AWS-account"/> resources. To learn about using policies that restrict user
+  permissions to specific &AWS; resources, see <ulink url="&url-iam-user;access.html">Access management</ulink> and 
+  <ulink url="&url-iam-user;access_policies_examples.html">Example policies</ulink>.</para>
+'>
+  
+ <!ENTITY aws_sec_role-definition '
+ <!-- Inline definition of an IAM role -->
+    An <ulink url="&url-iam-user;id_roles.html">&IAM; role</ulink> is an &IAM; identity that 
+    you can create in your account that has specific permissions. An &IAM; role is similar to 
+    an &IAM; user in that it is an &AWS; identity with permissions policies that determine 
+    what the identity can and cannot do in &AWS;. However, instead of being uniquely associated 
+    with one person, a role is intended to be assumable by anyone who needs it. Also, a role 
+    does not have standard long-term credentials such as a password or access keys associated 
+    with it. Instead, when you assume a role, it provides you with temporary security credentials 
+    for your role session.
+ '>
+  
+ <!ENTITY aws_sec_federated-user-role-definition '
+<!-- Inline definition of a federated user -->
+    Instead of creating an &IAM; user, you can use existing identities from &ADS;, your
+    enterprise user directory, or a web identity provider. These are known as
+    <emphasis>federated users</emphasis>. &AWS; assigns a role to a federated user when
+    access is requested through an <ulink url="&url-iam-user;id_roles_providers.html">identity
+      provider</ulink>. For more information about federated users, see <ulink
+        url="&url-iam-user;introduction_access-management.html#intro-access-roles">Federated
+        users and roles</ulink> in the <emphasis>&guide-iam-user;</emphasis>.
+ '>
+  
+ <!ENTITY aws_sec_cross-account-role-definition '
+<!-- Inline definition of a cross-account role -->
+You can use an &IAM;
+               role in your account to grant another <shared id="AWS-account"/> permissions to access your account&apos;s
+               resources. For an example, see <ulink
+                 url="&url-iam-user;tutorial_cross-account-with-roles.html"
+                 >Tutorial: Delegate access across <shared id="AWS-accounts"/> using &IAM; roles</ulink> in the
+                 <emphasis>&guide-iam-user;</emphasis>.
+ '>
+  
+ <!ENTITY aws_sec_cross-service-intro '
+<!-- Inline introduction to cross-service access -->
+      Some &AWS-services; use features in other &AWS-services;. For example, when you make a call in a service, 
+      it&apos;s common for that service to run applications in &EC2; or store objects in &S3;. A service might do this 
+      using the calling principal&apos;s permissions, using a service role, or using a service-linked role.
+ '>
+ <!ENTITY aws_sec_principal-perms-definition '
+<!-- Inline definition of cross-service principal permissions -->
+      When you use an &IAM; user or role to perform actions in &AWS;, you are considered a principal. Policies 
+      grant permissions to a principal. When you use some services, you might perform an action that then triggers 
+      another action in a different service. In this case, you must have permissions to perform both actions. To 
+      see whether an action requires additional dependent actions in a policy, see &AA-SERVICE-LIST-URL; in the 
+      <emphasis>Service Authorization Reference</emphasis>.
+ '> 
+
+ <!ENTITY aws_sec_service-role-definition '
+<!-- Inline definition of a service role -->
+      A service role is an <ulink url="&url-iam-user;id_roles.html">&IAM; role</ulink> that a service assumes to perform 
+      actions on your behalf. An &IAM; administrator can create, modify, and delete a service role from within &IAM;. For 
+      more information, see <ulink url="&url-iam-user;id_roles_create_for-service.html">Creating a role to delegate permissions 
+      to an &AWS-service;</ulink> in the <emphasis>&guide-iam-user;</emphasis>.
+ '>
+ <!ENTITY aws_sec_service-linked-role-definition '
+<!-- Inline definition of a service role -->
+      A service-linked role is a type of service role that is linked to an &AWS-service;. The service can assume the role to perform an action on your behalf. 
+      Service-linked roles appear in your &IAM; account and are owned by the service. An &IAM; administrator can view, 
+      but not edit the permissions for service-linked roles. 
+ '>
+  
+ <!ENTITY aws_sec_ec2-role-definition '
+<!-- Inline definition of an EC2 service role -->
+      You can use an &IAM; role to manage temporary credentials for applications that are running on an EC2 instance and making &CLI; or &AWS; API requests. 
+      This is preferable to storing access keys within the EC2 instance. To assign an &AWS; role to an EC2 instance and make it 
+      available to all of its applications, you create an instance profile that is attached to the 
+      instance. An instance profile contains the role and enables programs that are running on the EC2 instance to
+      get temporary credentials. For more information, see <ulink
+       url="&url-iam-user;id_roles_use_switch-role-ec2.html"
+       >Using an &IAM; role to grant permissions to applications running on &EC2; instances</ulink> in the 
+      <emphasis>&guide-iam-user;</emphasis>.
+ '>
+  
+<!ENTITY aws_sec_create-service-role '
+<!-- Procedure to create a service role -->
+<procedure>
+        <title>To create a role for an &AWS-service; (&IAM; console)</title>
+        <step>&IAMConsole_DirectURL;</step>
+        <step>
+            <para>In the navigation pane of the &IAM; console, choose <guilabel>Roles</guilabel>, and
+                then choose <guilabel>Create role</guilabel>.</para>
+        </step>
+        <step>
+            <para>Choose the <guilabel>&AWS-service;</guilabel> role type.</para>
+        </step>
+        <step>
+            <para>Choose the use case for your service. Use cases are defined by the service to include the trust policy
+                that the service requires.</para>
+        </step>
+        <step>
+            <para>Choose <guilabel>Next</guilabel>.</para>
+        </step>
+        <step>
+            <para>If possible, select the policy to use for the permissions policy. Otherwise,
+                choose <guilabel>Create policy</guilabel> to open a new browser tab and create a new
+                policy from scratch. For more information, see <ulink
+                    url="&url-iam-user;access_policies_create.html#access_policies_create-start"
+                    >Creating &IAM; policies</ulink> in the
+                <emphasis>&guide-iam-user;</emphasis>.</para>
+        </step>
+        <step><para>After you create the policy, close that tab and return to your original tab. Select the
+            check box next to the permissions policies that you want the service to have.</para>
+            <para>Depending on the use case that you selected, the service might let you do any of the
+                following:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Nothing, because the service defines the permissions for the role.</para>
+                </listitem>
+                <listitem>
+                    <para>Choose from a limited set of permissions.</para>
+                </listitem>
+                <listitem>
+                    <para>Choose from any permissions.</para>
+                </listitem>
+                <listitem>
+                    <para>Select no policies at this time. However, you can create the policies later, and then
+                        attach them to the role.</para>
+                </listitem>
+            </itemizedlist>
+        </step>
+        <step>
+            <para>(Optional) Set a <ulink url="&url-iam-user;access_policies_boundaries.html"
+                >permissions boundary</ulink>. This is an advanced feature that is available for
+                service roles, but not for service-linked roles. </para>
+            <para>Expand the <guilabel>Permissions boundary</guilabel> section and choose
+                <guilabel>Use a permissions boundary to control the maximum role
+                    permissions</guilabel>. &IAM; includes a list of the &AWS; managed and customer
+                managed policies in your account. Select the policy to use for the permissions
+                boundary or choose <guilabel>Create policy</guilabel> to open a new browser tab and
+                create a new policy from scratch. For more information, see <ulink
+                    url="&url-iam-user;access_policies_create.html#access_policies_create-start"
+                    >Creating &IAM; policies</ulink> in the <emphasis>&guide-iam-user;</emphasis>.
+                After you create the policy, close that tab and return to your original tab to
+                select the policy to use for the permissions boundary.</para>
+        </step>
+        <step>
+            <para>Choose <guilabel>Next</guilabel>.</para>
+        </step>
+        <step>
+            <para>For <guilabel>Role name</guilabel>, the degree of role name customization is
+                defined by the service. If the service defines the role&apos;s name, this option is not
+                editable. In other cases, the service might define a prefix for the role and let you
+                enter an optional suffix. Some services let you specify the entire name of your
+                role.</para>
+            <para>If possible, enter a role name or role name suffix to help you identify the purpose
+                of this role. Role names must be unique within your &AWS-account;. Because role
+                names are case insensitive, you cannot create roles named both
+                    <userinput>PRODROLE</userinput> and <userinput>prodrole</userinput>. Various
+                entities might reference the role. Therefore, you cannot edit the name of the role
+                after it has been created.</para>
+        </step>
+        <step>
+            <para>(Optional) For <guilabel>Description</guilabel>, enter a description for the new
+                role.</para>
+        </step>
+        <step>
+            <para>Choose <guilabel>Edit</guilabel> in the <guilabel>Step 1: Select trusted
+                entities</guilabel> or <guilabel>Step 2: Select permissions</guilabel> sections
+                to edit the use cases and permissions for the role. </para>
+        </step>
+        <step>
+            <para>(Optional) Add metadata to the user by attaching tags as key-value pairs. For more
+                information about using tags in &IAM;, see <ulink url="&url-iam-user;id_tags.html">Tagging &IAM; resources</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+        </step>
+        <step>
+            <para>Review the role, and then choose <guilabel>Create role</guilabel>.</para>
+        </step>
+    </procedure>
+'>
+  
+<!ENTITY aws_sec_create-service-role-custom '
+<!-- Add custom entities to the top of the file where you use aws_sec_create-service-role-custom:
+THIS-SERVICE-NAME - Add the shared entity for your service long name, like &IAMlong;
+THIS-TEMPLATE-NAME - Add the name of your service role template. This is how a user chooses your use case in the IAM console.
+THIS-ROLE-PERMISSIONS - Add a paragraph (in para tags) that includes instructions for choosing the correct permissions for your role. For example,
+
+<para>Select the box next to the the AWSServiceNameAndFunction policy that you created in the previous procedure.</guilabel>.</para>
+-->
+<procedure>
+<title>To create the service role for &THIS-SERVICE-NAME; (&IAM; console)</title>
+<step>&IAMConsole_DirectURL;</step>
+<step>
+<para>In the navigation pane of the &IAM; console, choose <guilabel>Roles</guilabel>, and
+then choose <guilabel>Create role</guilabel>.</para>
+</step>
+<step>
+<para>Choose the <guilabel>&AWS-service;</guilabel> role type, and then choose &THIS-SERVICE-NAME;.</para>
+</step>
+<step>
+<para>Choose the &THIS-TEMPLATE-NAME; use case. Then, choose <guilabel>Next</guilabel>.</para>
+</step>
+<step>
+&THIS-ROLE-PERMISSIONS;
+</step>
+<step>
+<para>(Optional) Set a <ulink url="&url-iam-user;access_policies_boundaries.html">permissions
+boundary</ulink>. This is an advanced feature that is available for service roles, but
+not service-linked roles. </para>
+<para>Expand the <guilabel>Permissions boundary</guilabel> section and choose
+<guilabel>Use a permissions boundary to control the maximum role permissions</guilabel>.
+&IAM; includes a list of the &AWS; managed and customer managed policies in your account.
+Select the policy to use for the permissions boundary or choose <guilabel>Create
+policy</guilabel> to open a new browser tab and create a new policy from scratch. For
+more information, see <ulink url="&url-iam-user;access_policies_create.html#access_policies_create-start">Creating &IAM; policies</ulink>
+in the <emphasis>&guide-iam-user;</emphasis>. After you create the policy, close that tab and return to your original tab to select the policy to use for the permissions
+boundary.</para>
+</step>
+<step>
+<para>Choose <guilabel>Next</guilabel>.</para>
+</step>
+<step>
+<para>If possible, enter a role name or role name suffix to help you identify the purpose of
+this role. Role names must be unique within your &AWS-account;. They are not distinguished
+by case. For example, you cannot create roles named both <userinput>PRODROLE</userinput>
+and <userinput>prodrole</userinput>. Because various entities might reference the role,
+you cannot edit the name of the role after it has been created.</para>
+</step>
+<step>
+<para>(Optional) For <guilabel>Description</guilabel>, enter a description for the new
+role.</para>
+</step>
+<step>
+<para>Choose <guilabel>Edit</guilabel> in the <guilabel>Step 1: Select trusted
+entities</guilabel> or <guilabel>Step 2: Select permissions</guilabel> sections to edit
+the use cases and permissions for the role. </para>
+</step>
+<step>
+<para>(Optional) Add metadata to the user by attaching tags as key-value pairs. For more
+information about using tags in IAM, see <ulink url="&url-iam-user;id_tags.html">Tagging &IAM; resources</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+</step>
+<step>
+<para>Review the role and then choose <guilabel>Create role</guilabel>.</para>
+</step>
+</procedure>
+'>
+  
+<!ENTITY aws_sec_create-json-policy '
+<!-- Procedure to create a JSON policy in the IAM console -->
+ <procedure>
+      <title>To use the JSON policy editor to create a policy</title>
+      <step>&IAMConsole_DirectURL;</step>
+      <step>
+        <para>In the navigation column on the left, choose <guilabel>Policies</guilabel>. </para>
+        <para>If this is your first time choosing <guilabel>Policies</guilabel>, the
+          <guilabel>Welcome to Managed Policies</guilabel> page appears. Choose <guilabel>Get
+            Started</guilabel>.</para>
+      </step>
+      <step>
+        <para>At the top of the page, choose <guilabel>Create policy</guilabel>.</para>
+      </step>
+      <step>
+        <para>Choose the <guilabel>JSON</guilabel> tab.</para>
+      </step>
+      <step>
+        <para>Enter or paste a JSON policy document. For details about the &IAM; policy language, see
+          <ulink url="&url-iam-user;reference_policies.html">&IAM; JSON policy reference</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+      </step>
+      <step>
+        <para>Resolve any security warnings, errors, or general warnings generated during <ulink url="&url-iam-user;access_policies_policy-validator.html">policy validation</ulink>, and then choose <guilabel>Review policy</guilabel>.
+		</para>
+        <note>
+          <para>You can switch between the <guilabel>Visual editor</guilabel> and
+            <guilabel>JSON</guilabel> tabs any time. However, if you make changes or choose
+            <guilabel>Review policy</guilabel> in the <guilabel>Visual editor</guilabel> tab,
+            &IAM; might restructure your policy to optimize it for the visual editor. For more
+            information, see <ulink url="&url-iam-user;troubleshoot_policies.html#troubleshoot_viseditor-restructure">Policy restructuring</ulink> 
+            in the <emphasis>&guide-iam-user;</emphasis>.</para>
+        </note>
+      </step>
+      <step>
+        <para>On the <guilabel>Review policy</guilabel> page, enter a <guilabel>Name</guilabel> and an optional
+          <guilabel>Description</guilabel> for the policy that you are creating. Review
+          the policy <guilabel>Summary</guilabel> to see the permissions that are granted by your
+          policy. Then choose <guilabel>Create policy</guilabel> to save your work.</para>
+      </step>
+    </procedure>
+  '>
+ 
+ <!ENTITY aws_sec_create-json-policy-custom '
+ <!--  Procedure for creating a specific JSON policy in the IAM console.
+   ****Add the following custom entity to the top of the file where you use aws_sec_create-json-policy-custom:
+ENTITY JSON-POLICY-DOC - Add the full text for your policy, but do not include the replaceable tags.-->
+ <procedure>
+      <title>To use the JSON policy editor to create a policy</title>
+      <step>&IAMConsole_DirectURL;</step>
+      <step>
+        <para>In the navigation column on the left, choose <guilabel>Policies</guilabel>. </para>
+        <para>If this is your first time choosing <guilabel>Policies</guilabel>, the
+          <guilabel>Welcome to Managed Policies</guilabel> page appears. Choose <guilabel>Get
+            Started</guilabel>.</para>
+      </step>
+      <step>
+        <para>At the top of the page, choose <guilabel>Create policy</guilabel>.</para>
+      </step>
+      <step>
+        <para>Choose the <guilabel>JSON</guilabel> tab.</para>
+      </step>
+      <step>
+        <para>Enter the following JSON policy document:</para>
+        <programlisting>&JSON-POLICY-DOC;</programlisting>
+      </step>
+      <step>
+        <para>Choose <guilabel>Review policy</guilabel>.</para>
+        <note>
+          <para>You can switch between the <guilabel>Visual editor</guilabel> and
+            <guilabel>JSON</guilabel> tabs any time. However, if you make changes or choose
+            <guilabel>Review policy</guilabel> in the <guilabel>Visual editor</guilabel> tab,
+            &IAM; might restructure your policy to optimize it for the visual editor. For more
+            information, see <ulink url="&url-iam-user;troubleshoot_policies.html#troubleshoot_viseditor-restructure">Policy restructuring</ulink> 
+    in the <emphasis>&guide-iam-user;</emphasis>.</para>
+        </note>
+      </step>
+      <step>
+        <para>On the <guilabel>Review policy</guilabel> page, enter a <guilabel>Name</guilabel> and an optional
+          <guilabel>Description</guilabel> for the policy that you are creating. Review
+          the policy <guilabel>Summary</guilabel> to see the permissions that are granted by your
+          policy. Then choose <guilabel>Create policy</guilabel> to save your work.</para>
+      </step>
+    </procedure>
+  '>
+ 
+ <!ENTITY aws_sec_create-visual-policy '
+<!--  Procedure for rare doc cases for creating a generic policy using the IAM console visual policy editor.
+It is easier for the customer if you provide them with a JSON policy using aws_sec_create-json-policy-custom or 
+linking to the IAM process in <ulink url="&url-iam-user;access_policies_create.html#access_policies_create-json-editor">Creating policies on the JSON tab</ulink>
+For an example of providing a custom visual policy creation procedure, see 
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-identities -->
+<procedure>
+      <title>To use the visual editor to create a policy</title>
+      <step>&IAMConsole_DirectURL;</step>
+      <step>
+        <para>In the navigation pane on the left, choose <guilabel>Policies</guilabel>. </para>
+        <para>If this is your first time choosing <guilabel>Policies</guilabel>, the
+          <guilabel>Welcome to Managed Policies</guilabel> page appears. Choose <guilabel>Get
+            Started</guilabel>.</para>
+      </step>
+      <step>
+        <para>Choose <guilabel>Create policy</guilabel>.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Visual editor</guilabel> tab, choose <guilabel>Choose a
+          service</guilabel>. Then choose an &AWS-service; to add to the policy. You can use the
+          search box at the top to limit the results in the list of services. You can choose only
+          one service within a visual editor permissions block. To grant access to more than one
+          service, add multiple permissions blocks by choosing <guilabel>Add additional permissions</guilabel>.</para>
+      </step>
+      <step>
+        <para>Choose <guilabel>Select actions</guilabel> and then choose the actions to add to the
+          policy. The visual editor shows the actions that are available in the service that you selected in
+          the previous step.</para>
+        <para>You can choose actions in the following ways:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Use check boxes to select all actions for the service or all actions in one of the
+              predefined <guilabel>Access level groups</guilabel>.</para>
+          </listitem>
+          <listitem>
+            <para>Expand each of the <guilabel>Access level groups</guilabel> to choose individual
+              actions.</para>
+          </listitem>
+          <listitem>
+            <para>Choose <guilabel>add actions</guilabel> to enter a specific action or use wildcards
+              (<code>*</code>) to specify multiple actions.</para>
+          </listitem>
+        </itemizedlist>
+        <para>By default, the policy that you are creating allows the actions that you choose. To
+          deny the chosen actions instead, choose <guilabel>Switch to deny permissions</guilabel>.
+          Because <ulink url="&url-iam-user;reference_policies_evaluation-logic.html">&IAM; denies by
+            default</ulink>, we recommend as a security best practice that you allow permissions to
+          only those actions and resources that a user needs. This is sometimes called
+          "allow listing." You should create a JSON statement to deny permissions ("deny listing")
+          only if you want to override a permission that is separately allowed by another statement or
+          policy. We recommend that you limit the number of deny permissions to a minimum because
+          they can increase the difficulty of troubleshooting permissions.</para>
+      </step>
+      <step>
+        <para>If the actions that you selected in the previous steps do not
+          support choosing <ulink url="&url-iam-user;access_controlling.html#access_controlling-resources">specific resources</ulink>,
+          then <guilabel>All resources</guilabel> is selected for you. In that case, you cannot edit
+          this section.</para>
+        <para>If you chose one or more actions that support <ulink url="&url-iam-user;reference_aws-services-that-work-with-iam.html">
+        resource-level permissions</ulink>, then the
+          visual editor lists those resources You can then choose <guilabel>Resources</guilabel> to
+          specify resources for your policy.</para>
+        <para>You can choose resources in the following ways:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Choose <guilabel>Add ARN</guilabel> to provide the details about your resource.
+              Instead of entering a value, you can also choose <guilabel>Any</guilabel> to provide
+              permissions for any value for the specified setting. For example, if you selected the
+              &EC2; <guilabel>Read</guilabel> access level group, then the actions in your policy
+              support the <code>instance</code> resource type. You must provide the
+              <guilabel>Region</guilabel>, <guilabel>Account</guilabel>, and
+              <guilabel>InstanceId</guilabel> values for your resource. If you provide your
+              account ID but choose <guilabel>Any</guilabel> for the Region and instance ID, then
+              the policy grants permissions to any instance in your account.</para>
+          </listitem>
+          <listitem>
+            <para>Choose <guilabel>Add ARN</guilabel> to specify resources by their <ulink
+              url="&url-aws-gen;aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</ulink>.
+              You can include a wildcard (<userinput>*</userinput>) in any field of the ARN (between
+              each pair of colons). For more information, see 
+              <ulink url="&url-iam-user;reference_policies_elements_resource.html">&IAM; JSON Policy Elements: Resource</ulink> 
+              in the <emphasis>&guide-iam-user;</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Choose <guilabel>Any</guilabel> from the far right of the resource section to
+              grant permissions to any resources of a specific type.</para>
+          </listitem>
+          <listitem>
+            <para>Choose <guilabel>All resources</guilabel> to choose all resources for that
+              service. </para>
+          </listitem>
+        </itemizedlist>
+      </step>
+      <step>
+        <para>(Optional) Choose <guilabel>Specify request conditions (optional)</guilabel> to add
+          conditions to the policy that you are creating. Conditions limit the effect of a JSON policy statement. 
+          For example, you can specify that a user is allowed to perform the actions on the
+          resources only when the user request happens within a certain time range. You can also
+          use commonly used conditions to limit whether a user must be authenticated using a
+          multi-factor authentication (MFA) device, or if the request must originate from within a
+          certain range of IP addresses. For lists of all of the context keys that you can use in a
+          policy condition, see 
+          <ulink url="&url-sazr-ref;reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for &AWS-services;</ulink> 
+          in the <emphasis>&guide-sazr-ref;</emphasis>.</para>
+        <para>You can choose conditions in the following ways:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Use check boxes to select commonly used conditions.</para>
+          </listitem>
+          <listitem>
+            <para>Choose <guilabel>Add condition</guilabel> to specify other conditions. Choose the
+              condition <guilabel>Key</guilabel>, <guilabel>Qualifier</guilabel>, and
+              <guilabel>Operator</guilabel>, and then enter a <guilabel>Value</guilabel>. To add
+              more than one value, choose <guilabel>Add new value</guilabel>. You can consider the
+              values as being connected by a logical "OR" operator. When you are finished, choose
+              <guilabel>Add</guilabel>.</para>
+          </listitem>
+        </itemizedlist>
+        <para>To add more than one condition, choose <guilabel>Add condition</guilabel> again.
+          Repeat as needed. Each condition applies only to this one visual editor permissions block.
+          All the conditions must be true for the permissions block to be considered a match. In
+          other words, consider the conditions to be connected by a logical "AND" operator.</para>
+        <para>For more information about the <guilabel>Condition</guilabel> element, see 
+          <ulink url="&url-iam-user;reference_policies_elements_condition.html">IAM JSON policy elements: Condition</ulink> 
+          in the <emphasis>&guide-iam-user;</emphasis>.</para>
+      </step>
+      <step>
+        <para>To add more permissions blocks, choose <guilabel>Add additional permissions</guilabel>.
+          For each block, repeat steps 2 through 5.</para>
+      </step>
+      <step>
+        <para>When you are finished, choose <guilabel>Review policy</guilabel>.</para>
+        <note>
+          <para>You can switch between the <guilabel>Visual editor</guilabel> and
+            <guilabel>JSON</guilabel> tabs any time. However, if you make changes or choose
+            <guilabel>Review policy</guilabel> in the <guilabel>Visual editor</guilabel> tab,
+            &IAM; might restructure your policy to optimize it for the visual editor. For more
+            information, see <ulink url="&url-iam-user;troubleshoot_policies.html#troubleshoot_viseditor-restructure">Policy restructuring</ulink> 
+            in the <emphasis>&guide-iam-user;</emphasis>.</para>
+        </note>
+      </step>
+      <step>
+        <para>On the <guilabel>Review policy</guilabel> page, enter a <guilabel>Name</guilabel> and an optional
+          <guilabel>Description</guilabel> for the policy that you are creating. Review
+          the policy summary to make sure that you have granted the intended permissions, and then
+          choose <guilabel>Create policy</guilabel> to save your new policy.</para>
+      </step>
+    </procedure>
+  '>
+  
+<!ENTITY aws_sec_edit-policy '
+<!-- Procedure for editing an existing policy in the IAM console -->
+<procedure>
+  <title>To edit a customer managed policy (console)</title>
+  <step>&IAMConsole_DirectURL;</step>
+  <step>
+    <para>In the navigation pane, choose <guilabel>Policies</guilabel>.</para>
+  </step>
+  <step>
+    <para>In the list of policies, choose the policy name of the policy to edit. You can use the
+      <guilabel>Filter policies</guilabel> menu and the search box to filter the list of
+      policies.</para>
+  </step>
+  <step>
+    <para>Choose the <guilabel>Permissions</guilabel> tab, and then choose <guilabel>Edit
+      policy</guilabel>. </para>
+  </step>
+  <step>
+    <para>Do one of the following:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Choose the <guilabel>Visual editor</guilabel> tab to change your policy without
+          understanding JSON syntax. You can make changes to the service, actions, resources, or
+          optional conditions for each permissions block in your policy. You can also import a
+          policy to add additional permissions to the bottom of your policy. When you are
+          finished making changes, choose <guilabel>Review policy</guilabel> to continue.</para>
+      </listitem>
+      <listitem>
+        <para>Choose the <guilabel>JSON</guilabel> tab to modify your policy by entering or
+          pasting text in the JSON text box. You can also import a policy to add additional
+          permissions to the bottom of your policy. Resolve any security warnings, errors, or general warnings generated during <ulink url="&url-iam-user;access_policies_policy-validator.html">policy validation</ulink>, and then choose <guilabel>Review policy</guilabel>.
+		</para>
+        <note>
+          <para>You can switch between the <guilabel>Visual editor</guilabel> and
+            <guilabel>JSON</guilabel> tabs any time. However, if you make changes or choose
+            <guilabel>Review policy</guilabel> in the <guilabel>Visual editor</guilabel> tab,
+            &IAM; might restructure your policy to optimize it for the visual editor. For more
+            information, see <ulink url="&url-iam-user;troubleshoot_policies.html#troubleshoot_viseditor-restructure">Policy restructuring</ulink> 
+            in the <emphasis>&guide-iam-user;</emphasis>.</para>
+        </note>
+      </listitem>
+    </itemizedlist>
+  </step>
+  <step>
+    <para>On the <guilabel>Review</guilabel> page, review the policy
+      <guilabel>Summary</guilabel> and then choose <guilabel>Save changes</guilabel> to save
+      your work.</para>
+  </step>
+  <step>
+    <para>If the managed policy already has the maximum of five versions, choosing
+      <guilabel>Save changes</guilabel> displays a dialog box. To save your new version, you must
+      remove at least one earlier version. You cannot delete the default version. For more information about policy versions, see 
+      <ulink url="&url-iam-user;access_policies_managed-versioning.html#default-version">Setting the default version of customer managed policies</ulink> 
+      in the <emphasis>&guide-iam-user;</emphasis>. Choose from
+      the following options:</para>
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Remove oldest nondefault policy version (version v# - created # days
+          ago)</guilabel> &endash; Use this option to see which version will be deleted and
+          when it was created. You can view the JSON policy document for all nondefault versions
+          by choosing the second option, <guilabel>Select versions to remove</guilabel>. </para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Select versions to remove</guilabel> &endash; Use this option to view
+          the JSON policy document and choose one or more versions to delete.</para>
+      </listitem>
+    </itemizedlist>
+    <para>After choosing the versions to remove, choose <guilabel>Delete version and
+      save</guilabel> to save your new policy version.</para>
+  </step>
+</procedure>  
+  '>
+
+<!-- SECTION 7 - SERVICE-LINKED ROLE (SLR) ENTITIES -->
+ <!-- ONLY use the following entities with the using-service-linked-roles-templates -->
+ <!-- These entities rely on local variables that are contained in the template -->
+  
+  <!ENTITY ServiceLinkedRoles-create-iam-console '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+   <para>You can use the &IAM; console to create a service-linked role.</para>
+       <procedure>
+         <title>To create a service-linked role (console)</title>
+         <step>&IAMConsole_DirectURL;</step>
+         <step>
+           <para>In the navigation pane of the &IAM; console, choose <guilabel>Roles</guilabel>. Then
+             choose <guilabel>Create role</guilabel>.</para>
+         </step>
+         <step>
+           <para>Choose the <guilabel>&AWS-service;</guilabel> role type and then
+             choose <guilabel>&SERVICENAME;</guilabel>.</para>
+         </step>
+         <step>
+           <para>Choose the <guilabel>&SLR-USECASE-NAME;</guilabel> use case. Use cases are defined by the
+             service to include the trust policy required by the service. Then choose <guilabel>Next:
+               Permissions</guilabel>.</para>
+         </step>
+         <step>
+           <!-- DELETE THIS STEP if your service does not allow customers to add a custom permissions policy -->
+           <para>Choose one or more permissions policies to attach to the role. Select the box next
+             to the policy that assigns the permissions that you want the role to have, and then
+             choose <guilabel>Next: Review</guilabel>.</para>
+         </step>         
+         <step>
+           <!-- DELETE THIS STEP if your service does not allow customers to add a custom suffix -->
+           <para>For <guilabel>Role name</guilabel>, enter a suffix to add to the service-linked role
+             default name. This suffix helps you identify the purpose of this role. Role names must
+             be unique within your <shared id="AWS-account"/>. They are not distinguished by case. For example,
+             you cannot create roles named both
+               <userinput>&lt;service-linked-role-name>_SAMPLE</userinput> and
+               <userinput>&lt;service-linked-role-name>_sample</userinput>. Because various entities
+             might reference the role, you cannot edit the name of the role after it has been
+             created.</para>
+         </step>
+         <step>
+           <para>(Optional) For <guilabel>Role description</guilabel>, edit the description for the
+             new service-linked role.</para>
+         </step>
+         <step>
+           <para>Review the role and then choose <guilabel>Create role</guilabel>.</para>
+         </step>
+       </procedure>
+  '>
+  
+ <!-- Use the following statement for creating a service-linked role using the IAM CLI -->
+  <!ENTITY ServiceLinkedRoles-create-iam-cli '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use &IAM; commands from the &CLIlong; to create a service-linked role with the
+         trust policy and inline policies that the service needs to assume the role.</para>
+       <para><emphasis role="bold">To create a service-linked role (CLI)</emphasis></para>
+       <para>Use the following command:</para>
+       <programlisting language="none"><code role="nocopy">$ </code><userinput>aws iam create-service-linked-role --aws-service-name &TRUSTED-ENTITY-NAME;</userinput></programlisting>
+ '>
+ 
+  <!ENTITY ServiceLinkedRoles-create-iam-api '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use the &IAM; API to create a service-linked role with the trust policy and
+         inline policies that the service needs to assume the role.</para>
+        <formalpara>
+        <title>To create a service-linked role (API)</title>
+        <para>Use the <ulink url="&url-iam-api;API_CreateServiceLinkedRole.html"
+           >CreateServiceLinkedRole</ulink> API call. In the request, specify a service name of
+         <code>&TRUSTED-ENTITY-NAME;</code>.</para>
+        </formalpara>
+       <important>
+         <para>Service-linked roles count toward your <ulink
+             url="&url-iam-user;reference_iam-limits.html#reference_iam-limits-entities">&IAM; roles
+             in an <shared id="AWS-account"/></ulink> limit. But if you have reached your limit, you can still
+           create service-linked roles in your account. Only service-linked roles can exceed the
+           limit.</para>
+       </important>
+ '>
+ 
+ <!-- Use the following statement for editing the description of a service-linked role using the IAM console -->
+  <!ENTITY ServiceLinkedRoles-edit-iam-console '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use the &IAM; console to edit the description of a service-linked role.</para>
+       <procedure>
+         <title>To edit the description of a service-linked role (console)</title>
+         <step>
+           <para>In the navigation pane of the &IAM; console, choose
+             <guilabel>Roles</guilabel>.</para>
+         </step>
+         <step>
+           <para>Choose the name of the role to modify.</para>
+         </step>
+         <step>
+           <para>To the right of the <guilabel>Role description</guilabel>, choose
+               <guilabel>Edit</guilabel>. </para>
+         </step>
+         <step>
+           <para>Enter a new description in the box and choose <guilabel>Save changes</guilabel>.</para>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for editing the description of a service-linked role using the IAM CLI -->
+  <!ENTITY ServiceLinkedRoles-edit-iam-cli '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use &IAM; commands from the &CLIlong; to edit the description of a
+         service-linked role.</para>
+       <procedure>
+         <title>To change the description of a service-linked role (CLI)</title>
+         <step>
+           <para>(Optional) To view the current description for a role, use the following
+             commands:</para>
+           <programlisting language="none"><code role="nocopy">$ </code><userinput>aws iam get-role --role-name <replaceable>role-name</replaceable></userinput></programlisting>
+           <para>Use the role name, not the ARN, to refer to roles with the CLI commands. For
+             example, if a role has the following ARN:
+               <code>&region-arn;iam::123456789012:role/myrole</code>, you refer to the role as
+               <userinput>myrole</userinput>.</para>
+         </step>
+         <step>
+           <para>To update a service-linked role&apos;s description, use one of the following
+             commands:</para>
+           <programlisting language="none"><code role="nocopy">$ </code><userinput>aws iam update-role-description --role-name <replaceable>role-name</replaceable> --description <replaceable>description</replaceable></userinput></programlisting>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for editing the description of a service-linked role using the IAM API -->
+  <!ENTITY ServiceLinkedRoles-edit-iam-api '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use the &IAM; API to edit the description of a service-linked role.</para>
+       <procedure>
+         <title>To change the description of a service-linked role (API)</title>
+         <step>
+           <para>(Optional) To view the current description for a role, use the following
+             command:</para>
+           <para>&IAM; API: <ulink url="&url-iam-api;API_GetRole.html">GetRole</ulink>
+           </para>
+         </step>
+         <step>
+           <para>To update a role&apos;s description, use the following command: </para>
+           <para>&IAM; API: <ulink url="&url-iam-api;API_UpdateRoleDescription.html"
+               >UpdateRoleDescription</ulink></para>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for checking service-linked role sessions -->
+  <!ENTITY ServiceLinkedRoles-check-sessions '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <procedure>
+         <title>To check whether the service-linked role has an active session in the &IAM;
+           console</title>
+         <step>&IAMConsole_DirectURL;</step>
+         <step>
+           <para>In the navigation pane of the &IAM; console, choose <guilabel>Roles</guilabel>. Then
+             choose the name (not the check box) of the &SLR-NAME; role.</para>
+         </step>
+         <step>
+           <para>On the <guilabel>Summary</guilabel> page for the selected role, choose the
+               <guilabel>Access Advisor</guilabel> tab.</para>
+         </step>
+         <step>
+           <para>On the <guilabel>Access Advisor</guilabel> tab, review recent activity for the
+             service-linked role.</para>
+           <note>
+             <para>If you are unsure whether &SERVICENAME; is using the &SLR-NAME; role, you can try
+               to delete the role. If the service is using the role, then the deletion fails and you
+               can view the Regions where the role is being used. If the role is being used, then you
+               must wait for the session to end before you can delete the role. You cannot revoke the
+               session for a service-linked role. </para>
+           </note>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for deleting a service-linked role using the IAM console -->
+ <!ENTITY ServiceLinkedRoles-delete-iam-console '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use the &IAM; console to delete a service-linked role.</para>
+       <procedure>
+         <title>To delete a service-linked role (console)</title>
+         <step>&IAMConsole_DirectURL;</step>
+         <step>
+           <para>In the navigation pane of the &IAM; console, choose <guilabel>Roles</guilabel>. Then
+             select the check box next to &SLR-NAME;, not the name or row itself. </para>
+         </step>
+         <step>
+           <para>Choose <guilabel>Delete role</guilabel>.</para>
+         </step>
+         <step>
+           <para>In the confirmation dialog box, review the service last accessed data, which shows
+             when each of the selected roles last accessed an &AWS-service;. This helps you to
+             confirm whether the role is currently active. If you want to proceed, choose
+               <guilabel>Yes, Delete</guilabel> to submit the service-linked role for
+             deletion.</para>
+         </step>
+         <step>
+           <para>Watch the &IAM; console notifications to monitor the progress of the service-linked
+             role deletion. Because the &IAM; service-linked role deletion is asynchronous, after you
+             submit the role for deletion, the deletion task can succeed or fail. </para>
+                 <itemizedlist>
+                   <listitem>
+                     <para>If the task succeeds, then the role is removed from the list and a
+                       notification of success appears at the top of the page.</para>
+                   </listitem>
+                   <listitem>
+                     <para>If the task fails, you can choose <guilabel>View details</guilabel> or
+                   <guilabel>View Resources</guilabel> from the notifications to learn why the
+                 deletion failed. If the deletion fails because the role is using the service&apos;s
+                 resources, then the notification includes a list of resources, if the service
+                 returns that information. You can then <ulink url="&url-iam-user;using-service-linked-roles.html#service-linked-role-review-before-delete">clean up the resources</ulink>                 and submit the deletion again.</para>
+                     <note>
+                       <para>You might have to repeat this process several times, depending on the
+                         information that the service returns. For example, your service-linked role
+                         might use six resources and your service might return information about five
+                         of them. If you clean up the five resources and submit the role for deletion
+                         again, the deletion fails and the service reports the one remaining
+                         resource. A service might return all of the resources, a few of them, or it
+                         might not report any resources.</para>
+                     </note>
+                   </listitem>
+                   <listitem>
+                     <para>If the task fails and the notification does not include a list of
+                 resources, then the service might not return that information. To learn how to clean
+                 up the resources for that service, see <ulink url="&url-iam-user;reference_aws-services-that-work-with-iam.html">&AWS-services; that work with &IAM;</ulink>. Find your service in
+                 the table, and choose the <emphasis role="bold">Yes</emphasis> link to view the
+                 service-linked role documentation for that service.</para>
+                   </listitem>
+                 </itemizedlist>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for deleting a service-linked role using the IAM CLI -->
+ <!ENTITY ServiceLinkedRoles-delete-iam-cli '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use &IAM; commands from the &CLIlong; to delete a service-linked role.</para>
+       <procedure>
+         <title>To delete a service-linked role (CLI)</title>
+         <step>
+           <para>Because a service-linked role cannot be deleted if it is being used or has
+             associated resources, you must submit a deletion request. That request can be denied if
+             these conditions are not met. You must capture the <code>deletion-task-id</code> from
+             the response to check the status of the deletion task. Enter the following command to
+             submit a service-linked role deletion request:</para>
+           <programlisting language="none"><code role="nocopy">$ </code><userinput>aws iam delete-service-linked-role --role-name &SLR-NAME;<replaceable>+OPTIONAL-SUFFIX</replaceable></userinput></programlisting>
+         </step>
+         <step>
+           <para>Use the following command to check the status of the deletion task:</para>
+           <programlisting language="none"><code role="nocopy">$ </code><userinput>aws iam get-service-linked-role-deletion-status --deletion-task-id <replaceable>deletion-task-id</replaceable></userinput></programlisting>
+           <para>The status of the deletion task can be <code>NOT_STARTED</code>,
+               <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, or <code>FAILED</code>. If the
+             deletion fails, the call returns the reason that it failed so that you can troubleshoot.
+             If the deletion fails because the role is using the service&apos;s resources, then the
+             notification includes a list of resources, if the service returns that information. You
+             can then <ulink url="&url-iam-user;using-service-linked-roles.html#service-linked-role-review-before-delete">clean up the
+               resources</ulink> and submit the deletion again.</para>
+           <note>
+             <para>You might have to repeat this process several times, depending on the information
+               that the service returns. For example, your service-linked role might use six
+               resources and your service might return information about five of them. If you clean
+               up the five resources and submit the role for deletion again, the deletion fails and
+               the service reports the one remaining resource. A service might return all of the
+               resources, a few of them, or it might not report any resources. To learn how to clean
+               up the resources for a service that does not report any resources, see <ulink url="&url-iam-user;reference_aws-services-that-work-with-iam.html">&AWS-services; that work with &IAM;</ulink>. Find your service in
+               the table, and choose the <emphasis role="bold">Yes</emphasis> link to view the
+               service-linked role documentation for that service.</para>
+           </note>
+         </step>
+       </procedure>
+ '>
+ 
+ <!-- Use the following statement for deleting a service-linked role using the IAM API -->
+  <!ENTITY ServiceLinkedRoles-delete-iam-api '
+  <!-- TEMPLATE ONLY – Use this entity only within the service-linked role template because it 
+  relies on local entities added using that template -->
+ <para>You can use the &IAM; API to delete a service-linked role.</para>
+       <procedure>
+         <title>To delete a service-linked role (API)</title>
+         <step>
+           <para>To submit a deletion request for a service-linked roll, call <ulink
+               url="&url-iam-api;API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</ulink>.
+             In the request, specify the &SLR-NAME; role name.</para>
+           <para>Because a service-linked role cannot be deleted if it is being used or has
+             associated resources, you must submit a deletion request. That request can be denied if
+             these conditions are not met. You must capture the <code>DeletionTaskId</code> from the
+             response to check the status of the deletion task.</para>
+         </step>
+         <step>
+           <para>To check the status of the deletion, call <ulink
+               url="&url-iam-api;API_GetServiceLinkedRoleDeletionStatus.html"
+               >GetServiceLinkedRoleDeletionStatus</ulink>. In the request, specify the
+               <code>DeletionTaskId</code>.</para>
+           <para>The status of the deletion task can be <code>NOT_STARTED</code>,
+               <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, or <code>FAILED</code>. If the
+             deletion fails, the call returns the reason that it failed so that you can troubleshoot.
+             If the deletion fails because the role is using the service&apos;s resources, then the
+             notification includes a list of resources, if the service returns that information. You
+             can then <ulink url="&url-iam-user;using-service-linked-roles.html#service-linked-role-review-before-delete">clean up the
+               resources</ulink> and submit the deletion again.</para>
+           <note>
+             <para>You might have to repeat this process several times, depending on the information
+               that the service returns. For example, your service-linked role might use six
+               resources and your service might return information about five of them. If you clean
+               up the five resources and submit the role for deletion again, the deletion fails and
+               the service reports the one remaining resource. A service might return all of the
+               resources, a few of them, or it might not report any resources. To learn how to clean
+               up the resources for a service that does not report any resources, see 
+               <ulink url="&url-iam-user;reference_aws-services-that-work-with-iam.html"
+                   >&AWS-services; that work with &IAM;</ulink>. Find your service in
+               the table, and choose the <emphasis role="bold">Yes</emphasis> link to view the
+               service-linked role documentation for that service.</para>
+           </note>
+         </step>
+ 
+       </procedure>
+ '>
+ 
+  <!-- SECTION 8 - IAM TEMPLATE ENTITIES -->
+ <!-- ONLY use the following entities with the security-iam template -->
+ <!-- These entities rely on local variables that are contained in the template -->
+ <!-- Previously the Auth & Access template. Details https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/IAM/auth-access-control/ -->
+  
+  <!ENTITY sec-iam-template-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <para>&IAMlong; (&IAM;) is an &AWS-service; that helps an administrator securely control access
+      to &AWS; resources. &IAM; administrators control who can be <emphasis role="italic"
+         >authenticated</emphasis> (signed in) and <emphasis role="italic">authorized</emphasis>
+      (have permissions) to use &AA-SERVICENAME; resources. &IAM; is an &AWS-service; that you can
+      use with no additional charge.</para>
+  '>
+  <!ENTITY sec-iam-template-iam-about '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <section id="security_iam_audience">
+      <info>
+         <title id="security_iam_audience.title">Audience</title>
+      </info> 
+      &sec-iam-template-audience; 
+   </section>
+   <section id="security_iam_authentication">
+      <info>
+         <title id="security_iam_authentication.title">Authenticating with identities</title>
+      </info> 
+      &sec-iam-template-identities-intro; 
+      <section id="security_iam_authentication-rootuser">
+         <info>
+            <title id="security_iam_authentication-rootuser.title">&rootlong-title;</title>
+         </info>
+         <para>&aws_sec_root_user_information-inline;</para>
+      </section>
+      <section id="security_iam_authentication-iamuser">
+         <info>
+            <title id="security_iam_authentication-iamuser.title">&IAM; users and groups</title>
+         </info> 
+         &sec-iam-template-identities-iamuser; 
+      </section>
+      <section id="security_iam_authentication-iamrole">
+         <info>
+            <title id="security_iam_authentication-iamrole.title">&IAM; roles</title>
+         </info> 
+         &sec-iam-template-identities-iamrole; 
+      </section>
+   </section>
+   <section id="security_iam_access-manage">
+      <info>
+         <title id="security_iam_access-manage.title">Managing access using policies</title>
+      </info> 
+      &sec-iam-template-access-intro; 
+      <section id="security_iam_access-manage-id-based-policies">
+         <info>
+            <title id="security_iam_access-manage-id-based-policies.title">Identity-based
+               policies</title>
+         </info> 
+         &sec-iam-template-access-id-based-policies; 
+      </section>
+      <section id="security_iam_access-manage-resource-based-policies">
+         <info>
+            <title id="security_iam_access-manage-resource-based-policies.title">Resource-based
+               policies</title>
+         </info> 
+         &sec-iam-template-access-resource-based-policies; 
+      </section>
+      <section id="security_iam_access-manage-acl">
+         <info>
+            <title id="security_iam_access-manage-acl.title">Access control lists (ACLs)</title>
+         </info> 
+         &sec-iam-template-access-acl; 
+      </section>
+      <section id="security_iam_access-manage-other-policies">
+         <info>
+            <title id="security_iam_access-manage-other-policies.title">Other policy types</title>
+         </info> 
+         &sec-iam-template-access-other-policies; 
+      </section>
+      <section id="security_iam_access-manage-multiple-policies">
+         <info>
+            <title id="security_iam_access-manage-multiple-policies.title">Multiple policy
+               types</title>
+         </info> 
+         &sec-iam-template-access-multiple-policies; 
+      </section>
+   </section>
+  '>
+  <!ENTITY sec-iam-template-audience '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <para>How you use &IAMlong; (&IAM;) differs, depending on the work that you do in &AA-SERVICENAME;.</para>
+      <para><emphasis role="bold">Service user</emphasis> &endash; If you use the &AA-SERVICENAME; service to do your job, then your administrator provides you
+         with the credentials and permissions that you need. As you use more &AA-SERVICENAME; features to do your work, you might need additional permissions.
+         Understanding how access is managed can help you request the right permissions from your administrator. If you cannot access a feature in
+         &AA-SERVICENAME;, see <xref linkend="security_iam_troubleshoot" endterm="security_iam_troubleshoot.title"/>.</para>
+      <para><emphasis role="bold">Service administrator</emphasis> &endash; If you&apos;re in charge of &AA-SERVICENAME; resources at your company, you probably have
+         full access to &AA-SERVICENAME;. It&apos;s your job to determine which &AA-SERVICENAME; features and resources your employees should access. You must then
+         submit requests to your &IAM; administrator to change the permissions of your service users. Review the information on this page to understand the
+         basic concepts of &IAM;. To learn more about how your company can use &IAM; with &AA-SERVICENAME;, see <xref linkend="security_iam_service-with-iam"
+            endterm="security_iam_service-with-iam.title"/>.</para>
+      <para><emphasis role="bold">&IAM; administrator</emphasis> &endash; If you&apos;re an &IAM; administrator, you might want to learn details about how you can
+         write policies to manage access to &AA-SERVICENAME;. To view example &AA-SERVICENAME; identity-based policies that you can use in &IAM;, see <xref
+            linkend="security_iam_id-based-policy-examples" endterm="security_iam_id-based-policy-examples.title"/>.</para>
+  '>
+  <!ENTITY sec-iam-template-identities-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <para>Authentication is how you sign in to &AWS; using your identity credentials. For more information about signing in using the &console;, see <ulink
+            url="&url-iam-user;console.html">Signing in to the &console; as an &IAM; user or &root;</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+      <para>You must be <emphasis role="italic">authenticated</emphasis> (signed in to &AWS;) as the
+         &rootlong;, an &IAM; user, or by assuming an &IAM; role. You can also use your company&apos;s
+         single sign-on authentication or even sign in using Google or Facebook. In these cases,
+         your administrator previously set up identity federation using &IAM; roles. When you access
+         &AWS; using credentials from another company, you are assuming a role indirectly. </para>
+      <para>To sign in directly to the <ulink url="&url-console-domain;">&console;</ulink>, use your
+         password with your &root; email address or your &IAM; user name. You can access &AWS;
+         programmatically using your &root; or &IAM; users access keys. &AWS; provides SDK and
+         command line tools to cryptographically sign your request using your credentials. If you
+         don&apos;t use &AWS; tools, you must sign the request yourself. Do this using
+            <emphasis>Signature Version 4</emphasis>, a protocol for authenticating inbound API
+         requests. For more information about authenticating requests, see <ulink
+            url="&url-aws-gen;signature-version-4.html">Signature Version 4 signing process</ulink>
+         in the <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+      <para>Regardless of the authentication method that you use, you might also be required to provide additional security information. For example, &AWS;
+         recommends that you use multi-factor authentication (MFA) to increase the security of your account. To learn more, see <ulink
+            url="&url-iam-user;id_credentials_mfa.html">Using multi-factor authentication (MFA) in &AWS;</ulink> in the
+         <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-identities-iamuser '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>An <emphasis role="italic"><ulink url="&url-iam-user;id_users.html">&IAM;
+                  user</ulink></emphasis> is an identity within your <shared id="AWS-account"/> that has specific
+            permissions for a single person or application. An &IAM; user can have long-term
+            credentials such as a user name and password or a set of access keys. To learn how to
+            generate access keys, see <ulink url="&url-iam-user;id_credentials_access-keys.html"
+               >Managing access keys for &IAM; users</ulink> in the
+               <emphasis>&guide-iam-user;</emphasis>. When you generate access keys for an IAM user,
+            make sure you view and securely save the key pair. You cannot recover the secret access
+            key in the future. Instead, you must generate a new access key pair.</para>
+         <para>An <ulink url="&url-iam-user;id_groups.html"><emphasis>&IAM; group</emphasis></ulink> is an identity that specifies a collection of &IAM; users.
+            You can&apos;t sign in as a group. You can use groups to specify permissions for multiple users at a time. Groups make permissions easier to manage for
+            large sets of users. For example, you could have a group named <emphasis>&IAM;Admins</emphasis> and give that group permissions to administer &IAM;
+            resources.</para>
+         <para>Users are different from roles. A user is uniquely associated with one person or application, but a role is intended to be assumable by anyone
+            who needs it. Users have permanent long-term credentials, but roles provide temporary credentials. To learn more, see <ulink
+               url="&url-iam-user;id.html#id_which-to-choose">When to create an &IAM; user (instead of a role)</ulink> in the
+               <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-identities-iamrole '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>An <emphasis role="italic"><ulink url="&url-iam-user;id_roles.html">&IAM; role</ulink></emphasis> is an identity within your <shared id="AWS-account"/> that
+            has specific permissions. It is similar to an &IAM; user, but is not associated with a specific person. You can temporarily assume an &IAM; role in
+            the &console; by <ulink url="&url-iam-user;id_roles_use_switch-role-console.html">switching roles</ulink>. You can assume a role by calling an &CLI;
+            or &AWS; API operation or by using a custom URL. For more information about methods for using roles, see <ulink
+               url="&url-iam-user;id_roles_use.html">Using &IAM; roles</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+         <para>&IAM; roles with temporary credentials are useful in the following situations:</para>
+         <itemizedlist>
+            <listitem>
+               <para><emphasis role="bold">Temporary &IAM; user permissions</emphasis> &endash; An &IAM; user can assume an &IAM; role to temporarily take on
+                  different permissions for a specific task. </para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Federated user access</emphasis> &ndash; &aws_sec_federated-user-role-definition;</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Cross-account access</emphasis> &endash; You can use an
+                  &IAM; role to allow someone (a trusted principal) in a different account to access
+                  resources in your account. Roles are the primary way to grant cross-account
+                  access. However, with some &AWS-services;, you can attach a policy directly to a
+                  resource (instead of using a role as a proxy). To learn the difference between
+                  roles and resource-based policies for cross-account access, see <ulink
+                     url="&url-iam-user;id_roles_compare-resource-policies.html">How &IAM; roles
+                     differ from resource-based policies</ulink> in the
+                     <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Cross-service access</emphasis> &ndash;&aws_sec_cross-service-intro; </para>
+                  <itemizedlist>
+                     <listitem>
+                        <para><emphasis role="bold">Principal permissions</emphasis> &ndash;&aws_sec_principal-perms-definition;</para>
+                     </listitem>
+                     <listitem>
+                        <para><emphasis role="bold">Service role</emphasis> &ndash;&aws_sec_service-role-definition;</para>
+                     </listitem>
+                     <listitem>
+                        <para><emphasis role="bold">Service-linked role</emphasis> &ndash;&aws_sec_service-linked-role-definition;</para>
+                     </listitem>
+                  </itemizedlist>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Applications running on &EC2;</emphasis> &ndash;&aws_sec_ec2-role-definition;</para>
+            </listitem>
+         </itemizedlist>
+         <para>To learn whether to use &IAM; roles or &IAM; users, see <ulink url="&url-iam-user;id.html#id_which-to-choose_role">When to create an &IAM; role (instead of a
+               user)</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-basics '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <para>Administrators can use &AWS; JSON policies to specify who has access to what. That is, which <emphasis role="bold">principal</emphasis> can perform 
+         <emphasis role="bold">actions</emphasis> on what <emphasis role="bold">resources</emphasis>, and under what <emphasis role="bold">conditions</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <para>You control access in &AWS; by creating policies and attaching them to &IAM; identities or &AWS; resources. A policy is an object in &AWS; that,
+         when associated with an identity or resource, defines their permissions. You can sign in as the &root; or an &IAM; user, or you can assume an &IAM;
+         role. When you then make a request, &AWS; evaluates the related identity-based or resource-based policies. Permissions in the policies determine 
+         whether the request is allowed or denied. Most policies are stored in &AWS; as JSON documents. For more information about the structure and contents 
+         of JSON policy documents, see <ulink url="&url-iam-user;access_policies.html#access_policies-json">Overview of JSON policies</ulink> in the 
+         <emphasis>&guide-iam-user;</emphasis>.</para>
+       &sec-iam-template-access-basics;
+       <para>Every &IAM; entity (user or role) starts with no permissions. In other words, by default, users can do nothing, not even change their own password. To give a
+         user permission to do something, an administrator must attach a permissions policy to a user. Or the administrator can add the user to a group that has
+         the intended permissions. When an administrator gives permissions to a group, all users in that group are granted those permissions.</para>
+      <para>&IAM; policies define permissions for an action regardless of the method that you use to perform the operation. For example, suppose that you have a
+         policy that allows the <code>iam:GetRole</code> action. A user with that policy can get role information from the &console;, the &CLI;, or the &AWS;
+         API.</para>
+  '>
+  <!ENTITY sec-iam-template-access-id-based-policies-definition '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an &IAM; user, group of users, or role. These
+            policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
+            policy, see <ulink url="&url-iam-user;access_policies_create.html">Creating &IAM; policies</ulink> in the
+            <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-id-based-policies '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         &sec-iam-template-access-id-based-policies-definition;
+         <para>Identity-based policies can be further categorized as <emphasis role="italic">inline policies</emphasis> or <emphasis role="italic">managed
+               policies</emphasis>. Inline policies are embedded directly into a single user, group, or role. Managed policies are standalone policies that you
+            can attach to multiple users, groups, and roles in your <shared id="AWS-account"/>. Managed policies include &AWS; managed policies and customer managed
+            policies. To learn how to choose between a managed policy or an inline policy, see <ulink
+               url="&url-iam-user;access_policies_managed-vs-inline.html#choosing-managed-or-inline">Choosing between managed policies and inline
+               policies</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-resource-based-policies-definition '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are 
+         &IAM; <emphasis>role trust policies</emphasis> and &S3; <emphasis>bucket policies</emphasis>. In services that support resource-based policies, service 
+         administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
+            a specified principal can perform on that resource and under what conditions. You must <ulink
+               url="&url-iam-user;reference_policies_elements_principal.html">specify a principal</ulink> in a resource-based policy. Principals 
+            can include accounts, users, roles, federated users, or &AWS-services;.</para>
+  '>
+  <!ENTITY sec-iam-template-access-resource-based-policies '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   &sec-iam-template-access-resource-based-policies-definition;
+   <para>Resource-based policies are inline policies that are located in that service. You can&apos;t use &AWS; managed policies from &IAM; in a 
+   resource-based policy.</para>
+  '>
+  <!ENTITY sec-iam-template-access-acl-definition '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <para>Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
+            similar to resource-based policies, although they do not use the JSON policy document format.</para>
+  '>
+  <!ENTITY sec-iam-template-access-acl '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      &sec-iam-template-access-acl-definition;
+      <para>&S3;, &WAF;, and &VPC;
+            are examples of services that support ACLs. To learn more about ACLs, see <ulink url="&url-s3-dev;acl-overview.html">Access control list (ACL)
+               overview</ulink> in the <emphasis role="italic">&S3long; Developer Guide</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-other-policies '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>&AWS; supports additional, less-common policy types. These policy types can set the maximum permissions granted to you by the more common policy
+            types. </para>
+         <itemizedlist>
+            <listitem>
+               <para><emphasis role="bold">Permissions boundaries</emphasis> &endash; A permissions
+                  boundary is an advanced feature in which you set the maximum permissions that an
+                  identity-based policy can grant to an &IAM; entity (&IAM; user or role). You can
+                  set a permissions boundary for an entity. The resulting permissions are the
+                  intersection of entity&apos;s identity-based policies and its permissions boundaries.
+                  Resource-based policies that specify the user or role in the
+                     <code>Principal</code> field are not limited by the permissions boundary. An
+                  explicit deny in any of these policies overrides the allow. For more information
+                  about permissions boundaries, see <ulink
+                     url="&url-iam-user;access_policies_boundaries.html">Permissions boundaries for
+                     &IAM; entities</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Service control policies (SCPs)</emphasis> &endash; SCPs are JSON policies that specify the maximum permissions for
+                  an organization or organizational unit (OU) in &AOlong;. &AOlong; is a service for grouping and centrally managing multiple <shared id="AWS-accounts"/> that your business owns. If you enable all features in an organization, then you can apply service control policies (SCPs) to any or all of
+                  your accounts. The SCP limits permissions for entities in member accounts, including each &rootlong;. For more information about &AO; and
+                  SCPs, see <ulink url="&url-ao-user;orgs_manage_policies_about-scps.html">How SCPs work</ulink> in the <emphasis role="italic"
+                     >&guide-ao-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Session policies</emphasis> &endash; Session policies are
+                  advanced policies that you pass as a parameter when you programmatically create a
+                  temporary session for a role or federated user. The resulting session&apos;s
+                  permissions are the intersection of the user or role&apos;s identity-based policies and
+                  the session policies. Permissions can also come from a resource-based policy. An
+                  explicit deny in any of these policies overrides the allow. For more information,
+                  see <ulink url="&url-iam-user;access_policies.html#policies_session">Session
+                     policies</ulink> in the <emphasis>&guide-iam-user;</emphasis>. </para>
+            </listitem>
+         </itemizedlist>
+  '>
+  <!ENTITY sec-iam-template-works-with-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+    <para>Before you use &IAM; to manage access to &AA-SERVICENAME;, learn what &IAM; features are
+         available to use with &AA-SERVICENAME;.</para>
+  '>
+  <!ENTITY sec-iam-green-yes '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+     <?dbhtml bgcolor="#66FF99" ?><?dbfo bgcolor="#66FF99" ?>Yes'>
+  <!ENTITY sec-iam-yellow-partial '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+     <?dbhtml bgcolor="#FFFF88" ?><?dbfo bgcolor="#FFFF88" ?>Partial'>
+  <!ENTITY sec-iam-red-no '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+     <?dbhtml bgcolor="#FFBBAA" ?><?dbfo bgcolor="#FFBBAA" ?>No
+    '>
+  
+  <!ENTITY sec-iam-template-awsmanpol-intro '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+  <!--  Intro paras for the AWS managed policies page in the IAM security template -->
+   
+   <para>To add permissions to users, groups, and roles, it is easier to use &AWS; managed policies
+      than to write policies yourself. It takes time and expertise to  <ulink type="documentation"
+         url="IAM/latest/UserGuide/access_policies_create-console.html">create &IAM; customer
+         managed policies</ulink> that provide your team with only the permissions they
+      need. To get started quickly, you can use our &AWS; managed policies. These policies
+      cover common use cases and are available in your <shared id="AWS-account"/>. For more information about
+      &AWS; managed policies, see <ulink type="documentation"
+         url="IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies">&AWS;
+         managed policies</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+   <para>&AWS-services; maintain and update &AWS; managed policies. You can&apos;t change the
+      permissions in &AWS; managed policies. Services occasionally add additional permissions to
+      an &AWS; managed policy to support new features. This type of update affects all identities
+      (users, groups, and roles) where the policy is attached. Services are most likely to update an
+      &AWS; managed policy when a new feature is launched or when new operations become available.
+      Services do not remove permissions from an &AWS; managed policy, so policy updates won&apos;t
+      break your existing permissions.</para>
+   <para>Additionally, &AWS; supports managed policies for job functions that span multiple
+      services. For example, the <code>ViewOnlyAccess</code> &AWS; managed policy provides read-only access to many &AWS-services; and resources. When a service launches a new feature, &AWS; adds read-only
+      permissions for new operations and resources. For a list and descriptions of job function
+      policies, see <ulink type="documentation"
+         url="IAM/latest/UserGuide/access_policies_job-functions.html">&AWS; managed policies for job functions</ulink> in
+      the <emphasis>&guide-iam-user;</emphasis>.</para>
+     '>
+      
+  <!ENTITY sec-iam-feature-support-table-id-based-policies '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports identity-based policies</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-identity-based-policies;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-resource-based-policies '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports resource-based policies</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-resource-based-policies;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-actions '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports policy actions</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-policy-actions;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-resources '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports policy resources</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-policy-resources;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-condition-keys '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports service-specific policy condition keys</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-policy-condition-keys;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-acls '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports ACLs</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-acls;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-abac '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports ABAC (tags in policies)</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-abac;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-temp-creds '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports temporary credentials</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-temp-creds;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-principal-permissions '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports principal permissions</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-principal-permissions;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-service-roles '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports service roles</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-service-roles;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  <!ENTITY sec-iam-feature-support-table-service-linked-roles '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <table>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="col1" colwidth="1*"/>
+            <colspec colnum="2" colname="col2" colwidth="1*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <para>Supports service-linked roles</para>
+                  </entry>
+                  <entry>
+                     <para>&sec-iam-support-service-linked-roles;</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+  '>
+  
+  <!ENTITY sec-iam-template-access-id-based-policies-details '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         &sec-iam-template-access-id-based-policies-definition;
+         <para>With &IAM; identity-based policies, you can specify allowed or denied actions and
+            resources as well as the conditions under which actions are allowed or denied.  You
+            can&apos;t specify the principal in an identity-based policy because it applies to the user
+            or role to which it is attached. To learn about all of the elements that you can use in a
+            JSON policy, see <ulink url="&url-iam-user;reference_policies_elements.html">&IAM; JSON
+               policy elements reference</ulink> in the
+            <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-id-based-policies-example-link '
+    <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>To view examples of &AA-SERVICENAME; identity-based policies, see <xref
+                  linkend="security_iam_id-based-policy-examples"
+                  endterm="security_iam_id-based-policy-examples.title"/>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-resource-based-policies-details '
+    <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         &sec-iam-template-access-resource-based-policies-definition;
+         <para>To enable cross-account access, you can specify an entire account or &IAM; entities
+            in another account as the principal in a
+               resource-based policy. Adding a cross-account principal to a resource-based
+            policy is only half of establishing the trust relationship. When the principal and the
+            resource are in different <shared id="AWS-accounts"/>, an &IAM; administrator in the trusted account 
+            must also grant the principal entity (user or role) permission to access the resource. They grant 
+            permission by attaching an identity-based policy to the entity. However, if a resource-based 
+            policy grants access to a principal in the same account, no additional identity-based policy is 
+            required. For more information, see <ulink url="&url-iam-user;id_roles_compare-resource-policies.html">How
+               &IAM; roles differ from resource-based policies </ulink>in the
+               <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-access-multiple-policies '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how &AWS; determines
+            whether to allow a request when multiple policy types are involved, see <ulink url="&url-iam-user;reference_policies_evaluation-logic.html">Policy
+               evaluation logic</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-policies-actions '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+            &sec-iam-template-access-basics;
+            <para>The <code>Action</code> element of a JSON policy describes the
+               actions that you can use to allow or deny access in a policy. Policy
+               actions usually have the same name as the associated &AWS; API operation. There are some exceptions, such as <emphasis>permission-only 
+               actions</emphasis> that don&apos;t have a matching API operation. There are also some operations that require multiple actions in a policy. 
+               These additional actions are called <emphasis>dependent actions</emphasis>.</para>
+            <para>Include actions in a policy to grant permissions to perform the associated operation.</para>
+  '>
+  <!ENTITY sec-iam-template-policies-resources '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+            &sec-iam-template-access-basics;
+            <para>The <code>Resource</code> JSON policy element specifies the object or objects to which the action applies. Statements must include either a
+                  <code>Resource</code> or a <code>NotResource</code> element. As a best practice, specify a resource using its <ulink 
+                  url="&url-aws-gen;aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</ulink>. You can do this for actions that support a 
+                  specific resource type, known as <emphasis>resource-level permissions</emphasis>.</para>
+            <para>For actions that don&apos;t support resource-level permissions, such as listing operations,
+                  use a wildcard (*) to indicate that the statement applies to all resources.</para>
+         <programlisting>"Resource": "*"</programlisting>
+  '>
+  <!ENTITY sec-iam-template-policies-conditions '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+            &sec-iam-template-access-basics;
+            <para>The <code>Condition</code> element (or <code>Condition</code>
+               <emphasis role="italic">block</emphasis>) lets you specify conditions in which a
+               statement is in effect. The <code>Condition</code> element is optional. You can create
+               conditional expressions that use <ulink
+                  url="&url-iam-user;reference_policies_elements_condition_operators.html">condition
+                  operators</ulink>, such as equals or less than, to match the condition in the
+               policy with values in the request. </para>
+            <para>If you specify multiple <code>Condition</code> elements in a statement, or
+               multiple keys in a single <code>Condition</code> element, &AWS; evaluates them using
+               a logical <code>AND</code> operation. If you specify multiple values for a single
+               condition key, &AWS; evaluates the condition using a logical <code>OR</code>
+               operation. All of the conditions must be met before the statement&apos;s permissions are
+               granted.</para>
+            <para> You can also use placeholder variables when you specify conditions. For example,
+               you can grant an &IAM; user permission to access a resource only if it is tagged with
+               their &IAM; user name. For more information, see <ulink
+                  url="&url-iam-user;reference_policies_variables.html">&IAM; policy elements:
+                  variables and tags</ulink> in the <emphasis>&guide-iam-user;</emphasis>. </para>
+            <para>&AWS; supports global condition keys and service-specific condition keys. To see all &AWS; global
+               condition keys, see <ulink url="&url-iam-user;reference_policies_condition-keys.html"
+                 >&AWS; global condition context keys</ulink> in the
+               <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-acls '
+     <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+            &sec-iam-template-access-acl-definition;
+  '>
+  <!ENTITY sec-iam-template-abac '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+      <para>Attribute-based access control (ABAC) is an authorization strategy that defines permissions
+      based on attributes. In &AWS;, these attributes are called <emphasis role="italic"
+         >tags</emphasis>. You can attach tags to &IAM; entities (users
+      or roles) and to many &AWS; resources. Tagging entities and resources is the first step of ABAC. Then you 
+      design ABAC policies to allow operations when the principal&apos;s tag matches the tag on the resource that they 
+      are trying to access.</para>
+      <para>ABAC is helpful in environments that are growing rapidly and helps with situations where policy management becomes cumbersome.</para>
+      <para>To control access based on tags, you provide tag information in the <ulink
+         url="&url-iam-user;reference_policies_elements_condition.html">condition
+         element</ulink> of a policy using the
+         <code>aws:ResourceTag/<replaceable>key-name</replaceable></code>,
+         <code>aws:RequestTag/<replaceable>key-name</replaceable></code>, or
+         <code>aws:TagKeys</code> condition keys.</para>
+      <para>For more information about ABAC, see <ulink url="&url-iam-user;introduction_attribute-based-access-control.html"
+           >What is ABAC?</ulink> in the
+         <emphasis>&guide-iam-user;</emphasis>. To view a tutorial with steps for setting up ABAC, see <ulink url="&url-iam-user;tutorial_attribute-based-access-control.html"
+           >Use attribute-based access control (ABAC)</ulink> in the
+         <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-temp-creds '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>Some &AWS-services; don&apos;t work when you sign in using temporary credentials. For additional 
+         information, including which &AWS-services; work with temporary credentials, see <ulink
+               url="&url-iam-user;reference_aws-services-that-work-with-iam.html">&AWS-services;
+               that work with &IAM;</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+         <para>You are using temporary credentials if you sign in to the &console; using any method
+            except a user name and password. For example, when you access &AWS; using your
+            company&apos;s single sign-on (SSO) link, that process automatically creates temporary credentials.
+            You also automatically create temporary credentials when you sign in to the console as a user and
+            then switch roles. For more information about switching roles, see <ulink
+               url="&url-iam-user;id_roles_use_switch-role-console.html">Switching to a role
+               (console)</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+         <para>You can manually create temporary credentials using the &CLI; or &AWS; API. You can
+            then use those temporary credentials to access &AWS;. &AWS; recommends that you
+            dynamically generate temporary credentials instead of using long-term access keys. For
+            more information, see <ulink url="&url-iam-user;id_credentials_temp.html">Temporary
+               security credentials in IAM</ulink>.</para>
+  '>
+  <!ENTITY sec-iam-template-principal-permissions '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>&aws_sec_principal-perms-definition;</para>
+  '>
+  <!ENTITY sec-iam-template-service-roles '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>&aws_sec_service-role-definition;</para>
+  '>
+  <!ENTITY sec-iam-template-service-linked-roles '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>&aws_sec_service-linked-role-definition;</para>
+  '>
+<!ENTITY sec-iam-template-policy-examples-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+<para>By default, &IAM; users and roles don&apos;t have permission to create or modify &AA-SERVICENAME;
+resources. They also can&apos;t perform tasks using the &console;, &CLI;, or &AWS; API. An &IAM;
+administrator must create &IAM; policies that grant users and roles permission to perform
+actions on the resources that they need. The administrator must then attach those policies
+to the &IAM; users or groups that require those permissions.</para>
+<para>To learn how to create an &IAM; identity-based policy using these example JSON policy
+documents, see <ulink
+url="&url-iam-user;access_policies_create-console.html"
+>Creating &IAM; policies</ulink> in the
+<emphasis>&guide-iam-user;</emphasis>.</para>
+'>
+  <!ENTITY sec-iam-template-policy-best-practices '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <para>Identity-based policies are very powerful. They determine whether someone can create, access, or delete &AA-SERVICENAME; resources in your
+            account. These actions can incur costs for your <shared id="AWS-account"/>. When you create or edit identity-based policies, follow these guidelines and
+            recommendations:</para>
+         <itemizedlist>
+            <listitem>
+               <para><emphasis role="bold">Get started using &AWS; managed policies</emphasis>
+                  &endash; To start using &AA-SERVICENAME; quickly, use &AWS; managed policies to
+                  give your employees the permissions they need. These policies are already
+                  available in your account and are maintained and updated by &AWS;. For more
+                  information, see <ulink
+                     url="&url-iam-user;best-practices.html#bp-use-aws-defined-policies">Get started
+                     using permissions with &AWS; managed policies</ulink> in the
+                     <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Grant least privilege</emphasis> &endash; When you create
+                  custom policies, grant only the permissions required to perform a task. Start with
+                  a minimum set of permissions and grant additional permissions as necessary. Doing
+                  so is more secure than starting with permissions that are too lenient and then
+                  trying to tighten them later. For more information, see <ulink
+                     url="&url-iam-user;best-practices.html#grant-least-privilege">Grant least
+                     privilege</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Enable MFA for sensitive operations</emphasis> &endash;
+                  For extra security, require &IAM; users to use multi-factor authentication (MFA)
+                  to access sensitive resources or API operations. For more information, see <ulink
+                     url="&url-iam-user;id_credentials_mfa.html">Using multi-factor authentication
+                     (MFA) in &AWS;</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para><emphasis role="bold">Use policy conditions for extra security</emphasis>
+                  &endash; To the extent that it&apos;s practical, define the conditions under which your
+                  identity-based policies allow access to a resource. For example, you can write
+                  conditions to specify a range of allowable IP addresses that a request must come
+                  from. You can also write conditions to allow requests only within a specified date
+                  or time range, or to require the use of SSL or MFA. For more information, see
+                     <ulink url="&url-iam-user;reference_policies_elements_condition.html">&IAM;
+                     JSON policy elements: Condition</ulink> in the
+                     <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+         </itemizedlist>
+  '>
+  <!ENTITY sec-iam-template-id-based-policy-console '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+        <para>To access the &AA-SERVICENAMElong; console, you must have a minimum set of permissions.
+            These permissions must allow you to list and view details about the &AA-SERVICENAME; resources
+            in your <shared id="AWS-account"/>. If you create an identity-based policy that is more restrictive
+            than the minimum required permissions, the console won&apos;t function as intended for
+            entities (&IAM; users or roles) with that policy.</para> 
+        <para>You don&apos;t need to allow minimum console permissions for users that are making calls
+            only to the &CLI; or the &AWS; API. Instead, allow access to only the actions that match
+            the API operation that you&apos;re trying to perform.</para>
+  '>
+  <!ENTITY sec-iam-template-troubleshoot-intro '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+        <para>Use the following information to help you diagnose and fix common issues that you might
+         encounter when working with &AA-SERVICENAME; and &IAM;.</para>
+  '>
+  <!ENTITY sec-iam-template-id-based-policy-examples-view-own-permissions '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>This example shows how you might create a policy that allows &IAM; users to view the inline and managed policies that are attached to their user
+            identity. This policy includes permissions to complete this action on the console or programmatically using the &CLI; or &AWS; API.</para>
+         <programlisting>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["&region-arn;iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}</programlisting>
+  '>
+  <!ENTITY sec-iam-template-troubleshoot-passrole '
+    <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <para>If you receive an error that you&apos;re not authorized to perform the <code>iam:PassRole</code> action, then you must contact your administrator for
+            assistance. Your administrator is the person that provided you with your user name and password. Ask that person to update your policies to allow
+            you to pass a role to &AA-SERVICENAME;.</para>
+         <para>Some &AWS-services; allow you to pass an existing role to that service, instead of creating a new service role or service-linked role. To do
+            this, you must have permissions to pass the role to the service.</para>
+         <para>The following example error occurs when an &IAM; user named <code>marymajor</code> tries to use the console to perform an action in
+            &AA-SERVICENAME;. However, the action requires the service to have permissions granted by a service role. Mary does not have permissions to pass the
+            role to the service.</para>
+         <programlisting>User: &region-arn;iam::&account_id_example;:user/<code>marymajor</code> is not authorized to perform: iam:PassRole</programlisting>
+         <para>In this case, Mary asks her administrator to update her policies to allow her to perform the <code>iam:PassRole</code> action.</para>
+  '>
+  <!ENTITY sec-iam-template-troubleshoot-access-keys '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>After you create your &IAM; user access keys, you can view your access key ID at any time. However, you can&apos;t view your secret access key again.
+            If you lose your secret key, you must create a new access key pair. </para>
+         <para>Access keys consist of two parts: an access key ID (for example, <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
+               <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>). Like a user name and password, you must use both the access key ID and secret access key
+            together to authenticate your requests. Manage your access keys as securely as you do your user name and password.</para>
+         <important>
+            <para> Do not provide your access keys to a third party, even to help <ulink
+                  url="https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId">find your canonical user ID</ulink>. By doing
+               this, you might give someone permanent access to your account. </para>
+         </important>
+         <para>When you create an access key pair, you are prompted to save the access key ID and secret access key in a secure location. The secret access key
+            is available only at the time you create it. If you lose your secret access key, you must add new access keys to your &IAM; user. You can have a
+            maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see <ulink
+               url="&url-iam-user;id_credentials_access-keys.html#Using_CreateAccessKey">Managing access keys</ulink> in the
+               <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-troubleshoot-admin-delegate '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+         <para>To allow others to access &AA-SERVICENAME;, you must create an &IAM; entity (user or role) for the person or application that needs access. They
+            will use the credentials for that entity to access &AWS;. You must then attach a policy to the entity that grants them the correct permissions in
+            &AA-SERVICENAME;.</para>
+         <para>To get started right away, see <ulink url="&url-iam-user;getting-started_create-delegated-user.html">Creating your first &IAM; delegated user and
+               group</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  <!ENTITY sec-iam-template-troubleshoot-cross-account-access '
+   <!-- TEMPLATE ONLY – Use this entity only within the security-iam template because it relies on local entities added using that template -->
+   <para>You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
+            is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
+            people access to your resources.</para>
+         <para>To learn more, consult the following:</para>
+         <itemizedlist>
+            <listitem>
+               <para>To learn whether &AA-SERVICENAME; supports these features, see <xref linkend="security_iam_service-with-iam"
+                     endterm="security_iam_service-with-iam.title"/>.</para>
+            </listitem>
+            <listitem>
+               <para>To learn how to provide access to your resources across <shared id="AWS-accounts"/> that you own, see <ulink
+                     url="&url-iam-user;id_roles_common-scenarios_aws-accounts.html">Providing access to an &IAM; user in another <shared id="AWS-account"/> that you
+                     own</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para>To learn how to provide access to your resources to third-party <shared id="AWS-accounts"/>, see <ulink
+                     url="&url-iam-user;id_roles_common-scenarios_third-party.html">Providing access to <shared id="AWS-accounts"/> owned by third parties</ulink> in the
+                     <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para>To learn how to provide access through identity federation, see <ulink url="&url-iam-user;id_roles_common-scenarios_federated-users.html"
+                     >Providing access to externally authenticated users (identity federation)</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+            <listitem>
+               <para>To learn the difference between using roles and resource-based policies for cross-account access, see <ulink
+                     url="&url-iam-user;id_roles_compare-resource-policies.html">How &IAM; roles differ from resource-based policies</ulink> in the
+                     <emphasis>&guide-iam-user;</emphasis>.</para>
+            </listitem>
+         </itemizedlist>
+  '>
+
+<!-- SECTION 9 - AUTHENTICATION & ACCESS CONTROL TEMPLATE ENTITIES - DEPRECATED -->
+<!-- The contents of this section have been deprecated and moved to SECTION 10. -->
+ <!-- END AUTHENTICATION & ACCESS CONTROL TEMPLATE Authentication Section ENTITY -->
+ 
+ 
+<!-- SECTION 10 - DEPRECATED ENTITIES -->
+ <!-- IMPORTANT -->
+  <!-- DO NOT USE ANY OF THE FOLLOWING AUTHENTICATION & ACCESS CONTROL TEMPLATE ENTITIES -->
+  <!-- These entities are being phased out. They are too complex and rely on local entities that are 
+         contained in the Authentication and Access Control Template ONLY -->
+         
+  <!--  As of 15 Dec 2017, several services are still using these, as noted in the comments below. -->  
+
+<!-- MIGHT STILL BE USED BY AWSKinesisAnalyticsApiDocFRFR and AWSKinesisAnalyticsApiDocJAJP -->
+  <!ENTITY auth-access-top-level-topic-intro '
+  <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+  https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+  <para>Access to &SERVICENAMElong; requires credentials. Those credentials must have permissions to 
+  access &AWS; resources, such as an &SERVICENAMElong; &SERVICE-RESOURCE; or an &EC2long; (&EC2;) instance. 
+  The following sections provide details on how you can use <ulink url="&url-iam-user;introduction.html">&IAMlong;
+  (&IAM;)</ulink> and &SERVICENAME; to help secure access to your resources. </para>
+  '>
+  
+<!-- MIGHT STILL BE USED BY AWSKinesisAnalyticsApiDocFRFR and AWSKinesisAnalyticsApiDocJAJP -->
+ <!ENTITY auth-access-top-level-topic-access-control-subsection-intro '
+ <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          <para>You can have valid credentials to authenticate your requests, but unless you have
+              permissions you cannot create or access &SERVICENAMElong; resources. For example, you
+              must have permissions to create an &SERVICENAMElong; &SERVICE-RESOURCE;.</para>
+  
+          <para>The following sections describe how to manage permissions for &SERVICENAMElong;. We
+              recommend that you read the overview first.</para>
+  '>
+ 
+  <!-- MIGHT STILL BE USED BY AWSCloudWatchLoc, AWSPipelinesDocsLoc, AWSKinesisAnalyticsApiDocFRFR, AWSKinesisAnalyticsApiDocJAJP, -->
+  <!ENTITY auth-access-managing-access-topic-intro '
+   <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          <para>Every &AWS; resource is owned by an <shared id="AWS-account"/>, and permissions to create or access a
+              resource are governed by permissions policies. An account administrator can attach
+              permissions policies to &IAM; identities (that is, users, groups, and roles), and some
+              services (such as &LAMlong;) also support attaching permissions policies to resources. </para>
+  
+          <note>
+              <para>An <emphasis>account administrator</emphasis> (or administrator &IAM; user) is a user
+                  with administrator privileges. For more information, see <ulink
+                      url="&url-iam-user;best-practices.html">&IAM; best practices</ulink> in the
+                      <emphasis>&guide-iam-user;</emphasis>.</para>
+          </note>
+  
+          <para>When granting permissions, you decide who is getting the permissions, the resources
+              they get permissions for, and the specific actions that you want to allow on those
+              resources.</para>
+  '> 
+ 
+ <!-- MIGHT STILL BE USED BY AWSKinesisAnalyticsApiDocFRFR and AWSKinesisAnalyticsApiDocJAJP -->
+  <!ENTITY auth-access-managing-access-topic-resources-operations-xref '
+   <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>&SERVICENAME; provides a set of operations to work with &SERVICENAME; resources.
+                  For a list of available operations, see &SERVICENAMElong; &SERVICE-API-URL;.</para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-resource-ownership-subsection '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+      <section id="access-control-resource-ownership">
+      <info>
+        <title id="access-control-resource-ownership.title">Understanding resource ownership</title>
+          </info>
+          <para>The <shared id="AWS-account"/> owns the resources that are created in the account, regardless 
+          of who created the resources. Specifically, the resource owner is the <shared id="AWS-account"/> of the 
+          <ulink url="&url-iam-user;id_roles_terms-and-concepts.html">principal entity</ulink> 
+          (that is, the &root;, an &IAM; user, or an &IAM; role) that authenticates 
+          the resource creation request. The following examples illustrate how this works:</para>
+          
+          <itemizedlist>
+            <listitem>
+              <para>If you use your &rootlong; credentials to create
+                  &SERVICE-RESOURCE-WITH-ARTICLE;, your <shared id="AWS-account"/> is the owner 
+                  of the resource (in &SERVICENAME;, the
+                  resource is &SERVICE-RESOURCE-WITH-ARTICLE;).</para>
+            </listitem>
+            <listitem>
+              <para>If you create an &IAM; user in your <shared id="AWS-account"/> and grant permissions to
+                create &SERVICE-RESOURCE-WITH-ARTICLE; to that user, the user can create 
+                &SERVICE-RESOURCE-WITH-ARTICLE;. However, your <shared id="AWS-account"/>, to which the 
+                user belongs, owns the &SERVICE-RESOURCE; resource.</para>
+            </listitem>
+            <listitem>
+              <para>If you create an &IAM; role in your <shared id="AWS-account"/> with permissions to
+                create &SERVICE-RESOURCE-WITH-ARTICLE;, anyone who can assume the role can create 
+                &SERVICE-RESOURCE-WITH-ARTICLE;. Your <shared id="AWS-account"/>, to which the user belongs,   
+                owns the &SERVICE-RESOURCE; resource. </para>
+            </listitem>
+          </itemizedlist>
+        </section>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-managing-access-subsection-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>A <emphasis>permissions policy</emphasis> describes who has access to what. The
+                  following section explains the available options for creating permissions
+                  policies.</para>
+  
+              <note>
+                  <para>This section discusses using &IAM; in the context of &SERVICENAME;. It doesn&apos;t
+                      provide detailed information about the &IAM; service. For complete &IAM;
+                      documentation, see <ulink url="&url-iam-user;introduction.html">What is
+                          &IAM;?</ulink> in the <emphasis>&guide-iam-user;</emphasis>. For information
+                      about &IAM; policy syntax and descriptions, see <ulink
+                          url="&url-iam-user;reference_policies.html">&IAM; policy reference</ulink>
+                      in the <emphasis>&guide-iam-user;</emphasis>.</para>
+              </note>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-iam-policies-subsection-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+            <para>You can attach policies to &IAM; identities. For example, you can do the following:</para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="bold">Attach a permissions policy to a user or a group
+                  in your account</emphasis> &ndash; To grant a user permissions to create an 
+                  &SERVICENAMElong; resource, such as &SERVICE-RESOURCE-WITH-ARTICLE;, you 
+                  can attach a permissions policy to a user or group that the user belongs to.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="bold">Attach a permissions policy to a role
+                  (grant cross-account permissions)</emphasis> &ndash; You can attach an
+                  identity-based permissions policy to an &IAM; role to grant cross-account
+                  permissions. For example, the administrator in account A can create a
+                  role to grant cross-account permissions to another <shared id="AWS-account"/> (for
+                  example, account B) or an &AWS-service; as follows:</para>
+                <orderedlist>
+                  <listitem>
+                    <para>Account A administrator creates an &IAM; role and attaches a
+                      permissions policy to the role that grants permissions on
+                      resources in account A.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Account A administrator attaches a trust policy to the role
+                      identifying account B as the principal who can assume the role.
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>Account B administrator can then delegate permissions to
+                      assume the role to any users in account B. Doing this allows
+                      users in account B to create or access resources in account A.
+                      The principal in the trust policy can also be an &AWS-service;
+                      principal if you want to grant an &AWS-service; permissions to
+                      assume the role.</para>
+                  </listitem>
+                </orderedlist>
+                <para>For more information about using &IAM; to delegate permissions, see
+                  <ulink url="&url-iam-user;access.html">Access
+                    management</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+              </listitem>
+            </itemizedlist>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-resource-level-not-available-some-actions '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          Some of the API actions for &SERVICENAME; don&apos;t support identifying specific 
+          resources using the resource ARNs (also known as <emphasis>resource-level permissions</emphasis>).
+          Therefore, the policy specifies a wildcard character (*) as the <code>Resource</code> value.
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-resource-level-not-available-service '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          &SERVICENAME; doesn&apos;t support permissions for actions at the resource-level. 
+          Therefore, the policy specifies a wildcard character (*) as the <code>Resource</code> value.
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-identity-based-subsection-xref '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+                  <para>For more information about using identity-based policies with &SERVICENAME;,
+                    see <xref linkend="using-identity-based-policies"
+                          endterm="using-identity-based-policies.title"/>. For more
+                      information about users, groups, roles, and permissions, see <ulink
+                          url="&url-iam-user;id.html">Identities (users, groups, and roles)</ulink> in
+                      the <emphasis>&guide-iam-user;</emphasis>. </para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-resource-based-subsection-does-not-apply '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+             <para>Other services, such as &S3;, also support resource-based permissions
+                      policies. For example, you can attach a policy to an S3 bucket to manage access
+                      permissions to that bucket. &SERVICENAME; doesn&apos;t support resource-based
+                      policies.</para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-resource-based-subsection-xref '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+                  <para>For more information about using resource-based policies with &SERVICENAME;,
+                      see <xref linkend="using-resource-based-policies"
+                          endterm="using-resource-based-policies.title"/>. For
+                      additional information about using &IAM; roles (identity-based policies) as
+                      opposed to resource-based policies, see <ulink
+                          url="&url-iam-user;id_roles_compare-resource-policies.html">How &IAM; roles
+                          differ from resource-based policies</ulink> in the
+                          <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-policy-elements-subsection '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <section id="specify-policy-elements">
+              <info>
+                  <title id="specify-policy-elements.title">Specifying policy elements:
+                      actions, effects, and principals</title>
+                      </info>
+                  <para>For each &SERVICENAME; resource, the service defines a set of API operations.
+                      To grant permissions for these API operations, &SERVICENAME; defines a set of
+                      actions that you can specify in a policy. Some API operations can require permissions 
+                      for more than one action in order to perform the API operation. For more 
+                      information about resources and API operations, see <xref linkend="access-control-resources"
+                          endterm="access-control-resources.title"/> and &SERVICENAME; &SERVICE-API-URL;.</para>
+  
+                  <para>The following are the most basic policy elements:</para>
+                  <itemizedlist>
+                      <listitem>
+                          <para><emphasis role="bold">Resource</emphasis> &endash; 
+                          You use an Amazon Resource Name (ARN) to identify the resource 
+                          that the policy applies to. For more information, see 
+                          <xref linkend="access-control-resources"
+                              endterm="access-control-resources.title"/>.</para>
+                      </listitem>
+                      <listitem>
+                          <para><emphasis role="bold">Action</emphasis> &endash; You use action
+                              keywords to identify resource operations that you want to allow or deny.
+                              For example, you can use &SERVICE-ACTION-EXAMPLE; to 
+                              &SERVICE-ACTION-PERMISSIONS-EXAMPLE;.</para>
+                      </listitem>
+                      <listitem>
+                          <para><emphasis role="bold">Effect</emphasis> &endash; You 
+                          specify the effect, either allow or deny, when the user requests the specific action. 
+                          If you don&apos;t explicitly grant access to (allow) a 
+                          resource, access is implicitly denied. You can also explicitly deny access to a resource,
+                          which you might do to make sure that a user cannot access it, even if a
+                          different policy grants access.</para>
+                      </listitem>
+                      <listitem>
+                          <para><emphasis role="bold">Principal</emphasis> &endash; In identity-based
+                              policies (&IAM; policies), the user that the policy is attached to is the
+                              implicit principal. For resource-based policies, you specify the user,
+                              account, service, or other entity that you want to receive permissions
+                              (applies to resource-based policies only). &SERVICENAME; &ResourceBasedSupport; 
+                              resource-based policies.</para>
+                      </listitem>
+                  </itemizedlist>
+  
+                  <para>To learn more about &IAM; policy syntax and descriptions, see <ulink
+                          url="&url-iam-user;reference_policies.html">&IAM; policy reference</ulink>
+                      in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  
+                  <para>For a <phrase revisionflag="html;htmlcond">table</phrase>
+              <phrase revisionflag="pdf;pdfcond;kindle-epub-cond">list</phrase> 
+              showing all of the &SERVICENAMElong; API operations and the resources that they apply to, 
+              see <xref
+                          linkend="api-permissions-reference"
+                          endterm="api-permissions-reference.title"/>.</para>
+              </section>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-specify-conditions-subsection-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>When you grant permissions, you can use the access policy language to specify the
+                  conditions when a policy should take effect. For example, you might want a policy to
+                  be applied only after a specific date. For more information about specifying
+                  conditions in a policy language, see <ulink
+                      url="&url-iam-user;reference_policies_elements_condition.html">Condition</ulink>
+                  in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-specify-conditions-subsection-no-keys '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>To express conditions, you use predefined condition keys. There are no condition
+                  keys specific to &SERVICENAME;. However, there are &AWS;-wide condition keys that you
+                  can use as appropriate. For a complete list of &AWS;-wide keys, see <ulink
+                      url="&url-iam-user;reference_policies_condition-keys">&AWS; global condition context keys</ulink> in the <emphasis>&guide-iam-user;</emphasis>.</para>
+  '>
+  
+  <!ENTITY auth-access-managing-access-topic-specify-conditions-subsection-keys '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>To express conditions, you use predefined condition keys. There are &AWS;-wide
+                  condition keys and &SERVICENAME;&ndash;specific keys that you can use as appropriate. For
+                  a complete list of &AWS;-wide keys, see <ulink
+                      url="&url-iam-user;reference_policies_condition-keys">&AWS; global condition context keys</ulink> in the <emphasis>&guide-iam-user;</emphasis>. For a
+                  complete list of &SERVICENAME;&ndash;specific keys, see <xref
+                      linkend="specifying-conditions"
+                      endterm="specifying-conditions.title"/>.</para>
+  '>
+  
+  <!ENTITY auth-access-identity-based-topic-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          <para>This topic provides examples of identity-based policies that demonstrate how 
+          an account administrator can attach permissions policies to &IAM; identities (that is, 
+          users, groups, and roles) and thereby grant permissions to perform operations on 
+          &SERVICENAMElong; resources.</para>
+  
+          <important>
+              <para>We recommend that you first review the introductory topics that explain the basic
+                  concepts and options available to manage access to your &SERVICENAMElong;
+                  resources. For more information, see <xref linkend="access-control-overview"
+                      endterm="access-control-overview.title"/>. </para>
+          </important>
+  '>
+  
+  <!ENTITY auth-access-identity-based-topic-managed-policies-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>&AWS; addresses many common use cases by providing standalone &IAM; policies 
+              that are created and administered by &AWS;. These &AWS; managed policies grant necessary 
+              permissions for common use cases so that you can avoid having to investigate what 
+              permissions are needed. For more information, see <ulink
+                      url="&url-iam-user;access_policies_managed-vs-inline.html#aws-managed-policies"
+                      >&AWS; managed policies</ulink> in the <emphasis>&guide-iam-user;</emphasis>. </para>
+  '>
+  
+  <!ENTITY auth-access-identity-based-topic-managed-policies-last-para '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <note>
+                  <para>You can review these permissions policies by signing in to the &IAM; console
+                      and searching for specific policies there.</para>
+              </note>
+  
+              <para>You can also create your own custom &IAM; policies to allow permissions for
+                  &SERVICENAME; actions and resources. You can attach these custom policies to 
+                  the &IAM; users or groups that require those permissions. </para>
+  '>
+  
+  <!ENTITY auth-access-identity-based-topic-customer-managed-policy-examples-intro '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+              <para>In this section, you can find example user policies that grant permissions for
+                  various &SERVICENAME; actions. These policies work when you are using &AWS; SDKs or the 
+                  &CLI;. When you are using the console, you need to grant additional permissions
+                  specific to the console, which is discussed in <xref
+                      linkend="console-permissions"
+                      endterm="console-permissions.title"/>.</para>
+              <note>
+                  <para>All examples use the us-west-2 Region and contain fictitious account
+                      IDs.</para>
+              </note>
+  '>
+  
+  <!ENTITY auth-access-resource-based-topic-important-note '
+     <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+ https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          <para>
+              <important>
+                  <para>Before you create resource-based policies, we recommend that you first review
+                      the introductory topics that explain the basic concepts and options available
+                      for you to manage access to your &SERVICENAMElong; resources. For more
+                      information, see <xref linkend="access-control-overview"
+                          endterm="access-control-overview.title"/>.</para>
+              </important>
+          </para>
+  '>
+  
+  <!ENTITY auth-access-api-reference-topic-intro '
+  <!-- DEPRECATED – This entity was deprecated in 2017. Update your docs to use supported entities from 
+  https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+          <para>When you are setting up <xref linkend="access-control" endterm="access-control.title"
+              /> and writing a permissions policy that you can attach to an &IAM; identity
+              (identity-based policies), you can use the following <phrase
+                  revisionflag="html;htmlcond">table</phrase>
+              <phrase revisionflag="pdf;pdfcond;kindle-epub-cond">list</phrase> as a reference. The
+                  <phrase revisionflag="html;htmlcond">table lists</phrase>
+              <phrase revisionflag="pdf;pdfcond;kindle-epub-cond">list includes</phrase> each
+              &SERVICENAME; API operation, the corresponding actions for which you can grant
+              permissions to perform the action, and the &AWS; resource for which you can grant the
+              permissions. You specify the actions in the policy&apos;s <code>Action</code> field, and you
+              specify the resource value in the policy&apos;s <code>Resource</code> field. </para>
+  
+          <para>You can use &AWS;-wide condition keys in your &SERVICENAME; policies to express
+              conditions. For a complete list of &AWS;-wide keys, see <ulink
+                  url="&url-iam-user;reference_policies_condition-keys.html">&AWS; global condition context keys</ulink> in the <emphasis>&guide-iam-user;</emphasis>. </para>
+  '>
+  
+   <!ENTITY auth-access-top-level-topic-authentication-subsection '
+   <!-- DEPRECATED – This entity was deprecated in 2022. Update your docs to use supported entities from 
+   https://code.amazon.com/packages/AWSSharedContent - see the src/common/phrases-shared-security.ent file. -->
+   <section id="authentication">
+   <info>
+     <title id="authentication.title">Authentication</title>
+   </info>
+     <para>You can access &AWS; as any of the following types of identities:</para>
+     <itemizedlist>
+       <listitem>
+         <para><emphasis role="bold">&rootlong;</emphasis> &ndash; &aws_sec_root_user_information-inline;</para>      
+       </listitem>
+       <listitem>
+         <para><emphasis role="bold">&IAM; user</emphasis> &ndash; An 
+           <ulink url="&url-iam-user;id_users.html">&IAM; user</ulink> is an identity 
+           within your <shared id="AWS-account"/> that has specific custom permissions (for example, permissions to 
+           create &SERVICE-RESOURCE-WITH-ARTICLE; in &SERVICENAME;). You can use an &IAM; user name and 
+           password to sign in to secure &AWS; webpages like the <ulink url="&url-console-domain;">&console;</ulink>, 
+           <ulink url="&url-forum-domain;">&AWS; Discussion Forums</ulink>, or the 
+           &link-aws-support-center;.</para>
+         <para>In addition to a user name and password, you can also generate <ulink
+             url="&url-iam-user;id_credentials_access-keys.html">access keys</ulink> for each user.
+           You can use these keys when you access &AWS-services; programmatically, either through <ulink
+             url="&url-mkt-domain;tools/#sdk">one of the several SDKs</ulink> or by using the <ulink
+             url="&url-mkt-domain;cli/">&CLIlong; (CLI)</ulink>. The SDK and CLI tools use the access 
+           keys to cryptographically sign your request. If you don’t use &AWS; tools,
+           you must sign the request yourself. &SERVICENAME; &SigV4support; <emphasis>Signature Version
+             4</emphasis>, a protocol for authenticating inbound API requests. For more information
+           about authenticating requests, see <ulink url="&url-aws-gen;signature-version-4.html"
+             >Signature Version 4 signing process</ulink> in the
+           <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+       </listitem>
+       <listitem>
+         <para><emphasis role="bold">&IAM; role</emphasis> &ndash; &aws_sec_role-definition; &IAM; roles with temporary credentials are useful in the
+           following situations:</para>
+         <itemizedlist>
+           <listitem>
+             <para><emphasis role="bold">Federated user access</emphasis> &ndash; &aws_sec_federated-user-role-definition;</para>
+           </listitem>
+           <listitem>
+             <para><emphasis role="bold">&AWS-service; access</emphasis> &ndash; &aws_sec_service-role-definition; </para>
+           </listitem>
+           <listitem>
+             <para><emphasis role="bold">Applications running on &EC2;</emphasis> &ndash; &aws_sec_ec2-role-definition;</para>
+           </listitem>
+         </itemizedlist>
+       </listitem>
+     </itemizedlist>
+   </section>
+ '>
+  
+  <!-- END OBSOLETE AUTHENTICATION & ACCESS CONTROL TEMPLATE ENTITIES -->
+ 
+ 
+ 
+  <!-- SECTION 11 - SECURITY CHAPTER ENTITIES -->
+
+<!ENTITY aws_security_data-protection '
+<para>The &AWS; <ulink type="marketing" url="compliance/shared-responsibility-model/"
+   region="SEA;IAD">shared responsibility model</ulink><ulink
+      url="https://aws.amazon.com/compliance/shared-responsibility-model/" region="BJS">shared
+      responsibility model</ulink><phrase region="DCA;LCK">shared responsibility model</phrase>
+   applies to data protection in &SERVICENAMElong;. As described in this model, &AWS; is
+   responsible for protecting the global infrastructure that runs all of the <shared id="AWS-Cloud"/>. You are
+   responsible for maintaining control over your content that is hosted on this infrastructure.
+   This content includes the security configuration and management tasks for the &AWS-services;
+   that you use. For more information about data privacy, see the <ulink
+      url="compliance/data-privacy-faq" type="marketing">Data Privacy FAQ</ulink>.<phrase
+         region="SEA;IAD"> For information about data protection in Europe, see the <ulink
+            url="security/the-aws-shared-responsibility-model-and-gdpr/" type="blog">&AWS; Shared
+            Responsibility Model and GDPR</ulink> blog post on the <emphasis>&AWS; Security
+               Blog</emphasis>.</phrase></para>
+    <para>For data protection purposes, we recommend that you protect <shared id="AWS-account"/> credentials and
+        set up individual user accounts with &IAMlong; (&IAM;). That way each user is given only the
+        permissions necessary to fulfill their job duties. We also recommend that you secure your data
+        in the following ways:</para>
+<itemizedlist>
+    <listitem>
+        <para>Use multi-factor authentication (MFA) with each account.</para>
+    </listitem>
+    <listitem>
+        <para>Use SSL/TLS to communicate with &AWS; resources. We recommend TLS 1.2 or later.</para>
+    </listitem>
+    <listitem>
+        <para>Set up API and user activity logging with &CTlong;.</para>
+    </listitem>
+    <listitem>
+        <para>Use &AWS; encryption solutions, along with all default security controls within &AWS;
+            services.</para>
+    </listitem>
+    <listitem>
+        <para>Use advanced managed security services such as &MCElong;, which assists in discovering
+            and securing personal data that is stored in &S3;.</para>
+    </listitem>
+    <listitem>
+        <para>If you require FIPS 140-2 validated cryptographic modules when accessing &AWS; through
+            a command line interface or an API, use a FIPS endpoint. For more information about the
+            available FIPS endpoints, see <ulink type="marketing" url="compliance/fips/">Federal
+                Information Processing Standard (FIPS) 140-2</ulink>.</para>
+    </listitem>
+</itemizedlist> 
+    <para>We strongly recommend that you never put confidential or sensitive information, such as your
+        customers&apos; email addresses, into tags or free-form fields such as a <emphasis role="bold"
+            >Name</emphasis> field. This includes when you work with &SERVICENAME; or other &AWS;
+        services using the console, API, &CLI;, or &AWS; SDKs. Any data that you enter into
+        tags or free-form fields used for names may be used for billing or diagnostic logs. If you 
+        provide a URL to an external server, we strongly recommend that you do not include credentials 
+        information in the URL to validate your request to that server.</para>
+'>
+
+
+  
+ <!-- =============================================================================== -->
+ <!-- =============================================================================== -->
+ <!--  15 DEC 2017: DELETING TEMPORARY DUPLICATES CREATED WITH UPDATES 20 SEPT 2017   -->
+ <!-- =============================================================================== -->
+ <!-- =============================================================================== -->
+ 
+ 

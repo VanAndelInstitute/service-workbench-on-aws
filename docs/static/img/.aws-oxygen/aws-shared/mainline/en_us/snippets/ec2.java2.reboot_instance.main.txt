@@ -1,0 +1,15 @@
+    public static void rebootEC2Instance(Ec2Client ec2, String instanceId) {
+
+      try {
+            RebootInstancesRequest request = RebootInstancesRequest.builder()
+                .instanceIds(instanceId)
+                    .build();
+
+            ec2.rebootInstances(request);
+            System.out.printf(
+                "Successfully rebooted instance %s", instanceId);
+    } catch (Ec2Exception e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+     }
+  }

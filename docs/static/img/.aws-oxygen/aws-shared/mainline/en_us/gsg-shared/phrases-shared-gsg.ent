@@ -1,0 +1,145 @@
+<!ENTITY tutorial_region '&region-us-west-2;'>
+
+<!ENTITY pricing-references '		
+		<para>Note that if you created your AWS account within the last 12 months, you are eligible for
+			the <ulink url="http://&awsdomain;/free/">AWS Free Tier</ulink>.</para>
+		<para>For more information about AWS pricing, see <ulink url="http://&awsdomain;/pricing/">Pricing</ulink>.</para>
+'>
+
+<!ENTITY sign-up-for-aws '
+	<section id="sign-up-for-aws">
+		<title id="sign-up-for-aws.title">Sign Up for AWS</title>
+
+		<para>When you sign up for Amazon Web Services (AWS), your AWS account is automatically signed up   
+			for all services in AWS and you can start using them immediately. You are charged only for the services that you use.</para>
+		<para>If you created your AWS account less than 12 months ago, you can get started with AWS for free. 
+			For more information, see <ulink url="http://&awsdomain;/free/">AWS Free Tier</ulink>.</para>
+		
+		<para>If you have an AWS account already, skip to the next step. If you don&apos;t 
+			have an AWS account, use the following procedure to create one.</para>
+		<procedure>
+			<title>To create an AWS account</title>
+			&aws-signup;
+		</procedure>
+
+	</section>
+'>
+
+<!ENTITY create-iam-user '
+	<section id="create-an-iam-user">
+		<title id="create-an-iam-user.title">Create an &IAM; User</title>
+		<para>Services in AWS require that you provide credentials when you access them, so that the
+			service can determine whether you have permission to access its resources. The console
+			requires your password. You can create access keys for your AWS account to access the
+			command line interface or API. However, we don&apos;t recommend that you access AWS using the
+			credentials for your AWS account; we recommend that you use &IAMlong; (&IAM;) instead in
+			order to better protect your AWS resources from unauthorized access.</para>
+		<para>Create an &IAM; user, and then add the user to an &IAM; group with
+			administrative permissions or and grant this user administrative permissions. You can
+			then access AWS using a special URL and the credentials for the &IAM; user.</para>
+		
+		<para>If you signed up for AWS but have not created an &IAM; user for yourself, you can create one
+			using the &IAM; console.</para>
+		&iam-create-admin-group-and-user;
+
+    <para>To sign in as this new &IAM; user, sign out of the AWS console, then use the following
+      URL, where <emphasis>your_aws_account_id</emphasis> is your AWS account number without
+    	the hyphens (for example, if your AWS account number is <code>1234-5678-9012</code>, 
+    	your AWS account ID is <code>123456789012</code>):</para>
+		<programlisting>https://<replaceable>your_aws_account_id</replaceable>.signin.aws.amazon.com/console/</programlisting>
+		<para>Enter the &IAM; user name and password that you just created. When you&apos;re signed in, the
+			navigation bar displays "<emphasis>your_user_name</emphasis> @ <emphasis>your_aws_account_id</emphasis>".</para>
+		<para>If you don&apos;t want the URL for your sign-in page to contain your AWS account ID, you can
+			create an account alias. From the &IAM; dashboard, click <guilabel>Customize</guilabel> and enter an alias, 
+			such as your company name. To sign in after you create an account alias, use the following URL:</para>
+		<programlisting>https://<replaceable>your_account_alias</replaceable>.signin.aws.amazon.com/console/</programlisting>
+
+    <para>To verify the sign-in link for IAM users for your account, open the &IAM; console and
+      check under <guilabel>IAM users sign-in link</guilabel> on the dashboard.</para>
+	</section>
+'>
+
+<!ENTITY create-key-pair '
+	<section id="create-a-key-pair">
+		<title id="create-a-key-pair.title">Create a Key Pair</title>
+		<para>AWS uses public-key cryptography to secure the login information for your instance. 
+			<phrase os="linux">A Linux instance has no password; you use a key pair to log in to your instance securely.</phrase> 
+			You specify the name of the key pair when you launch your instance, then provide the private key 
+			<phrase os="linux">when you log in using SSH.</phrase>
+			<phrase os="windows">to obtain the administrator password for your Windows instance so you can log in using RDP.</phrase></para>
+
+		<para>If you haven&apos;t created a key pair already, you can create one using the &EC2; console.</para>
+		<procedure>
+			<title>To create a key pair</title>
+			<step>
+				<para>Open the &EC2; console.</para>
+			</step>
+			<step>
+				<para>From the navigation bar, in the region selector, click <guilabel>&tutorial_region;</guilabel>.</para>
+			</step>		
+			<step>
+				<para>In the navigation pane, click <guilabel>Key Pairs</guilabel>.</para>
+			</step>			
+			<step>
+				<para>Click <guilabel>Create Key Pair</guilabel>.</para>
+			</step>
+			<step>
+				<para>Enter a name for the new key pair in the <guilabel>Key pair name</guilabel> field of the
+				    <guilabel>Create Key Pair</guilabel> dialog box, and then click
+					<guilabel>Create</guilabel>. Choose a name that is easy for you to remember.</para>
+			</step>
+			<step>
+				<para>The private key file is automatically downloaded by your browser.
+					The base file name is the name you specified as the name of your key pair, 
+					and the file name extension is <filename>.pem</filename>. Save the private
+				    key file in a safe place.</para>
+				<important>
+					<simpara>This is the only chance for you to save the private key file. You&apos;ll need to provide the name of your key pair
+						when you launch an instance and the corresponding private key each time you connect to the instance.</simpara>
+				</important>
+			</step>
+			<step>
+			    <para>Prepare the private key file. This process depends on the operating system of the computer that you&apos;re using.</para>
+				<stepalternatives>
+					<step>
+						<para>If your computer runs Mac OS X or Linux, use the following command to set the permissions of your private key file so that only you can read it.</para>
+						<programlisting>$ <userinput>chmod 400 <replaceable>my-key-pair</replaceable>.pem</userinput></programlisting>
+					</step>
+					<step>
+						<para>If your computer runs Windows, use the following steps to convert your .pem file to a .ppk file for use with PuTTY.</para>
+						<substeps>
+							<step>
+								<para>Download and install PuTTY from <ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">
+									http://www.chiark.greenend.org.uk/~sgtatham/putty/</ulink>. Be sure to install the entire suite.</para>
+							</step>
+							<step>
+								<para>Start PuTTYgen (for example, from the <guilabel>Start</guilabel> menu,
+									click <guilabel>All Programs > PuTTY > PuTTYgen</guilabel>).</para>
+							</step>
+							<step>
+								<para>Under <guilabel>Type of key to generate</guilabel>, select <guilabel>SSH-2 RSA</guilabel>.</para>
+							</step>
+							<step>
+								<para>Click <guilabel>Load</guilabel>. By default, PuTTYgen displays
+									only files with the extension <filename>.ppk</filename>. To locate your <filename>.pem</filename> file, 
+									select the option to display files of all types.</para>
+							</step>
+							<step>
+								<para>Select your private key file and then click <guilabel>Open</guilabel>.
+									Click <guilabel>OK</guilabel> to dismiss the confirmation dialog box.</para>
+							</step>
+							<step>
+								<para>Click <guilabel>Save private key</guilabel>. PuTTYgen displays a warning about saving the key without
+									a passphrase. Click <guilabel>Yes</guilabel>.</para>
+							</step>
+							<step>
+								<para>Specify the same name that you used for the key pair (for example, <replaceable>my-key-pair</replaceable>) and then click <guilabel>Save</guilabel>.
+									PuTTY automatically adds the <filename>.ppk</filename> file extension.</para>
+							</step>
+						</substeps>
+					</step>
+				</stepalternatives>
+			</step>
+		</procedure>		
+	</section>
+'>

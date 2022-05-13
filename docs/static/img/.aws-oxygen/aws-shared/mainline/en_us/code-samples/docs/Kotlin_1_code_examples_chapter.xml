@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="kotlin_code_examples" role="topic">
+    <info>
+        <title id="kotlin_code_examples.title">&Kotlin; code examples</title>
+        <titleabbrev id="kotlin_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Kotlinlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Kotlinlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="kotlin_code_examples_categorized" role="topic">
+        <info>
+            <title id="kotlin_code_examples_categorized.title">Single-service actions and scenarios using &Kotlin;</title>
+            <titleabbrev id="kotlin_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Kotlin; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Kotlinlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="kotlin_cloudwatch_code_examples" role="topic">
+            <info>
+                <title id="kotlin_cloudwatch_code_examples.title">&CW; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_cloudwatch_code_examples.titleabbrev">&CW;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &CW;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &CW;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CW; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CW; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch_PutMetricAlarm_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricAlarm_kotlin_topic.title">Create an alarm that watches a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricAlarm_kotlin_topic.titleabbrev">Create an alarm that watches a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWlong; alarm that watches a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricAlarm_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DeleteAlarms_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch_DeleteAlarms_kotlin_topic.title">Delete alarms</title>
+                            <titleabbrev id="cloudwatch_DeleteAlarms_kotlin_topic.titleabbrev">Delete alarms</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete &CWlong; alarms.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DeleteAlarms_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DescribeAlarmsForMetric_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch_DescribeAlarmsForMetric_kotlin_topic.title">Describe alarms for a metric</title>
+                            <titleabbrev id="cloudwatch_DescribeAlarmsForMetric_kotlin_topic.titleabbrev">Describe alarms for a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWlong; alarms for a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DescribeAlarmsForMetric_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DisableAlarmActions_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch_DisableAlarmActions_kotlin_topic.title">Disable alarm actions</title>
+                            <titleabbrev id="cloudwatch_DisableAlarmActions_kotlin_topic.titleabbrev">Disable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DisableAlarmActions_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_EnableAlarmActions_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch_EnableAlarmActions_kotlin_topic.title">Enable alarm actions</title>
+                            <titleabbrev id="cloudwatch_EnableAlarmActions_kotlin_topic.titleabbrev">Enable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_EnableAlarmActions_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_cloudwatch-logs_code_examples" role="topic">
+            <info>
+                <title id="kotlin_cloudwatch-logs_code_examples.title">&CWL; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_cloudwatch-logs_code_examples.titleabbrev">&CWL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &CWL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &CWL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-logs_DeleteSubscriptionFilter_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DeleteSubscriptionFilter_kotlin_topic.title">Delete a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_DeleteSubscriptionFilter_kotlin_topic.titleabbrev">Delete a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DeleteSubscriptionFilter_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeSubscriptionFilters_kotlin_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeSubscriptionFilters_kotlin_topic.title">Describe existing subscription filters</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeSubscriptionFilters_kotlin_topic.titleabbrev">Describe existing subscription filters</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWLlong; existing subscription filters.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeSubscriptionFilters_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="kotlin_dynamodb_code_examples.title">&DDB; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_kotlin_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_kotlin_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_kotlin_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_kotlin_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_kotlin_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_kotlin_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_kotlin_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_kotlin_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_kotlin_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_kotlin_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_kotlin_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_kotlin_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_Query_kotlin_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_kotlin_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_Scan_kotlin_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_kotlin_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_kotlin_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_kotlin_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_Scenario_GettingStartedMovies_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_Scenario_GettingStartedMovies_kotlin_topic.title">Get started using tables, items, and queries</title>
+                            <titleabbrev id="dynamodb_Scenario_GettingStartedMovies_kotlin_topic.titleabbrev">Get started using tables, items, and queries</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a table that can hold movie data.</para></listitem>
+                            <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+                            <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+                            <listitem><para>Query for movies that were released in a given year.</para></listitem>
+                            <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+                            <listitem><para>Delete a movie from the table.</para></listitem>
+                            <listitem><para>Delete the table.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scenario_GettingStartedMovies_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ExecuteStatement_kotlin_topic">
+                        <info>
+                            <title id="dynamodb_ExecuteStatement_kotlin_topic.title">Query a &DDB; table using PartiQL</title>
+                            <titleabbrev id="dynamodb_ExecuteStatement_kotlin_topic.titleabbrev">Query a &DDB; table using PartiQL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table using PartiQL.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ExecuteStatement_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_eventbridge_code_examples" role="topic">
+            <info>
+                <title id="kotlin_eventbridge_code_examples.title">&EV; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_eventbridge_code_examples.titleabbrev">&EV;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &EV;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &EV;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EV; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EV; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eventbridge_PutRule_kotlin_topic">
+                        <info>
+                            <title id="eventbridge_PutRule_kotlin_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="eventbridge_PutRule_kotlin_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_DeleteRule_kotlin_topic">
+                        <info>
+                            <title id="eventbridge_DeleteRule_kotlin_topic.title">Delete a scheduled rule</title>
+                            <titleabbrev id="eventbridge_DeleteRule_kotlin_topic.titleabbrev">Delete a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_DeleteRule_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutEvents_kotlin_topic">
+                        <info>
+                            <title id="eventbridge_PutEvents_kotlin_topic.title">Send events</title>
+                            <titleabbrev id="eventbridge_PutEvents_kotlin_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &EVlong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_glue_code_examples" role="topic">
+            <info>
+                <title id="kotlin_glue_code_examples.title">&GLU; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_glue_code_examples.titleabbrev">&GLU;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &GLU;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &GLU;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &GLU; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &GLU; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glue_CreateCrawler_kotlin_topic">
+                        <info>
+                            <title id="glue_CreateCrawler_kotlin_topic.title">Create a crawler</title>
+                            <titleabbrev id="glue_CreateCrawler_kotlin_topic.titleabbrev">Create a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_CreateCrawler_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="glue_GetCrawler_kotlin_topic">
+                        <info>
+                            <title id="glue_GetCrawler_kotlin_topic.title">Get a crawler</title>
+                            <titleabbrev id="glue_GetCrawler_kotlin_topic.titleabbrev">Get a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_GetCrawler_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="glue_GetDatabase_kotlin_topic">
+                        <info>
+                            <title id="glue_GetDatabase_kotlin_topic.title">Get a database from the &GLUDC;</title>
+                            <titleabbrev id="glue_GetDatabase_kotlin_topic.titleabbrev">Get a database from the &GLUDC;</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a database from the &GLUDCLong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_GetDatabase_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="glue_StartCrawler_kotlin_topic">
+                        <info>
+                            <title id="glue_StartCrawler_kotlin_topic.title">Start a crawler</title>
+                            <titleabbrev id="glue_StartCrawler_kotlin_topic.titleabbrev">Start a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_StartCrawler_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glue_Scenario_GetStartedCrawlersJobs_kotlin_topic">
+                        <info>
+                            <title id="glue_Scenario_GetStartedCrawlersJobs_kotlin_topic.title">Get started running crawlers and jobs</title>
+                            <titleabbrev id="glue_Scenario_GetStartedCrawlersJobs_kotlin_topic.titleabbrev">Get started running crawlers and jobs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create and run a crawler that crawls a public &S3long; (&S3;) bucket and generates a metadata database that describes the CSV-formatted data it finds.</para></listitem>
+                            <listitem><para>List information about databases and tables in your &GLUDCLong;.</para></listitem>
+                            <listitem><para>Create and run a job that extracts CSV data from the source &S3; bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another &S3; bucket.</para></listitem>
+                            <listitem><para>List information about job runs and view some of the transformed data.</para></listitem>
+                            <listitem><para>Delete all resources created by the demo.</para></listitem>
+                        </itemizedlist>
+                        <para>For more information, see <ulink type="documentation" url="glue/latest/ug/tutorial-create-job.html">Tutorial: Getting started with &GLU; Studio</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_Scenario_GetStartedCrawlersJobs_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_iam_code_examples" role="topic">
+            <info>
+                <title id="kotlin_iam_code_examples.title">&IAM; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_kotlin_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_kotlin_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_kotlin_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_kotlin_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_kotlin_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_kotlin_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_kotlin_topic">
+                        <info>
+                            <title id="iam_CreateUser_kotlin_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_kotlin_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_kotlin_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_kotlin_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_kotlin_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccountAlias_kotlin_topic">
+                        <info>
+                            <title id="iam_CreateAccountAlias_kotlin_topic.title">Create an alias for an account</title>
+                            <titleabbrev id="iam_CreateAccountAlias_kotlin_topic.titleabbrev">Create an alias for an account</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for an &IAM; account.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeletePolicy_kotlin_topic">
+                        <info>
+                            <title id="iam_DeletePolicy_kotlin_topic.title">Delete a policy</title>
+                            <titleabbrev id="iam_DeletePolicy_kotlin_topic.titleabbrev">Delete a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_kotlin_topic">
+                        <info>
+                            <title id="iam_DeleteUser_kotlin_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_kotlin_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_kotlin_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_kotlin_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_kotlin_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccountAlias_kotlin_topic">
+                        <info>
+                            <title id="iam_DeleteAccountAlias_kotlin_topic.title">Delete an account alias</title>
+                            <titleabbrev id="iam_DeleteAccountAlias_kotlin_topic.titleabbrev">Delete an account alias</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; account alias.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccountAlias_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_kotlin_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_kotlin_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_kotlin_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_kotlin_topic">
+                        <info>
+                            <title id="iam_GetPolicy_kotlin_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_kotlin_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccessKeys_kotlin_topic">
+                        <info>
+                            <title id="iam_ListAccessKeys_kotlin_topic.title">List a user's access keys</title>
+                            <titleabbrev id="iam_ListAccessKeys_kotlin_topic.titleabbrev">List a user's access keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list a user's &IAM; access keys.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccountAliases_kotlin_topic">
+                        <info>
+                            <title id="iam_ListAccountAliases_kotlin_topic.title">List account aliases</title>
+                            <titleabbrev id="iam_ListAccountAliases_kotlin_topic.titleabbrev">List account aliases</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; account aliases.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_kotlin_topic">
+                        <info>
+                            <title id="iam_ListUsers_kotlin_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_kotlin_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateUser_kotlin_topic">
+                        <info>
+                            <title id="iam_UpdateUser_kotlin_topic.title">Update a user</title>
+                            <titleabbrev id="iam_UpdateUser_kotlin_topic.titleabbrev">Update a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_kotlin_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_kotlin_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_kotlin_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_kms_code_examples" role="topic">
+            <info>
+                <title id="kotlin_kms_code_examples.title">&KMS; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_kms_code_examples.titleabbrev">&KMS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &KMS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &KMS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &KMS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &KMS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kms_CreateGrant_kotlin_topic">
+                        <info>
+                            <title id="kms_CreateGrant_kotlin_topic.title">Create a grant for a key</title>
+                            <titleabbrev id="kms_CreateGrant_kotlin_topic.titleabbrev">Create a grant for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a grant for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateGrant_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateKey_kotlin_topic">
+                        <info>
+                            <title id="kms_CreateKey_kotlin_topic.title">Create a key</title>
+                            <titleabbrev id="kms_CreateKey_kotlin_topic.titleabbrev">Create a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &kms-key-long;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateAlias_kotlin_topic">
+                        <info>
+                            <title id="kms_CreateAlias_kotlin_topic.title">Create an alias for a key</title>
+                            <titleabbrev id="kms_CreateAlias_kotlin_topic.titleabbrev">Create an alias for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for a &kms-key; key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateAlias_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_Decrypt_kotlin_topic">
+                        <info>
+                            <title id="kms_Decrypt_kotlin_topic.title">Decrypt ciphertext</title>
+                            <titleabbrev id="kms_Decrypt_kotlin_topic.titleabbrev">Decrypt ciphertext</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to decrypt ciphertext that was encrypted by a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Decrypt_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_DescribeKey_kotlin_topic">
+                        <info>
+                            <title id="kms_DescribeKey_kotlin_topic.title">Describe a key</title>
+                            <titleabbrev id="kms_DescribeKey_kotlin_topic.titleabbrev">Describe a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DescribeKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_DisableKey_kotlin_topic">
+                        <info>
+                            <title id="kms_DisableKey_kotlin_topic.title">Disable a key</title>
+                            <titleabbrev id="kms_DisableKey_kotlin_topic.titleabbrev">Disable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DisableKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_EnableKey_kotlin_topic">
+                        <info>
+                            <title id="kms_EnableKey_kotlin_topic.title">Enable a key</title>
+                            <titleabbrev id="kms_EnableKey_kotlin_topic.titleabbrev">Enable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_EnableKey_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_Encrypt_kotlin_topic">
+                        <info>
+                            <title id="kms_Encrypt_kotlin_topic.title">Encrypt text using a key</title>
+                            <titleabbrev id="kms_Encrypt_kotlin_topic.titleabbrev">Encrypt text using a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to encrypt text using a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Encrypt_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListAliases_kotlin_topic">
+                        <info>
+                            <title id="kms_ListAliases_kotlin_topic.title">List aliases for a key</title>
+                            <titleabbrev id="kms_ListAliases_kotlin_topic.titleabbrev">List aliases for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list aliases for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListAliases_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListGrants_kotlin_topic">
+                        <info>
+                            <title id="kms_ListGrants_kotlin_topic.title">List grants for a key</title>
+                            <titleabbrev id="kms_ListGrants_kotlin_topic.titleabbrev">List grants for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list grants for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListGrants_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListKeys_kotlin_topic">
+                        <info>
+                            <title id="kms_ListKeys_kotlin_topic.title">List keys</title>
+                            <titleabbrev id="kms_ListKeys_kotlin_topic.titleabbrev">List keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &kms-keys;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListKeys_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_lambda_code_examples" role="topic">
+            <info>
+                <title id="kotlin_lambda_code_examples.title">&LAM; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_lambda_code_examples.titleabbrev">&LAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &LAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &LAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &LAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &LAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="lambda_CreateFunction_kotlin_topic">
+                        <info>
+                            <title id="lambda_CreateFunction_kotlin_topic.title">Create a function</title>
+                            <titleabbrev id="lambda_CreateFunction_kotlin_topic.titleabbrev">Create a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_CreateFunction_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="lambda_DeleteFunction_kotlin_topic">
+                        <info>
+                            <title id="lambda_DeleteFunction_kotlin_topic.title">Delete a function</title>
+                            <titleabbrev id="lambda_DeleteFunction_kotlin_topic.titleabbrev">Delete a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_DeleteFunction_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="lambda_Invoke_kotlin_topic">
+                        <info>
+                            <title id="lambda_Invoke_kotlin_topic.title">Invoke a function</title>
+                            <titleabbrev id="lambda_Invoke_kotlin_topic.titleabbrev">Invoke a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to invoke a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_Invoke_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="lambda_Scenario_GettingStartedFunctions_kotlin_topic">
+                        <info>
+                            <title id="lambda_Scenario_GettingStartedFunctions_kotlin_topic.title">Get started with functions</title>
+                            <titleabbrev id="lambda_Scenario_GettingStartedFunctions_kotlin_topic.titleabbrev">Get started with functions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create an &IAMlong; (&IAM;) role that grants Lambda permission to write to logs.</para></listitem>
+                            <listitem><para>Create a &LAM; function and upload handler code.</para></listitem>
+                            <listitem><para>Invoke the function with a single parameter and get results.</para></listitem>
+                            <listitem><para>Update the function code and configure its &LAM; environment with an environment variable.</para></listitem>
+                            <listitem><para>Invoke the function with new parameters and get results. Display the execution log that's returned from the invocation.</para></listitem>
+                            <listitem><para>List the functions for your account.</para></listitem>
+                            <listitem><para>Delete the &IAM; role and the &LAM; function.</para></listitem>
+                        </itemizedlist>
+                        <para>For more information, see <ulink type="documentation" url="lambda/latest/dg/getting-started-create-function.html">Create a &LAM; function with the console</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_Scenario_GettingStartedFunctions_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_pinpoint_code_examples" role="topic">
+            <info>
+                <title id="kotlin_pinpoint_code_examples.title">&PIN; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_pinpoint_code_examples.titleabbrev">&PIN;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &PIN;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &PIN;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &PIN; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &PIN; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="pinpoint_CreateCampaign_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_CreateCampaign_kotlin_topic.title">Create a campaign</title>
+                            <titleabbrev id="pinpoint_CreateCampaign_kotlin_topic.titleabbrev">Create a campaign</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a campaign.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateCampaign_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateSegment_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_CreateSegment_kotlin_topic.title">Create a segment</title>
+                            <titleabbrev id="pinpoint_CreateSegment_kotlin_topic.titleabbrev">Create a segment</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a segment.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateSegment_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateApp_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_CreateApp_kotlin_topic.title">Create an application</title>
+                            <titleabbrev id="pinpoint_CreateApp_kotlin_topic.titleabbrev">Create an application</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an appliation.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateApp_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_DeleteApp_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_DeleteApp_kotlin_topic.title">Delete an application</title>
+                            <titleabbrev id="pinpoint_DeleteApp_kotlin_topic.titleabbrev">Delete an application</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an application.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteApp_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_DeleteEndpoint_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_DeleteEndpoint_kotlin_topic.title">Delete an endpoint</title>
+                            <titleabbrev id="pinpoint_DeleteEndpoint_kotlin_topic.titleabbrev">Delete an endpoint</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an endpoint.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteEndpoint_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetEndpoint_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_GetEndpoint_kotlin_topic.title">Get endpoints</title>
+                            <titleabbrev id="pinpoint_GetEndpoint_kotlin_topic.titleabbrev">Get endpoints</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get endpoints.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetEndpoint_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetSegments_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_GetSegments_kotlin_topic.title">List segments</title>
+                            <titleabbrev id="pinpoint_GetSegments_kotlin_topic.titleabbrev">List segments</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list segments.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSegments_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_SendMessages_kotlin_topic">
+                        <info>
+                            <title id="pinpoint_SendMessages_kotlin_topic.title">Send email and text messages</title>
+                            <titleabbrev id="pinpoint_SendMessages_kotlin_topic.titleabbrev">Send email and text messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send email and text messages with &PIN;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_rekognition_code_examples" role="topic">
+            <info>
+                <title id="kotlin_rekognition_code_examples.title">&REK; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_rekognition_code_examples.titleabbrev">&REK;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &REK;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &REK;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &REK; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &REK; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rekognition_CompareFaces_kotlin_topic">
+                        <info>
+                            <title id="rekognition_CompareFaces_kotlin_topic.title">Compare faces in an image against a reference image</title>
+                            <titleabbrev id="rekognition_CompareFaces_kotlin_topic.titleabbrev">Compare faces in an image against a reference image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to compare faces in an image against a reference image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-comparefaces.html">Comparing faces in images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CompareFaces_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_CreateCollection_kotlin_topic">
+                        <info>
+                            <title id="rekognition_CreateCollection_kotlin_topic.title">Create a collection</title>
+                            <titleabbrev id="rekognition_CreateCollection_kotlin_topic.titleabbrev">Create a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/create-collection-procedure.html">Creating a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CreateCollection_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteCollection_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DeleteCollection_kotlin_topic.title">Delete a collection</title>
+                            <titleabbrev id="rekognition_DeleteCollection_kotlin_topic.titleabbrev">Delete a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteCollection_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteFaces_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DeleteFaces_kotlin_topic.title">Delete faces from a collection</title>
+                            <titleabbrev id="rekognition_DeleteFaces_kotlin_topic.titleabbrev">Delete faces from a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete faces from an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-faces-procedure.html">Deleting faces from a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteFaces_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DescribeCollection_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DescribeCollection_kotlin_topic.title">Describe a collection</title>
+                            <titleabbrev id="rekognition_DescribeCollection_kotlin_topic.titleabbrev">Describe a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/describe-collection-procedure.html">Describing a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DescribeCollection_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectFaces_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DetectFaces_kotlin_topic.title">Detect faces in an image</title>
+                            <titleabbrev id="rekognition_DetectFaces_kotlin_topic.titleabbrev">Detect faces in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect faces in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-detect-images.html">Detecting faces in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectFaces_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectLabels_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DetectLabels_kotlin_topic.title">Detect labels in an image</title>
+                            <titleabbrev id="rekognition_DetectLabels_kotlin_topic.titleabbrev">Detect labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect labels in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/labels-detect-labels-image.html">Detecting labels in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectLabels_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectModerationLabels_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DetectModerationLabels_kotlin_topic.title">Detect moderation labels in an image</title>
+                            <titleabbrev id="rekognition_DetectModerationLabels_kotlin_topic.titleabbrev">Detect moderation labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect moderation labels in an image with &REK;. Moderation labels identify content that may be inappropriate for some audiences.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/procedure-moderate-images.html">Detecting inappropriate images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectModerationLabels_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectText_kotlin_topic">
+                        <info>
+                            <title id="rekognition_DetectText_kotlin_topic.title">Detect text in an image</title>
+                            <titleabbrev id="rekognition_DetectText_kotlin_topic.titleabbrev">Detect text in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect text in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/text-detecting-text-procedure.html">Detecting text in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectText_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_IndexFaces_kotlin_topic">
+                        <info>
+                            <title id="rekognition_IndexFaces_kotlin_topic.title">Index faces to a collection</title>
+                            <titleabbrev id="rekognition_IndexFaces_kotlin_topic.titleabbrev">Index faces to a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to index faces in an image and add them to an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/add-faces-to-collection-procedure.html">Adding faces to a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_IndexFaces_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListCollections_kotlin_topic">
+                        <info>
+                            <title id="rekognition_ListCollections_kotlin_topic.title">List collections</title>
+                            <titleabbrev id="rekognition_ListCollections_kotlin_topic.titleabbrev">List collections</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &REK; collections.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-collection-procedure.html">Listing collections</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListCollections_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListFaces_kotlin_topic">
+                        <info>
+                            <title id="rekognition_ListFaces_kotlin_topic.title">List faces in a collection</title>
+                            <titleabbrev id="rekognition_ListFaces_kotlin_topic.titleabbrev">List faces in a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list faces in an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-faces-in-collection-procedure.html">Listing faces in a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListFaces_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_RecognizeCelebrities_kotlin_topic">
+                        <info>
+                            <title id="rekognition_RecognizeCelebrities_kotlin_topic.title">Recognize celebrities in an image</title>
+                            <titleabbrev id="rekognition_RecognizeCelebrities_kotlin_topic.titleabbrev">Recognize celebrities in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to recognize celebrities in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/celebrities-procedure-image.html">Recognizing celebrities in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_RecognizeCelebrities_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rekognition_VideoDetection_kotlin_topic">
+                        <info>
+                            <title id="rekognition_VideoDetection_kotlin_topic.title">Detect information in videos</title>
+                            <titleabbrev id="rekognition_VideoDetection_kotlin_topic.titleabbrev">Detect information in videos</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect information in videos.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_VideoDetection_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_s3_code_examples" role="topic">
+            <info>
+                <title id="kotlin_s3_code_examples.title">&S3; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_CopyObject_kotlin_topic">
+                        <info>
+                            <title id="s3_CopyObject_kotlin_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_kotlin_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_kotlin_topic">
+                        <info>
+                            <title id="s3_CreateBucket_kotlin_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_kotlin_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketPolicy_kotlin_topic">
+                        <info>
+                            <title id="s3_DeleteBucketPolicy_kotlin_topic.title">Delete a policy from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketPolicy_kotlin_topic.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a policy from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_kotlin_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_kotlin_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_kotlin_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_kotlin_topic">
+                        <info>
+                            <title id="s3_GetObject_kotlin_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_kotlin_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObjectAcl_kotlin_topic">
+                        <info>
+                            <title id="s3_GetObjectAcl_kotlin_topic.title">Get the ACL of an object</title>
+                            <titleabbrev id="s3_GetObjectAcl_kotlin_topic.titleabbrev">Get the ACL of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObjectAcl_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketPolicy_kotlin_topic">
+                        <info>
+                            <title id="s3_GetBucketPolicy_kotlin_topic.title">Get the policy for a bucket</title>
+                            <titleabbrev id="s3_GetBucketPolicy_kotlin_topic.titleabbrev">Get the policy for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the policy for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_kotlin_topic">
+                        <info>
+                            <title id="s3_ListObjects_kotlin_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_kotlin_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketAcl_kotlin_topic">
+                        <info>
+                            <title id="s3_PutBucketAcl_kotlin_topic.title">Set a new ACL for a bucket</title>
+                            <titleabbrev id="s3_PutBucketAcl_kotlin_topic.titleabbrev">Set a new ACL for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set a new access control list (ACL) for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketAcl_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_kotlin_topic">
+                        <info>
+                            <title id="s3_PutObject_kotlin_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_kotlin_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_GettingStarted_kotlin_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_kotlin_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_kotlin_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_sns_code_examples" role="topic">
+            <info>
+                <title id="kotlin_sns_code_examples.title">&SNS; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_TagResource_kotlin_topic">
+                        <info>
+                            <title id="sns_TagResource_kotlin_topic.title">Add tags to a topic</title>
+                            <titleabbrev id="sns_TagResource_kotlin_topic.titleabbrev">Add tags to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add tags to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_TagResource_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_CreateTopic_kotlin_topic">
+                        <info>
+                            <title id="sns_CreateTopic_kotlin_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_kotlin_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_Unsubscribe_kotlin_topic">
+                        <info>
+                            <title id="sns_Unsubscribe_kotlin_topic.title">Delete a subscription</title>
+                            <titleabbrev id="sns_Unsubscribe_kotlin_topic.titleabbrev">Delete a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_kotlin_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_kotlin_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_kotlin_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_kotlin_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_kotlin_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_kotlin_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_kotlin_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_kotlin_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_kotlin_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_kotlin_topic">
+                        <info>
+                            <title id="sns_ListTopics_kotlin_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_kotlin_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishTextSMS_kotlin_topic">
+                        <info>
+                            <title id="sns_PublishTextSMS_kotlin_topic.title">Publish an SMS text message</title>
+                            <titleabbrev id="sns_PublishTextSMS_kotlin_topic.titleabbrev">Publish an SMS text message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_kotlin_topic">
+                        <info>
+                            <title id="sns_Publish_kotlin_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_kotlin_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetTopicAttributes_kotlin_topic">
+                        <info>
+                            <title id="sns_SetTopicAttributes_kotlin_topic.title">Set topic attributes</title>
+                            <titleabbrev id="sns_SetTopicAttributes_kotlin_topic.titleabbrev">Set topic attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set &SNS; topic attributes.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_Lambda_kotlin_topic">
+                        <info>
+                            <title id="sns_Subscribe_Lambda_kotlin_topic.title">Subscribe a &LAM; function to a topic</title>
+                            <titleabbrev id="sns_Subscribe_Lambda_kotlin_topic.titleabbrev">Subscribe a &LAM; function to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a &LAM; function so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_kotlin_topic">
+                        <info>
+                            <title id="sns_Subscribe_kotlin_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_kotlin_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_sqs_code_examples" role="topic">
+            <info>
+                <title id="kotlin_sqs_code_examples.title">&SQS; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_CreateQueue_kotlin_topic">
+                        <info>
+                            <title id="sqs_CreateQueue_kotlin_topic.title">Create a queue</title>
+                            <titleabbrev id="sqs_CreateQueue_kotlin_topic.titleabbrev">Create a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_CreateQueue_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteMessage_kotlin_topic">
+                        <info>
+                            <title id="sqs_DeleteMessage_kotlin_topic.title">Delete a message from a queue</title>
+                            <titleabbrev id="sqs_DeleteMessage_kotlin_topic.titleabbrev">Delete a message from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a message from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteMessage_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteQueue_kotlin_topic">
+                        <info>
+                            <title id="sqs_DeleteQueue_kotlin_topic.title">Delete a queue</title>
+                            <titleabbrev id="sqs_DeleteQueue_kotlin_topic.titleabbrev">Delete a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteQueue_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ListQueues_kotlin_topic">
+                        <info>
+                            <title id="sqs_ListQueues_kotlin_topic.title">List queues</title>
+                            <titleabbrev id="sqs_ListQueues_kotlin_topic.titleabbrev">List queues</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SQS; queues.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ListQueues_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_kotlin_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_kotlin_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_kotlin_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_kotlin_topic">
+                        <info>
+                            <title id="sqs_SendMessage_kotlin_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_kotlin_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="kotlin_secrets-manager_code_examples" role="topic">
+            <info>
+                <title id="kotlin_secrets-manager_code_examples.title">&ASM; examples using &Kotlin;</title>
+                <titleabbrev id="kotlin_secrets-manager_code_examples.titleabbrev">&ASM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Kotlinlong; with &ASM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Kotlinlong; with &ASM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ASM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ASM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="secrets-manager_CreateSecret_kotlin_topic">
+                        <info>
+                            <title id="secrets-manager_CreateSecret_kotlin_topic.title">Create a secret</title>
+                            <titleabbrev id="secrets-manager_CreateSecret_kotlin_topic.titleabbrev">Create a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_CreateSecret_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_DescribeSecret_kotlin_topic">
+                        <info>
+                            <title id="secrets-manager_DescribeSecret_kotlin_topic.title">Describe a secret</title>
+                            <titleabbrev id="secrets-manager_DescribeSecret_kotlin_topic.titleabbrev">Describe a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_DescribeSecret_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_GetSecretValue_kotlin_topic">
+                        <info>
+                            <title id="secrets-manager_GetSecretValue_kotlin_topic.title">Get a secret value</title>
+                            <titleabbrev id="secrets-manager_GetSecretValue_kotlin_topic.titleabbrev">Get a secret value</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a &ASM; secret value.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_GetSecretValue_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_ListSecrets_kotlin_topic">
+                        <info>
+                            <title id="secrets-manager_ListSecrets_kotlin_topic.title">List secrets</title>
+                            <titleabbrev id="secrets-manager_ListSecrets_kotlin_topic.titleabbrev">List secrets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &ASM; secrets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_ListSecrets_Kotlin.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_PutSecretValue_kotlin_topic">
+                        <info>
+                            <title id="secrets-manager_PutSecretValue_kotlin_topic.title">Put a value in a secret</title>
+                            <titleabbrev id="secrets-manager_PutSecretValue_kotlin_topic.titleabbrev">Put a value in a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put a value in a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_PutSecretValue_Kotlin.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+    <section id="kotlin_code_examples_cross_service" role="topic">
+        <info>
+            <title id="kotlin_code_examples_cross_service.title">Cross-service examples using &Kotlin;</title>
+            <titleabbrev id="kotlin_code_examples_cross_service.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following sample applications use the &Kotlinlong;
+                    to work across multiple &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use the &Kotlinlong;
+            to work across multiple &AWS; services.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="cross_SubmitDataApp_kotlin_topic" role="topic">
+            <info>
+                <title id="cross_SubmitDataApp_kotlin_topic.title">Build an application to submit data to a &DDB; table</title>
+                <titleabbrev id="cross_SubmitDataApp_kotlin_topic.titleabbrev">Build an app to submit data to a &DDB; table</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SubmitDataApp_Kotlin.xml"></xi:include>
+        </section>
+        <section id="cross_SnsPublishSubscription_kotlin_topic" role="topic">
+            <info>
+                <title id="cross_SnsPublishSubscription_kotlin_topic.title">Build a publish and subscription application that translates messages</title>
+                <titleabbrev id="cross_SnsPublishSubscription_kotlin_topic.titleabbrev">Building an &SNS; application</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SnsPublishSubscription_Kotlin.xml"></xi:include>
+        </section>
+        <section id="cross_DynamoDBDataTracker_kotlin_topic" role="topic">
+            <info>
+                <title id="cross_DynamoDBDataTracker_kotlin_topic.title">Create a dynamic web application to track &DDB; data</title>
+                <titleabbrev id="cross_DynamoDBDataTracker_kotlin_topic.titleabbrev">Create a web application to track &DDB; data</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_Kotlin.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzer_kotlin_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzer_kotlin_topic.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzer_kotlin_topic.titleabbrev">Detect objects in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_Kotlin.xml"></xi:include>
+        </section>
+    </section>
+</chapter>

@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getRules(XRayClient xRayClient) {
+
+        try {
+            GetSamplingRulesResponse response = xRayClient.getSamplingRules(r->r.build());
+            List<SamplingRuleRecord> records = response.samplingRuleRecords();
+
+            for (SamplingRuleRecord record: records) {
+                System.out.println("The rule name is: "+record.samplingRule().ruleName());
+                System.out.println("The related service is: "+record.samplingRule().serviceName());
+            }
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

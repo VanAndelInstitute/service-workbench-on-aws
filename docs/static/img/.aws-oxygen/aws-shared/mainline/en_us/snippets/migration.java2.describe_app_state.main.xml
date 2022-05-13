@@ -1,0 +1,20 @@
+<programlisting>
+    public static void describeApplicationState (MigrationHubClient migrationClient, String appId) {
+
+        try {
+
+            DescribeApplicationStateRequest applicationStateRequest = DescribeApplicationStateRequest.builder()
+                    .applicationId(appId)
+                    .build();
+
+            DescribeApplicationStateResponse applicationStateResponse = migrationClient.describeApplicationState(applicationStateRequest);
+
+            // Display the results
+            System.out.println("The application status is " +applicationStateResponse.applicationStatusAsString() );
+
+        } catch(MigrationHubException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

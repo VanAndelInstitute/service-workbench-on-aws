@@ -1,0 +1,13 @@
+<programlisting>
+    _, err = svc.SetQueueAttributes(&sqs.SetQueueAttributesInput{
+        QueueUrl: resultURL.QueueUrl,
+        Attributes: aws.StringMap(map[string]string{
+            "ReceiveMessageWaitTimeSeconds": strconv.Itoa(*timeoutPtr),
+        }),
+    })
+    if err != nil {
+        exitErrorf("Unable to update queue %q, %v.", *namePtr, err)
+    }
+
+    fmt.Printf("Successfully updated queue %q.\n", *namePtr)
+</programlisting>

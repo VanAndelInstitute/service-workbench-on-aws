@@ -1,0 +1,9 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    req, _ := svc.GetObjectRequest(&s3.GetObjectInput{
+        Bucket: bucket,
+        Key:    key,
+    })
+    urlStr, err := req.Presign(15 * time.Minute)
+</programlisting>

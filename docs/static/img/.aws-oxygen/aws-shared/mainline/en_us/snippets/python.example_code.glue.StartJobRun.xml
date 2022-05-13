@@ -1,0 +1,32 @@
+<programlisting>
+    def start_job_run(self, name, input_database, input_table, output_bucket_name):
+        """
+        Starts a job run. A job run extracts data from the source, transforms it,
+        and loads it to the output bucket.
+
+        :param name: The name of the job definition.
+        :param input_database: The name of the metadata database that contains tables
+                               that describe the source data. This is typically created
+                               by a crawler.
+        :param input_table: The name of the table in the metadata database that
+                            describes the source data.
+        :param output_bucket_name: The S3 bucket where the output is written.
+        :return: The ID of the job run.
+        """
+        try:
+            # The custom Arguments that are passed to this function are used by the
+            # Python ETL script to determine the location of input and output data.
+            response = self.glue_client.start_job_run(
+                JobName=name,
+                Arguments={
+                    '--input_database': input_database,
+                    '--input_table': input_table,
+                    '--output_bucket_url': f's3://{output_bucket_name}/'})
+        except ClientError as err:
+            logger.error(
+                "Couldn't start job run %s. Here's why: %s: %s", name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['JobRunId']
+</programlisting>

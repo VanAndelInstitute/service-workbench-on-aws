@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+  <!--========================================================================
+      buildinfo elements
+      ========================================================================-->
+
+  <xs:element name="buildinfo">
+    <xs:annotation>
+      <xs:documentation>Defines the build properties for building the package</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="docsets"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      docsets elements
+      ========================================================================-->
+
+  <xs:element name="docsets">
+    <xs:annotation>
+      <xs:documentation>Defines the docsets contained in the package</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="docset" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      docset elements
+      ========================================================================-->
+
+  <xs:element name="docset">
+    <xs:annotation>
+      <xs:documentation>Contains all the properties needed to build a particular documentation
+        set</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="pathslug" type="pathslug-type">
+          <xs:annotation>
+            <xs:documentation>The pathslug for the docset; used for the marketing site link unless
+              altpathslug is defined</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="altpathslug" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The pathslug for the docset on the marketing domain</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="title" type="non-empty-string">
+          <xs:annotation>
+            <xs:documentation>The docset title (i.e. service name)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="abbr" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="feedbackCTI" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="feedbackSIM" type="guid" minOccurs="0"/>
+        <xs:element name="forumID" type="xs:nonNegativeInteger"/>
+        <xs:element name="profile" type="profile-type" minOccurs="0"/>
+        <xs:element name="locale" type="locale-type" minOccurs="0"/>
+        <xs:element name="options" type="docset-options-type" minOccurs="0"/>
+        <xs:element ref="guides"/>
+      </xs:all>
+      <xs:attribute name="id" use="required" type="non-empty-string"/>
+      <xs:attribute name="region" use="optional" type="region-selector-type"/>
+      <xs:assert test="(feedbackCTI or (count(child::guide/feedbackCTI) eq count(child::guide))) or (feedbackSIM or (count(child::guide/feedbackSIM) eq count(child::guide)))"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      guides elements
+      ========================================================================-->
+
+  <xs:element name="guides">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="guide" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      guide elements
+      ========================================================================-->
+
+  <xs:element name="guide">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="pathslug" type="pathslugs-type"/>
+        <xs:element name="title" type="non-empty-string"/>
+        <xs:element name="basename" type="non-empty-string"/>
+        <xs:element name="abbr" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="asciidoc-source" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="source" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="version" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="model" type="model-type" minOccurs="0"/>
+        <xs:element name="models" type="models-type" minOccurs="0"/>
+        <xs:element name="api" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="feedbackCTI" type="non-empty-string" minOccurs="0"/>
+        <xs:element name="feedbackSIM" type="guid" minOccurs="0"/>
+        <xs:element name="profile" type="profile-type" minOccurs="0"/>
+        <xs:element name="locale" type="locale-type" minOccurs="0"/>
+        <xs:element name="options" type="guide-options-type" minOccurs="0"/>
+        <xs:element ref="github" minOccurs="0"/>
+        <xs:element ref="strut" minOccurs="0"/>
+        <xs:element ref="builds"/>
+      </xs:all>
+      <xs:attribute name="id" use="required" type="non-empty-string"/>
+      <xs:attribute name="region" use="optional" type="region-selector-type"/>
+      <xs:assert test="source or model or asciidoc-source"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      strut elements
+      ========================================================================-->
+  <xs:element name="strut">
+    <xs:annotation>
+      <xs:documentation>Information relevant to Strut guides, including AWS account information for pulling and pushing documentation for Strut based builds</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <!-- arn:aws:iam::041546835252:role/DrTechwritersPetStoreDoc -->
+        <xs:element name="roleARN" type="role-arn-type"/>
+        <!-- bqejikphl2 -->
+        <xs:element name="restApiId" type="rest-api-id-type"/>
+        <!-- test -->
+        <xs:element name="stageName" type="non-blank-string"/>
+        <!-- us-east-1 -->
+        <xs:element name="region" type="aws-region-type"/>
+        <!-- example-2018-01-01 -->
+        <xs:element name="overrideUid" type="non-blank-string" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="role-arn-type">
+    <xs:restriction base="xs:string">
+      <!--
+        http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html
+        "Names of users, groups, roles, policies, instance profiles, and server certificates must be alphanumeric, including the following common characters: plus (+), equal (=), comma (,), period (.), at (@), underscore (_), and hyphen (-)."
+        "If you intend to use a role with the Switch Role feature in the AWS console, then the combined Path and RoleName cannot exceed 64 characters."
+      -->
+      <xs:pattern value="arn:aws:iam::[0-9_\-\.]{12}:role/[A-Za-z0-9+=,.@_/-]{1,64}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rest-api-id-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z]{10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="aws-region-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z]+-[a-z]+-[0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <!--========================================================================
+      github elements
+      ========================================================================-->
+  <xs:element name="github">
+    <xs:annotation>
+      <xs:documentation>GitHub repository information for a guide</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="user" type="non-blank-string"/>
+        <xs:element name="repo" type="non-blank-string"/>
+        <xs:element name="branch" type="non-blank-string"/>
+        <xs:element name="source-folder" type="non-blank-string"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <!--========================================================================
+      builds elements
+      ========================================================================-->
+
+  <xs:element name="builds">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="html" type="html-build-type" minOccurs="0"/>
+        <xs:element name="pdf" type="pdf-build-type" minOccurs="0"/>
+        <xs:element name="kindle" type="kindle-build-type" minOccurs="0"/>
+        <xs:element name="word" type="word-build-type" minOccurs="0"/>
+        <xs:element name="help-panel" type="help-panel-build-type" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Specifies that this guide should be built in the help panel format.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="markdown" type="markdown-build-type" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Specifies that this guide should be built into markdown format.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="asciidoc" type="markdown-build-type" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Specifies that this guide should be built into ASCIIDOC.</xs:documentation>
+          </xs:annotation>          
+        </xs:element>
+      </xs:all>
+      <xs:assert test="count(*)"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--========================================================================
+      element type definitions
+      ========================================================================-->
+
+  <xs:simpleType name="breadcrumb-enum-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="top"/>
+      <xs:enumeration value="tech"/>
+      <xs:enumeration value="guide"/>
+      <xs:enumeration value="page"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="breadcrumb-type">
+    <xs:sequence minOccurs="0">
+      <xs:element name="title" type="non-empty-string" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:sequence>
+          <xs:element name="domain" type="domain-enum-type"/>
+          <xs:element name="pathslug" type="pathslugs-type"/>
+        </xs:sequence>
+        <xs:element name="uri" type="xs:anyURI"/>
+        <xs:element name="disable" type="on-off-type" default="1">
+          <xs:annotation>
+            <xs:documentation>Specifies if the breadcrumb of the specified type should be disabled. By default, the value is set to 1, which disables the breadcrumb of this type.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="breadcrumb-enum-type"/>    
+  </xs:complexType>
+  
+  <xs:complexType name="breadcrumbs-type">
+    <xs:sequence>
+      <xs:element name="breadcrumb" type="breadcrumb-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:group name="docset-options-group">
+    <xs:all>
+      <xs:element name="console-help" type="enabled-type" minOccurs="0"/>
+      <xs:element name="snippet-source" type="pathslug-type" minOccurs="0"/>
+      <xs:element name="fragmented-html-builds" type="enabled-type" minOccurs="0"/>
+      <xs:element name="region-specific-images" type="regional-enabled-type" minOccurs="0"/>
+      <xs:element name="referenced-images-only" type="enabled-type" minOccurs="0"/>
+    </xs:all>
+  </xs:group>
+
+  <xs:complexType name="docset-options-type">
+    <xs:all>
+      <xs:group ref="docset-options-group"/>
+      <xs:group ref="html-build-options-group"/>
+    </xs:all>
+    <xs:attribute name="region" use="optional" type="region-selector-type"/>
+  </xs:complexType>
+
+  <xs:simpleType name="domain-enum-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="documentation"/>
+      <xs:enumeration value="marketing"/>
+      <xs:enumeration value="retail"/>
+      <xs:enumeration value="portal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:group name="guide-options-group">
+    <xs:all>
+      <xs:element name="link-common-parameters" type="on-off-type" minOccurs="0"/>
+      <xs:element name="link-common-errors" type="on-off-type" minOccurs="0"/>
+      <xs:element name="sort-members-by-required" type="on-off-type" minOccurs="0"/>
+      <xs:element name="disable-required-attribute" type="on-off-type" minOccurs="0"/>
+      <xs:element name="disable-s3-syntax" minOccurs="0" type="on-off-type"/>
+      <xs:element name="generate-all-stubs" minOccurs="0" type="on-off-type"/>
+      <xs:element name="defaultSyntaxLanguage" type="syntax-language-type" minOccurs="0"/>
+    </xs:all>
+  </xs:group>
+
+  <xs:complexType name="guide-options-type">
+    <xs:all>
+      <xs:group ref="guide-options-group"/>
+      <xs:group ref="html-build-options-group"/>
+    </xs:all>
+    <xs:attribute name="region" use="optional" type="region-selector-type"/>
+  </xs:complexType>
+
+  <xs:group name="html-build-options-group">
+    <xs:all>
+      <xs:element name="disable-social-links" type="on-off-type" minOccurs="0"/>
+      <xs:element name="disable-search" type="on-off-type" minOccurs="0"/>
+      <xs:element name="disable-feedback-link" type="on-off-type" minOccurs="0"/>
+      <xs:element name="disable-breadcrumbs" type="on-off-type" minOccurs="0"/>
+      <xs:element name="force-open-toc-ids" type="xs:string" minOccurs="0"/>
+      <xs:element name="meta-noindex-nofollow" type="true-false-type" minOccurs="0"/>
+      <xs:element name="hide-sitemap" type="hide-sitemap-type" minOccurs="0"/>
+    </xs:all>
+  </xs:group>
+
+  <xs:complexType name="hide-sitemap-type">
+    <xs:attribute name="value" type="on-off-type"/>
+  </xs:complexType>
+
+  <xs:complexType name="html-build-options-type">
+    <xs:group ref="html-build-options-group"/>
+  </xs:complexType>
+
+  <xs:simpleType name="locale-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z]{2}_[a-z]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="model-name">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_\-\.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="model-type">
+    <xs:simpleContent>
+      <xs:extension base="model-name">
+        <xs:attribute name="id" type="non-empty-string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="models-type">
+    <xs:sequence>
+      <xs:element name="model" type="submodel-type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="pathslug-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_\-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pathslugs-type">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_/\-\.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="profile-type">
+    <xs:all>
+      <xs:element name="arch" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="audience" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="condition" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="conformance" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="features" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="lang" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="os" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="revision" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="revisionflag" type="revision-flag-type" minOccurs="0"/>
+      <xs:element name="role" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="security" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="status" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="userlevel" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="vendor" type="non-empty-string" minOccurs="0"/>
+      <xs:element name="wordsize" type="non-empty-string" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="region" use="optional" type="region-selector-type"/>
+  </xs:complexType>
+
+  <xs:complexType name="submodel-type">
+    <xs:simpleContent>
+      <xs:extension base="model-name">
+        <xs:attribute name="prefix" type="non-empty-string"/>
+        <xs:attribute name="id" type="non-empty-string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="syntax-language-type">
+    <xs:attribute name="value" type="syntax-selector-type"/>
+  </xs:complexType>
+
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--========================================================================
+      build-type definitions
+      ========================================================================-->
+
+  <xs:complexType name="html-build-type">
+    <xs:sequence>
+      <xs:element name="breadcrumbs" type="breadcrumbs-type" minOccurs="0"/>
+      <xs:element name="pdf-link-override" type="xs:anyURI" minOccurs="0"/>
+      <xs:element ref="rss" minOccurs="0"/>
+      <xs:element ref="fragment-name" minOccurs="0"/>
+      <xs:element ref="fragment-parent-tocs" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kindle-build-type">
+    <xs:sequence>
+      <xs:element name="asin" type="non-empty-string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pdf-build-type">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="help-panel-build-type">
+    <xs:sequence>      
+      <xs:element name="include-html-profiling" type="on-off-type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Include content that has been profiled for both help-panel and html buildtypes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="use-embedded-format" type="on-off-type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Use the embedded format, which removes the top level title, html, head, and body tags.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="include-stylesheets" type="on-off-type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Include the CSS files normally used by the build. This will also add more of the HTML formatting (like the html,head, and body elements).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="word-build-type">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="markdown-build-type">
+    <xs:sequence>
+      <xs:element name="include-html-profiling" type="on-off-type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Include content that has been profiled for both html and your current build types.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--========================================================================
+      base type definitions
+      ========================================================================-->
+
+  <xs:simpleType name="non-empty-string">
+    <xs:annotation>
+      <xs:documentation>A string containing a non-whitespace character followed by any number of
+        other characters</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\S.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="non-blank-string">
+    <xs:annotation>
+      <xs:documentation>A string containing one or more non-whitespace characters</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\S+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="on-off-type">
+    <xs:annotation>
+      <xs:documentation>A string containing either '0' or '1'</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="true-false-type">
+    <xs:annotation>
+      <xs:documentation>A string containing either 'true' or 'false'</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="false"/>
+      <xs:enumeration value="true"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="revision-flag-type">
+    <xs:annotation>
+      <xs:documentation>A string containing a type of revision to be included.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Changed"/>
+      <xs:enumeration value="Added"/>
+      <xs:enumeration value="Deleted"/>
+      <xs:enumeration value="Off"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enabled-type">
+    <xs:annotation>
+      <xs:documentation>A string containing either 'enabled' or 'disabled'</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="disabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="regional-enabled-type">
+    <xs:annotation>
+      <xs:documentation>A string containing either 'enabled' or 'disabled', whose parent can be specify a region.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="enabled-type">
+        <xs:attribute name="region" use="optional" type="region-selector-type"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+
+  <xs:simpleType name="region-selector-type">
+    <xs:annotation>
+      <xs:documentation>A comma or Semicolon delimited list of valid or invalid regions (e.g. 'IAD' or
+        'BJS,DCA,IAD')</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}([,;][A-Z]{3})*|\-[A-Z]{3}([,;]\-[A-Z]{3})*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="syntax-selector-type">
+    <xs:annotation>
+      <xs:documentation>A string containing a language for syntax highlighting</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="syntax-selector-type-general syntax-selector-type-specific"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="syntax-selector-type-general">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="syntax-selector-type-specific">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="adoc"/>
+      <xs:enumeration value="apache"/>
+      <xs:enumeration value="apacheconf"/>
+      <xs:enumeration value="asciidoc"/>
+      <xs:enumeration value="atom"/>
+      <xs:enumeration value="bash"/>
+      <xs:enumeration value="bat"/>
+      <xs:enumeration value="bind"/>
+      <xs:enumeration value="c"/>
+      <xs:enumeration value="c++"/>
+      <xs:enumeration value="cc"/>
+      <xs:enumeration value="ceylon"/>
+      <xs:enumeration value="clj"/>
+      <xs:enumeration value="clojure"/>
+      <xs:enumeration value="cmd"/>
+      <xs:enumeration value="cpp"/>
+      <xs:enumeration value="cs"/>
+      <xs:enumeration value="csharp"/>
+      <xs:enumeration value="css"/>
+      <xs:enumeration value="diff"/>
+      <xs:enumeration value="dns"/>
+      <xs:enumeration value="dos"/>
+      <xs:enumeration value="fs"/>
+      <xs:enumeration value="fsharp"/>
+      <xs:enumeration value="gams"/>
+      <xs:enumeration value="gemspec"/>
+      <xs:enumeration value="glsl"/>
+      <xs:enumeration value="gms"/>
+      <xs:enumeration value="go"/>
+      <xs:enumeration value="golang"/>
+      <xs:enumeration value="golo"/>
+      <xs:enumeration value="gololang"/>
+      <xs:enumeration value="gradle"/>
+      <xs:enumeration value="groovy"/>
+      <xs:enumeration value="gyp"/>
+      <xs:enumeration value="h"/>
+      <xs:enumeration value="h++"/>
+      <xs:enumeration value="haml"/>
+      <xs:enumeration value="handlebars"/>
+      <xs:enumeration value="hbs"/>
+      <xs:enumeration value="hpp"/>
+      <xs:enumeration value="html"/>
+      <xs:enumeration value="html.handlebars"/>
+      <xs:enumeration value="html.hbs"/>
+      <xs:enumeration value="http"/>
+      <xs:enumeration value="https"/>
+      <xs:enumeration value="ini"/>
+      <xs:enumeration value="irb"/>
+      <xs:enumeration value="java"/>
+      <xs:enumeration value="javascript"/>
+      <xs:enumeration value="js"/>
+      <xs:enumeration value="json"/>
+      <xs:enumeration value="jsp"/>
+      <xs:enumeration value="lasso"/>
+      <xs:enumeration value="lassoscript"/>
+      <xs:enumeration value="livescript"/>
+      <xs:enumeration value="ls"/>
+      <xs:enumeration value="ls"/>
+      <xs:enumeration value="mak"/>
+      <xs:enumeration value="makefile"/>
+      <xs:enumeration value="markdown"/>
+      <xs:enumeration value="md"/>
+      <xs:enumeration value="mk"/>
+      <xs:enumeration value="mkd"/>
+      <xs:enumeration value="mkdown"/>
+      <xs:enumeration value="mm"/>
+      <xs:enumeration value="objc"/>
+      <xs:enumeration value="obj-c"/>
+      <xs:enumeration value="objectivec"/>
+      <xs:enumeration value="patch"/>
+      <xs:enumeration value="perl"/>
+      <xs:enumeration value="php"/>
+      <xs:enumeration value="php3"/>
+      <xs:enumeration value="php4"/>
+      <xs:enumeration value="php5"/>
+      <xs:enumeration value="php6"/>
+      <xs:enumeration value="pl"/>
+      <xs:enumeration value="plist"/>
+      <xs:enumeration value="podspec"/>
+      <xs:enumeration value="powershell"/>
+      <xs:enumeration value="pp"/>
+      <xs:enumeration value="profile"/>
+      <xs:enumeration value="ps"/>
+      <xs:enumeration value="puppet"/>
+      <xs:enumeration value="py"/>
+      <xs:enumeration value="python"/>
+      <xs:enumeration value="rb"/>
+      <xs:enumeration value="rss"/>
+      <xs:enumeration value="ruby"/>
+      <xs:enumeration value="ruleslanguage"/>
+      <xs:enumeration value="scala"/>
+      <xs:enumeration value="sh"/>
+      <xs:enumeration value="sql"/>
+      <xs:enumeration value="thor"/>
+      <xs:enumeration value="vbs"/>
+      <xs:enumeration value="vbscript"/>
+      <xs:enumeration value="vim"/>
+      <xs:enumeration value="xhtml"/>
+      <xs:enumeration value="xml"/>
+      <xs:enumeration value="xpath"/>
+      <xs:enumeration value="xq"/>
+      <xs:enumeration value="xsl"/>
+      <xs:enumeration value="zone"/>
+      <xs:enumeration value="zsh"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="rss">
+    <xs:complexType mixed="false">
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Optional. Title of your RSS feed. If not specified, it will be your service name + guide name + Updates.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="filename" type="xs:string" minOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Required. Filename for your RSS feed. Do not include the .rss part of the filename (that will be added for you).</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="description" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Optional. Description of your RSS feed.</xs:documentation>
+          </xs:annotation>          
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="fragment-name" type="non-empty-string">
+    <xs:annotation>
+      <xs:documentation>Fragment build basename.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="fragment-parent-tocs">
+    <xs:annotation>
+      <xs:documentation>Parent TOCs for this fragment build.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence >
+        <xs:element name="basename" minOccurs="1" type="non-blank-string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

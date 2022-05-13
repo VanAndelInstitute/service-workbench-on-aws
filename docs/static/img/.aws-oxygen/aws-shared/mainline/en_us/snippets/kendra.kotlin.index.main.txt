@@ -1,0 +1,29 @@
+suspend fun createIndex( indexDescription: String, indexName: String, indexRoleArn: String): String {
+
+        println("Creating an index named $indexName")
+        val createIndexRequest = CreateIndexRequest {
+            description = indexDescription
+            name = indexName
+            roleArn = indexRoleArn
+        }
+
+        KendraClient { region = "us-east-1" }.use { kendra ->
+            val createIndexResponse = kendra.createIndex(createIndexRequest)
+            val indexId = createIndexResponse.id
+            println("Waiting until the index with index ID $indexId is created.")
+
+            while (true) {
+                val describeIndexRequest = DescribeIndexRequest {
+                    id = indexId
+                }
+                val describeIndexResponse = kendra.describeIndex(describeIndexRequest)
+                val status = describeIndexResponse.status
+                println("Status is $status")
+                if (status !== IndexStatus.Creating) {
+                    break
+                }
+                TimeUnit.SECONDS.sleep(60)
+            }
+            return indexId.toString()
+        }
+}

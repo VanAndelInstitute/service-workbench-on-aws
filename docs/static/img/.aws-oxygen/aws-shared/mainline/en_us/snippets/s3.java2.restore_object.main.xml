@@ -1,0 +1,26 @@
+<programlisting>
+    public static void restoreS3Object(S3Client s3, String bucketName, String keyName, String expectedBucketOwner) {
+
+        try {
+
+            RestoreRequest restoreRequest = RestoreRequest.builder()
+                    .days(10)
+                    .glacierJobParameters(GlacierJobParameters.builder().tier(Tier.STANDARD).build())
+                    .build();
+
+            RestoreObjectRequest objectRequest = RestoreObjectRequest.builder()
+                .expectedBucketOwner(expectedBucketOwner)
+                .bucket(bucketName)
+                .key(keyName)
+                .restoreRequest(restoreRequest)
+                .build();
+
+        s3.restoreObject(objectRequest);
+
+    } catch (S3Exception e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+        s3.close();
+    }
+</programlisting>

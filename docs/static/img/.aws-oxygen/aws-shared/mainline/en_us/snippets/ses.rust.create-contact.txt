@@ -1,0 +1,12 @@
+async fn add_contact(client: &Client, list: &str, email: &str) -> Result<(), Error> {
+    client
+        .create_contact()
+        .contact_list_name(list)
+        .email_address(email)
+        .send()
+        .await?;
+
+    println!("Created contact");
+
+    Ok(())
+}

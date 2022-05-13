@@ -1,0 +1,23 @@
+def usage_demo():
+    """Drives the demonstration."""
+    print('-'*88)
+    print(f"Welcome to the AWS Security Token Service assume role demo, "
+          f"starring multi-factor authentication (MFA)!")
+    print('-'*88)
+    iam_resource = boto3.resource('iam')
+    user, user_key, virtual_mfa_device = setup(iam_resource)
+    try:
+        sts_client = boto3.client(
+            'sts', aws_access_key_id=user_key.id, aws_secret_access_key=user_key.secret)
+        try:
+            print("Listing buckets without specifying MFA credentials.")
+            list_buckets_with_session_token_with_mfa(None, None, sts_client)
+        except ClientError as error:
+            if error.response['Error']['Code'] == 'AccessDenied':
+                print("Got expected AccessDenied error.")
+        mfa_totp = input('Enter the code from your registered MFA device: ')
+        list_buckets_with_session_token_with_mfa(
+            virtual_mfa_device.serial_number, mfa_totp, sts_client)
+    finally:
+        teardown(user, virtual_mfa_device)
+        print("Thanks for watching!")

@@ -1,0 +1,4 @@
+    // Create CloudWatch client
+    svc := cloudwatch.New(sess)
+
+    result, err := svc.ListMetrics(nil)

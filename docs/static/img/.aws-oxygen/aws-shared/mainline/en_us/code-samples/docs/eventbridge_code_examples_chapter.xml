@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &EV; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &EV; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &EV; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &EV; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &EV; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &EV;
+            actions with &AWS; SDKs. These excerpts call the &EV; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&EV; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_eventbridge_PutTargets_section" role="topic">
+            <info>
+                <title id="example_eventbridge_PutTargets_section.title">Add a &LAM; function target using an &AWS; SDK</title>
+                <titleabbrev id="example_eventbridge_PutTargets_section.titleabbrev">Add a &LAM; function target</titleabbrev>
+                <abstract>
+                    <para>Add a &LAM; function target using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutTargets_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutTargets_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_eventbridge_PutRule_section" role="topic">
+            <info>
+                <title id="example_eventbridge_PutRule_section.title">Create an &EV; scheduled rule using an &AWS; SDK</title>
+                <titleabbrev id="example_eventbridge_PutRule_section.titleabbrev">Create a scheduled rule</titleabbrev>
+                <abstract>
+                    <para>Create an &EV; scheduled rule using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_eventbridge_DeleteRule_section" role="topic">
+            <info>
+                <title id="example_eventbridge_DeleteRule_section.title">Delete an &EV; scheduled rule using an &AWS; SDK</title>
+                <titleabbrev id="example_eventbridge_DeleteRule_section.titleabbrev">Delete a scheduled rule</titleabbrev>
+                <abstract>
+                    <para>Delete an &EV; scheduled rule using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_DeleteRule_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_DeleteRule_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_eventbridge_PutEvents_section" role="topic">
+            <info>
+                <title id="example_eventbridge_PutEvents_section.title">Send &EV; events using an &AWS; SDK</title>
+                <titleabbrev id="example_eventbridge_PutEvents_section.titleabbrev">Send events</titleabbrev>
+                <abstract>
+                    <para>Send &EV; events using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &EV; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &EV; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &EV;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &EV;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_eventbridge_Scenario_createAndTriggerARule_section" role="topic">
+            <info>
+                <title id="example_eventbridge_Scenario_createAndTriggerARule_section.title">Create and trigger a rule in &EVlong; using an &AWS; SDK</title>
+                <titleabbrev id="example_eventbridge_Scenario_createAndTriggerARule_section.titleabbrev">Create and trigger a rule</titleabbrev>
+                <abstract>
+                    <para>Create and trigger a rule in &EVlong; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_Scenario_createAndTriggerARule_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/eventbridge_Scenario_createAndTriggerARule_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &EV; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &EV; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &EV;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_LambdaScheduledEvents_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaScheduledEvents_section.title">Use scheduled events to invoke a &LAM; function</title>
+                <titleabbrev id="example_cross_LambdaScheduledEvents_section.titleabbrev">Use scheduled events to invoke a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Use scheduled events to invoke a &LAM; function</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

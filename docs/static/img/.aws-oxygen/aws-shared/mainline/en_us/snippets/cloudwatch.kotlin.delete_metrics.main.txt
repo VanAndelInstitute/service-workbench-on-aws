@@ -1,0 +1,11 @@
+suspend fun deleteCWAlarm(alarmNameVal: String) {
+
+    val request = DeleteAlarmsRequest {
+        alarmNames = listOf(alarmNameVal)
+    }
+
+    CloudWatchClient { region = "us-east-1" }.use { cwClient ->
+            cwClient.deleteAlarms(request)
+            println("Successfully deleted alarm $alarmNameVal")
+    }
+}

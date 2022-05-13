@@ -1,0 +1,7 @@
+pub async fn list_saml_providers(
+    client: &Client,
+) -> Result<ListSamlProvidersOutput, SdkError<ListSAMLProvidersError>> {
+    let response = client.list_saml_providers().send().await?;
+
+    Ok(response)
+}

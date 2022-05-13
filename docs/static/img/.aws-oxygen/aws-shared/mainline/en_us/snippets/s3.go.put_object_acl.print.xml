@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Congratulations. You gave user with email address", address, "read permission to bucket", bucket, "object", key)
+</programlisting>

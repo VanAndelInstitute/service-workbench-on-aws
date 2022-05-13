@@ -1,0 +1,17 @@
+        Aws::CloudWatch::CloudWatchClient cw;
+
+        Aws::CloudWatch::Model::DisableAlarmActionsRequest disableAlarmActionsRequest;
+        disableAlarmActionsRequest.AddAlarmNames(alarm_name);
+
+        auto disableAlarmActionsOutcome = cw.DisableAlarmActions(disableAlarmActionsRequest);
+        if (!disableAlarmActionsOutcome.IsSuccess())
+        {
+            std::cout << "Failed to disable actions for alarm " << alarm_name <<
+                ": " << disableAlarmActionsOutcome.GetError().GetMessage() <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully disabled actions for alarm " <<
+                alarm_name << std::endl;
+        }

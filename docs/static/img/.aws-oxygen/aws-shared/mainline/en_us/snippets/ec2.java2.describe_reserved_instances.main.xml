@@ -1,0 +1,27 @@
+<programlisting>
+    public static void describeReservedEC2Instances( Ec2Client ec2, String instanceID) {
+        try {
+            DescribeReservedInstancesRequest request = DescribeReservedInstancesRequest.builder().reservedInstancesIds(instanceID).build();
+
+            DescribeReservedInstancesResponse response =
+                ec2.describeReservedInstances(request);
+
+            for (ReservedInstances instance : response.reservedInstances()) {
+                System.out.printf(
+                    "Found a Reserved Instance with id %s, " +
+                            "in AZ %s, " +
+                            "type %s, " +
+                            "state %s " +
+                            "and monitoring state %s",
+                    instance.reservedInstancesId(),
+                    instance.availabilityZone(),
+                    instance.instanceType(),
+                    instance.state().name());
+        }
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+    }
+  }
+</programlisting>

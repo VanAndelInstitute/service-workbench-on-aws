@@ -1,0 +1,18 @@
+<programlisting>
+
+// Delete a photo from an album
+const deletePhoto = async (albumName, photoKey) => {
+  try {
+    console.log(photoKey);
+    const params = { Key: photoKey, Bucket: albumBucketName };
+    const data = await s3.send(new DeleteObjectCommand(params));
+    console.log("Successfully deleted photo.");
+    viewAlbum(albumName);
+  } catch (err) {
+    return alert("There was an error deleting your photo: ", err.message);
+  }
+};
+// Make deletePhoto function available to the browser
+window.deletePhoto = deletePhoto;
+
+</programlisting>

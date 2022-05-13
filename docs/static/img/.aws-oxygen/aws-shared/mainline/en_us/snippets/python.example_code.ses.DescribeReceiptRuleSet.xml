@@ -1,0 +1,18 @@
+<programlisting>
+    def describe_receipt_rule_set(self, rule_set_name):
+        """
+        Gets data about a rule set.
+
+        :param rule_set_name: The name of the rule set to retrieve.
+        :return: Data about the rule set.
+        """
+        try:
+            response = self.ses_client.describe_receipt_rule_set(
+                RuleSetName=rule_set_name)
+            logger.info("Got data for rule set %s.", rule_set_name)
+        except ClientError:
+            logger.exception("Couldn't get data for rule set %s.", rule_set_name)
+            raise
+        else:
+            return response
+</programlisting>

@@ -1,0 +1,10 @@
+<programlisting>
+    key := flag.String("k", "", "The KMS key name")
+    value := flag.String("v", "", "The value of the KMS key")
+    flag.Parse()
+
+    if *key == "" || *value == "" {
+        fmt.Println("You must supply a KMS key name and value (-k KEY-NAME -v KEY-VALUE)")
+        return
+    }
+</programlisting>

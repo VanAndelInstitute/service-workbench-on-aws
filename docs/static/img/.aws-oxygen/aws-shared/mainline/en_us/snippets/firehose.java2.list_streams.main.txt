@@ -1,0 +1,16 @@
+    public static void listStreams( FirehoseClient firehoseClient) {
+
+        try {
+
+            ListDeliveryStreamsResponse streamsResponse = firehoseClient.listDeliveryStreams();
+
+            List<String> items = streamsResponse.deliveryStreamNames();
+            for (String item: items) {
+                System.out.println("The delivery stream name is: "+item);
+            }
+
+        } catch (FirehoseException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }

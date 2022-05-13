@@ -1,0 +1,48 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::ListServerCertificatesRequest request;
+
+        bool done = false;
+        bool header = false;
+        while (!done)
+        {
+            auto outcome = iam.ListServerCertificates(request);
+            if (!outcome.IsSuccess())
+            {
+                std::cout << "Failed to list server certificates: " <<
+                    outcome.GetError().GetMessage() << std::endl;
+                break;
+            }
+
+            if (!header)
+            {
+                std::cout << std::left << std::setw(55) << "Name" <<
+                    std::setw(30) << "ID" << std::setw(80) << "Arn" <<
+                    std::setw(14) << "UploadDate" << std::setw(14) <<
+                    "ExpirationDate" << std::endl;
+                header = true;
+            }
+
+            const auto &certificates =
+                outcome.GetResult().GetServerCertificateMetadataList();
+
+            for (const auto &certificate : certificates)
+            {
+                std::cout << std::left << std::setw(55) <<
+                    certificate.GetServerCertificateName() << std::setw(30) <<
+                    certificate.GetServerCertificateId() << std::setw(80) <<
+                    certificate.GetArn() << std::setw(14) <<
+                    certificate.GetUploadDate().ToGmtString(DATE_FORMAT) <<
+                    std::setw(14) <<
+                    certificate.GetExpiration().ToGmtString(DATE_FORMAT) <<
+                    std::endl;
+            }
+
+            if (outcome.GetResult().GetIsTruncated())
+            {
+                request.SetMarker(outcome.GetResult().GetMarker());
+            }
+            else
+            {
+                done = true;
+            }
+        }

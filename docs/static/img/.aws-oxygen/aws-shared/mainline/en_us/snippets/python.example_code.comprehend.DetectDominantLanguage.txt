@@ -1,0 +1,16 @@
+    def detect_languages(self, text):
+        """
+        Detects languages used in a document.
+
+        :param text: The document to inspect.
+        :return: The list of languages along with their confidence scores.
+        """
+        try:
+            response = self.comprehend_client.detect_dominant_language(Text=text)
+            languages = response['Languages']
+            logger.info("Detected %s languages.", len(languages))
+        except ClientError:
+            logger.exception("Couldn't detect languages.")
+            raise
+        else:
+            return languages

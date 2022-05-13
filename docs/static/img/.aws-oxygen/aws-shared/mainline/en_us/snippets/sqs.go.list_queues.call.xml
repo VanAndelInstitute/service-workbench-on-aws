@@ -1,0 +1,5 @@
+<programlisting>
+    svc := sqs.New(sess)
+
+    result, err := svc.ListQueues(nil)
+</programlisting>

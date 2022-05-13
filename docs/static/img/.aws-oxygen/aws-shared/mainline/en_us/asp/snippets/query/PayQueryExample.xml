@@ -1,0 +1,14 @@
+GET\n
+fps.payments.amazon.com\n
+Action=Pay
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=MyWish
+&CallerReference=CallerReference02
+&SenderTokenId=553ILMLCG6Z8J431H7BX3UMN3FFQU8VSNTSRNCTAASDJNX66LNZLKSZU3PI7TXIH
+&Signature=0AgvXMwJmLxwdMaiE7lMHZxc6384h%2FjBkiTserQFpBQ%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-06T05%3A49%3A52.843Z
+&TransactionAmount.CurrencyCode=USD
+&TransactionAmount.Value=1
+&Version=2008-09-17

@@ -1,0 +1,16 @@
+    def describe_key(self):
+        """
+        Describes a key.
+        """
+        key_id = input("Enter a key ID or ARN here to get information about the key: ")
+        if key_id:
+            try:
+                key = self.kms_client.describe_key(KeyId=key_id)['KeyMetadata']
+            except ClientError as err:
+                logging.error(
+                    "Couldn't get key '%s'. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                print(f"Got key {key_id}:")
+                pprint(key)
+        return key_id

@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.cloudtrail.CloudTrailClient
+import aws.sdk.kotlin.services.cloudtrail.model.EventSelector
+import aws.sdk.kotlin.services.cloudtrail.model.PutEventSelectorsRequest
+import aws.sdk.kotlin.services.cloudtrail.model.ReadWriteType
+import kotlin.system.exitProcess

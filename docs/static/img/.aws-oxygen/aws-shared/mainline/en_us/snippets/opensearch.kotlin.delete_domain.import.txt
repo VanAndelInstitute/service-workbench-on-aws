@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.opensearch.OpenSearchClient
+import aws.sdk.kotlin.services.opensearch.model.DeleteDomainRequest
+import kotlin.system.exitProcess

@@ -1,0 +1,19 @@
+<programlisting>
+    public static void describeSpecificTrails( CloudTrailClient cloudTrailClientClient, String trailName) {
+
+    try {
+        DescribeTrailsRequest trailsRequest = DescribeTrailsRequest.builder()
+                .trailNameList(trailName)
+                .build();
+
+        DescribeTrailsResponse response = cloudTrailClientClient.describeTrails(trailsRequest);
+        List<Trail> trails = response.trailList();
+        for (Trail trail: trails) {
+            System.out.println("The ARN of the trail is "+trail.trailARN());
+        }
+    } catch (CloudTrailException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

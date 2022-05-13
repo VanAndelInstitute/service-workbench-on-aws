@@ -1,0 +1,33 @@
+    def create_s3_copy_rule(
+            self, rule_set_name, rule_name, recipients, bucket_name, prefix):
+        """
+        Creates a rule so that all emails received by the specified recipients are
+        copied to an Amazon S3 bucket.
+
+        :param rule_set_name: The name of a previously created rule set to contain
+                              this rule.
+        :param rule_name: The name to give the rule.
+        :param recipients: When an email is received by one of these recipients, it
+                           is copied to the Amazon S3 bucket.
+        :param bucket_name: The name of the bucket to receive email copies. This
+                            bucket must allow Amazon SES to put objects into it.
+        :param prefix: An object key prefix to give the emails copied to the bucket.
+        """
+        try:
+            self.ses_client.create_receipt_rule(
+                RuleSetName=rule_set_name,
+                Rule={
+                    'Name': rule_name,
+                    'Enabled': True,
+                    'Recipients': recipients,
+                    'Actions': [{
+                        'S3Action': {
+                            'BucketName': bucket_name,
+                            'ObjectKeyPrefix': prefix
+                        }}]})
+            logger.info(
+                "Created rule %s to copy mail received by %s to bucket %s.",
+                rule_name, recipients, bucket_name)
+        except ClientError:
+            logger.exception("Couldn't create rule %s.", rule_name)
+            raise

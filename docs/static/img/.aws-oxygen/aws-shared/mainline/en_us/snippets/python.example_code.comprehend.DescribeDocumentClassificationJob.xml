@@ -1,0 +1,19 @@
+<programlisting>
+    def describe_job(self, job_id):
+        """
+        Gets metadata about a classification job.
+
+        :param job_id: The ID of the job to look up.
+        :return: Metadata about the job.
+        """
+        try:
+            response = self.comprehend_client.describe_document_classification_job(
+                JobId=job_id)
+            job = response['DocumentClassificationJobProperties']
+            logger.info("Got classification job %s.", job['JobName'])
+        except ClientError:
+            logger.exception("Couldn't get classification job %s.", job_id)
+            raise
+        else:
+            return job
+</programlisting>

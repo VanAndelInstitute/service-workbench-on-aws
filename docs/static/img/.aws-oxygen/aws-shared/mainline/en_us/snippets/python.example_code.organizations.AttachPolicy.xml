@@ -1,0 +1,18 @@
+<programlisting>
+def attach_policy(policy_id, target_id, orgs_client):
+    """
+    Attaches a policy to a target. The target is an organization root, account, or
+    organizational unit.
+
+    :param policy_id: The ID of the policy to attach.
+    :param target_id: The ID of the resources to attach the policy to.
+    :param orgs_client: The Boto3 Organizations client.
+    """
+    try:
+        orgs_client.attach_policy(PolicyId=policy_id, TargetId=target_id)
+        logger.info("Attached policy %s to target %s.", policy_id, target_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't attach policy %s to target %s.", policy_id, target_id)
+        raise
+</programlisting>

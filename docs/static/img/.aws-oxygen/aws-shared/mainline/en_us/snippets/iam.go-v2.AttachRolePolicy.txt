@@ -1,0 +1,13 @@
+	// AttachRolePolicy
+
+	_, err = service.AttachRolePolicy(context.Background(), &iam.AttachRolePolicyInput{
+		PolicyArn: aws.String(ExamplePolicyARN),
+		RoleName:  aws.String(ExampleRoleName),
+	})
+
+	if err != nil {
+		panic("Couldn't apply a policy to the role!")
+	}
+
+	fmt.Println("☑️ Attached policy " + ExamplePolicyARN + " to role " + ExampleRoleName)
+

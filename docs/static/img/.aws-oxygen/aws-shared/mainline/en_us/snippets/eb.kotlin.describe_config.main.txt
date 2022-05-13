@@ -1,0 +1,30 @@
+suspend fun getOptions(envName:String) {
+
+        val spec = OptionSpecification {
+            namespace = "aws:ec2:instances"
+        }
+
+        val request = DescribeConfigurationOptionsRequest {
+            environmentName = envName
+            options = listOf(spec)
+        }
+
+       ElasticBeanstalkClient { region = "us-east-1" }.use { beanstalkClient ->
+         val res = beanstalkClient.describeConfigurationOptions(request)
+         res.options?.forEach { option ->
+
+             println("The namespace is ${option.namespace}")
+             val optionName = option.name
+             println("The name is $optionName")
+             if (optionName != null) {
+                 if (optionName.compareTo("InstanceTypes") == 0) {
+
+                     val valueOptions = option.valueOptions
+                     valueOptions?.forEach { value ->
+                         println("The value is $value")
+                     }
+                 }
+             }
+         }
+       }
+}

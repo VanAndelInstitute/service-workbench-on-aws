@@ -1,0 +1,14 @@
+suspend fun subLambda(topicArnVal: String?, lambdaArn: String?) {
+
+    val request = SubscribeRequest {
+        protocol = "lambda"
+        endpoint = lambdaArn
+        returnSubscriptionArn = true
+        topicArn = topicArnVal
+    }
+
+    SnsClient { region = "us-east-1" }.use { snsClient ->
+        val result = snsClient.subscribe(request)
+        println(" The subscription Arn is ${result.subscriptionArn}")
+    }
+}

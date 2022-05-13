@@ -1,0 +1,7 @@
+    roleName := flag.String("r", "", "The name of the IAM role")
+    flag.Parse()
+
+    if *roleName == "" {
+        fmt.Println("You must supply a role name (-r ROLE)")
+        return
+    }

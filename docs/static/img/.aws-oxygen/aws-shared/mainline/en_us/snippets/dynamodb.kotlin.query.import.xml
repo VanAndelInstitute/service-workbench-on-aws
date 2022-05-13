@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.dynamodb.DynamoDbClient
+import aws.sdk.kotlin.services.dynamodb.model.AttributeValue
+import aws.sdk.kotlin.services.dynamodb.model.QueryRequest
+import kotlin.system.exitProcess
+</programlisting>

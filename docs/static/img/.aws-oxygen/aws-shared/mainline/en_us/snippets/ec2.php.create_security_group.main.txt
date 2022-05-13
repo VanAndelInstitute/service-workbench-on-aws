@@ -1,0 +1,19 @@
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+// Create the security group
+$securityGroupName = 'my-security-group';
+$result = $ec2Client->createSecurityGroup(array(
+    'GroupId' => $securityGroupName,
+
+));
+
+// Get the security group ID (optional)
+$securityGroupId = $result->get('GroupId');
+
+echo "Security Group ID: " . $securityGroupId . '\n';
+ 
+ 

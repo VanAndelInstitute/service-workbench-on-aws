@@ -1,0 +1,35 @@
+<programlisting>
+def revive_object(bucket, object_key):
+    """
+    Revives a versioned object that was deleted by removing the object's active
+    delete marker.
+    A versioned object presents as deleted when its latest version is a delete marker.
+    By removing the delete marker, we make the previous version the latest version
+    and the object then presents as *not* deleted.
+
+    Usage is shown in the usage_demo_single_object function at the end of this module.
+
+    :param bucket: The bucket that contains the object.
+    :param object_key: The object to revive.
+    """
+    # Get the latest version for the object.
+    response = s3.meta.client.list_object_versions(
+        Bucket=bucket.name, Prefix=object_key, MaxKeys=1)
+
+    if 'DeleteMarkers' in response:
+        latest_version = response['DeleteMarkers'][0]
+        if latest_version['IsLatest']:
+            logger.info("Object %s was indeed deleted on %s. Let's revive it.",
+                        object_key, latest_version['LastModified'])
+            obj = bucket.Object(object_key)
+            obj.Version(latest_version['VersionId']).delete()
+            logger.info("Revived %s, active version is now %s  with body '%s'",
+                        object_key, obj.version_id, obj.get()['Body'].read())
+        else:
+            logger.warning("Delete marker is not the latest version for %s!",
+                           object_key)
+    elif 'Versions' in response:
+        logger.warning("Got an active version for %s, nothing to do.", object_key)
+    else:
+        logger.error("Couldn't get any version info for %s.", object_key)
+</programlisting>

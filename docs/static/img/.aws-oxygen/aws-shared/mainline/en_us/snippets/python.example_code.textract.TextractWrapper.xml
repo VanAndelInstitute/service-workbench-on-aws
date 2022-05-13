@@ -1,0 +1,13 @@
+<programlisting>
+class TextractWrapper:
+    """Encapsulates Textract functions."""
+    def __init__(self, textract_client, s3_resource, sqs_resource):
+        """
+        :param textract_client: A Boto3 Textract client.
+        :param s3_resource: A Boto3 Amazon S3 resource.
+        :param sqs_resource: A Boto3 Amazon SQS resource.
+        """
+        self.textract_client = textract_client
+        self.s3_resource = s3_resource
+        self.sqs_resource = sqs_resource
+</programlisting>

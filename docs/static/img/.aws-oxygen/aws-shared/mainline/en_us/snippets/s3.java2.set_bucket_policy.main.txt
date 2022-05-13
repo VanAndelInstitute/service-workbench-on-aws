@@ -1,0 +1,48 @@
+    public static void setPolicy(S3Client s3, String bucketName, String policyText) {
+
+        System.out.println("Setting policy:");
+        System.out.println("----");
+        System.out.println(policyText);
+        System.out.println("----");
+        System.out.format("On Amazon S3 bucket: \"%s\"\n", bucketName);
+
+        try {
+            PutBucketPolicyRequest policyReq = PutBucketPolicyRequest.builder()
+                    .bucket(bucketName)
+                    .policy(policyText)
+                    .build();
+            s3.putBucketPolicy(policyReq);
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        System.out.println("Done!");
+    }
+
+    // Loads a JSON-formatted policy from a file
+    public static String getBucketPolicyFromFile(String policyFile) {
+
+        StringBuilder fileText = new StringBuilder();
+        try {
+            List<String> lines = Files.readAllLines(
+                    Paths.get(policyFile), Charset.forName("UTF-8"));
+            for (String line : lines) {
+                fileText.append(line);
+            }
+        } catch (IOException e) {
+            System.out.format("Problem reading file: \"%s\"", policyFile);
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            final JsonParser parser = new ObjectMapper().getFactory().createParser(fileText.toString());
+            while (parser.nextToken() != null) {
+            }
+
+        } catch (JsonParseException jpe) {
+            jpe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return fileText.toString();
+    }

@@ -1,0 +1,6 @@
+import aws.sdk.kotlin.services.ecs.EcsClient
+import aws.sdk.kotlin.services.ecs.model.AwsVpcConfiguration
+import aws.sdk.kotlin.services.ecs.model.NetworkConfiguration
+import aws.sdk.kotlin.services.ecs.model.CreateServiceRequest
+import aws.sdk.kotlin.services.ecs.model.LaunchType
+import kotlin.system.exitProcess

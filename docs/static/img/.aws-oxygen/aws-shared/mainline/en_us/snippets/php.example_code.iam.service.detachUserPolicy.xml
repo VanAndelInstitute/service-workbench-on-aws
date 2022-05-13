@@ -1,0 +1,9 @@
+<programlisting>
+    public function detachUserPolicy($userName, $policyArn)
+    {
+        $this->iamClient->detachUserPolicy([
+            'PolicyArn' => $policyArn,
+            'UserName' => $userName,
+        ]);
+    }
+</programlisting>

@@ -1,0 +1,96 @@
+<!ENTITY prod "Amazon SWF">
+<!ENTITY prodlong "Amazon Simple Workflow Service">
+<!ENTITY service "Amazon SWF">
+<!ENTITY prodacr "SWF">
+<!ENTITY apiversion "2012-01-25">
+<!ENTITY guideacr "GSG">
+
+<!ENTITY defaultregion "us-east-1">
+<!ENTITY domain-swf '&url-domain;/amazonswf/latest'>
+
+<!ENTITY link-console '<ulink url="https://flow-console-us-east-1.amazon.com/">&SWF; Console</ulink>'>
+<!ENTITY swf-forum-url '&url-forum-domain;forum.jspa?forumID=133'>
+<!ENTITY swf-samples-url '&url-mkt-domain;code/Amazon-SWF'>
+
+<!ENTITY swf-forum-link '<ulink url="&swf-forum-url;">&SWF; forums</ulink>'>
+<!ENTITY swf-samples-link '<ulink url="&swf-samples-url;">&SWF; samples catalog</ulink>'>
+
+<!-- The various publication names. Each should be in a <citetitle> for proper formatting. -->
+<!ENTITY swfdg-name '<citetitle>&SWFlong; Developer Guide</citetitle>'>
+<!ENTITY swfdg-uri '<citetitle>&SWFlong; Developer Guide</citetitle>'>
+<!ENTITY swfdg-link '<citetitle>&SWFlong; Developer Guide</citetitle>'>
+
+<!ENTITY guidename '<citetitle>&SWFlong; Getting Started Guide</citetitle>'>
+<!ENTITY gsg '&guidename;'>
+<!ENTITY gsg-uri '&domain-swf;/GettingStartedGuide'>
+<!ENTITY gsg-link '<ulink url="&gsg-uri;">&gsg;</ulink>'>
+
+<!ENTITY apiref '<citetitle>&SWFlong; API Reference</citetitle>'>
+<!ENTITY apiref-uri '&domain-swf;/apireference'>
+<!ENTITY apiref-link '<ulink url="&apiref-uri;">&apiref;</ulink>'>
+
+<!ENTITY aflow-recipes-link '<ulink url="&url-mkt-domain;code/2535278400103493">AWS Flow Framework Recipes</ulink>'>
+
+<!--Request Header and Response Content-->
+
+<!ENTITY awsflow "AWS Flow Framework">
+<!ENTITY awsflow-java "&awsflow; for Java">
+<!ENTITY awsflow-ruby "&awsflow; for Ruby">
+
+<!ENTITY awsflow-basics '&awsflow; Basic Concepts'>
+
+<!ENTITY awsflow-preamble "<para>The Amazon Simple Workflow Service (&SWF;) provides a powerful and flexible way for
+  developers to implement distributed asynchronous workflow applications. The <emphasis>&awsflow;</emphasis> is a
+  programming framework that simplifies the process of implementing a distributed asynchronous application while
+  providing all the benefits of &SWF;. It is ideal for implementing applications that address a broad range of scenarios
+  including business processes, media encoding, long-running tasks, and background processing.</para>
+
+  <para>By using the &awsflow;, you can focus on implementing your workflow logic, while leaving the details of
+  communication and coordination with &SWF; to the framework. Behind the scenes, the framework uses &SWF; to manage your
+  workflow's execution and make it scalable, reliable, and auditable. &awsflow;-based workflows are highly
+  concurrent, and workflows can be distributed across multiple components&mdash;each of which can run as separate
+  processes on separate computers and can be scaled independently. The workflow will continue to run if any of its
+  components are running, making it highly fault tolerant.</para>">
+
+<!ENTITY aflow-namespace 'com.amazonaws.services.simpleworkflow.flow'>
+<!ENTITY aflow-api-domain 'http://&domain;/AWSJavaSDK/latest/javadoc/com/amazonaws/services/simpleworkflow/flow'>
+<!ENTITY aflow-api-link '&aflow-namespace; in the &link-java-api;'>
+
+<!ENTITY rbflow-api-ver '1.0'>
+<!ENTITY rbflow-core-gem-ver '1.0.1'>
+<!ENTITY rbflow-gem-ver '1.0.9'>
+<!ENTITY rbflow-core-gem 'aws-flow-core-&rbflow-core-gem-ver;.gem'>
+<!ENTITY rbflow-gem 'aws-flow-&rbflow-gem-ver;.gem'>
+
+<!ENTITY rbflow-namespace "AWS::Flow">
+
+<!ENTITY rbflow-gem-url 'http://rubygems.org/gems/aws-flow'>
+<!ENTITY rbflow-src-url 'https://github.com/aws/aws-flow-ruby'>
+
+<!ENTITY rbflow-api-name '&awsflow-ruby; API Reference'>
+<!ENTITY rbflow-dg-name '&awsflow-ruby; Developer Guide'>
+
+<!ENTITY rbflow-api-domain '&domain-swf;/awsrbflowapi'>
+<!ENTITY rbflow-dg-domain '&domain-swf;/awsrbflowguide'>
+
+<!ENTITY rbflow-api-link '<ulink url="&rbflow-api-domain;/">&rbflow-api-name;</ulink>'>
+<!ENTITY rbflow-dg-link '<ulink url="&rbflow-dg-domain;/">&rbflow-dg-name;</ulink>'>
+
+<!ENTITY rubysdk-api-domain-swf '&url-domain;/AWSRubySDK/latest/AWS/SimpleWorkflow'>
+
+<!ENTITY rbflow-intro-video-url 'http://www.youtube.com/watch?v=Z_dvXy4AVEE'>
+<!ENTITY rbflow-intro-video-link '<ulink url="&rbflow-intro-video-url;">Introduction to Programming the &awsflow-ruby; (video)</ulink>'>
+
+<!ENTITY recipes-code-dir-fragment 'The activity and workflow code are in the <filename>lib</filename> subdirectory'>
+
+<!ENTITY github-awslabs 'https://github.com/awslabs'>
+<!ENTITY rbflow-samples-name 'aws-flow-ruby-samples'>
+<!ENTITY rbflow-samples-url '&github-awslabs;/&rbflow-samples-name;'>
+<!ENTITY rbflow-samples-link '<ulink url="&rbflow-samples-url;">&rbflow-samples-name;</ulink>'>
+<!ENTITY rbflow-samples-clone-url '&rbflow-samples-url;.git'>
+<!ENTITY rbflow-samples-zip-link '<ulink url="&rbflow-samples-url;/archive/master.zip">&rbflow-samples-url;/archive/master.zip</ulink>'>
+<!ENTITY rbflow-samples-dl '<para>To view or download the code for all of the &awsflow-ruby; recipes and samples, go
+  to:</para> <itemizedlist><listitem><para>&rbflow-samples-link;</para></listitem></itemizedlist>'>
+
+<!ENTITY swf-cw-metrics '&SWF; metrics for &CW;'>
+

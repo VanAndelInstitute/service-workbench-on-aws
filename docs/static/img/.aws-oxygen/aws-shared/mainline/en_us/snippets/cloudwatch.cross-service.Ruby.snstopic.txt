@@ -1,0 +1,35 @@
+# Checks whether the specified topic exists among those available to the
+# caller in Amazon SNS.
+#
+# @param sns_client [Aws::SNS::Client] An initialized Amazon SNS client.
+# @param topic_arn [String] The ARN of the topic to find.
+# @return [Boolean] true if the topic ARN was found; otherwise, false.
+# @example
+#   exit 1 unless topic_exists?(
+#     Aws::SNS::Client.new(region: 'us-east-1'),
+#     'arn:aws:sns:us-east-1:111111111111:aws-doc-sdk-examples-topic'
+#   )
+def topic_exists?(sns_client, topic_arn)
+  puts "Searching for topic with ARN '#{topic_arn}'..."
+  response = sns_client.list_topics
+  if response.topics.count.positive?
+    if topic_found?(response.topics, topic_arn)
+      puts 'Topic found.'
+      return true
+    end
+    while response.next_page? do
+      response = response.next_page
+      if response.topics.count.positive?
+        if topic_found?(response.topics, topic_arn)
+          puts 'Topic found.'
+          return true
+        end
+      end
+    end
+  end
+  puts 'Topic not found.'
+  return false
+rescue StandardError => e
+  puts "Topic not found: #{e.message}"
+  return false
+end

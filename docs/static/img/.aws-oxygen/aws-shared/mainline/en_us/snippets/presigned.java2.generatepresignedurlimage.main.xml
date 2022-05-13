@@ -1,0 +1,41 @@
+<programlisting>
+    public static void signBucket(S3Presigner presigner, String bucketName, String keyName, byte[] pic) {
+
+        try {
+            PutObjectRequest objectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .contentType("image/png")
+                    .build();
+
+            PutObjectPresignRequest presignRequest = PutObjectPresignRequest.builder()
+                    .signatureDuration(Duration.ofMinutes(10))
+                    .putObjectRequest(objectRequest)
+                    .build();
+
+            PresignedPutObjectRequest presignedRequest = presigner.presignPutObject(presignRequest);
+
+            String myURL = presignedRequest.url().toString();
+            System.out.println("Presigned URL to upload a file to: " +myURL);
+            System.out.println("Which HTTP method needs to be used when uploading a file: " +
+                    presignedRequest.httpRequest().method());
+
+            // Upload content to the Amazon S3 bucket by using this URL
+            URL url = presignedRequest.url();
+
+            // Create the connection and use it to upload the new object by using the presigned URL
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestProperty("Content-Type","image/png");
+            connection.setRequestMethod("PUT");
+            connection.getOutputStream().write(pic);
+            connection.getResponseCode();
+            System.out.println("HTTP response code is " + connection.getResponseCode());
+
+        } catch (S3Exception e) {
+            e.getStackTrace();
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+    }
+</programlisting>

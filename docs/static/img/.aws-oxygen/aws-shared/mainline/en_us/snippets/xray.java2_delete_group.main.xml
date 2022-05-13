@@ -1,0 +1,17 @@
+<programlisting>
+    public static void deleteSpecificGroup(XRayClient xRayClient, String groupName) {
+
+        try {
+            DeleteGroupRequest groupRequest = DeleteGroupRequest.builder()
+                .groupName(groupName)
+                .build();
+
+            xRayClient.deleteGroup(groupRequest);
+            System.out.println(groupName + " was deleted!");
+
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

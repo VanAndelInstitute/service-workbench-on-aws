@@ -1,0 +1,25 @@
+try {
+    $objects = [];
+    foreach ($contents['Contents'] as $content) {
+        $objects[] = [
+            'Key' => $content['Key'],
+        ];
+    }
+    $s3client->deleteObjects([
+        'Bucket' => $bucket_name,
+        'Key' => $file_name,
+        'Delete' => [
+            'Objects' => $objects,
+        ],
+    ]);
+    $check = $s3client->listObjects([
+        'Bucket' => $bucket_name,
+    ]);
+    if (count($check) <= 0) {
+        throw new Exception("Bucket wasn't empty.");
+    }
+    echo "Deleted all objects and folders from $bucket_name.\n";
+} catch (Exception $exception) {
+    echo "Failed to delete $file_name from $bucket_name with error: " . $exception->getMessage();
+    exit("Please fix error with object deletion before continuing.");
+}

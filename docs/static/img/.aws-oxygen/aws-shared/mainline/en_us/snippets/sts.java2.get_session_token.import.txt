@@ -1,0 +1,5 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sts.StsClient;
+import software.amazon.awssdk.services.sts.model.GetSessionTokenResponse;
+import software.amazon.awssdk.services.sts.model.StsException;
+import software.amazon.awssdk.services.sts.model.GetSessionTokenRequest;

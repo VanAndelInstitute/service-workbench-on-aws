@@ -1,0 +1,57 @@
+<programlisting>
+    public static String putS3Object(S3Client s3,
+                                     String bucketName,
+                                     String objectKey,
+                                     String objectPath) {
+
+        try {
+
+           // Define the metadata
+            Map<String, String> metadata = new HashMap<>();
+            metadata.put("author", "Mary Doe");
+            metadata.put("version", "1.0.0.0");
+
+            PutObjectRequest putOb = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(objectKey)
+                    .metadata(metadata)
+                    .build();
+
+            PutObjectResponse response = s3.putObject(putOb,
+                    RequestBody.fromBytes(getObjectFile(objectPath)));
+
+            return response.eTag();
+
+        } catch (S3Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+
+    // Return a byte array
+    private static byte[] getObjectFile(String filePath) {
+
+        FileInputStream fileInputStream = null;
+        byte[] bytesArray = null;
+
+        try {
+            File file = new File(filePath);
+            bytesArray = new byte[(int) file.length()];
+            fileInputStream = new FileInputStream(file);
+            fileInputStream.read(bytesArray);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return bytesArray;
+    }
+</programlisting>

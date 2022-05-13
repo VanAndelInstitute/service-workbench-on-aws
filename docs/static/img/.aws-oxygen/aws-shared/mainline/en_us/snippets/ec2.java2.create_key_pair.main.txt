@@ -1,0 +1,16 @@
+    public static void createEC2KeyPair(Ec2Client ec2,String keyName ) {
+
+        try {
+            CreateKeyPairRequest request = CreateKeyPairRequest.builder()
+                .keyName(keyName).build();
+
+            ec2.createKeyPair(request);
+            System.out.printf(
+                "Successfully created key pair named %s",
+                keyName);
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }

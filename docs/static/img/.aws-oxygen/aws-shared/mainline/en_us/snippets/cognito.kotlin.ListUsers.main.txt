@@ -1,0 +1,13 @@
+ suspend fun listAllUsers(userPoolId: String) {
+
+    val request = ListUsersRequest {
+        this.userPoolId = userPoolId
+    }
+
+    CognitoIdentityProviderClient { region = "us-east-1" }.use { cognitoClient ->
+            val response = cognitoClient.listUsers(request)
+            response.users?.forEach { user ->
+                println("The user name is ${user.username}")
+            }
+    }
+ }

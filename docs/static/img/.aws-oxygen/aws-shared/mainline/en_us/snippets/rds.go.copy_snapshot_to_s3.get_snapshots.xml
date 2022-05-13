@@ -1,0 +1,3 @@
+<programlisting>
+    result, err := svc.DescribeDBSnapshots(nil)
+</programlisting>

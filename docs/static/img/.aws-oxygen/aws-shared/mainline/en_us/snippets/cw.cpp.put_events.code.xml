@@ -1,0 +1,23 @@
+<programlisting>
+        Aws::CloudWatchEvents::EventBridgeClient cwe;
+
+        Aws::CloudWatchEvents::Model::PutEventsRequestEntry event_entry;
+        event_entry.SetDetail(MakeDetails(event_key, event_value));
+        event_entry.SetDetailType("sampleSubmitted");
+        event_entry.AddResources(resource_arn);
+        event_entry.SetSource("aws-sdk-cpp-cloudwatch-example");
+
+        Aws::CloudWatchEvents::Model::PutEventsRequest request;
+        request.AddEntries(event_entry);
+
+        auto outcome = cwe.PutEvents(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Failed to post CloudWatch event: " <<
+                outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully posted CloudWatch event" << std::endl;
+        }
+</programlisting>

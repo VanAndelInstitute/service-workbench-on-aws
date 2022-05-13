@@ -1,0 +1,11 @@
+ suspend fun deleteS3BucketPolicy( bucketName: String?) {
+
+         val request = DeleteBucketPolicyRequest {
+             bucket = bucketName
+         }
+
+        S3Client { region = "us-east-1" }.use { s3 ->
+             s3.deleteBucketPolicy(request)
+             println("Done!")
+         }
+       }

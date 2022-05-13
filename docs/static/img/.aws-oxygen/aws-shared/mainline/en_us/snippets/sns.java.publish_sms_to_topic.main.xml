@@ -1,0 +1,16 @@
+<programlisting>
+public static void main(String[] args) {
+    AmazonSNSClient snsClient = new AmazonSNSClient();
+
+    String topicArn = createSNSTopic(snsClient);
+    String phoneNumber = "+1XXX5550100";
+    // Specify a protocol of "sms" when subscribing a phone number.
+    subscribeToTopic(snsClient, topicArn, "sms", phoneNumber);
+
+    String message = "My SMS message";
+    Map<String, MessageAttributeValue> smsAttributes =
+        new HashMap<String, MessageAttributeValue>();
+    addMessageAttributes(smsAttributes)
+    sendSMSMessageToTopic(snsClient, topicArn, message, smsAttributes);
+}
+</programlisting>

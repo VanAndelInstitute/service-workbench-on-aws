@@ -1,0 +1,7 @@
+//throw exception
+try {
+    $result = $promise->wait();
+} catch (S3Exception $e) {
+    echo $e->getMessage();
+}
+

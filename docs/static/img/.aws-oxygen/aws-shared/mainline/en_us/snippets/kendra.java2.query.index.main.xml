@@ -1,0 +1,28 @@
+<programlisting>
+    public static void querySpecificIndex(KendraClient kendra, String indexId, String text) {
+
+        try {
+            QueryRequest queryRequest = QueryRequest.builder()
+                .indexId(indexId)
+                .queryResultTypeFilter(QueryResultType.DOCUMENT)
+                .queryText("Spring MVC")
+                .build();
+
+
+            QueryResponse response = kendra.query(queryRequest);
+            List<QueryResultItem> items = response.resultItems();
+            for (QueryResultItem item: items) {
+                System.out.println("The document title is "+item.documentTitle());
+                System.out.println("Text:");
+                System.out.println(item.documentExcerpt().text());
+            }
+
+            String id = response.responseMetadata().requestId();
+            System.out.println("The request Id is "+id);
+
+        } catch (KendraException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

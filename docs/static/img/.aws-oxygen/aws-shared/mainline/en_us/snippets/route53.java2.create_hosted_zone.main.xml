@@ -1,0 +1,24 @@
+<programlisting>
+    public static String createZone(Route53Client route53Client, String domainName) {
+
+        try {
+
+           // You must use a unique CallerReference string every time you submit a CreateHostedZone request
+          String callerReference = java.util.UUID.randomUUID().toString();
+
+            CreateHostedZoneRequest zoneRequest = CreateHostedZoneRequest.builder()
+                    .callerReference(callerReference)
+                    .name(domainName)
+                    .build();
+
+            // Create the Hosted Zone
+            CreateHostedZoneResponse zoneResponse = route53Client.createHostedZone(zoneRequest);
+            return zoneResponse.hostedZone().id();
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

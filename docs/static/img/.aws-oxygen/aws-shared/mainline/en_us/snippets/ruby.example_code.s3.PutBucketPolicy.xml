@@ -1,0 +1,11 @@
+<programlisting>
+  # Sets a policy on a bucket.
+  #
+  def set_policy(policy)
+    @bucket_policy.put(policy: policy)
+    true
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't set the policy for #{@bucket_policy.bucket.name}. Here's why: #{e.message}"
+    false
+  end
+</programlisting>

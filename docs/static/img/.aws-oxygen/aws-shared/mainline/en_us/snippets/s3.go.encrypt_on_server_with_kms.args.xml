@@ -1,0 +1,11 @@
+<programlisting>
+    bucket := flag.String("b", "", "The bucket")
+    object := flag.String("o", "", "The file to upload")
+    kmsKey := flag.String("k", "", "The KMS key to encrypt with")
+    flag.Parse()
+
+    if *bucket == "" || *object == "" || *kmsKey == "" {
+        fmt.Println("You must supply a bucket (-b BUCKET), object to upload (-o OBJECT), and KMS key (-k KEY)")
+        return
+    }
+</programlisting>

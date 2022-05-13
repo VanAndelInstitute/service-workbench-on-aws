@@ -1,0 +1,10 @@
+<GetRecipientVerificationResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <GetRecipientVerificationResult>
+    <RecipientVerificationStatus>
+    	VerificationComplete
+    </RecipientVerificationStatus>
+  </GetRecipientVerificationResult>
+  <ResponseMetadata>
+    <RequestId>197e2085-1ed7-47a2-93d8-d76b452acc74:0</RequestId>
+  </ResponseMetadata>
+</GetRecipientVerificationResponse>

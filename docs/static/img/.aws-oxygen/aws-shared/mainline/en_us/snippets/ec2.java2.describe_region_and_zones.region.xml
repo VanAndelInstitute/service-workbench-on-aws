@@ -1,0 +1,13 @@
+<programlisting>
+        try {
+
+            DescribeRegionsResponse regionsResponse = ec2.describeRegions();
+
+            for(Region region : regionsResponse.regions()) {
+                System.out.printf(
+                        "Found Region %s " +
+                                "with endpoint %s",
+                        region.regionName(),
+                        region.endpoint());
+                System.out.println();
+</programlisting>

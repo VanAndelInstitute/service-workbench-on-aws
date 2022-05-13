@@ -1,0 +1,110 @@
+<programlisting>
+ public static  void listStreamProcessors(RekognitionClient rekClient) {
+
+        ListStreamProcessorsRequest request = ListStreamProcessorsRequest.builder()
+                .maxResults(15)
+                .build();
+
+        ListStreamProcessorsResponse listStreamProcessorsResult = rekClient.listStreamProcessors(request);
+
+        //List all stream processors (and state) returned from Rekognition.
+        for (StreamProcessor streamProcessor : listStreamProcessorsResult.streamProcessors()) {
+            System.out.println("StreamProcessor name - " + streamProcessor.name());
+            System.out.println("Status - " + streamProcessor.status());
+        }
+    }
+
+  private static void describeStreamProcessor(RekognitionClient rekClient, String StreamProcessorName) {
+
+      DescribeStreamProcessorRequest streamProcessorRequest = DescribeStreamProcessorRequest.builder()
+              .name(StreamProcessorName)
+              .build();
+
+      DescribeStreamProcessorResponse describeStreamProcessorResult = rekClient.describeStreamProcessor(streamProcessorRequest);
+
+     // Display the results.
+      System.out.println("Arn - " + describeStreamProcessorResult.streamProcessorArn());
+      System.out.println("Input kinesisVideo stream - "
+              + describeStreamProcessorResult.input().kinesisVideoStream().arn());
+      System.out.println("Output kinesisData stream - "
+              + describeStreamProcessorResult.output().kinesisDataStream().arn());
+      System.out.println("RoleArn - " + describeStreamProcessorResult.roleArn());
+      System.out.println(
+              "CollectionId - " + describeStreamProcessorResult.settings().faceSearch().collectionId());
+      System.out.println("Status - " + describeStreamProcessorResult.status());
+      System.out.println("Status message - " + describeStreamProcessorResult.statusMessage());
+      System.out.println("Creation timestamp - " + describeStreamProcessorResult.creationTimestamp());
+      System.out.println("Last update timestamp - " + describeStreamProcessorResult.lastUpdateTimestamp());
+
+  }
+
+  private static void startSpecificStreamProcessor(RekognitionClient rekClient, String StreamProcessorName) {
+
+     try {
+
+      StartStreamProcessorRequest streamProcessorRequest = StartStreamProcessorRequest.builder()
+              .name(StreamProcessorName)
+              .build();
+
+      rekClient.startStreamProcessor(streamProcessorRequest);
+      System.out.println("Stream Processor " + StreamProcessorName + " started.");
+
+    } catch (RekognitionException  e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+
+  private static void processCollection(RekognitionClient rekClient, String StreamProcessorName, String kinInputStream, String kinOutputStream, String collectionName, String role ) {
+
+      try {
+
+          KinesisVideoStream videoStream = KinesisVideoStream.builder()
+                  .arn(kinInputStream)
+                  .build();
+
+          KinesisDataStream dataStream = KinesisDataStream.builder()
+                  .arn(kinOutputStream)
+                  .build();
+
+          StreamProcessorOutput processorOutput = StreamProcessorOutput.builder()
+                  .kinesisDataStream(dataStream)
+                  .build();
+
+          StreamProcessorInput processorInput = StreamProcessorInput.builder()
+                  .kinesisVideoStream(videoStream)
+                  .build();
+
+          FaceSearchSettings searchSettings = FaceSearchSettings.builder()
+                  .faceMatchThreshold(75f)
+                  .collectionId(collectionName)
+                  .build() ;
+
+          StreamProcessorSettings processorSettings = StreamProcessorSettings.builder()
+                  .faceSearch(searchSettings)
+                  .build();
+
+          CreateStreamProcessorRequest processorRequest = CreateStreamProcessorRequest.builder()
+                  .name(StreamProcessorName)
+                  .input(processorInput)
+                  .output(processorOutput)
+                  .roleArn(role)
+                  .settings(processorSettings)
+                  .build();
+
+          CreateStreamProcessorResponse response = rekClient.createStreamProcessor(processorRequest);
+          System.out.println("The ARN for the newly create stream processor is "+response.streamProcessorArn());
+
+      } catch (RekognitionException  e) {
+          System.out.println(e.getMessage());
+          System.exit(1);
+      }
+  }
+
+    private static void deleteSpecificStreamProcessor(RekognitionClient rekClient, String StreamProcessorName) {
+
+        rekClient.stopStreamProcessor(a->a.name(StreamProcessorName));
+        rekClient.deleteStreamProcessor(a->a.name(StreamProcessorName));
+        System.out.println("Stream Processor " + StreamProcessorName + " deleted.");
+    }
+</programlisting>

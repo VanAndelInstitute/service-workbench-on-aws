@@ -1,0 +1,4 @@
+        Region region = Region.AWS_GLOBAL;
+        IamClient iam = IamClient.builder()
+                .region(region)
+                .build();

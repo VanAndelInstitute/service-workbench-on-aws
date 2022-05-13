@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="VerifyingSignature" role="topic">
+    <title id="VerifyingSignature.title">Verifying the ReturnURL and IPN Notifications</title>
+    <indexterm>
+        <primary>signature, verifying</primary>
+    </indexterm>
+    <para>&asp_product; sends you <glossterm>outbound notifications</glossterm> for both the
+        ReturnURL and IPN notification. For the ReturnURL, it is in the form of GET data, and for
+        IPN notification, it is POST data. When you handle these notifications, we recommend you
+        validate the signature to ensure the notification originated from &ampmts;.
+    </para>
+    <para>Signature version 2 security enables you to verify the signature of the
+        response using a server-side call to the 
+        <link endterm="VerifySignatureAPI.title" linkend="VerifySignatureAPI"/> FPS
+        Action. To use it, modify your <parameter>returnUrl</parameter> and 
+        <parameter>ipnUrl</parameter> pages to parse the notification. From those components, you
+        assemble the relevant parameters for <parameter>VerifySignature</parameter> and sign it like any other request. The
+        result of the call is either <parameter>Success</parameter>, meaning the
+        response is valid, or <parameter>Failure</parameter>, indicating the response is
+        suspect.
+    </para>
+    <para>For more information on <function>VerifySignature</function>, see <link
+        endterm="VerifySignatureAPI.title" linkend="VerifySignatureAPI"/>. In addition,
+        you can use the validation samples to assist creating your own validation pages. For
+        more information, see <link linkend="UsingReturnURLAndIPNValidationSamples" endterm="UsingReturnURLAndIPNValidationSamples.title"/>.
+    </para>
+    &SIG2CLIENTVALIDREVOKE;    
+</section>

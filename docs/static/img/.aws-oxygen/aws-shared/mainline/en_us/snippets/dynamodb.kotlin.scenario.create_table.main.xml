@@ -1,0 +1,45 @@
+<programlisting>
+suspend fun createScenarioTable(tableNameVal: String, key: String) {
+
+    val  attDef = AttributeDefinition {
+        attributeName = key
+        attributeType = ScalarAttributeType.N
+    }
+
+    val  attDef1 = AttributeDefinition {
+        attributeName = "title"
+        attributeType = ScalarAttributeType.S
+    }
+
+    val keySchemaVal =  KeySchemaElement{
+        attributeName = key
+        keyType = KeyType.Hash
+    }
+
+    val keySchemaVal1 =  KeySchemaElement{
+        attributeName = "title"
+        keyType = KeyType.Range
+    }
+
+    val provisionedVal =  ProvisionedThroughput {
+        readCapacityUnits = 10
+        writeCapacityUnits = 10
+    }
+
+    val request = CreateTableRequest {
+        attributeDefinitions = listOf(attDef, attDef1)
+        keySchema = listOf(keySchemaVal, keySchemaVal1)
+        provisionedThroughput = provisionedVal
+        tableName = tableNameVal
+    }
+
+    DynamoDbClient { region = "us-east-1" }.use { ddb ->
+
+        val response = ddb.createTable(request)
+        ddb.waitUntilTableExists { // suspend call
+            tableName = tableNameVal
+        }
+        println("The table was successfully created ${response.tableDescription?.tableArn}")
+    }
+}
+</programlisting>

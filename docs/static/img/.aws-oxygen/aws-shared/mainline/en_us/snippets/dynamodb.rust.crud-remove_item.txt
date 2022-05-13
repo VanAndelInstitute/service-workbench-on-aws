@@ -1,0 +1,14 @@
+async fn remove_item(client: &Client, table: &str, key: &str, value: String) -> Result<(), Error> {
+    let user_av = AttributeValue::S(value);
+
+    client
+        .delete_item()
+        .table_name(table)
+        .key(key, user_av)
+        .send()
+        .await?;
+
+    println!("Deleted item.");
+
+    Ok(())
+}

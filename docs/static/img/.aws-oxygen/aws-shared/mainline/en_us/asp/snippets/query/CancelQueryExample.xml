@@ -1,0 +1,11 @@
+GET\n
+fps.sandbox.amazonaws.com\n
+Action=Cancel
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Description=MyWish
+&Signature=yOedrTuiMoMrKt8SwugDDnfd0nydyoX9uPq1H1SUCl4%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-06T09%3A14%3A58.796Z
+&TransactionId=14GKI1SKSR1V6DO1RCCB32RBR6KLODMGQUD
+&Version=2008-09-17

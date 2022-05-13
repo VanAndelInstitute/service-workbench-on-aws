@@ -1,0 +1,9 @@
+// Start the session
+session_start();
+
+// Alter the session data
+$_SESSION['user.name'] = 'jeremy';
+$_SESSION['user.role'] = 'admin';
+
+// Close the session (optional, but recommended)
+session_write_close();

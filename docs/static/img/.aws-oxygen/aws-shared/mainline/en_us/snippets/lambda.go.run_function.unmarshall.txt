@@ -1,0 +1,3 @@
+    var resp getItemsResponse
+
+    err = json.Unmarshal(result.Payload, &resp)

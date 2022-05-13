@@ -1,0 +1,9 @@
+<WriteOffDebtResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <WriteOffDebtResult>
+    <TransactionId>14GND73BD1S57OEBM5O1RDLGU65HN51V9JK</TransactionId>
+    <TransactionStatus>Success</TransactionStatus>
+  </WriteOffDebtResult>
+  <ResponseMetadata>
+    <RequestId>76c22576-aeda-4d55-859a-20d56efb6068:0</RequestId>
+  </ResponseMetadata>
+</WriteOffDebtResponse>

@@ -1,0 +1,29 @@
+<programlisting>
+    public static void addNewStep(EmrClient emrClient, String jobFlowId, String jar, String myClass) {
+
+        try {
+
+            HadoopJarStepConfig jarStepConfig = HadoopJarStepConfig.builder()
+                    .jar(jar)
+                    .mainClass(myClass)
+                    .build();
+
+            StepConfig stepConfig = StepConfig.builder()
+                    .hadoopJarStep(jarStepConfig)
+                    .name("Run a bash script")
+                    .build();
+
+            AddJobFlowStepsRequest jobFlowStepsRequest = AddJobFlowStepsRequest.builder()
+                    .jobFlowId(jobFlowId)
+                    .steps(stepConfig)
+                    .build();
+
+            emrClient.addJobFlowSteps(jobFlowStepsRequest);
+            System.out.println("You have successfully added a step!");
+
+        } catch (EmrException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

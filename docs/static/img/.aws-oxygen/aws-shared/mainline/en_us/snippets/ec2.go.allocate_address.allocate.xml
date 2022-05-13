@@ -1,0 +1,5 @@
+<programlisting>
+    allocRes, err := svc.AllocateAddress(&ec2.AllocateAddressInput{
+        Domain: aws.String("vpc"),
+    })
+</programlisting>

@@ -1,0 +1,9 @@
+<programlisting>
+    svc := cloudwatchlogs.New(sess)
+
+    resp, err := svc.GetLogEvents(&cloudwatchlogs.GetLogEventsInput{
+        Limit:         limit,
+        LogGroupName:  logGroupName,
+        LogStreamName: logStreamName,
+    })
+</programlisting>

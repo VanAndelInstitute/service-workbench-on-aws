@@ -1,0 +1,5 @@
+import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
+import software.amazon.awssdk.services.cloudwatchevents.CloudWatchEventsClient;
+import software.amazon.awssdk.services.cloudwatchevents.model.PutTargetsRequest;
+import software.amazon.awssdk.services.cloudwatchevents.model.PutTargetsResponse;
+import software.amazon.awssdk.services.cloudwatchevents.model.Target;

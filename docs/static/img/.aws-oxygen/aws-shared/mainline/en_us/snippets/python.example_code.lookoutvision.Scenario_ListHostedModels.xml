@@ -1,0 +1,32 @@
+<programlisting>
+    @staticmethod
+    def list_hosted(lookoutvision_client):
+        """
+        Displays a list of models in your account that are currently hosted.
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        """
+        try:
+            response = lookoutvision_client.list_projects()
+            hosted = 0
+            print("Hosted models\n-------------")
+
+            for project in response["Projects"]:
+                response_models = lookoutvision_client.list_models(
+                    ProjectName=project["ProjectName"])
+
+                for model in response_models["Models"]:
+                    model_description = lookoutvision_client.describe_model(
+                        ProjectName=project["ProjectName"],
+                        ModelVersion=model["ModelVersion"])
+
+                    if model_description["ModelDescription"]["Status"] == "HOSTED":
+                        print(
+                            f"Project: {project['ProjectName']} Model version: "
+                            f"{model['ModelVersion']}")
+                        hosted += 1
+            print(f"{hosted} model(s) hosted")
+        except ClientError:
+            logger.exception("Problem listing hosted models.")
+            raise
+</programlisting>

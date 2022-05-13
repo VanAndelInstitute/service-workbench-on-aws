@@ -1,0 +1,20 @@
+
+<!-- DARTBOARD ENTITIES -->
+<!ENTITY DB 'Dartboard'>
+<!ENTITY DBlong 'Amazon Dartboard'>
+<!ENTITY DBconsole '<ulink url="https://dartboardconsole.aws.amazon.com/dartboard/">https://dartboardconsole.aws.amazon.com/dartboard/</ulink>' >
+<!ENTITY DBendpoint 'https://dbmtpp.us-east-1.amazonaws.com/v1'>
+<!ENTITY PinPointConsole_DirectURL
+    "<para>Sign in to the &console; and open the &DBlong; console at &DBconsole;.</para>">
+
+<!-- MOBILE HUB ENTITIES -->
+<!ENTITY AMHlong 'AWS Mobile Hub'>
+<!ENTITY AMH 'Mobile Hub'>
+
+<!-- PUSH NOTIFICATION SERVICES ENTITIES -->
+<!ENTITY APNS 'APNS'>
+<!ENTITY APNSlong 'Apple Push Notification Service'>
+<!ENTITY GCM 'GCM'>
+<!ENTITY GCMlong 'Google Cloud Messaging'>
+<!ENTITY FCM 'FCM'>
+<!ENTITY FCMlong 'Firebase Cloud Messaging'>

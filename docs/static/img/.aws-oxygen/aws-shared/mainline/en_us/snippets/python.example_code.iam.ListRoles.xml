@@ -1,0 +1,17 @@
+<programlisting>
+def list_roles(count):
+    """
+    Lists the specified number of roles for the account.
+
+    :param count: The number of roles to list.
+    """
+    try:
+        roles = list(iam.roles.limit(count=count))
+        for role in roles:
+            logger.info("Role: %s", role.name)
+    except ClientError:
+        logger.exception("Couldn't list roles for the account.")
+        raise
+    else:
+        return roles
+</programlisting>

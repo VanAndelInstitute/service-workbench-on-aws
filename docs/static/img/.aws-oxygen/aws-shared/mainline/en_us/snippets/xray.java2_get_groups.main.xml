@@ -1,0 +1,16 @@
+<programlisting>
+    public static void getAllGroups(XRayClient xRayClient) {
+
+    try {
+        GetGroupsResponse groupsResponse = xRayClient.getGroups();
+        List<GroupSummary> groups = groupsResponse.groups();
+        for (GroupSummary group: groups) {
+            System.out.println("The AWS XRay group name is "+group.groupName());
+        }
+
+    } catch (XRayException e) {
+    System.err.println(e.getMessage());
+    System.exit(1);
+    }
+  }
+</programlisting>

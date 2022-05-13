@@ -1,0 +1,5 @@
+    svc := s3.New(sess)
+
+    h := md5.New()
+    content := strings.NewReader("")
+    _, err := content.WriteTo(h)

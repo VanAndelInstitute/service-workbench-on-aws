@@ -1,0 +1,17 @@
+    def list_tags(self, certificate_arn):
+        """
+        Lists the tags attached to a certificate.
+
+        :param certificate_arn: The ARN of the certificate.
+        :return: The dictionary of certificate tags.
+        """
+        try:
+            response = self.acm_client.list_tags_for_certificate(
+                CertificateArn=certificate_arn)
+            tags = {tag['Key']: tag['Value'] for tag in response['Tags']}
+            logger.info("Got %s tags for certificates %s.", len(tags), certificate_arn)
+        except ClientError:
+            logger.exception("Couldn't get tags for certificate %s.", certificate_arn)
+            raise
+        else:
+            return tags

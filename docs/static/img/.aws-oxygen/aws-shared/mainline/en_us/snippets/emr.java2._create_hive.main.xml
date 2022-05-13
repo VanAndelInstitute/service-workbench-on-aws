@@ -1,0 +1,68 @@
+<programlisting>
+    public static String createCluster( EmrClient emrClient, String jar,
+                                      String myClass,
+                                      String keys,
+                                      String logUri,
+                                      String name) {
+
+        try {
+
+            HadoopJarStepConfig jarStepConfig = HadoopJarStepConfig.builder()
+                    .jar(jar)
+                    .mainClass(myClass)
+                    .build();
+
+            Application hiveApp = Application.builder()
+                    .name("Hive")
+                    .build();
+
+            Map hiveProperties = new HashMap<String,String>();
+            hiveProperties.put("hive.join.emit.interval","1000");
+            hiveProperties.put("hive.merge.mapfiles","true");
+
+
+            Configuration configuration = Configuration.builder()
+                    .classification("hive-site")
+                    .properties(hiveProperties)
+                    .build();
+
+
+            StepConfig enabledebugging = StepConfig.builder()
+                    .name("Enable debugging")
+                    .actionOnFailure("TERMINATE_JOB_FLOW")
+                    .hadoopJarStep(jarStepConfig)
+                    .build();
+
+            JobFlowInstancesConfig instancesConfig = JobFlowInstancesConfig.builder()
+                    .ec2SubnetId("subnet-206a9c58")
+                    .ec2KeyName(keys)
+                    .instanceCount(3)
+                    .keepJobFlowAliveWhenNoSteps(true)
+                    .masterInstanceType("m4.large")
+                    .slaveInstanceType("m4.large")
+                    .build();
+
+
+            RunJobFlowRequest jobFlowRequest = RunJobFlowRequest.builder()
+                    .name(name)
+                    .configurations(configuration)
+                    .releaseLabel("emr-5.20.0")
+                    .steps(enabledebugging)
+                    .applications(hiveApp)
+                    .logUri(logUri)
+                    .serviceRole("EMR_DefaultRole")
+                    .jobFlowRole("EMR_EC2_DefaultRole")
+                    .instances(instancesConfig)
+                    .build();
+
+            RunJobFlowResponse response = emrClient.runJobFlow(jobFlowRequest);
+            return response.jobFlowId();
+
+        } catch(EmrException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+
+        return "";
+    }
+</programlisting>

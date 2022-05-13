@@ -1,0 +1,38 @@
+<programlisting>
+suspend fun setPolicy( bucketName: String, polText: String) {
+
+    val policyText = getBucketPolicyFromFile(polText)
+    println("Setting policy:")
+    println("----")
+    println(policyText)
+    println("----")
+    println("On Amazon S3 bucket $bucketName")
+
+    val request = PutBucketPolicyRequest {
+        bucket = bucketName
+        policy = policyText
+    }
+
+    S3Client { region = "us-east-1" }.use { s3 ->
+        s3.putBucketPolicy(request)
+        println("Done!")
+     }
+    }
+
+    // Loads a JSON-formatted policy from a file.
+    fun getBucketPolicyFromFile(policyFile: String): String {
+        val fileText = StringBuilder()
+        try {
+            val lines = Files.readAllLines(
+                Paths.get(policyFile), Charset.forName("UTF-8")
+            )
+            for (line in lines) {
+                fileText.append(line)
+            }
+        } catch (e: IOException) {
+            println("Problem reading file $policyFile")
+            println(e.message)
+        }
+      return fileText.toString()
+    }
+</programlisting>

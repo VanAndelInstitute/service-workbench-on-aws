@@ -1,0 +1,21 @@
+<programlisting>
+        public static async Task Main()
+        {
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            string collectionId = "MyCollection";
+            Console.WriteLine($"Describing collection: {collectionId}");
+
+            var describeCollectionRequest = new DescribeCollectionRequest()
+            {
+                CollectionId = collectionId,
+            };
+
+            var describeCollectionResponse = await rekognitionClient.DescribeCollectionAsync(describeCollectionRequest);
+            Console.WriteLine($"Collection ARN: {describeCollectionResponse.CollectionARN}");
+            Console.WriteLine($"Face count: {describeCollectionResponse.FaceCount}");
+            Console.WriteLine($"Face model version: {describeCollectionResponse.FaceModelVersion}");
+            Console.WriteLine($"Created: {describeCollectionResponse.CreationTimestamp}");
+        }
+
+</programlisting>

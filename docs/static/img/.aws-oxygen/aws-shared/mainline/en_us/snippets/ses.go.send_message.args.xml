@@ -1,0 +1,12 @@
+<programlisting>
+    sender := flag.String("t", "", "The email address for the 'From' field")
+    recipient := flag.String("t", "", "The email address for the 'To' field")
+    subject := flag.String("s", "Amazon SES Test (AWS SDK for Go)", "The text for the 'Subject' field")
+    flag.Parse()
+
+    if *sender == "" || *recipient == "" || *subject == "" {
+        fmt.Println("You must supply an email address for the sender and recipient, and a subject")
+        fmt.Println("-f SENDER -t RECIPIENT -s SUBJECT")
+        return
+    }
+</programlisting>

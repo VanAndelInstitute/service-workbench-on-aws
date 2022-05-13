@@ -1,0 +1,18 @@
+    svc := cloudwatch.New(sess)
+
+    _, err := svc.PutMetricData(&cloudwatch.PutMetricDataInput{
+        Namespace: namespace,
+        MetricData: []*cloudwatch.MetricDatum{
+            &cloudwatch.MetricDatum{
+                MetricName: metricName,
+                Unit:       unit,
+                Value:      value,
+                Dimensions: []*cloudwatch.Dimension{
+                    &cloudwatch.Dimension{
+                        Name:  dimensionName,
+                        Value: dimensionValue,
+                    },
+                },
+            },
+        },
+    })

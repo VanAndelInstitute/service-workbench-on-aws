@@ -1,0 +1,50 @@
+    public static void setDeadLetterQueue( SqsClient sqs) {
+
+        try {
+            CreateQueueRequest request = CreateQueueRequest.builder()
+                .queueName(QueueName).build();
+
+             CreateQueueRequest dlrequest = CreateQueueRequest.builder()
+                .queueName(DLQueueName).build();
+
+            sqs.createQueue(dlrequest);
+
+            GetQueueUrlRequest getRequest = GetQueueUrlRequest.builder()
+                .queueName(DLQueueName)
+                .build();
+
+            // Get dead-letter queue ARN
+            String dlQueueUrl = sqs.getQueueUrl(getRequest)
+                .queueUrl();
+
+            GetQueueAttributesResponse queueAttrs = sqs.getQueueAttributes(
+                GetQueueAttributesRequest.builder()
+                        .queueUrl(dlQueueUrl)
+                        .attributeNames(QueueAttributeName.QUEUE_ARN).build());
+
+            String dlQueueArn = queueAttrs.attributes().get(QueueAttributeName.QUEUE_ARN);
+
+            // Set dead letter queue with redrive policy on source queue.
+            GetQueueUrlRequest getRequestSource = GetQueueUrlRequest.builder()
+                .queueName(DLQueueName)
+                .build();
+
+            String srcQueueUrl = sqs.getQueueUrl(getRequestSource)
+                .queueUrl();
+
+            HashMap<QueueAttributeName, String> attributes = new HashMap<QueueAttributeName, String>();
+            attributes.put(QueueAttributeName.REDRIVE_POLICY, "{\"maxReceiveCount\":\"5\", \"deadLetterTargetArn\":\""
+                + dlQueueArn + "\"}");
+
+            SetQueueAttributesRequest setAttrRequest = SetQueueAttributesRequest.builder()
+                .queueUrl(srcQueueUrl)
+                .attributes(attributes)
+                .build();
+
+            SetQueueAttributesResponse setAttrResponse = sqs.setQueueAttributes(setAttrRequest);
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+
+<section id="DownloadSamples" role="topic">
+  <title id="DownloadSamples.title">Getting the Samples</title>
+ <para> The code samples are available in five programming languages (C#, Java, Perl, PHP, and Ruby).</para>
+  <orderedlist>
+   <title>To download <phrase condition="fps">&fps_product_short; </phrase><phrase condition="asp">&asp_product;</phrase> samples:</title>
+   <listitem>
+    <para>Go to <ulink url="http://developer.amazonwebservices.com/connect/kbcategory.jspa?categoryID=191">Amazon Web Services developer community</ulink>.    
+    </para>
+   </listitem>
+   <listitem>
+    <para condition="asp">Choose your sample of interest in the programming language you prefer. To obtain the sample applications listed in this guide, look for sample applications whose package name resembles the format "ASP<replaceable>Button name</replaceable>-<replaceable>LANGUAGE</replaceable>-2.0". For example, the Java sample for the standard button is available in the file <emphasis role="bold">ASPStandard-JAVA-2.0.zip</emphasis>.</para>
+    <para condition="fps">Choose your sample of interest in the programming language you prefer. To obtain the sample applications listed in this guide, look for sample applications whose package name resembles the format "amazon-fps-2008-09-17-<replaceable>LANGUAGE</replaceable>-library". For example, the Java sample is available in the file <emphasis role="bold">amazon-fps-2008-09-17-java-library.zip</emphasis>.</para>
+   </listitem>
+   <listitem>
+    <para>Read the instructions on the page. When you are ready to proceed, click <guilabel>Download</guilabel>.</para>
+    <para>The download window opens. Ensure it is the sample you want, and Click <guilabel>OK</guilabel>.</para>
+   </listitem>
+   <listitem>
+    <para>Extract the zipped files to a convenient location on your workstation.</para>
+   </listitem>
+  </orderedlist>
+  <para>Each download includes sample-specific instructions in its README.txt file. For general guidance on the samples applicable to this edition of <phrase condition="fps">&fps_product_short; </phrase><phrase condition="asp">&asp_product;</phrase>, see <link condition="asp" linkend="APPNDX_SampleCode" endterm="APPNDX_SampleCode.title"/><link condition="fps" linkend="APPNDX_CodeSamples" endterm="APPNDX_CodeSamples.title"/>.</para>
+ </section>

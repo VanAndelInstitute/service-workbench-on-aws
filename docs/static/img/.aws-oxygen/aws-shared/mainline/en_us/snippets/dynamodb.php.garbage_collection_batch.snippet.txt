@@ -1,0 +1,11 @@
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions',
+    'batch_config' => [
+        'batch_size' => 25,
+        'before' => function ($command) {
+            echo "About to delete a batch of expired sessions.\n";
+        }
+    ]
+]);
+
+$sessionHandler->garbageCollect();

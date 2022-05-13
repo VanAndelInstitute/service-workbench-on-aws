@@ -1,0 +1,18 @@
+<!--   
+NOTE: This file is a placeholder that is overwritten at build time. 
+DO NOT ADD entities here. Use the other phrases-shared-*.ent files instead. 
+-->
+
+<!ENTITY api-domain "amazonaws.com">
+<!ENTITY blog-domain "aws.amazon.com/blogs">
+<!ENTITY console-domain "console.aws.amazon.com">
+<!ENTITY doc-domain "docs.aws.amazon.com">
+<!ENTITY forum-domain "forums.aws.amazon.com">
+<!ENTITY mkt-domain "aws.amazon.com">
+<!ENTITY portal-domain "portal.aws.amazon.com">
+<!ENTITY retail-domain "www.amazon.com">
+<!ENTITY status-domain "status.aws.amazon.com">
+<!ENTITY region-dca-1 "JLYAJBE">
+<!ENTITY region-apa-1 "JLYAJBE">
+<!ENTITY url-diffdoc "JLYAJBE">
+<!ENTITY root-domain "aws.amazon.com">

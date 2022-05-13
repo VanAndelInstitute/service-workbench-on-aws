@@ -1,0 +1,43 @@
+<programlisting>
+suspend fun createDataSource(s3BucketName: String?, dataSourceName: String?, dataSourceDescription: String?, indexIdVal: String?, dataSourceRoleArn: String?): String {
+    println("Creating an S3 data source")
+
+        val createDataSourceRequest = CreateDataSourceRequest {
+            indexId = indexIdVal
+            name = dataSourceName
+            description = dataSourceDescription
+            roleArn = dataSourceRoleArn
+            type = DataSourceType.S3
+            configuration = DataSourceConfiguration {
+                s3Configuration = S3DataSourceConfiguration {
+                    bucketName = s3BucketName
+                }
+            }
+        }
+
+        KendraClient { region = "us-east-1" }.use { kendra ->
+
+             val createDataSourceResponse = kendra.createDataSource(createDataSourceRequest)
+             println("Response of creating data source $createDataSourceResponse")
+             val dataSourceId = createDataSourceResponse.id
+             println("Waiting for Kendra to create the data source $dataSourceId")
+
+             val describeDataSourceRequest = DescribeDataSourceRequest {
+                 indexId = indexIdVal
+                 id = dataSourceId
+             }
+
+             var finished = false
+             while (!finished) {
+
+                val describeDataSourceResponse = kendra.describeDataSource(describeDataSourceRequest)
+                val status = describeDataSourceResponse.status
+                println("Status is $status")
+                if (status !== DataSourceStatus.Creating)
+                      finished = true
+                delay(30000)
+             }
+            return dataSourceId.toString()
+         }
+}
+</programlisting>

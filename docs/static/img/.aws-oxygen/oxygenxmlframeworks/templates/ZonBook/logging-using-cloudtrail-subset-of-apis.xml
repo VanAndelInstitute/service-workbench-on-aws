@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0-Octane" service="//cloudtrail//" type="subset-apis"  origin="octane"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+]>
+
+<!-- This is the template for services that only log a subset of their APIs with CloudTrail. If your service logs all APIs with CloudTrail, use the cloudtrail-all.xml template,
+  included in this package, instead of this one. Make sure that whichever template you use, you name the completed XML file cloudtrail.xml. -->
+
+<!-- For steps regarding CloudTrail integration with other services, see https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/CloudTrail/ -->
+
+<section role="topic" id="logging-using-cloudtrail">
+  <info>  <title id="logging-using-cloudtrail.title">Logging &SERVICElong; API calls with &CTlong;</title>
+    <abstract>
+      <para>Learn about logging &SERVICElong; with &CTlong;.</para>
+    </abstract></info>
+  <para>&SERVICElong; is integrated with &CTlong;, a service that provides a record of actions taken
+    by a user, role, or an &AWS; service in &SERVICE;. &CT; captures API calls for
+    &SERVICE; as events. The calls captured include calls from the &SERVICE; console and
+    code calls to the &SERVICE; API operations. If you create a trail, you can enable
+    continuous delivery of &CT; events to an &S3; bucket, including events for &SERVICE;. If you don't 
+    configure a trail, you can still view the most recent events in the &CT; console in <guilabel>Event
+      history</guilabel>.  Using the information collected by &CT;,
+    you can determine the request that was made to &SERVICE;, the IP address from which the
+    request was made, who made the request, when it was made, and additional details. </para>
+  <para>To learn more about &CT;, see the <ulink
+    url="awscloudtrail/latest/userguide/cloudtrail-user-guide.html" type="documentation">&guide-ct-user;</ulink>.</para>
+  
+  <section id="service-name-info-in-cloudtrail">
+    <info><title id="service-name-info-in-cloudtrail.title">&SERVICE; information in &CT;</title></info>
+    
+    <para>&CT; is enabled on your &AWS-account; when you create the account. When activity occurs in
+      &SERVICE;, that activity is recorded in a &CT; event along with other &AWS; service
+      events in <guilabel>Event history</guilabel>. You can view, search, and download recent events 
+      in your &AWS-account;. For more information, see <ulink
+        url="awscloudtrail/latest/userguide/view-cloudtrail-events.html" type="documentation">Viewing events with &CT; Event
+        history</ulink>.</para>
+    
+    <para>For an ongoing record of events in your &AWS-account;, including events for &SERVICE;,
+      create a trail. A <emphasis>trail</emphasis> enables &CT; to deliver log files to an &S3; bucket. 
+      By default, when you create a trail in the console, the trail applies to all &AWS-Regions;. The trail logs events
+      from all Regions in the &AWS; partition and delivers the log files to the &S3; bucket that you
+      specify.  Additionally, you can configure other &AWS; services to further analyze and act upon
+      the event data collected in &CT; logs. For more information, see the following: </para>
+    <itemizedlist>
+      <listitem>
+        <para><ulink
+          url="awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html" type="documentation">Overview for creating a trail</ulink></para>
+      </listitem> 
+      <listitem>
+        <para><ulink
+          url="awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html" type="documentation">&CT; supported services and integrations</ulink></para>
+      </listitem>
+      <listitem>
+        <para><ulink
+          url="awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html" type="documentation">Configuring Amazon SNS notifications
+          for &CT;</ulink></para>
+      </listitem>
+      <listitem>
+        <para><ulink
+          url="awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html" type="documentation">Receiving &CT; log
+          files from multiple regions</ulink> and <ulink
+            url="awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html" type="documentation">Receiving &CT; log
+            files from multiple accounts</ulink></para>
+      </listitem>
+    </itemizedlist>
+    
+    <para>&SERVICE; supports logging the following actions as events in &CT; log files:</para>
+    <itemizedlist>
+      <!--
+      TODO: Replace the following with all of the actions in your service that are logged by CloudTrail. Link each action to its corresponding page in your service's API reference. Be sure to include this list. Otherwise, customers have no way of knowing for certain which of your service's APIs will appear in their CloudTrail logs.-->
+      <listitem>
+        <para><ulink url="ACTION_1_URL">ACTION_1</ulink></para>
+      </listitem>
+      <listitem>
+        <para><ulink url="ACTION_2_URL">ACTION_2</ulink></para>
+      </listitem>
+      <listitem>
+        <para><ulink url="ACTION_3_URL">ACTION_3</ulink></para>
+      </listitem>
+      <listitem>
+        <para><ulink url="ACTION_4_URL">ACTION_4</ulink></para>
+      </listitem>
+      <!-- ... -->
+    </itemizedlist>
+    <para>Every event or log entry contains information about who generated the request. The
+      identity information helps you determine the following: </para>
+    <itemizedlist>
+      <listitem>
+        <para>Whether the request was made with root or &IAMlong; (&IAM;) user credentials.</para>
+      </listitem>
+      <listitem>
+        <para>Whether the request was made with temporary security credentials for a role or
+          federated user.</para>
+      </listitem>
+      <listitem>
+        <para>Whether the request was made by another &AWS; service.</para>
+      </listitem>
+    </itemizedlist>
+    <para>For more information, see the <ulink
+      url="awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html" type="documentation">&CT; userIdentity
+      element</ulink>.</para>
+  </section>
+  
+  
+  <section id="understanding-service-name-entries">
+    <info><title id="understanding-service-name-entries.title">Understanding &SERVICE; log file
+      entries</title></info>
+    <para>A trail is a configuration that enables delivery of events as log files to an &S3; bucket
+      that you specify. &CT; log files contain one or more log entries. An event represents a single
+      request from any source and includes information about the requested action, the date and time
+      of the action, request parameters, and so on. &CT; log files aren't an ordered stack trace of
+      the public API calls, so they don't appear in any specific order. </para>
+    <para>The following example shows a &CT; log entry that demonstrates the <!--TODO:  Add an action name here, or provide multiple actions. <code>ActionNameHere</code>--> action.</para>
+    <programlisting language="json">
+      <!-- 
+       TODO: Provide one or more examples here, agreeing with the action or actions you specified in the preceding paragraph.
+       Make sure that you use example acccess keys, safe fictitious names and IP addreses, etc. in your examples.
+      --></programlisting>
+  </section>
+</section>

@@ -1,0 +1,13 @@
+<programlisting>
+    roleArn := flag.String("a", "", "The ARN of the role")
+    kmsKey := flag.String("k", "", "The KMS key")
+    bucketName := flag.String("b", "", "The name of the bucket to store the snapshot")
+    rdsSnapshotName := flag.String("s", "", "The name of the RDS snapshot")
+    exportRDSSnapshotName := flag.String("e", "", "The name to export to")
+
+    if *roleArn == "" || *kmsKey == "" || *bucketName == "" || *rdsSnapshotName == "" || *exportRDSSnapshotName == "" {
+        fmt.Println("You must supply a role ARN, KMS key, bucket name, RDS snapshot name, and export name")
+        fmt.Println("-a ROLE-ARN -k KMS-KEY -b BUCKET-NAME -s SNAPSHOT-NAME -e EXPORT-NAME")
+        return
+    }
+</programlisting>

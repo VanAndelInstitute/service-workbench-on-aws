@@ -1,0 +1,49 @@
+<!DOCTYPE table PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<table frame="all">
+    <tgroup cols="2">
+        <colspec colname="c1" colnum="1"/>
+        <colspec colname="c2" colnum="2"/>
+        <thead>
+            <row>
+                <entry>CPU value</entry>
+                <entry>Memory value (MiB)</entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry>256 (.25 vCPU)</entry>
+                <entry>512 (0.5GB), 1024 (1GB), 2048 (2GB)</entry>
+            </row>
+            <row>
+                <entry>512 (.5 vCPU)</entry>
+                <entry>1024 (1GB), 2048 (2GB), 3072 (3GB), 4096
+                    (4GB)</entry>
+            </row>
+            <row>
+                <entry>1024 (1 vCPU)</entry>
+                <entry>2048 (2GB), 3072 (3GB), 4096 (4GB), 5120 (5GB), 6144
+                    (6GB), 7168 (7GB), 8192 (8GB)</entry>
+            </row>
+            <row>
+                <entry>2048 (2 vCPU)</entry>
+                <entry>Between 4096 (4GB) and 16384 (16GB) in increments of
+                    1024 (1GB)</entry>
+            </row>
+            <row>
+                <entry>4096 (4 vCPU)</entry>
+                <entry>Between 8192 (8GB) and 30720 (30GB) in increments of
+                    1024 (1GB)</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</table>

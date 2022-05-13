@@ -1,0 +1,9 @@
+    svc := s3.New(sess)
+    source := *sourceBucket + "/" + *item
+
+    // Copy the item
+    _, err := svc.CopyObject(&s3.CopyObjectInput{
+        Bucket:     targetBucket,
+        CopySource: aws.String(url.PathEscape(source)),
+        Key:        item,
+    })

@@ -1,0 +1,21 @@
+<programlisting>
+    public static void listAllRecipes(PersonalizeClient personalizeClient) {
+
+        try {
+            ListRecipesRequest recipesRequest = ListRecipesRequest.builder()
+                .maxResults(15)
+                .build();
+
+            ListRecipesResponse response = personalizeClient.listRecipes(recipesRequest);
+            List<RecipeSummary> recipes = response.recipes();
+
+            for (RecipeSummary recipe: recipes) {
+                System.out.println("The recipe ARN is: "+recipe.recipeArn());
+                System.out.println("The recipe name is: "+recipe.name());
+            }
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

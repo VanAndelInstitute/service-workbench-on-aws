@@ -1,0 +1,37 @@
+    public static void detectDocText(TextractClient textractClient,String sourceDoc) {
+
+        try {
+
+            InputStream sourceStream = new FileInputStream(new File(sourceDoc));
+            SdkBytes sourceBytes = SdkBytes.fromInputStream(sourceStream);
+
+            // Get the input Document object as bytes
+            Document myDoc = Document.builder()
+                    .bytes(sourceBytes)
+                    .build();
+
+            DetectDocumentTextRequest detectDocumentTextRequest = DetectDocumentTextRequest.builder()
+                    .document(myDoc)
+                    .build();
+
+            // Invoke the Detect operation
+            DetectDocumentTextResponse textResponse = textractClient.detectDocumentText(detectDocumentTextRequest);
+
+            List<Block> docInfo = textResponse.blocks();
+
+            Iterator<Block> blockIterator = docInfo.iterator();
+
+            while(blockIterator.hasNext()) {
+                Block block = blockIterator.next();
+                System.out.println("The block type is " +block.blockType().toString());
+            }
+
+            DocumentMetadata documentMetadata = textResponse.documentMetadata();
+            System.out.println("The number of pages in the document is " +documentMetadata.pages());
+
+        } catch (TextractException | FileNotFoundException e) {
+
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

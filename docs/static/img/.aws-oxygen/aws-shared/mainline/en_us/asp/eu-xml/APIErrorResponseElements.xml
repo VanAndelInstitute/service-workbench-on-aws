@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="ErrorResponse" role="topic">
+          <title id="ErrorResponse.title">Error Response Elements</title>
+          <para>Unless otherwise noted, Amazon Simple Pay returns error information RESTfully as a xml document fragment within the TransactionStatus element. The following table details the elements involved in an error return.</para>
+          <para>
+               <informaltable>
+                    <tgroup cols="2">
+                         <?dbhtml table-width="100%" ?>
+                         <?dbfo table-width="95%" ?>
+                         <colspec colname="c1" colnum="1" colwidth="0.27*"/>
+                         <colspec colname="c2" colnum="2" colwidth="1.73*"/>
+                         <thead>
+                              <row>
+                                   <entry>Element</entry>
+                                   <entry>Description</entry>
+                              </row>
+                         </thead>
+                         <tbody>
+                              <row>
+                                   <entry>
+                                        <para><parameter>Code</parameter></para>
+                                   </entry>
+                                   <entry>
+                                        <para>One of the error codes described previously.</para>
+                                        <simpara>Type: String</simpara>
+                                   </entry>
+                              </row>
+                              <row>
+                                   <entry>
+                                        <para><parameter>Message</parameter></para>
+                                   </entry>
+                                   <entry>
+                                        <para>Human readable description of the error.</para>
+                                        <simpara>Type: String</simpara>
+                                   </entry>
+                              </row>
+                              <row>
+                                   <entry>
+                                        <para><parameter>RequestId</parameter></para>
+                                   </entry>
+                                   <entry>
+                                        <para>Unique identifier for this request. Please provide this to AWS support for debugging purposes.</para>
+                                        <simpara>Type: String</simpara>
+                                   </entry>
+                              </row>
+                         </tbody>
+                    </tgroup>
+               </informaltable>
+          </para>
+     </section>

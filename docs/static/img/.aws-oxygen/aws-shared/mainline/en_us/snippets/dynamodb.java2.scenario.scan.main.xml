@@ -1,0 +1,26 @@
+<programlisting>
+        // Scan the table.
+        public static void scanMovies(DynamoDbClient ddb, String tableName) {
+
+            System.out.println("******* Scanning all movies.\n");
+
+            try{
+                DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
+                        .dynamoDbClient(ddb)
+                        .build();
+
+                DynamoDbTable<Movies> custTable = enhancedClient.table("Movies", TableSchema.fromBean(Movies.class));
+                Iterator<Movies> results = custTable.scan().items().iterator();
+                while (results.hasNext()) {
+
+                    Movies rec = results.next();
+                    System.out.println("The movie title is "+rec.getTitle());
+                    System.out.println("The movie year is " +rec.getYear());
+                }
+
+            } catch (DynamoDbException e) {
+                System.err.println(e.getMessage());
+                System.exit(1);
+            }
+        }
+</programlisting>

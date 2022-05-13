@@ -1,0 +1,16 @@
+    public static void getDS(AppSyncClient appSyncClient, String apiId, String name ) {
+
+    try {
+        GetDataSourceRequest request = GetDataSourceRequest.builder()
+                .apiId(apiId)
+                .name(name)
+                .build();
+
+        GetDataSourceResponse response = appSyncClient.getDataSource(request);
+        System.out.println("The DataSource ARN is "+response.dataSource().dataSourceArn());
+
+    } catch (AppSyncException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }

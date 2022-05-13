@@ -1,0 +1,5 @@
+    fmt.Println("AWS Regions:", resultRegions.Regions)
+    fmt.Println("")
+    fmt.Println("Zones:  ", resultAvalZones.AvailabilityZones)
+    fmt.Println("")
+    fmt.Println("Found", len(resultRegions.Regions), "AWS Regions; found", len(resultAvalZones.AvailabilityZones), "Availability Zones", "in", *sess.Config.Region)

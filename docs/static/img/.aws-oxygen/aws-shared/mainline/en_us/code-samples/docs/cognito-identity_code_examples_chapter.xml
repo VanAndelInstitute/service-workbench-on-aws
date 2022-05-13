@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &COGID; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &COGID; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &COGID; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &COGID; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &COGID; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &COGID;
+            actions with &AWS; SDKs. These excerpts call the &COGID; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&COGID; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cognito-identity_CreateIdentityPool_section" role="topic">
+            <info>
+                <title id="example_cognito-identity_CreateIdentityPool_section.title">Create a new &COGID; with a specified name</title>
+                <titleabbrev id="example_cognito-identity_CreateIdentityPool_section.titleabbrev">Create an identity pool</titleabbrev>
+                <abstract>
+                    <para>Create a new &COGID; with a specified name</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_CreateIdentityPool_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_CreateIdentityPool_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cognito-identity_ListIdentityPools_section" role="topic">
+            <info>
+                <title id="example_cognito-identity_ListIdentityPools_section.title">List &COGID; pools</title>
+                <titleabbrev id="example_cognito-identity_ListIdentityPools_section.titleabbrev">List identity pools</titleabbrev>
+                <abstract>
+                    <para>List &COGID; pools</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_ListIdentityPools_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_ListIdentityPools_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &COGID; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &COGID; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &COGID;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_TranscriptionApp_section" role="topic">
+            <info>
+                <title id="example_cross_TranscriptionApp_section.title">Build an &TSC; app</title>
+                <titleabbrev id="example_cross_TranscriptionApp_section.titleabbrev">Build an &TSC; app</titleabbrev>
+                <abstract>
+                    <para>Build an &TSC; app</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractExplorer_section" role="topic">
+            <info>
+                <title id="example_cross_TextractExplorer_section.title">Create an &TEXTRACT; explorer application</title>
+                <titleabbrev id="example_cross_TextractExplorer_section.titleabbrev">Create an &TEXTRACT; explorer application</titleabbrev>
+                <abstract>
+                    <para>Create an &TEXTRACT; explorer application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_cognito-identity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

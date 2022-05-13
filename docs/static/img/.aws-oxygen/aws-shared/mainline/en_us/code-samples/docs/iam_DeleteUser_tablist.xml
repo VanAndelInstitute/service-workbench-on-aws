@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+]>
+<!-- zexi 0.2.0 -->
+<tablist>
+    <tablistentry>
+        <tabname>.NET</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_.NET.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Go</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Go.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Java</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Java.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>JavaScript</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_JavaScript.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Kotlin</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Kotlin.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Python</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Python.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Ruby</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Ruby.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Rust</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Rust.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+</tablist>

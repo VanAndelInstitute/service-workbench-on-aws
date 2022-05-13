@@ -1,0 +1,15 @@
+<programlisting>
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.TargetDataLine;
+import javax.sound.sampled.AudioInputStream;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.transcribestreaming.TranscribeStreamingAsyncClient;
+import software.amazon.awssdk.services.transcribestreaming.model.TranscribeStreamingException ;
+import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionRequest;
+import software.amazon.awssdk.services.transcribestreaming.model.MediaEncoding;
+import software.amazon.awssdk.services.transcribestreaming.model.LanguageCode;
+import software.amazon.awssdk.services.transcribestreaming.model.StartStreamTranscriptionResponseHandler;
+import software.amazon.awssdk.services.transcribestreaming.model.TranscriptEvent;
+</programlisting>

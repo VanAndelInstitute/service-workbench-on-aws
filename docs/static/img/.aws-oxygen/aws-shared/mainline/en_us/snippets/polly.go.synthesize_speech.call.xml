@@ -1,0 +1,9 @@
+<programlisting>
+    s := string(contents[:])
+
+    output, err := svc.SynthesizeSpeech(&polly.SynthesizeSpeechInput{
+        OutputFormat: aws.String("mp3"),
+        Text:         aws.String(s),
+        VoiceId:      aws.String("Joanna"),
+    })
+</programlisting>

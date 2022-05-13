@@ -1,0 +1,62 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/kms"
+    "github.com/aws/aws-sdk-go/service/kms/kmsiface"
+)
+
+// MakeKey creates an AWS Key Management Service (AWS KMS) key.
+// Inputs:
+//     svc is an AWS KMS service client
+//     key is the name of the key
+//     value is the value of the key
+// Output:
+//     If success, information about the new key and nil
+//     Otherwise, nil and an error from the call to CreateKey
+func MakeKey(svc kmsiface.KMSAPI, key, value *string) (*kms.CreateKeyOutput, error) {
+    result, err := svc.CreateKey(&kms.CreateKeyInput{
+        Tags: []*kms.Tag{
+            {
+                TagKey:   key,
+                TagValue: value,
+            },
+        },
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    key := flag.String("k", "", "The KMS key name")
+    value := flag.String("v", "", "The value of the KMS key")
+    flag.Parse()
+
+    if *key == "" || *value == "" {
+        fmt.Println("You must supply a KMS key name and value (-k KEY-NAME -v KEY-VALUE)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := kms.New(sess)
+
+    result, err := MakeKey(svc, key, value)
+    if err != nil {
+        fmt.Println("Got error creating key:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(*result.KeyMetadata.KeyId)
+}
+</programlisting>

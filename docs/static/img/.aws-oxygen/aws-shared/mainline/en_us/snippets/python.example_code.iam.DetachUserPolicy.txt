@@ -1,0 +1,14 @@
+def detach_policy(user_name, policy_arn):
+    """
+    Detaches a policy from a user.
+
+    :param user_name: The name of the user.
+    :param policy_arn: The Amazon Resource Name (ARN) of the policy.
+    """
+    try:
+        iam.User(user_name).detach_policy(PolicyArn=policy_arn)
+        logger.info("Detached policy %s from user %s.", policy_arn, user_name)
+    except ClientError:
+        logger.exception(
+            "Couldn't detach policy %s from user %s.", policy_arn, user_name)
+        raise

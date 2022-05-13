@@ -1,0 +1,14 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.textract.model.S3Object;
+import software.amazon.awssdk.services.textract.TextractClient;
+import software.amazon.awssdk.services.textract.model.StartDocumentAnalysisRequest;
+import software.amazon.awssdk.services.textract.model.DocumentLocation;
+import software.amazon.awssdk.services.textract.model.TextractException;
+import software.amazon.awssdk.services.textract.model.StartDocumentAnalysisResponse;
+import software.amazon.awssdk.services.textract.model.GetDocumentAnalysisRequest;
+import software.amazon.awssdk.services.textract.model.GetDocumentAnalysisResponse;
+import software.amazon.awssdk.services.textract.model.FeatureType;
+import java.util.ArrayList;
+import java.util.List;
+</programlisting>

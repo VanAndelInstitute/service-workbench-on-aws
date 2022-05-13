@@ -1,0 +1,15 @@
+    public static void createCustomAlias(KmsClient kmsClient, String targetKeyId, String aliasName) {
+
+        try {
+            CreateAliasRequest aliasRequest = CreateAliasRequest.builder()
+                .aliasName(aliasName)
+                .targetKeyId(targetKeyId)
+                .build();
+
+            kmsClient.createAlias(aliasRequest);
+
+        } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,7 @@
+<programlisting>
+        SubscribeToShardResponseHandler responseHandler = SubscribeToShardResponseHandler
+            .builder()
+            .onError(t -> System.err.println("Error during stream - " + t.getMessage()))
+            .publisherTransformer(p -> SdkPublisher.adapt(Flowable.fromPublisher(p).limit(100)))
+            .build();
+</programlisting>

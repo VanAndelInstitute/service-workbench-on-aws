@@ -1,0 +1,15 @@
+    public static void setOpsItemStatus(SsmClient ssmClient, String opsID) {
+
+       try {
+            UpdateOpsItemRequest opsItemRequest = UpdateOpsItemRequest.builder()
+                .opsItemId(opsID)
+                .status(OpsItemStatus.RESOLVED)
+                .build();
+
+            ssmClient.updateOpsItem(opsItemRequest);
+
+       } catch (SsmException e) {
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+    }

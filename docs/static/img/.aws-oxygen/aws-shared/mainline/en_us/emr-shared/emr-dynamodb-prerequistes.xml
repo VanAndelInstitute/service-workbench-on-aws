@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+<section id="EMRforDynamoDB_PreRequisites" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Learn the prerequisites for integrating &EMR; with &DDBlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="EMRforDynamoDB_PreRequisites.title">Prerequisites for Integrating &EMR; with &DDB;</title> 
+    <titleabbrev>Prerequisites for Integrating &EMR;</titleabbrev>
+    <para>
+        To use &EMR; (&EMR;) and Hive to manipulate data in &DDB;, you need the following: 
+    </para>
+    
+    
+    <itemizedlist>
+        <listitem>
+            <para>
+                An Amazon Web Services account. If you do not have one, you can get an account by going to <ulink url="http://&awsdomain;">http://&awsdomain;</ulink>, and 
+                clicking <guilabel>Create an AWS Account</guilabel>.
+            </para>
+        </listitem>
+        <listitem>
+            <para>A &DDB; table that contains data on the same account used with &EMR;.</para>
+        </listitem>
+        <listitem>
+            <para> A customized version of Hive that includes connectivity to &DDB;.The latest
+                version of Hive provided by &EMR; is available by default when you launch an &EMR;
+                &cluster; from the &console; . For more information about &EMR; AMIs and Hive
+                versioning, go to <ulink url="&url-emr-dev;EnvironmentConfig_AMIVersion.html"
+                    >Specifying the &EMR; AMI Version</ulink> and to <ulink
+                    url="&url-emr-dev;UsingEMR_Hive.html">Configuring Hive</ulink> in the
+                    <emphasis>&EMR; Developer Guide</emphasis>. </para>
+        </listitem>
+        <listitem>
+            <para> Support for &DDB; connectivity. This is included in the &EMR; AMI version 2.0.2
+                or later. </para>
+        </listitem>
+        <listitem>
+            <para>
+                (Optional) An &S3; bucket. For instructions about how to create a bucket,
+                see <ulink url="http://&domain;/AmazonS3/latest/gsg/">Get Started With Amazon Simple Storage Service</ulink>. This bucket is used 
+                as a destination when exporting &DDB; data to &S3; or as a location to store a Hive script.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                (Optional) A Secure Shell (SSH) client application to connect to the master node of the 
+                &EMR; &cluster; and run HiveQL queries against the &DDB; data. SSH is used to run Hive interactively. You can also save Hive commands in a 
+                text file and have &EMR; run the Hive commands from the script. In this case an SSH client is not necessary, though the ability to SSH into the master node 
+                is useful even in non-interactive &cluster;s, for debugging purposes.
+            </para>
+            <para> An SSH client is available by default on most Linux, Unix, and Mac OS X
+                installations. Windows users can install and use the <ulink
+                    url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</ulink> client,
+                which has SSH support.</para>
+        </listitem>
+        <listitem>
+            <para>
+                (Optional) An &EC2; key pair. This is only required for interactive &cluster;s. The key pair provides the credentials the SSH client uses to connect to the 
+                master node. If you are running the Hive commands from a script in an &S3; bucket, an EC2 key pair is optional. 
+            </para>
+        </listitem>
+    </itemizedlist>
+</section>   

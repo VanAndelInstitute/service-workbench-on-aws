@@ -1,0 +1,66 @@
+<!-- Replace YourService with your service entity. -->
+<!ENTITY cloudwatch_viewing_YourService '
+
+<section id="YourService-metrics">
+    <info><title id="YourService-metrics.title"><!--YourService--> Metrics</title></info
+    <para><!--YourService--> sends the following metrics to &CW; every <!-- minute | 5 minutes -->.</para>
+    <table>
+        <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="2*"/>
+            <colspec colname="c2" colnum="2" colwidth="2.5*"/>
+            <thead>
+                <row>
+                    <entry>Metric</entry>
+                    <entry>Description</entry>
+                </row>
+            </thead>
+            <tbody>
+                <!-- Copy this row as needed -->
+                <row>
+                    <entry>
+                        <para><code><!-- Metric name --></code></para></entry>
+                    <entry>
+                        <para><!-- Metric description --></para>
+                        <para>Valid Dimensions: <!-- Comma-separated list of all dimensions that can be used with this metric --></para>
+                        <para>Valid Statistics: <!-- Comma-separated list of all statistics that can be used with this metric --></para>
+                        <para>Unit: <!-- Sum, Count, etc. --></para>
+                    </entry>
+                </row>
+                
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+
+<section id="YourService-metricdimensions">
+    <info><title id="YourService-metricdimensions.title">Dimensions for <!--YourService--> Metrics</title></info>
+    
+    <para><!--YourService--> metrics use the
+        <!--YourService--> namespace and provide metrics for the following
+        dimension(s):</para>
+    
+    <table>
+        <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="2*"/>
+            <colspec colname="c2" colnum="2" colwidth="2.5*"/>
+            <thead>
+                <row>
+                    <entry>Dimension</entry>
+                    <entry>Description</entry>
+                </row>
+            </thead>
+            <tbody>
+                <!-- Copy this row as needed -->
+                <row>
+                    <entry>
+                        <para><code><!-- Dimension name --></code></para>
+                    </entry>
+                    <entry>
+                        <para><!-- Dimension description --></para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+'>

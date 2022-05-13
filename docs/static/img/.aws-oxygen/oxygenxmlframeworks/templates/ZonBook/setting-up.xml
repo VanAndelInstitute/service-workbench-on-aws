@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="setting-up" role="topic">
+ <info>
+  <title id="setting-up.title">Setting Up ServiceNameEntity</title>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/WritingSettingUp.html">Setting Up</ulink>. Use
+  a separate Setting Up topic if there is too much setup information in the Getting Started topic. The following
+  sections are not required, but they are commonly used in Setting Up topics. Remove this remark before using this
+  template code in your doc package. Save the file as <emphasis role="bold">setting-up.xml</emphasis>.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="setting-up-aws-sign-up">
+  <info>
+   <title id="setting-up-aws-sign-up.title">Sign Up for &AWSlong;</title>
+  </info> &console_signup; </section>
+ <section id="setting-up-create-iam-user">
+  <info>
+   <title id="setting-up-create-iam-user.title">Create an IAM User</title>
+  </info> &iam-create-admin-group-and-user; </section>
+</chapter>

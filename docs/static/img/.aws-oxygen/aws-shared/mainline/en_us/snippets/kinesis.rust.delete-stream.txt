@@ -1,0 +1,7 @@
+async fn remove_stream(client: &Client, stream: &str) -> Result<(), Error> {
+    client.delete_stream().stream_name(stream).send().await?;
+
+    println!("Deleted stream.");
+
+    Ok(())
+}

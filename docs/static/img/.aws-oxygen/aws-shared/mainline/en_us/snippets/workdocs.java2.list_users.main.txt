@@ -1,0 +1,34 @@
+    public static void getAllUsers(WorkDocsClient workDocs,String orgId) {
+
+        List<User> wdUsers = new ArrayList<>();
+
+        String marker = null;
+
+        do {
+            DescribeUsersResponse result;
+
+            if(marker == null) {
+                DescribeUsersRequest request = DescribeUsersRequest.builder()
+                        .organizationId(orgId)
+                        .build();
+                result = workDocs.describeUsers(request);
+            } else {
+                DescribeUsersRequest request = DescribeUsersRequest.builder()
+                        .organizationId(orgId)
+                        .marker(marker)
+                        .build();
+                result = workDocs.describeUsers(request);
+            }
+
+            System.out.println("List of users:");
+
+            wdUsers.addAll(result.users());
+            marker = result.marker();
+        } while (marker != null);
+
+        for (User wdUser : wdUsers) {
+            System.out.printf("Firstname:%s | Lastname:%s | Email:%s | root-folder-id:%s\n",
+                    wdUser.givenName(), wdUser.surname(), wdUser.emailAddress(),
+                    wdUser.rootFolderId());
+        }
+    }

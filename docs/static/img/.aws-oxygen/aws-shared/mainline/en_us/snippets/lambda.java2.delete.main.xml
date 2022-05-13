@@ -1,0 +1,17 @@
+<programlisting>
+    public static void deleteLambdaFunction(LambdaClient awsLambda, String functionName ) {
+        try {
+            //Setup an DeleteFunctionRequest
+            DeleteFunctionRequest request = DeleteFunctionRequest.builder()
+                    .functionName(functionName)
+                    .build();
+
+            awsLambda.deleteFunction(request);
+            System.out.println("The "+functionName +" function was deleted");
+
+        } catch(LambdaException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

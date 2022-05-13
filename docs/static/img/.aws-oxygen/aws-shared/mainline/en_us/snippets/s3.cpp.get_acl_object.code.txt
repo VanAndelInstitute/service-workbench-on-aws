@@ -1,0 +1,73 @@
+bool GetObjectAcl(const Aws::String& bucketName, const Aws::String& objectKey, const Aws::String& region)
+{
+    Aws::Client::ClientConfiguration config;
+    config.region = region;
+
+    Aws::S3::S3Client s3_client(config);
+
+    Aws::S3::Model::GetObjectAclRequest request;
+    request.SetBucket(bucketName);
+    request.SetKey(objectKey);
+
+    Aws::S3::Model::GetObjectAclOutcome outcome =
+        s3_client.GetObjectAcl(request);
+
+    if (outcome.IsSuccess())
+    {
+        Aws::Vector<Aws::S3::Model::Grant> grants =
+            outcome.GetResult().GetGrants();
+
+        for (auto it = grants.begin(); it != grants.end(); it++)
+        {
+            std::cout << "For object " << objectKey << ": " 
+                << std::endl << std::endl;
+
+            Aws::S3::Model::Grant grant = *it;
+            Aws::S3::Model::Grantee grantee = grant.GetGrantee();
+
+            if (grantee.TypeHasBeenSet())
+            {
+                std::cout << "Type:          "
+                    << GetGranteeTypeString(grantee.GetType()) << std::endl;
+            }
+
+            if (grantee.DisplayNameHasBeenSet())
+            {
+                std::cout << "Display name:  "
+                    << grantee.GetDisplayName() << std::endl;
+            }
+
+            if (grantee.EmailAddressHasBeenSet())
+            {
+                std::cout << "Email address: "
+                    << grantee.GetEmailAddress() << std::endl;
+            }
+
+            if (grantee.IDHasBeenSet())
+            {
+                std::cout << "ID:            "
+                    << grantee.GetID() << std::endl;
+            }
+
+            if (grantee.URIHasBeenSet())
+            {
+                std::cout << "URI:           "
+                    << grantee.GetURI() << std::endl;
+            }
+
+            std::cout << "Permission:    " <<
+                GetPermissionString("object", grant.GetPermission()) <<
+                std::endl << std::endl;
+        }
+    }
+    else
+    {
+        auto err = outcome.GetError();
+        std::cout << "Error: GetObjectAcl: "
+            << err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+
+        return false;
+    }
+
+    return true;
+}

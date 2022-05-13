@@ -1,0 +1,21 @@
+<programlisting>
+$SnSclient = new SnsClient([
+    'profile' => 'default',
+    'region' => 'us-east-1',
+    'version' => '2010-03-31'
+]);
+
+$subscription_token = 'arn:aws:sns:us-east-1:111122223333:MyTopic:123456-abcd-12ab-1234-12ba3dc1234a';
+$topic = 'arn:aws:sns:us-east-1:111122223333:MyTopic';
+
+try {
+    $result = $SnSclient->subscribe([
+        'Token' => $subscription_token,
+        'TopicArn' => $topic,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+} 
+</programlisting>

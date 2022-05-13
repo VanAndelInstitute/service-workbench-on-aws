@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+<incorrect-terms>
+    <incorrect-term ignorecase="true">
+        <match> anal </match>
+        <suggestion> Remove </suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> ass </match>
+        <suggestion> Remove </suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> asshole </match>
+        <suggestion> Remove </suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>bitch</match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> fuck </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> fucker </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> motherfucker </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> pube</match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> pubes</match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> pubic</match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> pubic </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> sever </match>
+        <suggestion> server </suggestion>
+        <message>Common misspelling.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> shit </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+</incorrect-terms>

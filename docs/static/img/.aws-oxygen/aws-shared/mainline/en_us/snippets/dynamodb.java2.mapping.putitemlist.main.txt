@@ -1,0 +1,21 @@
+    public static void putRecord(DynamoDbEnhancedClient enhancedClient) {
+
+        try {
+            DynamoDbTable<Contact> contactTable = (DynamoDbTable<Contact>) enhancedClient.table("Contact", TableSchema.fromBean(Contact.class));
+            List<String> names = new ArrayList<>();
+            names.add("Scott");
+            names.add("LAM");
+            names.add("Madison");
+
+            // Populate the table.
+            Contact record = new Contact();
+            record.setId("103");
+            record.setPid(names);
+            contactTable.putItem(record);
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("done");
+    }

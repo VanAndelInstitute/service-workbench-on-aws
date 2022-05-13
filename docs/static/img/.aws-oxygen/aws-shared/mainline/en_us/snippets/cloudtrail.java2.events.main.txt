@@ -1,0 +1,20 @@
+    public static void lookupAllEvents(CloudTrailClient cloudTrailClientClient) {
+
+        try {
+            LookupEventsRequest eventsRequest = LookupEventsRequest.builder()
+                .maxResults(20)
+                .build();
+
+            LookupEventsResponse response = cloudTrailClientClient.lookupEvents(eventsRequest);
+            List<Event> events = response.events();
+
+            for (Event event: events) {
+                System.out.println("Event name is : "+event.eventName());
+                System.out.println("The event source is : "+event.eventSource());
+            }
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

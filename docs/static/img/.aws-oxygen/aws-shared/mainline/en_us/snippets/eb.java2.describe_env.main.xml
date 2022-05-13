@@ -1,0 +1,21 @@
+<programlisting>
+    public static void describeEnv(ElasticBeanstalkClient beanstalkClient, String appName) {
+        try {
+
+            DescribeEnvironmentsRequest request = DescribeEnvironmentsRequest.builder()
+                .environmentNames("Joblisting-env")
+                .build();
+
+            DescribeEnvironmentsResponse response = beanstalkClient.describeEnvironments(request);
+            List<EnvironmentDescription> envs = response.environments();
+            for (EnvironmentDescription env: envs) {
+                System.out.println("The environment name is  "+env.environmentName());
+                System.out.println("The environment ARN is  "+env.environmentArn());
+            }
+
+        } catch (ElasticBeanstalkException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

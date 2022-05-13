@@ -1,0 +1,16 @@
+<programlisting>
+def delete_policy(policy_id, orgs_client):
+    """
+    Deletes a policy.
+
+    :param policy_id: The ID of the policy to delete.
+    :param orgs_client: The Boto3 Organizations client.
+    """
+    try:
+        orgs_client.delete_policy(PolicyId=policy_id)
+        logger.info("Deleted policy %s.", policy_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't delete policy %s.", policy_id)
+        raise
+</programlisting>

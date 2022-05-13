@@ -1,0 +1,28 @@
+<programlisting>
+    public static void createSagemakerModel(SageMakerClient sageMakerClient,
+                                            String dataUrl,
+                                            String image,
+                                            String modelName,
+                                            String executionRoleArn) {
+        try {
+            ContainerDefinition containerDefinition = ContainerDefinition.builder()
+                    .modelDataUrl(dataUrl)
+                    .image(image)
+                    .mode(ContainerMode.SINGLE_MODEL)
+                    .build();
+
+            CreateModelRequest modelRequest = CreateModelRequest.builder()
+                    .modelName(modelName)
+                    .executionRoleArn(executionRoleArn)
+                    .primaryContainer(containerDefinition)
+                    .build() ;
+
+            CreateModelResponse response = sageMakerClient.createModel(modelRequest);
+            System.out.println("The ARN of the model is " +response.modelArn() );
+
+        } catch (SageMakerException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

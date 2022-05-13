@@ -1,0 +1,14 @@
+<programlisting>
+suspend  fun createNewForecast(name: String?, predictorArnVal: String?): String? {
+
+          val request = CreateForecastRequest {
+              forecastName = name
+              predictorArn = predictorArnVal
+          }
+
+          ForecastClient { region = "us-west-2" }.use { forecast ->
+            val response = forecast.createForecast(request)
+            return response.forecastArn
+          }
+  }
+</programlisting>

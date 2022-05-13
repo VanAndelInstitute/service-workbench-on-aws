@@ -1,0 +1,5 @@
+<programlisting>
+HadoopJarStepConfig hbaseRestoreSnapshotConf = new HadoopJarStepConfig()
+  .withJar("command-runner.jar")
+  .withArgs("bash","-c","echo $'disable \"tableName\"; restore_snapshot \"snapshotName\"; enable \"snapshotName\"' | hbase shell");
+</programlisting>

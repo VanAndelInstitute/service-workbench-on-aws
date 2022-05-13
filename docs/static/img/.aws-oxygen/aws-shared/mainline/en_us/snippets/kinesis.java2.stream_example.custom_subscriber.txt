@@ -1,0 +1,31 @@
+    private static class MySubscriber implements Subscriber<SubscribeToShardEventStream> {
+
+        private Subscription subscription;
+        private AtomicInteger eventCount = new AtomicInteger(0);
+
+        @Override
+        public void onSubscribe(Subscription subscription) {
+            this.subscription = subscription;
+            this.subscription.request(1);
+        }
+
+        @Override
+        public void onNext(SubscribeToShardEventStream shardSubscriptionEventStream) {
+            System.out.println("Received event " + shardSubscriptionEventStream);
+            if (eventCount.incrementAndGet() >= 100) {
+                // You can cancel the subscription at any time if you wish to stop receiving events.
+                subscription.cancel();
+            }
+            subscription.request(1);
+        }
+
+        @Override
+        public void onError(Throwable throwable) {
+            System.err.println("Error occurred while stream - " + throwable.getMessage());
+        }
+
+        @Override
+        public void onComplete() {
+            System.out.println("Finished streaming all events");
+        }
+    }

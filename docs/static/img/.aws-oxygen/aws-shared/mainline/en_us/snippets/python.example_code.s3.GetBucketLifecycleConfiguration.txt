@@ -1,0 +1,16 @@
+    def get_lifecycle_configuration(self):
+        """
+        Get the lifecycle configuration of the bucket.
+
+        :return: The lifecycle rules of the specified bucket.
+        """
+        try:
+            config = self.bucket.LifecycleConfiguration()
+            logger.info(
+                "Got lifecycle rules %s for bucket '%s'.", config.rules, self.bucket.name)
+        except:
+            logger.exception(
+                "Couldn't get lifecycle rules for bucket '%s'.", self.bucket.name)
+            raise
+        else:
+            return config.rules

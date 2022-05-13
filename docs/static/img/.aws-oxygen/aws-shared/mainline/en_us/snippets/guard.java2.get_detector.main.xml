@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getSpecificDetector(GuardDutyClient guardDutyClient, String detectorId) {
+
+        try {
+            GetDetectorRequest detectorRequest = GetDetectorRequest.builder()
+                .detectorId(detectorId)
+                .build();
+
+            GetDetectorResponse detectorResponse = guardDutyClient.getDetector(detectorRequest);
+            System.out.println("The detector status is "+detectorResponse.status().toString());
+
+    } catch (GuardDutyException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+ }
+</programlisting>

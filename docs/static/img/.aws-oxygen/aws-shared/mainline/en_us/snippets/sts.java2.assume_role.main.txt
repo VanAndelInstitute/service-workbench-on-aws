@@ -1,0 +1,29 @@
+    public static void assumeGivenRole(StsClient stsClient, String roleArn, String roleSessionName) {
+
+       try {
+        AssumeRoleRequest roleRequest = AssumeRoleRequest.builder()
+                .roleArn(roleArn)
+                .roleSessionName(roleSessionName)
+                .build();
+
+           AssumeRoleResponse roleResponse = stsClient.assumeRole(roleRequest);
+           Credentials myCreds = roleResponse.credentials();
+
+           // Display the time when the temp creds expire
+           Instant exTime = myCreds.expiration();
+           String tokenInfo = myCreds.sessionToken();
+
+           // Convert the Instant to readable date
+           DateTimeFormatter formatter =
+                   DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
+                           .withLocale( Locale.US)
+                           .withZone( ZoneId.systemDefault() );
+
+           formatter.format( exTime );
+           System.out.println("The token "+tokenInfo + "  expires on " + exTime );
+
+       } catch (StsException e) {
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+   }

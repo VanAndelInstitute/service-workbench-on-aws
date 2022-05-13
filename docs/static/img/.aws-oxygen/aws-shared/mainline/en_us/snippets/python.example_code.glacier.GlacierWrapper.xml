@@ -1,0 +1,10 @@
+<programlisting>
+class GlacierWrapper:
+    """Encapsulates Amazon S3 Glacier API operations."""
+    def __init__(self, glacier_resource):
+        """
+        :param glacier_resource: A Boto3 Amazon S3 Glacier resource.
+        """
+        self.glacier_resource = glacier_resource
+
+</programlisting>

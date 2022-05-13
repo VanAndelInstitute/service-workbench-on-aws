@@ -1,0 +1,13 @@
+    input := &ec2.StartInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.StartInstances(input)
+    awsErr, ok := err.(awserr.Error)
+
+    if ok && awsErr.Code() == "DryRunOperation" {
+        // Set DryRun to be false to enable starting the instances
+        input.DryRun = aws.Bool(false)
+        _, err = svc.StartInstances(input)

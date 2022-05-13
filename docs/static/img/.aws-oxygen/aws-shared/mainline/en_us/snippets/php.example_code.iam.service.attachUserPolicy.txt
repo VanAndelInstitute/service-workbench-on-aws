@@ -1,0 +1,9 @@
+    public function attachUserPolicy($userName, $policyArn)
+    {
+        return $this->customWaiter(function () use ($userName, $policyArn) {
+            return $this->iamClient->attachUserPolicy([
+                'UserName' => $userName,
+                'PolicyArn' => $policyArn,
+            ]);
+        });
+    }

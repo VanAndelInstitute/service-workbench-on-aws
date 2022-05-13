@@ -1,0 +1,38 @@
+        public static String startWorkflow(SfnClient sfnClient, String stateMachineArn, String jsonFile) {
+
+            String json = getJSONString(jsonFile);
+
+            // Specify the name of the execution by using a GUID value.
+            UUID uuid = UUID.randomUUID();
+            String uuidValue = uuid.toString();
+            try {
+
+                StartExecutionRequest executionRequest = StartExecutionRequest.builder()
+                        .input(json)
+                        .stateMachineArn(stateMachineArn)
+                        .name(uuidValue)
+                        .build();
+
+                StartExecutionResponse response = sfnClient.startExecution(executionRequest);
+                return response.executionArn();
+
+
+            } catch (SfnException e) {
+                System.err.println(e.awsErrorDetails().errorMessage());
+                System.exit(1);
+            }
+            return "";
+        }
+
+    private static String getJSONString(String path) {
+
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject data = (JSONObject) parser.parse(new FileReader(path));//path to the JSON file.
+            String json = data.toJSONString();
+            return json;
+        } catch (IOException |  org.json.simple.parser.ParseException e) {
+            e.printStackTrace();
+        }
+        return "";
+   }

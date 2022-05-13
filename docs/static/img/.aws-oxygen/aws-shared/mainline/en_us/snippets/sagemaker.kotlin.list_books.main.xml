@@ -1,0 +1,11 @@
+<programlisting>
+suspend fun listBooks() {
+
+    SageMakerClient { region = "us-west-2" }.use { sageMakerClient ->
+        val response = sageMakerClient.listNotebookInstances(ListNotebookInstancesRequest{})
+        response.notebookInstances?.forEach { item ->
+            println("The notebook name is: ${item.notebookInstanceName}")
+        }
+    }
+}
+</programlisting>

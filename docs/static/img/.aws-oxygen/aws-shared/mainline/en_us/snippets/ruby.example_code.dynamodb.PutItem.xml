@@ -1,0 +1,19 @@
+<programlisting>
+  # Adds a movie to the table.
+  #
+  # @param title [String] The title of the movie.
+  # @param year [Integer] The release year of the movie.
+  # @param plot [String] The plot summary of the movie.
+  # @param rating [Float] The quality rating of the movie.
+  def add_movie(title:, year:, plot:, rating:)
+    @table.put_item(
+      item: {
+        "year" => year,
+        "title" => title,
+        "info" => {"plot" => plot, "rating" => rating}})
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't add movie #{title} to table #{@table.name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end
+</programlisting>

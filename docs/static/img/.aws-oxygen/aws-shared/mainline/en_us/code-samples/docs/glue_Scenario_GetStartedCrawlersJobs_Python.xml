@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Create a class that wraps &GLU; functions used in the scenario.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.glue.GlueWrapper.full.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create a class that runs the scenario.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.glue.Scenario_GetStartedCrawlersJobs.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create an ETL script that is used by &GLU; to extract, transform, and load data during job runs.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.glue.Scenario_GetStartedCrawlersJobs.job_script.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-python3-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/CreateCrawler">CreateCrawler</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/CreateJob">CreateJob</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/DeleteCrawler">DeleteCrawler</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/DeleteDatabase">DeleteDatabase</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/DeleteJob">DeleteJob</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/DeleteTable">DeleteTable</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/GetCrawler">GetCrawler</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/GetDatabase">GetDatabase</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/GetJobRun">GetJobRun</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/GetJobRuns">GetJobRuns</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/GetTables">GetTables</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/ListJobs">ListJobs</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/StartCrawler">StartCrawler</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/glue-2017-03-31/StartJobRun">StartJobRun</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

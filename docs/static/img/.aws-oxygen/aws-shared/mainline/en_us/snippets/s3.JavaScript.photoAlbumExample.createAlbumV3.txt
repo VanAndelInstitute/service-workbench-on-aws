@@ -1,0 +1,25 @@
+
+// Create an album in the bucket
+const createAlbum = async (albumName) => {
+  albumName = albumName.trim();
+  if (!albumName) {
+    return alert("Album names must contain at least one non-space character.");
+  }
+  if (albumName.indexOf("/") !== -1) {
+    return alert("Album names cannot contain slashes.");
+  }
+  var albumKey = encodeURIComponent(albumName);
+  try {
+    const key = albumKey + "/";
+    const params = { Bucket: albumBucketName, Key: key };
+    const data = await s3.send(new PutObjectCommand(params));
+    alert("Successfully created album.");
+    viewAlbum(albumName);
+  } catch (err) {
+    return alert("There was an error creating your album: " + err.message);
+  }
+};
+
+// Make createAlbum function available to the browser
+window.createAlbum = createAlbum;
+

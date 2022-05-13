@@ -1,0 +1,7 @@
+<programlisting>
+pub struct ListObjectsResult {
+    pub objects: Vec<s3::model::Object>,
+    pub continuation_token: Option<String>,
+    pub has_more: bool,
+}
+</programlisting>

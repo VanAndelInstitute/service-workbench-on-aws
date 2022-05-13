@@ -1,0 +1,17 @@
+    /**
+     * @param string $roleName
+     * @param string $rolePolicyDocument
+     * @return array
+     * @throws AwsException
+     */
+    public function createRole(string $roleName, string $rolePolicyDocument)
+    {
+        $result = $this->customWaiter(function () use ($roleName, $rolePolicyDocument) {
+            return $this->iamClient->createRole([
+                'AssumeRolePolicyDocument' => $rolePolicyDocument,
+                'RoleName' => $roleName,
+            ]);
+        });
+        return $result['Role'];
+    }
+

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<section id="service_code_examples_pinpoint" role="topic">
+    <info>
+        <title id="service_code_examples_pinpoint.title">Code examples for &PIN; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples_pinpoint.titleabbrev">&PIN; examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &PIN; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &PIN; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_pinpoint_actions" role="topic">
+        <info>
+            <title id="service_code_examples_pinpoint_actions.title">Actions for &PIN; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_pinpoint_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &PIN; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &PIN;
+            actions with &AWS; SDKs. These excerpts call the &PIN; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&PIN; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_pinpoint_CreateCampaign_section" role="topic">
+            <info>
+                <title id="example_pinpoint_CreateCampaign_section.title">Create an &PIN; campaign</title>
+                <titleabbrev id="example_pinpoint_CreateCampaign_section.titleabbrev">Create a campaign</titleabbrev>
+                <abstract>
+                    <para>Create an &PIN; campaign</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateCampaign_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateCampaign_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_CreateSegment_section" role="topic">
+            <info>
+                <title id="example_pinpoint_CreateSegment_section.title">Create an &PIN; segment</title>
+                <titleabbrev id="example_pinpoint_CreateSegment_section.titleabbrev">Create a segment</titleabbrev>
+                <abstract>
+                    <para>Create an &PIN; segment</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateSegment_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateSegment_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_CreateApp_section" role="topic">
+            <info>
+                <title id="example_pinpoint_CreateApp_section.title">Create an &PIN; application</title>
+                <titleabbrev id="example_pinpoint_CreateApp_section.titleabbrev">Create an application</titleabbrev>
+                <abstract>
+                    <para>Create an &PIN; application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_DeleteApp_section" role="topic">
+            <info>
+                <title id="example_pinpoint_DeleteApp_section.title">Delete an &PIN; application</title>
+                <titleabbrev id="example_pinpoint_DeleteApp_section.titleabbrev">Delete an application</titleabbrev>
+                <abstract>
+                    <para>Delete an &PIN; application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_DeleteEndpoint_section" role="topic">
+            <info>
+                <title id="example_pinpoint_DeleteEndpoint_section.title">Delete an &PIN; endpoint</title>
+                <titleabbrev id="example_pinpoint_DeleteEndpoint_section.titleabbrev">Delete an endpoint</titleabbrev>
+                <abstract>
+                    <para>Delete an &PIN; endpoint</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteEndpoint_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteEndpoint_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_CreateExportJob_section" role="topic">
+            <info>
+                <title id="example_pinpoint_CreateExportJob_section.title">Export an &PIN; endpoint</title>
+                <titleabbrev id="example_pinpoint_CreateExportJob_section.titleabbrev">Export an endpoint</titleabbrev>
+                <abstract>
+                    <para>Export an &PIN; endpoint</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateExportJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateExportJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_GetEndpoint_section" role="topic">
+            <info>
+                <title id="example_pinpoint_GetEndpoint_section.title">Display information about an existing &PIN; endpoint</title>
+                <titleabbrev id="example_pinpoint_GetEndpoint_section.titleabbrev">Get endpoints</titleabbrev>
+                <abstract>
+                    <para>Display information about an existing &PIN; endpoint</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetEndpoint_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetEndpoint_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_CreateImportJob_section" role="topic">
+            <info>
+                <title id="example_pinpoint_CreateImportJob_section.title">Import an &PIN; segment</title>
+                <titleabbrev id="example_pinpoint_CreateImportJob_section.titleabbrev">Import a segment</titleabbrev>
+                <abstract>
+                    <para>Import an &PIN; segment</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateImportJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateImportJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_GetUserEndpoints_section" role="topic">
+            <info>
+                <title id="example_pinpoint_GetUserEndpoints_section.title">List &PIN; endpoints that are associated with a specific user ID</title>
+                <titleabbrev id="example_pinpoint_GetUserEndpoints_section.titleabbrev">List endpoints</titleabbrev>
+                <abstract>
+                    <para>List &PIN; endpoints that are associated with a specific user ID</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetUserEndpoints_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetUserEndpoints_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_GetSegments_section" role="topic">
+            <info>
+                <title id="example_pinpoint_GetSegments_section.title">List &PIN; segments in an application</title>
+                <titleabbrev id="example_pinpoint_GetSegments_section.titleabbrev">List segments</titleabbrev>
+                <abstract>
+                    <para>List &PIN; segments in an application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSegments_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSegments_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_SendMessages_section" role="topic">
+            <info>
+                <title id="example_pinpoint_SendMessages_section.title">Send email and text messages with &PIN; using an &AWS; SDK</title>
+                <titleabbrev id="example_pinpoint_SendMessages_section.titleabbrev">Send email and text messages</titleabbrev>
+                <abstract>
+                    <para>Send email and text messages with &PIN; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_SendMessages_Templated_section" role="topic">
+            <info>
+                <title id="example_pinpoint_SendMessages_Templated_section.title">Send templated email and text messages with &PIN; using an &AWS; SDK</title>
+                <titleabbrev id="example_pinpoint_SendMessages_Templated_section.titleabbrev">Send templated email and text messages</titleabbrev>
+                <abstract>
+                    <para>Send templated email and text messages with &PIN; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_Templated_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_Templated_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_UpdateEndpoint_section" role="topic">
+            <info>
+                <title id="example_pinpoint_UpdateEndpoint_section.title">Update an &PIN; endpoint</title>
+                <titleabbrev id="example_pinpoint_UpdateEndpoint_section.titleabbrev">Update an endpoint</titleabbrev>
+                <abstract>
+                    <para>Update an &PIN; endpoint</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_UpdateEndpoint_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_UpdateEndpoint_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_pinpoint_GetSmsChannel_section" role="topic">
+            <info>
+                <title id="example_pinpoint_GetSmsChannel_section.title">Update an &PIN; channel</title>
+                <titleabbrev id="example_pinpoint_GetSmsChannel_section.titleabbrev">Update channels</titleabbrev>
+                <abstract>
+                    <para>Update an &PIN; channel</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSmsChannel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSmsChannel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</section>

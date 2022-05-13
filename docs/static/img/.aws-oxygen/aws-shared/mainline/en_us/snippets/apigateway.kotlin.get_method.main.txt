@@ -1,0 +1,19 @@
+suspend fun getSpecificMethod(restApiIdVal: String?, resourceIdVal: String?, httpMethodVal: String? ) {
+
+     val methodRequest = GetMethodRequest {
+         httpMethod = httpMethodVal
+         restApiId = restApiIdVal
+         resourceId = resourceIdVal
+     }
+
+    ApiGatewayClient { region = "us-east-1" }.use { apiGateway ->
+        val response = apiGateway.getMethod(methodRequest)
+
+        // Retrieve a method response associated with a given HTTP status code.
+        val details = response.methodResponses
+        if (details != null) {
+            for ((key, value) in details)
+                println("Key is $key and Value is $value")
+        }
+    }
+}

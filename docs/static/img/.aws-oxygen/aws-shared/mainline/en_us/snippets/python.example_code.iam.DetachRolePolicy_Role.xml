@@ -1,0 +1,16 @@
+<programlisting>
+def detach_policy(role_name, policy_arn):
+    """
+    Detaches a policy from a role.
+
+    :param role_name: The name of the role. **Note** this is the name, not the ARN.
+    :param policy_arn: The ARN of the policy.
+    """
+    try:
+        iam.Role(role_name).detach_policy(PolicyArn=policy_arn)
+        logger.info("Detached policy %s from role %s.", policy_arn, role_name)
+    except ClientError:
+        logger.exception(
+            "Couldn't detach policy %s from role %s.", policy_arn, role_name)
+        raise
+</programlisting>

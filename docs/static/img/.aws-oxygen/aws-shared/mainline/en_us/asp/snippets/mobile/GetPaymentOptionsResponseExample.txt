@@ -1,0 +1,23 @@
+HTTP/1.x 200
+Content-Type: application/xml
+Content-Length: 861
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+X-Amz-RequestID: 123457
+
+<PayAuthorization>
+   <Id>amzn1.mps.PA28423878234</Id>
+   <PaymentOptions>
+      <PayInstrument>
+         <Id>0h_TU_CUS_bbfd4489-d504-4b20-ad90-2e3ec5c409a5</Id>
+         <Method>CC</Method>
+         <Brand>Visa</Brand>
+         <Tail>1286</Tail>
+      </PayInstrument>
+      <PayInstrument>
+         <Id>0h_TU_CUS_bbfd4489-d504-4b20-ad90-2e3ec5c40731</Id>
+         <Method>CC</Method>
+         <Brand>Mastercard</Brand>
+         <Tail>1111</Tail>
+      </PayInstrument>
+   </PaymentOptions>
+</PayAuthorization>

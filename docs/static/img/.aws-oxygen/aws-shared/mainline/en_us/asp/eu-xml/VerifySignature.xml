@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="VerifySignatureAPI" role="topic">
+     <title id="VerifySignatureAPI.title">VerifySignature</title>
+     <indexterm>
+          <primary>VerifySignature</primary>
+     </indexterm>
+     <section id="VerifySignatureDescription">
+          <title id="VerifySignatureDescription.title">Description</title>
+          <para><function>VerifySignature</function> enables you to verify the signature included with
+               <glossterm>outbound notifications</glossterm>. A correctly formatted call using
+               VerifySignature returns a positive result when the signature is valid for the response
+               that contained it.</para>
+          <para>This action is a component of signature version 2. Because of this, you may only use
+               it with responses which have a <parameter>SignatureVersion</parameter> value of
+               <parameter>2</parameter>. As of &SIG1EXPIRIATION;, &ampmts; signs all outbound responses with signature version 2. 
+               Unsigned outbound responses are no longer supported.</para>
+          <para/>
+          <note>
+               <para>You sign <function>VerifySignature</function> as you would any other &FPS; action.</para>
+          </note>
+         <para condition="fps-api">This action appears in all &fps_product_short; Quick Starts as well as in the &asp_product; Advanced Guide.</para>
+     </section>
+     <section id="VerifySignatureReqParam">
+          <title>Request Parameters</title>
+          <informaltable>
+               <tgroup cols="3">
+                    <?dbhtml table-width="100%" ?>
+                    <?dbfo table-width="95%" ?>
+                    <colspec colname="c1" colnum="1" colwidth="1.23*"/>
+                    <colspec colname="c2" colnum="2" colwidth="3.77*"/>
+                    <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+                    <thead>
+                         <row>
+                              <entry>Parameter</entry>
+                              <entry>Description</entry>
+                              <entry>
+                                   <para>Required</para>
+                              </entry>
+                         </row>
+                    </thead>
+                    <tbody>
+                         <row>
+                              <entry>
+                                   <para>
+                                        <parameter>UrlEndPoint</parameter>
+                                   </para>
+                              </entry>
+                              <entry>
+                                   <para>A required field that contains the appropriate originating
+                                        endpoint (either the returnUrl or ipnUrl) that received the
+                                        response. For example, if your web application resides at
+                                        <code>http://my-app-website.biz/</code>, the returnUrl might be
+                                        <code>http://my-app-website.biz/amazon/success.php</code>, and
+                                        the IPNUrl might be
+                                        <code>http://my-app-website.biz/amazon/ipnProcessor.php</code>.</para>
+                                   <simpara>Type: String</simpara>
+                                   <simpara>Default: None</simpara>
+                                   <simpara>Constraint: Cannot be null or empty</simpara>
+                              </entry>
+                              <entry>
+                                   <para>Yes</para>
+                              </entry>
+                         </row>
+                         <row>
+                              <entry>
+                                   <para>
+                                        <parameter>HttpParameters</parameter>
+                                   </para>
+                              </entry>
+                              <entry>
+                                   <para>Concatenated string of all URL-Encoded parameters which were
+                                        included in the response containing the signature you want to
+                                        verify. This includes the <parameter>certificateUrl</parameter>,
+                                        <parameter>signatureVersion</parameter>, <parameter
+                                             >signatureMethod</parameter> and <parameter
+                                                  >signature</parameter> parameters. </para>
+                                   <simpara>For example, a correctly formatted and URL-encoded string
+                                        resembles the following:</simpara>
+<programlisting>First%20Name=Joe&amp;Last%20Name=Smith&amp;signatureVersion=2
+&amp;signatureMethod=HMACSHA256&amp;certificateUrl=https%253A
+%252F%252Ffps.amazonaws.com%252Fcert%252Fkey.pem&amp;signatur
+e=aoeuAOE123eAUdhf]</programlisting>
+                                   <tip>
+                                        <para>For validating the returnUrl, you can extract the query string
+                                             from the returnUrl (excluding the '?' character). For validating
+                                             the IPNUrl, concatenate the POST parameters.</para>
+                                   </tip>
+                                   <simpara>Type: String</simpara>
+                                   <simpara>Default: None</simpara>
+                                   <simpara>Constraint: Cannot be null or empty. In addition, because
+                                        <parameter>VerifySignature</parameter> is a component of
+                                        signature version 2, the value for <parameter
+                                             >signatureVersion</parameter> must be <parameter
+                                                  >2</parameter>.</simpara>
+                              </entry>
+                              <entry>
+                                   <para>Yes</para>
+                              </entry>
+                         </row>
+                    </tbody>
+               </tgroup>
+          </informaltable>
+          <para>You must also use the <parameter>Action</parameter> parameter as described in <link
+               endterm="CommonRequestParameters.title" linkend="CommonRequestParameters"/>.
+               Parameter names are case sensitive. </para>
+     </section>
+     <section id="VerifySignatureResParam">
+          <title id="VerifySignatureResParam.title">Response Elements</title>
+          <informaltable frame="all">
+               <tgroup cols="2">
+                    <?dbhtml table-width="100%" ?>
+                    <?dbfo table-width="95%" ?>
+                    <colspec colname="c1" colnum="1" colwidth="1.29*"/>
+                    <colspec colname="c2" colnum="2" colwidth="3.71*"/>
+                    <thead>
+                         <row>
+                              <entry>Element</entry>
+                              <entry>Description</entry>
+                         </row>
+                    </thead>
+                    <tbody>
+                         <row>
+                              <entry>
+                                   <para><parameter>VerificationStatus</parameter></para>
+                              </entry>
+                              <entry>
+                                   <para>The result of the verification, either <parameter
+                                        >Success</parameter> or <parameter>Failure</parameter>.</para>
+                                   <simpara>Type: VerificationStatus</simpara>
+                              </entry>
+                         </row>
+                    </tbody>
+               </tgroup>
+          </informaltable>
+          <para>Responses also include elements common to all responses. For more information, see
+               <xref endterm="CommonResponseElements.title" linkend="CommonResponseElements"
+               />.</para>
+     </section>
+     <section id="VerifySignatureErrorCondition">
+          <title id="VerifySignatureErrorCondition.title">Errors</title>
+          <para>This action can return the following errors:</para>
+          <itemizedlist>
+               <!-- these were removed. Need to update the new errors database page
+                    <listitem>
+                    <para><link linkend="AccessFailure">AccessFailure</link></para>
+                    </listitem>
+                    <listitem>
+                    <para><link linkend="AccountClosed">AccountClosed</link></para>
+                    </listitem>
+                    <listitem>
+                    <para>
+                    <link linkend="AuthFailure">AuthFailure</link>
+                    </para>
+                    </listitem>
+                    <listitem>
+                    <para><link linkend="InternalError">InternalError</link></para>
+                    </listitem>
+                    <listitem>
+                    <para><link linkend="InvalidTransactionState"
+                    >InvalidTransactionState</link></para>
+                    </listitem>                    
+               -->
+               <listitem>
+                    <para>
+                         <link linkend="InternalServerError">InternalServerError</link>
+                    </para>
+               </listitem>
+               <listitem>
+                    <para><link linkend="InvalidParams">InvalidParams</link></para>
+               </listitem>
+          </itemizedlist>
+     </section>
+     <section>
+          <title>Examples</title>
+          <section>
+               <title>Sample REST Request</title>
+               <para>This section shows a sample request.</para>
+               <programlisting width="79"><xi:include parse="text"  href="file://AWSShared/asp/snippets/rest/VerifySignatureRestRequestExample.xml"/></programlisting>
+          </section>
+          <section condition="fps">
+               <title>Sample Query Request </title>
+               <programlisting width="79"><xi:include parse="text"  href="file://AWSShared/asp/snippets/query/VerifySignatureQueryExample.xml"/></programlisting>
+          </section>
+          <section>
+               <title>Sample Response to REST Request</title>
+               <para>This section shows a sample REST response.</para>
+               <programlisting width="79"><xi:include parse="text"  href="file://AWSShared/asp/snippets/rest/VerifySignatureRestResponseExample.xml"/></programlisting>
+          </section>
+          <!-- section NO IPN SAMPLE AVAILABLE>
+               </section -->
+     </section>
+</section>

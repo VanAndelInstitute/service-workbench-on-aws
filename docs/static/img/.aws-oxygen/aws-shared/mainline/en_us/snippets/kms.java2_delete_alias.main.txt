@@ -1,0 +1,13 @@
+    public static void deleteSpecificAlias(KmsClient kmsClient, String aliasName) {
+
+        try {
+            DeleteAliasRequest deleteAliasRequest = DeleteAliasRequest.builder()
+                .aliasName(aliasName)
+                .build();
+
+            kmsClient.deleteAlias(deleteAliasRequest);
+        } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

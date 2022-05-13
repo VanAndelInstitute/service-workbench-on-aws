@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0-Oxygen" service="//EventBridge//" value="csctemplate-awsdocs-EventBridge-1.0-oxygen"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!ENTITY % phrases-shared-cw SYSTEM "file://AWSShared/shared-cw/phrases-shared-cw.ent">
+  %phrases-shared-cw;
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+  <!ENTITY SERVICENAME 'SERVICE SHORTNAME'>
+ ]>
+<!-- WRITER INSTRUCTIONS: Replace YOURSERVICE with the name of your service, and replace the  "Something Significant Happens" replaceable text bits 
+    with events in your service that a customer would want to be notified about or take immediate actions on.  -->
+<section id="automating-YOURSERVICE-with-eventbridge" role="topic">
+ <info>
+  <title id="automating-YOURSERVICE-with-eventbridge.title">Automating <replaceable>YourService</replaceable> with
+   &EVlong;</title>
+  <titleabbrev>Automating with &EVlong;</titleabbrev>
+  <abstract>
+   <para>Automate &SERVICENAME; with other &AWS; services by using &EV;. </para>
+  </abstract>
+ </info>
+ <para>&EV; enables you to automate your &AWS; services and respond automatically to system events such as
+  application availability issues or resource changes. Events from &AWS; services are delivered to &EV; in near real
+  time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take
+  when an event matches a rule. The actions that can be automatically triggered include the following:</para>
+ <itemizedlist>
+  <listitem>
+   <para>Invoking an &LAMlong; function</para>
+  </listitem>
+  <listitem>
+   <para>Invoking &EC2; Run Command</para>
+  </listitem>
+  <listitem>
+   <para>Relaying the event to &AKSlong;</para>
+  </listitem>
+  <listitem>
+   <para>Activating an &SFNlong; state machine</para>
+  </listitem>
+  <listitem>
+   <para>Notifying an &SNS; topic or an &SMS; queue</para>
+  </listitem>
+ </itemizedlist>
+ <para>Some examples of using &CWE; with <replaceable>YourService</replaceable> include:</para>
+ <itemizedlist>
+  <listitem>
+   <para>Activating a &LAM; function whenever <replaceable>Something Significant Happens in
+    YourService</replaceable>.</para>
+  </listitem>
+  <listitem>
+   <para>Notifying an &SNS; topic when <replaceable>Something Else Significant Happens in
+    YourService</replaceable>.</para>
+  </listitem>
+  <listitem>
+   <para><replaceable>Optional Third Bullet if there is another good example</replaceable></para>
+  </listitem>
+ </itemizedlist>
+ <para>For more information, see the &link-cwe-user;.</para>
+</section>

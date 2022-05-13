@@ -1,0 +1,7 @@
+import aws.sdk.kotlin.services.ses.SesClient
+import aws.sdk.kotlin.services.ses.model.Destination
+import aws.sdk.kotlin.services.ses.model.Content
+import aws.sdk.kotlin.services.ses.model.Body
+import aws.sdk.kotlin.services.ses.model.Message
+import aws.sdk.kotlin.services.ses.model.SendEmailRequest
+import kotlin.system.exitProcess

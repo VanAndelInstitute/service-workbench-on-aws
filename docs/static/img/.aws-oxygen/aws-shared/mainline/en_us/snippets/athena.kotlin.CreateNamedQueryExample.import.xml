@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.athena.AthenaClient
+import aws.sdk.kotlin.services.athena.model.CreateNamedQueryRequest
+import kotlin.system.exitProcess
+</programlisting>

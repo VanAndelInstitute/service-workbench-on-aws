@@ -1,0 +1,17 @@
+<programlisting>
+suspend fun getCWLogEvents(logGroupNameVal: String, logStreamNameVal: String) {
+
+    val request = GetLogEventsRequest {
+        logGroupName = logGroupNameVal
+        logStreamName = logStreamNameVal
+        startFromHead = true
+    }
+
+    CloudWatchLogsClient { region = "us-west-2" }.use { cwlClient ->
+        val eventsList = cwlClient.getLogEvents(request)
+        eventsList.events?.forEach { list ->
+            println("Message is: " + list.message)
+        }
+    }
+}
+</programlisting>

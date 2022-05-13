@@ -1,0 +1,22 @@
+def usage_demo():
+    """Drives the demonstration."""
+    print('-'*88)
+    print(f"Welcome to the AWS Security Token Service federated URL demo.")
+    print('-'*88)
+    iam_resource = boto3.resource('iam')
+    role = setup(iam_resource)
+    sts_client = boto3.client('sts')
+    try:
+        federated_url = construct_federated_url(
+            role.arn, 'AssumeRoleDemoSession', 'example.org', sts_client)
+        print("Constructed a federated URL that can be used to connect to the "
+              "AWS Management Console with role-defined permissions:")
+        print('-'*88)
+        print(federated_url)
+        print('-'*88)
+        _ = input("Copy and paste the above URL into a browser to open the AWS "
+                  "Management Console with limited permissions. When done, press "
+                  "Enter to clean up and complete this demo.")
+    finally:
+        teardown(role)
+        print("Thanks for watching!")

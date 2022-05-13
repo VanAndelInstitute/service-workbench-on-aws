@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<section id="service_code_examples_iam" role="topic">
+    <info>
+        <title id="service_code_examples_iam.title">Code examples for &IAM; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples_iam.titleabbrev">&IAM; examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &IAM; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &IAM; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_iam_actions" role="topic">
+        <info>
+            <title id="service_code_examples_iam_actions.title">Actions for &IAM; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_iam_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &IAM; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &IAM;
+            actions with &AWS; SDKs. These excerpts call the &IAM; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&IAM; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_iam_AttachRolePolicy_section" role="topic">
+            <info>
+                <title id="example_iam_AttachRolePolicy_section.title">Attach an &IAM; policy to a role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_AttachRolePolicy_section.titleabbrev">Attach a policy to a role</titleabbrev>
+                <abstract>
+                    <para>Attach an &IAM; policy to a role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_AttachUserPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_AttachUserPolicy_section.title">Attach an &IAM; policy to a user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_AttachUserPolicy_section.titleabbrev">Attach a policy to a user</titleabbrev>
+                <abstract>
+                    <para>Attach an &IAM; policy to a user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_AttachUserPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_AttachUserPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreatePolicy_section" role="topic">
+            <info>
+                <title id="example_iam_CreatePolicy_section.title">Create an &IAM; policy using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreatePolicy_section.titleabbrev">Create a policy</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreatePolicyVersion_section" role="topic">
+            <info>
+                <title id="example_iam_CreatePolicyVersion_section.title">Create an &IAM; policy version using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreatePolicyVersion_section.titleabbrev">Create a policy version</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; policy version using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicyVersion_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicyVersion_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreateRole_section" role="topic">
+            <info>
+                <title id="example_iam_CreateRole_section.title">Create an &IAM; role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreateRole_section.titleabbrev">Create a role</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreateServiceLinkedRole_section" role="topic">
+            <info>
+                <title id="example_iam_CreateServiceLinkedRole_section.title">Create an &IAM; service-linked role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreateServiceLinkedRole_section.titleabbrev">Create a service-linked role</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; service-linked role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreateUser_section" role="topic">
+            <info>
+                <title id="example_iam_CreateUser_section.title">Create an &IAM; user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreateUser_section.titleabbrev">Create a user</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreateAccessKey_section" role="topic">
+            <info>
+                <title id="example_iam_CreateAccessKey_section.title">Create an &IAM; access key using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreateAccessKey_section.titleabbrev">Create an access key</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; access key using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_CreateAccountAlias_section" role="topic">
+            <info>
+                <title id="example_iam_CreateAccountAlias_section.title">Create an alias for an &IAM; account using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_CreateAccountAlias_section.titleabbrev">Create an alias for an account</titleabbrev>
+                <abstract>
+                    <para>Create an alias for an &IAM; account using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_PutUserPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_PutUserPolicy_section.title">Create an inline &IAM; policy for a user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_PutUserPolicy_section.titleabbrev">Create an inline policy for a user</titleabbrev>
+                <abstract>
+                    <para>Create an inline &IAM; policy for a user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_PutUserPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_PutUserPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeletePolicy_section" role="topic">
+            <info>
+                <title id="example_iam_DeletePolicy_section.title">Delete an &IAM; policy using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeletePolicy_section.titleabbrev">Delete a policy</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteRole_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteRole_section.title">Delete an &IAM; role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteRole_section.titleabbrev">Delete a role</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteRolePolicy_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteRolePolicy_section.title">Delete an &IAM; role policy using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteRolePolicy_section.titleabbrev">Delete a role policy</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; role policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRolePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRolePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteServerCertificate_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteServerCertificate_section.title">Delete an &IAM; server certificate using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteServerCertificate_section.titleabbrev">Delete a server certificate</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; server certificate using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServerCertificate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServerCertificate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteServiceLinkedRole_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteServiceLinkedRole_section.title">Delete an &IAM; service-linked role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteServiceLinkedRole_section.titleabbrev">Delete a service-linked role</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; service-linked role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServiceLinkedRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServiceLinkedRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteUser_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteUser_section.title">Delete an &IAM; user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteUser_section.titleabbrev">Delete a user</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteAccessKey_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteAccessKey_section.title">Delete an &IAM; access key using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteAccessKey_section.titleabbrev">Delete an access key</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; access key using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteAccountAlias_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteAccountAlias_section.title">Delete an &IAM; account alias using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteAccountAlias_section.titleabbrev">Delete an account alias</titleabbrev>
+                <abstract>
+                    <para>Delete an &IAM; account alias using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccountAlias_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccountAlias_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DeleteUserPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_DeleteUserPolicy_section.title">Delete an inline &IAM; policy from a user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DeleteUserPolicy_section.titleabbrev">Delete an inline policy from a user</titleabbrev>
+                <abstract>
+                    <para>Delete an inline &IAM; policy from a user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUserPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUserPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DetachRolePolicy_section" role="topic">
+            <info>
+                <title id="example_iam_DetachRolePolicy_section.title">Detach an &IAM; policy from a role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DetachRolePolicy_section.titleabbrev">Detach a policy from a role</titleabbrev>
+                <abstract>
+                    <para>Detach an &IAM; policy from a role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_DetachUserPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_DetachUserPolicy_section.title">Detach an &IAM; policy from a user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_DetachUserPolicy_section.titleabbrev">Detach a policy from a user</titleabbrev>
+                <abstract>
+                    <para>Detach an &IAM; policy from a user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DetachUserPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_DetachUserPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GenerateCredentialReport_section" role="topic">
+            <info>
+                <title id="example_iam_GenerateCredentialReport_section.title">Generate a credential report from &IAM; using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GenerateCredentialReport_section.titleabbrev">Generate a credential report</titleabbrev>
+                <abstract>
+                    <para>Generate a credential report from &IAM; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GenerateCredentialReport_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GenerateCredentialReport_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetCredentialReport_section" role="topic">
+            <info>
+                <title id="example_iam_GetCredentialReport_section.title">Get a credential report from &IAM; using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetCredentialReport_section.titleabbrev">Get a credential report</titleabbrev>
+                <abstract>
+                    <para>Get a credential report from &IAM; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetCredentialReport_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetCredentialReport_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetAccountAuthorizationDetails_section" role="topic">
+            <info>
+                <title id="example_iam_GetAccountAuthorizationDetails_section.title">Get a detailed &IAM; authorization report for your account using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetAccountAuthorizationDetails_section.titleabbrev">Get a detailed authorization report for your account</titleabbrev>
+                <abstract>
+                    <para>Get a detailed &IAM; authorization report for your account using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountAuthorizationDetails_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountAuthorizationDetails_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_GetPolicy_section.title">Get an &IAM; policy using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetPolicy_section.titleabbrev">Get a policy</titleabbrev>
+                <abstract>
+                    <para>Get an &IAM; policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetPolicyVersion_section" role="topic">
+            <info>
+                <title id="example_iam_GetPolicyVersion_section.title">Get an &IAM; policy version using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetPolicyVersion_section.titleabbrev">Get a policy version</titleabbrev>
+                <abstract>
+                    <para>Get an &IAM; policy version using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicyVersion_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicyVersion_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetRole_section" role="topic">
+            <info>
+                <title id="example_iam_GetRole_section.title">Get an &IAM; role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetRole_section.titleabbrev">Get a role</titleabbrev>
+                <abstract>
+                    <para>Get an &IAM; role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetServerCertificate_section" role="topic">
+            <info>
+                <title id="example_iam_GetServerCertificate_section.title">Get an &IAM; server certificate using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetServerCertificate_section.titleabbrev">Get a server certificate</titleabbrev>
+                <abstract>
+                    <para>Get an &IAM; server certificate using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetServerCertificate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetServerCertificate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetAccountSummary_section" role="topic">
+            <info>
+                <title id="example_iam_GetAccountSummary_section.title">Get a summary of account usage from &IAM; using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetAccountSummary_section.titleabbrev">Get a summary of account usage</titleabbrev>
+                <abstract>
+                    <para>Get a summary of account usage from &IAM; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountSummary_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountSummary_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetAccessKeyLastUsed_section" role="topic">
+            <info>
+                <title id="example_iam_GetAccessKeyLastUsed_section.title">Get data about the last use of an &IAM; access key using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetAccessKeyLastUsed_section.titleabbrev">Get data about the last use of an access key</titleabbrev>
+                <abstract>
+                    <para>Get data about the last use of an &IAM; access key using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccessKeyLastUsed_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccessKeyLastUsed_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_GetAccountPasswordPolicy_section" role="topic">
+            <info>
+                <title id="example_iam_GetAccountPasswordPolicy_section.title">Get the &IAM; account password policy using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_GetAccountPasswordPolicy_section.titleabbrev">Get the account password policy</titleabbrev>
+                <abstract>
+                    <para>Get the &IAM; account password policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListSAMLProviders_section" role="topic">
+            <info>
+                <title id="example_iam_ListSAMLProviders_section.title">List SAML providers for &IAM; using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListSAMLProviders_section.titleabbrev">List SAML providers</titleabbrev>
+                <abstract>
+                    <para>List SAML providers for &IAM; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListAccessKeys_section" role="topic">
+            <info>
+                <title id="example_iam_ListAccessKeys_section.title">List a user's &IAM; access keys using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListAccessKeys_section.titleabbrev">List a user's access keys</titleabbrev>
+                <abstract>
+                    <para>List a user's &IAM; access keys using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListAccountAliases_section" role="topic">
+            <info>
+                <title id="example_iam_ListAccountAliases_section.title">List &IAM; account aliases using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListAccountAliases_section.titleabbrev">List account aliases</titleabbrev>
+                <abstract>
+                    <para>List &IAM; account aliases using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListGroups_section" role="topic">
+            <info>
+                <title id="example_iam_ListGroups_section.title">List &IAM; groups using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListGroups_section.titleabbrev">List groups</titleabbrev>
+                <abstract>
+                    <para>List &IAM; groups using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListRolePolicies_section" role="topic">
+            <info>
+                <title id="example_iam_ListRolePolicies_section.title">List inline policies for an &IAM; role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListRolePolicies_section.titleabbrev">List inline policies for a role</titleabbrev>
+                <abstract>
+                    <para>List inline policies for an &IAM; role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListPolicies_section" role="topic">
+            <info>
+                <title id="example_iam_ListPolicies_section.title">List &IAM; policies using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListPolicies_section.titleabbrev">List policies</titleabbrev>
+                <abstract>
+                    <para>List &IAM; policies using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListAttachedRolePolicies_section" role="topic">
+            <info>
+                <title id="example_iam_ListAttachedRolePolicies_section.title">List policies attached to an &IAM; role using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListAttachedRolePolicies_section.titleabbrev">List policies attached to a role</titleabbrev>
+                <abstract>
+                    <para>List policies attached to an &IAM; role using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListRoles_section" role="topic">
+            <info>
+                <title id="example_iam_ListRoles_section.title">List &IAM; roles using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListRoles_section.titleabbrev">List roles</titleabbrev>
+                <abstract>
+                    <para>List &IAM; roles using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListServerCertificates_section" role="topic">
+            <info>
+                <title id="example_iam_ListServerCertificates_section.title">List &IAM; server certificates using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListServerCertificates_section.titleabbrev">List server certificates</titleabbrev>
+                <abstract>
+                    <para>List &IAM; server certificates using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListServerCertificates_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListServerCertificates_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_ListUsers_section" role="topic">
+            <info>
+                <title id="example_iam_ListUsers_section.title">List &IAM; users using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_ListUsers_section.titleabbrev">List users</titleabbrev>
+                <abstract>
+                    <para>List &IAM; users using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_UpdateServerCertificate_section" role="topic">
+            <info>
+                <title id="example_iam_UpdateServerCertificate_section.title">Update an &IAM; server certificate using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_UpdateServerCertificate_section.titleabbrev">Update a server certificate</titleabbrev>
+                <abstract>
+                    <para>Update an &IAM; server certificate using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateServerCertificate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateServerCertificate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_UpdateUser_section" role="topic">
+            <info>
+                <title id="example_iam_UpdateUser_section.title">Update an &IAM; user using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_UpdateUser_section.titleabbrev">Update a user</titleabbrev>
+                <abstract>
+                    <para>Update an &IAM; user using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_UpdateAccessKey_section" role="topic">
+            <info>
+                <title id="example_iam_UpdateAccessKey_section.title">Update an &IAM; access key using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_UpdateAccessKey_section.titleabbrev">Update an access key</titleabbrev>
+                <abstract>
+                    <para>Update an &IAM; access key using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateAccessKey_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateAccessKey_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_iam_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_iam_scenarios.title">Scenarios for &IAM; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_iam_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &IAM; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &IAM;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &IAM;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_iam_Scenario_CreateUserAssumeRole_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_CreateUserAssumeRole_section.title">Create an &IAM; user and assume a role with &STS; using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_CreateUserAssumeRole_section.titleabbrev">Create a user and assume a role</titleabbrev>
+                <abstract>
+                    <para>Create an &IAM; user and assume a role with &STS; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_UserPolicies_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_UserPolicies_section.title">Create read-only and read-write &IAM; users using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_UserPolicies_section.titleabbrev">Create read-only and read-write users</titleabbrev>
+                <abstract>
+                    <para>Create read-only and read-write &IAM; users using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_UserPolicies_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_UserPolicies_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_ManageAccessKeys_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_ManageAccessKeys_section.title">Manage &IAM; access keys using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_ManageAccessKeys_section.titleabbrev">Manage access keys</titleabbrev>
+                <abstract>
+                    <para>Manage &IAM; access keys using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_ManageAccessKeys_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_ManageAccessKeys_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_PolicyManagement_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_PolicyManagement_section.title">Manage &IAM; policies using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_PolicyManagement_section.titleabbrev">Manage policies</titleabbrev>
+                <abstract>
+                    <para>Manage &IAM; policies using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_PolicyManagement_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_PolicyManagement_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_RoleManagement_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_RoleManagement_section.title">Manage &IAM; roles using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_RoleManagement_section.titleabbrev">Manage roles</titleabbrev>
+                <abstract>
+                    <para>Manage &IAM; roles using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_RoleManagement_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_RoleManagement_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_AccountManagement_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_AccountManagement_section.title">Manage your &IAM; account using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_AccountManagement_section.titleabbrev">Manage your account</titleabbrev>
+                <abstract>
+                    <para>Manage your &IAM; account using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_AccountManagement_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_AccountManagement_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_iam_Scenario_RollbackPolicyVersion_section" role="topic">
+            <info>
+                <title id="example_iam_Scenario_RollbackPolicyVersion_section.title">Rollback an &IAM; policy version using an &AWS; SDK</title>
+                <titleabbrev id="example_iam_Scenario_RollbackPolicyVersion_section.titleabbrev">Rollback a policy version</titleabbrev>
+                <abstract>
+                    <para>Rollback an &IAM; policy version using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_RollbackPolicyVersion_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_RollbackPolicyVersion_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</section>

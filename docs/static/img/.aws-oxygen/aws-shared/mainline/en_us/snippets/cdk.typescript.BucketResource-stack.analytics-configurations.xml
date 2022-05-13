@@ -1,0 +1,14 @@
+<programlisting>
+    bucketResource.addPropertyOverride("AnalyticsConfigurations", {
+      Id: "config1",
+      StorageClassAnalysis: {
+        dataExport: {
+          OutputSchemaVersion: "1",
+          Destination: {
+            Format: "html",
+            BucketArn: "arn:aws:s3:::" + bucketName // use tokens freely
+          }
+        }
+      }
+    });
+</programlisting>

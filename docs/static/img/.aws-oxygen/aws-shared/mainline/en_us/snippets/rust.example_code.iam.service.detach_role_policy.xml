@@ -1,0 +1,16 @@
+<programlisting>
+pub async fn detach_role_policy(
+    client: &iamClient,
+    role_name: &str,
+    policy_arn: &str,
+) -> Result<(), iamError> {
+    client
+        .detach_role_policy()
+        .role_name(role_name)
+        .policy_arn(policy_arn)
+        .send()
+        .await?;
+
+    Ok(())
+}
+</programlisting>

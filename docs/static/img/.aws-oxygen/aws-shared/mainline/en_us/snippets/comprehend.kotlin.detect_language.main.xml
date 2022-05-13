@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun detectTheDominantLanguage(textVal: String) {
+
+    val request =  DetectDominantLanguageRequest {
+        text = textVal
+    }
+    ComprehendClient { region = "us-east-1" }.use { comClient ->
+            val response = comClient.detectDominantLanguage(request)
+            response.languages?.forEach { lang ->
+                println("Language is ${lang.languageCode}")
+            }
+    }
+}
+</programlisting>

@@ -1,0 +1,12 @@
+<programlisting>
+    namePtr := flag.String("n", "", "Group Name")
+    descPtr := flag.String("d", "", "Group Description")
+    vpcIDPtr := flag.String("vpc", "", "(Optional) VPC ID to associate security group with")
+
+    flag.Parse()
+
+    if *namePtr == "" || *descPtr == "" {
+        flag.PrintDefaults()
+        exitErrorf("Group name and description require")
+    }
+</programlisting>

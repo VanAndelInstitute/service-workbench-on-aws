@@ -1,0 +1,13 @@
+import aws.sdk.kotlin.services.codepipeline.CodePipelineClient
+import aws.sdk.kotlin.services.codepipeline.model.ActionTypeId
+import aws.sdk.kotlin.services.codepipeline.model.ActionDeclaration
+import aws.sdk.kotlin.services.codepipeline.model.InputArtifact
+import aws.sdk.kotlin.services.codepipeline.model.StageDeclaration
+import aws.sdk.kotlin.services.codepipeline.model.PipelineDeclaration
+import aws.sdk.kotlin.services.codepipeline.model.ActionCategory
+import aws.sdk.kotlin.services.codepipeline.model.OutputArtifact
+import aws.sdk.kotlin.services.codepipeline.model.ActionOwner
+import aws.sdk.kotlin.services.codepipeline.model.ArtifactStore
+import aws.sdk.kotlin.services.codepipeline.model.CreatePipelineRequest
+import aws.sdk.kotlin.services.codepipeline.model.ArtifactStoreType
+import kotlin.system.exitProcess

@@ -1,0 +1,24 @@
+<programlisting>
+// Get service clients module and commands using ES6 syntax.
+import { DeleteBranchCommand } from "@aws-sdk/client-codecommit";
+import { codeCommitClient } from "./libs/codeCommitClient.js";
+
+// Set the parameters.
+
+export const params = {
+    branchName: 'BRANCH_NAME', /* required */
+    repositoryName: 'REPOSITORY_NAME' /* required */
+};
+
+// Delete the branch.
+export const run = async () => {
+    try {
+        const data = await codeCommitClient.send(new DeleteBranchCommand(params));
+        console.log("Success", data);
+        return data; // For unit tests.
+    } catch (err) {
+        console.log("Error", err);
+    }
+};
+run();
+</programlisting>

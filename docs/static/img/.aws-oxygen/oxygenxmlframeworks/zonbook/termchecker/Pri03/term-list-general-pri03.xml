@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+
+<!--  =========== START - AWS service names and resources - Pri03 - Fix when we can have exceptions ===========
+     Terminology checking rules for AWS service names and resources
+     Listed in alphabetical order by service name without the "Amazon" or "AWS" prefix).
+     Include rules for checking service resources in the same section at the service.      
+     -->
+
+<incorrect-terms>
+ <incorrect-term severity="info">
+  <match type="character">APN Partner Network</match>
+  <suggestion>AWS Partner Network (APN)</suggestion>
+  <suggestion>APN</suggestion>
+  <message>First use: AWS Partner Network (APN). Subsequent use: APN.        </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">and/or</match>
+  <suggestion/>
+  <message>Use "or" instead because "or" implies "and/or."</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">anti-virus</match>
+  <suggestion>antivirus</suggestion>
+  <message>One word (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN advanced consulting partner</match>
+  <suggestion>APN Advanced Consulting Partner</suggestion>
+  <message>APN tier designations highlight the level of APN Partnership attained. 
+            
+            Standard and above APN Partners can leverage tier designations. 
+            
+            Registered partners are not able to reference that they are an APN Partner. Registered means your company has access to APN Partner Central. 
+            
+            Furthermore, Partner Types represent the types of APN Partners you can become: Consulting or Technology. 
+            
+            When leveraging tier designations, you should also refer to your Partner Type. Premier partners can refer to themselves, or be referenced, as either APN Premier Consulting Partner(s) or just Premier Consulting Partner(s). 
+            
+            Use of APN is optional when APN Tier Designation is combined with Partner Type, e.g., APN Advanced Consulting Partner or Advanced Consulting Partner.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN consulting partner</match>
+  <suggestion>APN Consulting Partner</suggestion>
+  <message>APN Consulting Partner</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">advanced consulting partner</match>
+  <suggestion>APN Advanced Consulting Partner</suggestion>
+  <message>APN Advanced Consulting Partner</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN managed service provider</match>
+  <suggestion>APN Managed Service Provider</suggestion>
+  <message>APN Managed Service Provider</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN partner</match>
+  <suggestion>APN Partner</suggestion>
+  <message>The AWS Partner Network (APN) is a global partner program for AWS. When referencing partnerships, note that AWS Partner is not an approved term.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN premier consulting partner</match>
+  <suggestion>APN Premier Consulting Partner</suggestion>
+  <message>APN tier designations highlight the level of APN Partnership attained. Standard and above APN Partners can leverage tier designations. Registered partners are not able to reference that they are an APN Partner. Registered means your company has access to APN Partner Central. Furthermore, Partner Types represent the types of APN Partners you can become: Consulting or Technology. When leveraging tier designations, you should also refer to your Partner Type. Premier partners can refer to themselves, or be referenced, as either "SAPN Premier Consulting Partner(s)" or just "SPremier Consulting Partner(s)." Use of "SAPN" is optional when APN Tier Designation is combined with Partner Type, e.g., APN Advanced Consulting Partner or Advanced Consulting Partner.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN program</match>
+  <suggestion>APN Program</suggestion>
+  <message>APN Program</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN program designation</match>
+  <suggestion>APN Program Designation</suggestion>
+  <message>APN Partner Program Designations refer to the ways APN Partners can refer to themselves after achieving a differentiating APN Program Designation (e.g. AWS Competency, Service Delivery or Managed Service Provider designation). 
+            
+            Note that you should not use APN in certain circumstances, such as when partner programs are referred to directly.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN registered partner</match>
+  <suggestion>APN Registered Partner</suggestion>
+  <message>APN Registered Partner</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN service delivery partner</match>
+  <suggestion>APN Service Delivery Partner</suggestion>
+  <message>APN Service Delivery Partner</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">APN standard consulting partner</match>
+  <suggestion>APN Standard Consulting Partner</suggestion>
+  <message>APN tier designations highlight the level of APN Partnership attained. Standard and above APN Partners can leverage tier designations. Registered partners are not able to reference that they are an APN Partner. Registered means your company has access to APN Partner Central. Furthermore, Partner Types represent the types of APN Partners you can become: Consulting or Technology. When leveraging tier designations, you should also refer to your Partner Type. Premier partners can refer to themselves, or be referenced, as either "SAPN Premier Consulting Partner(s)" or just "SPremier Consulting Partner(s)." Use of "SAPN" is optional when APN Tier Designation is combined with Partner Type, e.g., APN Advanced Consulting Partner or Advanced Consulting Partner.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">app server</match>
+  <suggestion>application server</suggestion>
+  <message>Do not use. Use "application server."</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">appium</match>
+  <suggestion>Appium</suggestion>
+  <message>An open source test automation framework for use with native, hybrid and mobile web apps.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">application tier server</match>
+  <suggestion>application tier</suggestion>
+  <suggestion>application server</suggestion>
+  <message>Do not use. Use application tier or application server instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">application-server tier</match>
+  <suggestion>application tier</suggestion>
+  <suggestion>application server</suggestion>
+  <message>Do not use. Use application tier or application server instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">AppSpec file</match>
+  <suggestion>application specification file</suggestion>
+  <message>Do not use. Spell out as "application specification file."</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Asymmetric Encryption</match>
+  <suggestion>asymmetric encryption</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">asynchronous bounce</match>
+  <suggestion>Asynchronous Bounce</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Atomic counter</match>
+  <suggestion>atomic counter</suggestion>
+  <message>atomic counter</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">area under a curve</match>
+  <suggestion>area under the curve (AUC)</suggestion>
+  <suggestion>AUC</suggestion>
+  <message>area under the curve (AUC), AUC</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Area Under the Curve</match>
+  <suggestion>area under the curve (AUC)</suggestion>
+  <suggestion>AUC</suggestion>
+  <message>area under the curve (AUC), AUC</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Audio Stream</match>
+  <suggestion>audio stream</suggestion>
+  <message>Lowercase. Two words.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">audiostream</match>
+  <suggestion>audio stream</suggestion>
+  <message>Two words.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">wwise</match>
+  <suggestion>Audiokinetic Wwise</suggestion>
+  <suggestion>Wwise</suggestion>
+  <message>First use: Audiokinetic Wwise. Subsequent use: Wwise. Wwise is an interactive sound engine from Audiokinetic.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Authenticated Encryption</match>
+  <suggestion>authenticated encryption</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">autohealing</match>
+  <suggestion>auto healing</suggestion>
+  <message>Use two words "auto healing" (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">auto-healing</match>
+  <suggestion>auto healing</suggestion>
+  <message>Use two words "auto healing" (no hyphen).</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">Auto Recovery</match>
+  <suggestion>instance recovery</suggestion>
+  <message>Do not use. Use "instance recovery" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">auto-generate</match>
+  <suggestion>generate</suggestion>
+  <message>Do not use. Use "generate" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">autogenerate</match>
+  <suggestion>generate</suggestion>
+  <message>Do not use. Use "generate" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">autonomous system number</match>
+  <suggestion>Autonomous System Number (ASN)</suggestion>
+  <suggestion>ASN</suggestion>
+  <message>First use: Autonomous System Number (ASN). Subsequent use: ASN. </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">competency partner</match>
+  <suggestion>Competency Partner</suggestion>
+  <message>APN Partner Program Designations refer to the ways APN Partners can refer to themselves after achieving a differentiating APN Program Designation (e.g. AWS Competency, Service Delivery or Managed Service Provider designation). Note that you should not use APN in certain circumstances, such as when partner programs are referred to directly.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">Cloud Adoption Framework</match>
+  <suggestion>AWS CAF</suggestion>
+  <message>All instances: AWS CAF.  Use to refer to "Cloud Adoption Framework." Don't spell out as AWS Cloud Adoption Framework (CAF).
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">CAF</match>
+  <suggestion>AWS CAF</suggestion>
+  <message>All instances: AWS CAF.  Use to refer to "Cloud Adoption Framework." Don't spell out as AWS Cloud Adoption Framework (CAF).
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">caffe</match>
+  <suggestion>Caffe</suggestion>
+  <message>Uppercase. An open-source deep-learning framework.  Short for "convolutional architecture for fast feature embedding."
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">consulting partner</match>
+  <suggestion>Consulting Partner</suggestion>
+  <message>APN tier designations highlight the level of APN Partnership attained. Standard and above APN Partners can leverage tier designations. Registered partners are not able to reference that they are an APN Partner. Registered means your company has access to APN Partner Central. Furthermore, Partner Types represent the types of APN Partners you can become: Consulting or Technology. When leveraging tier designations, you should also refer to your Partner Type. Premier partners can refer to themselves, or be referenced, as either "APN Premier Consulting Partner(s)" or just "Premier Consulting Partner(s)." Use of "APN" is optional when APN Tier Designation is combined with Partner Type, e.g., APN Advanced Consulting Partner or Advanced Consulting Partner.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">cortana</match>
+  <suggestion>Cortana</suggestion>
+  <message>Capitalize.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Credential Helper</match>
+  <suggestion>credential helper</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">donate button</match>
+  <suggestion>donation button</suggestion>
+  <message>An HTML-coded button to provide an easy and secure way for US-based, IRS-certified 501(c)3 nonprofit organizations to solicit donations.
+        </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> ebextensions </match>
+  <suggestion>  .ebextensions </suggestion>
+  <message>Include period at start: .ebextensions</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Enterprise Resource Planning</match>
+  <suggestion>enterprise resource planning (ERP)</suggestion>
+  <suggestion>ERP</suggestion>
+  <message>First use: enterprise resource planning (ERP). Subsequent use: ERP.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Envelope Encryption</match>
+  <suggestion>envelope encryption</suggestion>
+  <message>envelope encryption</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> Epoch </match>
+  <suggestion>  epoch </suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">ethernet</match>
+  <suggestion>Ethernet</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Evaluation Datasource</match>
+  <suggestion>evaluation datasource</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Exbibyte</match>
+  <suggestion>exbibyte (EiB)</suggestion>
+  <suggestion>EiB</suggestion>
+  <message>exbibyte (EiB), EiB</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">extensible markup language</match>
+  <suggestion>Extensible Markup Language (XML)</suggestion>
+  <suggestion>XML</suggestion>
+  <message>First use: Extensible Markup Language (XML). Subsequent use: XML.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">featurization</match>
+  <suggestion>Rewrite</suggestion>
+  <message>Rewrite</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">federated-identity management</match>
+  <suggestion>federated identity management</suggestion>
+  <message>federated identity management</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Federated User</match>
+  <suggestion>federated user</suggestion>
+  <message>federated user</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">fiberoptic</match>
+  <suggestion>fiber-optic</suggestion>
+  <message>fiber-optic</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> first in </match>
+  <suggestion> Hover to see usage notes </suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> general purpose SSD </match>
+  <suggestion> General Purpose SSD </suggestion>
+  <message>General Purpose SSD</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> Geolocation Routing </match>
+  <suggestion> geolocation routing </suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> Geoproximity </match>
+  <suggestion> geoproximity </suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> Geospatial Search </match>
+  <suggestion> geospatial search </suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> granularity </match>
+  <suggestion> OK in DynamoDB </suggestion>
+  <suggestion> Do not use in IAM docs </suggestion>
+  <message>DynamoDB term for discussing permissions. Do not use in IAM documentation.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">gremlin</match>
+  <suggestion>Gremlin</suggestion>
+  <message>Gremlin is a query language.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">group policy</match>
+  <suggestion/>
+  <message>Only use in contrast with "user policy" or "role policy." Use "identity-based policy" to collectively refer to user, role, and group policies.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">ingress</match>
+  <suggestion>receive</suggestion>
+  <suggestion>input</suggestion>
+  <suggestion>inbound</suggestion>
+  <suggestion>incoming</suggestion>
+  <message>Avoid. Use a simple term such as receive (verb), input (noun), or an adjective such as inbound or incoming paired with a noun, for example, inbound traffic.  </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Intrinsic Function</match>
+  <suggestion>intrinsic function</suggestion>
+  <message>Lowercase.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Intrusion Detection System</match>
+  <suggestion>intrusion detection system (IDS)</suggestion>
+  <suggestion>IDS</suggestion>
+  <message>First use: intrusion detection system (IDS). Subsequent use: IDS.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">load-balancing environment</match>
+  <suggestion>load-balanced environment</suggestion>
+  <message>An environment is load balanced or is a load-balanced environment.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Load Balancer</match>
+  <suggestion>load balancer</suggestion>
+  <message>load balancer</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Local Secondary Index</match>
+  <suggestion>local secondary index</suggestion>
+  <message>local secondary index</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">local zone</match>
+  <suggestion>Local Zone</suggestion>
+  <message>Local Zone</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">local host</match>
+  <suggestion>localhost</suggestion>
+  <message>localhost</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">log on</match>
+  <suggestion>log in</suggestion>
+  <message>Use with EC2 instances or other technologies with interfaces that use this term. Also note that you log in to an instance, not log into. Also use log out and logout. For the AWS Management Console, use sign in, not log in.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">logon</match>
+  <suggestion>log in</suggestion>
+  <message>Use with EC2 instances or other technologies with interfaces that use this term. Also note that you log in to an instance, not log into. Also use log out and logout. For the AWS Management Console, use sign in, not log in.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">log off</match>
+  <suggestion>log out</suggestion>
+  <message>Use with EC2 instances or other technologies with interfaces that use this term. Also note that you log in to an instance, not log into. Also use log out and logout. For the AWS Management Console, use sign in, not log in.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">logoff</match>
+  <suggestion>logout</suggestion>
+  <message>Use with EC2 instances or other technologies with interfaces that use this term. Also note that you log in to an instance, not log into. Also use log out and logout. For the AWS Management Console, use sign in, not log in.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Mac OS</match>
+  <suggestion>macOS</suggestion>
+  <message>When referring to the Mac operating system, use macOS. Don't just say Mac or Mac OS or OS X.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Mac OS X</match>
+  <suggestion/>
+  <message>When referring to the Mac operating system, use macOS. Don't just say Mac or Mac OS or OS X.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">magnetic volume</match>
+  <suggestion>Magnetic volume</suggestion>
+  <message>Previous generation EBS volume</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">mail transfer agent (MTA)</match>
+  <suggestion>Mail Transfer Agent (MTA)</suggestion>
+  <suggestion>MTA</suggestion>
+  <message>Mail Transfer Agent (MTA), MTA</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">make data secure</match>
+  <suggestion>makes data more secure</suggestion>
+  <suggestion>provides enhanced security for data</suggestion>
+  <suggestion>provides improved security for data</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services. Suggested alternatives:  Makes data more secure, provides enhanced or improved security for data</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">man in the middle attack</match>
+  <suggestion>man-in-the-middle attack</suggestion>
+  <message>Hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Managed Policy</match>
+  <suggestion>managed policy</suggestion>
+  <message>managed policy</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">management console</match>
+  <suggestion>AWS Management Console</suggestion>
+  <message>AWS Management Console</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">market share</match>
+  <suggestion>Avoid</suggestion>
+  <message>Do not make any claims about our market share without Legal team approval.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">micro service</match>
+  <suggestion>microservice</suggestion>
+  <message>microservice</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Mirror Server</match>
+  <suggestion>mirror server</suggestion>
+  <message>mirror server</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">mouse</match>
+  <suggestion>pointer</suggestion>
+  <message>Use pointer in preference to mouse pointer. Avoid using mouse.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">mouse pointer</match>
+  <suggestion>pointer</suggestion>
+  <message>Use pointer in preference to mouse pointer. Avoid using mouse.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">non-current</match>
+  <suggestion>noncurrent</suggestion>
+  <message>noncurrent</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">nonresponsive</match>
+  <suggestion>unresponsive</suggestion>
+  <message>unresponsive</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">pick</match>
+  <suggestion>choose</suggestion>
+  <suggestion>select</suggestion>
+  <message>Don't use in place of select or choose. You select a check box or choose a menu command or button.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">plain text</match>
+  <suggestion>plaintext</suggestion>
+  <message>plaintext</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">public-facing</match>
+  <suggestion>public</suggestion>
+  <suggestion>internet</suggestion>
+  <message>Avoid. Use public or internet instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">qualified security assessor</match>
+  <suggestion>Qualified Security Assessor (QSA)</suggestion>
+  <message>Qualified Security Assessor (QSA)</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Quartile Binning Transformation</match>
+  <suggestion>quartile binning transformation</suggestion>
+  <message>quartile binning transformation</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">Quartile Bining Transformation</match>
+  <suggestion>quartile binning transformation</suggestion>
+  <message>quartile binning transformation</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> ram </match>
+  <suggestion> random access memory (RAM) </suggestion>
+  <suggestion> RAM </suggestion>
+  <message>RAM or spelling out random access memory</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Random Access Memory (RAM)</match>
+  <suggestion>random access memory (RAM)</suggestion>
+  <suggestion>RAM</suggestion>
+  <message>random access memory (RAM), RAM</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">reInforce</match>
+  <suggestion>re:Inforce</suggestion>
+  <message>AWS event focused on security, identity, and compliance.issues.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">reInvent</match>
+  <suggestion>re:Invent</suggestion>
+  <message>re:Invent</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">reMars</match>
+  <suggestion>re:Mars</suggestion>
+  <message>A new AI event for Machine Learning, Automation, Robotics and Space. </message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">SAML solution</match>
+  <suggestion>Don't use</suggestion>
+  <message>Don't use.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">SAML technology</match>
+  <suggestion>Don't use</suggestion>
+  <message>Don't use.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">sand box</match>
+  <suggestion>sandbox</suggestion>
+  <message>One word.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">score cutoff value</match>
+  <suggestion>score cut-off value</suggestion>
+  <message>score cut-off value</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">solution architect</match>
+  <suggestion>solutions architect</suggestion>
+  <message>solutions architect</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character"> ubuntu </match>
+  <suggestion> Ubuntu </suggestion>
+  <message>Ubuntu</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">ultrawarm</match>
+  <suggestion>UltraWarm</suggestion>
+  <message>UltraWarm</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">unicode transformation format</match>
+  <suggestion>Unicode Transformation Format (UTF)</suggestion>
+  <suggestion>UTF</suggestion>
+  <suggestion>Unicode Transformation Format</suggestion>
+  <message>Use UTF in most cases. On first use, use the long form: Unicode Transformation Format (UTF). Use ""Unicode Transformation Format"" alone only as needed to prevent confusion.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">Uniform Resource Locator</match>
+  <suggestion>uniform resource locator</suggestion>
+  <message>First use: uniform resource locator (URL). Subsequent use: URL.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">universal coordinated time</match>
+  <suggestion>Universal Coordinated Time (UTC)</suggestion>
+  <message>First use: Universal Coordinated Time (UTC). Subsequent use: UTC.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">UNIX</match>
+  <suggestion>Unix</suggestion>
+  <message>Unix and UNIX are not the same. UNIX is a trademarked name that is owned by The Open Group. In most cases, you should use Unix. For more information, see Unix (Wikipedia).</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="info">
+  <match type="character">well-known standards</match>
+  <suggestion>open standards</suggestion>
+  <message>Do not use. Use "open standards" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">whois</match>
+  <suggestion>WHOIS ("Who is")</suggestion>
+  <suggestion>WHOIS</suggestion>
+  <message>First use: WHOIS ("Who is"). Subsequent use: WHOIS.</message>
+ </incorrect-term>
+ <incorrect-term severity="info">
+  <match type="character">wiki</match>
+  <suggestion>Wiki</suggestion>
+  <message>Note capitalization to be consistent with the Amazon retail site.</message>
+ </incorrect-term>
+</incorrect-terms>

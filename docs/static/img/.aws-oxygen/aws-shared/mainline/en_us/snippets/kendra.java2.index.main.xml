@@ -1,0 +1,34 @@
+<programlisting>
+    public static String createIndex(KendraClient kendra, String indexDescription, String indexName, String indexRoleArn) {
+    try {
+        System.out.println("Creating an index named " +indexName);
+        CreateIndexRequest createIndexRequest = CreateIndexRequest.builder()
+                .description(indexDescription)
+                .name(indexName)
+                .roleArn(indexRoleArn)
+                .build();
+
+        CreateIndexResponse createIndexResponse = kendra.createIndex(createIndexRequest);
+        System.out.println("Index response " +createIndexResponse);
+        String indexId = createIndexResponse.id();
+        System.out.println("Waiting until the index with index ID "+indexId +" is created.");
+
+        while (true) {
+            DescribeIndexRequest describeIndexRequest = DescribeIndexRequest.builder().id(indexId).build();
+            DescribeIndexResponse describeIndexResponse = kendra.describeIndex(describeIndexRequest);
+            IndexStatus status = describeIndexResponse.status();
+            System.out.println("Status is " +status);
+            if (status != IndexStatus.CREATING) {
+                break;
+            }
+
+            TimeUnit.SECONDS.sleep(60);
+        }
+        return indexId ;
+    } catch (KendraException | InterruptedException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+    return "" ;
+   }
+</programlisting>

@@ -1,0 +1,19 @@
+// Delete a transcription from the Amazon S3 bucket.
+window.deleteJSON = async (jsonFileName) => {
+  try {
+    const data = await s3Client.send(
+      new DeleteObjectCommand({
+        Bucket: params.Bucket,
+        Key: jsonFileName,
+      })
+    );
+    console.log("Success - JSON deleted");
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+// Delete a row from the user interface.
+window.deleteRow = function (rowid) {
+  const row = document.getElementById(rowid);
+  row.parentNode.removeChild(row);
+};

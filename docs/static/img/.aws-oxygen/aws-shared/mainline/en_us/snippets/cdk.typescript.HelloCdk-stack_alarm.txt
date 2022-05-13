@@ -1,0 +1,8 @@
+    const qMetric = queue.metric("ApproximateNumberOfMessagesVisible");
+
+    new cloudwatch.Alarm(this, "Alarm", {
+      metric: qMetric,
+      threshold: 100,
+      evaluationPeriods: 3,
+      datapointsToAlarm: 2
+    });

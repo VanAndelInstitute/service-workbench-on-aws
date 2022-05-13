@@ -1,0 +1,8 @@
+    if result.Item == nil {
+        msg := "Could not find '" + *title + "'"
+        return nil, errors.New(msg)
+    }
+
+    item := Item{}
+
+    err = dynamodbattribute.UnmarshalMap(result.Item, &item)

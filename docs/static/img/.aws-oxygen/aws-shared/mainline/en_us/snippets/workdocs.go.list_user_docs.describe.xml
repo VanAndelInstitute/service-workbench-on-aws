@@ -1,0 +1,18 @@
+<programlisting>
+        result, err := svc.DescribeFolderContents(&workdocs.DescribeFolderContentsInput{FolderId: &folderID})
+
+        if err != nil {
+            fmt.Println("Error getting docs for user", err)
+            return
+        }
+
+        fmt.Println(*userPtr + " docs:")
+        fmt.Println("")
+
+        for _, doc := range result.Documents {
+            fmt.Println(*doc.LatestVersionMetadata.Name)
+            fmt.Println("  Size:         ", *doc.LatestVersionMetadata.Size, "(bytes)")
+            fmt.Println("  Last modified:", *doc.LatestVersionMetadata.ModifiedTimestamp)
+            fmt.Println("")
+        }
+</programlisting>

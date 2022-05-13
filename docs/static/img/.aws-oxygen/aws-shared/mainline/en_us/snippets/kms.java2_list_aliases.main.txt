@@ -1,0 +1,20 @@
+    public static void listAllAliases( KmsClient kmsClient) {
+
+        try {
+
+            ListAliasesRequest aliasesRequest = ListAliasesRequest.builder()
+                .limit(15)
+                .build();
+
+            ListAliasesResponse aliasesResponse = kmsClient.listAliases(aliasesRequest) ;
+            List<AliasListEntry> aliases = aliasesResponse.aliases();
+
+            for (AliasListEntry alias: aliases) {
+                System.out.println("The alias name is: "+alias.aliasName());
+            }
+
+        } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

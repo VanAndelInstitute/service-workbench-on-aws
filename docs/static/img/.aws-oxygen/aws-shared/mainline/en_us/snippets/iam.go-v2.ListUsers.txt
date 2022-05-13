@@ -1,0 +1,11 @@
+	// ListUsers
+
+	fmt.Println("➡️ List users")
+
+	userListResult, err := service.ListUsers(context.Background(), &iam.ListUsersInput{})
+	if err != nil {
+		panic("Couldn't list users: " + err.Error())
+	}
+	for _, userResult := range userListResult.Users {
+		fmt.Printf("%s\t%s\n", *userResult.UserName, *userResult.Arn)
+	}

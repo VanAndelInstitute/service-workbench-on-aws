@@ -1,0 +1,12 @@
+suspend fun deleteFacesCollection(collectionIdVal: String?, faceIdVal: String ) {
+
+       val deleteFacesRequest = DeleteFacesRequest {
+            collectionId = collectionIdVal
+            faceIds = listOf(faceIdVal)
+        }
+
+      RekognitionClient { region = "us-east-1" }.use { rekClient ->
+        rekClient.deleteFaces(deleteFacesRequest)
+        println("$faceIdVal was deleted from the collection")
+      }
+}

@@ -1,0 +1,13 @@
+def list_attached_policies(role_name):
+    """
+    Lists policies attached to a role.
+
+    :param role_name: The name of the role to query.
+    """
+    try:
+        role = iam.Role(role_name)
+        for policy in role.attached_policies.all():
+            logger.info("Got policy %s.", policy.arn)
+    except ClientError:
+        logger.exception("Couldn't list attached policies for %s.", role_name)
+        raise

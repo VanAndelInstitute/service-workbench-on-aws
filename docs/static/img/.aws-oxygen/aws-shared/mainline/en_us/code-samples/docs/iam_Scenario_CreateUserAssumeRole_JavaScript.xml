@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JSB; V3</term>
+        <listitem>
+            <block>
+                <para>Create the client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/iam.JavaScript.scenario.createclientv3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create an &IAM; user and a role that grants permission to list &S3; buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/javascript.iam_scenarios.iam_basics.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-jsb-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/attachrolepolicycommand.html">AttachRolePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/createaccesskeycommand.html">CreateAccessKey</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/createpolicycommand.html">CreatePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/createrolecommand.html">CreateRole</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/createusercommand.html">CreateUser</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/deleteaccesskeycommand.html">DeleteAccessKey</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/deletepolicycommand.html">DeletePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/deleterolecommand.html">DeleteRole</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/deleteusercommand.html">DeleteUser</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/deleteuserpolicycommand.html">DeleteUserPolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/detachrolepolicycommand.html">DetachRolePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/putuserpolicycommand.html">PutUserPolicy</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

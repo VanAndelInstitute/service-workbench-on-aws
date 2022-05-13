@@ -1,0 +1,57 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/codebuild"
+)
+
+// GetBuilds retrieves a list of AWS CodeBuild builds
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+// Output:
+//     If success, the list of the builds and nil
+//     Otherwise, nil and an error from the call to ListBuilds or BatchGetBuilds
+func GetBuilds(sess *session.Session) (*codebuild.BatchGetBuildsOutput, error) {
+    svc := codebuild.New(sess)
+    // Get the list of builds
+    names, err := svc.ListBuilds(&codebuild.ListBuildsInput{
+        SortOrder: aws.String("ASCENDING"),
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    builds, err := svc.BatchGetBuilds(&codebuild.BatchGetBuildsInput{
+        Ids: names.Ids,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return builds, nil
+}
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    builds, err := GetBuilds(sess)
+    if err != nil {
+        fmt.Println("Got error getting builds:")
+        fmt.Println(err)
+        return
+    }
+
+    for _, build := range builds.Builds {
+        fmt.Printf("Project: %s\n", aws.StringValue(build.ProjectName))
+        fmt.Printf("Phase:   %s\n", aws.StringValue(build.CurrentPhase))
+        fmt.Printf("Status:  %s\n", aws.StringValue(build.BuildStatus))
+        fmt.Println("")
+    }
+}

@@ -1,0 +1,15 @@
+<programlisting>
+    def delete_database(self, name):
+        """
+        Deletes a metadata database from your Data Catalog.
+
+        :param name: The name of the database to delete.
+        """
+        try:
+            self.glue_client.delete_database(Name=name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't delete database %s. Here's why: %s: %s", name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+</programlisting>

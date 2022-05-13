@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+<incorrect-terms>
+    <incorrect-term ignorecase="true">
+        <match> abort </match>
+        <suggestion> stop </suggestion>
+        <suggestion> end </suggestion>
+        <message>Don't use (offensive language). If it's embedded in an API opeartion name, it's OK to use (example, AbortMultipartUploadRequest). It would be better if the service team worked with us to elimate it from the API operation name or didn't use it to begin with.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>abortion</match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>amputate </match>
+        <suggestion>cut off </suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>black list</match>
+        <suggestion>deny list</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>blacklist</match>
+        <suggestion>deny list</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>blacklisting</match>
+        <suggestion>denying</suggestion>
+        <suggestion>deny access to</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> blind</match>
+        <suggestion>lacking perception</suggestion>
+        <suggestion>lacking awareness</suggestion>
+        <suggestion>limited vision </suggestion>
+        <suggestion>low vision </suggestion>
+        <suggestion>visually impaired </suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>Caucasian</match>
+        <suggestion>White</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> cripple </match>
+        <suggestion>person with a disability</suggestion>
+        <suggestion>incapacitated</suggestion>
+        <suggestion>debilitate</suggestion>
+        <suggestion>damage</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>crippling</match>
+        <suggestion>incapacitating</suggestion>
+        <suggestion>debilitating</suggestion>
+        <suggestion>damaging</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> deformed </match>
+        <suggestion>malformed</suggestion>
+        <suggestion>person with a disabilitiy</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> deformity </match>
+        <suggestion>person with a disabilitiy</suggestion>
+        <suggestion>imperfect</suggestion>
+        <suggestion>deficienct</suggestion>
+        <suggestion>flawed</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>differently-abled</match>
+        <suggestion>people with disabilities</suggestion>
+        <suggestion>person with a disability</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>disabled</match>
+        <suggestion>people with disabilities</suggestion>
+        <suggestion>person with a disability</suggestion>
+        <suggestion>unavailable</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>disfigured</match>
+        <suggestion>Avoid. Refer specifically to the physical changes.</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>diverse people</match>
+        <suggestion>underrepresented groups</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>dumb</match>
+        <suggestion>person with a developmental disabilitiy</suggestion>
+        <suggestion>person with an intellectual disabilitiy</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>execute </match>
+        <suggestion>start </suggestion>
+        <suggestion>run </suggestion>
+        <message>Don't use (offensive language). Use only as a transitive verb (for example, "is executed"). You can also recast the sentence to avoid intransitive usage.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>executing </match>
+        <suggestion>starting </suggestion>
+        <suggestion>running </suggestion>
+        <message>Don't use (offensive language). Use only as a transitive verb (for example, "is executed"). You can also recast the sentence to avoid intransitive usage.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>female</match>
+        <suggestion>woman</suggestion>
+        <suggestion>women</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> foreigner </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>handicap</match>
+        <suggestion>disability</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>handicapped person</match>
+        <suggestion>person with a disability</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>handicapped parking</match>
+        <suggestion>accessible parking</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>hang </match>
+        <suggestion>stop responding </suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>hangs </match>
+        <suggestion>stops responding </suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>hearing impaired</match>
+        <suggestion>person who is deaf</suggestion>
+        <suggestion>person who has partial hearing loss</suggestion>
+        <suggestion>person who is hard of hearing</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>hearing impairment</match>
+        <suggestion>person who is deaf</suggestion>
+        <suggestion>person who has partial hearing loss</suggestion>
+        <suggestion>person who is hard of hearing</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> illegal alien </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>insane</match>
+        <suggestion>person who has a mental illness</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> invalid </match>
+        <suggestion>not valid</suggestion>
+        <suggestion>person with a disabilitiy</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>kill</match>
+        <suggestion>end </suggestion>
+        <suggestion>stop </suggestion>
+        <message>Don't use (offensive language).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>latina</match>
+        <suggestion>Latinx</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>latino</match>
+        <suggestion>Latinx</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>male/female</match>
+        <suggestion>gender</suggestion>
+        <suggestion>gender spectrum</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>master</match>
+        <suggestion>primary</suggestion>
+        <suggestion>main</suggestion>
+        <suggestion>leader</suggestion>
+        <suggestion>manager</suggestion>
+        <suggestion>head</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>master account</match>
+        <suggestion>primary account</suggestion>
+        <suggestion>main account</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>master node</match>
+        <suggestion>primary node</suggestion>
+        <suggestion>main node</suggestion>
+        <suggestion>leader node</suggestion>
+        <suggestion>manager node</suggestion>
+        <suggestion>head node</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>men/women</match>
+        <suggestion>gender spectrum</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>non-white people</match>
+        <suggestion>people of color</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>paraplegic</match>
+        <suggestion>person who has paraplegia</suggestion>
+        <suggestion>person who is living with paraplegia</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>quadriplegic</match>
+        <suggestion>person who has quadriplegia</suggestion>
+        <suggestion>person who is living with quadriplegia</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match> rape </match>
+        <suggestion>Remove</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>retard</match>
+        <suggestion>stop</suggestion>
+        <suggestion>person with a disabilitiy</suggestion>
+        <suggestion>person with a learning disabilitiy</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>slave</match>
+        <suggestion>replica</suggestion>
+        <suggestion>secondary</suggestion>
+        <suggestion>standby</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>slave node</match>
+        <suggestion>replica node</suggestion>
+        <suggestion>secondary node</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>special needs</match>
+        <suggestion>functional needs</suggestion>
+        <message>Don't use (not inclusive). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>transexual</match>
+        <suggestion>transgender</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>white list</match>
+        <suggestion>allow list</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>whitelist</match>
+        <suggestion>allow list</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>whitelisting</match>
+        <suggestion>allowing</suggestion>
+        <suggestion>provide access to</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>white paper</match>
+        <suggestion>technical paper</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>whitepaper</match>
+        <suggestion>technical paper</suggestion>
+        <message>Don't use (offensive language). Avoid ableist and sexist language, and language that perpetuates racist structures or stereotypes.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>wi-fi</match>
+        <suggestion>Wi-Fi</suggestion>
+        <message>Note that this term is a registered trademark.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>wifi</match>
+        <suggestion>Wi-Fi</suggestion>
+        <message>Note that this term is a registered trademark.</message>
+    </incorrect-term>
+</incorrect-terms>

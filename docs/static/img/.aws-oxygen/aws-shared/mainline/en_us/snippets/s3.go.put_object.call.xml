@@ -1,0 +1,10 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    _, err := svc.PutObject((&s3.PutObjectInput{}).
+        SetBucket(*bucket).
+        SetKey(*key).
+        SetBody(strings.NewReader("object body")), //.
+    //      SetWebsiteRedirectLocation("https://example.com/something"),
+    )
+</programlisting>

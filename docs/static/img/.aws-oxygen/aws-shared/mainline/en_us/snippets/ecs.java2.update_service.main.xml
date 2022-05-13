@@ -1,0 +1,20 @@
+<programlisting>
+    public static void updateSpecificService( EcsClient ecsClient, String clusterName, String serviceArn) {
+
+        try {
+
+            UpdateServiceRequest serviceRequest = UpdateServiceRequest.builder()
+                .cluster(clusterName)
+                .service(serviceArn)
+                .desiredCount(0)
+                .build();
+
+            ecsClient.updateService(serviceRequest);
+            System.out.println("The service was modified");
+
+        } catch (EcsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

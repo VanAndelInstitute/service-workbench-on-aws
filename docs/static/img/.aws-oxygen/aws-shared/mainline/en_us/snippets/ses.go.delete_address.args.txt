@@ -1,0 +1,8 @@
+    address := flag.String("a", "", "The email address for the To field")
+    flag.Parse()
+
+    if *address == "" {
+        fmt.Println("You must specify an email address")
+        fmt.Println("-a ADDRESS")
+        return
+    }

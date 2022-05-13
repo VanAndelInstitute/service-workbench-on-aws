@@ -1,0 +1,28 @@
+    def check_job_queue(self, queue_url, job_id):
+        """
+        Polls an Amazon SQS queue for messages that indicate a specified Textract
+        job has completed.
+
+        :param queue_url: The URL of the Amazon SQS queue to poll.
+        :param job_id: The ID of the Textract job.
+        :return: The status of the job.
+        """
+        status = None
+        try:
+            queue = self.sqs_resource.Queue(queue_url)
+            messages = queue.receive_messages()
+            if messages:
+                msg_body = json.loads(messages[0].body)
+                msg = json.loads(msg_body['Message'])
+                if msg.get('JobId') == job_id:
+                    messages[0].delete()
+                    status = msg.get('Status')
+                    logger.info(
+                        "Got message %s with status %s.", messages[0].message_id,
+                        status)
+            else:
+                logger.info("No messages in queue %s.", queue_url)
+        except ClientError:
+            logger.exception("Couldn't get messages from queue %s.", queue_url)
+        else:
+            return status

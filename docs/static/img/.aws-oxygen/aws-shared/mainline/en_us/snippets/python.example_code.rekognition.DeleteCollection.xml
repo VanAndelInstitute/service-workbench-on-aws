@@ -1,0 +1,13 @@
+<programlisting>
+    def delete_collection(self):
+        """
+        Deletes the collection.
+        """
+        try:
+            self.rekognition_client.delete_collection(CollectionId=self.collection_id)
+            logger.info("Deleted collection %s.", self.collection_id)
+            self.collection_id = None
+        except ClientError:
+            logger.exception("Couldn't delete collection %s.", self.collection_id)
+            raise
+</programlisting>

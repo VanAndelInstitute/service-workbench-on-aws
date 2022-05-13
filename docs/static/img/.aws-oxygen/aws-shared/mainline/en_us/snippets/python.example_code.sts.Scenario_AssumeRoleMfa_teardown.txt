@@ -1,0 +1,25 @@
+def teardown(user, virtual_mfa_device, role):
+    """
+    Removes all resources created during setup.
+
+    :param user: The demo user.
+    :param role: The demo role.
+    """
+    for attached in role.attached_policies.all():
+        policy_name = attached.policy_name
+        role.detach_policy(PolicyArn=attached.arn)
+        attached.delete()
+        print(f"Detached and deleted {policy_name}.")
+    role.delete()
+    print(f"Deleted {role.name}.")
+    for user_pol in user.policies.all():
+        user_pol.delete()
+        print("Deleted inline user policy.")
+    for key in user.access_keys.all():
+        key.delete()
+        print("Deleted user's access key.")
+    for mfa in user.mfa_devices.all():
+        mfa.disassociate()
+    virtual_mfa_device.delete()
+    user.delete()
+    print(f"Deleted {user.name}.")

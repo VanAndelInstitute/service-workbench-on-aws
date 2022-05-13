@@ -1,0 +1,18 @@
+<programlisting>
+    public static void describeKinLimits(KinesisClient kinesisClient) {
+        try {
+
+            DescribeLimitsRequest request = DescribeLimitsRequest.builder()
+                 .build();
+
+            DescribeLimitsResponse response = kinesisClient.describeLimits(request);
+            System.out.println("Number of open shards: " + response.openShardCount());
+            System.out.println("Maximum shards allowed: " + response.shardLimit());
+
+        } catch (KinesisException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }
+</programlisting>

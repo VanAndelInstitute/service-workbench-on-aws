@@ -1,0 +1,37 @@
+        public static async Task Main(string[] args)
+        {
+            string photo = "input.jpg";
+            string bucket = "bucket";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var detectModerationLabelsRequest = new DetectModerationLabelsRequest()
+            {
+                Image = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = photo,
+                        Bucket = bucket,
+                    },
+                },
+                MinConfidence = 60F,
+            };
+
+            try
+            {
+                var detectModerationLabelsResponse = await rekognitionClient.DetectModerationLabelsAsync(detectModerationLabelsRequest);
+                Console.WriteLine("Detected labels for " + photo);
+                foreach (ModerationLabel label in detectModerationLabelsResponse.ModerationLabels)
+                {
+                    Console.WriteLine($"Label: {label.Name}");
+                    Console.WriteLine($"Confidence: {label.Confidence}");
+                    Console.WriteLine($"Parent: {label.ParentName}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+

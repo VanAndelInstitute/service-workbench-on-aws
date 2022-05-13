@@ -1,0 +1,30 @@
+    public static ImportJobResponse createImportSegment(PinpointClient client,
+                                                        String appId,
+                                                        String bucket,
+                                                        String key,
+                                                        String roleArn) {
+
+        try {
+             ImportJobRequest importRequest = ImportJobRequest.builder()
+                    .defineSegment(true)
+                    .registerEndpoints(true)
+                    .roleArn(roleArn)
+                    .format(Format.JSON)
+                    .s3Url("s3://" + bucket + "/" + key)
+                    .build();
+
+            CreateImportJobRequest jobRequest = CreateImportJobRequest.builder()
+                    .importJobRequest(importRequest)
+                    .applicationId(appId)
+                    .build();
+
+            CreateImportJobResponse jobResponse = client.createImportJob(jobRequest);
+
+            return jobResponse.importJobResponse();
+
+        } catch (PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return null;
+    }

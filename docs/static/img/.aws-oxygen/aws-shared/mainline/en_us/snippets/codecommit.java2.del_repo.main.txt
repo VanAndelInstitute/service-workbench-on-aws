@@ -1,0 +1,14 @@
+    public static void deleteRepo(CodeCommitClient codeCommitClient, String repoName){
+
+        try {
+            DeleteRepositoryRequest deleteRepositoryRequest = DeleteRepositoryRequest.builder()
+                .repositoryName(repoName)
+                .build();
+
+            codeCommitClient.deleteRepository(deleteRepositoryRequest);
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }

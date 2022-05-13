@@ -1,0 +1,60 @@
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.Polly;
+    using Amazon.Polly.Model;
+
+    public class DescribeVoices
+    {
+        public static async Task Main()
+        {
+            var client = new AmazonPollyClient();
+
+            var allVoicesRequest = new DescribeVoicesRequest();
+            var enUsVoicesRequest = new DescribeVoicesRequest()
+            {
+                LanguageCode = "en-US",
+            };
+
+            try
+            {
+                string nextToken;
+                do
+                {
+                    var allVoicesResponse = await client.DescribeVoicesAsync(allVoicesRequest);
+                    nextToken = allVoicesResponse.NextToken;
+                    allVoicesRequest.NextToken = nextToken;
+
+                    Console.WriteLine("\nAll voices: ");
+                    allVoicesResponse.Voices.ForEach(voice =>
+                    {
+                        DisplayVoiceInfo(voice);
+                    });
+                }
+                while (nextToken is not null);
+
+                do
+                {
+                    var enUsVoicesResponse = await client.DescribeVoicesAsync(enUsVoicesRequest);
+                    nextToken = enUsVoicesResponse.NextToken;
+                    enUsVoicesRequest.NextToken = nextToken;
+
+                    Console.WriteLine("\nen-US voices: ");
+                    enUsVoicesResponse.Voices.ForEach(voice =>
+                    {
+                        DisplayVoiceInfo(voice);
+                    });
+                }
+                while (nextToken is not null);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught: " + ex.Message);
+            }
+        }
+
+        public static void DisplayVoiceInfo(Voice voice)
+        {
+            Console.WriteLine($" Name: {voice.Name}\tGender: {voice.Gender}\tLanguageName: {voice.LanguageName}");
+        }
+    }
+

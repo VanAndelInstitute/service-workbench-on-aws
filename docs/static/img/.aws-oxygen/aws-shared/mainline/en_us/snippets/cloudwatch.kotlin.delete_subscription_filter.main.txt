@@ -1,0 +1,12 @@
+suspend fun deleteSubFilter( filter: String?, logGroup: String?) {
+
+     val request = DeleteSubscriptionFilterRequest {
+         filterName = filter
+         logGroupName = logGroup
+     }
+
+     CloudWatchLogsClient { region = "us-west-2" }.use { logs ->
+        logs.deleteSubscriptionFilter(request)
+        println( "Successfully deleted CloudWatch logs subscription filter named $filter")
+    }
+}

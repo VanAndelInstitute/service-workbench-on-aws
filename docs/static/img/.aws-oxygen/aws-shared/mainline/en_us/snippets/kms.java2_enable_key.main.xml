@@ -1,0 +1,16 @@
+<programlisting>
+    public static void enableKey(KmsClient kmsClient, String keyId) {
+
+    try {
+        EnableKeyRequest enableKeyRequest = EnableKeyRequest.builder()
+                .keyId(keyId)
+                .build();
+
+        kmsClient.enableKey(enableKeyRequest);
+
+    } catch (KmsException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+   }
+</programlisting>

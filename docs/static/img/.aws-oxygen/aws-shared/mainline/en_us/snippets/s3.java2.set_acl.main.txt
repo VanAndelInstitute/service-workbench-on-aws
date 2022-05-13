@@ -1,0 +1,31 @@
+    public static void setBucketAcl(S3Client s3, String bucketName, String id) {
+
+       try {
+             Grant ownerGrant = Grant.builder()
+                    .grantee(builder -> {
+                        builder.id(id)
+                                .type(Type.CANONICAL_USER);
+                    })
+                    .permission(Permission.FULL_CONTROL)
+                    .build();
+
+            List<Grant> grantList2 = new ArrayList<>();
+            grantList2.add(ownerGrant);
+
+            AccessControlPolicy acl = AccessControlPolicy.builder()
+                    .owner(builder -> builder.id(id))
+                    .grants(grantList2)
+                    .build();
+
+            PutBucketAclRequest putAclReq = PutBucketAclRequest.builder()
+                    .bucket(bucketName)
+                    .accessControlPolicy(acl)
+                    .build();
+
+            s3.putBucketAcl(putAclReq);
+
+        } catch (S3Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }

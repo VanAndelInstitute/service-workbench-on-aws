@@ -1,0 +1,9 @@
+<programlisting>
+    name := flag.String("n", "", "The name of the security group to delete")
+    flag.Parse()
+
+    if *name == "" {
+        fmt.Println("You must supply the name of the security group to delete")
+        return
+    }
+</programlisting>

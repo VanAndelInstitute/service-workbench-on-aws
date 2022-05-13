@@ -1,0 +1,17 @@
+    public static void getAccessKeyLastUsed(IamClient iam, String accessId ){
+
+        try {
+            GetAccessKeyLastUsedRequest request = GetAccessKeyLastUsedRequest.builder()
+                    .accessKeyId(accessId).build();
+
+            GetAccessKeyLastUsedResponse response = iam.getAccessKeyLastUsed(request);
+
+            System.out.println("Access key was last used at: " +
+                    response.accessKeyLastUsed().lastUsedDate());
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }

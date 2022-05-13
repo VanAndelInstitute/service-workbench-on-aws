@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="shared-content">
+    <xs:annotation>
+      <xs:documentation>Root element for a shared content definition file.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType>
+      <xs:sequence minOccurs="1">
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="service"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="shared-text"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="shared-text" type="shared-content-type">
+    <xs:annotation>
+      <xs:documentation>Defines the definition of a single entity.</xs:documentation>
+    </xs:annotation>    
+  </xs:element>
+  
+  <xs:element name="shared">
+    <xs:annotation>
+      <xs:documentation>Reference to a service or entity definition. Only references to services and entity definitions in the same file are allowed.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType mixed="false">
+      <xs:attribute name="id" use="required" type="xs:IDREF">
+        <xs:annotation>
+          <xs:documentation>Specifies the identifier to a service or shared-text within the same file.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="service">
+    <xs:annotation>
+      <xs:documentation>Defines the definition of entities required for a service or product name.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="documentation" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="longname" minOccurs="1"/>
+        <xs:element ref="shortname" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the service identifier from the Region Information Provider (RIP) service. This service identifier will be used to generate the entities needed for the region and endpoint automation. If this is a new service that isn't in RIP yet, please create a unique name for now, but it will need to be updated later.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="shortname" type="shared-content-type">
+    <xs:annotation>
+      <xs:documentation>Specifies the short name of a product or service.</xs:documentation>
+    </xs:annotation>    
+  </xs:element>
+  
+  <xs:element name="longname" type="shared-content-type">    
+    <xs:annotation>
+      <xs:documentation>Specifies the long name of a product or service.</xs:documentation>
+    </xs:annotation>    
+  </xs:element>
+  
+  <xs:element name="regional">
+    <xs:annotation>
+      <xs:documentation>Contains the region specific name of a product or service.</xs:documentation>
+    </xs:annotation>   
+    
+    <xs:complexType>
+      <xs:choice maxOccurs="1">
+        <xs:element ref="noloc"/>
+        <xs:element ref="localize"/>
+      </xs:choice>   
+      <xs:attribute name="region" type="valid-region" use="required">
+        <xs:annotation>
+          <xs:documentation>Required. Specifies one or more regions where the associated shared content is valid.</xs:documentation>
+        </xs:annotation>   
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="universal">
+    <xs:annotation>
+      <xs:documentation>Contains the text that could be used in any region where conditional content is not supported (like the SDKs).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="1">
+        <xs:element ref="noloc"/>
+        <xs:element ref="localize"/>
+      </xs:choice>
+    </xs:complexType>    
+  </xs:element>
+  
+  
+  <xs:element name="noloc">
+    <xs:annotation>
+      <xs:documentation>Specifies text that should not be localized.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>    
+  </xs:element>
+  
+  <xs:element name="localize">
+    <xs:annotation>
+      <xs:documentation>Specifies text that should be localized. Can contain some text that should not be localized.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="noloc" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="documentation" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Contains a description or additional information about an entity definition.</xs:documentation>
+    </xs:annotation>   
+  </xs:element>
+  
+  <xs:complexType name="shared-content-type">
+    <xs:sequence>
+      <xs:element ref="documentation" minOccurs="0" maxOccurs="1"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" ref="regional"/>
+          <xs:element maxOccurs="1" minOccurs="1" ref="universal"/>
+        </xs:sequence>        
+        <xs:choice maxOccurs="1">
+          <xs:element ref="noloc"/>
+          <xs:element ref="localize"/>
+        </xs:choice>
+      </xs:choice>   
+    </xs:sequence>
+    <xs:attribute name="id" use="required" type="xs:ID">
+      <xs:annotation>
+        <xs:documentation>Specifies the identifier that will be used to reference this content. In the current builds, this will also be the entity name.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>    
+  </xs:complexType>
+  
+  <xs:simpleType name="valid-region">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="-?(SEA|IAD|BJS|DCA|LCK)(,-?(SEA|IAD|BJS|DCA|LCK))*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

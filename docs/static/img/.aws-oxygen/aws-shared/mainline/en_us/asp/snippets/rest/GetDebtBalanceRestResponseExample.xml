@@ -1,0 +1,17 @@
+<GetDebtBalanceResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <GetDebtBalanceResult>
+    <DebtBalance>
+      <AvailableBalance>
+        <CurrencyCode>USD</CurrencyCode>
+        <Value>5.000000</Value>
+      </AvailableBalance>
+      <PendingOutBalance>
+        <CurrencyCode>USD</CurrencyCode>
+        <Value>0.000000</Value>
+      </PendingOutBalance>
+    </DebtBalance>
+  </GetDebtBalanceResult>
+  <ResponseMetadata>
+    <RequestId>73f8efcd-0ea3-4015-b7da-5da1b1111b82:0</RequestId>
+  </ResponseMetadata>
+</GetDebtBalanceResponse>

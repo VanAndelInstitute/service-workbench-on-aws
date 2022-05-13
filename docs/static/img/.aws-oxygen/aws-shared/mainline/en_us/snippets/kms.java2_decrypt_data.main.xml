@@ -1,0 +1,18 @@
+<programlisting>
+    public static void decryptData(KmsClient kmsClient, SdkBytes encryptedData, String keyId) {
+
+    try {
+         DecryptRequest decryptRequest = DecryptRequest.builder()
+                 .ciphertextBlob(encryptedData)
+                 .keyId(keyId)
+                 .build();
+
+            DecryptResponse decryptResponse = kmsClient.decrypt(decryptRequest);
+            decryptResponse.plaintext();
+
+    } catch (KmsException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

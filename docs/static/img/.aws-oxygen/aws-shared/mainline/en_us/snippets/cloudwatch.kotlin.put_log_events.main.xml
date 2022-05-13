@@ -1,0 +1,30 @@
+<programlisting>
+suspend fun putCWLogEvents(logGroupNameVal: String, streamNameVal: String) {
+
+        lateinit var describeLogStreamsResponse: DescribeLogStreamsResponse
+        val request = DescribeLogStreamsRequest {
+            logGroupName = logGroupNameVal
+            logStreamNamePrefix = streamNameVal
+        }
+
+       CloudWatchLogsClient { region = "us-west-2" }.use { logsClient ->
+            describeLogStreamsResponse =   logsClient.describeLogStreams(request)
+            println("Successfully put the CloudWatch log event")
+
+           val sequenceTokenVal = describeLogStreamsResponse.logStreams?.get(0)?.uploadSequenceToken
+           val inputLogEvent = InputLogEvent {
+              message  = "{ \"key1\": \"value1\", \"key2\": \"value2\" }"
+              timestamp =  System.currentTimeMillis()
+           }
+
+           val request2 =  PutLogEventsRequest {
+                logEvents = listOf(inputLogEvent)
+                logGroupName = logGroupNameVal
+                logStreamName = streamNameVal
+                sequenceToken = sequenceTokenVal
+           }
+           logsClient.putLogEvents(request2)
+           println("Successfully put the CloudWatch log event")
+       }
+}
+</programlisting>

@@ -1,0 +1,23 @@
+$queueUrl = "QUEUE_URL";
+ 
+
+$client = new SqsClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2012-11-05'
+]);
+
+try {
+    $result = $client->setQueueAttributes(array(
+        'Attributes' => [
+            'ReceiveMessageWaitTimeSeconds' => 20
+        ],
+        'QueueUrl' => $queueUrl, // REQUIRED
+    ));
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 

@@ -1,0 +1,7 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudtrail.CloudTrailClient;
+import software.amazon.awssdk.services.cloudtrail.model.CloudTrailException;
+import software.amazon.awssdk.services.cloudtrail.model.DescribeTrailsRequest;
+import software.amazon.awssdk.services.cloudtrail.model.DescribeTrailsResponse;
+import software.amazon.awssdk.services.cloudtrail.model.Trail;
+import java.util.List;

@@ -1,0 +1,43 @@
+<programlisting>
+
+$queueUrl = "QUEUE_URL";
+ 
+$client = new SqsClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2012-11-05'
+]);
+
+try {
+    $result = $client->receiveMessage(array(
+        'AttributeNames' => ['SentTimestamp'],
+        'MaxNumberOfMessages' => 10,
+        'MessageAttributeNames' => ['All'],
+        'QueueUrl' => $queueUrl, // REQUIRED
+    ));
+    $messages = $result->get('Messages');
+    if ($messages != null) {
+        $entries = array();
+        for ($i = 0; $i < count($messages); $i++) {
+            array_push($entries, [
+                'Id' => 'unique_is_msg' . $i, // REQUIRED
+                'ReceiptHandle' => $messages[$i]['ReceiptHandle'], // REQUIRED
+                'VisibilityTimeout' => 3600
+            ]);
+        }
+        $result = $client->changeMessageVisibilityBatch([
+            'Entries' => $entries,
+            'QueueUrl' => $queueUrl
+        ]);
+
+        var_dump($result);
+    } else {
+        echo "No messages in queue \n";
+    }
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 
+</programlisting>

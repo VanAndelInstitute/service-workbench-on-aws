@@ -1,0 +1,3 @@
+<programlisting>
+    let resp = client.list_tables().limit(10).send().await?;
+</programlisting>

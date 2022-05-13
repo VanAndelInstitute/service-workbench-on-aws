@@ -1,0 +1,23 @@
+    public static void removeTag(SqsClient sqsClient, String queueName, String tagName) {
+
+        try {
+            GetQueueUrlRequest urlRequest =  GetQueueUrlRequest.builder()
+                    .queueName(queueName)
+                    .build();
+
+            GetQueueUrlResponse getQueueUrlResponse = sqsClient.getQueueUrl(urlRequest);
+            String queueUrl = getQueueUrlResponse.queueUrl();
+
+            UntagQueueRequest untagQueueRequest = UntagQueueRequest.builder()
+                    .queueUrl(queueUrl)
+                    .tagKeys(tagName)
+                    .build();
+
+            sqsClient.untagQueue(untagQueueRequest);
+            System.out.println("The "+tagName +" tag was removed from  "+queueName);
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

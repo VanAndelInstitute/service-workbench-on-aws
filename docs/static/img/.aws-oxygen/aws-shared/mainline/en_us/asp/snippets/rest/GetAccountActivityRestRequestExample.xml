@@ -1,0 +1,9 @@
+https://fps.sandbox.amazonaws.com?
+Action=GetAccountActivity
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Signature=Bs3etBhuZ2Huf8gxLO0EaG4evxq%2BjzT2Bjg6YMAF3RE%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2&Version=2008-09-17
+&StartDate=2009-10-07Z
+&Timestamp=2009-10-07T11%3A14%3A56.406Z
+&Version=2008-09-17

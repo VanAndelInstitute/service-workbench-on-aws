@@ -1,0 +1,19 @@
+<programlisting>
+	// Get a presigned URL for the object.
+	// In order to get a presigned URL for an object, you must
+	// create a Presignclient
+	fmt.Println("Create Presign client")
+	presignClient := s3.NewPresignClient(&client)
+
+	presignResult, err := presignClient.PresignGetObject(context.TODO(), &s3.GetObjectInput{
+		Bucket: aws.String(name),
+		Key:    aws.String("path/myfile.jpg"),
+	})
+
+	if err != nil {
+		panic("Couldn't get presigned URL for GetObject")
+	}
+
+	fmt.Printf("Presigned URL For object: %s\n", presignResult.URL)
+
+</programlisting>

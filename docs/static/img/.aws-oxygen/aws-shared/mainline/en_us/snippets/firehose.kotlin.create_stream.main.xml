@@ -1,0 +1,20 @@
+<programlisting>
+suspend fun createStream(bucketARNVal: String?, roleARNVal: String?, streamName: String?) {
+
+        val destinationConfiguration = ExtendedS3DestinationConfiguration {
+            bucketArn = bucketARNVal
+            roleArn = roleARNVal
+        }
+
+       val request = CreateDeliveryStreamRequest {
+           deliveryStreamName = streamName
+           extendedS3DestinationConfiguration = destinationConfiguration
+           deliveryStreamType = DeliveryStreamType.DirectPut
+       }
+
+       FirehoseClient { region = "us-west-2" }.use { firehoseClient ->
+        val streamResponse = firehoseClient.createDeliveryStream(request)
+        println("Delivery Stream ARN is ${streamResponse.deliveryStreamArn}")
+       }
+}
+</programlisting>

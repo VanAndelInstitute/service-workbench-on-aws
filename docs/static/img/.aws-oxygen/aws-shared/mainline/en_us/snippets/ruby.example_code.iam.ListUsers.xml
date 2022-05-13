@@ -1,0 +1,14 @@
+<programlisting>
+  # Lists up to a specified number of users in the account.
+  #
+  # @param count [Integer] The maximum number of users to list.
+  def list_users(count)
+    @iam_resource.users.limit(count).each do |user|
+      puts("\t#{user.name}")
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't list users for the account. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end
+</programlisting>

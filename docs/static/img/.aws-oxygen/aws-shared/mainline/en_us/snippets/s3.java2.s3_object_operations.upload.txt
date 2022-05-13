@@ -1,0 +1,13 @@
+        Region region = Region.US_WEST_2;
+        s3 = S3Client.builder()
+                .region(region)
+                .build();
+
+        createBucket(s3, bucketName, region);
+
+        PutObjectRequest objectRequest = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        s3.putObject(objectRequest, RequestBody.fromByteBuffer(getRandomByteBuffer(10_000)));

@@ -1,0 +1,7 @@
+import aws.sdk.kotlin.services.rekognition.RekognitionClient
+import aws.sdk.kotlin.services.rekognition.model.IndexFacesRequest
+import aws.sdk.kotlin.services.rekognition.model.Image
+import aws.sdk.kotlin.services.rekognition.model.Attribute
+import aws.sdk.kotlin.services.rekognition.model.QualityFilter
+import java.io.File
+import kotlin.system.exitProcess

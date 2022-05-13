@@ -1,0 +1,17 @@
+    def describe(self, name):
+        """
+        Gets metadata about a stream.
+
+        :param name: The name of the stream.
+        :return: Metadata about the stream.
+        """
+        try:
+            response = self.kinesis_client.describe_stream(StreamName=name)
+            self.name = name
+            self.details = response['StreamDescription']
+            logger.info("Got stream %s.", name)
+        except ClientError:
+            logger.exception("Couldn't get %s.", name)
+            raise
+        else:
+            return self.details

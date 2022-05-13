@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sns.SnsClient;
+import software.amazon.awssdk.services.sns.model.GetSubscriptionAttributesRequest;
+import software.amazon.awssdk.services.sns.model.GetSubscriptionAttributesResponse;
+import software.amazon.awssdk.services.sns.model.SnsException;
+import java.util.Iterator;
+import java.util.Map;
+</programlisting>

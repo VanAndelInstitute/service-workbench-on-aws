@@ -1,0 +1,18 @@
+<GetTotalPrepaidLiabilityResponse 
+  xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <GetTotalPrepaidLiabilityResult>
+    <OutstandingPrepaidLiability>
+      <OutstandingBalance>
+        <CurrencyCode>USD</CurrencyCode>
+        <Value>2.000000</Value>
+      </OutstandingBalance>
+      <PendingInBalance>
+        <CurrencyCode>USD</CurrencyCode>
+        <Value>0.000000</Value>
+      </PendingInBalance>
+    </OutstandingPrepaidLiability>
+  </GetTotalPrepaidLiabilityResult>
+  <ResponseMetadata>
+    <RequestId>ac7b28ea-c340-4638-be46-d4a8fa54a801:0</RequestId>
+  </ResponseMetadata>
+</GetTotalPrepaidLiabilityResponse>

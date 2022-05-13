@@ -1,0 +1,10 @@
+    public static void monitorInstance( Ec2Client ec2, String instanceId) {
+
+        MonitorInstancesRequest request = MonitorInstancesRequest.builder()
+                .instanceIds(instanceId).build();
+
+        ec2.monitorInstances(request);
+        System.out.printf(
+                "Successfully enabled monitoring for instance %s",
+                instanceId);
+    }

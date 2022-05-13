@@ -1,0 +1,22 @@
+<programlisting>
+        public static void CallbackWithState(IAsyncResult asyncResult)
+        {
+            try
+            {
+                ClientState state = asyncResult.AsyncState as ClientState;
+                AmazonS3Client s3Client = (AmazonS3Client)state.Client;
+                PutObjectResponse response = state.Client.EndPutObject(asyncResult);
+                Console.WriteLine("Finished PutObject operation with state callback that started at {0}",
+                    state.Start.ToString());
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine("Service Response:");
+                Console.WriteLine("-----------------");
+                Console.WriteLine("Request ID: {0}\n\n", response.ResponseMetadata.RequestId);
+            }
+            catch (AmazonS3Exception s3Exception)
+            {
+                Console.WriteLine("Caught exception calling EndPutObject:");
+                Console.WriteLine(s3Exception);
+            }
+        }
+</programlisting>

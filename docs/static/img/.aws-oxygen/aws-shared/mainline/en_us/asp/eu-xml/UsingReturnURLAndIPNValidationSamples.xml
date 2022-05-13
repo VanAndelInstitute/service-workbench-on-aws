@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="UsingReturnURLAndIPNValidationSamples" role="topic">
+   <title id="UsingReturnURLAndIPNValidationSamples.title">Understanding the
+      IPNAndReturnURLValidation Sample</title>
+   <para>Amazon provides samples in four programming languages which show you how to perform a
+      server-side verification of the signatures in both the return URL and in IPN notifications. In
+      this section, we will briefly go over the essential details of the <phrase condition="asp"
+         >standard button,</phrase> Java version only. The other samples differ only in the
+      programming language used for rendering them. For specific comprehensive information on a
+      particular sample, see its <filename condition="asp"
+         >IPNAndReturnURLValidation/README.html</filename><filename condition="fps"
+         >IPNAndReturnURLValidation.html</filename> file. </para>
+   <para condition="asp">When you download a sample file, such as <filename
+         >ASPStandard-JAVA-2.0</filename>, it contains three separate samples. This section
+      describes the sample contained in the <code>IPNAndReturnURLValidation</code> folder, which is
+      used for server-side signature verification.</para>
+   <para condition="asp">This section describes the <code>IPNAndReturnURLValidation</code> sample,
+      which is used for server-side signature verification.</para>
+   <para>Each IPNAndReturnURLValidation sample contains three primary components in the <filename
+         condition="asp">ASPStandard-JAVA-2.0/IPNAndReturnURLValidation/src</filename><filename
+         condition="fps">src/com/amazonaws/ipnreturnurlvalidation</filename> folder. These
+      are:</para>
+   <informaltable>
+      <?dbhtml table-width="100%" ?>
+      <?dbfo table-width="95%" ?>
+      <tgroup cols="2">
+         <colspec colname="col1" colnum="1"/>
+         <colspec colname="col2" colnum="2"/>
+         <thead>
+            <row>
+               <entry>
+                  <para>File</para>
+               </entry>
+               <entry>
+                  <para>Description</para>
+               </entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <para><filename>ReturnUrlVerificationSampleCode.java</filename></para>
+               </entry>
+               <entry>
+                  <para>This class contains the program entry point for verifying the signature
+                     contained in a return URL, and thereby validating the return URL content. It
+                     sets up initial parameter values for <phrase condition="asp">standard button
+                     </phrase>return URL responses, and then calls the static method
+                        <code>SignatureUtilsForOutbound&nbsp;.validateRequest</code> with those
+                     values.</para>
+               </entry>
+            </row>
+            <row>
+               <entry><filename>IPNVerificationSampleCode.java</filename></entry>
+               <entry>This class contains the program entry point for verifying the signature
+                  contained in an IPN notification. It sets up initial parameter values for <phrase
+                     condition="asp">standard button </phrase> IPN notifications, and then calls the
+                  static method <code>SignatureUtilsForOutbound&nbsp;.validateRequest</code> with
+                  those values. </entry>
+            </row>
+            <row>
+               <entry><filename>SignatureUtilsForOutbound.java</filename></entry>
+               <entry>Invoked from <filename>ReturnUrlVerificationSampleCode.java</filename> and
+                     <filename>IPNVerificationSampleCode.java</filename>, this class uses the
+                  signature version 2 process to validate the signature. It contains methods to
+                  reassemble the string to sign, URL encode the string, and sign it using the Amazon
+                  certificate listed as the signer. Finally, it validates the signature and prints
+                  the result to standard out.</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+       <note condition="fps">
+         <para>This following describes the Java sample only. The files for the C#, Perl, and PHP
+            IPN and ReturnUrl Validation samples are listed in <link
+               linkend="other-ipnreturnurl-sample-file-locations"
+               endterm="other-ipnreturnurl-sample-file-locations.title"/>
+         </para>
+      </note>  
+   <para>In addition to these primary components, a sample may include other required resources. For
+      example, the Java samples all include the <phrase condition="asp"><filename
+            >lib/commons-codec-1.3.jar</filename> file,</phrase><phrase condition="fps"><filename
+            >third-party</filename> folder, the jar files of</phrase> which must be in your
+      classpath in order to compile the sample.</para>
+   <para>To use the sample, do the following</para>
+   <table frame="all">
+      <title>Using the <phrase condition="asp">Standard Button </phrase>IPNAndReturnURLValidation
+         Sample</title>
+      <tgroup cols="2">
+         <?dbhtml table-width="100%" ?>
+         <?dbfo table-width="95%" ?>
+         <colspec colname="c1" colnum="1" colwidth="0.55*"/>
+         <colspec colname="c2" colnum="2" colwidth="8.45*"/>
+         <tbody>
+            <row condition="asp">
+               <entry>1</entry>
+               <entry>
+                  <para>Set up your programming environment so that the program will compile without
+                     warnings or errors. For the Java sample, this includes ensuring that the
+                        <filename>ASPStandard-JAVA-2.0/IPNAndReturnURLValidation/src</filename>
+                     folder and the <filename>lib/commons-codec-1.3.jar</filename> files are
+                     available to the compiler, either by including them as command line parameters,
+                     or, if you build using an IDE, by including them as project resources.</para>
+               </entry>
+            </row>
+            <row condition="fps">
+               <entry>1</entry>
+               <entry>
+                  <para>Set up your programming environment so that the program will compile without
+                     warnings or errors. For the Java sample, this includes ensuring that the
+                        <filename condition="fps"
+                        >src/com/amazonaws/ipnreturnurlvalidation</filename> folder and the files
+                     are available to the compiler, either by including them as command line
+                     parameters, or, if you build using an IDE, by including them as project
+                     resources.</para>
+               </entry>
+            </row>
+            <row>
+               <entry>2</entry>
+               <entry>
+                  <para>The <filename>ReturnUrlVerificationSampleCode</filename> and <filename
+                        >IPNVerificationSampleCode</filename> classes use a <code>HashMap</code> to
+                     store parameters which correspond to the fields returned during a return URL
+                     response or an IPN notification. Modify these values to suit the response you
+                     want to validate. These are the only values you need to change using this
+                     sample.</para>
+               </entry>
+            </row>
+            <row condition="asp">
+               <entry>3</entry>
+               <entry><para>Compile the sample. For example, if you are including the <filename
+                           ><replaceable>[package-root]</replaceable>
+                        lib/commons-codec/jars/commons-codec-1.3.jar</filename> using the linux
+                     command line, you would type </para><code>$javac -cp
+                        .:<replaceable>[package-root]</replaceable> /lib/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode.java
+                     SignatureUtilsForOutbound.java</code><para>On Windows, you would
+                     type</para><code>$javac -cp
+                     .;<replaceable>[package-root]</replaceable>lib/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode.java
+                  SignatureUtilsForOutbound.java</code></entry>
+            </row>
+            <row condition="fps">
+               <entry>3</entry>
+               <entry><para>Compile the sample. For example, if you are including the <filename
+                           ><replaceable>[package-root]</replaceable>
+                        src/third-party/commons-codec-1.3/commons-codec-1.3.jar</filename> using the
+                     linux command line, you would type </para><code>$javac -cp
+                        .:<replaceable>[package-root]</replaceable>
+                     src/third-party/commons-codec-1.3/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode.java
+                     SignatureUtilsForOutbound.java</code><para>On Windows, you would
+                     type</para><code>$javac -cp .;<replaceable>[package-root]</replaceable>
+                     src/third-party/commons-codec-1.3/commons-codec-1.3.jar 
+                     ReturnUrlVerificationSampleCode.java 
+                     SignatureUtilsForOutbound.java</code></entry>
+            </row>
+            <row condition="asp">
+               <entry>4</entry>
+               <entry><para>Run the sample. Continuing the previous example, on linux, you would
+                     type </para><code>$javac -cp .:<replaceable>[package-root]</replaceable>
+                     lib/commons-codec-1.3.jar ReturnUrlVerificationSampleCode</code><para>On
+                     Windows, you would type</para><code>$javac -cp
+                        .;<replaceable>[package-root]</replaceable> lib/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode</code>
+                  <para>The result "<emphasis role="bold">Is signature correct: true</emphasis>" is
+                     printed to standard out if the verification determines the signature to be
+                     valid.</para></entry>
+            </row>
+            <row condition="fps">
+               <entry>4</entry>
+               <entry><para>Run the sample. Continuing the previous example, on linux, you would
+                     type </para><code>$javac -cp .:<replaceable>[package-root]</replaceable>
+                     src/third-party/commons-codec-1.3/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode</code><para>On Windows, you would
+                     type</para><code>$javac -cp .;<replaceable>[package-root]</replaceable>
+                     src/third-party/commons-codec-1.3/commons-codec-1.3.jar
+                     ReturnUrlVerificationSampleCode</code>
+                  <para>The result "<emphasis role="bold">Is signature correct: true</emphasis>" is
+                     printed to standard out if the verification determines the signature to be
+                     valid.</para></entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+   <section id="other-ipnreturnurl-sample-file-locations" condition="fps" role="topic">
+      <title id="other-ipnreturnurl-sample-file-locations.title">Locations of the
+         IPNAndReturnURLValidation Files in Other SDKs</title>
+      <para>The development libraries for C#, Perl, and PHP also enable you to test Return URL and
+         IPN notifications. The following tables indicate the locations of the files referenced in
+            <link linkend="UsingReturnURLAndIPNValidationSamples"
+            endterm="UsingReturnURLAndIPNValidationSamples.title"/>.</para>
+      <table>
+         <title>C# File Locations for the Amazon.IpnReturnUrlValidationSample Library</title>
+         <?dbhtml table-width="100%" ?>
+         <?dbfo table-width="95%" ?>
+         <tgroup cols="2">
+            <colspec colname="col1" colnum="1"/>
+            <colspec colname="col2" colnum="2"/>
+            <thead>
+               <row>
+                  <entry>
+                     <para>File</para>
+                  </entry>
+                  <entry>
+                     <para>Location</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para><filename>ReturnUrlVerificationSampleCode.cs</filename></para>
+                  </entry>
+                  <entry>
+                     <para><filename><replaceable>[package root]</replaceable> src\
+                           Amazon.IpnReturnUrlValidation\</filename>.</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry><filename>IPNVerificationSampleCode.cs</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src\Amazon.IpnReturnUrlValidationSamples.
+                        IpnReturnUrlValidationSamples\</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>SignatureUtilsForOutbound.cs</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src\Amazon.IpnReturnUrlValidationSamples.
+                        IpnReturnUrlValidationSamples\</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>IpnAndReturnUrlValidation.html (readme for this
+                        sample)</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src\Amazon.IpnReturnUrlValidationSamples.
+                        IpnReturnUrlValidationSamples\</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>IpnReturnUrlValidation.Samples.csproj (Visual Studio.NET project
+                        for this sample)</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src\Amazon.IpnReturnUrlValidation\</filename></entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <table>
+         <title>Perl File Locations for the IpnReturnUrlValidation Library</title>
+         <?dbhtml table-width="100%" ?>
+         <?dbfo table-width="95%" ?>
+         <tgroup cols="2">
+            <colspec colname="col1" colnum="1"/>
+            <colspec colname="col2" colnum="2"/>
+            <thead>
+               <row>
+                  <entry>
+                     <para>Class</para>
+                  </entry>
+                  <entry>
+                     <para>Location</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para><filename>ReturnUrlVerificationSampleCode.pl</filename></para>
+                  </entry>
+                  <entry>
+                     <para><filename><replaceable>[package root]</replaceable> src/Amazon/
+                           IpnReturnUrlValidation/Samples</filename>.</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry><filename>IPNVerificationSampleCode.pl</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable> src/Amazon/
+                        IpnReturnUrlValidation/Samples</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>SignatureUtilsForOutbound.pm</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable> src/Amazon/
+                        IpnReturnUrlValidation</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>IpnAndReturnUrlValidation.html (readme for this
+                        sample)</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable> src</filename></entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <table>
+         <title>PHP File Locations for the IpnReturnUrlValidation Library</title>
+         <?dbhtml table-width="100%" ?>
+         <?dbfo table-width="95%" ?>
+         <tgroup cols="2">
+            <colspec colname="col1" colnum="1"/>
+            <colspec colname="col2" colnum="2"/>
+            <thead>
+               <row>
+                  <entry>
+                     <para>Class</para>
+                  </entry>
+                  <entry>
+                     <para>Location</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para><filename>ReturnUrlVerificationSampleCode.php</filename></para>
+                  </entry>
+                  <entry>
+                     <para><filename><replaceable>[package root]</replaceable>
+                           src/Amazon/IpnReturnUrlValidation/Samples</filename>.</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry><filename>IPNVerificationSampleCode.php</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src/Amazon/IpnReturnUrlValidation/Samples</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>SignatureUtilsForOutbound.php</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable>
+                        src/Amazon/IpnReturnUrlValidation</filename></entry>
+               </row>
+               <row>
+                  <entry><filename>IpnAndReturnUrlValidation.html (README for this
+                        sample)</filename></entry>
+                  <entry><filename><replaceable>[package root]</replaceable> src</filename></entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </section>
+</section>

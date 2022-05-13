@@ -1,0 +1,7 @@
+    instanceID := flag.String("i", "", "The ID of the instance")
+    flag.Parse()
+
+    if *instanceID == "" {
+        fmt.Println("You must supply the ID of an instance")
+        return
+    }

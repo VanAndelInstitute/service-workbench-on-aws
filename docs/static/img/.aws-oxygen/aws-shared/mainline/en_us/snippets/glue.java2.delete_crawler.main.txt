@@ -1,0 +1,15 @@
+    public static void deleteSpecificCrawler(GlueClient glueClient, String crawlerName) {
+
+        try {
+            DeleteCrawlerRequest deleteCrawlerRequest = DeleteCrawlerRequest.builder()
+                    .name(crawlerName)
+                    .build();
+
+            glueClient.deleteCrawler(deleteCrawlerRequest);
+            System.out.println(crawlerName +" was deleted");
+
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

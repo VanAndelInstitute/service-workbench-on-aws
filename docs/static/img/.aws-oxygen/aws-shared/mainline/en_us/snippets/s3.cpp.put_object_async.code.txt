@@ -1,0 +1,40 @@
+bool AwsDoc::S3::PutObjectAsync(const Aws::S3::S3Client& s3Client,
+    const Aws::String& bucketName,
+    const Aws::String& objectName,
+    const Aws::String& region)
+{
+    // Verify that the file exists.
+    struct stat buffer;
+
+    if (stat(objectName.c_str(), &buffer) == -1)
+    {
+        std::cout << "Error: PutObjectAsync: File '" <<
+            objectName << "' does not exist." << std::endl;
+
+        return false;
+    }
+
+    // Create and configure the asynchronous put object request.
+    Aws::S3::Model::PutObjectRequest request;
+    request.SetBucket(bucketName);
+    request.SetKey(objectName);
+
+    const std::shared_ptr<Aws::IOStream> input_data =
+        Aws::MakeShared<Aws::FStream>("SampleAllocationTag",
+            objectName.c_str(),
+            std::ios_base::in | std::ios_base::binary);
+
+    request.SetBody(input_data);
+
+    // Create and configure the context for the asynchronous put object request.
+    std::shared_ptr<Aws::Client::AsyncCallerContext> context =
+        Aws::MakeShared<Aws::Client::AsyncCallerContext>("PutObjectAllocationTag");
+    context->SetUUID(objectName);
+
+    // Make the asynchronous put object call. Queue the request into a 
+    // thread executor and call the PutObjectAsyncFinished function when the 
+    // operation has finished. 
+    s3Client.PutObjectAsync(request, PutObjectAsyncFinished, context);
+
+    return true;
+}

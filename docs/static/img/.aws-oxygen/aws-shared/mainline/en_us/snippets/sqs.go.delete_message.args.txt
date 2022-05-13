@@ -1,0 +1,8 @@
+    queue := flag.String("q", "", "The name of the queue")
+    messageHandle := flag.String("m", "", "The receipt handle of the message")
+    flag.Parse()
+
+    if *queue == "" || *messageHandle == "" {
+        fmt.Println("You must supply a queue name (-q QUEUE) and message receipt handle (-m MESSAGE-HANDLE)")
+        return
+    }

@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteGivenSolution(PersonalizeClient personalizeClient, String solutionArn ) {
+
+    try {
+
+        DeleteSolutionRequest solutionRequest = DeleteSolutionRequest.builder()
+                .solutionArn(solutionArn)
+                .build();
+
+        personalizeClient.deleteSolution(solutionRequest);
+        System.out.println("Done");
+
+    } catch (PersonalizeException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

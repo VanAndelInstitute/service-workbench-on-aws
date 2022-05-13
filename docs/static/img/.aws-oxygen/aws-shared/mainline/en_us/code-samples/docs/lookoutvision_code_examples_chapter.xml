@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &LYRA; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &LYRA; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &LYRA; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &LYRA; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &LYRA; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &LYRA;
+            actions with &AWS; SDKs. These excerpts call the &LYRA; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&LYRA; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_lookoutvision_CreateDataset_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_CreateDataset_section.title">Create a &LYRA; dataset using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_CreateDataset_section.titleabbrev">Create a dataset</titleabbrev>
+                <abstract>
+                    <para>Create a &LYRA; dataset using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateDataset_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/model-create-dataset.html">Creating your dataset</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateDataset_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_CreateModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_CreateModel_section.title">Create a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_CreateModel_section.titleabbrev">Create a model</titleabbrev>
+                <abstract>
+                    <para>Create a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/model-train.html">Training your model</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_CreateProject_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_CreateProject_section.title">Create a &LYRA; project using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_CreateProject_section.titleabbrev">Create a project</titleabbrev>
+                <abstract>
+                    <para>Create a &LYRA; project using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateProject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/model-create-project.html">Creating your project</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_CreateProject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DeleteDataset_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DeleteDataset_section.title">Delete a &LYRA; dataset using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DeleteDataset_section.titleabbrev">Delete a dataset</titleabbrev>
+                <abstract>
+                    <para>Delete a &LYRA; dataset using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteDataset_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/delete-dataset.html">Deleting a dataset</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteDataset_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DeleteModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DeleteModel_section.title">Delete a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DeleteModel_section.titleabbrev">Delete a model</titleabbrev>
+                <abstract>
+                    <para>Delete a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/delete-model.html">Deleting a model</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DeleteProject_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DeleteProject_section.title">Delete a &LYRA; project using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DeleteProject_section.titleabbrev">Delete a project</titleabbrev>
+                <abstract>
+                    <para>Delete a &LYRA; project using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteProject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/delete-project.html">Deleting a project</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DeleteProject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DescribeDataset_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DescribeDataset_section.title">Describe a &LYRA; dataset using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DescribeDataset_section.titleabbrev">Describe a dataset</titleabbrev>
+                <abstract>
+                    <para>Describe a &LYRA; dataset using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DescribeDataset_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/view-datasets.html">Viewing your dataset</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DescribeDataset_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DescribeModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DescribeModel_section.title">Describe a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DescribeModel_section.titleabbrev">Describe a model</titleabbrev>
+                <abstract>
+                    <para>Describe a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DescribeModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/view-models.html">Viewing your models</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DescribeModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_DetectAnomalies_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_DetectAnomalies_section.title">Detect anomalies in an image with a trained &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_DetectAnomalies_section.titleabbrev">Detect anomalies in an image with a trained model</titleabbrev>
+                <abstract>
+                    <para>Detect anomalies in an image with a trained &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DetectAnomalies_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/inference-detect-anomalies.html">Detecting anomalies in an image</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_DetectAnomalies_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_ListModels_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_ListModels_section.title">List &LYRA; models using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_ListModels_section.titleabbrev">List models</titleabbrev>
+                <abstract>
+                    <para>List &LYRA; models using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_ListModels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/view-models.html">Viewing your models</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_ListModels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_ListProjects_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_ListProjects_section.title">List &LYRA; projects using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_ListProjects_section.titleabbrev">List projects</titleabbrev>
+                <abstract>
+                    <para>List &LYRA; projects using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_ListProjects_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/view-projects.html">Viewing your projects</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_ListProjects_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_StartModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_StartModel_section.title">Start a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_StartModel_section.titleabbrev">Start a model</titleabbrev>
+                <abstract>
+                    <para>Start a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_StartModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/run-start-model.html">Starting your model</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_StartModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_StopModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_StopModel_section.title">Stop a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_StopModel_section.titleabbrev">Stop a model</titleabbrev>
+                <abstract>
+                    <para>Stop a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_StopModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/run-stop-model.html">Stopping your model</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_StopModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &LYRA; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &LYRA; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &LYRA;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &LYRA;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_lookoutvision_Scenario_CreateManifestFile_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_Scenario_CreateManifestFile_section.title">Create a &LYRA; manifest file using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_Scenario_CreateManifestFile_section.titleabbrev">Create a manifest file</titleabbrev>
+                <abstract>
+                    <para>Create a &LYRA; manifest file using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_CreateManifestFile_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/manifest-files.html">Creating a manifest file</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_CreateManifestFile_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_Scenario_CreateTrainStartModel_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_Scenario_CreateTrainStartModel_section.title">Create, train, and start a &LYRA; model using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_Scenario_CreateTrainStartModel_section.titleabbrev">Create, train, and start a model</titleabbrev>
+                <abstract>
+                    <para>Create, train, and start a &LYRA; model using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_CreateTrainStartModel_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_CreateTrainStartModel_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_Scenario_FindTagInProjects_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_Scenario_FindTagInProjects_section.title">Find a &LYRA; project with a specific tag using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_Scenario_FindTagInProjects_section.titleabbrev">Find a project with a specific tag</titleabbrev>
+                <abstract>
+                    <para>Find a &LYRA; project with a specific tag using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_FindTagInProjects_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="lookout-for-vision/latest/developer-guide/tagging-model.html">Tagging models</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_FindTagInProjects_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_lookoutvision_Scenario_ListHostedModels_section" role="topic">
+            <info>
+                <title id="example_lookoutvision_Scenario_ListHostedModels_section.title">List &LYRA; models that are currently hosted using an &AWS; SDK</title>
+                <titleabbrev id="example_lookoutvision_Scenario_ListHostedModels_section.titleabbrev">List models that are currently hosted</titleabbrev>
+                <abstract>
+                    <para>List &LYRA; models that are currently hosted using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_ListHostedModels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/lookoutvision_Scenario_ListHostedModels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

@@ -1,0 +1,46 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.IdentityManagement;
+    using Amazon.IdentityManagement.Model;
+
+    public class CreatePolicy
+    {
+        /// <summary>
+        /// Initializes an IAM Client object and then calls CreatePolicyAsync
+        /// to create the policy.
+        /// </summary>
+        public static async Task Main()
+        {
+            // Represents JSON code for AWS managed full access policy for
+            // Amazon Simple Storage Service (Amazon S3).
+            string s3FullAccessPolicy = "{" +
+                "	\"Statement\" : [{" +
+                    "	\"Action\" : [\"s3:*\"]," +
+                    "	\"Effect\" : \"Allow\"," +
+                    "	\"Resource\" : \"*\"" +
+                "}]" +
+            "}";
+
+            string policyName = "S3FullAccess";
+
+            var client = new AmazonIdentityManagementServiceClient();
+            var response = await client.CreatePolicyAsync(new CreatePolicyRequest
+            {
+                PolicyDocument = s3FullAccessPolicy,
+                PolicyName = policyName,
+            });
+
+            if (response is not null)
+            {
+                var policy = response.Policy;
+                Console.WriteLine($"{policy.PolicyName} created with ID: {policy.PolicyId}.");
+            }
+            else
+            {
+                Console.WriteLine("Coultn't create policy.");
+            }
+        }
+    }
+
+</programlisting>

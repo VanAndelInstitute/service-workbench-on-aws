@@ -1,0 +1,19 @@
+<programlisting>
+    public static void listNamedQueries(AthenaClient athenaClient) {
+
+       try{
+            ListNamedQueriesRequest listNamedQueriesRequest = ListNamedQueriesRequest.builder()
+                    .build();
+
+            ListNamedQueriesIterable listNamedQueriesResponses = athenaClient.listNamedQueriesPaginator(listNamedQueriesRequest);
+            for (ListNamedQueriesResponse listNamedQueriesResponse : listNamedQueriesResponses) {
+                List<String> namedQueryIds = listNamedQueriesResponse.namedQueryIds();
+                System.out.println(namedQueryIds);
+            }
+
+       } catch (AthenaException e) {
+           e.printStackTrace();
+           System.exit(1);
+       }
+    }
+</programlisting>

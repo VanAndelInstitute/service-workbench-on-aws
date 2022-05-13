@@ -1,0 +1,27 @@
+<programlisting>
+suspend fun createCFStack(
+    stackNameVal: String,
+    roleARNVal: String?,
+    location: String?,
+    key: String?,
+    value: String?
+) {
+       val myParameter = Parameter {
+            parameterKey = key
+            parameterValue = value
+        }
+
+       val request = CreateStackRequest {
+           stackName = stackNameVal
+           templateUrl = location
+           roleArn = roleARNVal
+           onFailure = OnFailure.Rollback
+           parameters = listOf(myParameter)
+       }
+
+        CloudFormationClient { region = "us-east-1" }.use { cfClient ->
+            cfClient.createStack(request)
+            println("$stackNameVal was created")
+    }
+ }
+</programlisting>

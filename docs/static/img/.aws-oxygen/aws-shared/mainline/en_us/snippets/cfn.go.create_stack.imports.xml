@@ -1,0 +1,11 @@
+<programlisting>
+import (
+    "flag"
+    "fmt"
+    "io/ioutil"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/cloudformation"
+    "github.com/aws/aws-sdk-go/service/cloudformation/cloudformationiface"
+)
+</programlisting>

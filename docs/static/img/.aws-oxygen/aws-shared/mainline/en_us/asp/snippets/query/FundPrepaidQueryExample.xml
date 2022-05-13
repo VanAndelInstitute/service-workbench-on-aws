@@ -1,0 +1,15 @@
+GET\n
+fps.payments.amazon.com\n
+Action=FundPrepaid
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=MyWish
+&CallerReference=CallerReference10
+&FundingAmount.CurrencyCode=USD
+&FundingAmount.Value=1
+&PrepaidInstrumentId=573IEMDCGRZHJ4P1D7BC3GMNBFPQU1VLNT7R4CT7A7DJIX96LKZNKSXUGPIGTTI8
+&SenderTokenId=563INMLCG3ZJJ4L1I7BB31MN2FBQUCVXNTDRTCT5A2DJDXG6LNZ7KSNUJPI7TVIF
+&Signature=2a%2BpPIcPmNSQE7kUtd1S0WsTjx5vPyzPlw%2B95teoQyQ%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T08%3A37%3A54.765Z
+&Version=2008-09-17

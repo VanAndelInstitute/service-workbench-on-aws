@@ -1,0 +1,21 @@
+POST /mps/v1/payauth HTTP/1.1
+User-Agent: sampleapp/1.0.1
+Content-Type: application/x-www-form-urlencoded
+X-Amz-DvcID: 352099001761481
+X-Amz-DvcMfr: Nokia
+Authorization: Basic dGVzdHVzZXJAYW1hem9uLmNvbTpwYXNzd29yZA==
+
+TransactionAmount.Value=2.99&
+TransactionAmount.CurrencyCode=USD&
+CallerReference=1255130322955&
+ReturnURL=http%3A%2F%2Fwww.shoddytech.com&
+PaymentReason=testing&
+PaymentMethods=CC&
+TokenType=SingleUse&
+Timestamp=2009-10-22T23%3A18%3A42Z&
+Reserve=false&
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&
+RecipientToken=&
+SignatureVersion=2&
+SignatureMethod=HmacSHA256&
+Signature=V%2BtCCKSjCAGlUw09YLRQQGPnIPBYo4A%2BWeJu%2FI%2FhB%2F8%3D

@@ -1,0 +1,21 @@
+<programlisting>
+
+        /// <summary>
+        /// Shows how to delete an Amazon S3 bucket.
+        /// </summary>
+        /// <param name="client">An initialized Amazon S3 client object.</param>
+        /// <param name="bucketName">The name of the Amazon S3 bucket to delete.</param>
+        /// <returns>A boolean value that represents the success or failure of
+        /// the delete operation.</returns>
+        public static async Task<bool> DeleteBucketAsync(IAmazonS3 client, string bucketName)
+        {
+            var request = new DeleteBucketRequest
+            {
+                BucketName = bucketName,
+            };
+
+            var response = await client.DeleteBucketAsync(request);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+</programlisting>

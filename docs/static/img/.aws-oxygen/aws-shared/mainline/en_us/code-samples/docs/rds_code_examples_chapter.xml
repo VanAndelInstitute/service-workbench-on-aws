@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &RDS; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &RDS; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &RDS; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &RDS; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &RDS; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &RDS;
+            actions with &AWS; SDKs. These excerpts call the &RDS; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&RDS; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_rds_CreateDBInstance_section" role="topic">
+            <info>
+                <title id="example_rds_CreateDBInstance_section.title">Create an &RDS; instance using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_CreateDBInstance_section.titleabbrev">Create an instance</titleabbrev>
+                <abstract>
+                    <para>Create an &RDS; instance using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_CreateDBInstance_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_CreateDBInstance_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rds_DeleteDBInstance_section" role="topic">
+            <info>
+                <title id="example_rds_DeleteDBInstance_section.title">Delete an &RDS; instance using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_DeleteDBInstance_section.titleabbrev">Delete an instance</titleabbrev>
+                <abstract>
+                    <para>Delete an &RDS; instance using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DeleteDBInstance_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DeleteDBInstance_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rds_DescribeDBInstances_section" role="topic">
+            <info>
+                <title id="example_rds_DescribeDBInstances_section.title">Describe an &RDS; instance using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_DescribeDBInstances_section.titleabbrev">Describe an instance</titleabbrev>
+                <abstract>
+                    <para>Describe an &RDS; instance using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeDBInstances_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeDBInstances_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rds_ModifyDBInstance_section" role="topic">
+            <info>
+                <title id="example_rds_ModifyDBInstance_section.title">Modify an &RDS; instance using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_ModifyDBInstance_section.titleabbrev">Modify an instance</titleabbrev>
+                <abstract>
+                    <para>Modify an &RDS; instance using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_ModifyDBInstance_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_ModifyDBInstance_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rds_RebootDBInstance_section" role="topic">
+            <info>
+                <title id="example_rds_RebootDBInstance_section.title">Reboot an &RDS; instance using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_RebootDBInstance_section.titleabbrev">Reboot an instance</titleabbrev>
+                <abstract>
+                    <para>Reboot an &RDS; instance using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_RebootDBInstance_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_RebootDBInstance_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rds_DescribeAccountAttributes_section" role="topic">
+            <info>
+                <title id="example_rds_DescribeAccountAttributes_section.title">Retrieve attributes that belongs to an &RDS; account using an &AWS; SDK</title>
+                <titleabbrev id="example_rds_DescribeAccountAttributes_section.titleabbrev">Retrieve attributes</titleabbrev>
+                <abstract>
+                    <para>Retrieve attributes that belongs to an &RDS; account using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeAccountAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeAccountAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &RDS; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &RDS; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &RDS;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_AuroraRestLendingLibrary_section" role="topic">
+            <info>
+                <title id="example_cross_AuroraRestLendingLibrary_section.title">Create a lending library REST API</title>
+                <titleabbrev id="example_cross_AuroraRestLendingLibrary_section.titleabbrev">Create a lending library REST API</titleabbrev>
+                <abstract>
+                    <para>Create a lending library REST API</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_AuroraRestLendingLibrary_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_AuroraRestLendingLibrary_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RDSDataTracker_section" role="topic">
+            <info>
+                <title id="example_cross_RDSDataTracker_section.title">Create an &RDSlong; item tracker</title>
+                <titleabbrev id="example_cross_RDSDataTracker_section.titleabbrev">Create a web application to track &RDS; data</titleabbrev>
+                <abstract>
+                    <para>Create an &RDSlong; item tracker</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RDSDataTracker_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RDSDataTracker_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

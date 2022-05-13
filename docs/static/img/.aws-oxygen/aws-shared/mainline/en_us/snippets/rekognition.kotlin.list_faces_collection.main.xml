@@ -1,0 +1,17 @@
+<programlisting>
+suspend fun listFacesCollection(collectionIdVal: String?) {
+
+        val request = ListFacesRequest {
+            collectionId = collectionIdVal
+            maxResults =10
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+        val response = rekClient.listFaces(request)
+        response.faces?.forEach { face ->
+                println("Confidence level there is a face: ${face.confidence}")
+                println("The face Id value is ${face.faceId}")
+            }
+       }
+  }
+</programlisting>

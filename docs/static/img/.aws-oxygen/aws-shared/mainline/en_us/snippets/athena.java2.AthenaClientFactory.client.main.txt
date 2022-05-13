@@ -1,0 +1,9 @@
+public class AthenaClientFactory {
+
+    private final AthenaClientBuilder builder = AthenaClient.builder()
+            .region(Region.US_WEST_2)
+            .credentialsProvider(InstanceProfileCredentialsProvider.create());
+
+    public AthenaClient createClient() {
+        return builder.build();
+    }

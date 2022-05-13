@@ -1,0 +1,41 @@
+<programlisting>
+    def list(
+            self, max_items, statuses=None, key_usage=None, extended_key_usage=None,
+            key_types=None):
+        """
+        Lists the certificates for the current account.
+
+        :param max_items: The maximum number of certificates to list.
+        :param statuses: Filters the results to the specified statuses. If None, all
+                         certificates are included.
+        :param key_usage: Filters the results to the specified key usages. If None,
+                          all key usages are included.
+        :param extended_key_usage: Filters the results to the specified extended key
+                                   usages. If None, all extended key usages are
+                                   included.
+        :param key_types: Filters the results to the specified key types. If None, all
+                          key types are included.
+        :return: The list of certificates.
+        """
+        try:
+            kwargs = {'MaxItems': max_items}
+            if statuses is not None:
+                kwargs['CertificateStatuses'] = statuses
+            includes = {}
+            if key_usage is not None:
+                includes['keyUsage'] = key_usage
+            if extended_key_usage is not None:
+                includes['extendedKeyUsage'] = extended_key_usage
+            if key_types is not None:
+                includes['keyTypes'] = key_types
+            if includes:
+                kwargs['Includes'] = includes
+            response = self.acm_client.list_certificates(**kwargs)
+            certificates = response['CertificateSummaryList']
+            logger.info("Got %s certificates.", len(certificates))
+        except ClientError:
+            logger.exception("Couldn't get certificates.")
+            raise
+        else:
+            return certificates
+</programlisting>

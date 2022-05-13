@@ -1,0 +1,19 @@
+<programlisting>
+  # Creates a service-linked role.
+  #
+  # @param service_name [String] The name of the service that owns the role.
+  # @param description [String] A description to give the role.
+  # @return [Aws::IAM::Role] The newly created role.
+  def create_service_linked_role(service_name, description)
+    response = @iam_resource.client.create_service_linked_role(
+      aws_service_name: service_name, description: description)
+    role = @iam_resource.role(response.role.role_name)
+    puts("Created service-linked role #{role.name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't create service-linked role for #{service_name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    role
+  end
+</programlisting>

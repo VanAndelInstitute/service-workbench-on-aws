@@ -1,0 +1,7 @@
+    keyName := flag.String("k", "", "The name of the key pair")
+    flag.Parse()
+
+    if *keyName == "" {
+        fmt.Println("You must supply the name of the key pair (-k KEY-NAME)")
+        return
+    }

@@ -1,0 +1,9 @@
+    instanceID := flag.String("i", "", "The ID of the instance to start or stop")
+    state := flag.String("s", "", "The state to put the instance in: START or STOP")
+    flag.Parse()
+
+    if (*state != "START" && *state != "STOP") || *instanceID == "" {
+        fmt.Println("You must supply a START or STOP state and an instance ID")
+        fmt.Println("(-s START | STOP -i INSTANCE-ID")
+        return
+    }

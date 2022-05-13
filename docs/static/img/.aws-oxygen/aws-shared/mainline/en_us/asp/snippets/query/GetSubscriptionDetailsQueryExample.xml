@@ -1,0 +1,10 @@
+GET\n
+fps.payments.amazon.com\n
+Action=GetSubscriptionDetails
+&SubscriptionId=SubscriptionId
+&AWSAccessKeyId=AccessKey
+&Version=2010-08-28
+&Timestamp=2011-03-11T06%3A46%3A23Z
+&SignatureVersion=2
+&Signature=SignatureCalculated
+&SignatureMethod=HmacSHA256

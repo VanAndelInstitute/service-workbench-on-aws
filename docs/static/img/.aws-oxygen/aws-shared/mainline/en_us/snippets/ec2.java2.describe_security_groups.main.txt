@@ -1,0 +1,24 @@
+     public static void describeEC2SecurityGroups(Ec2Client ec2, String groupId) {
+
+        try {
+            DescribeSecurityGroupsRequest request =
+                DescribeSecurityGroupsRequest.builder()
+                        .groupIds(groupId).build();
+
+            DescribeSecurityGroupsResponse response =
+                ec2.describeSecurityGroups(request);
+
+             for(SecurityGroup group : response.securityGroups()) {
+                System.out.printf(
+                    "Found Security Group with id %s, " +
+                            "vpc id %s " +
+                            "and description %s",
+                    group.groupId(),
+                    group.vpcId(),
+                    group.description());
+            }
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

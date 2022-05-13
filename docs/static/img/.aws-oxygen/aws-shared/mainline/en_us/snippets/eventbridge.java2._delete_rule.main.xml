@@ -1,0 +1,28 @@
+<programlisting>
+    public static void deleteEBRule(EventBridgeClient eventBrClient, String ruleName) {
+
+        try {
+
+           // Disable the rule - an Enabled Rule cannot be deleted
+            DisableRuleRequest disableRuleRequest = DisableRuleRequest.builder()
+                    .name(ruleName)
+                    .eventBusName("default")
+                    .build();
+
+            eventBrClient.disableRule(disableRuleRequest);
+
+            DeleteRuleRequest ruleRequest = DeleteRuleRequest.builder()
+                    .name(ruleName)
+                    .eventBusName("default")
+                    .build();
+
+            eventBrClient.deleteRule(ruleRequest);
+           System.out.println("Rule "+ruleName + " was successfully deleted!");
+
+        } catch (EventBridgeException e) {
+
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

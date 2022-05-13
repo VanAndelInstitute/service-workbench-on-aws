@@ -1,0 +1,17 @@
+<programlisting>
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::DeleteServerCertificateRequest request;
+        request.SetServerCertificateName(cert_name);
+
+        const auto outcome = iam.DeleteServerCertificate(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error deleting server certificate " << cert_name <<
+                ": " << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted server certificate " << cert_name
+                << std::endl;
+        }
+</programlisting>

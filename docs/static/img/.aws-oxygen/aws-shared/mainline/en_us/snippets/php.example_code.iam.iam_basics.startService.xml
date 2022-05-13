@@ -1,0 +1,4 @@
+<programlisting>
+$uuid = uniqid();
+$service = new IamService();
+</programlisting>

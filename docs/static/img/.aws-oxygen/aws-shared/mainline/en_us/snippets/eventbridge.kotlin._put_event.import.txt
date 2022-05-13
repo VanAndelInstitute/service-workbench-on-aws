@@ -1,0 +1,4 @@
+import aws.sdk.kotlin.services.eventbridge.EventBridgeClient
+import aws.sdk.kotlin.services.eventbridge.model.PutEventsRequest
+import aws.sdk.kotlin.services.eventbridge.model.PutEventsRequestEntry
+import kotlin.system.exitProcess

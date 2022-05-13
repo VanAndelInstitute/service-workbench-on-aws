@@ -1,0 +1,5 @@
+<programlisting>
+        for (S3Object content : listRes.contents()) {
+            System.out.println(" Key: " + content.key() + " size = " + content.size());
+        }
+</programlisting>

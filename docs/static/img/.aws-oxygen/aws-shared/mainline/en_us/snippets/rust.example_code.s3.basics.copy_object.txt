@@ -1,0 +1,21 @@
+pub async fn copy_object(
+    client: &Client,
+    bucket_name: &str,
+    object_key: &str,
+    target_key: &str,
+) -> Result<(), Error> {
+    let mut source_bucket_and_object: String = "".to_owned();
+    source_bucket_and_object.push_str(bucket_name);
+    source_bucket_and_object.push('/');
+    source_bucket_and_object.push_str(object_key);
+
+    client
+        .copy_object()
+        .copy_source(source_bucket_and_object)
+        .bucket(bucket_name)
+        .key(target_key)
+        .send()
+        .await?;
+
+    Ok(())
+}

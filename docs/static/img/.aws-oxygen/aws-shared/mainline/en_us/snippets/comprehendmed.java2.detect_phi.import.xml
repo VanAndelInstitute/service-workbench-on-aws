@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.comprehendmedical.ComprehendMedicalClient;
+import software.amazon.awssdk.services.comprehendmedical.model.ComprehendMedicalException;
+import software.amazon.awssdk.services.comprehendmedical.model.DetectPhiRequest;
+import software.amazon.awssdk.services.comprehendmedical.model.DetectPhiResponse;
+import software.amazon.awssdk.services.comprehendmedical.model.Entity;
+import java.util.Iterator;
+import java.util.List;
+</programlisting>

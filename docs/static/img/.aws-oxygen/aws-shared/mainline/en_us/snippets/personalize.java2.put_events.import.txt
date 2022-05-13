@@ -1,0 +1,12 @@
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalizeevents.PersonalizeEventsClient;
+import software.amazon.awssdk.services.personalizeevents.model.Event;
+import software.amazon.awssdk.services.personalizeevents.model.PersonalizeEventsException;
+import software.amazon.awssdk.services.personalizeevents.model.PutEventsRequest;
+

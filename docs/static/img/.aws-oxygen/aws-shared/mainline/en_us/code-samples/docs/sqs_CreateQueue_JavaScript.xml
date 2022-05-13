@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JSB; V3</term>
+        <listitem>
+            <block>
+                <para>Create the client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/sqs.JavaScript.createclientv3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create an &SQS; standard queue.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/sqs.JavaScript.queues.createQueueV3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create an &SQS; queue that waits for a message to arrive.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/sqs.JavaScript.longPoll.createQueueV3.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For more information, see <ulink type="documentation" url="sdk-for-javascript/v3/developer-guide/sqs-examples-using-queues.html#sqs-examples-using-queues-create-queue">&guide-jsb-dev;</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-sqs/classes/createqueuecommand.html">CreateQueue</ulink>
+                        in <emphasis>&guide-jsb-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>&JSB; V2</term>
+        <listitem>
+            <block>
+                <para>Create an &SQS; standard queue.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/sqs.JavaScript.queues.createQueue.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create an &SQS; queue that waits for a message to arrive.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/sqs.JavaScript.longPoll.createQueue.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For more information, see <ulink type="documentation" url="sdk-for-javascript/v2/developer-guide/sqs-examples-using-queues.html#sqs-examples-using-queues-create-queue">&guide-jsb-dev;</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="goto/AWSJavaScriptSDK/sqs-2012-11-05/CreateQueue">CreateQueue</ulink>
+                        in <emphasis>&guide-jsb-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

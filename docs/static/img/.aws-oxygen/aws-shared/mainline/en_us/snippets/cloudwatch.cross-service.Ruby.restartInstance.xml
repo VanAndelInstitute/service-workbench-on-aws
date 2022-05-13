@@ -1,0 +1,79 @@
+<programlisting>
+
+# Restarts an Amazon EC2 instance
+# and adds information about the related activity to a log stream
+# in Amazon CloudWatch Logs.
+#
+# Prerequisites:
+#
+# - The Amazon EC2 instance to restart.
+# - The log group in Amazon CloudWatch Logs to add related activity
+#   information to.
+#
+# @param ec2_client [Aws::EC2::Client] An initialized Amazon EC2 client.
+# @param cloudwatchlogs_client [Aws::CloudWatchLogs::Client]
+#   An initialized Amazon CloudWatch Logs client.
+# @param instance_id [String] The ID of the instance.
+# @param log_group_name [String] The name of the log group.
+# @return [Boolean] true if the instance was restarted and the information
+#   was written to the log stream; otherwise, false.
+# @example
+#   exit 1 unless instance_restarted?(
+#     Aws::EC2::Client.new(region: 'us-east-1'),
+#     Aws::CloudWatchLogs::Client.new(region: 'us-east-1'),
+#     'i-033c48ef067af3dEX',
+#     'aws-doc-sdk-examples-cloudwatch-log'
+#   )
+def instance_restarted?(
+  ec2_client,
+  cloudwatchlogs_client,
+  instance_id,
+  log_group_name
+)
+  log_stream_name = "#{Time.now.year}/#{Time.now.month}/#{Time.now.day}/" \
+    "#{SecureRandom.uuid}"
+  cloudwatchlogs_client.create_log_stream(
+    log_group_name: log_group_name,
+    log_stream_name: log_stream_name
+  )
+  sequence_token = ''
+
+  puts "Attempting to stop the instance with the ID '#{instance_id}'. " \
+    'This might take a few minutes...'
+  ec2_client.stop_instances(instance_ids: [instance_id])
+  ec2_client.wait_until(:instance_stopped, instance_ids: [instance_id])
+  puts 'Instance stopped.'
+  sequence_token = log_event(
+    cloudwatchlogs_client,
+    log_group_name,
+    log_stream_name,
+    "Instance '#{instance_id}' stopped.",
+    sequence_token
+  )
+
+  puts 'Attempting to restart the instance. This might take a few minutes...'
+  ec2_client.start_instances(instance_ids: [instance_id])
+  ec2_client.wait_until(:instance_running, instance_ids: [instance_id])
+  puts 'Instance restarted.'
+  sequence_token = log_event(
+    cloudwatchlogs_client,
+    log_group_name,
+    log_stream_name,
+    "Instance '#{instance_id}' restarted.",
+    sequence_token
+  )
+
+  return true
+rescue StandardError => e
+  puts 'Error creating log stream or stopping or restarting the instance: ' \
+    "#{e.message}"
+  log_event(
+    cloudwatchlogs_client,
+    log_group_name,
+    log_stream_name,
+    "Error stopping or starting instance '#{instance_id}': #{e.message}",
+    sequence_token
+  )
+  return false
+end
+</programlisting>

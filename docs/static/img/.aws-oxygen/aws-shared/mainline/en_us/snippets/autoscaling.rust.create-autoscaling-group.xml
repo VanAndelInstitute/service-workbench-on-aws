@@ -1,0 +1,16 @@
+<programlisting>
+async fn create_group(client: &Client, name: &str, id: &str) -> Result<(), Error> {
+    client
+        .create_auto_scaling_group()
+        .auto_scaling_group_name(name)
+        .instance_id(id)
+        .min_size(1)
+        .max_size(5)
+        .send()
+        .await?;
+
+    println!("Created AutoScaling group");
+
+    Ok(())
+}
+</programlisting>

@@ -1,0 +1,21 @@
+<programlisting>
+    public static void getAllDatabases(GlueClient glueClient) {
+
+        try {
+            GetDatabasesRequest databasesRequest = GetDatabasesRequest.builder()
+                .maxResults(10)
+                .build();
+
+            GetDatabasesResponse response = glueClient.getDatabases(databasesRequest);
+            List<Database> databases = response.databaseList();
+
+            for (Database database: databases) {
+                System.out.println("The Database name is : "+database.name());
+            }
+
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

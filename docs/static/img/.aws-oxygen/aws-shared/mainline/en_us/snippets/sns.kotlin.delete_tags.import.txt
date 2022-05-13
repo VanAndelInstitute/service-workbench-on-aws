@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.sns.SnsClient
+import aws.sdk.kotlin.services.sns.model.UntagResourceRequest
+import kotlin.system.exitProcess

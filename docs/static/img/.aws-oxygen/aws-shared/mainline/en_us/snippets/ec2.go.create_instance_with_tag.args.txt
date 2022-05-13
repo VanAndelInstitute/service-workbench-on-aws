@@ -1,0 +1,8 @@
+    name := flag.String("n", "", "The name of the tag to attach to the instance")
+    value := flag.String("v", "", "The value of the tag to attach to the instance")
+    flag.Parse()
+
+    if *name == "" || *value == "" {
+        fmt.Println("You must supply a name and value for the tag (-n NAME -v VALUE)")
+        return
+    }

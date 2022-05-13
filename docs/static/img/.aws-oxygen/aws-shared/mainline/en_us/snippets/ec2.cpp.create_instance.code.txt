@@ -1,0 +1,25 @@
+    Aws::EC2::EC2Client ec2;
+
+    Aws::EC2::Model::RunInstancesRequest run_request;
+    run_request.SetImageId(ami_id);
+    run_request.SetInstanceType(Aws::EC2::Model::InstanceType::t1_micro);
+    run_request.SetMinCount(1);
+    run_request.SetMaxCount(1);
+
+    auto run_outcome = ec2.RunInstances(run_request);
+    if (!run_outcome.IsSuccess())
+    {
+        std::cout << "Failed to start ec2 instance " << instanceName <<
+            " based on ami " << ami_id << ":" <<
+            run_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    const auto& instances = run_outcome.GetResult().GetInstances();
+    if (instances.size() == 0)
+    {
+        std::cout << "Failed to start ec2 instance " << instanceName <<
+            " based on ami " << ami_id << ":" <<
+            run_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }

@@ -1,0 +1,90 @@
+def usage_demo():
+    """
+    Shows how to use the Amazon DynamoDB batch functions.
+    """
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+    print('-'*88)
+    print("Welcome to the Amazon DynamoDB batch usage demo.")
+    print('-'*88)
+
+    movies_file_name = 'moviedata.json'
+    print(f"Getting movie data from {movies_file_name}.")
+    try:
+        with open(movies_file_name) as json_file:
+            movie_data = json.load(json_file, parse_float=decimal.Decimal)
+            movie_data = movie_data[:500]  # Only use the first 500 movies for the demo.
+    except FileNotFoundError:
+        print(f"The file moviedata.json was not found in the current working directory "
+              f"{os.getcwd()}.\n"
+              f"1. Download the zip file from https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/moviedata.zip.\n"
+              f"2. Extract '{movies_file_name}' to {os.getcwd()}.\n"
+              f"3. Run the usage demo again.")
+        return
+
+    # Build a second table centered around actors.
+    actor_set = {}
+    for movie in movie_data:
+        try:
+            actors = movie['info']['actors']
+            for actor in actors:
+                if actor not in actor_set:
+                    actor_set[actor] = {'directors': set(), 'costars': set()}
+                actor_set[actor]['directors'].update(movie['info']['directors'])
+                actor_set[actor]['costars'].update([a for a in actors if a != actor])
+        except KeyError:
+            logger.warning("%s doesn't have any actors.", movie['title'])
+    actor_data = []
+    for key, value in actor_set.items():
+        actor_item = {'name': key}
+        if len(value['directors']) > 0:
+            actor_item['directors'] = value['directors']
+        if len(value['costars']) > 0:
+            actor_item['costars'] = value['costars']
+        actor_data.append(actor_item)
+
+    movie_schema = [
+        {'name': 'year', 'key_type': 'HASH', 'type': 'N'},
+        {'name': 'title', 'key_type': 'RANGE', 'type': 'S'}
+    ]
+    actor_schema = [
+        {'name': 'name', 'key_type': 'HASH', 'type': 'S'},
+    ]
+
+    print(f"Creating movie and actor tables and waiting until they exist...")
+    movie_table = create_table(f'demo-batch-movies-{time.time_ns()}', movie_schema)
+    actor_table = create_table(f'demo-batch-actors-{time.time_ns()}', actor_schema)
+    print(f"Created {movie_table.name} and {actor_table.name}.")
+
+    print(f"Putting {len(movie_data)} movies into {movie_table.name}.")
+    fill_table(movie_table, movie_data)
+
+    print(f"Putting {len(actor_data)} actors into {actor_table.name}.")
+    fill_table(actor_table, actor_data)
+
+    movie_list = [(movie['year'], movie['title'])
+                  for movie in movie_data[0:int(MAX_GET_SIZE/2)]]
+    actor_list = [actor['name']
+                  for actor in actor_data[0:int(MAX_GET_SIZE/2)]]
+    items = get_batch_data(movie_table, movie_list, actor_table, actor_list)
+    print(f"Got {len(items[movie_table.name])} movies from {movie_table.name}\n"
+          f"and {len(items[actor_table.name])} actors from {actor_table.name}.")
+    print("The first 2 movies returned are: ")
+    pprint.pprint(items[movie_table.name][:2])
+    print(f"The first 2 actors returned are: ")
+    pprint.pprint(items[actor_table.name][:2])
+
+    print(
+        "Archiving the first 10 movies by creating a table to store archived "
+        "movies and deleting them from the main movie table.")
+    # Duplicate the movies in the list to demonstrate how the batch writer can be
+    # configured to remove duplicate requests from the batch.
+    movie_list = movie_data[0:10] + movie_data[0:10]
+    archive_table = archive_movies(movie_table, movie_list)
+    print(f"Movies successfully archived to {archive_table.name}.")
+
+    archive_table.delete()
+    movie_table.delete()
+    actor_table.delete()
+    print(f"Deleted {movie_table.name}, {archive_table.name}, and {actor_table.name}.")
+    print("Thanks for watching!")

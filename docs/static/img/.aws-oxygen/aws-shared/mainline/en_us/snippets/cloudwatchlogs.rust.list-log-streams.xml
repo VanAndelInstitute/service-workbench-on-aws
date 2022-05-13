@@ -1,0 +1,19 @@
+<programlisting>
+async fn show_log_streams(
+    client: &aws_sdk_cloudwatchlogs::Client,
+    name: &str,
+) -> Result<(), aws_sdk_cloudwatchlogs::Error> {
+    let resp = client
+        .describe_log_streams()
+        .log_group_name(name)
+        .send()
+        .await?;
+    let streams = resp.log_streams().unwrap_or_default();
+    println!("Found {} streams:", streams.len());
+    for stream in streams {
+        println!("  {}", stream.log_stream_name().unwrap_or_default());
+    }
+
+    Ok(())
+}
+</programlisting>

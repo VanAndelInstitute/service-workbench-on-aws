@@ -1,0 +1,29 @@
+    public static void deleteMediaObject(MediaStoreDataClient mediaStoreData, String completePath) {
+
+        try {
+            DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+                    .path(completePath)
+                    .build();
+
+            mediaStoreData.deleteObject(deleteObjectRequest);
+
+        } catch (MediaStoreDataException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+     private static String getEndpoint(String containerName){
+
+        Region region = Region.US_EAST_1;
+        MediaStoreClient mediaStoreClient = MediaStoreClient.builder()
+                .region(region)
+                .build();
+
+        DescribeContainerRequest containerRequest = DescribeContainerRequest.builder()
+                .containerName(containerName)
+                .build();
+
+        DescribeContainerResponse response = mediaStoreClient.describeContainer(containerRequest);
+        mediaStoreClient.close();
+        return response.container().endpoint();
+    }

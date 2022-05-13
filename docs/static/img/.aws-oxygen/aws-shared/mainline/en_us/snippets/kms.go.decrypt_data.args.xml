@@ -1,0 +1,10 @@
+<programlisting>
+    data := flag.String("d", "", "The encrypted data, as a string")
+    flag.Parse()
+
+    if *data == "" {
+        fmt.Println("You must supply the encrypted data as a string")
+        fmt.Println("-d DATA")
+        return
+    }
+</programlisting>

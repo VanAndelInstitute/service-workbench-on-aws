@@ -1,0 +1,13 @@
+    def stop_run(self, run_arn, cause):
+        """
+        Stops a run.
+
+        :param run_arn: The run to stop.
+        :param cause: A description of why the run was stopped.
+        """
+        try:
+            self.stepfunctions_client.stop_execution(executionArn=run_arn, cause=cause)
+            logger.info("Stopping run %s.", run_arn)
+        except ClientError:
+            logger.exception("Couldn't stop run %s.", run_arn)
+            raise

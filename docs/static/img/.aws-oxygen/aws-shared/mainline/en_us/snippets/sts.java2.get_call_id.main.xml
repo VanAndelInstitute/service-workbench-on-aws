@@ -1,0 +1,15 @@
+<programlisting>
+    public static void getCallerId(StsClient stsClient) {
+
+        try {
+            GetCallerIdentityResponse response = stsClient.getCallerIdentity();
+
+            System.out.println("The user id is" +response.userId());
+            System.out.println("The ARN value is" +response.arn());
+
+        } catch (StsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

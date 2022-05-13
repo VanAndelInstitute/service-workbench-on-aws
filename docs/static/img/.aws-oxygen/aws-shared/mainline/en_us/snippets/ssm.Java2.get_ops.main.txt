@@ -1,0 +1,20 @@
+    public static void getOpsItem(SsmClient ssmClient, String opsID ) {
+
+        try {
+            GetOpsItemRequest opsRequest = GetOpsItemRequest.builder()
+                    .opsItemId(opsID)
+                    .build();
+
+            // Get SSM Parameters (you can define them in the AWS Management Console)
+            GetOpsItemResponse opsItem = ssmClient.getOpsItem(opsRequest);
+            OpsItem item = opsItem.opsItem();
+
+            System.out.println(item.title());
+            System.out.println(item.description());
+            System.out.println(item.source());
+
+        } catch (SsmException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

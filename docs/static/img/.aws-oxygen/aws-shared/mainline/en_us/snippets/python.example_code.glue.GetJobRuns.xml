@@ -1,0 +1,19 @@
+<programlisting>
+    def get_job_runs(self, job_name):
+        """
+        Gets information about runs that have been performed for a specific job
+        definition.
+
+        :param job_name: The name of the job definition to look up.
+        :return: The list of job runs.
+        """
+        try:
+            response = self.glue_client.get_job_runs(JobName=job_name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't get job runs for %s. Here's why: %s: %s", job_name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['JobRuns']
+</programlisting>

@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Deleted object(s) from " + *bucket)
+</programlisting>

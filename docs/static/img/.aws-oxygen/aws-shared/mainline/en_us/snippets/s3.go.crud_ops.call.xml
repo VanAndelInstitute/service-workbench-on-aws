@@ -1,0 +1,6 @@
+<programlisting>
+    // Create the S3 bucket
+    _, err := svc.CreateBucket(&s3.CreateBucketInput{
+        Bucket: bucket,
+    })
+</programlisting>

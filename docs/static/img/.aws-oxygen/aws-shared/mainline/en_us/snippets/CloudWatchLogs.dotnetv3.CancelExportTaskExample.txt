@@ -1,0 +1,26 @@
+        public static async Task Main()
+        {
+            // This client object will be associated with the same AWS Region
+            // as the default user on this system. If you need to use a
+            // different AWS Region, pass it as a parameter to the client
+            // constructor.
+            var client = new AmazonCloudWatchLogsClient();
+            string taskId = "exampleTaskId";
+
+            var request = new CancelExportTaskRequest
+            {
+                TaskId = taskId,
+            };
+
+            var response = await client.CancelExportTaskAsync(request);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine($"{taskId} successfully canceled.");
+            }
+            else
+            {
+                Console.WriteLine($"{taskId} could not be canceled.");
+            }
+        }
+

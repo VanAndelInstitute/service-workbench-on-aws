@@ -1,0 +1,6 @@
+<programlisting>
+    _, err := svc.UpdateServerCertificate(&iam.UpdateServerCertificateInput{
+        ServerCertificateName:    certName,
+        NewServerCertificateName: newName,
+    })
+</programlisting>

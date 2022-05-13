@@ -1,0 +1,16 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.RekognitionException;
+import software.amazon.awssdk.services.rekognition.model.Image;
+import software.amazon.awssdk.services.rekognition.model.CompareFacesRequest;
+import software.amazon.awssdk.services.rekognition.model.CompareFacesResponse;
+import software.amazon.awssdk.services.rekognition.model.CompareFacesMatch;
+import software.amazon.awssdk.services.rekognition.model.ComparedFace;
+import software.amazon.awssdk.services.rekognition.model.BoundingBox;
+import software.amazon.awssdk.core.SdkBytes;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.List;
+</programlisting>

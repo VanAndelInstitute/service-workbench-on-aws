@@ -1,0 +1,7 @@
+    svc := cloudwatch.New(sess)
+
+    _, err := svc.DisableAlarmActions(&cloudwatch.DisableAlarmActionsInput{
+        AlarmNames: []*string{
+            alarmName,
+        },
+    })

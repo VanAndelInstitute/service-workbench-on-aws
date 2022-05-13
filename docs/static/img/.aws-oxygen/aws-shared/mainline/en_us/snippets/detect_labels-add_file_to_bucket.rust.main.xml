@@ -1,0 +1,32 @@
+<programlisting>
+async fn add_file_to_bucket(client: &aws_sdk_s3::Client, bucket: &str, filename: &str) {
+    let body = aws_sdk_s3::types::ByteStream::from_path(std::path::Path::new(filename)).await;
+
+    match body {
+        Ok(b) => {
+            match client
+                .put_object()
+                .bucket(bucket)
+                .key(filename)
+                .body(b)
+                .send()
+                .await
+            {
+                Err(e) => {
+                    println!("Got an error uploading file to bucket:");
+                    println!("{}", e);
+                    process::exit(1);
+                }
+                Ok(_) => {
+                    println!("Uploaded file to bucket.");
+                }
+            }
+        }
+        Err(e) => {
+            println!("Got an error uploading file to bucket:");
+            println!("{}", e);
+            process::exit(1);
+        }
+    }
+}
+</programlisting>

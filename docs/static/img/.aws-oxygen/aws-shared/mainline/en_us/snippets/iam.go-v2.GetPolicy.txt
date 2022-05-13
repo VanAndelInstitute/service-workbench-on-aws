@@ -1,0 +1,14 @@
+	// GetPolicy
+
+	getPolicyResponse, err := service.GetPolicy(context.Background(), &iam.GetPolicyInput{
+		PolicyArn: policyArn,
+	})
+
+	if err != nil {
+		panic("Couldn't get policy from ARN: " + err.Error())
+	}
+
+	fmt.Printf("policy: %s, name %s\n",
+		*getPolicyResponse.Policy.Arn,
+		*getPolicyResponse.Policy.PolicyName)
+

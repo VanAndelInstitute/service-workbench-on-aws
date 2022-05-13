@@ -1,0 +1,78 @@
+<programlisting>
+    public static void deleteBucketCorsInformation(S3Client s3, String bucketName, String accountId) {
+
+        try {
+
+            DeleteBucketCorsRequest bucketCorsRequest = DeleteBucketCorsRequest.builder()
+                    .bucket(bucketName)
+                    .expectedBucketOwner(accountId)
+                    .build();
+
+            s3.deleteBucketCors(bucketCorsRequest) ;
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void getBucketCorsInformation(S3Client s3, String bucketName, String accountId) {
+
+        try {
+
+            GetBucketCorsRequest bucketCorsRequest = GetBucketCorsRequest.builder()
+                    .bucket(bucketName)
+                    .expectedBucketOwner(accountId)
+                    .build();
+
+            GetBucketCorsResponse corsResponse = s3.getBucketCors(bucketCorsRequest);
+            List<CORSRule> corsRules = corsResponse.corsRules();
+            for (CORSRule rule: corsRules) {
+                System.out.println("allowOrigins: "+rule.allowedOrigins());
+                System.out.println("AllowedMethod: "+rule.allowedMethods());
+            }
+
+        } catch (S3Exception e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+        }
+    }
+
+    public static void setCorsInformation(S3Client s3, String bucketName, String accountId) {
+
+        List<String> allowMethods = new ArrayList();
+        allowMethods.add("PUT");
+        allowMethods.add("POST");
+        allowMethods.add("DELETE");
+
+        List<String> allowOrigins = new ArrayList();
+        allowOrigins.add("http://example.com");
+
+        try {
+
+            // Define CORS rules.
+            CORSRule corsRule = CORSRule.builder()
+                .allowedMethods(allowMethods)
+                .allowedOrigins(allowOrigins)
+                .build();
+
+            List<CORSRule> corsRules = new ArrayList<>();
+            corsRules.add(corsRule);
+
+            CORSConfiguration configuration = CORSConfiguration.builder()
+                .corsRules(corsRules)
+                .build();
+
+            PutBucketCorsRequest putBucketCorsRequest = PutBucketCorsRequest.builder()
+                .bucket(bucketName)
+                .corsConfiguration(configuration)
+                .expectedBucketOwner(accountId)
+                .build();
+
+            s3.putBucketCors(putBucketCorsRequest);
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

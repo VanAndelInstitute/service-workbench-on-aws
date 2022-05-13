@@ -1,0 +1,15 @@
+<programlisting>
+    def delete_receipt_rule_set(self, rule_set_name):
+        """
+        Deletes a rule set. When a rule set is deleted, all of the rules it contains
+        are also deleted.
+
+        :param rule_set_name: The name of the rule set to delete.
+        """
+        try:
+            self.ses_client.delete_receipt_rule_set(RuleSetName=rule_set_name)
+            logger.info("Deleted rule set %s.", rule_set_name)
+        except ClientError:
+            logger.exception("Couldn't delete rule set %s.", rule_set_name)
+            raise
+</programlisting>

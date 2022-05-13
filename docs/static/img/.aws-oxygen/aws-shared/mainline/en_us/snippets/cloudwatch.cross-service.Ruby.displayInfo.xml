@@ -1,0 +1,60 @@
+<programlisting>
+# Displays information about activity for a rule in Amazon EventBridge.
+#
+# Prerequisites:
+#
+# - A rule in Amazon EventBridge.
+#
+# @param cloudwatch_client [Amazon::CloudWatch::Client] An initialized
+#   Amazon CloudWatch client.
+# @param rule_name [String] The name of the rule.
+# @param start_time [Time] The timestamp that determines the first datapoint
+#   to return. Can also be expressed as DateTime, Date, Integer, or String.
+# @param end_time [Time] The timestamp that determines the last datapoint
+#   to return. Can also be expressed as DateTime, Date, Integer, or String.
+# @param period [Integer] The interval, in seconds, to check for activity.
+# @example
+#   display_rule_activity(
+#     Aws::CloudWatch::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-ec2-state-change',
+#     Time.now - 600, # Start checking from 10 minutes ago.
+#     Time.now, # Check up until now.
+#     60 # Check every minute during those 10 minutes.
+#   )
+def display_rule_activity(
+  cloudwatch_client,
+  rule_name,
+  start_time,
+  end_time,
+  period
+)
+  puts 'Attempting to display rule activity...'
+  response = cloudwatch_client.get_metric_statistics(
+    namespace: 'AWS/Events',
+    metric_name: 'Invocations',
+    dimensions: [
+      {
+        name: 'RuleName',
+        value: rule_name
+      }
+    ],
+    start_time: start_time,
+    end_time: end_time,
+    period: period,
+    statistics: ['Sum'],
+    unit: 'Count'
+  )
+
+  if response.key?(:datapoints) && response.datapoints.count.positive?
+    puts "The event rule '#{rule_name}' was triggered:"
+    response.datapoints.each do |datapoint|
+      puts "  #{datapoint.sum} time(s) at #{datapoint.timestamp}"
+    end
+  else
+    puts "The event rule '#{rule_name}' was not triggered during the " \
+      'specified time period.'
+  end
+rescue StandardError => e
+  puts "Error getting information about event rule activity: #{e.message}"
+end
+</programlisting>

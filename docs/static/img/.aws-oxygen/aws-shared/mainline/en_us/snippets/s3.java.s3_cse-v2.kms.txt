@@ -1,0 +1,30 @@
+        AWSKMS kmsClient = AWSKMSClientBuilder.standard()
+                .withRegion(Regions.DEFAULT_REGION)
+                .build();
+
+        // create CMK for for testing this example
+        CreateKeyRequest createKeyRequest = new CreateKeyRequest();
+        CreateKeyResult createKeyResult = kmsClient.createKey(createKeyRequest);
+
+        // specify an Amazon KMS customer master key (CMK) ID
+        String keyId = createKeyResult.getKeyMetadata().getKeyId();
+
+        String s3ObjectKey = "EncryptedContent3.txt";
+        String s3ObjectContent = "This is the 3rd content to encrypt";
+
+        AmazonS3EncryptionV2 s3Encryption = AmazonS3EncryptionClientV2Builder.standard()
+                .withRegion(Regions.US_WEST_2)
+                .withCryptoConfiguration(new CryptoConfigurationV2().withCryptoMode(CryptoMode.StrictAuthenticatedEncryption))
+                .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(keyId))
+                .build();
+
+        s3Encryption.putObject(bucketName, s3ObjectKey, s3ObjectContent);
+        System.out.println(s3Encryption.getObjectAsString(bucketName, s3ObjectKey));
+
+        // schedule deletion of CMK generated for testing
+        ScheduleKeyDeletionRequest scheduleKeyDeletionRequest =
+                new ScheduleKeyDeletionRequest().withKeyId(keyId).withPendingWindowInDays(7);
+        kmsClient.scheduleKeyDeletion(scheduleKeyDeletionRequest);
+
+        s3Encryption.shutdown();
+        kmsClient.shutdown();

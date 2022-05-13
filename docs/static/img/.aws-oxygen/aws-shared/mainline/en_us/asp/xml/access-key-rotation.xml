@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "file://zonbook/docbookx.dtd"
+  [
+  <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+  %phrases-products;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;   
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  ] 
+   >
+<section id="access-key-rotation">
+ <title id="access-key-rotation.title">Access Key Rotation</title>
+ <para>If you decide that it is necessary to change your access keys, the security credentials
+  page (available from your account page at the Amazon Web Services website at <ulink
+   url="http://aws.amazon.com">http://aws.amazon.com</ulink>) enables you to create a
+  second set, and allows you to activate and deactivate the sets independently.</para>
+ 
+ <para>With both sets active, you can propagate the new set to your applications over time, maintaining the high security that signing provides. Since both sets are valid, you don't have to take your entire application down to incorporate the new keys. When the distribution is complete you can deactivate the old set.</para>
+ <note>
+  <para>You can have two sets of keys only. Both, one, or neither of them can be active.</para>
+ </note>
+</section>

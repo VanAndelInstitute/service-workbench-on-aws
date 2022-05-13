@@ -1,0 +1,7 @@
+    userName := flag.String("u", "", "The name of the user")
+    flag.Parse()
+
+    if *userName == "" {
+        fmt.Println("You must supply the name of a user (-u USER-NAME)")
+        return
+    }

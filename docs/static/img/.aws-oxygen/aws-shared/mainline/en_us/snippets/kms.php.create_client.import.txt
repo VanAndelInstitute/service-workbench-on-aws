@@ -1,0 +1,4 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Kms\KmsClient;

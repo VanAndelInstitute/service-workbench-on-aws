@@ -1,0 +1,8 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.comprehend.ComprehendClient;
+import software.amazon.awssdk.services.comprehend.model.ComprehendException;
+import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageRequest;
+import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageResponse;
+import software.amazon.awssdk.services.comprehend.model.DominantLanguage;
+import java.util.Iterator;
+import java.util.List;

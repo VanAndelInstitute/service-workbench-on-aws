@@ -1,0 +1,61 @@
+<programlisting>
+    suspend fun translateDocuments(
+        s3UriVal: String?,
+        s3UriOutVal: String?,
+        jobNameVal: String?,
+        dataAccessRoleArnVal: String?
+    ): String? {
+
+        val sleepTime: Long = 5
+        val dataConfig = InputDataConfig {
+            s3Uri = s3UriVal
+            contentType = "text/plain"
+        }
+
+        val outputDataConfigVal = OutputDataConfig {
+            s3Uri = s3UriOutVal
+        }
+
+        val myList = mutableListOf<String>()
+        myList.add("fr")
+
+        val textTranslationJobRequest = StartTextTranslationJobRequest {
+            jobName = jobNameVal
+            dataAccessRoleArn = dataAccessRoleArnVal
+            inputDataConfig = dataConfig
+            outputDataConfig = outputDataConfigVal
+            sourceLanguageCode = "en"
+            targetLanguageCodes = myList
+        }
+
+         TranslateClient { region = "us-west-2" }.use { translateClient ->
+             val textTranslationJobResponse =  translateClient.startTextTranslationJob(textTranslationJobRequest)
+
+             // Keep checking until job is done.
+             val jobDone = false
+             var jobStatus: String
+             val jobIdVal: String? = textTranslationJobResponse.jobId
+
+             val jobRequest = DescribeTextTranslationJobRequest {
+                jobId = jobIdVal
+             }
+
+            while (!jobDone) {
+
+                //Check status on each loop.
+                val response =  translateClient.describeTextTranslationJob(jobRequest)
+                jobStatus = response.textTranslationJobProperties?.jobStatus.toString()
+                println(jobStatus)
+
+                if (jobStatus.contains("COMPLETED"))
+                    break
+                else {
+                    print(".")
+
+                    delay(sleepTime * 1000)
+                }
+            }
+            return textTranslationJobResponse.jobId
+        }
+    }
+</programlisting>

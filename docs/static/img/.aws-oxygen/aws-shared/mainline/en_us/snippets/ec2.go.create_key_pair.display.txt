@@ -1,0 +1,4 @@
+    fmt.Println("Created key pair:")
+    fmt.Println("  Name:        " + *result.KeyName)
+    fmt.Println("  Fingerprint: " + *result.KeyFingerprint)
+    fmt.Println("  Material:    " + *result.KeyMaterial)

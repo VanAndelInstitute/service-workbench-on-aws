@@ -1,0 +1,12 @@
+def delete_role(role_name):
+    """
+    Deletes a role.
+
+    :param role_name: The name of the role to delete.
+    """
+    try:
+        iam.Role(role_name).delete()
+        logger.info("Deleted role %s.", role_name)
+    except ClientError:
+        logger.exception("Couldn't delete role %s.", role_name)
+        raise

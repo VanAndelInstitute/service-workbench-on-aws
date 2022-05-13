@@ -1,0 +1,17 @@
+<programlisting>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "artifact:DownloadAgreement"
+            ],
+            "Resource": [
+                "arn:aws:artifact::*:customer-agreement/*",
+                "arn:aws:artifact:::agreement/*"
+            ]
+        }
+    ]
+}
+</programlisting>

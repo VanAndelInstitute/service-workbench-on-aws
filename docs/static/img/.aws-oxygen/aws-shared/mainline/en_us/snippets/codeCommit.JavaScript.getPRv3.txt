@@ -1,0 +1,21 @@
+// Get service clients module and commands using ES6 syntax.
+import { GetPullRequestCommand } from "@aws-sdk/client-codecommit";
+import { codeCommitClient } from "./libs/codeCommitClient.js";
+
+// Set the parameters.
+
+export const params = {
+    pullRequestId: "PULL_REQUEST_ID"
+};
+
+// Get information about the pull request.
+export const run = async () => {
+    try {
+        const data = await codeCommitClient.send(new GetPullRequestCommand(params));
+        console.log("Success", data);
+        return data; // For unit tests.
+    } catch (err) {
+        console.log("Error", err);
+    }
+};
+run();

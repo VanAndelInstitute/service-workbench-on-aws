@@ -1,0 +1,15 @@
+
+        /// <summary>
+        /// Given the ARN for an Amazon SNS subscription, this method deletes
+        /// the subscription.
+        /// </summary>
+        /// <param name="client">The initialized Amazon SNS client object, used
+        /// to delete an Amazon SNS subscription.</param>
+        /// <param name="subscriptionArn">The ARN of the subscription to delete.</param>
+        public static async Task TopicUnsubscribeAsync(
+            IAmazonSimpleNotificationService client,
+            string subscriptionArn)
+        {
+            var response = await client.UnsubscribeAsync(subscriptionArn);
+        }
+

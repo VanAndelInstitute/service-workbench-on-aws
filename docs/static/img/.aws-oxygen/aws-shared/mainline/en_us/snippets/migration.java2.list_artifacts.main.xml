@@ -1,0 +1,28 @@
+<programlisting>
+    public static void listArtifacts(MigrationHubClient migrationClient) {
+
+        try {
+
+            ListCreatedArtifactsRequest listCreatedArtifactsRequest = ListCreatedArtifactsRequest.builder()
+                    .maxResults(10)
+                    .migrationTaskName("SampleApp5")
+                    .progressUpdateStream("ProgressSteamB")
+                    .build();
+
+            ListCreatedArtifactsResponse response = migrationClient.listCreatedArtifacts(listCreatedArtifactsRequest);
+            List<CreatedArtifact> apps = response.createdArtifactList();
+
+            Iterator<CreatedArtifact> appIterator = apps.iterator();
+
+            while(appIterator.hasNext()) {
+                CreatedArtifact artifact = appIterator.next();
+                System.out.println("APp Id is " +artifact.description());
+                System.out.println("The name is " +artifact.name());
+            }
+
+    } catch(MigrationHubException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

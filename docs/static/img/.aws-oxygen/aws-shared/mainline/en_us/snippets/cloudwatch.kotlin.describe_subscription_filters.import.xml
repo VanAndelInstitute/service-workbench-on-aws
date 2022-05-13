@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.cloudwatchlogs.CloudWatchLogsClient
+import aws.sdk.kotlin.services.cloudwatchlogs.model.DescribeSubscriptionFiltersRequest
+import kotlin.system.exitProcess
+</programlisting>

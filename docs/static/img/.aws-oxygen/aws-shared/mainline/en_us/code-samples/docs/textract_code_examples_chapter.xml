@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &TEXTRACT; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &TEXTRACT; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &TEXTRACT; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &TEXTRACT; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &TEXTRACT; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &TEXTRACT;
+            actions with &AWS; SDKs. These excerpts call the &TEXTRACT; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&TEXTRACT; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_textract_AnalyzeDocument_section" role="topic">
+            <info>
+                <title id="example_textract_AnalyzeDocument_section.title">Analyze a document using &TEXTRACT; and an &AWS; SDK</title>
+                <titleabbrev id="example_textract_AnalyzeDocument_section.titleabbrev">Analyze a document</titleabbrev>
+                <abstract>
+                    <para>Analyze a document using &TEXTRACT; and an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_AnalyzeDocument_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_AnalyzeDocument_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_textract_DetectDocumentText_section" role="topic">
+            <info>
+                <title id="example_textract_DetectDocumentText_section.title">Detect text in a document using &TEXTRACT; and an &AWS; SDK</title>
+                <titleabbrev id="example_textract_DetectDocumentText_section.titleabbrev">Detect text in a document</titleabbrev>
+                <abstract>
+                    <para>Detect text in a document using &TEXTRACT; and an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_DetectDocumentText_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_DetectDocumentText_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_textract_GetDocumentAnalysis_section" role="topic">
+            <info>
+                <title id="example_textract_GetDocumentAnalysis_section.title">Get data about an &TEXTRACT; document analysis job using an &AWS; SDK</title>
+                <titleabbrev id="example_textract_GetDocumentAnalysis_section.titleabbrev">Get data about a document analysis job</titleabbrev>
+                <abstract>
+                    <para>Get data about an &TEXTRACT; document analysis job using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_GetDocumentAnalysis_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_GetDocumentAnalysis_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_textract_StartDocumentAnalysis_section" role="topic">
+            <info>
+                <title id="example_textract_StartDocumentAnalysis_section.title">Start asynchronous analysis of a document using &TEXTRACT; and an &AWS; SDK</title>
+                <titleabbrev id="example_textract_StartDocumentAnalysis_section.titleabbrev">Start asynchronous analysis of a document</titleabbrev>
+                <abstract>
+                    <para>Start asynchronous analysis of a document using &TEXTRACT; and an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_StartDocumentAnalysis_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_StartDocumentAnalysis_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_textract_StartDocumentTextDetection_section" role="topic">
+            <info>
+                <title id="example_textract_StartDocumentTextDetection_section.title">Start asynchronous text detection using &TEXTRACT; and an &AWS; SDK</title>
+                <titleabbrev id="example_textract_StartDocumentTextDetection_section.titleabbrev">Start asynchronous text detection</titleabbrev>
+                <abstract>
+                    <para>Start asynchronous text detection using &TEXTRACT; and an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_StartDocumentTextDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/textract_StartDocumentTextDetection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &TEXTRACT; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &TEXTRACT; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &TEXTRACT;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_TextractExplorer_section" role="topic">
+            <info>
+                <title id="example_cross_TextractExplorer_section.title">Create an &TEXTRACT; explorer application</title>
+                <titleabbrev id="example_cross_TextractExplorer_section.titleabbrev">Create an &TEXTRACT; explorer application</titleabbrev>
+                <abstract>
+                    <para>Create an &TEXTRACT; explorer application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractComprehendDetectEntities_section" role="topic">
+            <info>
+                <title id="example_cross_TextractComprehendDetectEntities_section.title">Detect entities in text extracted from an image using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_TextractComprehendDetectEntities_section.titleabbrev">Detect entities in text extracted from an image</titleabbrev>
+                <abstract>
+                    <para>Detect entities in text extracted from an image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

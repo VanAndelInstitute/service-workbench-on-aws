@@ -1,0 +1,24 @@
+<programlisting>
+    public static void listAllAnAnalyses(QuickSightClient qsClient, String account ) {
+
+        try {
+            ListAnalysesRequest analysesRequest = ListAnalysesRequest.builder()
+                    .awsAccountId(account)
+                    .maxResults(20)
+                    .build();
+
+            ListAnalysesResponse res  = qsClient.listAnalyses(analysesRequest);
+            List<AnalysisSummary> analysisList = res.analysisSummaryList();
+
+            for (AnalysisSummary analysis: analysisList) {
+                System.out.println("Analysis name: "+analysis.name());
+                System.out.println("Analysis status: "+analysis.status());
+                System.out.println("Analysis status: "+analysis.analysisId());
+              }
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

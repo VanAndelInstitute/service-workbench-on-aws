@@ -1,0 +1,3 @@
+<programlisting>
+    file, err := os.Create(*filename)
+</programlisting>

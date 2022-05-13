@@ -1,0 +1,7 @@
+async fn list_tables(client: &Client) -> Result<(), Error> {
+    let tables = client.list_tables().send().await?;
+
+    println!("Current DynamoDB tables: {:?}", tables);
+
+    Ok(())
+}

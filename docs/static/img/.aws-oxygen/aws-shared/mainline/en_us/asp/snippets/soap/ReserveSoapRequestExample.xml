@@ -1,0 +1,20 @@
+<SOAP-ENV:Body wsu:Id="body" xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <ns2:Reserve xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+   <ns2:SenderTokenId>76PSX31MM77T81ExampleQVDNQPG5GFAK</ns2:SenderTokenId>
+     <ns2:TransactionAmount>
+       <ns2:CurrencyCode>USD</ns2:CurrencyCode>
+       <ns2:Amount>1.10</ns2:Amount>
+     </ns2:TransactionAmount>
+     <ns2:CallerReference>
+      ReferenceString????Qlrd12275864150791
+     </ns2:CallerReference>
+     <ns2:CallerDescription>
+      DescriptionString-????UQAu12275864150791
+     </ns2:CallerDescription>
+     <ns2:SenderDescription>
+      DescriptionString-????kbPT12275864150791
+     </ns2:SenderDescription>
+   </ns2:Reserve>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

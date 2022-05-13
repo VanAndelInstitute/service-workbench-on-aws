@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-build" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to build the push messaging-enabled &AMHlong; quickstart app in
+                Android Studio.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-build.title">Build a Push Messaging-Enabled &AMHlong; App for
+        Android</title>
+    <para>This topic describes how to import and build the &AMHlong; quickstart code in Android
+        Studio. We assume that you have already generated the quickstart app code using the
+        &AMHlong; console, and downloaded the code in a zip file to your computer.</para>
+    <procedure>
+        <title>To build the &AMHlong; quickstart app</title>
+        <step>
+            <para>Unzip the zip file that &AMHlong; provided.</para>
+        </step>
+        <step>
+            <para>Open Android Studio and choose <guilabel>Import project (Eclipse ADT, Gradle,
+                    etc.)</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-import.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>Open the folder where you extracted the zip file contents and choose the
+                    <guilabel>MySampleApp</guilabel> folder. </para>
+            <para>Android Studio will import the project and build it using Gradle.</para>
+        </step>
+        <step>
+            <para>If a dialog box appears recommending that you update your Gradle Plug-in, choose
+                    <guilabel>Don't remind me again for this project</guilabel>.</para>
+        </step>
+    </procedure>
+    <para>After the build completes, you can install and run the app on a physical or virtual
+        Android device.</para>
+</section>

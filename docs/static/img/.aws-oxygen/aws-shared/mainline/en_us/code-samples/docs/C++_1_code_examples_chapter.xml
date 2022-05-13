@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="cpp_code_examples" role="topic">
+    <info>
+        <title id="cpp_code_examples.title">Additional code examples for the &CPPlong;</title>
+        <titleabbrev id="cpp_code_examples.titleabbrev">Additional code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &CPPlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &CPPlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="cpp_code_examples_categorized" role="topic">
+        <info>
+            <title id="cpp_code_examples_categorized.title">Single-service actions and scenarios using &CPP;</title>
+            <titleabbrev id="cpp_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &CPP; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &CPPlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="cpp_cloudwatch_code_examples" role="topic">
+            <info>
+                <title id="cpp_cloudwatch_code_examples.title">&CW; examples using &CPP;</title>
+                <titleabbrev id="cpp_cloudwatch_code_examples.titleabbrev">&CW;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &CW;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &CW;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CW; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CW; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch_PutMetricAlarm_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricAlarm_cpp_topic.title">Create an alarm that watches a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricAlarm_cpp_topic.titleabbrev">Create an alarm that watches a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWlong; alarm that watches a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricAlarm_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DeleteAlarms_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_DeleteAlarms_cpp_topic.title">Delete alarms</title>
+                            <titleabbrev id="cloudwatch_DeleteAlarms_cpp_topic.titleabbrev">Delete alarms</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete &CWlong; alarms.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DeleteAlarms_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DescribeAlarmsForMetric_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_DescribeAlarmsForMetric_cpp_topic.title">Describe alarms for a metric</title>
+                            <titleabbrev id="cloudwatch_DescribeAlarmsForMetric_cpp_topic.titleabbrev">Describe alarms for a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWlong; alarms for a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DescribeAlarmsForMetric_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DisableAlarmActions_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_DisableAlarmActions_cpp_topic.title">Disable alarm actions</title>
+                            <titleabbrev id="cloudwatch_DisableAlarmActions_cpp_topic.titleabbrev">Disable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DisableAlarmActions_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_EnableAlarmActions_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_EnableAlarmActions_cpp_topic.title">Enable alarm actions</title>
+                            <titleabbrev id="cloudwatch_EnableAlarmActions_cpp_topic.titleabbrev">Enable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_EnableAlarmActions_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_ListMetrics_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_ListMetrics_cpp_topic.title">List metrics</title>
+                            <titleabbrev id="cloudwatch_ListMetrics_cpp_topic.titleabbrev">List metrics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &CWlong; metrics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_ListMetrics_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_PutMetricData_cpp_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricData_cpp_topic.title">Put data into a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricData_cpp_topic.titleabbrev">Put data into a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put data into a &CWlong; metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricData_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="cpp_cloudwatch-logs_code_examples" role="topic">
+            <info>
+                <title id="cpp_cloudwatch-logs_code_examples.title">&CWL; examples using &CPP;</title>
+                <titleabbrev id="cpp_cloudwatch-logs_code_examples.titleabbrev">&CWL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &CWL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &CWL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-logs_PutSubscriptionFilter_cpp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_PutSubscriptionFilter_cpp_topic.title">Create a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_PutSubscriptionFilter_cpp_topic.titleabbrev">Create a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_PutSubscriptionFilter_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DeleteSubscriptionFilter_cpp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DeleteSubscriptionFilter_cpp_topic.title">Delete a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_DeleteSubscriptionFilter_cpp_topic.titleabbrev">Delete a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DeleteSubscriptionFilter_C++.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeSubscriptionFilters_cpp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeSubscriptionFilters_cpp_topic.title">Describe existing subscription filters</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeSubscriptionFilters_cpp_topic.titleabbrev">Describe existing subscription filters</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWLlong; existing subscription filters.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeSubscriptionFilters_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="cpp_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="cpp_dynamodb_code_examples.title">&DDB; examples using &CPP;</title>
+                <titleabbrev id="cpp_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_cpp_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_cpp_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_cpp_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_cpp_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_cpp_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_cpp_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_cpp_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_cpp_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_cpp_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DescribeTable_cpp_topic">
+                        <info>
+                            <title id="dynamodb_DescribeTable_cpp_topic.title">Get information about a table</title>
+                            <titleabbrev id="dynamodb_DescribeTable_cpp_topic.titleabbrev">Get information about a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DescribeTable_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_cpp_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_cpp_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_cpp_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_cpp_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_cpp_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_cpp_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_cpp_topic">
+                        <info>
+                            <title id="dynamodb_Query_cpp_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_cpp_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_cpp_topic">
+                        <info>
+                            <title id="dynamodb_Scan_cpp_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_cpp_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_C++.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_cpp_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_cpp_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_cpp_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="cpp_eventbridge_code_examples" role="topic">
+            <info>
+                <title id="cpp_eventbridge_code_examples.title">&EV; examples using &CPP;</title>
+                <titleabbrev id="cpp_eventbridge_code_examples.titleabbrev">&EV;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &EV;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &EV;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EV; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EV; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eventbridge_PutTargets_cpp_topic">
+                        <info>
+                            <title id="eventbridge_PutTargets_cpp_topic.title">Add a &LAM; function target</title>
+                            <titleabbrev id="eventbridge_PutTargets_cpp_topic.titleabbrev">Add a &LAM; function target</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add an &LAMlong; function target to an &EVlong; event.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutTargets_C++.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutRule_cpp_topic">
+                        <info>
+                            <title id="eventbridge_PutRule_cpp_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="eventbridge_PutRule_cpp_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_C++.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutEvents_cpp_topic">
+                        <info>
+                            <title id="eventbridge_PutEvents_cpp_topic.title">Send events</title>
+                            <titleabbrev id="eventbridge_PutEvents_cpp_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &EVlong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="cpp_s3_code_examples" role="topic">
+            <info>
+                <title id="cpp_s3_code_examples.title">&S3; examples using &CPP;</title>
+                <titleabbrev id="cpp_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_PutBucketPolicy_cpp_topic">
+                        <info>
+                            <title id="s3_PutBucketPolicy_cpp_topic.title">Add a policy to a bucket</title>
+                            <titleabbrev id="s3_PutBucketPolicy_cpp_topic.titleabbrev">Add a policy to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a policy to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_CopyObject_cpp_topic">
+                        <info>
+                            <title id="s3_CopyObject_cpp_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_cpp_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_cpp_topic">
+                        <info>
+                            <title id="s3_CreateBucket_cpp_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_cpp_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketPolicy_cpp_topic">
+                        <info>
+                            <title id="s3_DeleteBucketPolicy_cpp_topic.title">Delete a policy from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketPolicy_cpp_topic.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a policy from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_cpp_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_cpp_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_cpp_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObject_cpp_topic">
+                        <info>
+                            <title id="s3_DeleteObject_cpp_topic.title">Delete an object</title>
+                            <titleabbrev id="s3_DeleteObject_cpp_topic.titleabbrev">Delete an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketWebsite_cpp_topic">
+                        <info>
+                            <title id="s3_DeleteBucketWebsite_cpp_topic.title">Delete the website configuration from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketWebsite_cpp_topic.titleabbrev">Delete the website configuration from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete the website configuration from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketWebsite_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_cpp_topic">
+                        <info>
+                            <title id="s3_GetObject_cpp_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_cpp_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObjectAcl_cpp_topic">
+                        <info>
+                            <title id="s3_GetObjectAcl_cpp_topic.title">Get the ACL of an object</title>
+                            <titleabbrev id="s3_GetObjectAcl_cpp_topic.titleabbrev">Get the ACL of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObjectAcl_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketPolicy_cpp_topic">
+                        <info>
+                            <title id="s3_GetBucketPolicy_cpp_topic.title">Get the policy for a bucket</title>
+                            <titleabbrev id="s3_GetBucketPolicy_cpp_topic.titleabbrev">Get the policy for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the policy for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketWebsite_cpp_topic">
+                        <info>
+                            <title id="s3_GetBucketWebsite_cpp_topic.title">Get the website configuration for a bucket</title>
+                            <titleabbrev id="s3_GetBucketWebsite_cpp_topic.titleabbrev">Get the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketWebsite_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListBuckets_cpp_topic">
+                        <info>
+                            <title id="s3_ListBuckets_cpp_topic.title">List buckets</title>
+                            <titleabbrev id="s3_ListBuckets_cpp_topic.titleabbrev">List buckets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &S3; buckets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_cpp_topic">
+                        <info>
+                            <title id="s3_ListObjects_cpp_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_cpp_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketWebsite_cpp_topic">
+                        <info>
+                            <title id="s3_PutBucketWebsite_cpp_topic.title">Set the website configuration for a bucket</title>
+                            <titleabbrev id="s3_PutBucketWebsite_cpp_topic.titleabbrev">Set the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_C++.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_cpp_topic">
+                        <info>
+                            <title id="s3_PutObject_cpp_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_cpp_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="cpp_sns_code_examples" role="topic">
+            <info>
+                <title id="cpp_sns_code_examples.title">&SNS; examples using &CPP;</title>
+                <titleabbrev id="cpp_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &CPPlong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &CPPlong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CreateTopic_cpp_topic">
+                        <info>
+                            <title id="sns_CreateTopic_cpp_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_cpp_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_Unsubscribe_cpp_topic">
+                        <info>
+                            <title id="sns_Unsubscribe_cpp_topic.title">Delete a subscription</title>
+                            <titleabbrev id="sns_Unsubscribe_cpp_topic.titleabbrev">Delete a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_cpp_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_cpp_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_cpp_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_cpp_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_cpp_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_cpp_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetSMSAttributes_cpp_topic">
+                        <info>
+                            <title id="sns_GetSMSAttributes_cpp_topic.title">Get the settings for sending SMS messages</title>
+                            <titleabbrev id="sns_GetSMSAttributes_cpp_topic.titleabbrev">Get the settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the settings for sending &SNS; SMS messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_cpp_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_cpp_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_cpp_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_cpp_topic">
+                        <info>
+                            <title id="sns_ListTopics_cpp_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_cpp_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishTextSMS_cpp_topic">
+                        <info>
+                            <title id="sns_PublishTextSMS_cpp_topic.title">Publish an SMS text message</title>
+                            <titleabbrev id="sns_PublishTextSMS_cpp_topic.titleabbrev">Publish an SMS text message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_cpp_topic">
+                        <info>
+                            <title id="sns_Publish_cpp_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_cpp_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetSmsAttributes_cpp_topic">
+                        <info>
+                            <title id="sns_SetSmsAttributes_cpp_topic.title">Set the default settings for sending SMS messages</title>
+                            <titleabbrev id="sns_SetSmsAttributes_cpp_topic.titleabbrev">Set the default settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the default settings for sending SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_Lambda_cpp_topic">
+                        <info>
+                            <title id="sns_Subscribe_Lambda_cpp_topic.title">Subscribe a &LAM; function to a topic</title>
+                            <titleabbrev id="sns_Subscribe_Lambda_cpp_topic.titleabbrev">Subscribe a &LAM; function to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a &LAM; function so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_App_cpp_topic">
+                        <info>
+                            <title id="sns_Subscribe_App_cpp_topic.title">Subscribe a mobile application to a topic</title>
+                            <titleabbrev id="sns_Subscribe_App_cpp_topic.titleabbrev">Subscribe a mobile application to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a mobile application endpoint so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_App_C++.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_cpp_topic">
+                        <info>
+                            <title id="sns_Subscribe_cpp_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_cpp_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_C++.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</chapter>

@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.sqs.SqsClient
+import aws.sdk.kotlin.services.sqs.model.SendMessageRequest
+import aws.sdk.kotlin.services.sqs.model.SendMessageBatchRequestEntry
+import aws.sdk.kotlin.services.sqs.model.SendMessageBatchRequest
+import kotlin.system.exitProcess

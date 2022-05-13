@@ -1,0 +1,11 @@
+<programlisting>
+    bucketPtr := flag.String("b", "", "Bucket to set CORS on, (required)")
+
+    flag.Parse()
+
+    if *bucketPtr == "" {
+        exitErrorf("-b <bucket> Bucket name required")
+    }
+
+    methods := filterMethods(flag.Args())
+</programlisting>

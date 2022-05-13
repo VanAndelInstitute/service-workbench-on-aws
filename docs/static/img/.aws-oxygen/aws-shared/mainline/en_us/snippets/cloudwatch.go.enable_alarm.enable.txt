@@ -1,0 +1,5 @@
+    _, err = svc.EnableAlarmActions(&cloudwatch.EnableAlarmActionsInput{
+        AlarmNames: []*string{
+            instanceID,
+        },
+    })

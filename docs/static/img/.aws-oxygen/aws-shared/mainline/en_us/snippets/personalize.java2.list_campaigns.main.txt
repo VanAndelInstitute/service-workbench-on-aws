@@ -1,0 +1,21 @@
+    public static void listAllCampaigns(PersonalizeClient personalizeClient, String solutionArn) {
+
+     try{
+        ListCampaignsRequest campaignsRequest = ListCampaignsRequest.builder()
+                .maxResults(10)
+                .solutionArn(solutionArn)
+                .build();
+
+        ListCampaignsResponse response = personalizeClient.listCampaigns(campaignsRequest);
+
+        List<CampaignSummary> campaigns = response.campaigns();
+        for (CampaignSummary campaign: campaigns) {
+            System.out.println("Campaign name is : "+campaign.name());
+            System.out.println("Campaign ARN is : "+campaign.campaignArn());
+        }
+
+    } catch (PersonalizeException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }

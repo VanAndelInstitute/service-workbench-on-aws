@@ -1,0 +1,12 @@
+<programlisting>
+    if len(result.DBInstances) < 1 {
+        fmt.Println("Could not find any instances")
+        return
+    }
+
+    fmt.Println("Instances:")
+
+    for _, d := range result.DBInstances {
+        fmt.Println("* " + *d.DBInstanceIdentifier + " created on " + d.InstanceCreateTime.Format("2006-01-02 15:04:05 Monday"))
+    }
+</programlisting>

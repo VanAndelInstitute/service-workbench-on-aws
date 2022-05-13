@@ -1,0 +1,3 @@
+    for i, url := range result.QueueUrls {
+        fmt.Printf("%d: %s\n", i, *url)
+    }

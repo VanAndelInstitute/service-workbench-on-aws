@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<section id="aws-properties-iam-user" role="topic">
+   <title id="aws-properties-iam-user.title">AWS::IAM::User</title>
+
+   <para>The <type>AWS::IAM::User</type> type creates a user.</para>
+
+   <para condition="json">This type supports updates. For more information about updating stacks, see <xref
+         linkend="using-cfn-updating-stacks" endterm="using-cfn-updating-stacks.title"/>.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type": "AWS::IAM::User",
+   "Properties": {
+      "<link linkend="cfn-iam-user-path">Path</link>": <replaceable>String</replaceable>,
+      "<link linkend="cfn-iam-user-groups">Groups</link>": [ <replaceable>Group, ...</replaceable> ],
+      "<link linkend="cfn-iam-user-loginprofile">LoginProfile</link>": { "Password" : <replaceable>String</replaceable> },
+      "<link linkend="cfn-iam-user-policies">Policies</link>": [ <replaceable>Embedded IAM Policies</replaceable> ]
+   }
+}     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>Type: AWS::IAM::User
+Properties:
+  <link linkend="cfn-iam-user-path">Path</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-iam-user-groups">Groups</link>: [ <replaceable>Group, ...</replaceable> ]
+  <link linkend="cfn-iam-user-loginprofile">LoginProfile</link>:
+    Password: <replaceable>String</replaceable> 
+  <link linkend="cfn-iam-user-policies">Policies</link>: [ <replaceable>Embedded IAM Policies</replaceable> ]</programlisting>
+	</section>
+
+   <section id="aws-properties-iam-user-prop">
+      <title id="aws-properties-iam-user-prop.title">Properties</title>
+
+      <variablelist>
+         <varlistentry id="cfn-iam-user-path">
+            <term>Path</term>
+            <listitem>
+               <para>The path for the user name. For more information about paths, see Identifiers for IAM Entities
+                  in Using AWS Identity and Access Management.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-user-groups">
+            <term>Groups</term>
+            <listitem>
+               <para>The names of groups to which you want to add the user.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: List of Groups</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-user-loginprofile">
+            <term>LoginProfile</term>
+            <listitem>
+               <para>Creates a login profile for the user so the user can access AWS services such as the AWS
+                  Management Console.</para>
+               <para>The LoginProfile type is an embedded property in the <type>AWS::IAM::User</type> type. The
+                  LoginProfile property contains a single field: <parameter>Password</parameter>, which takes a string
+                  as its value. For example:</para>
+               <programlisting condition="json">"LoginProfile": { "Password": "myP@ssW0rd" }</programlisting>
+               <programlisting condition="yaml">LoginProfile: 
+  Password: "myP@ssW0rd" </programlisting>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: LoginProfile type</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-user-policies">
+            <term>Policies</term>
+            <listitem>
+               <para>Applies specified policies to the user. For information about policies, see <ulink
+                     url="http://&domain;/IAM/latest/UserGuide/index.html?PoliciesOverview.html"
+                     >Overview of Policies</ulink> in <citation>Using IAM</citation>.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: List of <link linkend="aws-properties-iam-policy"
+                     >AWS::IAM::Policy</link> types</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section id="aws-properties-iam-user-ref">
+      <title id="aws-properties-iam-user-ref.title">Return Values</title>
+
+      <section>
+         <title>Ref</title>
+         <para>Specifying this resource ID to the intrinsic Ref function will return the UserName. For example:
+            <code>mystack-myuser-1CCXAFG2H2U4D</code>.</para>
+         <para>&ref-more-info;</para>
+      </section>
+
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>Arn</term>
+               <listitem>
+                  <para>Returns the Amazon Resource Name (ARN) for the specified AWS::IAM::User resource. For example:
+                     <code>arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D</code>.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>&getatt-more-info;</para>
+      </section>
+   </section>
+
+   <section revision="cfn">
+      <title>Template Examples</title>
+      <para>To view AWS::IAM::User snippets, see: <link linkend="scenario-iam-user" endterm="scenario-iam-user.title"/></para>
+   </section>
+
+</section>

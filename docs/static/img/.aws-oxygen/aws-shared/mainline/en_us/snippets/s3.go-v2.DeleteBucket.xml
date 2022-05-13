@@ -1,0 +1,11 @@
+<programlisting>
+	fmt.Println("Delete a bucket")
+	// Delete the bucket.
+
+	_, err = client.DeleteBucket(context.TODO(), &s3.DeleteBucketInput{
+		Bucket: aws.String(name),
+	})
+	if err != nil {
+		panic("Couldn't delete bucket: " + err.Error())
+	}
+</programlisting>

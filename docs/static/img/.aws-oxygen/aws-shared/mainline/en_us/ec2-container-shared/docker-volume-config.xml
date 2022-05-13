@@ -1,0 +1,97 @@
+<!DOCTYPE varlistentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<varlistentry features="ec2">
+    <term><code>dockerVolumeConfiguration</code></term>
+    <listitem>
+        <para>Type: Object</para>
+        <para>Required: No</para>
+        <para>This parameter is specified when using Docker volumes. Docker volumes are only
+            supported when using the &ec2-launch-type; launch type. Windows containers only support
+            the use of the <code>local</code> driver. To use bind mounts, specify a
+                <code>host</code> instead.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>scope</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Valid Values: <code>task</code> | <code>shared</code></para>
+                    <para>Required: No</para>
+                    <para>The scope for the Docker volume, which determines its lifecycle. Docker
+                        volumes that are scoped to a <code>task</code> are automatically provisioned
+                        when the task starts destroyed when the task is cleaned up. Docker volumes that
+                        are scoped as <code>shared</code> persist after the task stops.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>autoprovision</code></term>
+                <listitem>
+                    <para>Type: Boolean</para>
+                    <para>Default value: <code>false</code></para>
+                    <para>Required: No</para>
+                    <para>If this value is <code>true</code>, the Docker volume is created if it
+                        does not already exist. This field is only used if the <code>scope</code> is
+                            <code>shared</code>. If the <code>scope</code> is <code>task</code> then
+                        this parameter must either be omitted or set to <code>false</code>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>driver</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>The Docker volume driver to use. The driver value must match the driver
+                        name provided by Docker because it is used for task placement. If the driver
+                        was installed using the Docker plugin CLI, use <code>docker plugin ls</code>
+                        to retrieve the driver name from your container instance. If the driver was
+                        installed using another method, use Docker plugin discovery to retrieve the
+                        driver name. For more information, see <ulink
+                            url="https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery"
+                            >Docker plugin discovery</ulink>. This parameter maps to
+                            <code>Driver</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--driver</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>driverOpts</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>A map of Docker driver specific options to pass through. This parameter
+                        maps to <code>DriverOpts</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--opt</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>labels</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>Custom metadata to add to your Docker volume. This parameter maps to
+                            <code>Labels</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--label</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>

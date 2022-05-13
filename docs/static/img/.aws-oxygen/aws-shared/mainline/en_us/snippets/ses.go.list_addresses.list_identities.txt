@@ -1,0 +1,5 @@
+    var addresses []string
+
+    result, err := svc.ListIdentities(&ses.ListIdentitiesInput{
+        IdentityType: aws.String("EmailAddress"),
+    })

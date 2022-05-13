@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &SNS; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &SNS; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &SNS; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &SNS; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SNS; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &SNS;
+            actions with &AWS; SDKs. These excerpts call the &SNS; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&SNS; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_sns_TagResource_section" role="topic">
+            <info>
+                <title id="example_sns_TagResource_section.title">Add tags to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_TagResource_section.titleabbrev">Add tags to a topic</titleabbrev>
+                <abstract>
+                    <para>Add tags to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_TagResource_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_TagResource_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_CheckIfPhoneNumberIsOptedOut_section" role="topic">
+            <info>
+                <title id="example_sns_CheckIfPhoneNumberIsOptedOut_section.title">Check whether a phone number is opted out of &SNS; using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_CheckIfPhoneNumberIsOptedOut_section.titleabbrev">Check whether a phone number is opted out</titleabbrev>
+                <abstract>
+                    <para>Check whether a phone number is opted out of &SNS; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_ConfirmSubscription_section" role="topic">
+            <info>
+                <title id="example_sns_ConfirmSubscription_section.title">Confirm an endpoint owner wants to receive &SNS; messages using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_ConfirmSubscription_section.titleabbrev">Confirm an endpoint owner wants to receive messages</titleabbrev>
+                <abstract>
+                    <para>Confirm an endpoint owner wants to receive &SNS; messages using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ConfirmSubscription_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ConfirmSubscription_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_CreateTopic_section" role="topic">
+            <info>
+                <title id="example_sns_CreateTopic_section.title">Create an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_CreateTopic_section.titleabbrev">Create a topic</titleabbrev>
+                <abstract>
+                    <para>Create an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Unsubscribe_section" role="topic">
+            <info>
+                <title id="example_sns_Unsubscribe_section.title">Delete an &SNS; subscription using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Unsubscribe_section.titleabbrev">Delete a subscription</titleabbrev>
+                <abstract>
+                    <para>Delete an &SNS; subscription using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_DeleteTopic_section" role="topic">
+            <info>
+                <title id="example_sns_DeleteTopic_section.title">Delete an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_DeleteTopic_section.titleabbrev">Delete a topic</titleabbrev>
+                <abstract>
+                    <para>Delete an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_GetTopicAttributes_section" role="topic">
+            <info>
+                <title id="example_sns_GetTopicAttributes_section.title">Get the properties of an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_GetTopicAttributes_section.titleabbrev">Get the properties of a topic</titleabbrev>
+                <abstract>
+                    <para>Get the properties of an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_GetSMSAttributes_section" role="topic">
+            <info>
+                <title id="example_sns_GetSMSAttributes_section.title">Get the settings for sending &SNS; SMS messages using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_GetSMSAttributes_section.titleabbrev">Get the settings for sending SMS messages</titleabbrev>
+                <abstract>
+                    <para>Get the settings for sending &SNS; SMS messages using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_ListPhoneNumbersOptedOut_section" role="topic">
+            <info>
+                <title id="example_sns_ListPhoneNumbersOptedOut_section.title">List phone numbers opted out of &SNS; using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_ListPhoneNumbersOptedOut_section.titleabbrev">List opted out phone numbers</titleabbrev>
+                <abstract>
+                    <para>List phone numbers opted out of &SNS; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListPhoneNumbersOptedOut_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListPhoneNumbersOptedOut_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_ListSubscriptions_section" role="topic">
+            <info>
+                <title id="example_sns_ListSubscriptions_section.title">List the subscribers of an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_ListSubscriptions_section.titleabbrev">List the subscribers of a topic</titleabbrev>
+                <abstract>
+                    <para>List the subscribers of an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_ListTopics_section" role="topic">
+            <info>
+                <title id="example_sns_ListTopics_section.title">List &SNS; topics using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_ListTopics_section.titleabbrev">List topics</titleabbrev>
+                <abstract>
+                    <para>List &SNS; topics using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_PublishTextSMS_section" role="topic">
+            <info>
+                <title id="example_sns_PublishTextSMS_section.title">Publish an &SNS; SMS text message using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_PublishTextSMS_section.titleabbrev">Publish an SMS text message</titleabbrev>
+                <abstract>
+                    <para>Publish an &SNS; SMS text message using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Publish_section" role="topic">
+            <info>
+                <title id="example_sns_Publish_section.title">Publish to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Publish_section.titleabbrev">Publish to a topic</titleabbrev>
+                <abstract>
+                    <para>Publish to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_SetSubscriptionAttributesRedrivePolicy_section" role="topic">
+            <info>
+                <title id="example_sns_SetSubscriptionAttributesRedrivePolicy_section.title">Set a dead-letter queue for an &SNS; subscription using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_SetSubscriptionAttributesRedrivePolicy_section.titleabbrev">Set a dead-letter queue for a subscription</titleabbrev>
+                <abstract>
+                    <para>Set a dead-letter queue for an &SNS; subscription using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributesRedrivePolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributesRedrivePolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_SetSubscriptionAttributes_section" role="topic">
+            <info>
+                <title id="example_sns_SetSubscriptionAttributes_section.title">Set an &SNS; filter policy using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_SetSubscriptionAttributes_section.titleabbrev">Set a filter policy</titleabbrev>
+                <abstract>
+                    <para>Set an &SNS; filter policy using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_SetSmsAttributes_section" role="topic">
+            <info>
+                <title id="example_sns_SetSmsAttributes_section.title">Set the default settings for sending &SNS; SMS messages using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_SetSmsAttributes_section.titleabbrev">Set the default settings for sending SMS messages</titleabbrev>
+                <abstract>
+                    <para>Set the default settings for sending &SNS; SMS messages using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_SetTopicAttributes_section" role="topic">
+            <info>
+                <title id="example_sns_SetTopicAttributes_section.title">Set &SNS; topic attributes using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_SetTopicAttributes_section.titleabbrev">Set topic attributes</titleabbrev>
+                <abstract>
+                    <para>Set &SNS; topic attributes using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Subscribe_Lambda_section" role="topic">
+            <info>
+                <title id="example_sns_Subscribe_Lambda_section.title">Subscribe a &LAM; function to receive notifications from an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Subscribe_Lambda_section.titleabbrev">Subscribe a &LAM; function to a topic</titleabbrev>
+                <abstract>
+                    <para>Subscribe a &LAM; function to receive notifications from an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Subscribe_App_section" role="topic">
+            <info>
+                <title id="example_sns_Subscribe_App_section.title">Subscribe a mobile application to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Subscribe_App_section.titleabbrev">Subscribe a mobile application to a topic</titleabbrev>
+                <abstract>
+                    <para>Subscribe a mobile application to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_App_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_App_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Subscribe_HTTP_section" role="topic">
+            <info>
+                <title id="example_sns_Subscribe_HTTP_section.title">Subscribe an HTTP endpoint to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Subscribe_HTTP_section.titleabbrev">Subscribe an HTTP endpoint to a topic</titleabbrev>
+                <abstract>
+                    <para>Subscribe an HTTP endpoint to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_HTTP_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_HTTP_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_Subscribe_section" role="topic">
+            <info>
+                <title id="example_sns_Subscribe_section.title">Subscribe an email address to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_Subscribe_section.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                <abstract>
+                    <para>Subscribe an email address to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &SNS; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SNS; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &SNS;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &SNS;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_sns_CreatePlatformEndpoint_section" role="topic">
+            <info>
+                <title id="example_sns_CreatePlatformEndpoint_section.title">Create a platform endpoint for &SNS; push notifications using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_CreatePlatformEndpoint_section.titleabbrev">Create a platform endpoint for push notifications</titleabbrev>
+                <abstract>
+                    <para>Create a platform endpoint for &SNS; push notifications using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CreatePlatformEndpoint_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_CreatePlatformEndpoint_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_PublishFifoTopic_section" role="topic">
+            <info>
+                <title id="example_sns_PublishFifoTopic_section.title">Create and publish to a FIFO &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_PublishFifoTopic_section.titleabbrev">Create and publish to a FIFO topic</titleabbrev>
+                <abstract>
+                    <para>Create and publish to a FIFO &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishFifoTopic_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishFifoTopic_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_UsageSmsTopic_section" role="topic">
+            <info>
+                <title id="example_sns_UsageSmsTopic_section.title">Publish SMS messages to an &SNS; topic using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_UsageSmsTopic_section.titleabbrev">Publish SMS messages to a topic</titleabbrev>
+                <abstract>
+                    <para>Publish SMS messages to an &SNS; topic using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_UsageSmsTopic_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_UsageSmsTopic_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_sns_PublishLargeMessage_section" role="topic">
+            <info>
+                <title id="example_sns_PublishLargeMessage_section.title">Publish a large message to &SNS; with &S3; using an &AWS; SDK</title>
+                <titleabbrev id="example_sns_PublishLargeMessage_section.titleabbrev">Publish a large message</titleabbrev>
+                <abstract>
+                    <para>Publish a large message to &SNS; with &S3; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishLargeMessage_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_PublishLargeMessage_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &SNS; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SNS; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &SNS;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_SubmitDataApp_section" role="topic">
+            <info>
+                <title id="example_cross_SubmitDataApp_section.title">Build an application to submit data to a &DDB; table</title>
+                <titleabbrev id="example_cross_SubmitDataApp_section.titleabbrev">Build an app to submit data to a &DDB; table</titleabbrev>
+                <abstract>
+                    <para>Build an application to submit data to a &DDB; table</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SubmitDataApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SubmitDataApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_SnsPublishSubscription_section" role="topic">
+            <info>
+                <title id="example_cross_SnsPublishSubscription_section.title">Build a publish and subscription application that translates messages</title>
+                <titleabbrev id="example_cross_SnsPublishSubscription_section.titleabbrev">Building an &SNS; application</titleabbrev>
+                <abstract>
+                    <para>Build a publish and subscription application that translates messages</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SnsPublishSubscription_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SnsPublishSubscription_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractExplorer_section" role="topic">
+            <info>
+                <title id="example_cross_TextractExplorer_section.title">Create an &TEXTRACT; explorer application</title>
+                <titleabbrev id="example_cross_TextractExplorer_section.titleabbrev">Create an &TEXTRACT; explorer application</titleabbrev>
+                <abstract>
+                    <para>Create an &TEXTRACT; explorer application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionVideoDetection_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionVideoDetection_section.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionVideoDetection_section.titleabbrev">Detect people and objects in a video</titleabbrev>
+                <abstract>
+                    <para>Detect people and objects in a video with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_sns_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LambdaAPIGateway_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaAPIGateway_section.title">Use &ABP; to invoke a &LAM; function</title>
+                <titleabbrev id="example_cross_LambdaAPIGateway_section.titleabbrev">Use &ABP; to invoke a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Use &ABP; to invoke a &LAM; function</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_sns_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LambdaScheduledEvents_section" role="topic">
+            <info>
+                <title id="example_cross_LambdaScheduledEvents_section.title">Use scheduled events to invoke a &LAM; function</title>
+                <titleabbrev id="example_cross_LambdaScheduledEvents_section.titleabbrev">Use scheduled events to invoke a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Use scheduled events to invoke a &LAM; function</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_sns_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

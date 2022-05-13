@@ -1,0 +1,11 @@
+<programlisting>
+    name: "FindOrCreateIdentityPool",
+    platforms: [
+        .macOS(.v11),
+        .iOS(.v13)
+    ],
+    products: [
+      .library(name: "CognitoIdentityHandler", targets: ["CognitoIdentityHandler"]),
+      .executable(name: "FindOrCreateIdentityPool", targets: ["FindOrCreateIdentityPool"])
+    ],
+</programlisting>

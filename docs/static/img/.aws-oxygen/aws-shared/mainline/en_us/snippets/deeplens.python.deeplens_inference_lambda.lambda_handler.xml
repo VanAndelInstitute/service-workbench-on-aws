@@ -1,0 +1,7 @@
+<programlisting>
+
+def lambda_handler(event, context):
+    """Empty entry point to the Lambda function invoked from the edge."""
+    return
+
+</programlisting>

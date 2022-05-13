@@ -1,0 +1,50 @@
+<programlisting>
+package main
+
+import (
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/polly"
+    "github.com/aws/aws-sdk-go/service/polly/pollyiface"
+)
+
+// GetLexicons retrieves the list of Amazon Polly lexicons.
+// Inputs:
+//     svc is an Amazon Polly service client
+// Output:
+//     If success, the list of lexicons and nil
+//     Otherwise, nil and an error from the call to ListLexicons
+func GetLexicons(svc pollyiface.PollyAPI) (*polly.ListLexiconsOutput, error) {
+    resp, err := svc.ListLexicons(nil)
+
+    return resp, err
+}
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := polly.New(sess)
+
+    resp, err := GetLexicons(svc)
+    if err != nil {
+        fmt.Println("Got an error calling ListLexicons:")
+        fmt.Print(err)
+        return
+    }
+
+    if len(resp.Lexicons) == 0 {
+        fmt.Println("Did not retrieve any lexicons")
+        return
+    }
+
+    for _, l := range resp.Lexicons {
+        fmt.Println(*l.Name)
+        fmt.Println("  Alphabet: " + *l.Attributes.Alphabet)
+        fmt.Println("  Language: " + *l.Attributes.LanguageCode)
+        fmt.Println("")
+    }
+}
+</programlisting>

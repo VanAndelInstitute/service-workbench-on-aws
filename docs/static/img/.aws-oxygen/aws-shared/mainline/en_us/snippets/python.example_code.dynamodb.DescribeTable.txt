@@ -1,0 +1,24 @@
+    def exists(self, table_name):
+        """
+        Determines whether a table exists. As a side effect, stores the table in
+        a member variable.
+
+        :param table_name: The name of the table to check.
+        :return: True when the table exists; otherwise, False.
+        """
+        try:
+            table = self.dyn_resource.Table(table_name)
+            table.load()
+            exists = True
+        except ClientError as err:
+            if err.response['Error']['Code'] == 'ResourceNotFoundException':
+                exists = False
+            else:
+                logger.error(
+                    "Couldn't check for existence of %s. Here's why: %s: %s",
+                    table_name,
+                    err.response['Error']['Code'], err.response['Error']['Message'])
+                raise
+        else:
+            self.table = table
+        return exists

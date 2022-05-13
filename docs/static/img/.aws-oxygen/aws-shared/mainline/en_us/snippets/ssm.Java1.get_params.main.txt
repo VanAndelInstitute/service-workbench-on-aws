@@ -1,0 +1,24 @@
+        AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+
+        try {
+            DescribeParametersRequest desRequest = new DescribeParametersRequest();
+            desRequest.setMaxResults(10);
+
+            DescribeParametersResult results = ssm.describeParameters(desRequest);
+
+            List<ParameterMetadata> params = results.getParameters();
+
+            //Iterate through the list
+            Iterator<ParameterMetadata> tagIterator = params.iterator();
+
+            while(tagIterator.hasNext()) {
+
+                ParameterMetadata paraMeta = (ParameterMetadata)tagIterator.next();
+
+                System.out.println(paraMeta.getName());
+                System.out.println(paraMeta.getDescription());
+            }
+
+        } catch (AmazonServiceException e) {
+            e.getStackTrace();
+        }

@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The name of the bucket")
+    key := flag.String("k", "", "The object key")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET) and key name (-k KEY)")
+        return
+    }

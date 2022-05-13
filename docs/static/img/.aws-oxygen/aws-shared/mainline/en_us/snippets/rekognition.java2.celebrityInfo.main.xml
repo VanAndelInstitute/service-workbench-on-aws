@@ -1,0 +1,23 @@
+<programlisting>
+    public static void getCelebrityInfo(RekognitionClient rekClient, String id ) {
+
+       try {
+        GetCelebrityInfoRequest info = GetCelebrityInfoRequest.builder()
+                .id(id)
+                .build();
+
+        GetCelebrityInfoResponse response = rekClient.getCelebrityInfo(info);
+
+        // Display celebrity information.
+        System.out.println("celebrity name: " + response.name());
+        System.out.println("Further information (if available):");
+        for (String url: response.urls()){
+            System.out.println(url);
+        }
+
+       } catch (RekognitionException e) {
+           System.out.println(e.getMessage());
+           System.exit(1);
+       }
+    }
+</programlisting>

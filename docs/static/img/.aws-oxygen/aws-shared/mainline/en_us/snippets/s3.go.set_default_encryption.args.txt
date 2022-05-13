@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The bucket")
+    kmsKeyID := flag.String("k", "", "The KMS key ID")
+    flag.Parse()
+
+    if *bucket == "" || *kmsKeyID == "" {
+        fmt.Println("You must supply bucket (-b BUCKET) and KMS key ID (-k KEY)")
+        return
+    }

@@ -1,0 +1,31 @@
+
+        /// <summary>
+        /// Checks to see if the supplied phone number has been opted out.
+        /// </summary>
+        /// <param name="client">The initialized Amazon SNS Client object used
+        /// to check if the phone number has been opted out.</param>
+        /// <param name="phoneNumber">A string representing the phone number
+        /// to check.</param>
+        public static async Task CheckIfOptedOutAsync(IAmazonSimpleNotificationService client, string phoneNumber)
+        {
+            var request = new CheckIfPhoneNumberIsOptedOutRequest
+            {
+                PhoneNumber = phoneNumber,
+            };
+
+            try
+            {
+                var response = await client.CheckIfPhoneNumberIsOptedOutAsync(request);
+
+                if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    string optOutStatus = response.IsOptedOut ? "opted out" : "not opted out.";
+                    Console.WriteLine($"The phone number: {phoneNumber} is {optOutStatus}");
+                }
+            }
+            catch (AuthorizationErrorException ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+        }
+

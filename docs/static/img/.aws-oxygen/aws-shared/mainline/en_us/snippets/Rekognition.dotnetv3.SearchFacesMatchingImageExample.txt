@@ -1,0 +1,35 @@
+        public static async Task Main()
+        {
+            string collectionId = "MyCollection";
+            string bucket = "bucket";
+            string photo = "input.jpg";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            // Get an image object from S3 bucket.
+            var image = new Image()
+            {
+                S3Object = new S3Object()
+                {
+                    Bucket = bucket,
+                    Name = photo,
+                },
+            };
+
+            var searchFacesByImageRequest = new SearchFacesByImageRequest()
+            {
+                CollectionId = collectionId,
+                Image = image,
+                FaceMatchThreshold = 70F,
+                MaxFaces = 2,
+            };
+
+            SearchFacesByImageResponse searchFacesByImageResponse = await rekognitionClient.SearchFacesByImageAsync(searchFacesByImageRequest);
+
+            Console.WriteLine("Faces matching largest face in image from " + photo);
+            searchFacesByImageResponse.FaceMatches.ForEach(face =>
+            {
+                Console.WriteLine($"FaceId: {face.Face.FaceId}, Similarity: {face.Similarity}");
+            });
+        }
+

@@ -1,0 +1,18 @@
+    tableName := "Movies"
+    movieName := "The Big New Movie"
+    movieYear := "2015"
+
+    result, err := svc.GetItem(&dynamodb.GetItemInput{
+        TableName: aws.String(tableName),
+        Key: map[string]*dynamodb.AttributeValue{
+            "Year": {
+                N: aws.String(movieYear),
+            },
+            "Title": {
+                S: aws.String(movieName),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatalf("Got error calling GetItem: %s", err)
+    }

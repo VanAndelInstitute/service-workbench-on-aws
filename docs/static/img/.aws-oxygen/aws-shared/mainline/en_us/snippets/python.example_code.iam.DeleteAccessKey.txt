@@ -1,0 +1,16 @@
+def delete_key(user_name, key_id):
+    """
+    Deletes a user's access key.
+
+    :param user_name: The user that owns the key.
+    :param key_id: The ID of the key to delete.
+    """
+
+    try:
+        key = iam.AccessKey(user_name, key_id)
+        key.delete()
+        logger.info(
+            "Deleted access key %s for %s.", key.id, key.user_name)
+    except ClientError:
+        logger.exception("Couldn't delete key %s for %s", key_id, user_name)
+        raise

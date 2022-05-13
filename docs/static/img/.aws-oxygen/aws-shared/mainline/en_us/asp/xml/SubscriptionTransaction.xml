@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+"file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % aws-prodnames SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %aws-prodnames;
+]
+>
+<section id="SubscriptionTransaction">
+    <title id="SubscriptionTransaction.title">SubscriptionTransaction Type</title>
+    <para>
+        <informaltable>
+            <tgroup cols="3">
+                <colspec colname="C1" colwidth="1.17*"/>
+                <colspec colname="C2" colwidth="2.83*"/>
+                <colspec colname="C3" colwidth="1.0*"/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Description</entry>
+                        <entry>Type</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>TransactionId</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The ID of the transaction</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>TransactionDate</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>When the transaction occurred</para>
+                        </entry>
+                        <entry>
+                            <para>Date</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Transaction SerialNumber</parameter>
+                                <parameter revisionflag="html;htmlcond">TransactionSerialNumber</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Serial number for the transaction.</para>
+                        </entry>
+                        <entry>
+                            <para>Integer</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Transaction Amount</parameter>
+                                <parameter revisionflag="html;htmlcond">TransactionAmount</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The monetary cost of the transaction</para>
+                        </entry>
+                        <entry>
+                            <para>Amount</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>Description</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The description provided when the subscription was created.</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Transaction Status</parameter>
+                                <parameter revisionflag="html;htmlcond">Transaction Status</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The final status of the transaction</para>
+                        </entry>
+                        <entry>
+                            <para>TransactionStatus</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </para>
+</section>

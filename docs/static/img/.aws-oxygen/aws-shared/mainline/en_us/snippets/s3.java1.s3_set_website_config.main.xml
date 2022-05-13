@@ -1,0 +1,23 @@
+<programlisting>
+            String bucket_name, String index_doc, String error_doc) {
+        BucketWebsiteConfiguration website_config = null;
+
+        if (index_doc == null) {
+            website_config = new BucketWebsiteConfiguration();
+        } else if (error_doc == null) {
+            website_config = new BucketWebsiteConfiguration(index_doc);
+        } else {
+            website_config = new BucketWebsiteConfiguration(index_doc, error_doc);
+        }
+
+        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+        try {
+            s3.setBucketWebsiteConfiguration(bucket_name, website_config);
+        } catch (AmazonServiceException e) {
+            System.out.format(
+                    "Failed to set website configuration for bucket '%s'!\n",
+                    bucket_name);
+            System.err.println(e.getErrorMessage());
+            System.exit(1);
+        }
+</programlisting>

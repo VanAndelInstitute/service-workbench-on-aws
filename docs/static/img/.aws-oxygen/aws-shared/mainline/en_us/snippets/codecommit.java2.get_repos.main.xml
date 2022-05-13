@@ -1,0 +1,17 @@
+<programlisting>
+    public static void listRepos(CodeCommitClient codeCommitClient) {
+
+        try {
+            ListRepositoriesResponse repResponse = codeCommitClient.listRepositories();
+            List<RepositoryNameIdPair> repoList = repResponse.repositories();
+
+            for (RepositoryNameIdPair repo: repoList) {
+                System.out.println("The repository name is "+repo.repositoryName());
+            }
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

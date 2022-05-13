@@ -1,0 +1,11 @@
+<programlisting>
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.DirectMessageConfiguration
+import aws.sdk.kotlin.services.pinpoint.model.AddressConfiguration
+import aws.sdk.kotlin.services.pinpoint.model.ChannelType
+import aws.sdk.kotlin.services.pinpoint.model.SmsMessage
+import aws.sdk.kotlin.services.pinpoint.model.MessageType
+import aws.sdk.kotlin.services.pinpoint.model.MessageRequest
+import aws.sdk.kotlin.services.pinpoint.model.SendMessagesRequest
+import kotlin.system.exitProcess
+</programlisting>

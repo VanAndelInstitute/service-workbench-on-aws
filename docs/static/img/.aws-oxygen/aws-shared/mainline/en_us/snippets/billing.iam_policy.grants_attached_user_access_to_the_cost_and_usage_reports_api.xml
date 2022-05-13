@@ -1,0 +1,19 @@
+<programlisting>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cur:DeleteReportDefinition",
+                "cur:DescribeReportDefinitions",
+                "cur:PutReportDefinition"
+
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+</programlisting>

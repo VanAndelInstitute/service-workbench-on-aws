@@ -1,0 +1,16 @@
+import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
+import { KinesisClient } from "@aws-sdk/client-kinesis";
+
+// Set the AWS Region.
+const REGION = "REGION";
+
+// Set the Amazon Kinesis Service object.
+const kinesisClient = new KinesisClient({
+  region: REGION,
+  credentials: fromCognitoIdentityPool({
+    client: new CognitoIdentityClient({ region: REGION }),
+    identityPoolId: "IDENTITY_POOL_ID", // IDENTITY_POOL_ID
+  }),
+});
+export { kinesisClient };

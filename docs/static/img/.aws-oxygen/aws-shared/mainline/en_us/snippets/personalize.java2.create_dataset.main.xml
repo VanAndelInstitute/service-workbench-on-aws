@@ -1,0 +1,25 @@
+<programlisting>
+    public static String createDataset(PersonalizeClient personalizeClient,
+                                       String datasetName,
+                                       String datasetGroupArn,
+                                       String datasetType,
+                                       String schemaArn) {
+        try {
+            CreateDatasetRequest request = CreateDatasetRequest.builder()
+                    .name(datasetName)
+                    .datasetGroupArn(datasetGroupArn)
+                    .datasetType(datasetType)
+                    .schemaArn(schemaArn)
+                    .build();
+
+            String datasetArn = personalizeClient.createDataset(request)
+                    .datasetArn();
+            System.out.println("Dataset " + datasetName + " created.");
+            return datasetArn;
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

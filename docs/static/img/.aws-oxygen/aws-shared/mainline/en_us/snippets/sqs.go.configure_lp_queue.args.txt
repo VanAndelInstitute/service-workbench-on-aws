@@ -1,0 +1,16 @@
+    queue := flag.String("q", "", "The name of the queue")
+    waitTime := flag.Int("w", 10, "The wait time, in seconds, for long polling")
+    flag.Parse()
+
+    if *queue == "" {
+        fmt.Println("You must supply a queue name (-q QUEUE")
+        return
+    }
+
+    if *waitTime < 1 {
+        *waitTime = 1
+    }
+
+    if *waitTime > 20 {
+        *waitTime = 20
+    }

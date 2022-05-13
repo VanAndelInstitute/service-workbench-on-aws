@@ -1,0 +1,7 @@
+<programlisting>
+    svc := iam.New(sess)
+
+    result, err := svc.ListUsers(&iam.ListUsersInput{
+        MaxItems: maxItems,
+    })
+</programlisting>

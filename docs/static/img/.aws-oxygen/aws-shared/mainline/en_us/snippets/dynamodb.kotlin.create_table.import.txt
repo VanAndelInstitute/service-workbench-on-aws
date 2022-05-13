@@ -1,0 +1,10 @@
+import aws.sdk.kotlin.services.dynamodb.DynamoDbClient
+import aws.sdk.kotlin.services.dynamodb.model.AttributeDefinition
+import aws.sdk.kotlin.services.dynamodb.model.ScalarAttributeType
+import aws.sdk.kotlin.services.dynamodb.model.KeySchemaElement
+import aws.sdk.kotlin.services.dynamodb.model.ProvisionedThroughput
+import aws.sdk.kotlin.services.dynamodb.model.KeyType
+import aws.sdk.kotlin.services.dynamodb.model.CreateTableRequest
+import aws.sdk.kotlin.services.dynamodb.model.DescribeTableRequest
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess

@@ -1,0 +1,14 @@
+suspend fun invokeFunction(functionNameVal:String) {
+
+        val json = """{"Hello ":"Paris"}"""
+        val byteArray = json.trimIndent().encodeToByteArray()
+        val request = InvokeRequest {
+            functionName = functionNameVal
+            payload = byteArray
+        }
+
+        LambdaClient { region = "us-west-2" }.use { awsLambda ->
+           val res = awsLambda.invoke(request)
+           println(res)
+        }
+ }

@@ -1,0 +1,26 @@
+<programlisting>
+    public static void searchFacebyId(RekognitionClient rekClient,String collectionId, String faceId) {
+
+        try {
+            SearchFacesRequest searchFacesRequest = SearchFacesRequest.builder()
+                    .collectionId(collectionId)
+                    .faceId(faceId)
+                    .faceMatchThreshold(70F)
+                    .maxFaces(2)
+                    .build();
+
+            SearchFacesResponse imageResponse = rekClient.searchFaces(searchFacesRequest) ;
+
+            // Display the results.
+            System.out.println("Faces matching in the collection");
+            List<FaceMatch> faceImageMatches = imageResponse.faceMatches();
+            for (FaceMatch face: faceImageMatches) {
+                System.out.println("The similarity level is  "+face.similarity());
+                System.out.println();
+            }
+        } catch (RekognitionException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

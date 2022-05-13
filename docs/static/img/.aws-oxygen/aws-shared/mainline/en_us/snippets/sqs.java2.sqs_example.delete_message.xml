@@ -1,0 +1,11 @@
+<programlisting>
+
+        try {
+            for (Message message : messages) {
+                DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder()
+                    .queueUrl(queueUrl)
+                    .receiptHandle(message.receiptHandle())
+                    .build();
+                sqsClient.deleteMessage(deleteMessageRequest);
+            }
+</programlisting>

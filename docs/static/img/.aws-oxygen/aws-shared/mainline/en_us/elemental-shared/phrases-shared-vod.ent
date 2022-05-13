@@ -1,0 +1,303 @@
+<!-- VOD (AWS Elemental Server and AWS Elemental MediaConvert) Shared Content
+
+     Shared content 
+     This file is included when you include the elemental shared content file, phrases-shared.ent.
+
+             You can include this file independent of phrases-shared.ent. 
+         To see how, read the top of phrases-shared.ent and adapt the instructions for this file.
+--> 
+
+<!-- ============== AUDIO CHANNEL MAPPING ============== -->
+<!ENTITY  when-to-use-input-matrices '<para>Only use an input matrix when you have multiple inputs and the audio channel configurations 
+ on the inputs are not the same.</para> ' >
+
+ <!ENTITY  when-to-use-output-matrices '<para>Use an output matrix when you need to do any of the following:</para>
+   <itemizedlist>
+    <listitem>
+     <para>Exclude some of your input channels from your output.</para>
+    </listitem>
+    <listitem>
+     <para>Reorder the channels in a track, so that the order in the output track is different than
+      in the input track.</para>
+    </listitem>
+    <listitem>
+     <para>Split the channels from one input track into more than one output track.</para>
+     <!--this is possible but not documented yet-->
+    </listitem>
+    <listitem>
+     <para>Pull individual channels from multiple input tracks into an output track.</para>
+     <!--<para> **this is possible but not documented yet</para>-->
+    </listitem>
+   </itemizedlist>' >
+
+<!-- ============== DOLBY VISION ============== -->
+
+<!ENTITY dolby-vision-intro '
+<para>Dolby Vision video uses an extended color palette and contrast range with dynamic,
+		per-frame metadata. With &servicenamelong;, you can create profile 5 or profile 8.1 Dolby Vision outputs
+		from supported sources with Dolby Vision metadata.</para>
+' >
+
+<!ENTITY dolby-vision-proc-intro '
+<para>You can use &servicenamelong; to create profile 5 or profile 8.1 Dolby Vision outputs.</para>
+' >
+
+<!ENTITY dolby-vision-proc-steps-1-3 '
+<step>
+				<para>&openConsole;</para>
+			</step>
+			<step>
+				<para>Choose &label-create-job;.</para>
+			</step>
+			<step>
+				<para>For your input file or files, choose either an MXF file or an IMF package that has
+					frame-interleaved Dolby Vision metadata, or a Quicktime MOV with Apple ProRes.</para>
+				<para>If your input is an IMF package, specify a CPL file for your input. If your CPL is from an
+					incomplete IMP, choose &label-supplemental-imps; to specify the
+					location of your supplemental IMPs.</para>
+					<para>If your input is Quicktime with Apple ProRes, specify a Dolby Vision studio metadata XML.</para>
+			</step>
+' >
+
+<!ENTITY dolby-vision-job-limitations '
+	<section id="dolby-vision-job-limitations-and-requirements" role="topic">
+		<info>
+			<title id="dolby-vision-job-limitations-and-requirements.title">Dolby Vision Job
+				Limitations</title>
+			<titleabbrev id="dolby-vision-job-limitations-and-requirements.titleabbrev">Dolby Vision
+				Job Limitations and Requirements</titleabbrev>
+			<abstract>
+				<para>Find a list of input requirements and output limitations for the
+					&servicenamelong; Dolby Vision implementation.</para>
+			</abstract>
+		</info>
+		<para>Note the following restrictions and requirements in the &servicenamelong; implementation of
+			Dolby Vision:</para>
+		&dovi-system-reqs;
+		<para>Job limitations:</para>
+		<itemizedlist>
+			<listitem>
+				<para>You can create only Dolby Vision profile 5 or profile 8.1 outputs.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep the &label-motion-image-inserter; global processor
+					disabled.</para>
+			</listitem>
+			&dovi-queue-restriction;
+		</itemizedlist>
+		<para>Input requirements:</para>
+		<itemizedlist>
+			<listitem>
+				<para>Your input format must be either IMF or MXF with JPEG 2000, or Quicktime with Apple ProRes.</para>
+			</listitem>
+			<listitem>
+				<para>Your input must contain frame-interleaved Dolby Vision metadata, or you must include a Dolby Vision studio metadata XML.</para>
+			</listitem>
+			<listitem>
+				<para>All of your inputs must have the same frame rate. Frame rate conversion is not
+					supported.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep &label-image-inserter; disabled.</para>
+			</listitem>
+		</itemizedlist>
+		<para>Output settings requirements:</para>
+		<itemizedlist>
+			<listitem>
+				<para>You must set &video-codec-label; to HEVC (H.265).</para>
+			</listitem>
+			<listitem>
+				<para>Your output container must be supported with the HEVC (H.265) codec. For a list of supported output containers and codecs, &see-output-codec-containers;.</para>
+			</listitem>
+			<listitem>
+				<para>You must set your output resolution no higher than 4096x4096.</para>
+			</listitem>
+			<listitem>
+				<para>For &label-color-metadata;, you must keep the default setting
+						&color-metadata-enum-insert;.</para>
+			</listitem>
+			<listitem>
+				<para>For &label-respond-to-AFD;, you must keep the default setting
+						&label-none;.</para>
+			</listitem>
+			<listitem>
+				<para>For &label-frame-rate;, you must keep the default setting &label-follow-source;. Frame rate conversion is not supported.</para>
+			</listitem>
+			<listitem>
+				<para>You must set the codec &label-profile; to either
+						&label-main10-main; or &label-main10-high;.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep the &label-image-inserter; preprocessor disabled.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep the &label-color-corrector; preprocessor disabled.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep the &label-timecode-burn-in; preprocessor disabled.</para>
+			</listitem>
+			<listitem>
+				<para>You must keep the &label-noise-reducer; preprocessor disabled.</para>
+			</listitem>
+			<listitem>
+				<para>You must choose an output captions format other than <emphasis role="bold">Burn
+						in</emphasis>.</para>
+			</listitem>
+			<listitem>
+				<para>For Dolby Vision profile 8.1 outputs, you must use only a single input video with no more than one input clip.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+' >
+
+
+
+<!-- ============== DOLBY ATMOS ============== -->
+  
+ <!ENTITY dolby-atmos-passthru-intro 
+ 		'<para>&servicenamelong; can create Dolby Digital Plus with Atmos outputs by either encoding
+			audio in 9.1.6, 7.1.5, or 5.1.4 PCM mono channels, or by passing through already encoded Dolby Digital
+			Plus with Atmos content.</para>
+		<para>You set up your job to pass through Dolby Digital Plus with Atmos content in the same
+			way that you pass through Dolby Digital and Dolby Digital Plus content.</para>' >
+		
+		
+<!ENTITY dolby-atmos-passthru-limitations '
+<section id="feature-restrictions-for-dolby-atmos-passthrough">
+			<info>
+				<title id="feature-restrictions-for-dolby-atmos-passthrough.title">Feature
+					Restrictions for Dolby Atmos Passthrough</title>
+				<titleabbrev id="feature-restrictions-for-dolby-atmos-passthrough.titleabbrev"
+					>Feature Restrictions for Dolby Atmos Passthrough</titleabbrev>
+				<abstract>
+					<para>Learn about the feature restrictions in the &servicenamelong;
+						implementation for Dolby Atmos passthrough.</para>
+				</abstract>
+			</info>
+			<para>Note the following restrictions in the &servicenamelong; implementation of Dolby
+				Atmos passthrough:</para>
+			<itemizedlist>
+				<listitem>
+					<para><emphasis role="bold">Output codec:</emphasis> You can create Dolby Atmos
+						audio outputs encoded with only the Dolby Digital Plus (EAC3) codec.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Output containers:</emphasis> For file outputs, you
+						can create Dolby Atmos audio in only one of the video containers that
+						supports Dolby Digital Plus: MPEG-4, MPEG-2 Transport Stream, or
+						QuickTime.</para>
+				</listitem>
+			</itemizedlist>
+		</section>
+' >
+
+
+<!ENTITY dolby-atmos-encoding-intro '
+		<para>&servicenamelong; can encode Dolby Digital Plus with Atmos channel-based, immersive
+			audio, Audio Descriptive Model Broadcast WAV files, or Dolby Atmos Master File. </para>
+		<note>
+			<para>Understanding Dolby Atmos is required prerequisite knowledge for using this feature. Your
+				input audio channels must already be set up according the Dolby Atmos standard you are using as input.
+				For more information about Dolby Atmos, see the Dolby online
+				documentation.</para>
+		</note>
+' >
+
+
+<!ENTITY dolby-atmos-encoding-input-req '
+		<section id="input-file-requirements-for-dolby-atmos-encoding">
+			<info>
+				<title id="input-file-requirements-for-dolby-atmos-encoding.title">Input File
+					Requirements for Dolby Atmos Encoding</title>
+				<titleabbrev id="input-file-requirements-for-dolby-atmos-encoding.titleabbrev">Input
+					File Requirements for Dolby Atmos Encoding</titleabbrev>
+				<abstract>
+					<para>Learn about the input file requirements for Dolby Atmos encoding.</para>
+				</abstract>
+			</info>
+			 <!--<para> To encode Dolby Atmos, you must have 16 input channels of PCM audio, either in
+				individual .wav files or as tracks in a single container.</para>-->
+		</section>
+' >
+
+
+<!ENTITY dolby-atmos-encoding-setup-intro '
+<para>To encode 9.1.6 audio Dolby Atmos objects, provide 16 input channels of PCM audio, either in
+				individual .wav files or as tracks in a single container.</para>
+			<para>If you provide input audio as individual .wav files, you specify them in order in
+				your input. You specify them as <guilabel>Audio selector 1</guilabel>,
+					<guilabel>Audio selector 2</guilabel>, and so on, up to <guilabel>Audio selector
+					16</guilabel>. If you provide your audio as a single file containing 16 tracks,
+				you specify the file in your input as <guilabel>Audio selector 1</guilabel>, and
+				then you specify the tracks individually within that audio selector. </para>
+			<important>
+				<para>Regardless of whether they are in separate files or a single file, you must
+					set up the channels in the following order: L, R, C, LFE, Ls, Rs, Lrs, Rrs, Lw,
+					Rw, Ltf, Rtf, Ltm, Rtm, Ltr, Rtr.</para>
+					<!--<para>That is, if your input audio is in separate .wav files, <guilabel>Audio selector 1</guilabel> must point to the L channel, <guilabel>Audio selector 2</guilabel> must point to the R channel, and so on.</para><para>If your input audio is 16 channels wrapped in a single file, and they are already in the specified order, then for <guilabel>Tracks</guilabel>, list them in order: <userinput>1, 2, 3, … 16</userinput>. If your single audio file has the 16 tracks in a different order, for <guilabel>Tracks</guilabel>, list them according to the specified order. For example, if your L channel is in track 3, then list <userinput>3</userinput> first.</para>-->
+			</important>
+' >
+
+ <!ENTITY  dolby-atmos-intro '<para>Dolby Atmos provides an immersive audio experience in cinemas and home theaters. With the
+		right audio input files, you can use &servicenamelong; to create Dolby Atmos outputs. You
+		can create streaming outputs that end viewers can experience in their home theaters or file
+		outputs that you can use in your professional workflows.</para>
+	<para>&servicenamelong; can create Dolby Digital Plus with Atmos outputs by either encoding
+		channel-based immersive audio content that you provide as 9.1.6, 7.1.1, or 5.1.4 PCM mono channels, or by
+		passing through already encoded Dolby Digital Plus with Atmos content.</para>
+		' >
+		
+		
+<!ENTITY dolby-atmos-encoding-limitations '
+		<section id="feature-restrictions-for-dolby-atmos-encoding">
+			<info>
+				<title id="feature-restrictions-for-dolby-atmos-encoding.title">Feature Restrictions
+					for Dolby Atmos Encoding</title>
+				<titleabbrev id="feature-restrictions-for-dolby-atmos-encoding.titleabbrev">Feature
+					Restrictions for Dolby Atmos Encoding</titleabbrev>
+				<abstract>
+					<para>Learn about feature restrictions in the &servicenamelong; implementation
+						of Dolby Atmos encoding.</para>
+				</abstract>
+			</info>
+			<para>Note the following restrictions in the &servicenamelong; implementation of Dolby
+				Atmos encoding:</para>
+			<itemizedlist>
+				<listitem>
+					<para><emphasis role="bold">Channel-based immersive:</emphasis>
+						&servicenamelong; supports channel-based immersive (CBI) content. </para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Dolby Atmos Master File (DAMF):</emphasis>
+						&servicenamelong; supports Dolby Atmos master file (DAMF). This is a collection of 3 files with the extensions, .atmos, .atmos.metadata, and .atmos.audio </para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Audio Descriptive Model Broadcast WAV Format (ADM BWF):</emphasis>
+						&servicenamelong; supports ADM BWF. It is a single broadcast WAV file contains header data with the .atmos and .atmos.metadata information. </para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Output codec:</emphasis> You can create Dolby Atmos
+						audio outputs encoded with only the Dolby Digital Plus (EAC3) codec.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Output containers:</emphasis> For file outputs, you
+						can create Dolby Atmos audio in only in one of the video containers that
+						supports Dolby Digital Plus: MPEG-4, MPEG-2 Transport Stream, or
+						QuickTime.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis role="bold">Output packages:</emphasis> For adaptive bitrate
+						(ABR) outputs, you can create Dolby Atmos audio in any of the
+						&servicenamelong; output group types: CMAF, Apple HLS, DASH ISO, or
+						Microsoft Smooth Streaming.</para>
+				</listitem>
+				<!--REMOVED BECAUSE THE EME FORCES THE MULTI-PASS AUDIO ENCODING. CUSTOMERS DO NOTHING. <listitem>
+					<para><emphasis role="bold">Two-pass encoding:</emphasis> You must choose
+						two-pass encoding for your transcode job. The first pass of your audio
+						transcode measures the loudness of the audio. The second pass performs the
+						transcode using these measurements.</para>
+				</listitem>-->
+			</itemizedlist>
+		</section>'>
+
+

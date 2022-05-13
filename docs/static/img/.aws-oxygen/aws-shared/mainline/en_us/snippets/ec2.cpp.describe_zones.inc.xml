@@ -1,0 +1,4 @@
+<programlisting>
+#include <aws/ec2/model/DescribeAvailabilityZonesRequest.h>
+#include <aws/ec2/model/DescribeAvailabilityZonesResponse.h>
+</programlisting>

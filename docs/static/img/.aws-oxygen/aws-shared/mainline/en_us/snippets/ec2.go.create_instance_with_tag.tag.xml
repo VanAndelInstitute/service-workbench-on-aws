@@ -1,0 +1,11 @@
+<programlisting>
+    _, err = svc.CreateTags(&ec2.CreateTagsInput{
+        Resources: []*string{result.Instances[0].InstanceId},
+        Tags: []*ec2.Tag{
+            {
+                Key:   name,
+                Value: value,
+            },
+        },
+    })
+</programlisting>

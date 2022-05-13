@@ -1,0 +1,15 @@
+def delete_job(job_name, transcribe_client):
+    """
+    Deletes a transcription job. This also deletes the transcript associated with
+    the job.
+
+    :param job_name: The name of the job to delete.
+    :param transcribe_client: The Boto3 Transcribe client.
+    """
+    try:
+        transcribe_client.delete_transcription_job(
+            TranscriptionJobName=job_name)
+        logger.info("Deleted job %s.", job_name)
+    except ClientError:
+        logger.exception("Couldn't delete job %s.", job_name)
+        raise

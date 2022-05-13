@@ -1,0 +1,28 @@
+<programlisting>
+    public static void sendMessage(SqsClient sqsClient, String queueName, String message) {
+
+        try {
+            CreateQueueRequest request = CreateQueueRequest.builder()
+                    .queueName(queueName)
+                    .build();
+            CreateQueueResponse createResult = sqsClient.createQueue(request);
+
+            GetQueueUrlRequest getQueueRequest = GetQueueUrlRequest.builder()
+                .queueName(queueName)
+                .build();
+
+            String queueUrl = sqsClient.getQueueUrl(getQueueRequest).queueUrl();
+            SendMessageRequest sendMsgRequest = SendMessageRequest.builder()
+                .queueUrl(queueUrl)
+                .messageBody(message)
+                .delaySeconds(5)
+                .build();
+
+            sqsClient.sendMessage(sendMsgRequest);
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

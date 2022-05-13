@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code examples show how to:</para>
+    <itemizedlist>
+        <listitem><para>Create a table that can hold movie data.</para></listitem>
+        <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+        <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+        <listitem><para>Query for movies that were released in a given year.</para></listitem>
+        <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+        <listitem><para>Delete a movie from the table.</para></listitem>
+        <listitem><para>Delete the table.</para></listitem>
+    </itemizedlist>
+</block>

@@ -1,0 +1,11 @@
+<programlisting>
+suspend fun getKeys() {
+
+    ApiGatewayClient { region = "us-east-1" }.use { apiGateway ->
+        val response = apiGateway.getApiKeys(GetApiKeysRequest { })
+        response.items?.forEach { key ->
+            println("Key is $key")
+        }
+    }
+}
+</programlisting>

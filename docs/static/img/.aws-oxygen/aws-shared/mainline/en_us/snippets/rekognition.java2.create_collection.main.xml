@@ -1,0 +1,20 @@
+<programlisting>
+    public static void createMyCollection(RekognitionClient rekClient,String collectionId ) {
+
+        try {
+            CreateCollectionRequest collectionRequest = CreateCollectionRequest.builder()
+                    .collectionId(collectionId)
+                    .build();
+
+            CreateCollectionResponse collectionResponse = rekClient.createCollection(collectionRequest);
+            System.out.println("CollectionArn : " +
+                    collectionResponse.collectionArn());
+            System.out.println("Status code : " +
+                    collectionResponse.statusCode().toString());
+
+        } catch(RekognitionException e) {
+                System.out.println(e.getMessage());
+                System.exit(1);
+        }
+    }
+</programlisting>

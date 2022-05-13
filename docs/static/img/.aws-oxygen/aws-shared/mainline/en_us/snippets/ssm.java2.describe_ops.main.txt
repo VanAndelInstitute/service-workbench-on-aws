@@ -1,0 +1,18 @@
+    public static void describeItems(SsmClient ssmClient) {
+
+        try {
+            DescribeOpsItemsRequest itemsRequest = DescribeOpsItemsRequest.builder()
+                .maxResults(10)
+                .build();
+
+            DescribeOpsItemsResponse itemsResponse = ssmClient.describeOpsItems(itemsRequest);
+            List<OpsItemSummary> items = itemsResponse.opsItemSummaries();
+            for (OpsItemSummary item: items) {
+                System.out.println("The item title is "+item.title());
+            }
+
+         } catch (SsmException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+      }

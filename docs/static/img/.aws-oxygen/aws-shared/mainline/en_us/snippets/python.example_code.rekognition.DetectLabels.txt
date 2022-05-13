@@ -1,0 +1,17 @@
+    def detect_labels(self, max_labels):
+        """
+        Detects labels in the image. Labels are objects and people.
+
+        :param max_labels: The maximum number of labels to return.
+        :return: The list of labels detected in the image.
+        """
+        try:
+            response = self.rekognition_client.detect_labels(
+                Image=self.image, MaxLabels=max_labels)
+            labels = [RekognitionLabel(label) for label in response['Labels']]
+            logger.info("Found %s labels in %s.", len(labels), self.image_name)
+        except ClientError:
+            logger.info("Couldn't detect labels in %s.", self.image_name)
+            raise
+        else:
+            return labels

@@ -1,0 +1,58 @@
+package main
+
+import (
+    "flag"
+    "fmt"
+    "strings"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// PutObjectWithSetters uploads a file to a bucket
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     bucket is the name of the bucket
+//     key is the name of the file
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to PutObject
+func PutObjectWithSetters(sess *session.Session, bucket *string, key *string) error {
+    svc := s3.New(sess)
+
+    _, err := svc.PutObject((&s3.PutObjectInput{}).
+        SetBucket(*bucket).
+        SetKey(*key).
+        SetBody(strings.NewReader("object body")), //.
+    //      SetWebsiteRedirectLocation("https://example.com/something"),
+    )
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    bucket := flag.String("b", "", "The bucket to upload to")
+    key := flag.String("k", "", "The object to upload")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET) and key (-k KEY)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    err := PutObjectWithSetters(sess, bucket, key)
+    if err != nil {
+        fmt.Println("Got an error putting object:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Put object with key " + *key + " into bucket" + *bucket)
+}

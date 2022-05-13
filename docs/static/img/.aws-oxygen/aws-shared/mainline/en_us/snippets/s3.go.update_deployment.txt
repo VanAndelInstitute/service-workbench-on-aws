@@ -1,0 +1,29 @@
+package main
+
+import (
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/ecs"
+
+    "fmt"
+)
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := ecs.New(sess)
+
+    resp, err := svc.UpdateService((&ecs.UpdateServiceInput{}).
+        SetService("myService").
+        SetDeploymentConfiguration((&ecs.DeploymentConfiguration{}).
+            SetMinimumHealthyPercent(80),
+        ),
+    )
+    if err != nil {
+        fmt.Println("Error calling UpdateService:")
+        fmt.Println(err.Error())
+    } else {
+        fmt.Println(resp)
+    }
+}

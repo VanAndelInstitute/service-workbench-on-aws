@@ -1,0 +1,30 @@
+    public static void getItem(DynamoDbAsyncClient client, String tableName, String key,  String keyVal) {
+
+        HashMap<String, AttributeValue> keyToGet =
+                new HashMap<String, AttributeValue>();
+
+        keyToGet.put(key, AttributeValue.builder()
+                .s(keyVal).build());
+
+        try {
+
+            // Create a GetItemRequest instance
+            GetItemRequest request = GetItemRequest.builder()
+                    .key(keyToGet)
+                    .tableName(tableName)
+                    .build();
+
+            // Invoke the DynamoDbAsyncClient object's getItem
+            java.util.Collection<AttributeValue> returnedItem = client.getItem(request).join().item().values();
+
+            // Convert Set to Map
+            Map<String, AttributeValue> map = returnedItem.stream().collect(Collectors.toMap(AttributeValue::s, s->s));
+            Set<String> keys = map.keySet();
+            for (String sinKey : keys) {
+                System.out.format("%s: %s\n", sinKey, map.get(sinKey).toString());
+            }
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }

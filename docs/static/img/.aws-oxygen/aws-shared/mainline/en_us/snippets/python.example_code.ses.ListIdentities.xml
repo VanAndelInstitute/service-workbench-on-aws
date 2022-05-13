@@ -1,0 +1,20 @@
+<programlisting>
+    def list_identities(self, identity_type, max_items):
+        """
+        Gets the identities of the specified type for the current account.
+
+        :param identity_type: The type of identity to retrieve, such as EmailAddress.
+        :param max_items: The maximum number of identities to retrieve.
+        :return: The list of retrieved identities.
+        """
+        try:
+            response = self.ses_client.list_identities(
+                IdentityType=identity_type, MaxItems=max_items)
+            identities = response['Identities']
+            logger.info("Got %s identities for the current account.", len(identities))
+        except ClientError:
+            logger.exception("Couldn't list identities for the current account.")
+            raise
+        else:
+            return identities
+</programlisting>

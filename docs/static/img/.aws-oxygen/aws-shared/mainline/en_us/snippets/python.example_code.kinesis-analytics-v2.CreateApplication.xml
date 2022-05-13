@@ -1,0 +1,25 @@
+<programlisting>
+    def create(self, app_name, role_arn, env='SQL-1_0'):
+        """
+        Creates a Kinesis Data Analytics application.
+
+        :param app_name: The name of the application.
+        :param role_arn: The ARN of a role that can be assumed by Kinesis Data
+                         Analytics and grants needed permissions.
+        :param env: The runtime environment of the application, such as SQL. Code
+                    uploaded to the application runs in this environment.
+        :return: Metadata about the newly created application.
+        """
+        try:
+            response = self.analytics_client.create_application(
+                ApplicationName=app_name, RuntimeEnvironment=env,
+                ServiceExecutionRole=role_arn)
+            details = response['ApplicationDetail']
+            self._update_details(details)
+            logger.info("Application %s created.", app_name)
+        except ClientError:
+            logger.exception("Couldn't create application %s.", app_name)
+            raise
+        else:
+            return details
+</programlisting>

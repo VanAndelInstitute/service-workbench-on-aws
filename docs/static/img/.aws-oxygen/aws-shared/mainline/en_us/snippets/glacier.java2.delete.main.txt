@@ -1,0 +1,17 @@
+    public static void deleteGlacierArchive(GlacierClient glacier, String vaultName, String accountId, String archiveId) {
+
+        try {
+            DeleteArchiveRequest delArcRequest = DeleteArchiveRequest.builder()
+                    .vaultName(vaultName)
+                    .accountId(accountId)
+                    .archiveId(archiveId)
+                    .build();
+
+            glacier.deleteArchive(delArcRequest);
+            System.out.println("The vault was deleted!");
+        } catch(GlacierException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+
+        }
+    }

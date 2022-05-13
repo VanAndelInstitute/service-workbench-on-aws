@@ -1,0 +1,4 @@
+    _, err := svc.PutBucketAcl(&s3.PutBucketAclInput{
+        ACL:    aws.String("public-read"),
+        Bucket: bucket,
+    })

@@ -1,0 +1,26 @@
+  # Creates an Amazon DynamoDB table that can be used to store movie data.
+  # The table uses the release year of the movie as the partition key and the
+  # title as the sort key.
+  #
+  # @param table_name [String] The name of the table to create.
+  # @return [Aws::DynamoDB::Table] The newly created table.
+  def create_table(table_name)
+    @table = @dynamo_resource.create_table(
+      table_name: table_name,
+      key_schema: [
+        {attribute_name: "year", key_type: "HASH"},  # Partition key
+        {attribute_name: "title", key_type: "RANGE"}  # Sort key
+      ],
+      attribute_definitions: [
+        {attribute_name: "year", attribute_type: "N"},
+        {attribute_name: "title", attribute_type: "S"}
+      ],
+      provisioned_throughput: {read_capacity_units: 10, write_capacity_units: 10})
+    @dynamo_resource.client.wait_until(:table_exists, table_name: table_name)
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't create table #{table_name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    @table
+  end

@@ -1,0 +1,7 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    result, err := svc.GetBucketWebsite(&s3.GetBucketWebsiteInput{
+        Bucket: bucket,
+    })
+</programlisting>

@@ -1,0 +1,22 @@
+
+        /// <summary>
+        /// Create a new IAM user.
+        /// </summary>
+        /// <param name="client">The initialized IAM client object.</param>
+        /// <param name="userName">A string representing the user name of the
+        /// new user.</param>
+        /// <returns>The newly created user.</returns>
+        public static async Task<User> CreateUserAsync(
+            AmazonIdentityManagementServiceClient client,
+            string userName)
+        {
+            var request = new CreateUserRequest
+            {
+                UserName = userName,
+            };
+
+            var response = await client.CreateUserAsync(request);
+
+            return response.User;
+        }
+

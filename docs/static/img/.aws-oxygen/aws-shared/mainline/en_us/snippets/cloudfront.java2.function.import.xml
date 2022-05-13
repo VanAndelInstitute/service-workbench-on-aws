@@ -1,0 +1,13 @@
+<programlisting>
+import software.amazon.awssdk.core.SdkBytes;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudfront.CloudFrontClient;
+import software.amazon.awssdk.services.cloudfront.model.FunctionConfig;
+import software.amazon.awssdk.services.cloudfront.model.FunctionRuntime;
+import software.amazon.awssdk.services.cloudfront.model.CreateFunctionRequest;
+import software.amazon.awssdk.services.cloudfront.model.CreateFunctionResponse;
+import software.amazon.awssdk.services.cloudfront.model.CloudFrontException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+</programlisting>

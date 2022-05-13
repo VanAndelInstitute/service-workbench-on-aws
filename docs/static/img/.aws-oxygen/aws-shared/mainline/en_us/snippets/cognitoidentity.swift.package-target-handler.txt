@@ -1,0 +1,7 @@
+        .target(
+            name: "CognitoIdentityHandler",
+            dependencies: [
+                .product(name: "AWSCognitoIdentity", package: "AWSSwiftSDK"),
+            ],
+            path: "./Sources/CognitoIdentityHandler"
+        ),

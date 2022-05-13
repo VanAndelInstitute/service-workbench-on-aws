@@ -1,0 +1,29 @@
+<programlisting>
+    _, err = svc.AuthorizeSecurityGroupIngress(&ec2.AuthorizeSecurityGroupIngressInput{
+        GroupName: aws.String(*namePtr),
+        IpPermissions: []*ec2.IpPermission{
+            // Can use setters to simplify seting multiple values without the
+            // needing to use aws.String or associated helper utilities.
+            (&ec2.IpPermission{}).
+                SetIpProtocol("tcp").
+                SetFromPort(80).
+                SetToPort(80).
+                SetIpRanges([]*ec2.IpRange{
+                    {CidrIp: aws.String("0.0.0.0/0")},
+                }),
+            (&ec2.IpPermission{}).
+                SetIpProtocol("tcp").
+                SetFromPort(22).
+                SetToPort(22).
+                SetIpRanges([]*ec2.IpRange{
+                    (&ec2.IpRange{}).
+                        SetCidrIp("0.0.0.0/0"),
+                }),
+        },
+    })
+    if err != nil {
+        exitErrorf("Unable to set security group %q ingress, %v", *namePtr, err)
+    }
+
+    fmt.Println("Successfully set security group ingress")
+</programlisting>

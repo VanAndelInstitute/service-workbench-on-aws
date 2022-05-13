@@ -1,0 +1,15 @@
+<programlisting>
+        System.out.println("running AutoPagination - using third party subscriber...\n");
+
+        DynamoDbAsyncClient asyncClient = DynamoDbAsyncClient.create();
+        ListTablesPublisher publisher = asyncClient.listTablesPaginator(ListTablesRequest.builder()
+                                                                                         .build());
+
+        // The Flowable class has many helper methods that work with any reactive streams compatible publisher implementation
+        List<String> tables = Flowable.fromPublisher(publisher)
+                                      .flatMapIterable(ListTablesResponse::tableNames)
+                                      .toList()
+                                      .blockingGet();
+        System.out.println(tables);
+        
+</programlisting>

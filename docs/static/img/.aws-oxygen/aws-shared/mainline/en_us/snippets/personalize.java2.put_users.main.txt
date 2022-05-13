@@ -1,0 +1,43 @@
+    public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
+                               String datasetArn,
+                               String user1Id,
+                               String user1PropertyName,
+                               String user1PropertyValue,
+                               String user2Id,
+                               String user2PropertyName,
+                               String user2PropertyValue) {
+
+        int responseCode = 0;
+        ArrayList<User> users = new ArrayList<>();
+
+        try {
+            User user1 = User.builder()
+                    .userId(user1Id)
+                    .properties(String.format("{\"%1$s\": \"%2$s\"}",
+                            user1PropertyName, user1PropertyValue))
+                    .build();
+
+            users.add(user1);
+
+            User user2 = User.builder()
+                    .userId(user2Id)
+                    .properties(String.format("{\"%1$s\": \"%2$s\"}",
+                            user2PropertyName, user2PropertyValue))
+                    .build();
+
+            users.add(user2);
+
+            PutUsersRequest putUsersRequest = PutUsersRequest.builder()
+                    .datasetArn(datasetArn)
+                    .users(users)
+                    .build();
+
+            responseCode = personalizeEventsClient.putUsers(putUsersRequest).sdkHttpResponse().statusCode();
+            System.out.println("Response code: " + responseCode);
+            return responseCode;
+
+        } catch (PersonalizeEventsException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return responseCode;
+    }

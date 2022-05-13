@@ -1,0 +1,26 @@
+
+        /// <summary>
+        /// Create a new AccessKey for the user.
+        /// </summary>
+        /// <param name="client">The initialized IAM client object.</param>
+        /// <param name="userName">The name of the user for whom to create the key.</param>
+        /// <returns>A new IAM access key for the user.</returns>
+        public static async Task<AccessKey> CreateAccessKeyAsync(
+            AmazonIdentityManagementServiceClient client,
+            string userName)
+        {
+            var request = new CreateAccessKeyRequest
+            {
+                UserName = userName,
+            };
+
+            var response = await client.CreateAccessKeyAsync(request);
+
+            if (response.AccessKey is not null)
+            {
+                Console.WriteLine($"Successfully created Access Key for {userName}.");
+            }
+
+            return response.AccessKey;
+        }
+

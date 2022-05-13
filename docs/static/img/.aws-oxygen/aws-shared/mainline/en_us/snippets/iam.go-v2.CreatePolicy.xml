@@ -1,0 +1,37 @@
+<programlisting>
+	// CreatePolicy
+
+	fmt.Println("🔐 CreatePolicy")
+
+	policyDocument := `{
+		"Version": "2012-10-17",
+		"Statement": [
+			{
+				"Effect": "Allow",
+				"Action": [
+					"dynamodb:DeleteItem",
+					"dynamodb:GetItem",
+					"dynamodb:PutItem",
+					"dynamodb:Query",
+					"dynamodb:Scan",
+					"dynamodb:UpdateItem"
+				],
+				"Resource": [
+					"arn:aws:dynamodb:us-west-2:123456789012:table/mytable",
+					"arn:aws:dynamodb:us-west-2:123456789012:table/mytable/*"
+				]
+			}
+		]
+	}`
+
+	createPolicyResult, err := service.CreatePolicy(context.Background(), &iam.CreatePolicyInput{
+		PolicyDocument: &policyDocument,
+		PolicyName:     aws.String(ExamplePolicyName),
+	})
+
+	if err != nil {
+		panic("Couldn't create policy!" + err.Error())
+	}
+
+	fmt.Print("Created a new policy: " + *createPolicyResult.Policy.Arn)
+</programlisting>

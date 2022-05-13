@@ -1,0 +1,5 @@
+<programlisting>
+    tableName := "Movies"
+    minRating := 4.0
+    year := 2013
+</programlisting>

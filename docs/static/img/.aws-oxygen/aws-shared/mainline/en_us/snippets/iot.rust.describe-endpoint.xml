@@ -1,0 +1,15 @@
+<programlisting>
+async fn show_address(client: &Client, endpoint_type: &str) -> Result<(), Error> {
+    let resp = client
+        .describe_endpoint()
+        .endpoint_type(endpoint_type)
+        .send()
+        .await?;
+
+    println!("Endpoint address: {}", resp.endpoint_address.unwrap());
+
+    println!();
+
+    Ok(())
+}
+</programlisting>

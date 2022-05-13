@@ -1,0 +1,7 @@
+<programlisting>
+    _, err := svc.PutObjectAcl(&s3.PutObjectAclInput{
+        Bucket:    bucket,
+        Key:       key,
+        GrantRead: aws.String("emailaddress=" + *address),
+    })
+</programlisting>

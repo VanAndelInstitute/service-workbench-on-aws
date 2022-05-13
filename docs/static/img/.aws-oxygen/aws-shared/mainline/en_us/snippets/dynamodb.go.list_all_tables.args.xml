@@ -1,0 +1,8 @@
+<programlisting>
+    limit := flag.Int64("l", 100, "How many tables to return")
+    flag.Parse()
+
+    if *limit < int64(0) {
+        *limit = int64(10)
+    }
+</programlisting>

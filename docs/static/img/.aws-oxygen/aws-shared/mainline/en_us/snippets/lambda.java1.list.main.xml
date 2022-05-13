@@ -1,0 +1,22 @@
+<programlisting>
+        ListFunctionsResult functionResult = null;
+
+        try {
+            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(Regions.US_WEST_2).build();
+
+            functionResult = awsLambda.listFunctions();
+
+            List<FunctionConfiguration> list = functionResult.getFunctions();
+
+            for (Iterator iter = list.iterator(); iter.hasNext(); ) {
+                FunctionConfiguration config = (FunctionConfiguration)iter.next();
+
+                System.out.println("The function name is "+config.getFunctionName());
+            }
+
+        } catch (ServiceException e) {
+            System.out.println(e);
+        }
+</programlisting>

@@ -1,0 +1,7 @@
+        .executableTarget(
+            name: "FindOrCreateIdentityPool",
+            dependencies: [
+                "CognitoIdentityHandler"
+            ],
+            path: "./Sources/FindOrCreateIdentityPool"
+        ),

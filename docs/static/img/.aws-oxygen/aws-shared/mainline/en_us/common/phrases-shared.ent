@@ -1,0 +1,44 @@
+<!-- MASTER TABLE OF CONTENTS -->
+
+    <!-- AWS domains..................................................phrases-shared-domains.ent  -->
+    
+    <!-- General......................................................phrases-shared-general.ent  -->
+    
+    <!-- Regions & endpoints..........................................phrases-shared-regions.ent  -->
+    
+    <!-- Region-specific..............................................phrases-shared-region-specific.ent  -->
+
+    <!-- IAM, security, credentials, keys, signatures, policies.......phrases-shared-security.ent -->
+    
+    <!-- AWS Support sites............................................phrases-shared-services.ent -->    
+    <!-- Resources....................................................phrases-shared-services.ent -->
+    <!-- Product anmes, URLs, guides, links...........................phrases-shared-services.ent -->
+    <!-- CloudWatch metrics and dimensions............................phrases-shared-services.ent -->
+    <!-- Fictitious examples..........................................phrases-shared-services.ent -->
+    <!-- AWS Billing and Cost Management..............................phrases-shared-services.ent -->
+    <!-- Limit Increase Request Form URLs.............................phrases-shared-services.ent -->
+    <!-- SDKs, AWS Library Support, Getting Started...................phrases-shared-services.ent -->    
+    
+
+<!--=================================[  CHILD ENTITY FILES ]======================================-->
+
+<!--=================================[       DOMAINS       ]======================================-->
+<!ENTITY % ps--domains SYSTEM "file://AWSShared/common/phrases-shared-domains.ent"> %ps--domains; 
+
+<!--=================================[     SERVICES XML    ]======================================-->
+<!ENTITY % ps--services-gen-xml SYSTEM "file://AWSShared/common/phrases-shared-services-element.ent"> %ps--services-gen-xml;
+ 
+<!--=================================[       GENERAL       ]======================================-->
+<!ENTITY % ps--general SYSTEM "file://AWSShared/common/phrases-shared-general.ent"> %ps--general; 
+
+<!--=================================[ REGIONS & ENDPOINTS ]======================================-->
+<!ENTITY % ps--regions SYSTEM "file://AWSShared/common/phrases-shared-regions.ent"> %ps--regions; 
+
+<!--=================================[   REGION-SPECIFIC   ]======================================-->
+<!ENTITY % ps--region-specific SYSTEM "file://AWSShared/common/phrases-shared-region-specific.ent"> %ps--region-specific; 
+
+<!--=================================[      SECURITY       ]======================================-->
+<!ENTITY % ps--security SYSTEM "file://AWSShared/common/phrases-shared-security.ent"> %ps--security; 
+
+<!--=================================[      SERVICES       ]======================================-->
+<!ENTITY % ps--services SYSTEM "file://AWSShared/common/phrases-shared-services.ent"> %ps--services; 

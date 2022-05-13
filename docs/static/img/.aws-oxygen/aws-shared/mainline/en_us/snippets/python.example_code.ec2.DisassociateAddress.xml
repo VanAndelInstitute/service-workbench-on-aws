@@ -1,0 +1,19 @@
+<programlisting>
+def disassociate_elastic_ip(allocation_id):
+    """
+    Removes an association between an Elastic IP address and an instance. When the
+    association is removed, the instance is assigned a new public IP address.
+
+    :param allocation_id: The allocation ID assigned to the Elastic IP address when
+                          it was created.
+    """
+    try:
+        elastic_ip = ec2.VpcAddress(allocation_id)
+        elastic_ip.association.delete()
+        logger.info(
+            "Disassociated Elastic IP %s from its instance.", elastic_ip.public_ip)
+    except ClientError:
+        logger.exception(
+            "Couldn't disassociate Elastic IP %s from its instance.", allocation_id)
+        raise
+</programlisting>

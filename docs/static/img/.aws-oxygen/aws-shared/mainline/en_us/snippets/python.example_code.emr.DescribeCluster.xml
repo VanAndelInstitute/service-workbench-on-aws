@@ -1,0 +1,19 @@
+<programlisting>
+def describe_cluster(cluster_id, emr_client):
+    """
+    Gets detailed information about a cluster.
+
+    :param cluster_id: The ID of the cluster to describe.
+    :param emr_client: The Boto3 EMR client object.
+    :return: The retrieved cluster information.
+    """
+    try:
+        response = emr_client.describe_cluster(ClusterId=cluster_id)
+        cluster = response['Cluster']
+        logger.info("Got data for cluster %s.", cluster['Name'])
+    except ClientError:
+        logger.exception("Couldn't get data for cluster %s.", cluster_id)
+        raise
+    else:
+        return cluster
+</programlisting>

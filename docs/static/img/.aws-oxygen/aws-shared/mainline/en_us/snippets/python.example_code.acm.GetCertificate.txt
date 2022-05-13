@@ -1,0 +1,15 @@
+    def get(self, certificate_arn):
+        """
+        Gets the body and certificate chain of a certificate.
+
+        :param certificate_arn: The ARN of the certificate.
+        :return: The body and chain of a certificate.
+        """
+        try:
+            response = self.acm_client.get_certificate(CertificateArn=certificate_arn)
+            logger.info("Got certificate %s and its chain.", certificate_arn)
+        except ClientError:
+            logger.exception("Couldn't get certificate %s.", certificate_arn)
+            raise
+        else:
+            return response

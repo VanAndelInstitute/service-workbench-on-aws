@@ -1,0 +1,2 @@
+#include <aws/ec2/model/StopInstancesRequest.h>
+#include <aws/ec2/model/StopInstancesResponse.h>

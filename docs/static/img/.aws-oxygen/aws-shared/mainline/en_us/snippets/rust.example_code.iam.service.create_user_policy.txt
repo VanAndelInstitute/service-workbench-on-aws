@@ -1,0 +1,16 @@
+pub async fn create_user_policy(
+    client: &iamClient,
+    user: &User,
+    policy_name: &str,
+    policy_document: &str,
+) -> Result<(), iamError> {
+    client
+        .put_user_policy()
+        .user_name(user.user_name.as_ref().unwrap())
+        .policy_name(policy_name)
+        .policy_document(policy_document)
+        .send()
+        .await?;
+
+    Ok(())
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+
+
+  <procedure>
+   <info>
+    <title>To clone a source repository</title>
+   </info>
+   <step>
+    <para>In the side navigation menu, choose <guilabel>Code</guilabel>, and then choose <guilabel>Source repositories</guilabel>.</para>
+   </step>
+   <step>
+    <para>Choose the name of the repository from the list of source repositories for the project. </para> 
+    <tip><para>You can filter the list of repositories by typing part of the repository name in the filter bar.</para></tip>
+   </step>
+   <step>
+    <para>If you do not have a personal access token (PAT), choose <guilabel>Create token</guilabel>. Copy the token and save it in a secure location. You will use this PAT
+     when prompted for a password by your Git client or integrated development environment (IDE).</para>
+   </step>
+   <step>
+    <para>Choose <guilabel>Clone repository</guilabel>. Copy the clone URL for the repository.</para>
+   </step>
+   <step>
+    <para>Do one of the following:</para>
+    <itemizedlist>
+     <listitem>
+      <para>If you are cloning a repository to your local computer, open a terminal or command line and run the <command>git clone</command> command, and paste the
+     clone URL after the command. For example:</para>
+      <programlisting>git clone &CAWS-example-clone-url;</programlisting>
+      <para>When prompted for a password, paste the PAT you saved earlier.</para>
+       <note><para>If your operating system provides credential management or you have installed a credential management system, 
+      you will only need to provide this PAT once. If not, you might have to provide the PAT for all Git operations to the source repository. 
+      As a best practice, make sure that your credential management system securely stores your PAT. Do not manually provide the PAT as part of the clone URL string.</para></note>
+     </listitem>
+     <listitem>
+      <para>If you are cloning a repository using an IDE, your experience will vary depending on the IDE. Choose the option to clone a Git repository and provide the URL. 
+       When prompted for a password, provide the PAT. For more information about how to clone a Git repository using your IDE, see the documentation for the IDE.</para>
+     </listitem>
+    </itemizedlist>
+   </step>
+  </procedure>
+ 
+
+

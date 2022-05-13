@@ -1,0 +1,15 @@
+<programlisting>
+def list_policies(role_name):
+    """
+    Lists inline policies for a role.
+
+    :param role_name: The name of the role to query.
+    """
+    try:
+        role = iam.Role(role_name)
+        for policy in role.policies.all():
+            logger.info("Got inline policy %s.", policy.name)
+    except ClientError:
+        logger.exception("Couldn't list inline policies for %s.", role_name)
+        raise
+</programlisting>

@@ -1,0 +1,12 @@
+suspend fun terminateFlow(id: String) {
+
+    val request = TerminateJobFlowsRequest{
+        jobFlowIds = listOf(id)
+    }
+
+    EmrClient { region = "us-west-2" }.use { emrClient ->
+        emrClient.terminateJobFlows(request)
+        println("You have successfully terminated $id")
+    }
+}
+

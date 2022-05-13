@@ -1,0 +1,17 @@
+<programlisting>
+    public static void listAlgs(SageMakerClient sageMakerClient) {
+        try {
+            // Get a list of notebooks
+            ListAlgorithmsResponse algorithmsResponse = sageMakerClient.listAlgorithms();
+            List<AlgorithmSummary> items = algorithmsResponse.algorithmSummaryList();
+
+            for (AlgorithmSummary item : items) {
+                System.out.println("Algorithm name is: " + item.algorithmName());
+            }
+
+        } catch (SageMakerException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

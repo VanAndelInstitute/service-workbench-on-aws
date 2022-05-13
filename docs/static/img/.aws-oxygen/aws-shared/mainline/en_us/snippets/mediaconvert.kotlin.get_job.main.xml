@@ -1,0 +1,37 @@
+<programlisting>
+suspend fun getSpecificJob(mcClient: MediaConvertClient, jobId: String?) {
+
+    try {
+        val describeEndpoints = DescribeEndpointsRequest {
+            maxResults = 20
+        }
+
+        val res = mcClient.describeEndpoints(describeEndpoints)
+
+        if (res.endpoints?.size!! <= 0) {
+            println("Cannot find MediaConvert service endpoint URL!")
+            exitProcess(0)
+        }
+        val endpointURL = res.endpoints!!.get(0).url!!
+        val mediaConvertClient = MediaConvertClient {
+
+            region = "us-west-2"
+            endpointResolver = AwsEndpointResolver { service, region ->
+                AwsEndpoint(endpointURL, CredentialScope(region = "us-west-2"))
+            }
+        }
+
+        val jobRequest = GetJobRequest {
+            id = jobId
+        }
+
+        val response: GetJobResponse = mediaConvertClient.getJob(jobRequest)
+        System.out.println("The ARN of the job is ${response.job?.arn}.")
+
+    } catch (ex: MediaConvertException) {
+        println(ex.message)
+        mcClient.close()
+        exitProcess(0)
+    }
+}
+</programlisting>

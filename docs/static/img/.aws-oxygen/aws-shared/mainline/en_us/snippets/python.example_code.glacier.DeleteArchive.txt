@@ -1,0 +1,14 @@
+    @staticmethod
+    def delete_archive(archive):
+        """
+        Deletes an archive from a vault.
+
+        :param archive: The archive to delete.
+        """
+        try:
+            archive.delete()
+            logger.info(
+                "Deleted archive %s from vault %s.", archive.id, archive.vault_name)
+        except ClientError:
+            logger.exception("Couldn't delete archive %s.", archive.id)
+            raise

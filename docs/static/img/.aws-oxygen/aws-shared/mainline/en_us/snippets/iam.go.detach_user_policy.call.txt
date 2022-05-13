@@ -1,0 +1,6 @@
+    policyArn := "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+
+    _, err := svc.DetachRolePolicy(&iam.DetachRolePolicyInput{
+        PolicyArn: &policyArn,
+        RoleName:  roleName,
+    })

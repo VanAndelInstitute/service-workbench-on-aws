@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+<incorrect-terms>
+ <!--BJS terms from the bjs-checks.list.xml file -->
+ <incorrect-term ignorecase="true">
+  <match>falun</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term..</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>4th of June</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>republic of china</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>tiananmen</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>tiananmen</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>brutality</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>freedom</match>
+  <suggestion> Avoid. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>democracy</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>tibet</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>tuidang</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>censorship</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>dalai</match>
+  <suggestion> Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>Taiwan</match>
+  <suggestion> Avoid. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term. You can use Chinese (Traditional) when referring to the language.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true">
+  <match>ROC</match>
+  <suggestion>Don't use this term. </suggestion>
+  <message>If your docs are available in BJS, your package won't build for BJS. Use region profiling or a different term.</message>
+ </incorrect-term>
+ <!-- End BJS terms from the bjs-checks.list.xml file -->
+ <incorrect-term severity="error">
+  <match type="character">100% uptime</match>
+  <suggestion>Remove</suggestion>
+  <message>Don't use to describe AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">access policy language</match>
+  <suggestion>IAM policy language</suggestion>
+  <message>Don't use. Use "IAM policy language."</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">amazonregistry.com</match>
+  <suggestion>example.com</suggestion>
+  <suggestion>amazondomains.com</suggestion>
+  <message>Don't use amazonregistry.com in examples. This is an actual website.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">AMZN</match>
+  <suggestion/>
+  <message>DO NOT refer to our stock ticker symbol.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Anaya Iyengar</match>
+  <suggestion>Choose another fictitious name</suggestion>
+  <message>Avoid using the name Iyengar, which is associated with India's caste system.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Anaya Paraiyar</match>
+  <suggestion>Choose another fictitious name</suggestion>
+  <message>Avoid using the name Paraiyar, which is associated with India's caste system.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">MyCompany</match>
+  <suggestion>Example Corp.</suggestion>
+  <suggestion>AnyCompany</suggestion>
+  <message>Don't use. MyCompany is a registered company. Use Example Corp. or AnyCompany instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Amazon ARN</match>
+  <suggestion>Amazon Resource Name (ARN)</suggestion>
+  <suggestion>ARN</suggestion>
+  <message>First use: Amazon Resource Name (ARN). Subsequent use: ARN.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">autoscaling</match>
+  <suggestion>Auto Scaling</suggestion>
+  <suggestion>automatic scaling</suggestion>
+  <suggestion>dynamic scaling</suggestion>
+  <suggestion>scaling</suggestion>
+  <message>Do not use as a synonym for "automatic scaling." Use "Auto Scaling" for references to the Auto Scaling service.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">availability zone</match>
+  <suggestion>Availability Zone</suggestion>
+  <suggestion>zone</suggestion>
+  <message>FIrst use: Availability Zone. Do not abbreviate as "AZ" except when using as an adjective (Single-AZ or Multi-AZ). Use "zones" for general references to multiple Availability Zones, when you've already used Availability Zone multiple times in the same topic.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character"> AZ</match>
+  <suggestion>Availability Zone</suggestion>
+  <suggestion>zone</suggestion>
+  <message>First use: Availability Zone. Do not abbreviate as "AZ" except when using as an adjective (Single-AZ or Multi-AZ). Use "zones" for general references to multiple Availability Zones, when you've already used Availability Zone multiple times in the same topic.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">(AZ)</match>
+  <suggestion>Availability Zone</suggestion>
+  <suggestion>zone</suggestion>
+  <message>First use: Availability Zone. Do not abbreviate as "AZ" except when using as an adjective (Single-AZ or Multi-AZ). Use "zones" for general references to multiple Availability Zones, when you've already used Availability Zone multiple times in the same topic.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">checkbox</match>
+  <suggestion>check box</suggestion>
+  <message>Two words in all instances: check box.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">click</match>
+  <suggestion>choose</suggestion>
+  <suggestion>select</suggestion>
+  <message>Don't use. Use "choose" for menu commands, buttons, and most other UI elements. Use "select" for check boxes and highlighting text.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">commercial region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Customer Support</match>
+  <suggestion>AWS Support</suggestion>
+  <message>Do not use. Use "AWS Support" instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">customer-managed policy</match>
+  <suggestion>customer managed policy</suggestion>
+  <message>Do not hyphenate.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">easy</match>
+  <suggestion>Remove or rewrite</suggestion>
+  <message>Avoid. It can be misleading and sound condescending to readers.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">ecosystem</match>
+  <suggestion>Remove or rewrite</suggestion>
+  <message>Do not use the word "ecosystem" to describe groups of AWS products and services, or groups of products and services of which AWS services are a part. Okay to use for partner products.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">foo</match>
+  <suggestion>Avoid</suggestion>
+  <message>Try to avoid this expression and use a more descriptive placeholder. Does not need to be banned entirely.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">foobar</match>
+  <suggestion>Avoid</suggestion>
+  <message>Try to avoid this expression and use a more descriptive placeholder. Does not need to be banned entirely.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">free</match>
+  <suggestion>Use with caution</suggestion>
+  <message>Take care not to overpromise when describing AWS products and services. If you have a question, submit your text to review by AWS Legal.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">fubar</match>
+  <suggestion>Avoid</suggestion>
+  <message>Try to avoid this expression and use a more descriptive placeholder. Does not need to be banned entirely.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">global region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">governmental region</match>
+  <suggestion>AWS GovCloud (US) Regions</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">guarantee</match>
+  <suggestion>facilitate</suggestion>
+  <suggestion>verify</suggestion>
+  <suggestion>offer</suggestion>
+  <suggestion>provide</suggestion>
+  <suggestion>promote</suggestion>
+  <suggestion>grant</suggestion>
+  <suggestion>afford</suggestion>
+  <suggestion>permit</suggestion>
+  <suggestion>enable</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services. Suitable substitutes include: facilitate, verify, offer, provide, promote, grant, afford, permit, or enable.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">on the cloud</match>
+  <suggestion>in the cloud</suggestion>
+  <message>Run applications and instances "in the cloud," but extend services "to the cloud."</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Integrated with AWS</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Make sure it does not sound like a solution runs "in" AWS. It is more appropriate to reference that it runs "on" AWS. Stating that something runs "in" AWS makes it sound more integrated than it actually is. Similarly, please don't use the word "integrated" or "integrates" to describe how your technical solution works with AWS services. You can, however, use "integrated" or "integrates" if referencing your own services and offerings from a general marketing perspective.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Inter-Region</match>
+  <suggestion>inter-Region</suggestion>
+  <message>Do not use. Use inter-Region</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">legal compliance</match>
+  <suggestion>Avoid</suggestion>
+  <message>Do not make any claims about legal compliance without Legal team approval.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">meet compliance standards</match>
+  <suggestion>Avoid</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">meets compliance standards</match>
+  <suggestion>Avoid</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">multi-cloud</match>
+  <suggestion>Do not use</suggestion>
+  <message>AWS does not allow or approve use of the terms "multi-cloud," "cross cloud," or other language that implies designing or supporting more than one cloud provider. Multi-cloud is an approach that splits workloads in the cloud among two or more cloud providers. If you prefer not to refer to AWS specifically, you may reference "the cloud" or "your cloud." Architecture diagrams or graphics showing multiple cloud providers (by name, logo, or generically) will also not be approved.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">multi-region</match>
+  <suggestion>multi-Region</suggestion>
+  <message>multi-Region</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">MyCompany</match>
+  <suggestion>AnyCompany</suggestion>
+  <suggestion>Example Corp.</suggestion>
+  <message>MyCompany is registered to another party.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">mydomain.com</match>
+  <suggestion>example.com</suggestion>
+  <suggestion>example.net</suggestion>
+  <suggestion>example.org</suggestion>
+  <suggestion>amazondomains.com</suggestion>
+  <message>The mydomain.com domain is an actual site.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">no commitment</match>
+  <suggestion>Avoid</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">no commitments</match>
+  <suggestion>Avoid</suggestion>
+  <message>Do not state that AWS offers our services with no commitments or no contracts or use similar language, as this is inaccurate.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">no contract</match>
+  <suggestion>Avoid</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">no contracts</match>
+  <suggestion>Avoid</suggestion>
+  <message>Avoid</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">non profit</match>
+  <suggestion>nonprofit</suggestion>
+  <message>nonprofit</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">non-disclosure</match>
+  <suggestion>nondisclosure</suggestion>
+  <message>Use nondisclosure instead</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">non-profit</match>
+  <suggestion>nonprofit</suggestion>
+  <message>nonprofit</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">noncommercial region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">nongovernmental region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character"> older </match>
+  <suggestion> earlier </suggestion>
+  <message>Avoid using in reference to versions of software, services, or documentation. Use "earlier" instead.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">on Windows</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Use "on Windows" in reference to Windows applications. Use "in Windows" in reference to components of the OS or work in the OS. Examples: Use the Devices and Printers Control Panel in Windows to install a new printer. In Windows, run the setup command. Select an application that runs on Windows.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">onDemand</match>
+  <suggestion>On-Demand</suggestion>
+  <message>Use only as an adjective, not as a synonym for On-Demand instance.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">on demand instance</match>
+  <suggestion>On-Demand instance</suggestion>
+  <message>Use only as an adjective, not as a synonym for On-Demand instance.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character"> on-prem </match>
+  <suggestion> on-premises </suggestion>
+  <suggestion> onpremises </suggestion>
+  <message>Do not use "on prem." Use on-premises as an adjective (for example, "an on-premises solution"). Or, use "on premises" to refer to the physical location.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">one bill</match>
+  <suggestion>consolidated into your AWS billing</suggestion>
+  <message>Cannot use "one bill" when referring to consolidated billing for AWS Marketplace. Must use the following copy: "All charges from AWS Marketplace are consolidated into your AWS billing</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">partner</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Use the word partner only when describing actual members of the AWS Partner Network in the context of APN.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">partner ecosystem</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>Do not use the word "ecosystem" to describe groups of AWS products and services, or groups of products and services of which AWS services are a part. Okay to use for partner products.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">partners</match>
+  <suggestion>Hover to see usage notes</suggestion>
+  <message>DO NOT use the terms "partners" or "partnership" or "alliance" to describe the AWS relationship. We prefer the terms "agreement," "teamed," "in cooperation with," or "relationship." Don't use the term "partners" when referring to sellers in AWS Marketplace. Refer to as "software sellers," "ISVs," or "Independent Software Sellers."</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">please</match>
+  <suggestion>Remove</suggestion>
+  <message>Do not use except in quoted text.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Premium Support</match>
+  <suggestion>AWS Support</suggestion>
+  <message>Do not use. Use AWS Support instead.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">private cloud</match>
+  <suggestion>See usage notes</suggestion>
+  <message>Do not use "AWS hybrid cloud" or the "AWS public cloud." Use of the terms "hybrid," "hybrid architecture," "hybrid cloud," "public cloud," "private cloud," or "on-premises environment" may be approved, but those terms should NOT be used to describe AWS. For example, it is not approved to say "AWS hybrid cloud" or the "AWS public cloud" but you may describe how your solution enables a hybrid cloud architecture connecting AWS to an on-premises environment.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">public region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">public cloud</match>
+  <suggestion>See usage notes</suggestion>
+  <message>Do not use "AWS hybrid cloud" or the "AWS public cloud." Use of the terms "hybrid," "hybrid architecture," "hybrid cloud," "public cloud," "private cloud," or "on-premises environment" may be approved, but those terms should NOT be used to describe AWS. For example, it is not approved to say "AWS hybrid cloud" or the "AWS public cloud" but you may describe how your solution enables a hybrid cloud architecture connecting AWS to an on-premises environment.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="false">
+  <match type="character"> region </match>
+  <suggestion> AWS Region </suggestion>
+  <suggestion> Region </suggestion>
+  <message>First use: AWS Region. Subsequent use: Region. For example, "the AWS GovCloud (US-West) Region" or "select an AWS Region."</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="false">
+  <match type="character"> regions </match>
+  <suggestion> AWS Regions </suggestion>
+  <suggestion> Regions </suggestion>
+  <message>First use: AWS Regions. Subsequent use: Regions. For example, "the AWS GovCloud (US) Regions" or "select a AWS Regions."</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">reserved instance</match>
+  <suggestion>Reserved Instance</suggestion>
+  <message>Capitalized by request of the product team.</message>
+ </incorrect-term>
+ <incorrect-term ignorecase="true" severity="error">
+  <match type="character">standard region</match>
+  <suggestion>AWS Region</suggestion>
+  <suggestion>Region</suggestion>
+  <message>Use AWS Region (title case) on first mention, and Region (title case) on subsequent mention. Use lowercase region only when referring to a generic region that is not related to AWS. Avoid using labels such as commercial, global, governmental, noncommercial, nongovernmental, public, or standard in relation to AWS Regions because such labels can cause confusion. If you need to refer to AWS GovCloud (US) Regions and other AWS Regions collectively, use AWS Regions and the AWS GovCloud (US) Regions or AWS Regions, including the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions. If you need to refer to refer to AWS GovCloud (US) Regions as distinct from the other AWS Regions, use AWS Regions, except the AWS GovCloud (US) Regions, or AWS Regions, excluding the AWS GovCloud (US) Regions on first instance. On subsequent mentions, use AWS Regions.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">the best</match>
+  <suggestion>Remove or substantiate</suggestion>
+  <message>Avoid declarative statements about someone or something being "the best," "the first," "the only," etc. without substantiation of the claim.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">the leading</match>
+  <suggestion>a leading</suggestion>
+  <suggestion>one of the leading</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services. Sugested alternatives: a leading, one of the leading</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">U.S.</match>
+  <suggestion>US</suggestion>
+  <message>Do not use periods (Chicago Manual of Style). Exception: U.S. is correct usage in documentation, whitepapers, or slide decks that deal with the US. government, which uses periods.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">unlimited</match>
+  <suggestion>Avoid (rewrite)</suggestion>
+  <message>Avoid when describing AWS products, solutions, and services.</message>
+ </incorrect-term>
+</incorrect-terms>

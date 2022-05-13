@@ -1,0 +1,28 @@
+<programlisting>
+    def update_rating(self, title, year, rating_change):
+        """
+        Updates the quality rating of a movie in the table by using an arithmetic
+        operation in the update expression. By specifying an arithmetic operation,
+        you can adjust a value in a single request, rather than first getting its
+        value and then setting its new value.
+
+        :param title: The title of the movie to update.
+        :param year: The release year of the movie to update.
+        :param rating_change: The amount to add to the current rating for the movie.
+        :return: The updated rating.
+        """
+        try:
+            response = self.table.update_item(
+                Key={'year': year, 'title': title},
+                UpdateExpression="set info.rating = info.rating + :val",
+                ExpressionAttributeValues={':val': Decimal(str(rating_change))},
+                ReturnValues="UPDATED_NEW")
+        except ClientError as err:
+            logger.error(
+                "Couldn't update movie %s in table %s. Here's why: %s: %s",
+                title, self.table.name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['Attributes']
+</programlisting>

@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+  <xs:element name="zonbookfast">
+    <xs:annotation>
+      <xs:documentation>Root element of a ZonBookFast build file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="project"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="project">
+    <xs:annotation>
+      <xs:documentation>Contains the build commands for a project.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tasks"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Required. Name of the project.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tasks">
+    <xs:annotation>
+      <xs:documentation>Contains one or more task elements.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="task"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="task">
+    <xs:annotation>
+      <xs:documentation>Contains the actions associated with this task.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="action"/>
+        <xs:element ref="description"/>
+        <xs:element ref="haltonexception"/>
+      </xs:choice>
+      <xs:attribute name="name" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Required. Name of the task.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+      <xs:attribute name="threaded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Optional. Specifies if this task should be run single-threaded or multi-threaded. Set to true to make the action</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+      <xs:attribute name="threadname" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Optional. Specifies the thread name to be displayed in the build output and logs.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="haltonexception">
+    <xs:annotation>
+      <xs:documentation>Specifies that this task should halt on any exceptions.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType/>
+  </xs:element>
+
+  <xs:element name="action">
+    <xs:annotation>
+      <xs:documentation>Contains the settings for a single action.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:element ref="condfilelist"/>
+          <xs:element ref="conditional"/>
+          <xs:element ref="convert"/>
+          <xs:element ref="denylist"/>
+          <xs:element ref="exec"/>
+          <xs:element ref="exist"/>
+          <xs:element ref="exttask"/>
+          <xs:element ref="fileio"/>
+          <xs:element ref="fop"/>
+          <xs:element ref="kindle"/>
+          <xs:element ref="setparamvals"/>
+          <xs:element ref="snippet"/>
+          <xs:element ref="srdict"/>
+          <xs:element ref="subtasks"/>
+          <xs:element ref="transform"/>
+          <xs:element ref="transformonly"/>
+          <xs:element ref="validate"/>
+          <xs:element ref="validateJSON"/>
+          <xs:element ref="validateRegex"/>
+          <xs:element ref="xmlload"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="guidance"/>
+      </xs:sequence>
+      <xs:attribute name="name">
+        <xs:annotation>
+          <xs:documentation>Specifies the name of the action that will be displayed in the build output and logs.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="convert">
+    <xs:annotation>
+      <xs:documentation>Converts an entity file into XMLformat.</xs:documentation>
+    </xs:annotation>   
+    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element ref="entities"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="entities">
+    <xs:annotation>
+      <xs:documentation>Contains the location of one or more entity files to convert and where to write the output.</xs:documentation>
+    </xs:annotation>    
+    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="source"/>
+          <xs:element ref="filelist"/>
+        </xs:choice>
+        <xs:element ref="dest"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="validateJSON">
+    <xs:annotation>
+      <xs:documentation>Validates a JSON file to insure it is well-formed. 
+        Does not support confirming if the JSON file matches a specific format.</xs:documentation>
+      <xs:documentation source="example">
+        <action>
+          <validateJSON>
+            <description>Validation the TOC json file.</description>
+            <jsoninputfile>
+              <bpath>
+                <package>
+                  <get src="PackageDict" value="packageName"/>
+                </package>
+                <graph>package-build-root</graph>
+                <recipe>null</recipe>
+                <ext>server-root/lambda/latest/dg/toc-contents.json</ext>
+              </bpath>
+            </jsoninputfile>
+          </validateJSON>
+        </action>        
+      </xs:documentation>
+    </xs:annotation>   
+    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="jsoninputfile"/>
+        <xs:element ref="localuser" minOccurs="0"/>          
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="jsoninputfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to a JSON file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="validateRegex">
+    <xs:annotation>
+      <xs:documentation>Does basic syntax validation for a regular expression string.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element ref="regex"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="subtasks">
+    <xs:annotation>
+      <xs:documentation>Contains a set of tasks. This is usally used in the case where 
+        there are some actions that need to occur prior to a set of tasks being run.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="task"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="denylist">
+    <xs:annotation>
+      <xs:documentation>Runs the denylist testing.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element ref="localuser" minOccurs="0"/>
+        <xs:element ref="sourcename"/>
+        <xs:element ref="xml-denylists"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>  
+
+  <xs:element name="localuser" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>'true' specifies that the build is being performed on a local desktop.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="xml-denylists" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the brazil path folder with the XML configuration files.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+
+  <xs:element name="kindle">
+    <xs:annotation>
+      <xs:documentation>Generates a mobi file.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="opffile"/>
+        <xs:element ref="mobifilename"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="bpath">
+    <xs:annotation>
+      <xs:documentation>Specifies the settings for a brazil path.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="package"/>
+        <xs:element ref="graph"/>
+        <xs:element ref="recipe"/>
+        <xs:element ref="ext"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="path">
+    <xs:annotation>
+      <xs:documentation>Specifies a file path.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0">
+        <xs:element ref="get"/>
+      </xs:choice>
+      <xs:attribute name="absolute" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Specifies if the path is absolute or relative. Set to true if absolute, false otherwise.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="opffile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the OPF file for a Kindle build.</xs:documentation>
+    </xs:annotation>    
+  </xs:element>
+
+
+  <xs:complexType name="paths">
+    <xs:annotation>
+      <xs:documentation>Complex type that contains the path types that are supported.</xs:documentation>
+    </xs:annotation>    
+    <xs:choice maxOccurs="1" minOccurs="1">
+      <xs:element ref="bpath"/>
+      <xs:element ref="path"/>
+      <xs:element ref="get"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="mobifilename" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the file name for the .mobi file generated by the Kindle build.</xs:documentation>
+    </xs:annotation>    
+  </xs:element>
+  
+  <xs:element name="transform">
+    <xs:annotation>
+      <xs:documentation>Transforms a single file.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element minOccurs="0" ref="xerces"/>
+        <xs:element minOccurs="0" ref="dictionary"/>
+        <xs:element minOccurs="0" ref="catalog"/>
+        <xs:element ref="xmlinputfile"/>
+        <xs:element ref="xslfile"/>
+        <xs:element minOccurs="0" ref="xmloutputdir"/>
+        <xs:element minOccurs="0" ref="xmloutputfile"/>
+        <xs:element minOccurs="0" ref="xmloutputsource"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="transformlist">
+    <xs:annotation>
+      <xs:documentation>Transforms a list of files.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element  minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0" ref="xerces"/>
+        <xs:element minOccurs="0" ref="dictionary"/>
+        <xs:element minOccurs="0" ref="catalog"/>
+        <xs:element ref="name"/>
+        <xs:element ref="xslfile"/>
+        <xs:element ref="dest"/>
+        <xs:element ref="destext"/>
+        <xs:element ref="ignoreerr" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="destext" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the new file extension for the transformed files.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="ignoreerr" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Specifies that the action should ignore errors.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="catalog" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the catalog file, which is used to resolve some file locations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="condfilelist">
+    <xs:annotation>
+      <xs:documentation>Conditional action that is run if specified filelist meets the specified test.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element ref="filelist"/>
+        <xs:element ref="listtest"/>
+        <xs:element ref="action"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="conditional">
+    <xs:annotation>
+      <xs:documentation>Conditional action that is run if the two properties meet the specified test.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="dictprop1"/>
+        <xs:element ref="dictprop2"/>
+        <xs:element ref="test"/>
+        <xs:element ref="action"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dictprop1">
+    <xs:annotation>
+      <xs:documentation>Specifies one value of a conditional test.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="dictname" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the dictionary to find a property.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="propname" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the property to use for the test.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dictprop2">
+    <xs:annotation>
+      <xs:documentation>Specifies one value of a conditional test.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="dictname" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the dictionary to find a property.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="propname" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the property to use for the test.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="listtest">
+    <xs:annotation>
+      <xs:documentation>Specifies the test to run on the file list.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="empty">
+          <xs:annotation>
+            <xs:documentation>Checks the list if it is empty.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="notempty">
+          <xs:annotation>
+            <xs:documentation>Checks if the list is not empty.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="test">
+    <xs:annotation>
+      <xs:documentation>Specifies the type of test to run on the properties.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="equal">
+          <xs:annotation>
+            <xs:documentation>Test if the properties are equal.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="notequal">
+          <xs:annotation>
+            <xs:documentation>Test if the properties are not equal.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="contains">
+          <xs:annotation>
+            <xs:documentation>Tests if the first property contains the second property.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="notcontains">
+          <xs:annotation>
+            <xs:documentation>Test if the first property does not contain the second property.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="exttask">
+    <xs:annotation>
+      <xs:documentation>Specifies a file that contains additional tasks to run.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="taskfile"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="taskfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path of the external task file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="fileio">
+    <xs:annotation>
+      <xs:documentation>Specifies a file operation.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element ref="copy"/>
+          <xs:element ref="createfilelist"/>
+          <xs:element ref="deldir"/>
+          <xs:element ref="delfile"/>
+          <xs:element ref="print"/>
+          <xs:element ref="printexit"/>
+          <xs:element ref="snr"/>
+          <xs:element ref="snrtxt"/>
+          <xs:element ref="transformlist"/>
+          <xs:element ref="validatelist"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="validatelist">
+    <xs:annotation>
+      <xs:documentation>Validates a list of files using the specified XSD.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="xsdfile"/>
+        <xs:element ref="catalog" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="snr">
+    <xs:annotation>
+      <xs:documentation>Applies search and replace operations based on the specified search and replace dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="source"/>
+        <xs:element ref="dest"/>
+        <xs:element ref="srdict"/>
+        <xs:element ref="filter" minOccurs="0"/>
+        <xs:element ref="pre" minOccurs="0"/>
+        <xs:element ref="post" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="pre" type="xs:string">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="post" type="xs:string">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="snrtxt">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="source"/>
+          <xs:element ref="filelist"/>
+        </xs:choice>
+        <xs:element ref="dest"  minOccurs="0"/>
+        <xs:element ref="srdict"/>
+        <xs:element ref="filter" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="delfile">
+    <xs:annotation>
+      <xs:documentation>Deletes one or more files.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="file"/>
+        <xs:element ref="filelist"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="deldir">
+    <xs:annotation>
+      <xs:documentation>Deletes the specified directory.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dir"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="dir" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies a directory path.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="printexit">
+    <xs:annotation>
+      <xs:documentation>Prints the specified message and then exits the build.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0"  ref="filelist"/>
+        <xs:element ref="message"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="print">
+    <xs:annotation>
+      <xs:documentation>Prints the specified message.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0"  ref="filelist"/>
+        <xs:element ref="message"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="exist">
+    <xs:annotation>
+      <xs:documentation>Executes the specified action if the specified file or folder exists.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:choice>
+          <xs:element ref="file"/>
+          <xs:element ref="folder"/>
+        </xs:choice>
+        <xs:element ref="existence"/>
+        <xs:element ref="action"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="file" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to a file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="folder" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to a folder.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="existence" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Specifies whether to test if the file or folder exists or doesn't exist.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="message" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the message to be displayed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="guidance" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies any additional guidance users can follow if this action fails.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="copy">
+    <xs:annotation>
+      <xs:documentation>Copies the specified file or files.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="source"/>
+          <xs:element ref="filelist"/>
+        </xs:choice>
+        <xs:element ref="dest"/>
+        <xs:element ref="excludes" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="source" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the source.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="dest" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the destination.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="destclean" type="paths">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="manifest" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to write the mainfest file to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="fop">
+    <xs:annotation>
+      <xs:documentation>Generates a PDF file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="xmlinputfile"/>
+        <xs:element ref="fopconfigfile"/>
+        <xs:element ref="pdfoutputfile"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="pdfoutputfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the resulting PDF file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="fopconfigfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the FOP config file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="setparamvals">
+    <xs:annotation>
+      <xs:documentation>Sets the defined parameters in the specfied dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element ref="dictionary"/>
+        <xs:element minOccurs="0" ref="inherits"/>
+        <xs:element ref="parameters"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="inherits" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the dictionary to inherit from. Only one dictionary can be specified.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="parameters">
+    <xs:annotation>
+      <xs:documentation>Contains the paramters to be set in a dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="parameter"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="parameter">
+    <xs:annotation>
+      <xs:documentation>Contains a parameter to set in the dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="value"/>
+      </xs:sequence>
+    </xs:complexType>  
+  </xs:element>
+  
+  <xs:element name="value">
+    <xs:annotation>
+      <xs:documentation>Specifies a parameter value.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element ref="get"/>
+        <xs:element ref="bpath"/>
+        <xs:element ref="path"/>
+        <xs:element ref="filelist"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="transformonly">
+    <xs:annotation>
+      <xs:documentation>Applies a transform on the specified in-memory source file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0" ref="xerces"/>
+        <xs:element minOccurs="0" ref="dictionary"/>
+        <xs:element ref="sourcename"/>
+        <xs:element minOccurs="0" ref="srdict"/>
+        <xs:element ref="xslfile"/>
+        <xs:element minOccurs="0" ref="xmloutputdir"/>
+        <xs:element minOccurs="0" ref="xmloutputfile"/>
+        <xs:element minOccurs="0" ref="xmloutputsource"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="sourcename" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the name of the in-memory source file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="validate">
+    <xs:annotation>
+      <xs:documentation>Validates an XML file or source.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0" ref="xerces"/>
+        <xs:element minOccurs="0" ref="catalog"/>        
+        <xs:choice>
+          <xs:element ref="xmlinputsource"/>
+          <xs:element ref="xmlinputfile"/>
+        </xs:choice>
+        <xs:element ref="xsdfile"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="xsdfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the path to the XSD file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="description" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the description of the action or task.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="xmlinputsource" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies an input XML source.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="xerces" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Specifies if the Xerces parser should be used on the XML file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="dictionary" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the name of the dictionary.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="package">
+    <xs:annotation>
+      <xs:documentation>Specifies the package name portion of a brazil path.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="get" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="graph" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the graph part of a brazil path.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="recipe" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the recipe part of a brazil path.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="ext">
+    <xs:annotation>
+      <xs:documentation>Specifies the extended part of a brazil path.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="get"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="xmlinputfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the XML input file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="xslfile" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the XSL transform file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="xmloutputdir" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the XML output directory.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="xmloutputfile" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the XML output file name.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="xmloutputsource" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the XML output source name to use.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="srdict">
+    <xs:annotation>
+      <xs:documentation>Contains a search and replace dictionary name or defines the search and replace dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element minOccurs="0" ref="name"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="serrep"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="serrep">
+    <xs:annotation>
+      <xs:documentation>Specifies a search and replace.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="replace" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the name.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="get">
+    <xs:annotation>
+      <xs:documentation>Retrieves the value from the specified source.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="xml" type="xs:string"/>
+      <xs:attribute name="xpath" type="xs:string"/>
+      <xs:attribute name="src" type="xs:string"/>
+      <xs:attribute name="value" type="xs:string"/>
+      <xs:assert test="(@xml and @xpath and not(@src or @value)) or (@src and @value and not(@xml or @xpath))"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="filelist" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the name of a file list.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+
+  <xs:element name="createfilelist">
+    <xs:annotation>
+      <xs:documentation>Creates a file list.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="source"/>
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="match"/>
+            <xs:element ref="filter"/>
+            <xs:element minOccurs="0" ref="exclude"/>
+          </xs:sequence>
+          <xs:element ref="regex"/>          
+        </xs:choice>
+        <xs:element minOccurs="0" ref="recurse"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="recurse" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Specifies if the action should be recursive.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="regex" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Regular expression.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="exec">
+    <xs:annotation>
+      <xs:documentation>Executes the specified command.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="description"/>
+        <xs:element ref="commanddir"/>
+        <xs:element ref="command"/>
+        <xs:element minOccurs="0" ref="arguments"/>
+        <xs:element ref="workingdir"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="arguments">
+    <xs:annotation>
+      <xs:documentation>Contains the arguments to pass to an executable.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="argument"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="argument">
+    <xs:annotation>
+      <xs:documentation>Specifies an argument to pass to an executable.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="1">
+        <xs:element minOccurs="0" ref="name"/>
+        <xs:element minOccurs="0" ref="value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="xmlload">
+    <xs:annotation>
+      <xs:documentation>Loads an XML file into an XML source.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="name"/>
+        <xs:element minOccurs="0" ref="xerces"/>
+        <xs:element minOccurs="0" ref="catalog"/>
+        <xs:element ref="xmlinputfile"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="snippet">
+    <xs:annotation>
+      <xs:documentation>Generates snippets from the specified source.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="source"/>
+        <xs:element ref="dest"/>
+        <xs:element ref="destclean" minOccurs="0"/>
+        <xs:element ref="manifest" minOccurs="0"/>
+        <xs:element ref="filter" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="command" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies the command to run.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="commanddir" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the directory to run the command in.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="workingdir" type="paths">
+    <xs:annotation>
+      <xs:documentation>Specifies the working directory of the executable.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="match" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies text to match in the file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="filter" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies a filter to restrict the results to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="exclude" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies files to be excluded.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="excludes" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Specifies comma separated list of files or directories to be excluded.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+</xs:schema>

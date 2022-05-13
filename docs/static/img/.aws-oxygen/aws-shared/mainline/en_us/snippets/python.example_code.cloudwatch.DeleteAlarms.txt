@@ -1,0 +1,17 @@
+    def delete_metric_alarms(self, metric_namespace, metric_name):
+        """
+        Deletes all of the alarms that are currently watching the specified metric.
+
+        :param metric_namespace: The namespace of the metric.
+        :param metric_name: The name of the metric.
+        """
+        try:
+            metric = self.cloudwatch_resource.Metric(metric_namespace, metric_name)
+            metric.alarms.delete()
+            logger.info(
+                "Deleted alarms for metric %s.%s.", metric_namespace, metric_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't delete alarms for metric %s.%s.", metric_namespace,
+                metric_name)
+            raise

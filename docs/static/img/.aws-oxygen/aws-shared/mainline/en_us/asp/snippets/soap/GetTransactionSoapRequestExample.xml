@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope>
+	<SOAP-ENV:Body 
+		wsu:Id="body" 
+		xmlns:wsu=
+		"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+		<ns2:GetTransaction 
+			xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+			<ns2:TransactionId>
+				13OKM6RHU2ZT12OFCICMZ326V8GFJ955UGM
+			</ns2:TransactionId>
+		</ns2:GetTransaction>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

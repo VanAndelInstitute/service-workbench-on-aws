@@ -1,0 +1,41 @@
+suspend fun listCompleteJobs(mcClient: MediaConvertClient) {
+
+    try {
+
+        val describeEndpoints = DescribeEndpointsRequest {
+            maxResults = 20
+        }
+
+        val res = mcClient.describeEndpoints(describeEndpoints)
+        if (res.endpoints?.size!! <= 0) {
+            println("Cannot find MediaConvert service endpoint URL!")
+            exitProcess(0)
+        }
+        val endpointURL = res.endpoints!!.get(0).url!!
+        val client = MediaConvertClient {
+
+            region = "us-west-2"
+            endpointResolver = AwsEndpointResolver { service, region ->
+                AwsEndpoint(endpointURL, CredentialScope(region = "us-west-2"))
+            }
+        }
+
+        val jobsRequest = ListJobsRequest {
+            maxResults = 10
+            status = JobStatus.fromValue("COMPLETE")
+        }
+
+        val jobsResponse = client.listJobs(jobsRequest)
+        val jobs = jobsResponse.jobs
+        if (jobs != null) {
+            for (job in jobs) {
+                System.out.println("The JOB ARN is ${job.arn}")
+            }
+        }
+
+    } catch (ex: MediaConvertException) {
+        println(ex.message)
+        mcClient.close()
+        exitProcess(0)
+    }
+}

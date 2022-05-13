@@ -1,0 +1,15 @@
+<SOAP-ENV:Envelope>
+  <SOAP-ENV:Body wsu:id="body" xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <ns2:Refund xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+      <ns2:TransactionId>13N918VZH2QQ7O3I5MLSDUPU5V89QQF5QSU</ns2:TransactionId>
+      <ns2:RefundAmount>
+        <ns2:CurrencyCode>USD</ns2:CurrencyCode>
+        <ns2:Amount>1</ns2:Amount>
+      </ns2:RefundAmount>
+      <ns2:CallerReference>
+        ReferenceString????QW3t12275904723091
+      </ns2:CallerReference>
+    </ns2:Refund>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

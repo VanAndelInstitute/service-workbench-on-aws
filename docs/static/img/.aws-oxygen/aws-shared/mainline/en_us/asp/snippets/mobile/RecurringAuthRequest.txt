@@ -1,0 +1,21 @@
+POST /mps/v1/payauth HTTP/1.1
+User-Agent: sampleapp/1.0.1
+Content-Type: application/x-www-form-urlencoded
+X-Amz-DvcID: 352099001761481
+X-Amz-DvcMfr: Nokia
+Authorization: Basic dGVzdHVzZXJAYW1hem9uLmNvbTpwYXNzd29yZA==
+
+TokenType=Recurring&
+CallerReference=o1247530493&
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&
+Timestamp=2009-07-01&
+ReturnURL=http%3A%2F%2Fwww.sampleapp.com%3A8080%2Fnotify%2Fmps&
+ValidityStart=2009-07-10&
+ValidityEnd=2010-07-10&
+TransactionAmount.CurrencyCode=USD&
+TransactionAmount.Value=9.99&
+PaymentReason=Monthly+download+subscription&
+Recurrence.Quantity=1&
+Recurrence.Unit=Month&
+SignatureVersion=1&
+Signature=3Pl%2F%2B9sUk7Yz0HG6gHf1%2FlHBz5o%3D

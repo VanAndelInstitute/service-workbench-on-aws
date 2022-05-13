@@ -1,0 +1,14 @@
+<programlisting>
+def delete_alias(alias):
+    """
+    Removes the alias from the current account.
+
+    :param alias: The alias to remove.
+    """
+    try:
+        iam.meta.client.delete_account_alias(AccountAlias=alias)
+        logger.info("Removed alias '%s' from your account.", alias)
+    except ClientError:
+        logger.exception("Couldn't remove alias '%s' from your account.", alias)
+        raise
+</programlisting>

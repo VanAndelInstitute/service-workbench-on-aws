@@ -1,0 +1,25 @@
+<programlisting>
+        /* Gets the state of a spot instance request.
+         * Takes two args:
+         *   AmazonEC2Client ec2Client is the EC2 client through which information about the state of the spot instance is made
+         *   string spotRequestId is the ID of the spot instance
+         *
+         * See https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/EC2/MEC2DescribeSpotInstanceRequests.html
+         */
+        private static SpotInstanceState GetSpotRequestState(
+            AmazonEC2Client ec2Client,
+            string spotRequestId)
+        {
+            // Create the describeRequest object with all of the request ids
+            // to monitor (e.g. that we started).
+            var request = new DescribeSpotInstanceRequestsRequest();
+            request.SpotInstanceRequestIds.Add(spotRequestId);
+
+            // Retrieve the request we want to monitor.
+            var describeResponse = ec2Client.DescribeSpotInstanceRequestsAsync(request);
+
+            SpotInstanceRequest req = describeResponse.Result.SpotInstanceRequests[0];
+
+            return req.State;
+        }
+</programlisting>

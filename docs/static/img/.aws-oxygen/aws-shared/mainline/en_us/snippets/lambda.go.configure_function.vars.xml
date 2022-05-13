@@ -1,0 +1,11 @@
+<programlisting>
+    functionPtr := flag.String("f", "", "The name of the Lambda function")
+    sourcePtr := flag.String("a", "", "The ARN of the entity invoking the function")
+    flag.Parse()
+
+    if *functionPtr == "" || *sourcePtr == "" {
+        fmt.Println("You must supply the name of the function and of the entity invoking the function")
+        flag.PrintDefaults()
+        os.Exit(1)
+    }
+</programlisting>

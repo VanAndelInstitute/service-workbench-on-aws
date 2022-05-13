@@ -1,0 +1,2 @@
+import aws.sdk.kotlin.services.apigateway.ApiGatewayClient
+import aws.sdk.kotlin.services.apigateway.model.GetApiKeysRequest

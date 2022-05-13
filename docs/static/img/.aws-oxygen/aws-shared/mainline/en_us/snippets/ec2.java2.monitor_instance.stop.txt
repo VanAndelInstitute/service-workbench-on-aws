@@ -1,0 +1,10 @@
+    public static void unmonitorInstance(Ec2Client ec2, String instanceId) {
+        UnmonitorInstancesRequest request = UnmonitorInstancesRequest.builder()
+                .instanceIds(instanceId).build();
+
+        ec2.unmonitorInstances(request);
+
+        System.out.printf(
+                "Successfully disabled monitoring for instance %s",
+                instanceId);
+    }

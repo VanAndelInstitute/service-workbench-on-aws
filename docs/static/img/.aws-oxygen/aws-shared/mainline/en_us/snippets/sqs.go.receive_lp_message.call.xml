@@ -1,0 +1,13 @@
+<programlisting>
+    result, err := svc.ReceiveMessage(&sqs.ReceiveMessageInput{
+        QueueUrl: queueURL,
+        AttributeNames: aws.StringSlice([]string{
+            "SentTimestamp",
+        }),
+        MaxNumberOfMessages: aws.Int64(1),
+        MessageAttributeNames: aws.StringSlice([]string{
+            "All",
+        }),
+        WaitTimeSeconds: waitTime,
+    })
+</programlisting>

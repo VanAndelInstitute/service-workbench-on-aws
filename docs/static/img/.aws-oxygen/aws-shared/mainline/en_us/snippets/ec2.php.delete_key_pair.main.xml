@@ -1,0 +1,17 @@
+<programlisting>
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+$keyPairName = 'my-keypair';
+
+$result = $ec2Client->deleteKeyPair(array(
+    'KeyName' => $keyPairName
+));
+
+var_dump($result);
+ 
+ 
+</programlisting>

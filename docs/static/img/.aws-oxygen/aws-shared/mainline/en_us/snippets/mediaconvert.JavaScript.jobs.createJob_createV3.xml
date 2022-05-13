@@ -1,0 +1,12 @@
+<programlisting>
+const run = async () => {
+  try {
+    const data = await emcClient.send(new CreateJobCommand(params));
+    console.log("Job created!", data);
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
+</programlisting>

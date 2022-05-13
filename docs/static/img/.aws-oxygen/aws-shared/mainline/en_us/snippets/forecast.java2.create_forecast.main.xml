@@ -1,0 +1,19 @@
+<programlisting>
+    public static String createNewForecast(ForecastClient forecast, String name, String predictorArn) {
+
+       try {
+            CreateForecastRequest forecastRequest = CreateForecastRequest.builder()
+                .forecastName(name)
+                .predictorArn(predictorArn)
+                .build() ;
+
+            CreateForecastResponse response = forecast.createForecast(forecastRequest);
+            return response.forecastArn();
+
+       } catch (ForecastException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+       return "";
+    }
+</programlisting>

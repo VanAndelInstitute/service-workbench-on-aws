@@ -1,0 +1,25 @@
+<programlisting>
+def allow_security_group_ingress(target_security_group_id, source_security_group_name):
+    """
+    Sets an inbound rule in a security group. The rule lets instances that are in
+    the target security group accept incoming traffic that comes from instances
+    that are in the source security group. Traffic is accepted over UDP, ICMP, and TCP.
+
+    Note that this does *not* add the source security group's rules to the target
+    security group.
+
+    :param target_security_group_id: The security group to update to accept traffic.
+    :param source_security_group_name: The security group that will be allowed to send
+                                       data to instances in the target security group.
+    """
+    try:
+        ec2.SecurityGroup(target_security_group_id).authorize_ingress(
+            SourceSecurityGroupName=source_security_group_name)
+        logger.info("Added rule to group %s to allow traffic from instances in "
+                    "group %s.", target_security_group_id, source_security_group_name)
+    except ClientError:
+        logger.exception("Couldn't add rule to group %s to allow traffic from "
+                         "instances in %s.",
+                         target_security_group_id, source_security_group_name)
+        raise
+</programlisting>

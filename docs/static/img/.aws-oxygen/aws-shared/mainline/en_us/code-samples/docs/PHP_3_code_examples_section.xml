@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<section id="php_code_examples" role="topic">
+    <info>
+        <title id="php_code_examples.title">Additional code examples for the &PHPlong;</title>
+        <titleabbrev id="php_code_examples.titleabbrev">Additional code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &PHPlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &PHPlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="php_code_examples_categorized" role="topic">
+        <info>
+            <title id="php_code_examples_categorized.title">Single-service actions and scenarios using &PHP;</title>
+            <titleabbrev id="php_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &PHP; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &PHPlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="php_api-gateway_code_examples" role="topic">
+            <info>
+                <title id="php_api-gateway_code_examples.title">&ABP; examples using &PHP;</title>
+                <titleabbrev id="php_api-gateway_code_examples.titleabbrev">&ABP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &PHPlong; with &ABP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &PHPlong; with &ABP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ABP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ABP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="api-gateway_GetBasePathMapping_php_topic">
+                        <info>
+                            <title id="api-gateway_GetBasePathMapping_php_topic.title">Get base path mapping</title>
+                            <titleabbrev id="api-gateway_GetBasePathMapping_php_topic.titleabbrev">Get base path mapping</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &ABP; base path mapping.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_GetBasePathMapping_PHP.xml"></xi:include>
+                    </section>
+                    <section id="api-gateway_ListBasePathMappings_php_topic">
+                        <info>
+                            <title id="api-gateway_ListBasePathMappings_php_topic.title">List base path mapping</title>
+                            <titleabbrev id="api-gateway_ListBasePathMappings_php_topic.titleabbrev">List base path mapping</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list an &ABP; base path mapping.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_ListBasePathMappings_PHP.xml"></xi:include>
+                    </section>
+                    <section id="api-gateway_UpdateBasePathMapping_php_topic">
+                        <info>
+                            <title id="api-gateway_UpdateBasePathMapping_php_topic.title">Update base path mapping</title>
+                            <titleabbrev id="api-gateway_UpdateBasePathMapping_php_topic.titleabbrev">Update base path mapping</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &ABP; base path mapping.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_UpdateBasePathMapping_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="php_iam_code_examples" role="topic">
+            <info>
+                <title id="php_iam_code_examples.title">&IAM; examples using &PHP;</title>
+                <titleabbrev id="php_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &PHPlong; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &PHPlong; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_php_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_php_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_php_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_php_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_php_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_php_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_php_topic">
+                        <info>
+                            <title id="iam_CreateRole_php_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_php_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateServiceLinkedRole_php_topic">
+                        <info>
+                            <title id="iam_CreateServiceLinkedRole_php_topic.title">Create a service-linked role</title>
+                            <titleabbrev id="iam_CreateServiceLinkedRole_php_topic.titleabbrev">Create a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_php_topic">
+                        <info>
+                            <title id="iam_CreateUser_php_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_php_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_php_topic">
+                        <info>
+                            <title id="iam_GetPolicy_php_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_php_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_php_topic">
+                        <info>
+                            <title id="iam_GetRole_php_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_php_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_php_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_php_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_php_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_php_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_php_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_php_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_php_topic">
+                        <info>
+                            <title id="iam_ListGroups_php_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_php_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRolePolicies_php_topic">
+                        <info>
+                            <title id="iam_ListRolePolicies_php_topic.title">List inline policies for a role</title>
+                            <titleabbrev id="iam_ListRolePolicies_php_topic.titleabbrev">List inline policies for a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list inline policies for an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_php_topic">
+                        <info>
+                            <title id="iam_ListPolicies_php_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_php_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_php_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_php_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_php_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_php_topic">
+                        <info>
+                            <title id="iam_ListRoles_php_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_php_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_PHP.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_php_topic">
+                        <info>
+                            <title id="iam_ListUsers_php_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_php_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_php_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_php_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_php_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="php_s3_code_examples" role="topic">
+            <info>
+                <title id="php_s3_code_examples.title">&S3; examples using &PHP;</title>
+                <titleabbrev id="php_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &PHPlong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &PHPlong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_CopyObject_php_topic">
+                        <info>
+                            <title id="s3_CopyObject_php_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_php_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_php_topic">
+                        <info>
+                            <title id="s3_CreateBucket_php_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_php_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_php_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_php_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_php_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_php_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_php_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_php_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_php_topic">
+                        <info>
+                            <title id="s3_GetObject_php_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_php_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_php_topic">
+                        <info>
+                            <title id="s3_ListObjects_php_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_php_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_PHP.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_php_topic">
+                        <info>
+                            <title id="s3_PutObject_php_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_php_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_GettingStarted_php_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_php_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_php_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="php_sns_code_examples" role="topic">
+            <info>
+                <title id="php_sns_code_examples.title">&SNS; examples using &PHP;</title>
+                <titleabbrev id="php_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &PHPlong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &PHPlong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CheckIfPhoneNumberIsOptedOut_php_topic">
+                        <info>
+                            <title id="sns_CheckIfPhoneNumberIsOptedOut_php_topic.title">Check whether a phone number is opted out</title>
+                            <titleabbrev id="sns_CheckIfPhoneNumberIsOptedOut_php_topic.titleabbrev">Check whether a phone number is opted out</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to check whether a phone number is opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_ConfirmSubscription_php_topic">
+                        <info>
+                            <title id="sns_ConfirmSubscription_php_topic.title">Confirm an endpoint owner wants to receive messages</title>
+                            <titleabbrev id="sns_ConfirmSubscription_php_topic.titleabbrev">Confirm an endpoint owner wants to receive messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to confirm the owner of an endpoint wants to receive &SNS; messages by validating the token sent to the endpoint by an earlier Subscribe action.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ConfirmSubscription_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_CreateTopic_php_topic">
+                        <info>
+                            <title id="sns_CreateTopic_php_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_php_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_Unsubscribe_php_topic">
+                        <info>
+                            <title id="sns_Unsubscribe_php_topic.title">Delete a subscription</title>
+                            <titleabbrev id="sns_Unsubscribe_php_topic.titleabbrev">Delete a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_php_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_php_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_php_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_php_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_php_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_php_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetSMSAttributes_php_topic">
+                        <info>
+                            <title id="sns_GetSMSAttributes_php_topic.title">Get the settings for sending SMS messages</title>
+                            <titleabbrev id="sns_GetSMSAttributes_php_topic.titleabbrev">Get the settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the settings for sending &SNS; SMS messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListPhoneNumbersOptedOut_php_topic">
+                        <info>
+                            <title id="sns_ListPhoneNumbersOptedOut_php_topic.title">List opted out phone numbers</title>
+                            <titleabbrev id="sns_ListPhoneNumbersOptedOut_php_topic.titleabbrev">List opted out phone numbers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list phone numbers that are opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListPhoneNumbersOptedOut_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_php_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_php_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_php_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_php_topic">
+                        <info>
+                            <title id="sns_ListTopics_php_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_php_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishTextSMS_php_topic">
+                        <info>
+                            <title id="sns_PublishTextSMS_php_topic.title">Publish an SMS text message</title>
+                            <titleabbrev id="sns_PublishTextSMS_php_topic.titleabbrev">Publish an SMS text message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_php_topic">
+                        <info>
+                            <title id="sns_Publish_php_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_php_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetSmsAttributes_php_topic">
+                        <info>
+                            <title id="sns_SetSmsAttributes_php_topic.title">Set the default settings for sending SMS messages</title>
+                            <titleabbrev id="sns_SetSmsAttributes_php_topic.titleabbrev">Set the default settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the default settings for sending SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetTopicAttributes_php_topic">
+                        <info>
+                            <title id="sns_SetTopicAttributes_php_topic.title">Set topic attributes</title>
+                            <titleabbrev id="sns_SetTopicAttributes_php_topic.titleabbrev">Set topic attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set &SNS; topic attributes.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_HTTP_php_topic">
+                        <info>
+                            <title id="sns_Subscribe_HTTP_php_topic.title">Subscribe an HTTP endpoint to a topic</title>
+                            <titleabbrev id="sns_Subscribe_HTTP_php_topic.titleabbrev">Subscribe an HTTP endpoint to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an HTTP or HTTPS endpoint so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_HTTP_PHP.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_php_topic">
+                        <info>
+                            <title id="sns_Subscribe_php_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_php_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_PHP.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</section>

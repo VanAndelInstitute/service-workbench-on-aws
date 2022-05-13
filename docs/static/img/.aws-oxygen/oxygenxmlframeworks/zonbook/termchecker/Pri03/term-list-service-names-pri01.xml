@@ -1,0 +1,2349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" must have a "match" and none, one or many "suggestion"
+    The message is optional. It's presented as highlight's tooltip.
+    The ignore case attribute specifies if the match is case sensitive or not.
+    
+-->
+
+<!--  =========== START - AWS service names and resources - Pri01 - Must fix ===========
+     Terminology checking rules for AWS service names and resources
+     Listed in alphabetical order by service name without the "Amazon" or "AWS" prefix).
+     Include rules for checking service resources in the same section at the service.      
+     -->
+
+<incorrect-terms>
+
+    <incorrect-term severity="error">
+  <match type="character">1-click</match>
+  <suggestion>AWS IoT 1-Click</suggestion>
+  <message>Use: "AWS IoT 1-Click" on ALL mentions. Do not abbreviate as "IoT 1-Click" or "1-Click."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">ACM private CA</match>
+  <suggestion>ACM Private CA</suggestion>
+  <message>Do not use. Use: ACM Private CA</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amzon</match>
+  <suggestion>Amazon</suggestion>
+  <message>Do not use. Use: Amazon</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazn</match>
+  <suggestion>Amazon</suggestion>
+  <message>Do not use. Use: Amazon</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazeon</match>
+  <suggestion>Amazon</suggestion>
+  <message>Do not use. Use: Amazon</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Amazon</match>
+  <suggestion>Amazon</suggestion>
+  <message>Do not use. Use: Amazon</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Amazon 1-Click</match>
+  <suggestion>AWS IoT 1-Click</suggestion>
+  <message>Do not use. Use: AWS IoT 1-Click</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon augmented AI</match>
+  <suggestion>Amazon Augmented AI (Amazon A2I)</suggestion>
+  <suggestion>Amazon A2I</suggestion>
+  <message>First use: Amazon Augmented AI (Amazon A2I) Subsequent use: Amazon A2I</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon App Mesh</match>
+  <suggestion>AWS App Mesh</suggestion>
+  <message>Do not use. Use: AWS App Mesh</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Application Discovery Service</match>
+  <suggestion>AWS Application Discovery Service</suggestion>
+  <message>Do not use. Use: AWS Application Discovery Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon AppSync</match>
+  <suggestion>AWS AppSync</suggestion>
+  <message>Do not use. Use: AWS AppSync</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Accelerator </match>
+  <suggestion> Amazon DynamoDB Accelerator (DAX) </suggestion>
+  <message>Use: Amazon DynamoDB Accelerator (DAX) on first use. If Amazon DynamoDB has already been mentioned, DynamoDB Accelerator (DAX) is acceptable for first use. Thereafter Use: DAX.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Amplify</match>
+  <suggestion>AWS Amplify</suggestion>
+  <message>Do not use. Use: AWS Amplify</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Apache Cassandra Service</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: Amazon Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Application Auto Scaling</match>
+  <suggestion>AWS Application Auto Scaling</suggestion>
+  <message>Use: AWS Application Auto Scaling instead.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Artifact</match>
+  <suggestion>AWS Artifact</suggestion>
+  <message>Do not use. Use: AWS Artifact</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Audit Manager</match>
+    <suggestion>AWS  Audit Manager</suggestion>
+    <message>Do not use. Use: AWS Audit Manager</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AuditManager</match>
+    <suggestion>Audit Manager</suggestion>
+    <message>Do not use. Use: AWS Audit Manager or Audit Manager</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character"> Amazon Auto Scaling </match>
+  <suggestion> AWS Auto Scaling </suggestion>
+  <message>Use: AWS Auto Scaling instead.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> AWS AutoScaling </match>
+  <suggestion> AWS Auto Scaling </suggestion>
+  <message>Use: AWS Auto Scaling instead.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon AWS</match>
+  <suggestion>Amazon Web Services (AWS)</suggestion>
+  <suggestion>AWS</suggestion>
+  <message>First use: Amazon Web Services (AWS). Subsequent use: AWS. Don't spell out AWS when it's part of a service name.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Backup</match>
+  <suggestion>AWS Backup</suggestion>
+  <message>Do not use. Use: AWS Backup</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Backint Agent</match>
+    <suggestion>AWS Backint Agent</suggestion>
+    <message>Do not use. Use: AWS Backint Agent</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon Batch</match>
+  <suggestion>AWS Batch</suggestion>
+  <message>Do not use. Use: AWS Batch</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Billing &amp; Cost Management</match>
+  <suggestion>AWS Billing and Cost Management</suggestion>
+  <message>Incorrect. Use: AWS Billing and Cost Management</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Blockchain Templates</match>
+  <suggestion>AWS Blockchain Templates</suggestion>
+  <message>Do not use. Use: AWS Blockchain Templates</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CDK</match>
+  <suggestion>AWS CDK</suggestion>
+  <message>Do not use. Use: AWS CDK</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Certificate Manager</match>
+  <suggestion>AWS Certificate Manager (ACM)</suggestion>
+  <message>Incorrect. Use: AWS Certificate Manager (ACM)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Chalice</match>
+  <suggestion>AWS Chalice</suggestion>
+  <message>Do not use. Use: AWS Chalice</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Chatbot</match>
+  <suggestion>AWS Chatbot</suggestion>
+  <message>Do not use. Use: AWS Chatbot</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CLI</match>
+  <suggestion>AWS CLI</suggestion>
+  <message>Use: AWS Command Line Interface (AWS CLI) on first use. AWS CLI on subsequent use.</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Client VPN</match>
+    <suggestion>AWS Client VPN</suggestion>
+    <message>Do not use. Use: AWS Client VPN</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon Cloud Development Kit</match>
+  <suggestion>AWS Cloud Development Kit (CDK)</suggestion>
+  <message>Do not use. Use: AWS Cloud Development Kit (CDK)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Cloud Map</match>
+  <suggestion>AWS Cloud Map</suggestion>
+  <message>Do not use. Use: AWS Cloud Map</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Cloud9</match>
+  <suggestion>AWS Cloud9</suggestion>
+  <message>The service name must always include '"AWS" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Cloud 9</match>
+    <suggestion>AWS Cloud9</suggestion>
+    <message>Do not use. Use: AWS Cloud9 (Note: The service name must always include '"AWS" in any content platform, based on trademark rights and settlement agreements.)</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon CloudEndure Migration</match>
+  <suggestion>CloudEndure Migration</suggestion>
+  <message>Do not use. Use: CloudEndure Migration</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CloudFormation</match>
+  <suggestion>AWS CloudFormation</suggestion>
+  <message>Incorrect. Use: AWS CloudFormation.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CloudHSM</match>
+  <suggestion>AWS CloudHSM</suggestion>
+  <message>Incorrect. Use: AWS CloudHSM.</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon CloudShell</match>
+    <suggestion>AWS CloudShell</suggestion>
+    <message>Incorrect. Use: AWS CloudShell.</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon CloudTrail</match>
+  <suggestion>AWS CloudTrail</suggestion>
+  <message>Incorrect. Use: AWS CloudTrail.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CodeBuild</match>
+  <suggestion>AWS CodeBuild</suggestion>
+  <message>Do not use. Use: AWS CodeBuild</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CodeCommit</match>
+  <suggestion>AWS CodeCommit</suggestion>
+  <message>Incorrect. Use: AWS CodeCommit.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CodeDeploy</match>
+  <suggestion>AWS CodeDeploy</suggestion>
+  <message>Incorrect. Use: AWS CodeDeploy.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CodePipeline</match>
+  <suggestion>AWS CodePipeline</suggestion>
+  <message>Incorrect. Use: AWS CodePipeline.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon CodeStar</match>
+  <suggestion>AWS CodeStar</suggestion>
+  <message>The service name must always include '"AWS" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Command Line Interface</match>
+  <suggestion>AWS Command Line Interface (AWS CLI)</suggestion>
+  <message>Do not use. Use: AWS Command Line Interface (AWS CLI)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Compute Optimizer</match>
+  <suggestion>AWS Compute Optimizer</suggestion>
+  <message>Do not use. Use: AWS Compute Optimizer</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Conductor</match>
+  <suggestion>AWS Elemental Conductor</suggestion>
+  <message>Do not use. Use: AWS Elemental Conductor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Config</match>
+  <suggestion>AWS Config</suggestion>
+  <message>Do not use. Use: AWS Config</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Console Mobile Application</match>
+    <suggestion>AWS Console Mobile Application</suggestion>
+    <message>Do not use. Use: AWS Console Mobile Application</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon Control Tower</match>
+  <suggestion>AWS Control Tower</suggestion>
+  <message>Do not use. Use: AWS Control Tower</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Data Exchange</match>
+  <suggestion>AWS Data Exchange</suggestion>
+  <message>Do not use. Use: AWS Data Exchange</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Data Pipeline</match>
+  <suggestion>AWS Data Pipeline</suggestion>
+  <message>Do not use. Use: AWS Data Pipeline</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Database Migration Service</match>
+  <suggestion>AWS Database Migration Service (AWS DMS)</suggestion>
+  <message>Do not use. Use: AWS Database Migration Service (AWS DMS)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DataSync</match>
+  <suggestion>AWS DataSync</suggestion>
+  <message>Do not use. Use: AWS DataSync</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Deadline</match>
+  <suggestion>AWS Thinkbox Deadline</suggestion>
+  <message>Use: AWS Thinkbox Deadline on first use. Thereafter Use: Deadline.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Deep Learning Containers</match>
+  <suggestion>AWS Deep Learning Containers</suggestion>
+  <message>Do not use. Use: AWS Deep Learning Containers</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DeepComposer</match>
+  <suggestion>AWS DeepComposer</suggestion>
+  <message>Do not use. Use: AWS DeepComposer</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DeepLens</match>
+  <suggestion>AWS DeepLens</suggestion>
+  <message>Do not use. Use: AWS DeepLens</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DeepRacer</match>
+  <suggestion>AWS DeepRacer</suggestion>
+  <message>Do not use. Use: AWS DeepRacer</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Delta</match>
+  <suggestion>AWS Elemental Delta</suggestion>
+  <message>Do not use. Use: AWS Elemental Delta</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Device Farm</match>
+  <suggestion>AWS Device Farm</suggestion>
+  <message>Do not use. Use: AWS Device Farm</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Direct Connect</match>
+  <suggestion>AWS Direct Connect</suggestion>
+  <message>Do not use. Use: AWS Direct Connect</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Directory Service</match>
+  <suggestion>AWS Directory Service</suggestion>
+  <message>Do not use. Use: AWS Directory Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Directory Service for Microsoft Active Directory</match>
+  <suggestion>AWS Directory Service for Microsoft Active Directory</suggestion>
+  <message>Do not use. Use: AWS Directory Service for Microsoft Active Directory</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DLM</match>
+  <suggestion>Amazon Data Lifecycle Manager</suggestion>
+  <message>Feature of Amazon EBS.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon DMS</match>
+  <suggestion>AWS DMS</suggestion>
+  <message>Do not use. Use: AWS DMS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Draft</match>
+  <suggestion>AWS Thinkbox Draft</suggestion>
+  <message>Use: AWS Thinkbox Draft on first use. Thereafter Use: Draft.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon EC2 auto scaling</match>
+  <suggestion>Amazon EC2 Auto Scaling</suggestion>
+  <message>Do not Use: to mean AWS Application Auto Scaling or AWS Auto Scaling.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon EC2 VM import connector</match>
+  <suggestion>Amazon EC2 VM Import Connector</suggestion>
+  <message>Do not use. Use: Amazon EC2 VM Import Connector</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon ECS service</match>
+  <suggestion>Amazon ECS</suggestion>
+  <message>Do not use. Use: Amazon ECS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elastic Beanstalk</match>
+  <suggestion>AWS Elastic Beanstalk</suggestion>
+  <message>Do not use. Use: AWS Elastic Beanstalk</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elastic Cloud Compute</match>
+  <suggestion>Amazon Elastic Compute Cloud</suggestion>
+  <message>Do not use. Use: Amazon Elastic Compute Cloud</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elastic Load Balancer</match>
+  <suggestion>Elastic Load Balancing</suggestion>
+  <message>Do not use. Use: Elastic Load Balancing</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elastic Load Balancing</match>
+  <suggestion>Elastic Load Balancing</suggestion>
+  <message>Do not use. Use: Elastic Load Balancing</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elastic MapReduce</match>
+  <suggestion>Amazon EMR</suggestion>
+  <message>Do not use. Use: Amazon EMR</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental</match>
+  <suggestion>AWS Elemental</suggestion>
+  <message>Do not use. Use: AWS Elemental</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaConnect</match>
+  <suggestion>AWS Elemental MediaConnect</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaConnect</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaConvert</match>
+  <suggestion>AWS Elemental MediaConvert</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaConvert</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaLive</match>
+  <suggestion>AWS Elemental MediaLive</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaLive</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaPackage</match>
+  <suggestion>AWS Elemental MediaPackage</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaPackage</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaStore</match>
+  <suggestion>AWS Elemental MediaStore</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaStore</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental MediaTailor</match>
+  <suggestion>AWS Elemental MediaTailor</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaTailor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Elemental Statmux</match>
+  <suggestion>AWS Elemental Statmux</suggestion>
+  <message>Do not use. Use: AWS Elemental Statmux</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Encryption SDK</match>
+  <suggestion>AWS Encryption SDK</suggestion>
+  <message>Do not use. Use: AWS Encryption SDK</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon FreeRTOS</match>
+  <suggestion>FreeRTOS</suggestion>
+  <message>Do not use. Use: FreeRTOS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Frost</match>
+  <suggestion>AWS Thinkbox Frost</suggestion>
+  <message>Use: AWS Thinkbox Frost on first use. Thereafter Use: Frost.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon FTP</match>
+  <suggestion>AWS Transfer for FTP</suggestion>
+  <message>Do not use. Use: AWS Transfer for FTP</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon FTPS</match>
+  <suggestion>AWS Transfer for FTPS</suggestion>
+  <message>Do not use. Use: AWS Transfer for FTPS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Glacier</match>
+  <suggestion>Amazon S3 Glacier</suggestion>
+  <message>Do not use. Use: Amazon S3 Glacier</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Glue</match>
+    <suggestion>AWS Glue</suggestion>
+    <message>Do not use. Use: AWS Glue</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Glue DataBrew</match>
+    <suggestion>AWS Glue DataBrew</suggestion>
+    <message>Do not use. Use: AWS Glue DataBrew</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon GovCloud</match>
+  <suggestion>AWS GovCloud (US)</suggestion>
+  <message>Do not use. Use: AWS GovCloud (US)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Greengrass</match>
+  <suggestion>AWS IoT Greengrass</suggestion>
+  <message>Do not use. Use: AWS IoT Greengrass</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Ground Station</match>
+  <suggestion>AWS Ground Station</suggestion>
+  <message>Do not use. Use: AWS Ground Station</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Health</match>
+  <suggestion>AWS Health</suggestion>
+  <message>Do not use. Use: AWS Health</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Identity and Access Management</match>
+  <suggestion>AWS Identity and Access Management</suggestion>
+  <message>Do not use. Use: AWS Identity and Access Management</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Import/Export</match>
+  <suggestion>AWS Import/Export</suggestion>
+  <message>Do not use. Use: AWS Import/Export</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Inferentia</match>
+  <suggestion>AWS Inferentia</suggestion>
+  <message>Do not use. Use: AWS Inferentia</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon IoT</match>
+  <suggestion>AWS IoT</suggestion>
+  <message>Do not use. Use: AWS IoT</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Amazon IoT 1-Click</match>
+  <suggestion>AWS IoT 1-Click</suggestion>
+  <message>Use: "AWS IoT 1-Click" on ALL mentions. Do not abbreviate as "IoT 1-Click" or "1-Click."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Key Management Service</match>
+  <suggestion>AWS Key Management Service</suggestion>
+  <message>Do not use. Use: AWS Key Management Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon KMS</match>
+  <suggestion>AWS KMS</suggestion>
+  <message>Do not use. Use: AWS KMS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Krakatoa </match>
+  <suggestion> AWS Thinkbox Krakatoa </suggestion>
+  <message>Use: AWS Thinkbox Krakatoa on first use. Thereafter Use: Krakatoa.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Lake Formation</match>
+  <suggestion>AWS Lake Formation</suggestion>
+  <message>Do not use. Use: AWS Lake Formation</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Lambda</match>
+  <suggestion>AWS Lambda</suggestion>
+  <message>Use: AWS Lambda on first use. Use: Lambda on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Launch Wizard</match>
+  <suggestion>AWS Launch Wizard</suggestion>
+  <message>Do not use. Use: AWS Launch Wizard</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon License Manager</match>
+  <suggestion>AWS License Manager</suggestion>
+  <message>Do not use. Use: AWS License Manager</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon machine learning</match>
+  <suggestion>Amazon Machine Learning</suggestion>
+  <suggestion>Amazon ML</suggestion>
+  <message>Use: Amazon Machine Learning on first use. Use: Amazon ML on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Managed Apache Cassandra</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: Amazon Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Managed Apache Service</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: Amazon Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Managed Cassandra Service</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: Amazon Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Managed Services</match>
+  <suggestion>AWS Managed Services</suggestion>
+  <message>Do not use. Use: AWS Managed Services</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Management Console</match>
+  <suggestion>AWS Management Console</suggestion>
+  <message>Do not use. Use: AWS Management Console</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Management Portal for vCenter</match>
+  <suggestion>AWS Management Portal for vCenter</suggestion>
+  <message>Do not use. Use: AWS Management Portal for vCenter</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Marketplace</match>
+  <suggestion>AWS Marketplace</suggestion>
+  <message>Do not use. Use: AWS Marketplace</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaConnect</match>
+  <suggestion>AWS Elemental MediaConnect</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaConnect</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaConvert</match>
+  <suggestion>AWS Elemental MediaConvert</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaConvert</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaLive</match>
+  <suggestion>AWS Elemental MediaLive</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaLive</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaPackage</match>
+  <suggestion>AWS Elemental MediaPackage</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaPackage</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaStore</match>
+  <suggestion>AWS Elemental MediaStore</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaStore</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon MediaTailor</match>
+  <suggestion>AWS Elemental MediaTailor</suggestion>
+  <message>Do not use. Use: AWS Elemental MediaTailor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Migration Hub</match>
+  <suggestion>AWS Migration Hub</suggestion>
+  <message>Do not use. Use: AWS Migration Hub</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Mobile Hub</match>
+  <suggestion>AWS Mobile Hub</suggestion>
+  <message>Do not use. Use: AWS Mobile Hub</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Mobile SDK for Android </match>
+  <suggestion> Amplify Android (AWS Mobile SDK for Android) </suggestion>
+  <message>Do not use. Use: Amplify Android (AWS Mobile SDK for Android)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Mobile SDK for iOS </match>
+  <suggestion> Amplify iOS (AWS Mobile SDK for iOS) </suggestion>
+  <message>Do not use. Use: Amplify iOS (AWS Mobile SDK for iOS)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Mobile SDK for Unity</match>
+  <suggestion>AWS Mobile SDK for Unity</suggestion>
+  <message>Do not use. Use: AWS Mobile SDK for Unity</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Network Firewall</match>
+    <suggestion>AWS Network Firewall</suggestion>
+    <message>Do not use. Use: AWS Network Firewall</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon OpsCenter</match>
+  <suggestion>AWS Systems Manager OpsCenter</suggestion>
+  <message>Do not use. Use: AWS Systems Manager OpsCenter</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon OpsWorks</match>
+  <suggestion>AWS OpsWorks</suggestion>
+  <message>Do not use. Use: AWS OpsWorks</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon OpsWorks for Chef Automate</match>
+  <suggestion>AWS OpsWorks for Chef Automate</suggestion>
+  <message>Do not use. Use: AWS OpsWorks for Chef Automate</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon OpsWorks for Puppet Enterprise</match>
+  <suggestion>AWS OpsWorks for Puppet Enterprise</suggestion>
+  <message>Do not use. Use: AWS OpsWorks for Puppet Enterprise</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon OpsWorks Stacks</match>
+  <suggestion>AWS OpsWorks Stacks</suggestion>
+  <message>Do not use. Use: AWS OpsWorks Stacks</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Organizations</match>
+  <suggestion>AWS Organizations</suggestion>
+  <message>Do not use. Use: AWS Organizations</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Outposts</match>
+  <suggestion>AWS Outposts</suggestion>
+  <message>Do not use. Use: AWS Outposts</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Panorama</match>
+    <suggestion>AWS Panorama</suggestion>
+    <message>Do not use. Use: AWS Panorama</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon ParallelCluster</match>
+  <suggestion>AWS ParallelCluster</suggestion>
+  <message>Do not use. Use: AWS ParallelCluster</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Personal Health Dashboard</match>
+  <suggestion>AWS Personal Health Dashboard</suggestion>
+  <message>Do not use. Use: AWS Personal Health Dashboard</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Personalize</match>
+  <suggestion>AWS Personalize</suggestion>
+  <message>Do not use. Use: AWS Personalize</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Amazon PrivateLink</match>
+  <suggestion>AWS PrivateLink</suggestion>
+  <message>Do not use. Use: AWS PrivateLink</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Proton</match>
+    <suggestion>AWS Proton</suggestion>
+    <message>Do not use. Use: AWS Proton</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon RAM</match>
+  <suggestion>AWS RAM</suggestion>
+  <message>Do not use. Use: AWS RAM</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Resource Access Manager</match>
+  <suggestion>AWS Resource Access Manager</suggestion>
+  <message>Do not use. Use: AWS Resource Access Manager</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon RoboMaker</match>
+  <suggestion>AWS RoboMaker</suggestion>
+  <message>Do not use. Use: AWS RoboMaker</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon S3 glacier</match>
+  <suggestion>Amazon S3 Glacier</suggestion>
+  <message>Do not use. Use: Amazon S3 Glacier</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SFTP</match>
+  <suggestion>AWS Transfer for SFTP</suggestion>
+  <message>Do not use. Use: AWS Transfer for SFTP</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SAM</match>
+  <suggestion>AWS SAM</suggestion>
+  <message>Do not use. Use: AWS SAM</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon SAR </match>
+  <suggestion> AWS Serverless Application Repository </suggestion>
+  <message>Do not use. Use: AWS Serverless Application Repository</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Schema Conversion Tool</match>
+  <suggestion>AWS Schema Conversion Tool</suggestion>
+  <message>Do not use. Use: AWS Schema Conversion Tool</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SCT</match>
+  <suggestion>AWS SCT</suggestion>
+  <message>Do not use. Use: AWS SCT</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SDK</match>
+  <suggestion>AWS SDK</suggestion>
+  <message>Do not use. Use: AWS SDK</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Secrets Manager</match>
+  <suggestion>AWS Secrets Manager</suggestion>
+  <message>Do not use. Use: AWS Secrets Manager</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Security Hub</match>
+  <suggestion>AWS Security Hub</suggestion>
+  <message>Do not use. Use: AWS Security Hub</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Security Token Service</match>
+  <suggestion>AWS Security Token Service</suggestion>
+  <message>Do not use. Use: AWS Security Token Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Sequoia</match>
+  <suggestion>AWS Thinkbox Sequoia</suggestion>
+  <message>Use: AWS Thinkbox Sequoia on first use. Thereafter Use: Sequoia.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Server Migration Service</match>
+  <suggestion>AWS Server Migration Service</suggestion>
+  <message>Do not use. Use: AWS Server Migration Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Serverless Application Repository</match>
+  <suggestion>AWS Serverless Application Repository</suggestion>
+  <message>Do not use. Use: AWS Serverless Application Repository</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Serverless Application Model</match>
+  <suggestion>AWS Serverless Application Model</suggestion>
+  <message>Do not use. Use: AWS Serverless Application Model</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Service Catalog</match>
+  <suggestion>AWS Service Catalog</suggestion>
+  <message>Do not use. Use: AWS Service Catalog</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Service Health Dashboard</match>
+  <suggestion>AWS Service Health Dashboard</suggestion>
+  <message>Do not use. Use: AWS Service Health Dashboard</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Service Quotas</match>
+  <suggestion>Service Quotas</suggestion>
+  <message>Do not use. Use: Service Quotas</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SFTP</match>
+  <suggestion>AWS Transfer for SFTP</suggestion>
+  <message>Do not use. Use: AWS Transfer for SFTP</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Shield</match>
+  <suggestion>AWS Shield</suggestion>
+  <message>Do not use. Use: AWS Shield</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Single Sign-On</match>
+  <suggestion>AWS Single Sign-On</suggestion>
+  <suggestion>AWS SSO</suggestion>
+  <message>Use: AWS Single Sign-On for the service name (first use) or AWS SSO (second use). For the generic concept, Use: single sign-on (lowercase).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Site-to-Site VPN</match>
+  <suggestion>AWS Site-to-Site VPN</suggestion>
+  <message>First use: AWS Site-to-Site VPN
+Thereafter: Site-to-Site VPN</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SMS</match>
+  <suggestion>AWS SMS</suggestion>
+  <message>Do not use. Use: AWS SMS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Snowball</match>
+  <suggestion>AWS Snowball</suggestion>
+  <message>Do not use. Use: AWS Snowball</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Snowball Edge</match>
+  <suggestion>AWS Snowball Edge</suggestion>
+  <message>Do not use. Use: AWS Snowball Edge</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Snowcone</match>
+    <suggestion>AWS Snowcone</suggestion>
+    <message>Do not use. Use: AWS Snowcone</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon Snowmobile</match>
+  <suggestion>AWS Snowmobile</suggestion>
+  <message>Do not use. Use: AWS Snowmobile</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Statmux</match>
+  <suggestion>AWS Elemental Statmux</suggestion>
+  <message>Do not use. Use: AWS Elemental Statmux</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Step Functions</match>
+  <suggestion>AWS Step Functions</suggestion>
+  <message>Do not use. Use: AWS Step Functions</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Stoke </match>
+  <suggestion> AWS Thinkbox Stoke </suggestion>
+  <message>Use: AWS Thinkbox Stoke on first use. Thereafter Use: Stoke.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Storage Gateway</match>
+  <suggestion>AWS Storage Gatewa</suggestion>
+  <message>Do not use. Use: AWS Storage Gatewa</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon STS</match>
+  <suggestion>AWS STS</suggestion>
+  <message>Do not use. Use: AWS STS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Systems Manager</match>
+  <suggestion>AWS Systems Manager</suggestion>
+  <message>Do not use. Use: AWS Systems Manager</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox</match>
+  <suggestion>AWS Thinkbox</suggestion>
+  <message>Do not use. Use: AWS Thinkbox</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox Deadline</match>
+  <suggestion>AWS Thinkbox Deadline</suggestion>
+  <message>Use: AWS Thinkbox Deadline on first use. Thereafter Use: Deadline.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox Frost</match>
+  <suggestion>AWS Thinkbox Frost</suggestion>
+  <message>Use: AWS Thinkbox Frost on first use. Thereafter Use: Frost.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox Krakatoa</match>
+  <suggestion>AWS Thinkbox Krakatoa</suggestion>
+  <message>Use: AWS Thinkbox Krakatoa on first use. Thereafter Use: Krakatoa.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox Sequoia</match>
+  <suggestion>AWS Thinkbox Sequoia</suggestion>
+  <message>Use: AWS Thinkbox Sequoia on first use. Thereafter Use: Sequoia.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Thinkbox Stoke</match>
+  <suggestion>AWS Thinkbox Stoke</suggestion>
+  <message>Use: AWS Thinkbox Stoke on first use. Thereafter Use: Stoke.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Amazon Thinkbox XMesh </match>
+  <suggestion> AWS Thinkbox XMesh </suggestion>
+  <message>Use: AWS Thinkbox XMesh on first use. Thereafter Use: XMesh.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Toolkit</match>
+  <suggestion>AWS Toolkit</suggestion>
+  <message>Do not use. Use: AWS Toolkit</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Transfer for FTP</match>
+  <suggestion>AWS Transfer for FTP</suggestion>
+  <message>Do not use. Use: AWS Transfer for FTP</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Transfer for FTPS</match>
+  <suggestion>AWS Transfer for FTPS</suggestion>
+  <message>Do not use. Use: AWS Transfer for FTPS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Transfer for SFTP</match>
+  <suggestion>AWS Transfer for SFTP</suggestion>
+  <message>Do not use. Use: AWS Transfer for SFTP</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Transit Gateway</match>
+  <suggestion>AWS Transit Gateway</suggestion>
+  <message>Do not use. Use: AWS Transit Gateway</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Trusted Advisor</match>
+  <suggestion>AWS Trusted Advisor</suggestion>
+  <message>Do not use. Use: AWS Trusted Advisor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon WA Tool</match>
+  <suggestion>AWS WA Tool</suggestion>
+  <message>Do not use. Use: AWS WA Tool</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon WAF</match>
+  <suggestion>AWS WAF</suggestion>
+  <message>Do not use. Use: AWS WAF</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Amazon Wavelength</match>
+    <suggestion>AWS Wavelength</suggestion>
+    <message>Do not use. Use: AWS Wavelength</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Amazon AWS Web Services</match>
+  <suggestion>Amazon Web Services</suggestion>
+  <suggestion>AWS</suggestion>
+  <message>Do not use. Use: one of: Amazon Web Services, AWS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon web services</match>
+  <suggestion>Amazon Web Services (AWS)</suggestion>
+  <suggestion>AWS</suggestion>
+  <message>Do not use. Use: one of: Amazon Web Services (AWS), AWS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Web Services's</match>
+  <suggestion>Do not Use: - write around</suggestion>
+  <message>Write around (for example, the Amazon Web Service "thing").</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Well-Architected Framework</match>
+  <suggestion>AWS Well-Architected Framework</suggestion>
+  <message>Use: AWS Well-Architected Framework on first use. Use: the short form thereafter.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon Well-Architected Tool</match>
+  <suggestion>AWS Well-Architected Tool</suggestion>
+  <message>Do not use. Use: AWS Well-Architected Tool</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon X-Ray</match>
+  <suggestion>AWS X-Ray</suggestion>
+  <message>Do not use. Use: AWS X-Ray</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon XMesh</match>
+  <suggestion>AWS Thinkbox XMesh</suggestion>
+  <message>Use: AWS Thinkbox XMesh on first use. Thereafter Use: XMesh.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Apache Cassandra Service</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <suggestion>Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: one of: Amazon Keyspaces (for Apache Cassandra), Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">ASG</match>
+  <suggestion>Auto Scaling group</suggestion>
+  <message>Do not Use: for Auto Scaling group. Always spell out as "Auto Scaling group."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS-</match>
+  <suggestion>Rewrite. Do not Use: hyphens with AWS</suggestion>
+  <message>Do not Use: hyphens with AWS.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS-based</match>
+  <suggestion>AWS based</suggestion>
+  <message>Don't Use: hyphens with AWS.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS-managed</match>
+  <suggestion>AWS managed</suggestion>
+  <message>Don't Use: hyphens with AWS.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS-managed key</match>
+  <suggestion>AWS managed key</suggestion>
+  <message>One of two types of customer master key in AWS KMS. Don't Use: hyphens with AWS.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS-managed policy</match>
+  <suggestion>AWS managed policy</suggestion>
+  <message>Do not use. Use: AWS managed policy</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS's</match>
+  <suggestion>Do not use</suggestion>
+  <message>Avoid the possessive forms of service names or of Amazon or AWS trademarks, except in legal notices where the possessive term is referring to the company rather than the brand. In most cases, Use: AWS or Amazon as adjectives instead. When in doubt, check with Legal.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> AWS Accelerator </match>
+  <suggestion> Amazon DynamoDB Accelerator (DAX) </suggestion>
+  <suggestion> DynamoDB Accelerator (DAX) </suggestion>
+  <suggestion> DAX </suggestion>
+  <message>First use: Amazon DynamoDB Accelerator (DAX). If Amazon DynamoDB has already been mentioned, Use: "DynamoDB Accelerator (DAX)." Subsequent use: DAX.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Amazon</match>
+  <suggestion>Amazon Web Services (AWS)</suggestion>
+  <suggestion>AWS</suggestion>
+  <message>First use: Amazon Web Services (AWS). Subsequent use: AWS. Don't spell out AWS when it's part of a service name.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS Auto Scaling</match>
+  <suggestion>Auto Scaling</suggestion>
+  <suggestion>AWS Application Auto Scaling</suggestion>
+  <suggestion>EC2 Auto Scaling</suggestion>
+  <message>Do not include "AWS." Use: "Auto Scaling" to refer to the Auto Scaling service. Use: "AWS Application Auto Scaling" to refer to the Application Auto Scaling service. Use: "EC2 Auto Scaling" to refer to the EC2 Auto Scaling service.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS A2I</match>
+  <suggestion>Amazon Augmented AI (Amazon A2I)</suggestion>
+  <suggestion>Amazon A2I</suggestion>
+  <message>First use: Amazon Augmented AI (Amazon A2I). Subsequent use: Amazon A2I.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AWS Augmented AI</match>
+  <suggestion>Amazon Augmented AI (Amazon A2I)</suggestion>
+  <suggestion>Amazon A2I</suggestion>
+  <message>First use: Amazon Augmented AI (Amazon A2I) Subsequent use: Amazon A2I</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS API Gateway</match>
+  <suggestion>Amazon API Gateway</suggestion>
+  <message>Do not use. Use: Amazon API Gateway</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS AppFlow</match>
+  <suggestion>Amazon AppFlow</suggestion>
+  <message>Do not use. Use: Amazon AppFlow</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Chime</match>
+  <suggestion>Amazon Chime</suggestion>
+  <message>The service name must always include '"Amazon" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS AppStream</match>
+  <suggestion>Amazon AppStream</suggestion>
+  <message>Do not use. Use: Amazon AppStream</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Athena</match>
+  <suggestion>Amazon Athena</suggestion>
+  <message>Do not use. Use: Amazon Athena</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Aurora</match>
+  <suggestion>Amazon Aurora</suggestion>
+  <message>Do not use. Use: Amazon Aurora</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Cloud Directory</match>
+  <suggestion>Amazon Cloud Directory</suggestion>
+  <message>Do not use. Use: Amazon Cloud Directory</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS CloudFront</match>
+  <suggestion>Amazon CloudFront</suggestion>
+  <message>Do not use. Use: Amazon CloudFront</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS CloudSearch</match>
+  <suggestion>Amazon CloudSearch</suggestion>
+  <message>Do not use. Use: Amazon CloudSearch</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS CloudWatch</match>
+  <suggestion>Amazon CloudWatch</suggestion>
+  <message>Do not use. Use: Amazon CloudWatch</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS CodeGuru</match>
+  <suggestion>Amazon CodeGuru</suggestion>
+  <message>Do not use. Use: Amazon CodeGuru</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Cognito</match>
+  <suggestion>Amazon Cognito</suggestion>
+  <message>Must always include '"Amazon."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Comprehend</match>
+  <suggestion>Amazon Comprehend</suggestion>
+  <message>Do not use. Use: Amazon Comprehend</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Connect</match>
+  <suggestion>Amazon Connect</suggestion>
+  <message>Do not use. Use: Amazon Connect</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Corretto</match>
+  <suggestion>Amazon Corretto</suggestion>
+  <message>Do not use. Use: Amazon Corretto</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Data Lifecycle Manager</match>
+  <suggestion>Amazon Data Lifecycle Manager</suggestion>
+  <message>Feature of Amazon EBS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Detective</match>
+  <suggestion>Amazon Detective</suggestion>
+  <message>Use: Amazon Detective on first use. Thereafter, it's permissible to Use: Detective.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS DevPay</match>
+  <suggestion>Amazon DevPay</suggestion>
+  <message>Do not use. Use: Amazon DevPay</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS DevOps Guru</match>
+    <suggestion>Amazon DevOps Guru</suggestion>
+    <message>Do not use. Use: Amazon DevOps Guru</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS DocumentDB</match>
+  <suggestion>Amazon DocumentDB</suggestion>
+  <message>Do not use. Use: Amazon DocumentDB</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS DynamoDB</match>
+  <suggestion>Amazon DynamoDB</suggestion>
+  <message>Do not use. Use: Amazon DynamoDB</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS DynamoDB Streams</match>
+  <suggestion>Amazon DynamoDB Streams</suggestion>
+  <message>Do not use. Use: Amazon DynamoDB Streams</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EBS</match>
+  <suggestion>Amazon EBS</suggestion>
+  <message>Do not use. Use: Amazon EBS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EC2</match>
+  <suggestion>Amazon EC2</suggestion>
+  <message>Do not use. Use: Amazon EC2</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EC2 Container Service</match>
+  <suggestion>Amazon EC2 Container Service</suggestion>
+  <message>Do not use. Use: Amazon EC2 Container Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS ECR</match>
+  <suggestion>Amazon ECR</suggestion>
+  <message>Do not use. Use: Amazon ECR</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS ECS</match>
+  <suggestion>Amazon ECS</suggestion>
+  <message>Do not use. Use: Amazon ECS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EFS</match>
+  <suggestion>Amazon EFS</suggestion>
+  <message>Do not use. Use: Amazon EFS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EKS</match>
+  <suggestion>Amazon EKS</suggestion>
+  <message>Use: the short service name in most cases. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Block Store</match>
+  <suggestion>Amazon Elastic Block Store</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Compute Cloud</match>
+  <suggestion>Amazon Elastic Compute Cloud</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Container Registry</match>
+  <suggestion>Amazon Elastic Container Registry</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Container Service</match>
+  <suggestion>Amazon Elastic Container Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Container Service for Kubernetes</match>
+  <suggestion>Amazon Elastic Container Service for Kubernetes</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic File System</match>
+  <suggestion>Amazon Elastic File System</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Inference</match>
+  <suggestion>Amazon Elastic Inference</suggestion>
+  <message>Do not use. Use: Amazon Elastic Inference</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Kubernetes Service</match>
+  <suggestion>Amazon Elastic Kubernetes Service</suggestion>
+  <message>Do not use. Use: Amazon Elastic Kubernetes Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic MapReduce</match>
+  <suggestion>Amazon EMR</suggestion>
+  <message>Do not use. Use: Amazon EMR</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elastic Transcoder</match>
+  <suggestion>Amazon Elastic Transcoder</suggestion>
+  <message>Do not use. Use: Amazon Elastic Transcoder</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS ElastiCache</match>
+  <suggestion>Amazon ElastiCache</suggestion>
+  <message>Do not use. Use: Amazon ElastiCache</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Elasticsearch Service</match>
+  <suggestion>Amazon Elasticsearch Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EMR</match>
+  <suggestion>Amazon EMR</suggestion>
+  <message>Do not use. Use: Amazon EMR</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS ES</match>
+  <suggestion>Amazon ES</suggestion>
+  <message>Amazon ES is built on top of the Elasticsearch engine, which was developed by the third-party Elastic company.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS EventBridge</match>
+  <suggestion>Amazon EventBridge</suggestion>
+  <suggestion>EventBridge</suggestion>
+  <message>First use: Amazon EventBridge. Subsequent use: EventBridge.</message>
+ </incorrect-term>
+ <incorrect-term severity="error">
+  <match type="character">Amazon Fargate</match>
+  <suggestion>AWS Fargate</suggestion>
+  <message>Do not use. Use: AWS Fargate.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Firewall Manager</match>
+  <suggestion>Amazon Firewall Manager</suggestion>
+  <message>Do not use. Use: Amazon Firewall Manager</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Forecast</match>
+  <suggestion>Amazon Forecast</suggestion>
+  <message>Do not use. Use: Amazon Forecast</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Fraud Detector</match>
+  <suggestion>Amazon Fraud Detector</suggestion>
+  <message>Do not use. Use: Amazon Fraud Detector</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS FreeRTOS</match>
+  <suggestion>FreeRTOS</suggestion>
+  <message>Do not use. Use: FreeRTOS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS FSx</match>
+  <suggestion>Amazon FSx</suggestion>
+  <message>Do not use. Use: Amazon FSx</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS FSx for Lustre</match>
+  <suggestion>Amazon FSx for Lustre</suggestion>
+  <message>Okay to Use: Amazon FSx on second Use: if there's no confusion with FSx for Windows File Server.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS FSx for Windows File Server</match>
+  <suggestion>Amazon FSx for Windows File Server</suggestion>
+  <message>Do not use. Use: Amazon FSx for Windows File Server</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS GameLift</match>
+  <suggestion>Amazon GameLift</suggestion>
+  <message>Use: on first Use: in documentation and whitepapers. Always Use: in blog titles and tweets.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Glacier</match>
+  <suggestion>Amazon S3 Glacier</suggestion>
+  <message>Do not use. Use: Amazon S3 Glacier</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Global Accelerator</match>
+  <suggestion>Amazon Global Accelerator</suggestion>
+  <message>Do not use. Use: Amazon Global Accelerator</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS GuardDuty</match>
+  <suggestion>Amazon GuardDuty</suggestion>
+  <message>Use: full form on first use. Resource examples: GuardDuty finding, finding; GuardDuty trusted IP list, trusted IP list; GuardDuty threat list, threat list;</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS HealthLake</match>
+    <suggestion>Amazon HealthLake</suggestion>
+    <message>Do not use. Use: Amazon HealthLake</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Honeycode</match>
+    <suggestion>Amazon Honeycode</suggestion>
+    <message>Do not use. Use: Amazon Honeycode</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS Inspector</match>
+  <suggestion>Amazon Inspector</suggestion>
+  <message>Do not use. Use: Amazon Inspector</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kendra</match>
+  <suggestion>Amazon Kendra</suggestion>
+  <message>Do not use. Use: Amazon Kendra</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Keyspaces</match>
+  <suggestion>Amazon Keyspaces</suggestion>
+  <message>Use: Amazon Keyspaces (for Apache Cassandra) on first Use: and Amazon Keyspaces thereafter.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Keyspaces (for Apache Cassandra)</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Use: Amazon Keyspaces (for Apache Cassandra) on first Use: and Amazon Keyspaces thereafter.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis</match>
+  <suggestion>Amazon Kinesis</suggestion>
+  <message>Do not use. Use: Amazon Kinesis</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis Analytics</match>
+  <suggestion>Amazon Kinesis Analytics</suggestion>
+  <message>Do not use. Use: Amazon Kinesis Analytics</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis Data Analytics</match>
+  <suggestion>Amazon Kinesis Data Analytics</suggestion>
+  <message>Do not use. Use: Amazon Kinesis Data Analytics</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis Data Firehose</match>
+  <suggestion>Amazon Kinesis Data Firehose</suggestion>
+  <message>Do not use. Use: Amazon Kinesis Data Firehose</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis Data Streams</match>
+  <suggestion>Amazon Kinesis Data Streams</suggestion>
+  <message>Do not use. Use: Amazon Kinesis Data Streams</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Kinesis Video Streams</match>
+  <suggestion>Amazon Kinesis Video Streams</suggestion>
+  <message>Do not use. Use: Amazon Kinesis Video Streams</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Lookout for Equipment</match>
+    <suggestion>Amazon Lookout for Equipment</suggestion>
+    <message>Do not use. Use: Amazon Lookout for Equipment</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Lookout for Metrics</match>
+    <suggestion>Amazon Lookout for Metrics</suggestion>
+    <message>Do not use. Use: Amazon Lookout for Metrics</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Lookout for Vision</match>
+    <suggestion>Amazon Lookout for Vision</suggestion>
+    <message>Do not use. Use: Amazon Lookout for Vision</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS Lumberyard</match>
+  <suggestion>Amazon Lumberyard</suggestion>
+  <message>Do not use. Use: Amazon Lumberyard</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Machine Image</match>
+  <suggestion>Amazon Machine Image</suggestion>
+  <message>Use: AMI in most cases. On first use, Use: the long form: Amazon Machine Image (AMI). Use: "Amazon Machine Image" alone only as needed to prevent confusion.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Machine Learning</match>
+  <suggestion>Amazon Machine Learning</suggestion>
+  <suggestion>Amazon ML</suggestion>
+  <message>Use: Amazon Machine Learning on first use. Use: Amazon ML on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Macie</match>
+  <suggestion>Amazon Macie</suggestion>
+  <message>Do not use. Use: Amazon Macie</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Macie Classic</match>
+  <suggestion>Amazon Macie Classic</suggestion>
+  <message>Do not use. Use: Amazon Macie Classic</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Managed Apache Cassandra Service</match>
+  <suggestion>Amazon Keyspaces (for Apache Cassandra)</suggestion>
+  <message>Do not use. Use: Amazon Keyspaces (for Apache Cassandra)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Managed Blockchain</match>
+  <suggestion>Amazon Managed Blockchain</suggestion>
+  <message>Do not use. Use: Amazon Managed Blockchain</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Managed Microsoft AD</match>
+  <suggestion>Amazon Managed Microsoft AD</suggestion>
+  <message>Do not use. Use: Amazon Managed Microsoft AD</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Managed Service for Grafana (AMG)</match>
+    <suggestion>Amazon Managed Service for Grafana (AMG)</suggestion>
+    <message>Do not use. Use: Amazon Managed Service for Grafana (AMG)</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Managed Service for Prometheus (AMP)</match>
+    <suggestion>Amazon Managed Service for Prometheus (AMP)</suggestion>
+    <message>Do not use. Use: Amazon Managed Service for Prometheus (AMP)</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS Managed Streaming for Apache Kafka</match>
+  <suggestion>Amazon Managed Streaming for Apache Kafka</suggestion>
+  <message>Do not use. Use: Amazon Managed Streaming for Apache Kafka</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Mechanical Turk</match>
+  <suggestion>Amazon Mechanical Turk</suggestion>
+  <message>Use: Amazon Mechanical Turk to describe the entire system Use: Amazon Mechanical Turk website for the worker website Use: Amazon Mechanical Turk web service to describe the product</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS ML</match>
+  <suggestion>Amazon ML</suggestion>
+  <message>Use: Amazon Machine Learning on first use. Use: Amazon ML on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Mobile Analytics</match>
+  <suggestion>Amazon Mobile Analytics</suggestion>
+  <message>Do not use. Use: Amazon Mobile Analytics</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">AWS Monitron</match>
+    <suggestion>Amazon Monitron</suggestion>
+    <message>Do not use. Use: Amazon Monitron</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">AWS MQ</match>
+  <suggestion>Amazon MQ</suggestion>
+  <message>The service name must always include '"Amazon" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS MSK</match>
+  <suggestion>Amazon MSK</suggestion>
+  <message>Do not use. Use: Amazon MSK</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Neptune</match>
+  <suggestion>Amazon Neptune</suggestion>
+  <message>Do not use. Use: Amazon Neptune</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Payments Balance Transfer</match>
+  <suggestion>Amazon Payments Balance Transfer</suggestion>
+  <message>Use: ABT in most cases. On first use, Use: the long form: Amazon Payments Balance Transfer (ABT). Use: "Amazon Payments Balance Transfer" alone only as needed to prevent confusion.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Pinpoint</match>
+  <suggestion>Amazon Pinpoint</suggestion>
+  <message>The service name must always include '"Amazon" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Polly</match>
+  <suggestion>Amazon Polly</suggestion>
+  <message>Do not use. Use: Amazon Polly</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS QLDB</match>
+  <suggestion>Amazon QLDB</suggestion>
+  <message>Use: after the full name on second and subsequent use. If clarity is needed, reUse: the full name.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Quantum Ledger Database</match>
+  <suggestion>Amazon Quantum Ledger Database</suggestion>
+  <message>Use: this full name on first Use: in most Marketing content, and for guide names in technical documentation. Blog posts, slides, graphics, and tweets can Use: the approved short form on first use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS QuickSight</match>
+  <suggestion>Amazon QuickSight</suggestion>
+  <message>Do not use. Use: Amazon QuickSight</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS RDS</match>
+  <suggestion>Amazon RDS</suggestion>
+  <message>Do not use. Use: Amazon RDS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Redshift</match>
+  <suggestion>Amazon Redshift</suggestion>
+  <message>The service name must always include '"Amazon" in any content platform, based on trademark rights and settlement agreements.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Rekognition</match>
+  <suggestion>Amazon Rekognition</suggestion>
+  <message>Do not use. Use: Amazon Rekognition</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Rekognition Custom Labels</match>
+  <suggestion>Amazon Rekognition Custom Labels</suggestion>
+  <message>Do not use. Use: Amazon Rekognition Custom Labels</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Relational Database Service</match>
+  <suggestion>Amazon Relational Database Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Remote Configuration</match>
+  <suggestion>Amazon Remote Configuration</suggestion>
+  <message>Do not use. Use: Amazon Remote Configuration</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Resource Name (ARN)</match>
+  <suggestion>Amazon Resource Name (ARN)</suggestion>
+  <message>Do not use. Use: Amazon Resource Name (ARN)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Route 53</match>
+  <suggestion>Amazon Route 53</suggestion>
+  <message>Use: on first use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Sagemaker</match>
+  <suggestion>Amazon SageMaker</suggestion>
+  <message>Use: Amazon SageMaker on first use. Use: SageMaker thereafter.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SageMaker Ground Truth</match>
+  <suggestion>Amazon SageMaker Ground Truth</suggestion>
+  <message>Do not use. Use: Amazon SageMaker Ground Truth</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SageMaker</match>
+  <suggestion>Amazon SageMaker</suggestion>
+  <message>Use: Amazon SageMaker on first use. Use: SageMaker on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SES</match>
+  <suggestion>Amazon SES</suggestion>
+  <message>Do not use. Use: Amazon SES</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Silk</match>
+  <suggestion>Amazon Silk</suggestion>
+  <message>Do not use. Use: Amazon Silk</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Email Service</match>
+  <suggestion>Amazon Simple Email Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Notification Service</match>
+  <suggestion>Amazon Simple Notification Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Pay</match>
+  <suggestion>Amazon Simple Pay</suggestion>
+  <message>Note that Amazon Simple Pay (ASP) was discontinued effective June 1, 2015.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Queue Service</match>
+  <suggestion>Amazon Simple Queue Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Storage Service</match>
+  <suggestion>Amazon Simple Storage Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Storage Service Glacier</match>
+  <suggestion>Amazon Simple Storage Service Glacier</suggestion>
+  <message>Do not use. Use: Amazon Simple Storage Service Glacier</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Simple Workflow Service</match>
+  <suggestion>Amazon Simple Workflow Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SimpleDB</match>
+  <suggestion>Amazon SimpleDB</suggestion>
+  <message>Do not use. Use: Amazon SimpleDB</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SNS</match>
+  <suggestion>Amazon SNS</suggestion>
+  <message>Do not use. Use: Amazon SNS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SQS</match>
+  <suggestion>Amazon SQS</suggestion>
+  <message>Do not use. Use: Amazon SQS</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Amazon SSO</match>
+  <suggestion>AWS SSO</suggestion>
+  <message>Use: AWS Single Sign-On for the service name (first use) or AWS SSO (second use). For the generic concept, Use: single sign-on (lowercase).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS  Sumerian</match>
+  <suggestion>Amazon Sumerian</suggestion>
+  <message>Do not use. Use: Amazon Sumerian</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS SWF</match>
+  <suggestion>Amazon SWF</suggestion>
+  <message>Do not use. Use: Amazon SWF</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Textract</match>
+  <suggestion>Amazon Textract</suggestion>
+  <message>Do not use. Use: Amazon Textract</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Timestream</match>
+  <suggestion>Amazon Timestream</suggestion>
+  <message>Do not use. Use: Amazon Timestream</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Transcribe</match>
+  <suggestion>Amazon Transcribe</suggestion>
+  <message>Do not use. Use: Amazon Transcribe</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Translate</match>
+  <suggestion>Amazon Translate</suggestion>
+  <message>Do not use. Use: Amazon Translate</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Virtual Private Cloud</match>
+  <suggestion>Amazon Virtual Private Cloud</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS VPC</match>
+  <suggestion>Amazon VPC</suggestion>
+  <message>Do not use. Use: Amazon VPC</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WAM</match>
+  <suggestion>Amazon WAM</suggestion>
+  <message>Do not use. Use: Amazon WAM</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS Web Services</match>
+  <suggestion>Amazon Web Services (AWS)</suggestion>
+  <message>Use: "AWS" only after first defining the acronym and when using "Amazon Web Services" seems like overuse. In AWS documentation, refer to "Amazon Web Services", and not "Amazon Web Services, Inc.", the incorporated name. Use: "Amazon Web Services, Inc." if you need to refer to the incorporated name. Do not Use: the term "Amazon Web Services, LLC" as Amazon Web Services is no longer a limited liability company (as of 10/2012). For more information, see corporate identity.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WorkDocs</match>
+  <suggestion>Amazon WorkDocs</suggestion>
+  <message>Do not use. Use: Amazon WorkDocs</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WorkLink</match>
+  <suggestion>Amazon WorkLink</suggestion>
+  <message>Do not use. Use: Amazon WorkLink</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WorkMail</match>
+  <suggestion>Amazon WorkMail</suggestion>
+  <message>Do not use. Use: Amazon WorkMail</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WorkSpaces</match>
+  <suggestion>Amazon WorkSpaces</suggestion>
+  <message>Be careful to distinguish between the resource and the service. Resource examples: WorkSpace, WorkSpaces (plural), WorkSpaces bundle; bundle</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AWS WorkSpaces Application Manager</match>
+  <suggestion>Amazon WorkSpaces Application Manager</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">API gateway</match>
+  <suggestion>API Gateway</suggestion>
+  <message>Do not use. Use: API Gateway</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Appflow</match>
+  <suggestion>Amazon AppFlow</suggestion>
+  <message>Must always include "Amazon."</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">App Flow</match>
+  <suggestion>Amazon AppFlow</suggestion>
+  <message>Must always include "Amazon."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">application discovery service</match>
+  <suggestion>Application Discovery Service</suggestion>
+  <message>Do not use. Use: Application Discovery Service</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">AppMesh</match>
+  <suggestion>App Mesh</suggestion>
+  <message>Do not use. Use: App Mesh</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Appstream</match>
+  <suggestion>AppStream</suggestion>
+  <message>Do not use. Use: AppStream</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">AppStream Image Builder</match>
+  <suggestion>AppStream image builder</suggestion>
+  <message>Do not use. Use: AppStream image builder</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Appstream Image Builder</match>
+  <suggestion>AppStream image builder</suggestion>
+  <message>Do not use. Use: AppStream image builder</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Appsync</match>
+  <suggestion>AWS AppSync</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Cloud 9</match>
+  <suggestion>AWS Cloud9</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> CloudMap </match>
+  <suggestion> AWS Cloud Map </suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> Cloud Front </match>
+  <suggestion> CloudFront </suggestion>
+  <message>Do not use. Use: CloudFront</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Cloudsearch</match>
+  <suggestion>CloudSearch</suggestion>
+  <message>Do not use. Use: CloudSearch</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Cloudtrail</match>
+  <suggestion>CloudTrail</suggestion>
+  <message>Incorrect. Use: AWS CloudTrail.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Cloudwatch</match>
+  <suggestion>CloudWatch</suggestion>
+  <message>Do not use. Use: CloudWatch</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">CloudWatch Alarm</match>
+  <suggestion>CloudWatch alarm</suggestion>
+  <message>Use: exclusively to refer to formal alarming features, such Amazon CloudWatch alarms.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codebuild</match>
+  <suggestion>CodeBuild</suggestion>
+  <message>Do not use. Use: CodeBuild</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codecommit</match>
+  <suggestion>CodeCommit</suggestion>
+  <message>Incorrect. Use: AWS CodeCommit.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codedeploy</match>
+  <suggestion>CodeDeploy</suggestion>
+  <message>Incorrect. Use: AWS CodeDeploy.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">codeguru</match>
+  <suggestion>CodeGuru</suggestion>
+  <message>Do not use. Use: CodeGuru</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codeguru</match>
+  <suggestion>CodeGuru</suggestion>
+  <message>Do not use. Use: CodeGuru</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">CodeGuru profiler</match>
+  <suggestion>CodeGuru Profiler</suggestion>
+  <message>Do not use. Use: CodeGuru Profiler</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">CodeGuru reviewer</match>
+  <suggestion>CodeGuru Reviewer</suggestion>
+  <message>Do not use. Use: CodeGuru Reviewer</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codepipeline</match>
+  <suggestion>CodePipeline</suggestion>
+  <message>Incorrect. Use: AWS CodePipeline.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Codestar</match>
+  <suggestion>AWS CodeStar</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Conductor file</match>
+  <suggestion>AWS Elemental Conductor File</suggestion>
+  <message>Do not use. Use: AWS Elemental Conductor File</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Conductor live</match>
+  <suggestion>AWS Elemental Conductor Live</suggestion>
+  <message>Do not use. Use: AWS Elemental Conductor Live</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Connect streams API</match>
+  <suggestion>Connect Streams API</suggestion>
+  <message>Do not use. Use: Connect Streams API</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">CostExplorer</match>
+  <suggestion>Cost Explorer</suggestion>
+  <message>Do not use. Use: Cost Explorer</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DataFirehose</match>
+  <suggestion>Data Firehose</suggestion>
+  <message>Do not use. Use: Data Firehose</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DataPipeline</match>
+  <suggestion>Data Pipeline</suggestion>
+  <message>Do not use. Use: Data Pipeline</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Data Sync</match>
+  <suggestion>DataSync</suggestion>
+  <message>Do not use. Use: DataSync</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DLC</match>
+  <suggestion>Deep Learning Containers</suggestion>
+  <message>Do not use. Use: Deep Learning Containers</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deep Composer</match>
+  <suggestion>AWS DeepComposer</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deepcomposer</match>
+  <suggestion>AWS DeepComposer</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deep Lens</match>
+  <suggestion>AWS DeepLens</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deeplens</match>
+  <suggestion>AWS DeepLens</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deep Racer</match>
+  <suggestion>AWS DeepRacer</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Deepracer</match>
+  <suggestion>AWS DeepRacer</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DeviceFarm</match>
+  <suggestion>Device Farm</suggestion>
+  <message>Do not use. Use: Device Farm</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Devpay</match>
+  <suggestion>DevPay</suggestion>
+  <message>Do not use. Use: DevPay</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DLM</match>
+  <suggestion>Amazon Data Lifecycle Manager</suggestion>
+  <suggestion>AWS Deep Learning AMI</suggestion>
+  <suggestion>DLAMI</suggestion>
+  <message>Do not Use: "DLM" to refer to Amazon Data Lifecycle Manager or AWS Deep Learning AMI (DLAMI).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Documentdb</match>
+  <suggestion>DocumentDB</suggestion>
+  <message>Do not use. Use: DocumentDB</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">DynamoDB encryption client</match>
+  <suggestion>DynamoDB Encryption Client</suggestion>
+  <message>Do not use. Use: DynamoDB Encryption Client</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Dynamodb</match>
+  <suggestion>DynamoDB</suggestion>
+  <message>Do not use. Use: DynamoDB</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character"> DynamoDB accelerator </match>
+  <suggestion> DynamoDB Accelerator (DAX) </suggestion>
+  <message>Use: Amazon DynamoDB Accelerator (DAX) on first use. If Amazon DynamoDB has already been mentioned, DynamoDB Accelerator (DAX) is acceptable for first use. Thereafter Use: DAX.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">EBS-Optimized</match>
+  <suggestion>EBS-optimized</suggestion>
+  <message>Do not use. Use: EBS-optimized</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">EC2 container service</match>
+  <suggestion>EC2 Container Service</suggestion>
+  <message>Do not use. Use: EC2 Container Service</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">EC2 auto scaling</match>
+  <suggestion>EC2 Auto Scaling</suggestion>
+  <message>Do not Use: to mean AWS Application Auto Scaling or AWS Auto Scaling. Use: automatic scaling for the capability.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">EC2 image builder</match>
+  <suggestion>EC2 Image Builder</suggestion>
+  <message>Do not use. Use: EC2 Image Builder</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">EC2s</match>
+  <suggestion>EC2 instances</suggestion>
+  <message>Not a valid synonym for EC2 instances.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Elasticache</match>
+  <suggestion>ElastiCache</suggestion>
+  <message>Do not use. Use: ElastiCache</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">ElastiCache for memcached</match>
+  <suggestion>ElastiCache for Memcached</suggestion>
+  <message>Do not use. Use: ElastiCache for Memcached</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">ElastiCache for redis</match>
+  <suggestion>ElastiCache for Redis</suggestion>
+  <message>Do not use. Use: ElastiCache for Redis</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Elasticsearch service</match>
+  <suggestion>Amazon Elasticsearch Service</suggestion>
+  <message>Use: the short service name in most instances. Use: the long service name to emphasize the expanded name on first use, or to prevent confusion (such as Amazon Kinesis Streams vs. Amazon DynamoDB Streams).</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Elemental cloud</match>
+  <suggestion>Elemental Cloud</suggestion>
+  <message>Do not use. Use: Elemental Cloud</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">End of Support Migration Program for Windows Server (EMP)</match>
+    <suggestion>End-of-Support Migration Program for Windows Server (EMP)</suggestion>
+    <message>Do not use. Use: End-of-Support Migration Program for Windows Server (EMP)</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">end of support migration program for Windows Server (EMP)</match>
+    <suggestion>End-of-Support Migration Program for Windows Server (EMP)</suggestion>
+    <message>Do not use. Use: End-of-Support Migration Program for Windows Server (EMP)</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">Eventbridge</match>
+  <suggestion>Amazon EventBridge</suggestion>
+  <suggestion>EventBridge</suggestion>
+  <message>First use: Amazon EventBridge. Subsequent use: EventBridge.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Gamelift</match>
+  <suggestion>GameLift</suggestion>
+  <message>Acceptable to Use: in body copy, slides, and graphic. But blog titles and tweets should Use: the full Amazon GameLift.</message>
+ </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Health Lake</match>
+    <suggestion>HealthLake</suggestion>
+    <message>Do not use. Use: HealthLake</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">Healthlake</match>
+    <suggestion>HealthLake</suggestion>
+    <message>Do not use. Use: HealthLake</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">HoneyCode</match>
+    <suggestion>Honeycode</suggestion>
+    <message>Do not use. Use: Honeycode</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">IoT core</match>
+    <suggestion>AWS IoT Core for LoRaWAN</suggestion>
+    <message>Do not use. Use: AWS IoT Core for LoRaWAN</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">IoT Core</match>
+    <suggestion>AWS IoT Core for LoRaWAN</suggestion>
+    <message>Do not use. Use: AWS IoT Core for LoRaWAN</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+    <match type="character">IoT wireless</match>
+    <suggestion>AWS IoT Wireless</suggestion>
+    <message>Do not use. Use: AWS IoT Wireless</message>
+  </incorrect-term>
+  <incorrect-term severity="error">
+  <match type="character">JetBrains Toolkit</match>
+  <suggestion>AWS Toolkit for JetBrains</suggestion>
+  <message>Do not use. Use: AWS Toolkit for JetBrains</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">kendra</match>
+  <suggestion>Amazon Kendra</suggestion>
+  <message>Do not use. Use: Amazon Kendra</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Kinesis Analytics</match>
+  <suggestion>Kinesis Data Analytics</suggestion>
+  <message>Do not use. Use: Kinesis Data Analytics</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Kinesis data analytics</match>
+  <suggestion>Kinesis Data Analytics</suggestion>
+  <message>Formerly "Kinesis Analytics."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Kinesis data firehose</match>
+  <suggestion>Kinesis Data Firehose</suggestion>
+  <message>Do not use. Use: Kinesis Data Firehose</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Kinesis data streams</match>
+  <suggestion>Kinesis Data Streams</suggestion>
+  <message>Do not use. Use: Kinesis Data Streams</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Kinesis firehose</match>
+  <suggestion>Kinesis Firehose</suggestion>
+  <message>Do not use. Use: Kinesis Firehose</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Kinesis video streams</match>
+  <suggestion>Kinesis Video Streams</suggestion>
+  <message>Do not use. Use: Kinesis Video Streams</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">labmda</match>
+  <suggestion>AWS Lambda</suggestion>
+  <suggestion>Lambda</suggestion>
+  <message>First use: AWS Lambda. Subsequent use: Lambda.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">lamdba</match>
+  <suggestion>AWS Lambda</suggestion>
+  <suggestion>Lambda</suggestion>
+  <message>First use: AWS Lambda. Subsequent use: Lambda.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">lambda</match>
+  <suggestion>AWS Lambda</suggestion>
+  <suggestion>Lambda</suggestion>
+  <message>First use: AWS Lambda. Subsequent use: Lambda.</message>
+ </incorrect-term>
+    <incorrect-term ignorecase="true" severity="error">
+  <match type="character">Lambdas</match>
+  <suggestion>Lambda function</suggestion>
+  <message>Do not use. Use: "Lamba function" instead.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Logon with Amazon</match>
+  <suggestion>Login with Amazon</suggestion>
+  <message>Login with Amazon is the proper name of a service that Amazon provides. Not to be confused with instructions to "sign in to Amazon" or "sign in to AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Login with AWS</match>
+  <suggestion>Login with Amazon</suggestion>
+  <message>Login with Amazon is the proper name of a service that Amazon provides. Not to be confused with instructions to "sign in to Amazon" or "sign in to AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Log in with AWS</match>
+  <suggestion>Login with Amazon</suggestion>
+  <message>Login with Amazon is the proper name of a service that Amazon provides. Not to be confused with instructions to "sign in to Amazon" or "sign in to AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mediaconnect</match>
+  <suggestion>MediaConnect</suggestion>
+  <message>Do not use. Use: MediaConnect</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mediaconvert</match>
+  <suggestion>MediaConvert</suggestion>
+  <message>Do not use. Use: MediaConvert</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Medialive</match>
+  <suggestion>MediaLive</suggestion>
+  <message>Do not use. Use: MediaLive</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mediapackage</match>
+  <suggestion>MediaPackage</suggestion>
+  <message>Do not use. Use: MediaPackage</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mediastore</match>
+  <suggestion>MediaStore</suggestion>
+  <message>Do not use. Use: MediaStore</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mediatailor</match>
+  <suggestion>MediaTailor</suggestion>
+  <message>Do not use. Use: MediaTailor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">MigrationHub</match>
+  <suggestion>Migration Hub</suggestion>
+  <message>Do not use. Use: Migration Hub</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">MobileHub</match>
+  <suggestion>Mobile Hub</suggestion>
+  <message>Do not use. Use: Mobile Hub</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mobile SDK for Android</match>
+  <suggestion>Amplify Android (AWS Mobile SDK for Android)</suggestion>
+  <message>Do not use. Use: Amplify Android (AWS Mobile SDK for Android)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Mobile SDK for iOS</match>
+  <suggestion>Amplify iOS (AWS Mobile SDK for iOS)</suggestion>
+  <message>Do not use. Use: Amplify iOS (AWS Mobile SDK for iOS)</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">MTurk</match>
+  <suggestion>Mechanical Turk</suggestion>
+  <message>Do not use. Use: Mechanical Turk</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Opsworks</match>
+  <suggestion>OpsWorks</suggestion>
+  <message>Do not use. Use: OpsWorks</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Parallelcluster</match>
+  <suggestion>ParallelCluster</suggestion>
+  <message>Do not use. Use: ParallelCluster</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Parallel Cluster</match>
+  <suggestion>ParallelCluster</suggestion>
+  <message>Do not use. Use: ParallelCluster</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">PowerShell Tools</match>
+  <suggestion>AWS Tools for PowerShell</suggestion>
+  <message>Do not use. Use: AWS Tools for PowerShell</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Redshit</match>
+  <suggestion>Amazon Redshift</suggestion>
+  <message>Must always include '"Amazon."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Robomaker</match>
+  <suggestion>AWS RoboMaker</suggestion>
+  <message>Must always include "AWS."</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">S3 glacier</match>
+  <suggestion>S3 Glacier</suggestion>
+  <message>Do not use. Use: S3 Glacier</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">sagemaker</match>
+  <suggestion>Amazon SageMaker</suggestion>
+  <suggestion>SageMaker</suggestion>
+  <message>Usage guidelines: Use: "Amazon SageMaker" (entity=SMlong) on first Use: and "SageMaker" (entity=SM) on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Sagemaker</match>
+  <suggestion>Amazon SageMaker</suggestion>
+  <suggestion>SageMaker</suggestion>
+  <message>Usage guidelines: Use: "Amazon SageMaker" (entity=SMlong) on first Use: and "SageMaker" (entity=SM) on subsequent use.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Shield advanced</match>
+  <suggestion>Shield Advanced</suggestion>
+  <message>Do not use. Use: Shield Advanced</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Shield standard</match>
+  <suggestion>Shield Standard</suggestion>
+  <message>Do not use. Use: Shield Standard</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">storage backend for titan</match>
+  <suggestion>Storage Backend for Titan</suggestion>
+  <message>Do not use. Use: Storage Backend for Titan</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">storage backend for Titan</match>
+  <suggestion>Storage Backend for Titan</suggestion>
+  <message>Do not use. Use: Storage Backend for Titan</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">tag editor</match>
+  <suggestion>Tag Editor</suggestion>
+  <message>Do not use. Use: Tag Editor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Tools for Windows PowerShell</match>
+  <suggestion>AWS Tools for PowerShell</suggestion>
+  <message>Do not use. Use: AWS Tools for PowerShell</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Transfer family</match>
+  <suggestion>Transfer Family</suggestion>
+  <message>Do not use. Use: Transfer Family</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">trusted advisor</match>
+  <suggestion>Trusted Advisor</suggestion>
+  <message>Do not use. Use: Trusted Advisor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Trusted advisor</match>
+  <suggestion>Trusted Advisor</suggestion>
+  <message>Do not use. Use: Trusted Advisor</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">Visual Studio Toolkit</match>
+  <suggestion>AWS Toolkit for Visual Studio</suggestion>
+  <message>Do not use. Use: AWS Toolkit for Visual Studio</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">VS Code Toolkit</match>
+  <suggestion>AWS Toolkit for VS Code</suggestion>
+  <message>Do not use. Use: AWS Toolkit for VS Code</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">VSTS Tools</match>
+  <suggestion>AWS Tools for VSTS</suggestion>
+  <message>AWS publishes several tools. Use: 'the tools' or 'the toolkit' on second or subsequent Use: only when there is no possibility of confusion between tools.</message>
+ </incorrect-term>
+    <incorrect-term severity="error">
+  <match type="character">X-ray</match>
+  <suggestion>X-Ray</suggestion>
+  <message>Do not use. Use: X-Ray</message>
+ </incorrect-term>
+</incorrect-terms>

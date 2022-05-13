@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::ElastiCache::CacheCluster -->
+<section id="aws-properties-elasticache-cache-cluster" role="topic">
+   <title id="aws-properties-elasticache-cache-cluster.title">AWS::ElastiCache::CacheCluster</title>
+
+   <para>The AWS::ElastiCache::CacheCluster type creates an Amazon ElastiCache cache cluster.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type" : "AWS::ElastiCache::CacheCluster",
+   "Properties" :
+   {
+      "<link linkend="cfn-elasticache-cachecluster-autominorversionupgrade">AutoMinorVersionUpgrade</link>" : <replaceable>Boolean</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-cachenodetype">CacheNodeType</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-cacheparametergroupname">CacheParameterGroupName</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-cachesecuritygroupnames">CacheSecurityGroupNames</link>" : [ <replaceable>String, ...</replaceable> ],
+      "<link linkend="cfn-elasticache-cachecluster-engine">Engine</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-engineversion">EngineVersion</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-notificationtopicarn">NotificationTopicArn</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-numcachenodes">NumCacheNodes</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-port">Port</link>" : <replaceable>Integer</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-preferredavailabilityzone">PreferredAvailabilityZone</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-elasticache-cachecluster-preferredmaintenancewindow">PreferredMaintenanceWindow</link>" : <replaceable>String</replaceable>
+   }
+}  </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>Type: AWS::ElastiCache::CacheCluster
+Properties:
+  <link linkend="cfn-elasticache-cachecluster-autominorversionupgrade">AutoMinorVersionUpgrade</link>: <replaceable>Boolean</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-cachenodetype">CacheNodeType</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-cacheparametergroupname">CacheParameterGroupName</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-cachesecuritygroupnames">CacheSecurityGroupNames</link>: [ <replaceable>String, ...</replaceable> ]
+  <link linkend="cfn-elasticache-cachecluster-engine">Engine</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-engineversion">EngineVersion</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-notificationtopicarn">NotificationTopicArn</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-numcachenodes">NumCacheNodes</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-port">Port</link>: <replaceable>Integer</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-preferredavailabilityzone">PreferredAvailabilityZone</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-elasticache-cachecluster-preferredmaintenancewindow">PreferredMaintenanceWindow</link>: <replaceable>String</replaceable></programlisting>
+	</section>
+
+   <section id="aws-properties-elasticache-cache-cluster-prop">
+      <title id="aws-properties-elasticache-cache-cluster-prop.title">Properties</title>
+      <variablelist>
+         <varlistentry id="cfn-elasticache-cachecluster-autominorversionupgrade">
+            <term>AutoMinorVersionUpgrade</term>
+            <listitem>
+               <para>Indicates that minor engine upgrades will be applied automatically to the cache cluster during the
+                  maintenance window.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: Boolean</para>
+               <para>Default: <code>true</code></para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-cachenodetype">
+            <term>CacheNodeType</term>
+            <listitem>
+               <para>The compute and memory capacity of nodes in a cache cluster.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-cacheparametergroupname">
+            <term>CacheParameterGroupName</term>
+            <listitem>
+               <para>The name of the cache parameter group associated with this cache cluster.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-cachesecuritygroupnames">
+            <term>CacheSecurityGroupNames</term>
+            <listitem>
+               <para>A list of cache security group names associated with this cache cluster.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: List of Strings</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-engine">
+            <term>Engine</term>
+            <listitem>
+               <para>The name of the cache engine to be used for this cache cluster.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-engineversion">
+            <term>EngineVersion</term>
+            <listitem>
+               <para>The version of the cache engine to be used for this cluster.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-notificationtopicarn">
+            <term>NotificationTopicArn</term>
+            <listitem>
+               <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which
+                  notifications will be sent.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-numcachenodes">
+            <term>NumCacheNodes</term>
+            <listitem>
+               <para>The number of cache nodes the cache cluster should have.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-some-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-port">
+            <term>Port</term>
+            <listitem>
+               <para>The port number on which each of the cache nodes will accept connections.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: Integer</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-preferredavailabilityzone">
+            <term>PreferredAvailabilityZone</term>
+            <listitem>
+               <para>The EC2 Availability Zone that the cache cluster will be created in.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-elasticache-cachecluster-preferredmaintenancewindow">
+            <term>PreferredMaintenanceWindow</term>
+            <listitem>
+               <para>The weekly time range (in UTC) during which system maintenance can occur.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section condition="json">
+      <title>Notes</title>
+      <section>
+         <title>Update Behavior</title>
+         <para>When updates are made to the following properties, &CFN; creates a replacement cache cluster resource
+            first, changes references from other dependent resources to point to the replacement resource, and then
+            deletes the old resource:</para>
+         <itemizedlist>
+            <listitem>
+               <para>CacheNodeType</para>
+            </listitem>
+            <listitem>
+               <para>Engine</para>
+            </listitem>
+            <listitem>
+               <para>Port</para>
+            </listitem>
+            <listitem>
+               <para>PreferredAvailabilityZone</para>
+            </listitem>
+         </itemizedlist>
+      </section>
+      <section id="cfn-elasticache-cache-cluster-obtaining-node-addresses">
+         <title>Obtaining the Cache Cluster Node Addresses</title>
+         <para>The ElastiCache cache cluster does not have a single endpoint, but you can obtain the endpoints for
+            individual cache nodes by defining a <code>get-cache-nodes</code> script and installing it in the <link
+            linkend="aws-resource-init">AWS::CloudFormation::Init</link> section of the template. Full implementation
+            details can be viewed in the ElastiCache template example at: <ulink
+            url="https://s3.amazonaws.com/cloudformation-templates-us-east-1/ElastiCache.template">https://s3.amazonaws.com/cloudformation-templates-us-east-1/ElastiCache.template</ulink>.</para>
+         <para>The Amazon ElastiCache template uses the &CFN; bootstrap script <link linkend="cfn-hup">cfn-hup</link> to
+            detect changes to the Amazon ElastiCache cache cluster configuration, such as the number of instances in the
+            cache cluster. It then runs a script to update the on-host configuration for the application.</para>
+         <para>Here is the code that demonstrates obtaining the cache node information with <link
+            linkend="list-stack-resources">cfn-list-stack-resources</link>:</para>
+         <programlisting>
+"/etc/cfn/get-cache-nodes" : {
+   "content" : {
+      "Fn::Join" : [
+         "",
+         [
+            "# Define environment variables for command line tools\n",
+            "export AWS_ELASTICACHE_HOME=/home/ec2-user/elasticache/AmazonElastiCacheCli-1.5.000\n",
+            "export AWS_CLOUDFORMATION_HOME=/opt/aws/apitools/cfn\n",
+            "export PATH=$AWS_CLOUDFORMATION_HOME/bin:$AWS_ELASTICACHE_HOME/bin:$PATH\n",
+            "export AWS_CREDENTIAL_FILE=/etc/cfn/cfn-credentials\n",
+            "export JAVA_HOME=/usr/lib/jvm/jre\n",
+            "\n",
+            "# Grab the Cache node names and configure the PHP page\n",
+            "cfn-list-stack-resources ",
+            { "Ref" : "AWS::StackName" },
+            " --region ",
+            { "Ref" : "AWS::Region" },
+            " | grep CacheCluster | awk '{print $3}' | xargs -I {} elasticache-describe-cache-clusters {} --region ",
+            { "Ref" : "AWS::Region" },
+            " --show-cache-node-info | grep CACHENODE | awk '{print $4 \",\" $5}' > /var/www/html/nodelist\n"
+         ]
+      ]
+   },
+   "mode"    : "000500",
+   "owner"   : "root",
+   "group"   : "root"
+}        </programlisting>
+      </section>
+   </section>
+
+   <section id="aws-properties-elasticache-cache-cluster-ref">
+      <title id="aws-properties-elasticache-cache-cluster-ref.title">Return Values</title>
+
+      <section>
+         <title>Ref</title>
+         <para>&ref-returns-name;</para>
+         <para>&ref-more-info;</para>
+      </section>
+
+      <!--
+           TODO: Need confirmation before publishing this section.
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>DBInstanceIdentifier</term>
+               <listitem>
+                  <para>Returns the database instance identifier. For example:
+                  <code>mystack-mydb-ea5ugmfvuaxg</code>.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>Endpoint.Address</term>
+               <listitem>
+                  <para>Connection endpoint for the database. For example:
+                  <code>mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-1.rds.amazonaws.com</code>.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>Endpoint.Port</term>
+               <listitem>
+                  <para>The port number on which the database accepts connections. For example: <code>3306</code>.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>&getatt-more-info;</para>
+      </section>
+      -->
+
+   </section>
+
+   <section>
+      <title>See Also</title>
+      <itemizedlist>
+         <listitem>
+            <para><ulink
+               url="http://&domain;/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html"
+               >CreateCacheCluster</ulink> in the <citetitle>Amazon ElastiCache API Reference Guide</citetitle></para>
+         </listitem>
+         <listitem>
+            <para><ulink
+            url="http://&domain;/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html"
+            >ModifyCacheCluster</ulink> in the <citetitle>Amazon ElastiCache API Reference Guide</citetitle></para>
+         </listitem>
+      </itemizedlist>
+   </section>
+</section>

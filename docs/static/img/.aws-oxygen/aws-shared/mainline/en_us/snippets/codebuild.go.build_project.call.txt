@@ -1,0 +1,3 @@
+    _, err := svc.StartBuild(&codebuild.StartBuildInput{
+        ProjectName: project,
+    })

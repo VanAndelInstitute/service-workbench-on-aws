@@ -1,0 +1,4 @@
+<programlisting>
+import aws.sdk.kotlin.services.eventbridge.EventBridgeClient
+import aws.sdk.kotlin.services.eventbridge.model.ListRulesRequest
+</programlisting>

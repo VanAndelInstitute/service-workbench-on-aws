@@ -1,0 +1,9 @@
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalizeevents.PersonalizeEventsClient;
+import software.amazon.awssdk.services.personalizeevents.model.PersonalizeEventsException;
+import software.amazon.awssdk.services.personalizeevents.model.PutUsersRequest;
+import software.amazon.awssdk.services.personalizeevents.model.User;
+
+import java.util.ArrayList;
+

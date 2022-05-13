@@ -1,0 +1,20 @@
+$client = new Aws\Lightsail\LightsailClient([
+    'profile' => 'default',
+    'version' => '2016-11-28',
+    'region' => 'us-east-2'
+]);
+
+try {
+    $result = $client->getInstances([]);
+    if ($result['instances']) {
+        foreach ($result['instances'] as $instance) {
+            print($instance['name'] . ": " . $instance['state']['name'] . "\n");
+        }
+    } else {
+        print('No instances found\n');
+    }
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}

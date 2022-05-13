@@ -1,0 +1,29 @@
+suspend fun createIAMPolicy(policyNameVal: String?): String {
+
+    val policyDocumentVal = "{" +
+            "  \"Version\": \"2012-10-17\"," +
+            "  \"Statement\": [" +
+            "    {" +
+            "        \"Effect\": \"Allow\"," +
+            "        \"Action\": [" +
+            "            \"dynamodb:DeleteItem\"," +
+            "            \"dynamodb:GetItem\"," +
+            "            \"dynamodb:PutItem\"," +
+            "            \"dynamodb:Scan\"," +
+            "            \"dynamodb:UpdateItem\"" +
+            "       ]," +
+            "       \"Resource\": \"*\"" +
+            "    }" +
+            "   ]" +
+            "}"
+
+    val request = CreatePolicyRequest {
+        policyName = policyNameVal
+        policyDocument = policyDocumentVal
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+          val response = iamClient.createPolicy(request)
+          return response.policy?.arn.toString()
+    }
+}

@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun updateSpecificService(clusterName: String?, serviceArn: String?) {
+
+    val request = UpdateServiceRequest {
+        cluster = clusterName
+        service = serviceArn
+        desiredCount = 0
+    }
+
+    EcsClient { region = "us-east-1" }.use { ecsClient ->
+        ecsClient.updateService(request)
+        println("The service was modified")
+    }
+}
+</programlisting>

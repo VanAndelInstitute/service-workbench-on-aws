@@ -1,0 +1,7 @@
+<programlisting>
+async fn remove_table(client: &Client, table: &str) -> Result<(), Error> {
+    client.delete_table().table_name(table).send().await?;
+
+    Ok(())
+}
+</programlisting>

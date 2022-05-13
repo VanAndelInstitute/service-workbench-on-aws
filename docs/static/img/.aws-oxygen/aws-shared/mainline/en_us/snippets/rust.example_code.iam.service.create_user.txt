@@ -1,0 +1,5 @@
+pub async fn create_user(client: &iamClient, user_name: &str) -> Result<User, iamError> {
+    let response = client.create_user().user_name(user_name).send().await?;
+
+    Ok(response.user.unwrap())
+}

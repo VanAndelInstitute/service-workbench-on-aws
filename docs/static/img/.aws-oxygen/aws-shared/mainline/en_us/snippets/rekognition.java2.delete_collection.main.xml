@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteMyCollection(RekognitionClient rekClient,String collectionId ) {
+
+    try {
+
+        DeleteCollectionRequest deleteCollectionRequest = DeleteCollectionRequest.builder()
+                .collectionId(collectionId)
+                .build();
+
+        DeleteCollectionResponse deleteCollectionResponse = rekClient.deleteCollection(deleteCollectionRequest);
+        System.out.println(collectionId + ": " + deleteCollectionResponse.statusCode().toString());
+
+    } catch(RekognitionException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

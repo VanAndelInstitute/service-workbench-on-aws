@@ -1,0 +1,11 @@
+<programlisting>
+import aws.sdk.kotlin.services.cognitoidentityprovider.CognitoIdentityProviderClient
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.AttributeType
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.SignUpRequest
+import java.io.UnsupportedEncodingException
+import java.nio.charset.StandardCharsets
+import java.util.*
+import javax.crypto.Mac
+import javax.crypto.spec.SecretKeySpec
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,10 @@
+    svc := ec2.New(sess)
+
+    result, err := svc.DescribeAddresses(&ec2.DescribeAddressesInput{
+        Filters: []*ec2.Filter{
+            {
+                Name:   aws.String("domain"),
+                Values: aws.StringSlice([]string{"vpc"}),
+            },
+        },
+    })

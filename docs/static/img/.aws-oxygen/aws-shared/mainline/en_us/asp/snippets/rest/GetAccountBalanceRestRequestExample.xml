@@ -1,0 +1,8 @@
+https://fps.sandbox.amazonaws.com?
+Action=GetAccountBalance
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Signature=FyQVfGnvleChBRKrWY9XpyXTDfQ09oSdlnGBKw4527Y%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A15%3A46.546Z
+&Version=2008-09-17

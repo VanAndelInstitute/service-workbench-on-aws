@@ -1,0 +1,16 @@
+  # Deletes the objects in an Amazon S3 bucket and deletes the bucket.
+  #
+  # @param bucket [Aws::S3::Bucket] The bucket to empty and delete.
+  def delete_bucket(bucket)
+    puts("\nDo you want to delete all of the objects as well as the bucket (y/n)? ")
+    answer = gets.chomp.downcase
+    if answer == "y"
+      bucket.objects.batch_delete!
+      bucket.delete
+      puts("Emptied and deleted bucket #{bucket.name}.\n")
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't empty and delete bucket #{bucket.name}.")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end

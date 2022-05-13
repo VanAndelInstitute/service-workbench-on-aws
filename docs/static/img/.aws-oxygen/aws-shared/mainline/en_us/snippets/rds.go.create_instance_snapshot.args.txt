@@ -1,0 +1,7 @@
+    instance := flag.String("i", "", "The name of the instance")
+    flag.Parse()
+
+    if *instance == "" {
+        fmt.Println("You must supply and instance name (-i INSTANCE)")
+        return
+    }

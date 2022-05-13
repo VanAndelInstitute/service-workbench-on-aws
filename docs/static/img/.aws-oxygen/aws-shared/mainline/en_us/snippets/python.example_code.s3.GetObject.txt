@@ -1,0 +1,18 @@
+    def get(self):
+        """
+        Gets the object.
+
+        :return: The object data in bytes.
+        """
+        try:
+            body = self.object.get()['Body'].read()
+            logger.info(
+                "Got object '%s' from bucket '%s'.",
+                self.object.key, self.object.bucket_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't get object '%s' from bucket '%s'.",
+                self.object.key, self.object.bucket_name)
+            raise
+        else:
+            return body

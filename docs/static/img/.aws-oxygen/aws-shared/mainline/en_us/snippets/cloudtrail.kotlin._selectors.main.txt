@@ -1,0 +1,13 @@
+suspend fun setSelector(trailNameVal: String?) {
+
+            val selector = EventSelector {
+                readWriteType = ReadWriteType.fromValue("All")
+            }
+
+            CloudTrailClient { region = "us-east-1" }.use { cloudTrail ->
+                cloudTrail.putEventSelectors(PutEventSelectorsRequest {
+                    trailName = trailNameVal
+                    eventSelectors = listOf(selector)
+                } )
+            }
+    }

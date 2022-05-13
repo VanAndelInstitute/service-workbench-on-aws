@@ -1,0 +1,27 @@
+<programlisting>
+    public static void getSNSAttrutes(SnsClient snsClient,String topicArn ) {
+
+        try {
+            GetSubscriptionAttributesRequest request = GetSubscriptionAttributesRequest.builder()
+                    .subscriptionArn(topicArn)
+                    .build();
+
+            // Get the Subscription attributes
+            GetSubscriptionAttributesResponse res = snsClient.getSubscriptionAttributes(request);
+            Map<String, String> map = res.attributes();
+
+            // Iterate through the map
+            Iterator iter = map.entrySet().iterator();
+            while (iter.hasNext()) {
+                Map.Entry entry = (Map.Entry) iter.next();
+                System.out.println("[Key] : " + entry.getKey() + " [Value] : " + entry.getValue());
+            }
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+
+        System.out.println("\n\nStatus was good");
+    }
+</programlisting>

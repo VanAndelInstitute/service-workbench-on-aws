@@ -1,0 +1,12 @@
+suspend fun deleteIdPool(identityPoold: String?) {
+
+        val request = DeleteIdentityPoolRequest {
+            this.identityPoolId = identityPoold
+        }
+
+        CognitoIdentityClient { region = "us-east-1" }.use { cognitoIdclient ->
+
+          cognitoIdclient.deleteIdentityPool(request)
+          println("The identity pool was successfully deleted")
+        }
+    }

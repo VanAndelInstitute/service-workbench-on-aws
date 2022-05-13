@@ -1,0 +1,9 @@
+<programlisting>
+    err = svc.WaitUntilStackCreateComplete(&cloudformation.DescribeStacksInput{
+        StackName: stackName,
+    })
+    if err != nil {
+        fmt.Println("Got an error waiting for stack to be created")
+        return
+    }
+</programlisting>

@@ -1,0 +1,19 @@
+    public static void listAllWorkflows( GlueClient glueClient) {
+
+        try {
+             ListWorkflowsRequest workflowsRequest = ListWorkflowsRequest.builder()
+                .maxResults(10)
+                .build();
+
+            ListWorkflowsResponse workflowsResponse = glueClient.listWorkflows(workflowsRequest);
+            List<String> workflows = workflowsResponse.workflows();
+
+            for (String workflow: workflows) {
+                System.out.println("Workflow name is: "+workflow);
+             }
+
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+   }

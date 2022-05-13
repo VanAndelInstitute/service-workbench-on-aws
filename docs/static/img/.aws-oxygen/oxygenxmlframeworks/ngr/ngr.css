@@ -1,0 +1,410 @@
+@import "shared-element.css";
+
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+/*
+    DOCTYPE
+*/
+
+oxy|doctype {
+    font-family:monospace;
+    display:block;
+    color:blue;
+    background-color:transparent;
+    white-space:pre;
+    font-size:smaller;
+    margin: 1em 1em 1em 0;
+    border: 1px dashed #aaa;
+    padding: 4px;
+}
+
+/*
+    Defines the definition body. It contains all the
+    contents of the document (like text, images, colors,
+    graphics, etc.).
+*/
+
+definition {
+    display:block;
+}
+
+/*
+    Documentation tags.
+*/
+
+documentation:before {
+    content:attr(target);
+    display:block;
+    font-weight:bold;
+    background-color:inherit;
+    font-size: 2em;
+    margin:1em 0;
+}
+
+documentation[target$="Request"]:before {
+    content:"Request Parameters";
+    color: #C60;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+}
+
+documentation[target$="Request"]:after {
+    content:"For information about the common parameters that all actions use, see Common Parameters.";
+    display: block;
+}
+
+documentation[target$="Response"]:before, documentation[target$="Result"]:before {
+    content:"Response Elements";
+    color: rgb(204, 102, 0);
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+}
+
+documentation[target*="$"]:before {
+    content:oxy_xpath("substring-after(@target,'$')");
+    display:block;
+    color: rgb(0, 102, 153);
+    font-weight:bold;
+    background-color:inherit;
+    font-size: 1em;
+}
+
+
+documentation[target*="$"] > simpara:first-child:before,
+documentation[target*="$"] > para:first-child:before {
+    content: none;
+    padding: 0;
+    margin: 0;
+}
+
+documentation[target$="$dryRun"]:before {
+    content: "";
+}
+
+
+/*
+    Examples.
+*/
+
+examples:before {
+    content: "Examples";
+    color: rgb(204, 102, 0);
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 1em;
+    display: block;
+}
+
+example > name {
+    color: rgb(0, 102, 153);
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    display: block;
+}
+
+example {
+    display:block;
+    margin:0.5em 0;
+}
+
+example > title{
+    color: rgb(0, 118, 151);
+    display:block;
+    font-weight:bold;
+    margin-left: 0;
+}
+
+/*
+    Preformatted sections.
+*/
+programlisting[role="request"]:before {
+    content: "Sample Request";
+    color: rgb(204, 102, 0);
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    display: block;
+}
+
+programlisting[role="response"]:before {
+    content: "Sample Response";
+    color: rgb(204, 102, 0);
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    display: block;
+}
+
+programlisting {
+    display:block;
+    background-color: #efefef;
+    font-family:monospace;
+    white-space:pre;
+    font-size:smaller;
+    margin: 1em 1em 1em 0;
+    border: 1px dashed #aaa;
+    padding: 4px;
+}
+
+
+/*
+    The paragraph.
+*/
+
+simpara,
+para {
+    display:block;
+    margin: 0.5em 0;
+}
+
+/*
+    Inline text styles
+*/
+
+code {
+    font-family:monospace;
+    /* font-size:smaller; */
+}
+
+emphasis{
+    font-style:italic;
+}
+
+emphasis[role=bold] {
+    text-decoration:inherit;
+    font-style:inherit;
+    font-weight:bold;
+}
+
+emphasis[role=underline] {
+    text-decoration:inherit;
+    font-style:inherit;
+    text-decoration:underline;
+}
+
+/*
+    Admonitions
+Move the content to the right such that the
+note and warn labels are in the left.
+*/
+
+note,
+important {
+    display:block;
+    margin-left: 1em;
+}
+
+note > *,
+important > * {
+    margin-left: 6em;
+}
+
+note:before,
+important:before {
+    display:inline;
+    font-weight:bold;
+}
+
+note:before{
+    content:url('img/note.png') " Note: ";
+}
+
+important:before{
+    content:url('img/important.png') " Important: ";
+}
+
+/*
+    Lists
+*/
+
+/*
+    Variable list
+    A list in which each entry is composed of a set of
+    one or more terms and an associated description
+*/
+variablelist {
+    display:block;
+    margin-left:1em;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+}
+
+variablelist > term {
+    display:block;
+    font-weight:bold;
+    margin:0;
+}
+
+variablelist > listitem {
+    margin-left: 0.5em;
+}
+
+
+/*
+    Itemized list
+*/
+
+itemizedlist {
+    display:block;
+    margin-left:2em;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+}
+
+/*The decoration of the nested list items must change with the depth*/
+/*Level = 1*/
+itemizedlist > listitem {
+    display:list-item;
+    list-style-type:disc;
+}
+/*Level = 2*/
+itemizedlist > listitem itemizedlist > listitem {
+    list-style-type:square;
+}
+/*Level = 3*/
+itemizedlist > listitem itemizedlist > listitem itemizedlist > listitem {
+    list-style-type:circle;
+}
+/*Level = 4*/
+itemizedlist > listitem itemizedlist > listitem itemizedlist > listitem itemizedlist > listitem {
+    list-style-type:disc;
+}
+
+/*When the listitem is not child of an itemizedlist.*/
+listitem {
+    display:block;
+}
+
+/*
+    The ordered list is decorated with numbers or letters.
+*/
+orderedlist {
+  display:block;
+  margin-left:2em;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+
+listitem > orderedlist{
+  margin-top:0;
+  margin-bottom:0;
+}
+
+orderedlist > listitem{
+    display:list-item;
+    list-style:decimal;
+}
+
+/*
+    Links
+*/
+
+ulink {
+    display:inline;
+    color: navy;
+    text-decoration: underline;
+    background-color:inherit;
+}
+
+ulink:before{
+    content: url("img/link.png");
+    color:gray;
+    background-color:inherit;
+    link:attr(url);
+}
+
+ulink[type="retail"]:before{
+    link: "http://www.amazon.com/" attr(url);
+}
+
+ulink[type="marketing"]:before{
+    link: "http://aws.amazon.com/" attr(url);
+}
+
+ulink[type="documentation"]:before{
+    link: "http://alpha-docs-aws.amazon.com/" attr(url);
+}
+
+ulink[type="console"]:before{
+    link: "http://console.aws.amazon.com/" attr(url);
+}
+
+ulink[type="portal"]:before{
+    link: "http://portal.aws.amazon.com/" attr(url);
+}
+
+ulink[type="api"]:before{
+    link: "http://amazonaws.com/" attr(url);
+}
+
+ulink[type="forum"]:before{
+    link: "http://forums.aws.amazon.com/" attr(url);
+}
+
+ulink[type="blog"]:before{
+    link: "http://blogs.aws.amazon.com/" attr(url);
+}
+
+ulink[type="status"]:before{
+    link: "http://status.aws.amazon.com/" attr(url);
+}
+
+xref:before{
+    content: url("img/link.png") attr(linkend);
+    color: navy;
+    background-color: inherit;
+    link: '#' attr(linkend)
+}
+
+/*
+    Oxygen-specific stuff
+*/
+
+oxy|comment:before{
+  content:"<!-- ";
+}
+
+oxy|comment:after{
+  content:" -->";
+}
+
+oxy|comment {
+    display:-oxy-morph !important;
+    color: rgb(0, 128, 0) !important;
+    background-color:rgb(255, 255, 210) !important;
+    white-space:pre-wrap !important;
+    border-width:0px !important;
+    margin:0px !important;
+    padding: 0px !important;
+}
+
+@media oxygen-high-contrast-black{
+    oxy|reference,
+    oxy|entity{
+        background-color: rgb(72,72,72) !important;
+    }
+    title, link, ulink, email{
+        color:#0050F0 !important;
+    }
+}
+
+@media oxygen-dark-theme, oxygen-high-contrast-black{
+    oxy|comment{
+        /*color:#3DB39B !important;*/
+        background-color:transparent !important;
+    }
+
+    oxy|reference,
+    oxy|entity{
+        /*background-color: rgb(128,128,128) !important;*/
+        background-color:inherit !important;
+    }
+
+  programlisting {
+      background-color:rgb(40,40,40) !important;
+  }
+}

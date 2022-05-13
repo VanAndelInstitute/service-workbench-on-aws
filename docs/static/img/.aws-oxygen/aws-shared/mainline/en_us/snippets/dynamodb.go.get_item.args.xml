@@ -1,0 +1,12 @@
+<programlisting>
+    table := flag.String("t", "", "The table to retrieve item from")
+    title := flag.String("n", "", "The name of the movie")
+    year := flag.Int("y", -1, "The year the movie was released")
+    flag.Parse()
+
+    if *table == "" || *title == "" || *year == -1 {
+        fmt.Println("You must supply a table name, movie title, and valid year")
+        fmt.Println("(-t TABLE -n NAME -y YEAR")
+        return
+    }
+</programlisting>

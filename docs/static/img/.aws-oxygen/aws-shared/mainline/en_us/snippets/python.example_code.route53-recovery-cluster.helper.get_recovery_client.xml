@@ -1,0 +1,17 @@
+<programlisting>
+import boto3
+
+
+def create_recovery_client(cluster_endpoint):
+    """
+    Creates a Boto3 Route 53 Application Recovery Controller client for the specified
+    cluster endpoint URL and AWS Region.
+
+    :param cluster_endpoint: The cluster endpoint URL and Region.
+    :return: The Boto3 client.
+    """
+    return boto3.client(
+        'route53-recovery-cluster',
+        endpoint_url=cluster_endpoint['Endpoint'],
+        region_name=cluster_endpoint['Region'])
+</programlisting>

@@ -1,0 +1,4 @@
+    _, err := svc.CreateStack(&cloudformation.CreateStackInput{
+        TemplateBody: templateBody,
+        StackName:    stackName,
+    })

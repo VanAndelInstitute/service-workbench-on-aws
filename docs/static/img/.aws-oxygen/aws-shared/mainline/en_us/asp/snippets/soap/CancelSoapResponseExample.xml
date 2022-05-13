@@ -1,0 +1,11 @@
+<CancelResponse
+  xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <CancelResult>
+    <TransactionId>
+      13N91G4R7478CJLIGROQH2VQJSM
+    </TransactionId>
+    <TransactionStatus>
+      Success
+    </TransactionStatus>
+  </CancelResult>
+</CancelResponse>

@@ -1,0 +1,20 @@
+    def get_crawler(self, name):
+        """
+        Gets information about a crawler.
+
+        :param name: The name of the crawler to look up.
+        :return: Data about the crawler.
+        """
+        crawler = None
+        try:
+            response = self.glue_client.get_crawler(Name=name)
+            crawler = response['Crawler']
+        except ClientError as err:
+            if err.response['Error']['Code'] == 'EntityNotFoundException':
+                logger.info("Crawler %s doesn't exist.", name)
+            else:
+                logger.error(
+                    "Couldn't get crawler %s. Here's why: %s: %s", name,
+                    err.response['Error']['Code'], err.response['Error']['Message'])
+                raise
+        return crawler

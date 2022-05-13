@@ -1,0 +1,16 @@
+    def get_database(self, name):
+        """
+        Gets information about a database in your Data Catalog.
+
+        :param name: The name of the database to look up.
+        :return: Information about the database.
+        """
+        try:
+            response = self.glue_client.get_database(Name=name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't get database %s. Here's why: %s: %s", name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['Database']

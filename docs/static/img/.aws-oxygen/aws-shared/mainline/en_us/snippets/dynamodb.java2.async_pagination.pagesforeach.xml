@@ -1,0 +1,7 @@
+<programlisting>
+        ListTablesPublisher publisher = asyncClient.listTablesPaginator(listTablesRequest);
+
+        // Use a for-loop for simple use cases
+        CompletableFuture<Void> future = publisher.subscribe(response -> response.tableNames()
+                                                                               .forEach(System.out::println));
+</programlisting>

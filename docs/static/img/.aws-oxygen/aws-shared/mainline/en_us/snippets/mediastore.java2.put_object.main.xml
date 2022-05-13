@@ -1,0 +1,37 @@
+<programlisting>
+    public static void putMediaObject(MediaStoreDataClient mediaStoreData, String filePath, String completePath) {
+
+        try{
+            File myFile = new File(filePath);
+            RequestBody requestBody = RequestBody.fromFile(myFile);
+
+            PutObjectRequest objectRequest = PutObjectRequest.builder()
+                .path(completePath)
+                .contentType("video/mp4")
+                .build();
+
+            PutObjectResponse response = mediaStoreData.putObject(objectRequest, requestBody );
+            System.out.println("The saved object is " +response.storageClass().toString());
+
+    } catch (MediaStoreDataException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }
+
+
+  public static String getEndpoint(String containerName){
+
+        Region region = Region.US_EAST_1;
+        MediaStoreClient mediaStoreClient = MediaStoreClient.builder()
+              .region(region)
+              .build();
+
+      DescribeContainerRequest containerRequest = DescribeContainerRequest.builder()
+              .containerName(containerName)
+              .build();
+
+      DescribeContainerResponse response = mediaStoreClient.describeContainer(containerRequest);
+      return response.container().endpoint();
+    }
+</programlisting>

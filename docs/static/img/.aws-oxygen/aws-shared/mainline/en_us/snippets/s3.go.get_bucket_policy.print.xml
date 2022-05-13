@@ -1,0 +1,4 @@
+<programlisting>
+    fmt.Println("Policy:")
+    fmt.Println(out.String())
+</programlisting>

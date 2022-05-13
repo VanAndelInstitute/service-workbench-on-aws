@@ -1,0 +1,15 @@
+<programlisting>
+    bucket := flag.String("b", "", "Bucket to set CORS on, (required)")
+
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply the name of a bucket (-b BUCKET)")
+        return
+    }
+
+    methods := FilterMethods(flag.Args())
+    if len(methods) == 0 {
+        fmt.Println("You must supply at least one HTTP method: POST, GET, PUT, PATCH, or DELETE")
+    }
+</programlisting>

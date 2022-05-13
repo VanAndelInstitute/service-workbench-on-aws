@@ -1,0 +1,8 @@
+The target.jar file is an extension to the Oxygen XML Author mode for the next generation REEF schema. Our xrefs between different API topics expect the linkend attribute to point to the ID of an element, but we use the "target" attribute instead.
+
+This extension allows us to use target like ID, so the links in author mode work. The source code for this extension is available in the AWSDevDocs-ngr-api-link package.
+
+This follows the documenation here: https://www.oxygenxml.com/doc/versions/17.1/ug-editor/index.html#topics/dg-author-link-target-reference-finder.html
+
+ericn@
+

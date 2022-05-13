@@ -1,0 +1,25 @@
+<programlisting>
+    def create_job(self, name, description, role_arn, script_location):
+        """
+        Creates a job definition for an extract, transform, and load (ETL) job that can
+        be run by AWS Glue.
+
+        :param name: The name of the job definition.
+        :param description: The description of the job definition.
+        :param role_arn: The ARN of an IAM role that grants AWS Glue the permissions
+                         it requires to run the job.
+        :param script_location: The Amazon S3 URL of a Python ETL script that is run as
+                                part of the job. The script defines how the data is
+                                transformed.
+        """
+        try:
+            self.glue_client.create_job(
+                Name=name, Description=description, Role=role_arn,
+                Command={'Name': 'glueetl', 'ScriptLocation': script_location, 'PythonVersion': '3'},
+                GlueVersion='3.0')
+        except ClientError as err:
+            logger.error(
+                "Couldn't create job %s. Here's why: %s: %s", name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+</programlisting>

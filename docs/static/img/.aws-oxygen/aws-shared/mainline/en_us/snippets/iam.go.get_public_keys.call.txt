@@ -1,0 +1,5 @@
+    var bodies []*string
+
+    result, err := svc.ListSSHPublicKeys(&iam.ListSSHPublicKeysInput{
+        UserName: userName,
+    })

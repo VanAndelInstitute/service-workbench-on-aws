@@ -1,0 +1,14 @@
+    def verify_email_identity(self, email_address):
+        """
+        Starts verification of an email identity. This function causes an email
+        to be sent to the specified email address from Amazon SES. To complete
+        verification, follow the instructions in the email.
+
+        :param email_address: The email address to verify.
+        """
+        try:
+            self.ses_client.verify_email_identity(EmailAddress=email_address)
+            logger.info("Started verification of %s.", email_address)
+        except ClientError:
+            logger.exception("Couldn't start verification of %s.", email_address)
+            raise

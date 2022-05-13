@@ -1,0 +1,10 @@
+GET\n
+fps.payments.amazon.com\n
+Action=GetTokenUsage
+&accessKey=AKIAIOSFODNN7EXAMPLE
+&Signature=[URL-encoded signature value]
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2008-08-06T13%3A00%3A01Z
+&TokenId=254656Example83987
+&Version=2008-09-17

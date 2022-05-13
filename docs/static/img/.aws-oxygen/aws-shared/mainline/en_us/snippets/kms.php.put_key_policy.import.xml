@@ -1,0 +1,7 @@
+<programlisting>
+
+require 'vendor/autoload.php';
+
+use Aws\Kms\KmsClient; 
+use Aws\Exception\AwsException;
+</programlisting>

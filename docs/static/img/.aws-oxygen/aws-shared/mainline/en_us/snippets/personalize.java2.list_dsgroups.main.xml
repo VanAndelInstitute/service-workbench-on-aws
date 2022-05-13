@@ -1,0 +1,21 @@
+<programlisting>
+    public static void listDSGroups( PersonalizeClient personalizeClient ) {
+
+        try {
+            ListDatasetGroupsRequest groupsRequest = ListDatasetGroupsRequest.builder()
+                .maxResults(15)
+                .build();
+
+            ListDatasetGroupsResponse groupsResponse = personalizeClient.listDatasetGroups(groupsRequest);
+            List<DatasetGroupSummary> groups = groupsResponse.datasetGroups();
+
+            for (DatasetGroupSummary group: groups) {
+                System.out.println("The DataSet name is : "+group.name());
+                System.out.println("The DataSet ARN is : "+group.datasetGroupArn());
+            }
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

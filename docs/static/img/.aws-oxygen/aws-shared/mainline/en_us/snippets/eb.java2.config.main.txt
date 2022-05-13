@@ -1,0 +1,33 @@
+    public static void getOptions(ElasticBeanstalkClient beanstalkClient) {
+
+        try {
+
+            OptionSpecification spec = OptionSpecification.builder()
+                    .namespace("aws:ec2:instances")
+                    .build();
+
+            DescribeConfigurationOptionsRequest request = DescribeConfigurationOptionsRequest.builder()
+                .environmentName("Joblisting-env")
+                  .options(spec)
+                .build();
+
+            DescribeConfigurationOptionsResponse response =  beanstalkClient.describeConfigurationOptions(request);
+            List<ConfigurationOptionDescription> options =  response.options();
+            for (ConfigurationOptionDescription option: options) {
+
+             System.out.println("The namespace is "+option.namespace());
+             String optionName = option.name();
+             System.out.println("The option name is "+optionName);
+             if (optionName.compareTo("InstanceTypes") == 0) {
+                 List<String> valueOptions =  option.valueOptions();
+                 for (String value : valueOptions) {
+                     System.out.println("The value is "+value);
+                 }
+             }
+          }
+
+         } catch (ElasticBeanstalkException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

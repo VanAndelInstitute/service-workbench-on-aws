@@ -1,0 +1,17 @@
+<programlisting>
+        Aws::EC2::EC2Client ec2;
+        Aws::EC2::Model::CreateKeyPairRequest request;
+        request.SetKeyName(pair_name);
+
+        auto outcome = ec2.CreateKeyPair(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Failed to create key pair:" <<
+                outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully created key pair named " <<
+                pair_name << std::endl;
+        }
+</programlisting>

@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.textract.TextractClient
+import aws.sdk.kotlin.services.textract.model.*
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

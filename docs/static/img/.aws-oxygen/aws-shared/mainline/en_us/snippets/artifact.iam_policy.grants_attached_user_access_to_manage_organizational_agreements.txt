@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "artifact:AcceptAgreement",
+                "artifact:DownloadAgreement",
+                "artifact:TerminateAgreement"
+            ],
+            "Resource": [
+                "arn:aws:artifact::*:customer-agreement/*",
+                "arn:aws:artifact:::agreement/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "organizations:DescribeOrganization"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

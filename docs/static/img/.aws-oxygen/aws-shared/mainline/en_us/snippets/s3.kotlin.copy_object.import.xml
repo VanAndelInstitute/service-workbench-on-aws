@@ -1,0 +1,8 @@
+<programlisting>
+import aws.sdk.kotlin.services.s3.S3Client
+import aws.sdk.kotlin.services.s3.model.CopyObjectRequest
+import java.io.UnsupportedEncodingException
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
+import kotlin.system.exitProcess
+</programlisting>

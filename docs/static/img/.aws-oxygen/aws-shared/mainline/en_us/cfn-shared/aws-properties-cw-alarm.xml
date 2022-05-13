@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!--
+   AWS::CloudWatch::Alarm
+-->
+<section id="aws-properties-cw-alarm" role="topic">
+   <title id="aws-properties-cw-alarm.title">AWS::CloudWatch::Alarm</title>
+   <para>The AWS::CloudWatch::Alarm type creates an Amazon CloudWatch alarm.</para>
+   <para>This type supports updates. For more information about updating this resource, see <ulink
+      url="http://&domain;/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html"
+      >PutMetricAlarm</ulink>. </para>
+	<!--<para>For more information about updating stacks, see <link
+		linkend="using-cfn-updating-stacks" endterm="using-cfn-updating-stacks.title"/>.</para>-->
+   <para>When you specify an AWS::CloudWatch::Alarm type as an argument to the <code>Ref</code> function,
+      the value of the <parameter>AlarmName</parameter> is returned.</para>
+   <section id="aws-properties-cw-alarm-prop">
+      <title id="aws-properties-cw-alarm-prop.title">Properties</title>
+      <informaltable>
+         <tgroup cols="4">
+            <colspec colnum="1" colname="c1" colwidth="3.08*"/>
+            <colspec colnum="2" colname="c2" colwidth="1.58*"/>
+            <colspec colnum="3" colname="c3" colwidth="1.0*"/>
+            <colspec colnum="4" colname="c4" colwidth="6.08*"/>
+            <thead>
+               <row>
+                  <entry>Property</entry>
+                  <entry>Type</entry>
+                  <entry>Required</entry>
+                  <entry>Notes</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <simpara>ActionsEnabled</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Indicates whether or not actions should be executed during any changes to the
+                        alarm's state. Either <parameter>true</parameter> or
+                        <parameter>false</parameter>.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>AlarmActions</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>List of String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The list of actions to execute when this alarm transitions into an ALARM state from
+                        any other state. Each action is specified as an Amazon Resource Number (ARN). Currently
+                        the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling
+                        policy.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>AlarmDescription</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The description for the alarm.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>ComparisonOperator</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The arithmetic operation to use when comparing the specified Statistic and
+                        Threshold. The specified Statistic value is used as the first operand.</simpara>
+                     <simpara>Valid Values: <parameter>GreaterThanOrEqualToThreshold</parameter> |
+                        <parameter>GreaterThanThreshold</parameter> | <parameter>LessThanThreshold</parameter>
+                        | <parameter>LessThanOrEqualToThreshold</parameter></simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Dimensions</simpara>
+                  </entry>
+                  <entry>
+                  	<simpara>List of <link linkend="aws-properties-cw-dimension">Metric Dimension</link>
+                        type</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The dimensions for the alarm's associated metric.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>EvaluationPeriods</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The number of periods over which data is compared to the specified
+                        threshold.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>InsufficientDataActions</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>List of String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA
+                        state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+                        Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto
+                        Scaling policy.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>MetricName</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The name for the alarm's associated metric.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Namespace</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The namespace for the alarm's associated metric.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>OKActions</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>List of String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The list of actions to execute when this alarm transitions into an OK state from any
+                        other state. Each action is specified as an Amazon Resource Number (ARN). Currently the
+                        only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling
+                        policy.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Period</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The period in seconds over which the specified statistic is applied.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Statistic</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The statistic to apply to the alarm's associated metric.</simpara>
+                     <simpara>Valid Values: <code>SampleCount</code> | <code>Average</code> | <code>Sum</code> |
+                        <code>Minimum</code> | <code>Maximum</code></simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Threshold</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Yes</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The value against which the specified statistic is compared.</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara>Unit</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>String</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>No</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>The unit for the alarm's associated metric.</simpara>
+                     <simpara>Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes
+                        | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent |
+                        Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second |
+                        Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second |
+                        Terabits/Second | Count/Second | None</simpara>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </informaltable>
+   </section>
+   <section id="aws-properties-cw-alarm-ref">
+      <title id="aws-properties-cw-alarm-ref.title">Return Values</title>
+      <informaltable>
+         <tgroup cols="3">
+            <colspec colnum="1" colname="c1" colwidth="1.38*"/>
+            <colspec colnum="2" colname="c1" colwidth="1.38*"/>
+            <colspec colnum="3" colname="c3" colwidth="3.55*"/>
+            <thead>
+               <row>
+                  <entry>Function</entry>
+                  <entry>Type</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                  	<simpara><link linkend="intrinsic-function-reference-ref">Ref</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myalarm-3AOHFRGOXR5T</simpara>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </informaltable>
+   </section>
+</section>

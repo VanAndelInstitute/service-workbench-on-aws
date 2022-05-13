@@ -1,0 +1,7 @@
+<programlisting>
+#include <aws/core/Aws.h>
+#include <aws/iam/IAMClient.h>
+#include <aws/iam/model/CreateAccessKeyRequest.h>
+#include <aws/iam/model/CreateAccessKeyResult.h>
+#include <iostream>
+</programlisting>

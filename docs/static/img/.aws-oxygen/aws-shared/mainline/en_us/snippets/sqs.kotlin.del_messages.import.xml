@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.sqs.SqsClient
+import aws.sdk.kotlin.services.sqs.model.PurgeQueueRequest
+import aws.sdk.kotlin.services.sqs.model.DeleteQueueRequest
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+
+
+  <procedure>
+   <info>
+    <title>To create a file in the &CAWS; console</title>
+   </info>
+   <step>
+     <para>Navigate to the project where you want to create a file. For more information about how to navigate to a repository, see </para>
+   </step>
+   <step>
+    <para>In the side navigation menu, choose <guilabel>Code</guilabel>, and then choose <guilabel>Repositories</guilabel>.</para>
+   </step>
+   <step>
+    <para>Choose the repository where you want to create the file, and then choose <guilabel>Create file</guilabel>. </para>
+   </step>
+   <step>
+    <para>Add the contents of the file in the editor.  In <guilabel>Commit information</guilabel>, type the name of the file in <guilabel>File name</guilabel>.
+    In <guilabel>Commit title</guilabel>, type a brief but informative description of why you made this change. This will be displayed as the basic commit information for
+    the commit that adds the file to the source repository. Optionally add more information about the change in <guilabel>Description</guilabel>.  When you are satisfied with your changes,
+    choose <guilabel>Commit file</guilabel>.</para>
+   </step>
+  </procedure>
+ 
+
+

@@ -1,0 +1,9 @@
+<programlisting>
+    stackName := flag.String("n", "", "The name of the stack to create or delete")
+    flag.Parse()
+
+    if *stackName == "" {
+        fmt.Println("You must supply a stack name (-s STACK-NAME)")
+        return
+    }
+</programlisting>

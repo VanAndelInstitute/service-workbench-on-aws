@@ -1,0 +1,55 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/ec2"
+    "github.com/aws/aws-sdk-go/service/ec2/ec2iface"
+)
+
+// RemoveSecurityGroup deletes a security group.
+// Inputs:
+//     svc is an Amazon EC2 service client
+//     name is the name of the security group
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to DeleteSecurityGroup
+func RemoveSecurityGroup(svc ec2iface.EC2API, name *string) error {
+    _, err := svc.DeleteSecurityGroup(&ec2.DeleteSecurityGroupInput{
+        GroupName: name,
+    })
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    name := flag.String("n", "", "The name of the security group to delete")
+    flag.Parse()
+
+    if *name == "" {
+        fmt.Println("You must supply the name of the security group to delete")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := ec2.New(sess)
+
+    err := RemoveSecurityGroup(svc, name)
+    if err != nil {
+        fmt.Println("Got an error deleting security group:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Deleted security group with ID " + *name)
+}
+</programlisting>

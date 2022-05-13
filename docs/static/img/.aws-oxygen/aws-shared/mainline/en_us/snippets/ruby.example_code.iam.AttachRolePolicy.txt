@@ -1,0 +1,26 @@
+  # Creates a policy that grants permission to list S3 buckets in the account, and
+  # then attaches the policy to a role.
+  #
+  # @param policy_name [String] The name to give the policy.
+  # @param role [Aws::IAM::Role] The role that the policy is attached to.
+  # @return [Aws::IAM::Policy] The newly created policy.
+  def create_and_attach_role_policy(policy_name, role)
+    policy = @iam_resource.create_policy(
+      policy_name: policy_name,
+      policy_document: {
+        Version: "2012-10-17",
+        Statement: [{
+          Effect: "Allow",
+          Action: "s3:ListAllMyBuckets",
+          Resource: "arn:aws:s3:::*"
+        }]
+      }.to_json)
+    role.attach_policy(policy_arn: policy.arn)
+    puts("Created policy #{policy.policy_name} and attached it to role #{role.name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't create a policy and attach it to role #{role.name}. Here's why: ")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    policy
+  end

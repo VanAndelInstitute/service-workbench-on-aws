@@ -1,0 +1,25 @@
+<programlisting>
+ 
+$client = new CognitoIdentityProviderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2016-04-18'
+]);
+
+$clientName = "PHP_SDK_test_client";
+$userPoolId = "us-east-2_P0oL1D";
+
+try {
+    $result = $client->createUserPoolClient([
+        'ClientName' => $clientName, 
+        'UserPoolId' => $userPoolId, 
+    ]);
+    echo $result["UserPoolClient"]["ClientId"];
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+    error_log($e->getMessage());
+}
+
+</programlisting>

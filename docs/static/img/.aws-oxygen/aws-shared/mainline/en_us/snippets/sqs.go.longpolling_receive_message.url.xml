@@ -1,0 +1,11 @@
+<programlisting>
+    resultURL, err := svc.GetQueueUrl(&sqs.GetQueueUrlInput{
+        QueueName: namePtr,
+    })
+    if err != nil {
+        if aerr, ok := err.(awserr.Error); ok && aerr.Code() == sqs.ErrCodeQueueDoesNotExist {
+            exitErrorf("Unable to find queue %q.", *namePtr)
+        }
+        exitErrorf("Unable to queue %q, %v.", *namePtr, err)
+    }
+</programlisting>

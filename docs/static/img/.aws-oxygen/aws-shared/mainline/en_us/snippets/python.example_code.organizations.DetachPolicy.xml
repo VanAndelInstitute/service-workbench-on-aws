@@ -1,0 +1,17 @@
+<programlisting>
+def detach_policy(policy_id, target_id, orgs_client):
+    """
+    Detaches a policy from a target.
+
+    :param policy_id: The ID of the policy to detach.
+    :param target_id: The ID of the resource where the policy is currently attached.
+    :param orgs_client: The Boto3 Organizations client.
+    """
+    try:
+        orgs_client.detach_policy(PolicyId=policy_id, TargetId=target_id)
+        logger.info("Detached policy %s from target %s.", policy_id, target_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't detach policy %s from target %s.", policy_id, target_id)
+        raise
+</programlisting>

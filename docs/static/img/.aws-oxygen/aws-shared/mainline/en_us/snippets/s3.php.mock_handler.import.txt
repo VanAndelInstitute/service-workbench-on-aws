@@ -1,0 +1,2 @@
+use Aws\Result;
+use Aws\MockHandler;

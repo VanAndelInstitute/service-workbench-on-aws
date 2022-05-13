@@ -1,0 +1,21 @@
+<programlisting>
+    def create(self, name, wait_until_exists=True):
+        """
+        Creates a stream.
+
+        :param name: The name of the stream.
+        :param wait_until_exists: When True, waits until the service reports that
+                                  the stream exists, then queries for its metadata.
+        """
+        try:
+            self.kinesis_client.create_stream(StreamName=name, ShardCount=1)
+            self.name = name
+            logger.info("Created stream %s.", name)
+            if wait_until_exists:
+                logger.info("Waiting until exists.")
+                self.stream_exists_waiter.wait(StreamName=name)
+                self.describe(name)
+        except ClientError:
+            logger.exception("Couldn't create stream %s.", name)
+            raise
+</programlisting>

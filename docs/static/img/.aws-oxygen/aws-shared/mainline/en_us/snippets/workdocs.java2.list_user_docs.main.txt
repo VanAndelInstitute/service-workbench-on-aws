@@ -1,0 +1,71 @@
+    public static void listDocs(WorkDocsClient workDocs, String orgId, String userEmail ) {
+
+       try {
+        String folderId = getUserFolder(workDocs, orgId, userEmail);
+
+        DescribeFolderContentsRequest dfcRequest = DescribeFolderContentsRequest.builder()
+                .folderId(folderId)
+                .build();
+
+        DescribeFolderContentsResponse result = workDocs.describeFolderContents(dfcRequest);
+
+        List<DocumentMetadata> userDocs = new ArrayList<>();
+
+        userDocs.addAll(result.documents());
+
+        System.out.println("Docs for user " + userEmail + ":");
+        System.out.println("");
+
+        for (DocumentMetadata doc: userDocs) {
+            DocumentVersionMetadata md = doc.latestVersionMetadata();
+            System.out.println("Name:          " + md.name());
+            System.out.println("Size (bytes):  " + md.size());
+            System.out.println("Last modified: " + md.modifiedTimestamp());
+            System.out.println("Doc ID:        " + doc.id());
+            System.out.println("");
+        }
+
+       } catch(WorkDocsException e) {
+           System.out.println(e.getLocalizedMessage());
+           System.exit(1);
+       }
+    }
+
+    private static String getUserFolder(WorkDocsClient workDocs, String orgId, String user) {
+
+        List<User> wdUsers = new ArrayList<>();
+        try {
+        String marker = null;
+
+        do {
+            DescribeUsersResponse result;
+
+            if(marker == null) {
+                DescribeUsersRequest request = DescribeUsersRequest.builder()
+                        .organizationId(orgId)
+                        .query(user)
+                        .build();
+                result = workDocs.describeUsers(request);
+            } else {
+                DescribeUsersRequest request = DescribeUsersRequest.builder()
+                        .organizationId(orgId)
+                        .query(user)
+                        .marker(marker)
+                        .build();
+                result = workDocs.describeUsers(request);
+            }
+
+            wdUsers.addAll(result.users());
+            marker = result.marker();
+        } while (marker != null);
+
+        for (User wdUser : wdUsers) {
+            return wdUser.rootFolderId();
+        }
+
+        } catch(WorkDocsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+        return "";
+    }

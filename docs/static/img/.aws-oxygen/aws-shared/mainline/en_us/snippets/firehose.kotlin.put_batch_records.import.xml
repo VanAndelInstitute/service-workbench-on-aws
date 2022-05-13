@@ -1,0 +1,8 @@
+<programlisting>
+import aws.sdk.kotlin.services.firehose.FirehoseClient
+import aws.sdk.kotlin.services.firehose.model.PutRecordBatchRequest
+import aws.sdk.kotlin.services.firehose.model.Record
+import com.example.firehose.StockTradeGenerator
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

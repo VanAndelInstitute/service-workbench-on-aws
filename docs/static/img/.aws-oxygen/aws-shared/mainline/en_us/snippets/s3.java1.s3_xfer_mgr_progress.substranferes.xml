@@ -1,0 +1,30 @@
+<programlisting>
+        Collection<? extends Upload> sub_xfers = new ArrayList<Upload>();
+        sub_xfers = multi_upload.getSubTransfers();
+
+        do {
+            System.out.println("\nSubtransfer progress:\n");
+            for (Upload u : sub_xfers) {
+                System.out.println("  " + u.getDescription());
+                if (u.isDone()) {
+                    TransferState xfer_state = u.getState();
+                    System.out.println("  " + xfer_state);
+                } else {
+                    TransferProgress progress = u.getProgress();
+                    double pct = progress.getPercentTransferred();
+                    printProgressBar(pct);
+                    System.out.println();
+                }
+            }
+
+            // wait a bit before the next update.
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                return;
+            }
+        } while (multi_upload.isDone() == false);
+        // print the final state of the transfer.
+        TransferState xfer_state = multi_upload.getState();
+        System.out.println("\nMultipleFileUpload " + xfer_state);
+</programlisting>

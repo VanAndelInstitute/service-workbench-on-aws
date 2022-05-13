@@ -1,0 +1,7 @@
+    bucket := flag.String("b", "", "The bucket to empty")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply a bucket to empty (-b BUCKET)")
+        return
+    }

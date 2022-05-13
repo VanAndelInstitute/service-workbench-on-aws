@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.cognitoidentityprovider.CognitoIdentityProviderClient
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.AdminCreateUserRequest
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.AttributeType
+import kotlin.system.exitProcess
+</programlisting>

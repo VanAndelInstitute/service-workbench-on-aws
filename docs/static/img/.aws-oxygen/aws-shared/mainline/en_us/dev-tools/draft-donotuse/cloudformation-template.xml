@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  
+  
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY SERVICENAME '<replaceable>Your service name entity, e.g., &S3;</replaceable>'>
+  <!ENTITY RESOURCENAMEPLURAL '<replaceable>The plural name of the primary resource for your service, e.g., buckets. You might need more than one of these if your service has 
+  more than one resource type supported by CloudFormation.</replaceable>'>
+  <!ENTITY RESOURCETEMPLATEURL '<replaceable>The link to your service resource page in the CloudFormation template reference, e.g., <ulink type="documentation" url="AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html">AWS::S3::Bucket</ulink></replaceable>'>
+ ]>
+<!-- Instructions: 
+     0. Save this template to your user guide package as cloudformation-yourservicename.xml.
+     1. Replace the values of the entities above with the appropriate values. Copy them into your local entities file and delete them from the top of this template. 
+     2. ADD your local entities file to the entities section above.
+     3. Review the content in comments. If it applies to your service, remove the comment markers and revise the content so it's appropriate to your service. 
+     4. Let the CloudFormation writing team know when you've published this topic to public in your user guide, and get a Phone Tool Award!
+-->
+<chapter role="topic" id="creating-resources-with-cloudformation">
+ <info>
+  <title id="creating-resources-with-cloudformation.title">Creating &SERVICENAME; resources with
+   &CFNlong;</title>
+  <abstract>
+   <para>Learn about how to create resources for &SERVICENAME; using an &CFNlong; template.</para>
+  </abstract>
+ </info>
+ <para>&SERVICENAME; is integrated with &CFNlong;, a service that helps you model and set up your
+  &AWS; resources so that you can spend less time creating and managing your resources and
+  infrastructure. You create a template that describes all the &AWS; resources that you want (like
+  &RESOURCENAMEPLURAL;), and &CFN; takes care of provisioning and configuring those resources for
+  you. </para>
+ <para>When you use &CFN;, you can reuse your template to set up your &SERVICENAME; resources
+  consistently and repeatedly. Just describe your resources once, and then provision the same
+  resources over and over in multiple &AWS; accounts and Regions. </para>
+ <section id="working-with-templates">
+  <info>
+   <title id="working-with-templates.title">&SERVICENAME; and &CFN; templates</title>
+  </info>
+  <para>To provision and configure resources for &SERVICENAME; and related services, you must
+   understand <ulink type="documentation"
+    url="AWSCloudFormation/latest/UserGuide/template-guide.html">&CFN; templates</ulink>. Templates
+   are formatted text files in JSON or YAML. These templates describe the resources that you want to
+   provision in your &CFN; stacks. If you're unfamiliar with JSON or YAML, you can use &CFN;
+   Designer to help you get started with &CFN; templates. For more information, see <ulink
+    type="documentation"
+    url="AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html">What is &CFN;
+    Designer?</ulink> in the <emphasis>&guide-cfn-user;</emphasis>.</para>
+  <para>&SERVICENAME; supports creating &RESOURCENAMEPLURAL;
+   <!-- and list any additional resources for your service, if your service has multiple resource types supported in 
+  CloudFormation -->
+   in &CFN;. For more information, including examples of JSON and YAML templates for
+   &RESOURCENAMEPLURAL;, see &RESOURCETEMPLATEURL; in the
+   <emphasis>&guide-cfn-user;</emphasis>.</para>
+  <!-- You can also create templates that
+   create related resources, such as <replaceable>related-resource-1</replaceable> and <replaceable>related-resource-2</replaceable>. -->
+ </section>
+ <!-- Bonus points: Add another section that covers a particularly interesting use case for your service and CloudFormation, including example templates. -->
+ <section id="learn-more-cloudformation">
+  <info>
+   <title id="learn-more-cloudformation.title">Learn more about &CFN;</title>
+  </info>
+  <para>To learn more about &CFN;, see the following resources:</para>
+  <itemizedlist>
+   <listitem>
+    <para><ulink url="cloudformation/" type="marketing">&CFNLong;</ulink></para>
+   </listitem>
+   <listitem>
+    <para><ulink type="documentation" url="AWSCloudFormation/latest/UserGuide/Welcome.html"
+      >&CFNLong; User Guide</ulink></para>
+   </listitem>
+   <listitem>
+    <para><ulink type="documentation"
+      url="cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">&CFNLong; Command
+      Line Interface User Guide</ulink></para>
+   </listitem>
+  </itemizedlist>
+ </section>
+</chapter>
+<?oxy_options track_changes="on"?>

@@ -1,0 +1,11 @@
+<programlisting>
+    monitor := flag.String("m", "", "ON to enable monitoring; OFF to disable monitoring")
+    instanceID := flag.String("i", "", "The ID of the instance to monitor")
+    flag.Parse()
+
+    if *instanceID == "" || (*monitor != "ON" && *monitor != "OFF") {
+        fmt.Println("You must supply the ID of the instance to enable/disable monitoring (-i INSTANCE-ID)")
+        fmt.Println("and whether to enable monitoring (-m ON) or disable monitoring (-m OFF)")
+        return
+    }
+</programlisting>

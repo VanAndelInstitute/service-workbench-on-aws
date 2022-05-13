@@ -1,0 +1,20 @@
+<programlisting>
+
+            OutputGroup appleHLS = OutputGroup.builder().name("Apple HLS").customName("Example")
+                    .outputGroupSettings(OutputGroupSettings.builder().type(OutputGroupType.HLS_GROUP_SETTINGS)
+                            .hlsGroupSettings(HlsGroupSettings.builder()
+                                    .directoryStructure(HlsDirectoryStructure.SINGLE_DIRECTORY)
+                                    .manifestDurationFormat(HlsManifestDurationFormat.INTEGER)
+                                    .streamInfResolution(HlsStreamInfResolution.INCLUDE)
+                                    .clientCache(HlsClientCache.ENABLED)
+                                    .captionLanguageSetting(HlsCaptionLanguageSetting.OMIT)
+                                    .manifestCompression(HlsManifestCompression.NONE)
+                                    .codecSpecification(HlsCodecSpecification.RFC_4281)
+                                    .outputSelection(HlsOutputSelection.MANIFESTS_AND_SEGMENTS)
+                                    .programDateTime(HlsProgramDateTime.EXCLUDE).programDateTimePeriod(600)
+                                    .timedMetadataId3Frame(HlsTimedMetadataId3Frame.PRIV).timedMetadataId3Period(10)
+                                    .destination(fileOutput).segmentControl(HlsSegmentControl.SEGMENTED_FILES)
+                                    .minFinalSegmentLength((double) 0).segmentLength(4).minSegmentLength(0).build())
+                            .build())
+                    .outputs(hlsLow, hlsMedium, hlsHigh).build();
+</programlisting>

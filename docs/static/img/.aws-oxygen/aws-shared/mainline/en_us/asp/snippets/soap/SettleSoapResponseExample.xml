@@ -1,0 +1,16 @@
+<SettleResponse
+  xmlns="https://fps.amazonaws.com/doc/2008-09-17/">
+  <SettleResult>
+    <TransactionId>
+      254656Example83987
+    </TransactionId>
+    <TransactionStatus>
+      Pending
+    </TransactionStatus>
+  </SettleResult>
+  <ResponseMetadata>
+    <RequestId>
+      a8d5e97c-6a7e-4fe1-b019-58a428a5a68b:0
+    </RequestId>
+  </ResponseMetadata>
+</SettleResponse>

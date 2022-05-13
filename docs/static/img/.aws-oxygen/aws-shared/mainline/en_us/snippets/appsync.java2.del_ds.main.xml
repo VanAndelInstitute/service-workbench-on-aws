@@ -1,0 +1,19 @@
+<programlisting>
+    public static void deleteDS( AppSyncClient appSyncClient, String apiId, String dsName) {
+
+        try {
+
+            DeleteDataSourceRequest request = DeleteDataSourceRequest.builder()
+                    .apiId(apiId)
+                    .name(dsName)
+                    .build();
+
+            appSyncClient.deleteDataSource(request);
+            System.out.println("The data source was deleted.");
+
+        } catch (AppSyncException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

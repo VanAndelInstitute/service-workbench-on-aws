@@ -1,0 +1,13 @@
+<programlisting>
+class KinesisAnalyticsApplicationV2:
+    """Encapsulates Kinesis Data Analytics application functions."""
+    def __init__(self, analytics_client):
+        """
+        :param analytics_client: A Boto3 Kinesis Data Analytics v2 client.
+        """
+        self.analytics_client = analytics_client
+        self.name = None
+        self.arn = None
+        self.version_id = None
+        self.create_timestamp = None
+</programlisting>

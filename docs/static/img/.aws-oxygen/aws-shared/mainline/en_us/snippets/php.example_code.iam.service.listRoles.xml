@@ -1,0 +1,23 @@
+<programlisting>
+    /**
+     * @param string $pathPrefix
+     * @param string $marker
+     * @param int $maxItems
+     * @return Result
+     * $roles = $service->listRoles();
+     */
+    public function listRoles($pathPrefix = "", $marker = "", $maxItems = 0)
+    {
+        $listRolesArguments = [];
+        if ($pathPrefix) {
+            $listRolesArguments["PathPrefix"] = $pathPrefix;
+        }
+        if ($marker) {
+            $listRolesArguments["Marker"] = $marker;
+        }
+        if ($maxItems) {
+            $listRolesArguments["MaxItems"] = $maxItems;
+        }
+        return $this->iamClient->listRoles($listRolesArguments);
+    }
+</programlisting>

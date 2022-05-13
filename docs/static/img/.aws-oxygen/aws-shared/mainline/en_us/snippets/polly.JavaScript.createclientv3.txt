@@ -1,0 +1,6 @@
+const { PollyClient } =require( "@aws-sdk/client-polly");
+// Set the AWS Region.
+const REGION = "REGION"; //e.g. "us-east-1"
+// Create an Amazon S3 service client object.
+const pollyClient = new PollyClient({ region: REGION });
+module.exports = { pollyClient };

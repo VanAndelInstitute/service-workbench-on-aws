@@ -1,0 +1,22 @@
+<programlisting>
+  # Updates rating and plot data for a movie in the table.
+  #
+  # @param title [String] The title of the movie to update.
+  # @param year [Int] The release year of the movie to update.
+  # @param rating [Float] The updated rating to give the movie.
+  # @param plot [String] The updated plot summary to give the movie.
+  # @return [Hash] The fields that were updated, with their new values.
+  def update_movie(title:, year:, rating:, plot:)
+    response = @table.update_item(
+      key: {"year" => year, "title" => title},
+      update_expression: "set info.rating=:r, info.plot=:p",
+      expression_attribute_values: { ":r" => rating, ":p" => plot },
+      return_values: "UPDATED_NEW")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't update movie #{title} in table #{@table.name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    response.attributes
+  end
+</programlisting>

@@ -1,0 +1,9 @@
+    public function attachRolePolicy($roleName, $policyArn)
+    {
+        return $this->customWaiter(function () use ($roleName, $policyArn) {
+            $this->iamClient->attachRolePolicy([
+                'PolicyArn' => $policyArn,
+                'RoleName' => $roleName,
+            ]);
+        });
+    }

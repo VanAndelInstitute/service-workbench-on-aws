@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:ListRoles",
+            "Resource": "arn:aws:iam::*:role/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateRole",
+            "Resource": "arn:aws:iam::*:role/service-role/AWSArtifactAccountSync"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:AttachRolePolicy",
+            "Resource": "arn:aws:iam::*:role/service-role/AWSArtifactAccountSync",
+            "Condition": {
+                "ArnEquals": {
+                    "iam:PolicyARN": "arn:aws:iam::aws:policy/service-role/AWSArtifactAccountSync"
+                }
+            }
+        }
+    ]
+}

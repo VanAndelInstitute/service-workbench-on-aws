@@ -1,0 +1,17 @@
+<programlisting>
+    def describe_voices(self):
+        """
+        Gets metadata about available voices.
+
+        :return: The list of voice metadata.
+        """
+        try:
+            response = self.polly_client.describe_voices()
+            self.voice_metadata = response['Voices']
+            logger.info("Got metadata about %s voices.", len(self.voice_metadata))
+        except ClientError:
+            logger.exception("Couldn't get voice metadata.")
+            raise
+        else:
+            return self.voice_metadata
+</programlisting>

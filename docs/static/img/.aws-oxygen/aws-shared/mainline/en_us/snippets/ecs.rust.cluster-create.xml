@@ -1,0 +1,8 @@
+<programlisting>
+async fn make_cluster(client: &aws_sdk_ecs::Client, name: &str) -> Result<(), aws_sdk_ecs::Error> {
+    let cluster = client.create_cluster().cluster_name(name).send().await?;
+    println!("cluster created: {:?}", cluster);
+
+    Ok(())
+}
+</programlisting>

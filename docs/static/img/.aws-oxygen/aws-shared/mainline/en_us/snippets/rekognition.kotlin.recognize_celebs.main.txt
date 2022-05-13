@@ -1,0 +1,23 @@
+suspend fun recognizeAllCelebrities(sourceImage: String?) {
+
+        val souImage = Image {
+            bytes = (File(sourceImage).readBytes())
+        }
+
+        val request = RecognizeCelebritiesRequest{
+            image = souImage
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val response = rekClient.recognizeCelebrities(request)
+          response.celebrityFaces?.forEach { celebrity ->
+                println("Celebrity recognized: ${celebrity.name}")
+                println("Celebrity ID:${celebrity.id}")
+                println("Further information (if available):")
+                celebrity.urls?.forEach { url ->
+                      println(url)
+                }
+             }
+          println("${response.unrecognizedFaces?.size} face(s) were unrecognized.")
+        }
+  }

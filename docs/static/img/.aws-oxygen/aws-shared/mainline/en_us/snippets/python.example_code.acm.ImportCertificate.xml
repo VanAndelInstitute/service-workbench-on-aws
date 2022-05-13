@@ -1,0 +1,21 @@
+<programlisting>
+    def import_certificate(self, certificate_body, private_key):
+        """
+        Imports a self-signed certificate to ACM.
+
+        :param certificate_body: The body of the certificate, in PEM format.
+        :param private_key: The unencrypted private key of the certificate, in PEM
+                            format.
+        :return: The ARN of the imported certificate.
+        """
+        try:
+            response = self.acm_client.import_certificate(
+                Certificate=certificate_body, PrivateKey=private_key)
+            certificate_arn = response['CertificateArn']
+            logger.info("Imported certificate.")
+        except ClientError:
+            logger.exception("Couldn't import certificate.")
+            raise
+        else:
+            return certificate_arn
+</programlisting>

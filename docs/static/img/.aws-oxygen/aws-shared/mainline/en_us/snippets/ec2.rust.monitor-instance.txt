@@ -1,0 +1,7 @@
+async fn enable_monitoring(client: &Client, id: &str) -> Result<(), Error> {
+    client.monitor_instances().instance_ids(id).send().await?;
+
+    println!("Enabled monitoring");
+
+    Ok(())
+}

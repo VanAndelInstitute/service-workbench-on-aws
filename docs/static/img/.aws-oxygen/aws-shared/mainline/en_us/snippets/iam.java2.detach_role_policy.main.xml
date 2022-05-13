@@ -1,0 +1,19 @@
+<programlisting>
+    public static void detachPolicy(IamClient iam, String roleName, String policyArn ) {
+
+        try {
+            DetachRolePolicyRequest request = DetachRolePolicyRequest.builder()
+                    .roleName(roleName)
+                    .policyArn(policyArn)
+                    .build();
+
+            iam.detachRolePolicy(request);
+            System.out.println("Successfully detached policy " + policyArn +
+                " from role " + roleName);
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,21 @@
+<programlisting>
+    public static void listAllActivites(SfnClient sfnClient) {
+
+        try {
+            ListActivitiesRequest activitiesRequest = ListActivitiesRequest.builder()
+                    .maxResults(10)
+                    .build();
+
+            ListActivitiesResponse response = sfnClient.listActivities(activitiesRequest);
+            List<ActivityListItem> items = response.activities();
+            for (ActivityListItem item: items) {
+                System.out.println("The activity ARN is "+item.activityArn());
+                System.out.println("The activity name is "+item.name());
+            }
+
+        } catch (SfnException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

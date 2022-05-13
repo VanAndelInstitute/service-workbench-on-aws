@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="IPNTransactionStatusDataTypes">
+	<title id="IPNTransactionStatusDataTypes.title">IPN TransactionStatus Data Types</title>
+	<para>
+		<informaltable>
+			<tgroup cols="3">
+				<?dbhtml table-width="100%" ?>
+				<?dbfo table-width="95%" ?>
+				<colspec colname="c1" colnum="1" colwidth="0.43*"/>
+				<colspec colname="c2" colnum="2" colwidth="2.32*"/>
+				<colspec colname="c3" colnum="3" colwidth="0.26*"/>
+				<thead>
+					<row>
+						<entry>Name</entry>
+						<entry>Description</entry>
+						<entry>Type</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para>
+								<parameter>CANCELLED</parameter>
+							</para>
+						</entry>
+						<entry>
+							<para>The transaction was canceled.</para>
+						</entry>
+						<entry>
+							<para>String</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<parameter>FAILURE</parameter>
+							</para>
+						</entry>
+						<entry>
+							<para>The transaction failed. The API operation failed and Amazon FPS did not receive or record a transaction. You can retry the transaction only if a retriable error was returned.</para>
+						</entry>
+						<entry>
+							<para>String</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<parameter>PENDING</parameter>
+							</para>
+						</entry>
+						<entry>
+							<para>The transaction is pending.</para>
+						</entry>
+						<entry>
+							<para>String</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<parameter>RESERVED</parameter>
+							</para>
+						</entry>
+						<entry>
+							<para>The reserve request on the transaction succeeded. Amazon FPS reserves the purchase price against the sender's payment instrument. </para>
+						</entry>
+						<entry>
+							<para>String</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<parameter>SUCCESS</parameter>
+							</para>
+						</entry>
+						<entry>
+							<para>The transaction succeeded. You can fulfill the order for the customer.</para>
+						</entry>
+						<entry>
+							<para>String</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
+	</para>
+</section>

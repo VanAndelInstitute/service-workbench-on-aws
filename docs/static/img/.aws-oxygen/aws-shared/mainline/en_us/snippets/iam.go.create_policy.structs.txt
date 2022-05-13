@@ -1,0 +1,11 @@
+type StatementEntry struct {
+    Effect   string
+    Action   []string
+    Resource string
+}
+
+// PolicyDocument is our definition of our policies to be uploaded to IAM.
+type PolicyDocument struct {
+    Version   string
+    Statement []StatementEntry
+}

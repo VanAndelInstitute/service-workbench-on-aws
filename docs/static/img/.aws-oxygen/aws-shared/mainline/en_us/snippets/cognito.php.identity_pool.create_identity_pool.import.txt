@@ -1,0 +1,6 @@
+
+require 'vendor/autoload.php';
+
+use Aws\CognitoIdentity\CognitoIdentityClient;
+use Aws\Exception\AwsException;
+

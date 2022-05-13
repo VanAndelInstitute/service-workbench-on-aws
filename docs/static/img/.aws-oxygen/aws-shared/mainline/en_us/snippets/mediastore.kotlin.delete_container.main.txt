@@ -1,0 +1,11 @@
+suspend fun deleteMediaContainer(containerNameVal: String?) {
+
+        val request = DeleteContainerRequest {
+            containerName = containerNameVal
+        }
+
+        MediaStoreClient { region = "us-west-2" }.use { mediaStoreClient ->
+            mediaStoreClient.deleteContainer(request)
+            println("The $containerNameVal was deleted")
+        }
+ }

@@ -1,0 +1,31 @@
+<programlisting>
+    Aws::EC2::EC2Client ec2;
+
+    Aws::EC2::Model::StartInstancesRequest start_request;
+    start_request.AddInstanceIds(instance_id);
+    start_request.SetDryRun(true);
+
+    auto dry_run_outcome = ec2.StartInstances(start_request);
+    assert(!dry_run_outcome.IsSuccess());
+    if (dry_run_outcome.GetError().GetErrorType() !=
+        Aws::EC2::EC2Errors::DRY_RUN_OPERATION)
+    {
+        std::cout << "Failed dry run to start instance " << instance_id << ": "
+            << dry_run_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    start_request.SetDryRun(false);
+    auto start_instancesOutcome = ec2.StartInstances(start_request);
+
+    if (!start_instancesOutcome.IsSuccess())
+    {
+        std::cout << "Failed to start instance " << instance_id << ": " <<
+            start_instancesOutcome.GetError().GetMessage() << std::endl;
+    }
+    else
+    {
+        std::cout << "Successfully started instance " << instance_id <<
+            std::endl;
+    }
+</programlisting>

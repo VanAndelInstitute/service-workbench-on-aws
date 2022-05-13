@@ -1,0 +1,7 @@
+<programlisting>
+import * as core from '@aws-cdk/core';
+import { MyRdsDbStack } from '../lib/MyRdsDbStack-stack';
+
+const app = new core.App();
+new MyRdsDbStack(app, 'MyRdsDbStack');
+</programlisting>

@@ -1,0 +1,37 @@
+<programlisting>
+    private static CompletableFuture<Void> responseHandlerBuilderClassic(KinesisAsyncClient client, SubscribeToShardRequest request) {
+        SubscribeToShardResponseHandler responseHandler = new SubscribeToShardResponseHandler() {
+
+            @Override
+            public void responseReceived(SubscribeToShardResponse response) {
+                System.out.println("Receieved initial response");
+            }
+
+            @Override
+            public void onEventStream(SdkPublisher<SubscribeToShardEventStream> publisher) {
+                publisher
+                        // Filter to only SubscribeToShardEvents
+                        .filter(SubscribeToShardEvent.class)
+                        // Flat map into a publisher of just records
+                        .flatMapIterable(SubscribeToShardEvent::records)
+                        // Limit to 1000 total records
+                        .limit(1000)
+                        // Batch records into lists of 25
+                        .buffer(25)
+                        // Print out each record batch
+                        .subscribe(batch -> System.out.println("Record Batch - " + batch));
+            }
+
+            @Override
+            public void complete() {
+                System.out.println("All records stream successfully");
+            }
+
+            @Override
+            public void exceptionOccurred(Throwable throwable) {
+                System.err.println("Error during stream - " + throwable.getMessage());
+            }
+        };
+        return client.subscribeToShard(request, responseHandler);
+    }
+</programlisting>

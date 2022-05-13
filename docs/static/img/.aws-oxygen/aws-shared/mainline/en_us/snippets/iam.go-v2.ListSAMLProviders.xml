@@ -1,0 +1,14 @@
+<programlisting>
+	// ListSAMLProviders
+
+	samlProviderList, err := service.ListSAMLProviders(context.Background(), &iam.ListSAMLProvidersInput{})
+
+	if err != nil {
+		panic("Couldn't list saml providers: " + err.Error())
+	}
+
+	for _, provider := range samlProviderList.SAMLProviderList {
+		fmt.Printf("%s %s -> %s", *provider.Arn, *provider.CreateDate, *provider.ValidUntil)
+	}
+
+</programlisting>

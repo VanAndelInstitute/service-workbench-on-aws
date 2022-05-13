@@ -1,0 +1,4 @@
+#include <aws/core/Aws.h>
+#include <aws/iam/IAMClient.h>
+#include <aws/iam/model/UpdateUserRequest.h>
+#include <iostream>

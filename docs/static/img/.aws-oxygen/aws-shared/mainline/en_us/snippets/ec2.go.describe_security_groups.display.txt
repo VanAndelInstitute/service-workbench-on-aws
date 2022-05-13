@@ -1,0 +1,8 @@
+    for _, group := range result.SecurityGroups {
+        fmt.Println(*group.GroupName)
+        fmt.Println("  Description: " + *group.Description)
+        fmt.Println("  Group ID:   " + *group.GroupId)
+        fmt.Println("")
+    }
+
+    fmt.Println("Found", len(result.SecurityGroups), "security groups")

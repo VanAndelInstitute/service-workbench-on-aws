@@ -1,0 +1,8 @@
+import boto3
+
+iot_client = boto3.client('iot-data')
+response = iot_client.publish(
+    topic='some/topic',
+    qos=0,
+    payload='Some payload'.encode()
+)

@@ -1,0 +1,12 @@
+    def delete_config_rule(self, rule_name):
+        """
+        Delete the specified rule.
+
+        :param rule_name: The name of the rule to delete.
+        """
+        try:
+            self.config_client.delete_config_rule(ConfigRuleName=rule_name)
+            logger.info("Deleted rule %s.", rule_name)
+        except ClientError:
+            logger.exception("Couldn't delete rule %s.", rule_name)
+            raise

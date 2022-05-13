@@ -1,0 +1,11 @@
+<programlisting>
+	listBucketsResult, err := client.ListBuckets(context.TODO(), &s3.ListBucketsInput{})
+
+	if err != nil {
+		panic("Couldn't list buckets")
+	}
+
+	for _, bucket := range listBucketsResult.Buckets {
+		fmt.Printf("Bucket name: %s\t\tcreated at: %v\n", *bucket.Name, bucket.CreationDate)
+	}
+</programlisting>

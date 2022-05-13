@@ -1,0 +1,22 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string collectionId = "MyCollection";
+            var faces = new List<string> { "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" };
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var deleteFacesRequest = new DeleteFacesRequest()
+            {
+                CollectionId = collectionId,
+                FaceIds = faces,
+            };
+
+            DeleteFacesResponse deleteFacesResponse = await rekognitionClient.DeleteFacesAsync(deleteFacesRequest);
+            deleteFacesResponse.DeletedFaces.ForEach(face =>
+            {
+                Console.WriteLine($"FaceID: {face}");
+            });
+        }
+
+</programlisting>

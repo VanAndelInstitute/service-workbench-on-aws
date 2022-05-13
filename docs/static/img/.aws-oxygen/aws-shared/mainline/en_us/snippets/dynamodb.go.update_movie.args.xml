@@ -1,0 +1,37 @@
+<programlisting>
+    table := flag.String("t", "", "The name of the table")
+    movie := flag.String("m", "", "The name of the movie")
+    year := flag.String("y", "", "The year the movie was made")
+    rating := flag.String("r", "", "The rating, from 0 (zero) to 1 (one)")
+    flag.Parse()
+
+    if *table == "" || *movie == "" || *year == "" || *rating == "" {
+        fmt.Println("You must supply a table name (-t TABLE), movie name (-m MOVIE), movie year (-y YEAR), and rating (-r RATING)")
+        return
+    }
+
+    // Make sure rating is in the range 0 to 1, and year is in the range 1900 - 2020
+    yearInt, err := strconv.Atoi(*year)
+    if err != nil {
+        fmt.Println("Year is not an integer value")
+        return
+    }
+
+    if yearInt < 1900 {
+        *year = "1900"
+    } else if yearInt > 2020 {
+        *year = "2020"
+    }
+
+    ratingFloat, err := strconv.ParseFloat(*rating, 64)
+    if err != nil {
+        fmt.Println("Rating is not a floating-point value")
+        return
+    }
+
+    if ratingFloat < 0.0 {
+        *rating = "0.0"
+    } else if ratingFloat > 1.0 {
+        *rating = "1.0"
+    }
+</programlisting>

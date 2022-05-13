@@ -1,0 +1,55 @@
+<programlisting>
+    public static void addStockTradeData(FirehoseClient firehoseClient, String streamName) {
+
+        List<Record> recordList = new ArrayList<>();
+
+        try {
+
+            // Repeatedly send stock trades with a 100 milliseconds wait in between
+            StockTradeGenerator stockTradeGenerator = new StockTradeGenerator();
+            int index = 100;
+
+            // Populate the list with StockTrade data
+            for (int x=0; x<index; x++){
+                StockTrade trade = stockTradeGenerator.getRandomTrade();
+                byte[] bytes = trade.toJsonAsBytes();
+
+                Record myRecord = Record.builder()
+                        .data(SdkBytes.fromByteArray(bytes))
+                        .build();
+
+                System.out.println("Adding trade: " + trade.toString());
+                recordList.add(myRecord);
+                Thread.sleep(100);
+            }
+
+            PutRecordBatchRequest recordBatchRequest = PutRecordBatchRequest.builder()
+                    .deliveryStreamName(streamName)
+                    .records(recordList)
+                    .build();
+
+            PutRecordBatchResponse recordResponse = firehoseClient.putRecordBatch(recordBatchRequest) ;
+            System.out.println("The number of records added is: "+recordResponse.requestResponses().size());
+
+            // Check the details of all records in this batch operation.
+            String errorMsg ="";
+            String errorCode = "";
+            List<PutRecordBatchResponseEntry> results = recordResponse.requestResponses();
+            for (PutRecordBatchResponseEntry result: results) {
+
+                // Returns null if there is no error.
+                errorCode = result.errorCode();
+                if (errorCode == null) {
+                    System.out.println("Record "+result.recordId() + " was successfully added!");
+                } else {
+                    errorMsg = result.errorMessage();
+                    System.out.println("Error code for record ID : "+result.recordId() + " is "+errorMsg);
+                }
+        }
+
+        } catch (FirehoseException | InterruptedException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

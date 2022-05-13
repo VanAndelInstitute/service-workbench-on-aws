@@ -1,0 +1,35 @@
+<programlisting>
+   public static void deleteQueryName(AthenaClient athenaClient, String sampleNamedQueryId) {
+
+       try {
+            DeleteNamedQueryRequest deleteNamedQueryRequest = DeleteNamedQueryRequest.builder()
+                    .namedQueryId(sampleNamedQueryId)
+                    .build();
+
+            athenaClient.deleteNamedQuery(deleteNamedQueryRequest);
+
+       } catch (AthenaException e) {
+           e.printStackTrace();
+           System.exit(1);
+       }
+     }
+
+    public static String getNamedQueryId(AthenaClient athenaClient, String name) {
+        try {
+            CreateNamedQueryRequest createNamedQueryRequest = CreateNamedQueryRequest.builder()
+                    .database(ExampleConstants.ATHENA_DEFAULT_DATABASE)
+                    .queryString(ExampleConstants.ATHENA_SAMPLE_QUERY)
+                    .name(name)
+                    .description("Sample description")
+                    .build();
+
+            CreateNamedQueryResponse createNamedQueryResponse = athenaClient.createNamedQuery(createNamedQueryRequest);
+            return createNamedQueryResponse.namedQueryId();
+
+    } catch (AthenaException e) {
+        e.printStackTrace();
+        System.exit(1);
+    }
+        return null;
+    }
+</programlisting>

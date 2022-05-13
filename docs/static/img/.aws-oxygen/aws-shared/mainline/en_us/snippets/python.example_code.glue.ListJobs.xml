@@ -1,0 +1,17 @@
+<programlisting>
+    def list_jobs(self):
+        """
+        Lists the names of job definitions in your account.
+
+        :return: The list of job definition names.
+        """
+        try:
+            response = self.glue_client.list_jobs()
+        except ClientError as err:
+            logger.error(
+                "Couldn't list jobs. Here's why: %s: %s",
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['JobNames']
+</programlisting>

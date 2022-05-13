@@ -1,0 +1,19 @@
+<programlisting>
+suspend fun createNewGrant(keyIdVal: String?, granteePrincipalVal: String?, operation: String): String? {
+
+            val operationOb = GrantOperation.fromValue(operation)
+            val grantOperationList = ArrayList<GrantOperation>()
+            grantOperationList.add(operationOb)
+
+            val request = CreateGrantRequest {
+                keyId = keyIdVal
+                granteePrincipal = granteePrincipalVal
+                operations = grantOperationList
+            }
+
+            KmsClient { region = "us-west-2" }.use { kmsClient ->
+              val response = kmsClient.createGrant(request)
+            return response.grantId
+        }
+  }
+</programlisting>

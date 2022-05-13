@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+
+<section id="SQSExamples" role="topic">
+	<title id="SQSExamples.title">Amazon SQS Examples</title>
+
+	<para>This section shows example policies for common Amazon SQS use cases.</para>
+
+  <para>The following example policy gives the developer with AWS account number &ExampleAWSAccountNo1; the
+    SendMessage permission for the queue named &ExampleAWSAccountNo2;/queue1 in the &useast1-name;. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+    {
+       "Sid":"Queue1_SendMessage",
+       "Effect": "Allow",
+       "Principal": {
+            "AWS": "&ExampleAWSAccountNo1;"
+         },
+        "Action": "SQS:SendMessage",
+        "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue1"
+     }
+}</programlisting>
+
+  <para>The following example policy gives the developer with AWS account number &ExampleAWSAccountNo1; both the
+    SendMessage and ReceiveMessage permission for the queue named &ExampleAWSAccountNo2;/queue1 in the &useast1-name;. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+    {
+       "Sid":"Queue1_Send_Receive",
+       "Effect": "Allow",
+       "Principal": {
+          "AWS": "&ExampleAWSAccountNo1;"
+        },
+        "Action": ["SQS:SendMessage","SQS:ReceiveMessage"],
+        "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue1"
+     }
+}</programlisting>
+
+  <para>The following example policy gives two different developers (with AWS account numbers &ExampleAWSAccountNo1;
+    and &ExampleAWSAccountNo2;) permission to use all actions that SQS allows shared access to for the queue named
+    &ExampleAWSAccountNo3;/queue1. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+    {
+       "Sid":"Queue1_AllActions",
+       "Effect": "Allow",
+       "Principal": {
+          "AWS": ["&ExampleAWSAccountNo1;","&ExampleAWSAccountNo2;"]
+        },
+       "Action": "SQS:*",
+       "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo3;:queue1"
+    }
+}</programlisting>
+
+	<para>The following example policy gives all AWS developers ReceiveMessage permission for the queue named
+	  &ExampleAWSAccountNo1;/queue1 in the &useast1-name;. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+    {
+       "Sid":"Queue1_AnonymousAccess_ReceiveMessage",
+       "Effect": "Allow",
+       "Principal": {
+          "AWS": "*"
+        },
+       "Action": "SQS:ReceiveMessage",
+       "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1"
+    }
+}</programlisting>
+	<para>The following example policy gives all AWS developers ReceiveMessage permission for the queue named
+	  &ExampleAWSAccountNo1;/queue1 in the &useast1-name;, but only between noon and 3:00 p.m. on January 31, 2009. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+     {
+        "Sid":"Queue1_AnonymousAccess_ReceiveMessage_TimeLimit",
+        "Effect": "Allow",
+        "Principal": {
+           "AWS": "*"
+        },
+        "Action": "SQS:ReceiveMessage",
+        "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1",
+         "Condition" : {
+             "DateGreaterThan" : {
+               "AWS:CurrentTime":"2009-01-31T12:00Z"
+	   },
+	   "DateLessThan" : {
+	       "AWS:CurrentTime":"2009-01-31T15:00Z"
+              }
+         }
+     }
+}</programlisting>
+
+	<para>The following example policy gives all AWS developers permission to use all possible SQS actions
+	  that can be shared for the queue named &ExampleAWSAccountNo1;/queue1, but only if the request comes from the
+		192.168.143.0/24 range. </para>
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": 
+     {
+        "Sid":"Queue1_AnonymousAccess_AllActions_WhitelistIP",
+        "Effect": "Allow",
+        "Principal": {
+           "AWS": "*"
+         },
+        "Action": "SQS:*",
+        "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1",
+        "Condition" : {
+            "IpAddress" : {
+               "SourceIP":"192.168.143.0/24"
+            }
+     }
+}</programlisting>
+
+	<para>The following example policy has two statements:</para>
+	<itemizedlist>
+		<listitem>
+			<para>One that gives all AWS developers in the 192.168.143.0/24 range (except for 192.168.143.188)
+			  permission to use the SendMessage action for the queue named &ExampleAWSAccountNo1;/queue1.</para>
+		</listitem>
+		<listitem>
+			<para>One that blacklists all AWS developers in the 10.1.2.0/24 range from using the queue.</para>
+		</listitem>
+	</itemizedlist>
+
+
+
+	<programlisting>{
+  "Version": "2008-10-17",
+  "Id": "Queue1_Policy_UUID",
+  "Statement": [
+     {
+         "Sid":"Queue1_AnonymousAccess_SendMessage_IPLimit",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "*"
+         },
+         "Action": "SQS:SendMessage",
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1",
+          "Condition" : {
+             "IpAddress" : {
+                "SourceIP":"192.168.143.0/24"
+             },
+             "NotIpAddress" : {
+                "SourceIP":"192.168.143.188/32"
+              }
+          }
+     },
+     {
+         "Sid":"Queue1_AnonymousAccess_AllActions_IPLimit_Deny",
+         "Effect": "Deny",
+         "Principal": {
+            "AWS": "*"
+         },
+         "Action": "SQS:*",
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo1;:queue1",
+         "Condition" : {
+            "IpAddress" : {
+               "SourceIP":"10.1.2.0/24"
+            }
+         }
+     }
+  ]
+}</programlisting>
+</section>

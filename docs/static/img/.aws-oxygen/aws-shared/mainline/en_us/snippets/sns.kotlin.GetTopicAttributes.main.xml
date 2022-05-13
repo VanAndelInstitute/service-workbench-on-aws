@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun getSNSTopicAttributes(topicArnVal: String) {
+
+    val request = GetTopicAttributesRequest {
+        topicArn = topicArnVal
+    }
+
+    SnsClient { region = "us-east-1" }.use { snsClient ->
+        val result = snsClient.getTopicAttributes(request)
+        println("${result.attributes}")
+    }
+ }
+</programlisting>

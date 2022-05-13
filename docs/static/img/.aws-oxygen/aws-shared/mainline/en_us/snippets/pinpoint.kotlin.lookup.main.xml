@@ -1,0 +1,22 @@
+<programlisting>
+suspend fun lookupPinpointEndpoint(appId: String?, endpoint: String?) {
+
+          PinpointClient { region = "us-west-2" }.use { pinpoint ->
+            val result = pinpoint.getEndpoint(GetEndpointRequest {
+                applicationId = appId
+                endpointId = endpoint
+            })
+            val endResponse = result.endpointResponse
+
+            // Uses the Google Gson library to pretty print the endpoint JSON.
+            val gson: com.google.gson.Gson = GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create()
+
+            val endpointJson: String = gson.toJson(endResponse)
+            println(endpointJson)
+
+          }
+   }
+</programlisting>

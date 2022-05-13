@@ -1,0 +1,5 @@
+    svc := sqs.New(sess)
+
+    urlResult, err := svc.GetQueueUrl(&sqs.GetQueueUrlInput{
+        QueueName: queue,
+    })

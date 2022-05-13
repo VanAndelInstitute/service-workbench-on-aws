@@ -1,0 +1,9 @@
+    fmt.Println(*userName + " docs:")
+    fmt.Println("")
+
+    for _, doc := range result.Documents {
+        fmt.Println(*doc.LatestVersionMetadata.Name)
+        fmt.Println("  Size:         ", *doc.LatestVersionMetadata.Size, "(bytes)")
+        fmt.Println("  Last modified:", *doc.LatestVersionMetadata.ModifiedTimestamp)
+        fmt.Println("")
+    }

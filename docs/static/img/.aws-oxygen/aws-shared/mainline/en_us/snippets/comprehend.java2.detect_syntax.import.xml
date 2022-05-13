@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.comprehend.ComprehendClient;
+import software.amazon.awssdk.services.comprehend.model.ComprehendException;
+import software.amazon.awssdk.services.comprehend.model.DetectSyntaxRequest;
+import software.amazon.awssdk.services.comprehend.model.DetectSyntaxResponse;
+import software.amazon.awssdk.services.comprehend.model.SyntaxToken;
+import java.util.Iterator;
+import java.util.List;
+</programlisting>

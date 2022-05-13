@@ -1,0 +1,20 @@
+        ListObjectsV2Request listObjectsReqManual = ListObjectsV2Request.builder()
+                .bucket(bucketName)
+                .maxKeys(1)
+                .build();
+
+        boolean done = false;
+        while (!done) {
+            ListObjectsV2Response listObjResponse = s3.listObjectsV2(listObjectsReqManual);
+            for (S3Object content : listObjResponse.contents()) {
+                System.out.println(content.key());
+            }
+
+            if (listObjResponse.nextContinuationToken() == null) {
+                done = true;
+            }
+
+            listObjectsReqManual = listObjectsReqManual.toBuilder()
+                    .continuationToken(listObjResponse.nextContinuationToken())
+                    .build();
+        }

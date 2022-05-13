@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun deleteGivenSolution(solutionArnVal: String?) {
+
+    val request = DeleteSolutionRequest{
+        solutionArn =  solutionArnVal
+    }
+
+    PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+            personalizeClient.deleteSolution(request)
+            println("$solutionArnVal was successfully deleted.")
+
+    }
+}
+</programlisting>

@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteSpecificCampaign(campaignArnVal: String?) {
+
+        val request = DeleteCampaignRequest {
+            campaignArn = campaignArnVal
+        }
+
+        PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+            personalizeClient.deleteCampaign(request)
+            println("$campaignArnVal was successfully deleted.")
+        }
+}
+</programlisting>

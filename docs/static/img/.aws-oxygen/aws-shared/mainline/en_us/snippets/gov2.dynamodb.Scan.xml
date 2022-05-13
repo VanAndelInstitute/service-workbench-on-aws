@@ -1,0 +1,38 @@
+<programlisting>
+
+// Scan gets all movies in the DynamoDB table that were released in a range of years
+// and projects them to return a reduced set of fields.
+// The function uses the `expression` package to build the filter and projection
+// expressions.
+func (basics TableBasics) Scan(startYear int, endYear int) ([]Movie, error) {
+	var movies []Movie
+	var err error
+	var response *dynamodb.ScanOutput
+	filtEx := expression.Name("year").Between(expression.Value(startYear), expression.Value(endYear))
+	projEx := expression.NamesList(
+		expression.Name("year"), expression.Name("title"), expression.Name("info.rating"))
+	expr, err := expression.NewBuilder().WithFilter(filtEx).WithProjection(projEx).Build()
+	if err != nil {
+		log.Printf("Couldn't build expressions for scan. Here's why: %v\n", err)
+	} else {
+		response, err = basics.DynamoDbClient.Scan(context.TODO(), &dynamodb.ScanInput{
+			TableName:                 aws.String(basics.TableName),
+			ExpressionAttributeNames:  expr.Names(),
+			ExpressionAttributeValues: expr.Values(),
+			FilterExpression:          expr.Filter(),
+			ProjectionExpression:      expr.Projection(),
+		})
+		if err != nil {
+			log.Printf("Couldn't scan for movies released between %v and %v. Here's why: %v\n",
+				startYear, endYear, err)
+		} else {
+			err = attributevalue.UnmarshalListOfMaps(response.Items, &movies)
+			if err != nil {
+				log.Printf("Couldn't unmarshal query response. Here's why: %v\n", err)
+			}
+		}
+	}
+	return movies, err
+}
+
+</programlisting>

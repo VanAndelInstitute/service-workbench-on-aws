@@ -1,0 +1,59 @@
+<programlisting>
+    public static void sendEmail(PinpointClient pinpoint,
+                                 String subject,
+                                 String appId,
+                                 String senderAddress,
+                                 String toAddress) {
+
+        try {
+
+            Map<String,AddressConfiguration> addressMap = new HashMap<String,AddressConfiguration>();
+            AddressConfiguration configuration =  AddressConfiguration.builder()
+                    .channelType(ChannelType.EMAIL)
+                    .build();
+
+            addressMap.put(toAddress, configuration);
+            SimpleEmailPart emailPart = SimpleEmailPart.builder()
+                    .data(htmlBody)
+                    .charset(charset)
+                    .build() ;
+
+            SimpleEmailPart subjectPart = SimpleEmailPart.builder()
+                    .data(subject)
+                    .charset(charset)
+                    .build() ;
+
+            SimpleEmail simpleEmail = SimpleEmail.builder()
+                    .htmlPart(emailPart)
+                    .subject(subjectPart)
+                    .build();
+
+            EmailMessage emailMessage =  EmailMessage.builder()
+                    .body(htmlBody)
+                    .fromAddress(senderAddress)
+                    .simpleEmail(simpleEmail)
+                    .build();
+
+            DirectMessageConfiguration directMessageConfiguration = DirectMessageConfiguration.builder()
+                    .emailMessage(emailMessage)
+                    .build();
+
+            MessageRequest messageRequest = MessageRequest.builder()
+                    .addresses(addressMap)
+                    .messageConfiguration(directMessageConfiguration)
+                    .build();
+
+            SendMessagesRequest messagesRequest = SendMessagesRequest.builder()
+                    .applicationId(appId)
+                    .messageRequest(messageRequest)
+                    .build();
+
+            pinpoint.sendMessages(messagesRequest);
+
+
+        } catch (PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

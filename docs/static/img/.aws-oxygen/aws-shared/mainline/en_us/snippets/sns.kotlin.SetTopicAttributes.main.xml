@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun setTopAttr(attribute: String?, topicArnVal: String?, value: String?) {
+
+        val request = SetTopicAttributesRequest {
+            attributeName = attribute
+            attributeValue = value
+            topicArn = topicArnVal
+        }
+
+       SnsClient { region = "us-east-1" }.use { snsClient ->
+        snsClient.setTopicAttributes(request)
+        println("Topic ${request.topicArn} was updated.")
+       }
+}
+</programlisting>

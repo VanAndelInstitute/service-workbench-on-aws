@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.CreateAppRequest
+import aws.sdk.kotlin.services.pinpoint.model.CreateApplicationRequest
+import kotlin.system.exitProcess
+</programlisting>

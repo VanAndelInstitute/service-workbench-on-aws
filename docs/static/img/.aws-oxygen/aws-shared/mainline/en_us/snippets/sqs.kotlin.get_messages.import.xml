@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.sqs.SqsClient
+import aws.sdk.kotlin.services.sqs.model.ReceiveMessageRequest
+import kotlin.system.exitProcess
+</programlisting>

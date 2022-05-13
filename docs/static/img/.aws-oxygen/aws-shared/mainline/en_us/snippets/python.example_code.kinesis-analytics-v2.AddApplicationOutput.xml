@@ -1,0 +1,31 @@
+<programlisting>
+    def add_output(self, in_app_stream_name, output_arn):
+        """
+        Adds an output stream to the application. Kinesis Data Analytics maps data
+        from the specified in-application stream to the output stream.
+
+        :param in_app_stream_name: The name of the in-application stream to map
+                                   to the output stream.
+        :param output_arn: The ARN of the output stream.
+        :return: A list of metadata about the output resources currently assigned
+                 to the application.
+        """
+        try:
+            response = self.analytics_client.add_application_output(
+                ApplicationName=self.name,
+                CurrentApplicationVersionId=self.version_id,
+                Output={
+                    'Name': in_app_stream_name,
+                    'KinesisStreamsOutput': {'ResourceARN': output_arn},
+                    'DestinationSchema': {'RecordFormatType': 'JSON'}})
+            outputs = response['OutputDescriptions']
+            self.version_id = response['ApplicationVersionId']
+            logging.info(
+                "Added output %s to %s, which now has %s outputs.", output_arn,
+                self.name, len(outputs))
+        except ClientError:
+            logger.exception("Couldn't add output %s to %s.", output_arn, self.name)
+            raise
+        else:
+            return outputs
+</programlisting>

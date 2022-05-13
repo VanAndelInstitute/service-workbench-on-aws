@@ -1,0 +1,49 @@
+    public static void describeFilters(CloudWatchLogsClient logs, String logGroup) {
+
+        try {
+            boolean done = false;
+            String newToken = null;
+
+            while(!done) {
+
+                DescribeSubscriptionFiltersResponse response;
+                if (newToken == null) {
+                    DescribeSubscriptionFiltersRequest request =
+                        DescribeSubscriptionFiltersRequest.builder()
+                                .logGroupName(logGroup)
+                                .limit(1).build();
+
+                    response = logs.describeSubscriptionFilters(request);
+                } else {
+                    DescribeSubscriptionFiltersRequest request =
+                        DescribeSubscriptionFiltersRequest.builder()
+                                .nextToken(newToken)
+                                .logGroupName(logGroup)
+                                .limit(1).build();
+
+                response = logs.describeSubscriptionFilters(request);
+                }
+
+                for(SubscriptionFilter filter : response.subscriptionFilters()) {
+                    System.out.printf(
+                        "Retrieved filter with name %s, " +
+                                "pattern %s " +
+                                "and destination arn %s",
+                        filter.filterName(),
+                        filter.filterPattern(),
+                        filter.destinationArn());
+                System.out.println("");
+            }
+
+            if(response.nextToken() == null) {
+                done = true;
+            } else {
+                newToken = response.nextToken();
+            }
+            }
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        System.out.printf("Done");
+    }

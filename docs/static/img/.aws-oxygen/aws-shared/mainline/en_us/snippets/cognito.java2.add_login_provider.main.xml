@@ -1,0 +1,38 @@
+<programlisting>
+    public static void setLoginProvider(CognitoIdentityClient cognitoclient,
+                                        String appId,
+                                        String identityPoolName,
+                                        String identityPoolId,
+                                        String providerName) {
+
+        CognitoIdentityProvider identityProvider = CognitoIdentityProvider.builder()
+                .providerName(providerName)
+                .clientId(appId)
+                .build();
+
+        List<CognitoIdentityProvider> proList = new ArrayList<>();
+        proList.add(identityProvider);
+
+        try {
+
+            UpdateIdentityPoolRequest poolRequest = UpdateIdentityPoolRequest.builder()
+                    .allowUnauthenticatedIdentities(true)
+                    .identityPoolName(identityPoolName)
+                    .identityPoolId(identityPoolId)
+                    .cognitoIdentityProviders(proList)
+                    .build() ;
+
+            UpdateIdentityPoolResponse response = cognitoclient.updateIdentityPool(poolRequest);
+            List<CognitoIdentityProvider> providers = response.cognitoIdentityProviders();
+
+            for (CognitoIdentityProvider provider: providers) {
+                System.out.println("The client ID is : "+provider.clientId());
+                System.out.println("The provider name is : "+provider.providerName());
+            }
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

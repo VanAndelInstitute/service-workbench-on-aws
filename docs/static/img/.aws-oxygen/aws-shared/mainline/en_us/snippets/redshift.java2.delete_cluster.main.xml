@@ -1,0 +1,20 @@
+<programlisting>
+    public static void deleteRedshiftCluster(RedshiftClient redshiftClient, String clusterId) {
+
+        try {
+            DeleteClusterRequest deleteClusterRequest = DeleteClusterRequest.builder()
+                    .clusterIdentifier(clusterId)
+                    .skipFinalClusterSnapshot(true)
+                    .build();
+
+            // Delete the Cluster
+            DeleteClusterResponse response = redshiftClient.deleteCluster(deleteClusterRequest);
+            System.out.println("The status is "+response.cluster().clusterStatus());
+
+        } catch (RedshiftException e) {
+
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

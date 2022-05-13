@@ -1,0 +1,11 @@
+    if len(resp.Lexicons) == 0 {
+        fmt.Println("Did not retrieve any lexicons")
+        return
+    }
+
+    for _, l := range resp.Lexicons {
+        fmt.Println(*l.Name)
+        fmt.Println("  Alphabet: " + *l.Attributes.Alphabet)
+        fmt.Println("  Language: " + *l.Attributes.LanguageCode)
+        fmt.Println("")
+    }

@@ -1,0 +1,11 @@
+<programlisting>
+	parameterName := flag.String("n", "", "The name of the parameter")
+	flag.Parse()
+
+	if *parameterName == "" {
+		fmt.Println("You must supply the name of the parameter")
+		fmt.Println("-n NAME")
+		return
+	}
+
+</programlisting>

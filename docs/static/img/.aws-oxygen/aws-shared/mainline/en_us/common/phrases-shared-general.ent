@@ -1,0 +1,393 @@
+<!-- AWS brand -->
+<!ENTITY AWS 'AWS'>
+<!ENTITY AWSlong 'Amazon Web Services'>
+
+<!ENTITY AWS-Cloud '&AWS; Cloud'>
+<!ENTITY AWS-Region '&AWS; Region'>
+<!ENTITY AWS-Regions '&AWS; Regions'>
+<!ENTITY AWS-account '&AWS; account'>
+<!ENTITY AWS-accounts '&AWS; accounts'>
+<!ENTITY AWS-Training '&AWS; Training'>
+
+
+<!-- AWS URLs -->
+<!--  moving entities to phrases-shared-region-specific-* files -->
+
+<!ENTITY url-api-domain "http://&api-domain;/">
+<!ENTITY url-blog-domain "http://&blog-domain;/">
+<!ENTITY url-console-domain "https://&console-domain;/">
+<!ENTITY url-doc-domain "https://&doc-domain;/">
+<!ENTITY url-forum-domain "https://&forum-domain;/">
+<!ENTITY url-podcast-domain "&url-mkt-domain;podcasts">
+<!-- url-mkt-domain does not have HTTPS support in all regions, so this is now in phrases-shared-region-specific-*
+     <!ENTITY url-mkt-domain "https://&mkt-domain;/"> 
+-->
+
+<!ENTITY url-portal-domain "https://&portal-domain;/">
+<!ENTITY url-repost "https://repost.aws/">
+<!ENTITY url-retail-domain "http://&retail-domain;/">
+<!ENTITY url-status-domain "http://&status-domain;/">
+
+<!ENTITY url-qrc 'http://awsdocs.s3.amazonaws.com/'>
+<!ENTITY url-calculator-domain 'http://calculator.s3.amazonaws.com/calc5.html'> 
+<!ENTITY url-pricing-domain 'https://d0.awsstatic.com/whitepapers/aws_pricing_overview.pdf'>
+<!ENTITY url-pricing-paper 'https://d0.awsstatic.com/whitepapers/aws_pricing_overview.pdf'> 
+<!-- NEW -->
+<!ENTITY url-awspartner-domain 'http://www.aws-partner-directory.com/PartnerDirectory/'>
+<!ENTITY url-alas-domain "https://alas.aws.amazon.com/">
+
+ <!-- IAM needed home-domain entity for regions.  addding here for global.  NOTE:  home-domain being deprecated.  Use root-domain -->
+ <!ENTITY home-domain '&root-domain;' >
+
+<!-- End AWS URLs -->
+
+<!--  Marketing URLs -->
+
+<!ENTITY support '&url-mkt-domain;premiumsupport/'> 
+ <!--  deprecated, use url-suppport instead -->
+<!ENTITY url-support '&url-mkt-domain;premiumsupport/'> 
+<!ENTITY url-premium '&url-mkt-domain;premiumsupport/'> 
+<!ENTITY url-trusted-advisor '&url-mkt-domain;premiumsupport/trustedadvisor/'>
+<!ENTITY devtools '&url-mkt-domain;developertools/'> 
+ <!--  deprecated, use url-devtools instead -->
+<!ENTITY url-devtools '&url-mkt-domain;developertools/'> 
+
+<!-- End Marketing URLs -->
+
+<!-- AWS repos on GitHub URLs -->
+
+<!ENTITY url-github 'https://github.com/'>
+<!ENTITY url-awslabs-github '&url-github;awslabs/'>
+<!ENTITY url-awsdocs-github '&url-github;awsdocs/'>
+<!ENTITY url-aws-github '&url-github;aws/'>
+<!ENTITY url-aws-samples-github '&url-github;aws-samples/'>
+
+<!-- End AWS repos on GitHub URLs -->
+
+<!-- Legacy URL and Domain Entities  
+    IMPORTANT: Do NOT change the following legacy entities. 
+    These legacy entities are used for mapping purposes only.
+
+    Do NOT use these legacy entities in new content. 
+    Use the current domain or url entities listed previously instead. -->
+
+<!ENTITY awsdomain "&mkt-domain;">
+<!ENTITY aws-portal-domain "&portal-domain;">
+<!ENTITY domain "&doc-domain;">
+<!ENTITY url-domain "&url-doc-domain;">
+<!ENTITY calculator '&url-calculator-domain;'>
+<!ENTITY url-calculator '&url-calculator-domain;'>
+<!ENTITY forum '&url-forum-domain;'> 
+<!ENTITY url-forum '&url-forum-domain;'> 
+<!ENTITY pricing '&url-pricing-domain;'> 
+<!ENTITY url-pricing '&url-pricing-domain;'> 
+<!ENTITY url-awspartner '&url-awspartner-domain;'>
+
+<!-- End Legacy URL and Domain Entities -->
+
+<!ENTITY copyright '
+<copyright>
+     <year></year>
+     <holder>Amazon Web Services, Inc. and/or its affiliates. All rights reserved.</holder>
+</copyright>
+<legalnotice>
+     <para>Amazon&apos;s trademarks and trade dress may not be used in 
+     connection with any product or service that is not Amazon&apos;s, 
+     in any manner that is likely to cause confusion among customers, 
+     or in any manner that disparages or discredits Amazon. All other 
+     trademarks not owned by Amazon are the property of their respective
+     owners, who may or may not be affiliated with, connected to, or 
+     sponsored by Amazon.</para>
+</legalnotice>
+'>
+
+<!-- CONSOLE (Please start future entity names with 'console_' -->
+
+<!ENTITY console '&AWS; Management Console'>
+
+   <!--  Use for RIPConfig autogen region tables only. Do NOT use in regular docs -->
+   <!ENTITY autogen-name-awsmanagementconsole "&console;">
+   <!ENTITY autogen-name-consolemobileapp '&AWS; Console mobile app'>
+   
+
+<!ENTITY aws_console_description '
+<para>The &console; provides a web interface where you can manage your 
+compute, storage, and other cloud resources. Within the &console;,
+individual services have their own console. For example, you can 
+manage your compute resources using the &EC2; console and storage 
+through the &S3; console.</para>
+'>
+
+<!-- Note that the console_signup entity has been moved to phrases-shared-security.ent -->
+
+<!ENTITY console-ug-url '&url-doc-domain;awsconsolehelpdocs/latest/gsg/getting-started.html'>
+<!ENTITY console-guide 'Getting Started with the &console;'>
+<!ENTITY console-link '<ulink url="&console-ug-url;">&console-guide;</ulink>'>
+
+<!-- GENERAL ENTITIES -->
+
+<!ENTITY section-about-aws '
+  <section id="about-aws">
+    <info>
+      <title id="about-aws.title">About &AWSlong;</title>
+    </info>
+    <para>&AWSlong; (&AWS;) is a collection of digital infrastructure 
+      services that developers can leverage when developing their applications. 
+      The services include computing, storage, database, and application 
+      synchronization (messaging and queuing). &AWS; uses a pay-as-you-go service model.
+      You are charged only for the services that you&mdash;or your applications&mdash;use. 
+      Also, to make &AWS; more approachable as a platform for prototyping and
+      experimentation, &AWS; offers a free usage tier. On this tier, services are free below
+      a certain level of usage. For more information about &AWS; costs and the Free Tier, see 
+      <ulink url="&url-doc-domain;FeaturedArticles/latest/TestDriveFreeTier.html">Test-Driving &AWS; in the Free Usage Tier</ulink>. 
+      To obtain an &AWS; account, open the 
+      <ulink url="https://&portal-domain;/gp/aws/developer/registration/index.html">&AWS; home page</ulink> 
+      and then click <guilabel>Sign Up</guilabel>.</para>
+  </section>
+'>
+
+<!ENTITY billing-shows-accounts-range '
+<note>
+    <para>&AWS; shows only accounts that have used &AWS; services or accrued costs in the past 
+    thirteen months (12 prior calendar months plus the current month).</para>
+</note>
+'>
+
+<!-- Account Close Information. NOTE - also in phrases-shared-general-BJS.ent -->
+
+<!ENTITY  account-close '
+<para region="SEA;IAD">
+    <shared id="AWS" /> retains the policy data for the account for 90 days from the effective date of the administrator account closure.  
+    At the end of the 90 day period, <shared id="AWS" /> permanently deletes all policy data for the account.
+</para>
+
+<itemizedlist region="SEA;IAD">
+    <listitem>
+        <para>
+            To retain findings for more than 90 days, you can archive the policies.  You can also use a custom action with 
+            an &EV; rule to store the findings in an S3 bucket.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            As long as <shared id="AWS" /> retains the policy data, when you reopen the closed account, <shared id="AWS" /> reassigns the account 
+            as the service  administrator and recovers the service policy data for the account.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            For more information, see <ulink type="documentation" url="awsaccountbilling/latest/aboutv2/close-account.html">Closing an account</ulink>.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<important region="SEA;IAD">
+    <para>
+        For customers in the &govcloud-us; Regions:
+    </para>
+    
+    <itemizedlist>
+        <listitem>
+            <para>
+                Before closing your account, back up and then delete your policy data and other account resources. You will no longer have access 
+                to them after you close the account.
+            </para>
+        </listitem>
+    </itemizedlist>
+</important>
+
+<para region="DCA;LCK">
+    <shared id="AWS" /> revokes the account&apos;s administrative access from the service and deactivates any policies that were managed 
+    by the administrator account.  The protections that were provided by these policies are stopped across the organization.
+</para>
+
+<itemizedlist region="DCA;LCK">
+    <listitem>
+        <para>
+            Before closing your account, back up and then delete your policy data and other account resources. You will no longer have access 
+            to them after you close the account.
+        </para>
+    </listitem>
+        <listitem>
+        <para>
+            For more information, see <ulink type="documentation" url="awsaccountbilling/latest/aboutv2/close-account.html">Closing an account</ulink>.
+        </para>
+    </listitem>
+</itemizedlist>
+' >
+
+<!ENTITY  account-close-diffdoc '
+<para region="SEA;IAD">
+    <shared id="AWS" /> retains the policy data for the account for 90 days from the effective date of the administrator account closure.  
+    At the end of the 90 day period, <shared id="AWS" /> permanently deletes all policy data for the account.
+</para>
+
+<itemizedlist region="SEA;IAD">
+    <listitem>
+        <para>
+            To retain findings for more than 90 days, you can archive the policies.  You can also use a custom action with 
+            an &EV; rule to store the findings in an S3 bucket.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            As long as <shared id="AWS" /> retains the policy data, when you reopen the closed account, <shared id="AWS" /> reassigns the account 
+            as the service  administrator and recovers the service policy data for the account.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<important region="SEA;IAD">
+    <para>
+        For customers in the &govcloud-us; Regions:
+    </para>
+    
+    <itemizedlist>
+        <listitem>
+            <para>
+                Before closing your account, back up and then delete your policy data and other account resources. You will no longer have access 
+                to them after you close the account.
+            </para>
+        </listitem>
+    </itemizedlist>
+</important>
+
+<para region="DCA;LCK">
+    <shared id="AWS" /> revokes the account&apos;s administrative access from the service and deactivates any policies that were managed 
+    by the administrator account.  The protections that were provided by these policies are stopped across the organization.
+</para>
+
+<itemizedlist region="DCA;LCK">
+    <listitem>
+        <para>
+            Before closing your account, back up and then delete your policy data and other account resources. You will no longer have access 
+            to them after you close the account.
+        </para>
+    </listitem>
+</itemizedlist>
+' >
+
+<!-- compliance, general: AWS services in scope by compliance program, use for mentioning standards compliance overall -->
+
+<!ENTITY in_scope_compliance '
+<para>For details about &AWS; and compliance efforts, see <ulink url="&url-mkt-domain;compliance/services-in-scope/">&AWS; Services In Scope by Compliance Program</ulink>.
+</para>
+'>
+
+<!-- HIPAA compliance  -->
+
+<!ENTITY hipaa_compliance '
+<para>This is a HIPAA Eligible Service. For more information about &AWS;, U.S. Health Insurance Portability and Accountability Act of 1996 (HIPAA), and using &AWS; services to process, store, and transmit protected health information (PHI), see <ulink url="&url-mkt-domain;compliance/hipaa-compliance/">HIPAA Overview</ulink>.</para>'>
+
+<!-- ISO 27001 compliance -->
+<!ENTITY iso_compliance '
+<para>For information about this service and ISO 27001, a security management standard that specifies security management best practices, see <ulink url="&url-mkt-domain;compliance/iso-27001-faqs/">ISO 27001 Overview</ulink>.</para>'>
+
+<!-- PCI DSS compliance. Before you use this entity, be sure to define &service; in your local file. -->
+
+<!ENTITY pci_compliance '
+<para>&service; supports the processing, storage, and transmission 
+of credit card data by a merchant or service provider, and has been 
+validated as being compliant with Payment Card Industry (PCI) Data Security Standard (DSS). 
+For more information about PCI DSS, including how to request a copy of the &AWS; PCI Compliance Package, 
+see <ulink url="&url-mkt-domain;compliance/pci-dss-level-1-faqs/">PCI DSS Level 1</ulink>.
+</para>
+'>
+
+<!--  GDPR compliance -->
+<!ENTITY s3_pii 'Content delivered to &S3; buckets might contain customer content. 
+For more information about removing sensitive data, see 
+<ulink url="&url-s3-user;empty-bucket.html">How Do I Empty an S3 Bucket?</ulink> 
+or <ulink url="&url-s3-user;delete-bucket.html">How Do I Delete an S3 Bucket?</ulink>.'>
+
+<!--  GENERAL -->
+
+<!ENTITY mdash "&#x2014;">
+<!ENTITY emdash "&#x2014;">
+<!ENTITY endash "&#x2013;">
+
+<!ENTITY userprompt "<prompt>$ </prompt>">
+<!ENTITY windowsprompt "<prompt>C:\&gt; </prompt>">
+<!ENTITY genprompt "<prompt>PROMPT&gt; </prompt>">
+<!ENTITY prompt '<phrase os="linux">&userprompt;</phrase><phrase os="windows">&windowsprompt;</phrase>'>
+
+<!ENTITY ampmts "Amazon Payments">
+
+<!ENTITY AL "Amazon Linux">
+<!ENTITY AL2 "&AL; 2">
+<!ENTITY unixes "Linux, macOS, or Unix">
+<!ENTITY unix "Unix">
+
+<!ENTITY table-enlarge '
+<para buildtype="html">Use the scroll bars to see the rest of the table.</para>
+'>
+<!--  Old version of table enlarge:
+      <para buildtype="html">If you see an expand arrow (<emphasis role="bold">&nearr;</emphasis>) in the upper-right corner of the table, you can open the table in a new
+        window. To close the window, choose the close button (<emphasis role="bold">X</emphasis>) in the lower-right corner.</para> -->
+
+<!ENTITY prerelease '
+    <table frame="all">
+        <tgroup cols="1">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <tbody>
+                <row>
+                    <entry><?dbhtml bgcolor="#FFFCEC" ?><emphasis><emphasis role="bold">This is prerelease documentation for a service in preview release. It is subject to change.</emphasis></emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+'>
+
+<!ENTITY prereleaseNDA '
+    <table frame="all">
+        <tgroup cols="1">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <tbody>
+                <row>
+                    <entry><?dbhtml bgcolor="#FFFCEC" ?><emphasis><emphasis role="bold">This prerelease documentation is confidential and is provided under the terms of your nondisclosure agreement with &AWSlong; (&AWS;) or other agreement governing your receipt of &AWS; confidential information. </emphasis></emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+'>
+
+<!-- Entities for automatically generated tables in GenRef. -->
+
+<!ENTITY rande-autogen-region-name "Region Name">
+<!ENTITY rande-autogen-region "Region">
+<!ENTITY rande-autogen-region-code 'Code'>
+<!ENTITY rande-autogen-region-intro "<para>This region has the following endpoints:</para>">
+<!ENTITY rande-autogen-regions "Regions">
+<!ENTITY rande-autogen-regions-intro "<para>The following are the current &AWS-Regions;:</para>">
+<!ENTITY rande-autogen-endpoint "Endpoint">
+<!ENTITY rande-autogen-protocol "Protocol">
+<!ENTITY rande-autogen-aws-service "&AWS; Service">
+<!ENTITY rande-autogen-signature-version "Signature Version(s) Support">
+<!ENTITY rande-autogen-hosted-zone-id "Route 53 Hosted Zone ID">
+
+<!-- Entities for API references -->
+
+<!ENTITY api-ref-crosslinks-title 'See Also'>
+<!ENTITY api-ref-crosslinks-intro 'For more information about using this API in one of the language-specific &AWS; SDKs and references, see the following:'>
+
+<!-- Entities for S3 bucket examples -->
+
+<!ENTITY example-s3-domain 's3.&example-api-domain;'>
+<!ENTITY example-api-domain '<replaceable>aws-api-domain</replaceable>'>
+<!ENTITY example-region '<replaceable>aws-region</replaceable>'>
+<!ENTITY example-s3-bucket '<replaceable>DOC-EXAMPLE-BUCKET</replaceable>'>
+<!ENTITY example-s3-bucket1 '<replaceable>DOC-EXAMPLE-BUCKET1</replaceable>'>
+<!ENTITY example-s3-bucket2 '<replaceable>DOC-EXAMPLE-BUCKET2</replaceable>'>
+<!ENTITY example-s3-bucket3 '<replaceable>DOC-EXAMPLE-BUCKET3</replaceable>'>
+<!ENTITY example-s3-bucket-endpoint '<replaceable>s3-bucket-endpoint</replaceable>'>
+<!ENTITY example-url-s3-domain 'https://&example-s3-domain;'>
+<!ENTITY example-url-s3-bucket-endpoint 'https://&example-s3-bucket-endpoint;'>
+<!ENTITY example-url-s3-bucket-endpoint2 'https://s3.&example-region;.&example-api-domain;'>
+<!ENTITY example-url-s3-bucket 'https://&example-s3-bucket-endpoint;/&example-s3-bucket;'>
+<!ENTITY example-url-s3-bucket1 'https://&example-s3-bucket-endpoint;/&example-s3-bucket1;'>
+<!ENTITY example-url-s3-bucket2 'https://&example-s3-bucket-endpoint;/&example-s3-bucket2;'>
+<!ENTITY example-url-s3-bucket3 'https://&example-s3-bucket-endpoint;/&example-s3-bucket3;'>
+
+
+<!-- Entities for use in ASCIIDOC builds -->
+<!ENTITY asciidoc-default-linktext 'here'>

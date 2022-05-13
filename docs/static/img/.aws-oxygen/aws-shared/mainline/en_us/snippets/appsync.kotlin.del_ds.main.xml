@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun deleteDS(apiIdVal: String?, dsName: String?) {
+
+    val request = DeleteDataSourceRequest {
+        apiId = apiIdVal
+        name = dsName
+    }
+
+    AppSyncClient { region = "us-east-1" }.use { appClient ->
+        appClient.deleteDataSource(request)
+        println("The data source was deleted.")
+    }
+}
+</programlisting>

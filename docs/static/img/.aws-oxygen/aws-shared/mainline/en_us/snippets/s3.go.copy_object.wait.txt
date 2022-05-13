@@ -1,0 +1,4 @@
+    err = svc.WaitUntilObjectExists(&s3.HeadObjectInput{
+        Bucket: targetBucket,
+        Key:    item,
+    })

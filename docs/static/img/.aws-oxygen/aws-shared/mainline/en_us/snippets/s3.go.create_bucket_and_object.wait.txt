@@ -1,0 +1,1 @@
+    err = svc.WaitUntilBucketExists(&s3.HeadBucketInput{Bucket: bucket})

@@ -1,0 +1,8 @@
+<programlisting>
+        err := http2.ConfigureTransport(tr)
+        if err != nil {
+            fmt.Println("Got an error configuring HTTP transport")
+            fmt.Println(err)
+            return
+        }
+</programlisting>

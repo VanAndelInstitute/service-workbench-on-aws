@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+<procedure>
+ <info>
+  <title>To create a project</title>
+ </info>
+ <step>&CAWS-console-signin;</step>
+ <step>
+  <para>Choose <guilabel>Create project</guilabel>.</para>
+ </step>
+ <step>
+  <para>On the <guilabel>Project details</guilabel> page, choose <guilabel>Use a template
+    (Recommended)</guilabel>.</para>
+ </step>
+ <step>
+  <para>In <guilabel>Project name</guilabel>, enter the name that you want to assign to your project
+   and its associated resource names. The name must be unique in your account.</para>
+ </step>
+ <step>
+  <para>In <guilabel>Project ID</guilabel>, use the default keyword to assign to your project path
+   and resource names, or choose a different keyword. Choose an ID that is unique in your
+   account.</para>
+ </step>
+ <step>
+  <para>In <guilabel>Template type</guilabel>, choose the application type that you want to create a
+   project for, such as <guilabel>Web application</guilabel>. For the list of available template
+   types, see LINK.</para>
+ </step>
+ <step>
+  <para>In <guilabel>Programming language</guilabel>, choose the programming language that you want
+   to create a project for, such as <guilabel>Javascript</guilabel>. For the list of available
+   template types, see LINK.</para>
+ </step>
+ <step>
+  <para>Choose the template you want to use, and then choose <guilabel>Create
+   project</guilabel>.</para>
+ </step>
+</procedure>

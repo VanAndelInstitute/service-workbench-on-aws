@@ -1,0 +1,3 @@
+<programlisting>
+$service->attachRolePolicy($assumeRoleRole['RoleName'], $listAllBucketsPolicy['Arn']);
+</programlisting>

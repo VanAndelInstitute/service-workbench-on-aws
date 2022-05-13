@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JSB; V3</term>
+        <listitem>
+            <block>
+                <para>Create the client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/glacier.JavaScript.createclientv3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Upload the archive.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/glacier.JavaScript.upload.uploadArchiveV3.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glacier#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For more information, see <ulink type="documentation" url="sdk-for-javascript/v3/developer-guide/glacier-example-uploadarchive.html">&guide-jsb-dev;</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-glacier/classes/uploadarchivecommand.html">UploadArchive</ulink>
+                        in <emphasis>&guide-jsb-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>&JSB; V2</term>
+        <listitem>
+            <block>
+                <para></para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/glacier.JavaScript.upload.uploadArchive.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/glacier#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For more information, see <ulink type="documentation" url="sdk-for-javascript/v2/developer-guide/glacier-example-uploadrchive.html">&guide-jsb-dev;</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="goto/AWSJavaScriptSDK/glacier-2012-06-01/UploadArchive">UploadArchive</ulink>
+                        in <emphasis>&guide-jsb-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

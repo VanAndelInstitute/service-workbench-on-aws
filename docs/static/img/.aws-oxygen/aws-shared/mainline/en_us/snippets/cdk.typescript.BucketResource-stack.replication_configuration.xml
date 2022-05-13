@@ -1,0 +1,15 @@
+<programlisting>
+    bucketResource.addPropertyOverride("ReplicationConfiguration", {
+      Role: role.roleArn,
+      Rules: [
+        {
+          Id: "replicateEverything",
+          Destination: {
+            Bucket: "arn:aws:s3:::" + bucketName
+          },
+          Prefix: "",
+          Status: "Enabled"
+        }
+      ]
+    });
+</programlisting>

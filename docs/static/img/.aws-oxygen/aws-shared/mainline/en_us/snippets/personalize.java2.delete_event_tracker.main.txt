@@ -1,0 +1,17 @@
+    public static void deleteEventTracker(PersonalizeClient personalizeClient, String eventTrackerArn) {
+        try {
+            DeleteEventTrackerRequest deleteEventTrackerRequest = DeleteEventTrackerRequest.builder()
+                .eventTrackerArn(eventTrackerArn)
+                .build();
+                
+            int status = 
+                personalizeClient.deleteEventTracker(deleteEventTrackerRequest).sdkHttpResponse().statusCode();
+
+            System.out.println("Status code:" + status);
+            
+        }
+        catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

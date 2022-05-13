@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::DynamoDB::Table -->
+<section id="aws-resource-dynamodb-table" role="topic">
+   <title id="aws-resource-dynamodb-table.title">AWS::DynamoDB::Table</title>
+
+   <para>Creates an &DDB; table.</para>
+
+   <section>
+      <title>Syntax</title>
+      <programlisting condition="json">
+{
+   "Type" : "AWS::DynamoDB::Table",
+   "Properties" : {
+      "<link linkend="cfn-dynamodb-table-keyschema">KeySchema</link>" : { <replaceable>DynamoDB Primary Key</replaceable> },
+      "<link linkend="cfn-dynamodb-table-provisionedthroughput">ProvisionedThroughput</link>" : { <replaceable>DynamoDB Provisioned Throughput</replaceable> }
+   }
+}      <!-- SYNTAX BLOCK -->
+      </programlisting>
+   	
+   	
+   	<programlisting condition="yaml">Type: "AWS::DynamoDB::Table"
+Properties: 
+  <link linkend="cfn-dynamodb-table-keyschema">KeySchema</link>: { <replaceable>DynamoDB Primary Key</replaceable> }
+  <link linkend="cfn-dynamodb-table-provisionedthroughput">ProvisionedThroughput</link>: { <replaceable>DynamoDB Provisioned Throughput</replaceable> }
+    <!-- SYNTAX BLOCK --></programlisting>
+   </section>
+
+   <section>
+      <title>Properties</title>
+      <variablelist>
+         <varlistentry id="cfn-dynamodb-table-keyschema">
+            <term>KeySchema</term>
+            <listitem>
+               <para>The primary key structure for the table, consisting of a required
+                     <parameter>HashKeyElement</parameter> and an optional <parameter>RangeKeyElement</parameter>,
+                  required only for <emphasis>composite</emphasis> primary keys. For more information about primary
+                  keys, see <link linkend="aws-properties-dynamodb-primarykey"
+                     endterm="aws-properties-dynamodb-primarykey.title"/>.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: <link linkend="aws-properties-dynamodb-primarykey"
+                     endterm="aws-properties-dynamodb-primarykey.title"/></para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-dynamodb-table-provisionedthroughput">
+            <term>ProvisionedThroughput</term>
+            <listitem>
+               <para>New throughput for the specified table, consisting of values for ReadCapacityUnits and
+                  WriteCapacityUnits. For more information about the contents of a Provisioned Throughput structure, see
+                     <link linkend="aws-properties-dynamodb-provisionedthroughput"
+                     endterm="aws-properties-dynamodb-provisionedthroughput.title"/>.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: <link linkend="aws-properties-dynamodb-provisionedthroughput"
+                  endterm="aws-properties-dynamodb-provisionedthroughput.title"/></para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Value</title>
+      <para>&ref-returns-name; For example:</para>
+      <programlisting>{ "Ref": "<replaceable>MyResource</replaceable>" }</programlisting>
+      <para>For the resource with the logical ID "MyResource", <function>Ref</function> will return the AWS resource
+         name.</para>
+      <para>&ref-more-info;</para>
+   </section>
+
+   <section id="cfn-dynamodb-table-examples">
+      <title>Template Examples</title>
+      <example>
+         <title>Simple DynamoDB Template</title>
+         <programlisting condition="json">
+{
+   "AWSTemplateFormatVersion" : "2010-09-09",
+   "Resources" : {
+      "myDynamoDBTable" : {
+         "Type" : "AWS::DynamoDB::Table",
+         "Properties" : {
+            "KeySchema" : {
+               "HashKeyElement": {
+                  "AttributeName" : "AttributeName1",
+                  "AttributeType" : "S"
+               },
+               "RangeKeyElement" : {
+                  "AttributeName" : "AttributeName2",
+                  "AttributeType" : "N"
+               }
+            },
+            "ProvisionedThroughput" : {
+               "ReadCapacityUnits" : "5",
+               "WriteCapacityUnits" : "10"
+            }
+         }
+      }
+   }
+   } </programlisting>
+      	
+      	<programlisting condition="yaml">
+Resources: 
+  myDynamoDBTable: 
+    Type: AWS::DynamoDB::Table
+    Properties: 
+      KeySchema:
+        HashKeyElement:
+          AttributeName:
+            SessionHashKeyName: "username"
+          AttributeType:
+            SessionHashKeyType: "S"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 10</programlisting>
+      </example>
+   </section>
+
+</section>
+
+
+

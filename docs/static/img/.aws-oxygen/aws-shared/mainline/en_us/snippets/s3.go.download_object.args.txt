@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The bucket to download from")
+    filename := flag.String("f", "", "The name of the file to download")
+    flag.Parse()
+
+    if *bucket == "" || *filename == "" {
+        fmt.Println("You must specify a bucket name (-b BUCKET) and filename (-f FILENAME")
+        return
+    }

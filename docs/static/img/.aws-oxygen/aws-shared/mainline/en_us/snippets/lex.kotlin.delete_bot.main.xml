@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteSpecificBot(botName: String) {
+
+    val request = DeleteBotRequest {
+        name = botName
+    }
+
+    LexModelBuildingClient { region = "us-west-2" }.use { lexClient ->
+        lexClient.deleteBot(request)
+        println("$botName was deleted!")
+    }
+}
+</programlisting>

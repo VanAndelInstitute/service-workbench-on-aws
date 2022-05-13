@@ -1,0 +1,7 @@
+    bucket := flag.String("b", "", "The bucket for which the ACL is returned")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET)")
+        return
+    }

@@ -1,0 +1,19 @@
+suspend fun createNewUser(userPoolId: String, name: String, email: String, password : String) {
+
+           val attType = AttributeType{
+                this.name = "email"
+                value = email
+            }
+
+           val request = AdminCreateUserRequest{
+               this.userPoolId = userPoolId
+               username = name
+               temporaryPassword = password
+               userAttributes = listOf(attType)
+           }
+
+           CognitoIdentityProviderClient { region = "us-east-1" }.use { cognitoClient ->
+              val response = cognitoClient.adminCreateUser(request )
+              println("User ${response.user?.username.toString()} is created. Status is ${response.user?.userStatus}")
+           }
+    }

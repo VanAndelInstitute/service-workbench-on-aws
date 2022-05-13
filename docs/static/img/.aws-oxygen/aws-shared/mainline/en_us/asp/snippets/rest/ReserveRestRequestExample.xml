@@ -1,0 +1,13 @@
+https://fps.sandbox.amazonaws.com?
+Action=Reserve
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=Reserve
+&CallerReference=CallerReference05
+&SenderTokenId=553IPMACGAZ2J4N1L7BJ3UMNRFTQU4V9NT4RJCTVADDJKXQ6L1ZAKSIUNPIRTTI1
+&Signature=JZ0eeVTM5LwbvziLdA%2FSMve7mgrEoTvTGZJ%2BpsgZkM0%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-06T07%3A51%3A04.140Z
+&TransactionAmount.CurrencyCode=USD
+&TransactionAmount.Value=1
+&Version=2008-09-17

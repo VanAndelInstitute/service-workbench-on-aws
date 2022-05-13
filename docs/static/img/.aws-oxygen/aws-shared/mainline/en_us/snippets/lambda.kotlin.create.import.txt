@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.lambda.LambdaClient
+import aws.sdk.kotlin.services.lambda.model.CreateFunctionRequest
+import aws.sdk.kotlin.services.lambda.model.FunctionCode
+import aws.sdk.kotlin.services.lambda.model.Runtime
+import kotlin.system.exitProcess

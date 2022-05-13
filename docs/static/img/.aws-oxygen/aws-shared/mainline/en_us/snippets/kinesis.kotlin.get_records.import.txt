@@ -1,0 +1,8 @@
+import aws.sdk.kotlin.services.kinesis.KinesisClient
+import aws.sdk.kotlin.services.kinesis.model.DescribeStreamRequest
+import aws.sdk.kotlin.services.kinesis.model.DescribeStreamResponse
+import aws.sdk.kotlin.services.kinesis.model.GetShardIteratorRequest
+import aws.sdk.kotlin.services.kinesis.model.Shard
+import aws.sdk.kotlin.services.kinesis.model.ShardIteratorType
+import aws.sdk.kotlin.services.kinesis.model.GetRecordsRequest
+import kotlin.system.exitProcess

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="ReturnValueStatusCodes" role="topic">
+    <title id="ReturnValueStatusCodes.title">Return URL Status Codes</title>
+    <para>The following table describes the status codes you can receive through the Return URL.</para>
+    <informaltable>
+        <tgroup cols="2">
+            <?dbhtml table-width="95%" ?>
+            <?dbfo table-width="95%" ?>
+            <colspec colname="col1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="col2" colnum="2" colwidth="8.84*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Code</para>
+                    </entry>
+                    <entry>
+                        <para>Description </para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>A</entry>
+                    <entry>The pipeline was abandoned.</entry>
+                </row>
+                <row>
+                    <entry>ME</entry>
+                    <entry>Merchant error. Either the button parameter names are invalid, or there is a shipping address error from the co-branded user interface.</entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PS </para>
+                    </entry>
+                    <entry>
+                        <para>The payment transaction was successful.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PF </para>
+                    </entry>
+                    <entry>
+                        <para>The payment or reserve transaction failed and the money was not transferred. If the account is not suspended, you can redirect your customer to the Amazon Payments Payment Authorization page to select a different payment method.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PI </para>
+                    </entry>
+                    <entry>
+                        <para>Payment has been initiated. It will take between five seconds and 48 hours to complete, based on the availability of external payment networks and the riskiness of the transaction.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PR </para>
+                    </entry>
+                    <entry>
+                        <para>The reserve transaction was successful. </para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>RS</entry>
+                    <entry>The refund transaction was successful.</entry>
+                </row>
+                <row>
+                    <entry>RF</entry>
+                    <entry>The refund transaction failed.</entry>
+                </row>
+                <row>
+                    <entry>SE</entry>
+                    <entry>A service error has occurred.</entry>
+                </row>
+                <row>
+                    <entry>SF</entry>
+                    <entry>The subscription failed.</entry>
+                </row>
+                <row>
+                    <entry>SI</entry>
+                    <entry>The subscription has initiated.</entry>
+                </row>
+                <row>
+                    <entry>SR</entry>
+                    <entry>The marketplace fee transaction was accepted by the recipient.</entry>
+                </row>
+                <row>
+                    <entry>SS</entry>
+                    <entry>The subscription was completed.</entry>
+                </row>
+                <row>
+                    <entry>UE</entry>
+                    <entry>User error for donations. The donation amount was less than the minimum donation amount.</entry>
+                </row>
+                <row>
+                    <entry>UF</entry>
+                    <entry>Subscription update failed. The subscriber has failed to update the subscription payment method.</entry>
+                </row>
+                <row>
+                    <entry>US</entry>
+                    <entry>Subscription update was successful. The subscriber succeeded updating the subscription payment method.</entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+</section>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="MarketplaceRefundPolicyDataTypes">
+	<title id="MarketplaceRefundPolicyDataTypes.title">MarketplaceRefundPolicy Data Types</title>
+	<para>
+		<informaltable>
+			<tgroup cols="2">
+				<?dbhtml table-width="100%" ?>
+				<?dbfo table-width="95%" ?>
+				<colspec colname="C1" colwidth="1.73*"/>
+				<colspec colname="C2" colwidth="3.77*"/>
+				<thead>
+					<row>
+						<entry>Name</entry>
+						<entry>Description</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para><parameter>MarketplaceTxnOnly</parameter></para>
+						</entry>
+						<entry>
+							<para>Caller refunds his fee to the recipient.</para>
+							<simpara>Type: String</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><parameter>MasterAndMarketplaceTxn</parameter></para>
+						</entry>
+						<entry>
+							<para>Caller and Amazon FPS refund their fees to the sender, and the recipient refunds his amount</para>
+							<simpara>Type: String</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para><parameter>MasterTxnOnly</parameter></para>
+						</entry>
+						<entry>
+							<para>Caller does not refund his fee. Amazon FPS refunds its fee and the recipient refunds his amount plus the caller's fee to the sender.</para>
+							<para>Type: String</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
+	</para>
+</section>

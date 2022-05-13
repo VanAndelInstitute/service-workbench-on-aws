@@ -1,0 +1,14 @@
+    def delete_job(self, job_name):
+        """
+        Deletes a job definition. This also deletes data about all runs that are
+        associated with this job definition.
+
+        :param job_name: The name of the job definition to delete.
+        """
+        try:
+            self.glue_client.delete_job(JobName=job_name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't delete job %s. Here's why: %s: %s", job_name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise

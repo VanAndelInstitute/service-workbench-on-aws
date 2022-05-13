@@ -1,0 +1,11 @@
+suspend fun deleteQueryName(sampleNamedQueryId: String?) {
+
+    val request = DeleteNamedQueryRequest {
+        namedQueryId = sampleNamedQueryId
+    }
+
+    AthenaClient { region = "us-west-2" }.use { athenaClient->
+        athenaClient.deleteNamedQuery(request)
+        println("$sampleNamedQueryId was deleted!")
+    }
+}

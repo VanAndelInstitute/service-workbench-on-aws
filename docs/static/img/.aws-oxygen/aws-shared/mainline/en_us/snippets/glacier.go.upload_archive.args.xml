@@ -1,0 +1,11 @@
+<programlisting>
+    vaultName := flag.String("v", "", "The name of the vault")
+    fileName := flag.String("f", "", "The name of the file to archive")
+    flag.Parse()
+
+    if *vaultName == "" || *fileName == "" {
+        fmt.Println("You must supply a vault name and file name")
+        fmt.Println("-v VAULT-NAME -f FILE-NAME")
+        return
+    }
+</programlisting>

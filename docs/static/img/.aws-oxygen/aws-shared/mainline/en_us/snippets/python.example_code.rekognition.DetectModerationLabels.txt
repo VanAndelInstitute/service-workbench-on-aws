@@ -1,0 +1,20 @@
+    def detect_moderation_labels(self):
+        """
+        Detects moderation labels in the image. Moderation labels identify content
+        that may be inappropriate for some audiences.
+
+        :return: The list of moderation labels found in the image.
+        """
+        try:
+            response = self.rekognition_client.detect_moderation_labels(
+                Image=self.image)
+            labels = [RekognitionModerationLabel(label)
+                      for label in response['ModerationLabels']]
+            logger.info(
+                "Found %s moderation labels in %s.", len(labels), self.image_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't detect moderation labels in %s.", self.image_name)
+            raise
+        else:
+            return labels

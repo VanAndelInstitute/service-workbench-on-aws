@@ -1,0 +1,8 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.firehose.FirehoseClient;
+import software.amazon.awssdk.services.firehose.model.FirehoseException;
+import software.amazon.awssdk.services.firehose.model.CreateDeliveryStreamRequest;
+import software.amazon.awssdk.services.firehose.model.ExtendedS3DestinationConfiguration;
+import software.amazon.awssdk.services.firehose.model.CreateDeliveryStreamResponse;
+</programlisting>

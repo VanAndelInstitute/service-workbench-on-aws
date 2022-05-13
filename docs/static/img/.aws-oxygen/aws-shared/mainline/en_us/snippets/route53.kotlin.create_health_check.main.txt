@@ -1,0 +1,21 @@
+suspend fun createCheck(domainName: String?): String? {
+
+            // You must use a unique CallerReference string.
+            val callerReferenceVal = UUID.randomUUID().toString()
+
+            val config = HealthCheckConfig {
+                fullyQualifiedDomainName =domainName
+                port =80
+                type = HealthCheckType.Http
+            }
+
+            val healthCheckRequest = CreateHealthCheckRequest {
+                callerReference = callerReferenceVal
+                healthCheckConfig = config
+            }
+
+            Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+              val healthResponse = route53Client.createHealthCheck(healthCheckRequest)
+              return healthResponse.healthCheck?.id
+        }
+      }

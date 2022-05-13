@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &CMP; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &CMP; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &CMP; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &CMP; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &CMP; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &CMP;
+            actions with &AWS; SDKs. These excerpts call the &CMP; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&CMP; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_comprehend_CreateDocumentClassifier_section" role="topic">
+            <info>
+                <title id="example_comprehend_CreateDocumentClassifier_section.title">Create an &CMP; document classifier using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_CreateDocumentClassifier_section.titleabbrev">Create a document classifier</titleabbrev>
+                <abstract>
+                    <para>Create an &CMP; document classifier using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_CreateDocumentClassifier_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_CreateDocumentClassifier_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DeleteDocumentClassifier_section" role="topic">
+            <info>
+                <title id="example_comprehend_DeleteDocumentClassifier_section.title">Delete an &CMP; document classifier using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DeleteDocumentClassifier_section.titleabbrev">Delete a document classifier</titleabbrev>
+                <abstract>
+                    <para>Delete an &CMP; document classifier using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DeleteDocumentClassifier_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DeleteDocumentClassifier_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DescribeDocumentClassificationJob_section" role="topic">
+            <info>
+                <title id="example_comprehend_DescribeDocumentClassificationJob_section.title">Describe an &CMP; document classification job using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DescribeDocumentClassificationJob_section.titleabbrev">Describe a document classification job</titleabbrev>
+                <abstract>
+                    <para>Describe an &CMP; document classification job using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeDocumentClassificationJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeDocumentClassificationJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DescribeDocumentClassifier_section" role="topic">
+            <info>
+                <title id="example_comprehend_DescribeDocumentClassifier_section.title">Describe an &CMP; document classifier using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DescribeDocumentClassifier_section.titleabbrev">Describe a document classifier</titleabbrev>
+                <abstract>
+                    <para>Describe an &CMP; document classifier using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeDocumentClassifier_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeDocumentClassifier_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DescribeTopicsDetectionJob_section" role="topic">
+            <info>
+                <title id="example_comprehend_DescribeTopicsDetectionJob_section.title">Describe an &CMP; topic modeling job using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DescribeTopicsDetectionJob_section.titleabbrev">Describe a topic modeling job</titleabbrev>
+                <abstract>
+                    <para>Describe an &CMP; topic modeling job using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeTopicsDetectionJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DescribeTopicsDetectionJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectEntities_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectEntities_section.title">Detect entities in a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectEntities_section.titleabbrev">Detect entities in a document</titleabbrev>
+                <abstract>
+                    <para>Detect entities in a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectEntities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectEntities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectKeyPhrases_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectKeyPhrases_section.title">Detect key phrases in a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectKeyPhrases_section.titleabbrev">Detect key phrases in a document</titleabbrev>
+                <abstract>
+                    <para>Detect key phrases in a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectKeyPhrases_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectKeyPhrases_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectPiiEntities_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectPiiEntities_section.title">Detect personally identifiable information in a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectPiiEntities_section.titleabbrev">Detect personally identifiable information in a document</titleabbrev>
+                <abstract>
+                    <para>Detect personally identifiable information in a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectPiiEntities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectPiiEntities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectSyntax_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectSyntax_section.title">Detect syntactial elements of a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectSyntax_section.titleabbrev">Detect syntactical elements of a document</titleabbrev>
+                <abstract>
+                    <para>Detect syntactial elements of a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSyntax_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSyntax_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectDominantLanguage_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectDominantLanguage_section.title">Detect the dominant language in a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectDominantLanguage_section.titleabbrev">Detect the dominant language in a document</titleabbrev>
+                <abstract>
+                    <para>Detect the dominant language in a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectDominantLanguage_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectDominantLanguage_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_DetectSentiment_section" role="topic">
+            <info>
+                <title id="example_comprehend_DetectSentiment_section.title">Detect the sentiment of a document with &CMP; using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_DetectSentiment_section.titleabbrev">Detect the sentiment of a document</titleabbrev>
+                <abstract>
+                    <para>Detect the sentiment of a document with &CMP; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSentiment_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSentiment_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_ListDocumentClassificationJobs_section" role="topic">
+            <info>
+                <title id="example_comprehend_ListDocumentClassificationJobs_section.title">List &CMP; document classification jobs using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_ListDocumentClassificationJobs_section.titleabbrev">List document classification jobs</titleabbrev>
+                <abstract>
+                    <para>List &CMP; document classification jobs using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListDocumentClassificationJobs_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListDocumentClassificationJobs_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_ListDocumentClassifiers_section" role="topic">
+            <info>
+                <title id="example_comprehend_ListDocumentClassifiers_section.title">List &CMP; document classifiers using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_ListDocumentClassifiers_section.titleabbrev">List document classifiers</titleabbrev>
+                <abstract>
+                    <para>List &CMP; document classifiers using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListDocumentClassifiers_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListDocumentClassifiers_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_ListTopicsDetectionJobs_section" role="topic">
+            <info>
+                <title id="example_comprehend_ListTopicsDetectionJobs_section.title">List &CMP; topic modeling jobs using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_ListTopicsDetectionJobs_section.titleabbrev">List topic modeling jobs</titleabbrev>
+                <abstract>
+                    <para>List &CMP; topic modeling jobs using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListTopicsDetectionJobs_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_ListTopicsDetectionJobs_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_StartDocumentClassificationJob_section" role="topic">
+            <info>
+                <title id="example_comprehend_StartDocumentClassificationJob_section.title">Start an &CMP; document classification job using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_StartDocumentClassificationJob_section.titleabbrev">Start a document classification job</titleabbrev>
+                <abstract>
+                    <para>Start an &CMP; document classification job using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_StartDocumentClassificationJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_StartDocumentClassificationJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_StartTopicsDetectionJob_section" role="topic">
+            <info>
+                <title id="example_comprehend_StartTopicsDetectionJob_section.title">Start an &CMP; topic modeling job using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_StartTopicsDetectionJob_section.titleabbrev">Start a topic modeling job</titleabbrev>
+                <abstract>
+                    <para>Start an &CMP; topic modeling job using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_StartTopicsDetectionJob_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_StartTopicsDetectionJob_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &CMP; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &CMP; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &CMP;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &CMP;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_comprehend_Usage_TopicModeler_section" role="topic">
+            <info>
+                <title id="example_comprehend_Usage_TopicModeler_section.title">Run an &CMP; topic modeling job on sample data using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_Usage_TopicModeler_section.titleabbrev">Run a topic modeling job on sample data</titleabbrev>
+                <abstract>
+                    <para>Run an &CMP; topic modeling job on sample data using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_TopicModeler_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_TopicModeler_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_Usage_ComprehendClassifier_section" role="topic">
+            <info>
+                <title id="example_comprehend_Usage_ComprehendClassifier_section.title">Train a custom &CMP; classifier and classify documents using an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_Usage_ComprehendClassifier_section.titleabbrev">Train a custom classifier and classify documents</titleabbrev>
+                <abstract>
+                    <para>Train a custom &CMP; classifier and classify documents using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_ComprehendClassifier_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_ComprehendClassifier_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_comprehend_Usage_DetectApis_section" role="topic">
+            <info>
+                <title id="example_comprehend_Usage_DetectApis_section.title">Use &CMP; detection APIs with an &AWS; SDK</title>
+                <titleabbrev id="example_comprehend_Usage_DetectApis_section.titleabbrev">Use detection APIs with a document</titleabbrev>
+                <abstract>
+                    <para>Use &CMP; detection APIs with an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_DetectApis_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/comprehend_Usage_DetectApis_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &CMP; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &CMP; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &CMP;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_TranscriptionStreamingApp_section" role="topic">
+            <info>
+                <title id="example_cross_TranscriptionStreamingApp_section.title">Build an &TSC; streaming app</title>
+                <titleabbrev id="example_cross_TranscriptionStreamingApp_section.titleabbrev">Build an &TSC; streaming app</titleabbrev>
+                <abstract>
+                    <para>Build an &TSC; streaming app</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionStreamingApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionStreamingApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_LexChatbotLanguages_section" role="topic">
+            <info>
+                <title id="example_cross_LexChatbotLanguages_section.title">Create an &LEX2; Chatbot within a web application to engage your web site visitors</title>
+                <titleabbrev id="example_cross_LexChatbotLanguages_section.titleabbrev">Building an &LEX2; Chatbot</titleabbrev>
+                <abstract>
+                    <para>Create an &LEX2; Chatbot within a web application to engage your web site visitors</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LexChatbotLanguages_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LexChatbotLanguages_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractComprehendDetectEntities_section" role="topic">
+            <info>
+                <title id="example_cross_TextractComprehendDetectEntities_section.title">Detect entities in text extracted from an image using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_TextractComprehendDetectEntities_section.titleabbrev">Detect entities in text extracted from an image</titleabbrev>
+                <abstract>
+                    <para>Detect entities in text extracted from an image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

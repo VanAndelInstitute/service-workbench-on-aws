@@ -1,0 +1,13 @@
+    @staticmethod
+    def delete_vault(vault):
+        """
+        Deletes a vault.
+
+        :param vault: The vault to delete.
+        """
+        try:
+            vault.delete()
+            logger.info("Deleted vault %s.", vault.name)
+        except ClientError:
+            logger.exception("Couldn't delete vault %s.", vault.name)
+            raise

@@ -1,0 +1,18 @@
+<programlisting>
+    def get_acl(self):
+        """
+        Gets the ACL of the object.
+
+        :return: The ACL of the object.
+        """
+        try:
+            acl = self.object.Acl()
+            logger.info(
+                "Got ACL for object %s owned by %s.",
+                self.object.key, acl.owner['DisplayName'])
+        except ClientError:
+            logger.exception("Couldn't get ACL for object %s.", self.object.key)
+            raise
+        else:
+            return acl
+</programlisting>

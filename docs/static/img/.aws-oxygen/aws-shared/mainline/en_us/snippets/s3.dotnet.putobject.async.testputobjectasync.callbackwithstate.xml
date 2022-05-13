@@ -1,0 +1,4 @@
+<programlisting>
+            asyncResult = client.BeginPutObject(request_state, CallbackWithState,
+               new ClientState { Client = client, Start = DateTime.Now });
+</programlisting>

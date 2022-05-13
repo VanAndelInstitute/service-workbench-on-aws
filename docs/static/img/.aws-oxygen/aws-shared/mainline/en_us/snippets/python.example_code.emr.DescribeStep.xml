@@ -1,0 +1,21 @@
+<programlisting>
+def describe_step(cluster_id, step_id, emr_client):
+    """
+    Gets detailed information about the specified step, including the current state of
+    the step.
+
+    :param cluster_id: The ID of the cluster.
+    :param step_id: The ID of the step.
+    :param emr_client: The Boto3 EMR client object.
+    :return: The retrieved information about the specified step.
+    """
+    try:
+        response = emr_client.describe_step(ClusterId=cluster_id, StepId=step_id)
+        step = response['Step']
+        logger.info("Got data for step %s.", step_id)
+    except ClientError:
+        logger.exception("Couldn't get data for step %s.", step_id)
+        raise
+    else:
+        return step
+</programlisting>

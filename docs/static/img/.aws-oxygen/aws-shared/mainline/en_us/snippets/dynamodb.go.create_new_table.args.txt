@@ -1,0 +1,7 @@
+    tableName := flag.String("t", "", "The name of the table")
+    flag.Parse()
+
+    if *tableName == "" {
+        fmt.Println("You must supply a table name (-t TABLE)")
+        return
+    }

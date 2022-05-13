@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+  <xs:element name="main-landing-page">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="summary" minOccurs="0"/>
+        <xs:element ref="abstract" minOccurs="0"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="feedbackFolder"/>
+          <xs:element ref="feedbackCTI"/>
+        </xs:choice>
+        <xs:element ref="service-categories" minOccurs="0"/>
+        <xs:element ref="tutorials" minOccurs="0"/>
+        <xs:element ref="sdks" minOccurs="0"/>
+        <xs:element ref="general_resources" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="summary" type="xs:string"/>
+  <xs:element name="feedbackFolder" type="xs:string"/>
+  <xs:element name="feedbackCTI" type="xs:string"/>
+  <xs:element name="service-categories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="tiles"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tutorials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="sections"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="section"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="section">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="tiles"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sdks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="tiles"/>
+        <xs:element ref="more-info"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="more-info">
+    <xs:complexType mixed="true">
+      <xs:attribute name="href" use="required" type="xs:anyURI"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="general_resources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="tiles"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="id" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abstract">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="tile"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tile">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="abstract"/>
+        <xs:element ref="title"/>
+        <xs:element ref="footer-left"/>
+        <xs:element ref="footer-right"/>
+        <xs:element ref="services"/>
+      </xs:choice>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="image"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="footer-left">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="footer-right">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="services">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="service"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="service">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="prefix"/>
+        <xs:element ref="name"/>
+      </xs:sequence>
+      <xs:attribute name="class"/>
+      <xs:attribute name="href" use="required" type="xs:anyURI"/>
+      <xs:attribute name="validate" type="xs:boolean"/>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prefix">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+
+  </xs:element>
+  <xs:element name="name">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noloc"/>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="noloc">
+    <xs:annotation>
+      <xs:documentation>Specifies text that should not be localized.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element ref="shared" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:complexType>    
+  </xs:element>
+  
+  <xs:element name="shared">
+    <xs:annotation>
+      <xs:documentation>Reference to a service or entity definition. Only references to services and entity definitions in the same file are allowed.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType mixed="false">
+      <xs:attribute name="id" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the identifier to a service or shared-text within the same file.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:attributeGroup name="profiling">
+    <xs:attribute name="region" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Specifies the region(s) that the element should be included in (or excluded from). To only
+          include the element in a specific region,
+          use the region airport code (like "BJS"). To exclude it from a region, use a minus plus the region airport
+          code (like "-DCA").
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+</xs:schema>

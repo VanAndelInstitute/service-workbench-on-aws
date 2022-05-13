@@ -1,0 +1,18 @@
+<programlisting>
+        public static async Task Main()
+        {
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            string collectionId = "MyCollection";
+            Console.WriteLine("Deleting collection: " + collectionId);
+
+            var deleteCollectionRequest = new DeleteCollectionRequest()
+            {
+                CollectionId = collectionId,
+            };
+
+            var deleteCollectionResponse = await rekognitionClient.DeleteCollectionAsync(deleteCollectionRequest);
+            Console.WriteLine($"{collectionId}: {deleteCollectionResponse.StatusCode}");
+        }
+
+</programlisting>

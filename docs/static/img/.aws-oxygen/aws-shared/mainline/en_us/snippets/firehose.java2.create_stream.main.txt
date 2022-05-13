@@ -1,0 +1,23 @@
+    public static void createStream(FirehoseClient firehoseClient, String bucketARN, String roleARN, String streamName) {
+
+    try {
+
+        ExtendedS3DestinationConfiguration destinationConfiguration = ExtendedS3DestinationConfiguration.builder()
+                .bucketARN(bucketARN)
+                .roleARN(roleARN)
+                .build();
+
+        CreateDeliveryStreamRequest deliveryStreamRequest = CreateDeliveryStreamRequest.builder()
+                .deliveryStreamName(streamName)
+                .extendedS3DestinationConfiguration(destinationConfiguration)
+                .deliveryStreamType("DirectPut")
+                .build();
+
+            CreateDeliveryStreamResponse streamResponse = firehoseClient.createDeliveryStream(deliveryStreamRequest);
+            System.out.println("Delivery Stream ARN is "+streamResponse.deliveryStreamARN());
+
+    } catch (FirehoseException e) {
+        System.out.println(e.getLocalizedMessage());
+        System.exit(1);
+    }
+  }

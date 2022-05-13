@@ -1,0 +1,12 @@
+<programlisting>
+suspend fun listStreams() {
+
+     FirehoseClient { region = "us-west-2" }.use { firehoseClient ->
+        val response = firehoseClient.listDeliveryStreams(ListDeliveryStreamsRequest{})
+        response.deliveryStreamNames?.forEach { item ->
+            println("The delivery stream name is $item")
+        }
+
+    }
+}
+</programlisting>

@@ -1,0 +1,28 @@
+    public static String createCheck(Route53Client route53Client, String domainName) {
+
+        try {
+
+            // You must use a unique CallerReference string
+            String callerReference = java.util.UUID.randomUUID().toString();
+
+            HealthCheckConfig config = HealthCheckConfig.builder()
+                    .fullyQualifiedDomainName(domainName)
+                    .port(80)
+                    .type("HTTP")
+                    .build();
+
+             CreateHealthCheckRequest healthCheckRequest = CreateHealthCheckRequest.builder()
+                     .callerReference(callerReference)
+                     .healthCheckConfig(config)
+                     .build();
+
+            // Create the Health Check and return the id value
+            CreateHealthCheckResponse healthResponse = route53Client.createHealthCheck(healthCheckRequest);
+            return healthResponse.healthCheck().id();
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }

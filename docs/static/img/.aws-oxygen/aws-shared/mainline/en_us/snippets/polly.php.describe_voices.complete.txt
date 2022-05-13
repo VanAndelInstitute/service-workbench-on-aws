@@ -1,0 +1,28 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Exception\AwsException;
+use Aws\Polly\PollyClient;
+
+
+/**
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+// Create a PollyClient
+$client = new Aws\Polly\PollyClient([
+    'profile' => 'default',
+    'version' => '2016-06-10',
+    'region' => 'us-east-2'
+]);
+
+try {
+    $result = $client->describeVoices([
+        'LanguageCode' => 'en-GB',
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}

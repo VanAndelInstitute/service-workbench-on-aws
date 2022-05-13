@@ -1,0 +1,5 @@
+    svc := dynamodb.New(sess)
+
+    result, err := svc.ListTables(&dynamodb.ListTablesInput{
+        Limit: limit,
+    })

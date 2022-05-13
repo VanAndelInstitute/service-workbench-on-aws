@@ -1,0 +1,11 @@
+<programlisting>
+import { rekognitionClient } from "../libs/rekognitionClient.js";
+import { s3Client } from "../libs/s3Client.js";
+import { sesClient } from "../libs/sesClient.js";
+import { SendEmailCommand } from "@aws-sdk/client-ses";
+import { ListObjectsCommand } from "@aws-sdk/client-s3";
+import { StartFaceDetectionCommand, GetFaceDetectionCommand } from "@aws-sdk/client-rekognition";
+const BUCKET = "BUCKET_NAME";
+const IAM_ROLE_ARN = "IAM_ROLE_ARN";
+
+</programlisting>

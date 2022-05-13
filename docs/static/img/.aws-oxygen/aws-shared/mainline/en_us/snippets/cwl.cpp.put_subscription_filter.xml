@@ -1,0 +1,20 @@
+<programlisting>
+        Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
+        Aws::CloudWatchLogs::Model::PutSubscriptionFilterRequest request;
+        request.SetFilterName(filter_name);
+        request.SetFilterPattern(filter_pattern);
+        request.SetLogGroupName(log_group);
+        request.SetDestinationArn(dest_arn);
+        auto outcome = cwl.PutSubscriptionFilter(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Failed to create CloudWatch logs subscription filter "
+                << filter_name << ": " << outcome.GetError().GetMessage() <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully created CloudWatch logs subscription " <<
+                "filter " << filter_name << std::endl;
+        }
+</programlisting>

@@ -1,0 +1,54 @@
+<programlisting>
+    public static String createDataSource(KendraClient kendra, String s3BucketName, String dataSourceName, String dataSourceDescription, String indexId, String dataSourceRoleArn) {
+
+        System.out.println("Creating an S3 data source");
+
+        try {
+            CreateDataSourceRequest createDataSourceRequest = CreateDataSourceRequest
+                    .builder()
+                    .indexId(indexId)
+                    .name(dataSourceName)
+                    .description(dataSourceDescription)
+                    .roleArn(dataSourceRoleArn)
+                    .type(DataSourceType.S3)
+                    .configuration(
+                            DataSourceConfiguration
+                                    .builder()
+                                    .s3Configuration(
+                                            S3DataSourceConfiguration
+                                                    .builder()
+                                                    .bucketName(s3BucketName)
+                                                    .build()
+                                    ).build()
+                    ).build();
+
+            CreateDataSourceResponse createDataSourceResponse = kendra.createDataSource(createDataSourceRequest);
+            System.out.println("Response of creating data source " +createDataSourceResponse);
+
+            String dataSourceId = createDataSourceResponse.id();
+            System.out.println("Waiting for Kendra to create the data source " +dataSourceId);
+            DescribeDataSourceRequest describeDataSourceRequest = DescribeDataSourceRequest
+                    .builder()
+                    .indexId(indexId)
+                    .id(dataSourceId)
+                    .build();
+
+            while (true) {
+                DescribeDataSourceResponse describeDataSourceResponse = kendra.describeDataSource(describeDataSourceRequest);
+                DataSourceStatus status = describeDataSourceResponse.status();
+                System.out.println("Creating data source. Status is " +status);
+                if (status != DataSourceStatus.CREATING) {
+                    break;
+                }
+
+                TimeUnit.SECONDS.sleep(60);
+            }
+
+            return dataSourceId;
+        } catch (KendraException | InterruptedException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "" ;
+    }
+</programlisting>

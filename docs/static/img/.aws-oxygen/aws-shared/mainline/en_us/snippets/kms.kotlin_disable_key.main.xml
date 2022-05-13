@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun disableKey(keyIdVal: String?) {
+
+        val request = DisableKeyRequest {
+            keyId = keyIdVal
+        }
+
+        KmsClient { region = "us-west-2" }.use { kmsClient ->
+            kmsClient.disableKey(request)
+            println("$keyIdVal was successfully disabled")
+        }
+}
+</programlisting>

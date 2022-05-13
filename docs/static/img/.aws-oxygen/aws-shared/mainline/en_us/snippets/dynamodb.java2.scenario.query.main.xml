@@ -1,0 +1,32 @@
+<programlisting>
+    // Query the table.
+    public static void queryTable(DynamoDbClient ddb) {
+            try {
+
+                DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
+                        .dynamoDbClient(ddb)
+                        .build();
+
+                DynamoDbTable<Movies> custTable = enhancedClient.table("Movies", TableSchema.fromBean(Movies.class));
+
+                    QueryConditional queryConditional = QueryConditional
+                            .keyEqualTo(Key.builder()
+                                    .partitionValue(2013)
+                                    .build());
+
+                    // Get items in the table and write out the ID value
+                    Iterator<Movies> results = custTable.query(queryConditional).items().iterator();
+                    String result="";
+
+                    while (results.hasNext()) {
+                        Movies rec = results.next();
+                        System.out.println("The title of the movie is "+rec.getTitle());
+                        System.out.println("The movie information  is "+rec.getInfo());
+                    }
+
+                } catch (DynamoDbException e) {
+                    System.err.println(e.getMessage());
+                    System.exit(1);
+                }
+        }
+</programlisting>

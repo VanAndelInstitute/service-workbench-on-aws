@@ -1,0 +1,14 @@
+<programlisting>
+    def delete_receipt_filter(self, filter_name):
+        """
+        Deletes a receipt filter.
+
+        :param filter_name: The name of the filter to delete.
+        """
+        try:
+            self.ses_client.delete_receipt_filter(FilterName=filter_name)
+            logger.info("Deleted receipt filter %s.", filter_name)
+        except ClientError:
+            logger.exception("Couldn't delete receipt filter %s.", filter_name)
+            raise
+</programlisting>

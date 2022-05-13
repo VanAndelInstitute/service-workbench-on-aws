@@ -1,0 +1,10 @@
+<programlisting>
+    svc := sqs.New(sess)
+
+    result, err := svc.CreateQueue(&sqs.CreateQueueInput{
+        QueueName: queueName,
+        Attributes: aws.StringMap(map[string]string{
+            "ReceiveMessageWaitTimeSeconds": strconv.Itoa(*waitTime),
+        }),
+    })
+</programlisting>

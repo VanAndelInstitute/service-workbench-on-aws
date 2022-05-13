@@ -1,0 +1,16 @@
+<programlisting>
+    public static void getKeys(ApiGatewayClient apiGateway) {
+
+        try {
+            GetApiKeysResponse response = apiGateway.getApiKeys();
+            List<ApiKey> keys = response.items();
+            for (ApiKey key: keys) {
+                System.out.println("key id is: "+key.id());
+            }
+
+        } catch (ApiGatewayException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

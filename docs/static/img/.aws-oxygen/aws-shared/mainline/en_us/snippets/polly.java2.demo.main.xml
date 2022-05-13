@@ -1,0 +1,46 @@
+<programlisting>
+    public static void talkPolly(PollyClient polly) {
+
+    try {
+            DescribeVoicesRequest describeVoiceRequest = DescribeVoicesRequest.builder()
+                    .engine("standard")
+                    .build();
+
+            DescribeVoicesResponse describeVoicesResult = polly.describeVoices(describeVoiceRequest);
+            Voice voice = describeVoicesResult.voices().get(26);
+
+
+            InputStream stream = synthesize(polly, SAMPLE, voice, OutputFormat.MP3);
+            AdvancedPlayer player = new AdvancedPlayer(stream, javazoom.jl.player.FactoryRegistry.systemRegistry().createAudioDevice());
+            player.setPlayBackListener(new PlaybackListener() {
+
+                public void playbackStarted(PlaybackEvent evt) {
+                    System.out.println("Playback started");
+                    System.out.println(SAMPLE);
+                }
+
+                public void playbackFinished(PlaybackEvent evt) {
+                    System.out.println("Playback finished");
+                }
+            });
+
+            // play it!
+            player.play();
+        } catch (PollyException | JavaLayerException | IOException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static InputStream synthesize(PollyClient polly, String text, Voice voice, OutputFormat format) throws IOException {
+
+        SynthesizeSpeechRequest synthReq = SynthesizeSpeechRequest.builder()
+                .text(text)
+                .voiceId(voice.id())
+                .outputFormat(format)
+                .build();
+
+        ResponseInputStream<SynthesizeSpeechResponse> synthRes = polly.synthesizeSpeech(synthReq);
+        return synthRes;
+    }
+</programlisting>

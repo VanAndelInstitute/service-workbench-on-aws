@@ -1,0 +1,15 @@
+    def get_cors(self):
+        """
+        Get the CORS rules for the bucket.
+
+        :return The CORS rules for the specified bucket.
+        """
+        try:
+            cors = self.bucket.Cors()
+            logger.info(
+                "Got CORS rules %s for bucket '%s'.", cors.cors_rules, self.bucket.name)
+        except ClientError:
+            logger.exception(("Couldn't get CORS for bucket %s.", self.bucket.name))
+            raise
+        else:
+            return cors

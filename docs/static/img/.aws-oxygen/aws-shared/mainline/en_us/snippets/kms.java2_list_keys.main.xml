@@ -1,0 +1,21 @@
+<programlisting>
+    public static void listAllKeys(KmsClient kmsClient) {
+
+        try {
+            ListKeysRequest listKeysRequest = ListKeysRequest.builder()
+                    .limit(15)
+                    .build();
+
+            ListKeysResponse keysResponse = kmsClient.listKeys(listKeysRequest);
+            List<KeyListEntry> keyListEntries = keysResponse.keys();
+            for (KeyListEntry key : keyListEntries) {
+                System.out.println("The key ARN is: " + key.keyArn());
+                System.out.println("The key Id is: " + key.keyId());
+            }
+
+        } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+      }
+</programlisting>

@@ -1,0 +1,21 @@
+/*
+ * Creates the ilusion of a page.
+ */
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+
+@media oxygen {
+
+    /* A gray background */
+    oxy|document {
+      background-color:#fbfbfb;
+    }
+    
+    /* Padding inside the page. */
+    :root {
+          padding-top:0.125in;
+          padding-right:0.125in;
+          padding-left:0.125in;
+          padding-bottom:0.125in;
+    }
+}

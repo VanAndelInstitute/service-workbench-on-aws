@@ -1,0 +1,3 @@
+<programlisting>
+    svc := lambda.New(sess)
+</programlisting>

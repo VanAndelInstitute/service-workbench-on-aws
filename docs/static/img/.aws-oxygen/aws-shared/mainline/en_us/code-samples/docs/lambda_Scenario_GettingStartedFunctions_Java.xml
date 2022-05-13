@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JavaV2;</term>
+        <listitem>
+            <block>
+                <para></para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/lambda.javav2.scenario.main.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-javaV2-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction">CreateFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction">DeleteFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/GetFunction">GetFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/Invoke">Invoke</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions">ListFunctions</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode">UpdateFunctionCode</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionConfiguration">UpdateFunctionConfiguration</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

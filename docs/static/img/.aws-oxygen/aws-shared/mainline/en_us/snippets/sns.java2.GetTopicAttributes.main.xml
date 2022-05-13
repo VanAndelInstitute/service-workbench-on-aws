@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getSNSTopicAttributes(SnsClient snsClient, String topicArn ) {
+
+        try {
+            GetTopicAttributesRequest request = GetTopicAttributesRequest.builder()
+                .topicArn(topicArn)
+                .build();
+
+            GetTopicAttributesResponse result = snsClient.getTopicAttributes(request);
+            System.out.println("\n\nStatus is " + result.sdkHttpResponse().statusCode() + "\n\nAttributes: \n\n" + result.attributes());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

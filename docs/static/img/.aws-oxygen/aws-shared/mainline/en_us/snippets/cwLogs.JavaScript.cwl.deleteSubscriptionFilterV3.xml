@@ -1,0 +1,31 @@
+<programlisting>
+
+// Import required AWS SDK clients and commands for Node.js
+import {
+  DeleteSubscriptionFilterCommand
+} from "@aws-sdk/client-cloudwatch-logs";
+import { cwlClient } from "./libs/cloudWatchLogsClient.js";
+
+// Set the parameters
+export const params = {
+  filterName: "FILTER", //FILTER
+  logGroupName: "LOG_GROUP", //LOG_GROUP
+};
+
+export const run = async () => {
+  try {
+    const data = await cwlClient.send(
+      new DeleteSubscriptionFilterCommand(params)
+    );
+    console.log(
+      "Success, subscription filter deleted",
+      data
+    );
+    return data; //For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+// Uncomment this line to run execution within this file.
+// run();
+</programlisting>

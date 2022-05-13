@@ -1,0 +1,6 @@
+    svc := s3.New(sess)
+
+    _, err := svc.DeleteObject(&s3.DeleteObjectInput{
+        Bucket: bucket,
+        Key:    item,
+    })

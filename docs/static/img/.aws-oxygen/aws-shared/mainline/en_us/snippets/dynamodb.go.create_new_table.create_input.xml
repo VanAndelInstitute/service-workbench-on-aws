@@ -1,0 +1,28 @@
+<programlisting>
+    attributeDefinitions := []*dynamodb.AttributeDefinition{
+        {
+            AttributeName: aws.String("Year"),
+            AttributeType: aws.String("N"),
+        },
+        {
+            AttributeName: aws.String("Title"),
+            AttributeType: aws.String("S"),
+        },
+    }
+
+    keySchema := []*dynamodb.KeySchemaElement{
+        {
+            AttributeName: aws.String("Year"),
+            KeyType:       aws.String("HASH"),
+        },
+        {
+            AttributeName: aws.String("Title"),
+            KeyType:       aws.String("RANGE"),
+        },
+    }
+
+    provisionedThroughput := &dynamodb.ProvisionedThroughput{
+        ReadCapacityUnits:  aws.Int64(10),
+        WriteCapacityUnits: aws.Int64(10),
+    }
+</programlisting>

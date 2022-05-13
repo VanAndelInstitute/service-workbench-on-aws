@@ -1,0 +1,47 @@
+    public static void getPollData( SwfClient swf, String domain, String taskList) {
+
+        System.out.println("Polling for an activity task from the tasklist '"
+                    + taskList + "' in the domain '" +
+                    domain + "'.");
+
+            PollForActivityTaskResponse task = swf.pollForActivityTask(
+                    PollForActivityTaskRequest.builder()
+                            .domain(domain)
+                            .taskList(
+                                    TaskList.builder().name(taskList).build())
+                            .build());
+
+            String taskToken = task.taskToken();
+
+            if (taskToken != null) {
+                String result = null;
+                Throwable error = null;
+
+               System.out.println("Executing the activity task with input '" +task.input() + "'.");
+               result = sayHello(task.input());
+
+                if (error == null) {
+                    System.out.println("The activity task succeeded with result '"
+                            + result + "'.");
+                    swf.respondActivityTaskCompleted(
+                            RespondActivityTaskCompletedRequest.builder()
+                                    .taskToken(taskToken)
+                                    .result(result).build());
+                } else {
+                    System.out.println("The activity task failed with the error '"
+                            + error.getClass().getSimpleName() + "'.");
+                    swf.respondActivityTaskFailed(
+                            RespondActivityTaskFailedRequest.builder()
+                                    .taskToken(taskToken)
+                                    .reason(error.getClass().getSimpleName())
+                                    .details(error.getMessage())
+                                    .build());
+                }
+            }
+    }
+
+
+    private static String sayHello(String input) {
+        return "Hello, " + input + "!";
+    }
+}

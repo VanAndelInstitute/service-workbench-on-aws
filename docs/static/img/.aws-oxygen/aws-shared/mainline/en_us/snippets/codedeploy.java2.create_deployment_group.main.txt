@@ -1,0 +1,40 @@
+    public static String createNewDeploymentGroup(CodeDeployClient deployClient,
+                                                  String deploymentGroupName,
+                                                  String appName,
+                                                  String serviceRoleArn,
+                                                  String tagKey,
+                                                  String tagValue) {
+
+        try {
+            DeploymentStyle style = DeploymentStyle.builder()
+                .deploymentType(DeploymentType.IN_PLACE)
+                .deploymentOption(DeploymentOption.WITHOUT_TRAFFIC_CONTROL)
+                .build();
+
+            EC2TagFilter tagFilter =  EC2TagFilter.builder()
+                .key(tagKey)
+                .value(tagValue)
+                .type("KEY_AND_VALUE")
+                .build();
+
+            List<EC2TagFilter> tags = new ArrayList<>();
+            tags.add(tagFilter);
+
+            CreateDeploymentGroupRequest groupRequest = CreateDeploymentGroupRequest.builder()
+                .deploymentGroupName(deploymentGroupName)
+                .applicationName(appName)
+                .serviceRoleArn(serviceRoleArn)
+                .deploymentStyle(style)
+                .ec2TagFilters(tags)
+                .build();
+
+            CreateDeploymentGroupResponse groupResponse = deployClient.createDeploymentGroup(groupRequest);
+            String groupId = groupResponse.deploymentGroupId();
+             return groupId;
+
+        } catch (CodeDeployException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

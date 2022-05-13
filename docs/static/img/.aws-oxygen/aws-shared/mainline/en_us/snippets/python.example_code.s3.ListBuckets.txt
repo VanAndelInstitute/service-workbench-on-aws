@@ -1,0 +1,15 @@
+    @staticmethod
+    def list(s3_resource):
+        """
+        Get the buckets in all Regions for the current account.
+
+        :return: The list of buckets.
+        """
+        try:
+            buckets = list(s3_resource.buckets.all())
+            logger.info("Got buckets: %s.", buckets)
+        except ClientError:
+            logger.exception("Couldn't get buckets.")
+            raise
+        else:
+            return buckets

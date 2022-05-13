@@ -1,0 +1,9 @@
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.Schedule
+import aws.sdk.kotlin.services.pinpoint.model.Message
+import aws.sdk.kotlin.services.pinpoint.model.Action
+import aws.sdk.kotlin.services.pinpoint.model.MessageConfiguration
+import aws.sdk.kotlin.services.pinpoint.model.WriteCampaignRequest
+import aws.sdk.kotlin.services.pinpoint.model.CreateCampaignRequest
+import aws.sdk.kotlin.services.pinpoint.model.CreateCampaignResponse
+import kotlin.system.exitProcess

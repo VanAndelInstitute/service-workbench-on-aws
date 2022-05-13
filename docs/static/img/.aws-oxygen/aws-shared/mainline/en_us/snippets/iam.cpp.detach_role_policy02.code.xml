@@ -1,0 +1,17 @@
+<programlisting>
+    Aws::IAM::Model::DetachRolePolicyRequest detach_request;
+    detach_request.SetRoleName(role_name);
+    detach_request.SetPolicyArn(policy_arn);
+
+    auto detach_outcome = iam.DetachRolePolicy(detach_request);
+    if (!detach_outcome.IsSuccess())
+    {
+        std::cout << "Failed to detach policy " << policy_arn << " from role "
+            << role_name << ": " << detach_outcome.GetError().GetMessage() <<
+            std::endl;
+        return;
+    }
+
+    std::cout << "Successfully detached policy " << policy_arn << " from role "
+        << role_name << std::endl;
+</programlisting>

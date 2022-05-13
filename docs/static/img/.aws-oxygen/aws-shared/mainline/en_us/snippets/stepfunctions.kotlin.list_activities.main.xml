@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun listAllActivites() {
+
+        val activitiesRequest = ListActivitiesRequest {
+            maxResults = 10
+        }
+
+        SfnClient { region = "us-east-1" }.use { sfnClient ->
+            val response = sfnClient.listActivities(activitiesRequest)
+            response.activities?.forEach { item ->
+                    println("The activity ARN is ${item.activityArn}")
+                    println("The activity name is ${item.name}")
+            }
+        }
+}
+</programlisting>

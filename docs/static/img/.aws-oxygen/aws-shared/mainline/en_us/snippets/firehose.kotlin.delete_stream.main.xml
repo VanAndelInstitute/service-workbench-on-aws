@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun delStream(streamName: String) {
+
+    val request = DeleteDeliveryStreamRequest {
+        deliveryStreamName = streamName
+    }
+
+    FirehoseClient { region = "us-west-2" }.use { firehoseClient ->
+          firehoseClient.deleteDeliveryStream(request)
+          println("Delivery Stream $streamName is deleted")
+    }
+}
+</programlisting>

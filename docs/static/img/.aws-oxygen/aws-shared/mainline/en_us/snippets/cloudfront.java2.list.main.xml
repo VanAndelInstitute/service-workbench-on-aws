@@ -1,0 +1,23 @@
+<programlisting>
+    public static void listAllFunctions( CloudFrontClient cloudFrontClient) {
+
+       try {
+            ListFunctionsRequest functionsRequest = ListFunctionsRequest.builder()
+                .stage(FunctionStage.DEVELOPMENT)
+                .maxItems("10")
+                .build();
+
+            ListFunctionsResponse response = cloudFrontClient.listFunctions(functionsRequest);
+            FunctionList allFunctions = response.functionList();
+            List<FunctionSummary> functions = allFunctions.items();
+            for (FunctionSummary funSummary: functions) {
+                System.out.println("Function name is "+funSummary.name());
+                System.out.println("Function runtime is "+funSummary.functionConfig().runtime().toString());
+            }
+
+       } catch (CloudFrontException e){
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }
+</programlisting>

@@ -1,0 +1,17 @@
+<programlisting>
+    def list_lexicons(self):
+        """
+        Lists lexicons in the current account.
+
+        :return: The list of lexicons.
+        """
+        try:
+            response = self.polly_client.list_lexicons()
+            lexicons = response['Lexicons']
+            logger.info("Got %s lexicons.", len(lexicons))
+        except ClientError:
+            logger.exception("Couldn't get  %s.", )
+            raise
+        else:
+            return lexicons
+</programlisting>

@@ -1,0 +1,15 @@
+func attachedGroupPolicyHasAdmin(svc *iam.IAM, group *iam.Group, admin string) (bool, error) {
+    input := &iam.ListAttachedGroupPoliciesInput{GroupName: group.GroupName}
+    result, err := svc.ListAttachedGroupPolicies(input)
+    if err != nil {
+        return false, err
+    }
+
+    for _, policy := range result.AttachedPolicies {
+        if *policy.PolicyName == admin {
+            return true, nil
+        }
+    }
+
+    return false, nil
+}

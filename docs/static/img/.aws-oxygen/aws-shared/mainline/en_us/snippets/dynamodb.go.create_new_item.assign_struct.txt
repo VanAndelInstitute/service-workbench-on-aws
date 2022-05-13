@@ -1,0 +1,8 @@
+    item := Item{
+        Year:   *year,
+        Title:  *title,
+        Plot:   *plot,
+        Rating: *rating,
+    }
+
+    av, err := dynamodbattribute.MarshalMap(item)

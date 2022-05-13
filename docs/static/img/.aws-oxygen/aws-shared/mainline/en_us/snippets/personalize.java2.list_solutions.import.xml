@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalize.model.ListSolutionsRequest;
+import software.amazon.awssdk.services.personalize.model.ListSolutionsResponse;
+import software.amazon.awssdk.services.personalize.model.SolutionSummary;
+import software.amazon.awssdk.services.personalize.model.PersonalizeException;
+import java.util.List;
+</programlisting>

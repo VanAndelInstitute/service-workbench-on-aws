@@ -1,0 +1,30 @@
+<programlisting>
+       public static void setEncryption(SqsClient sqsClient, String queueName, String kmsMasterKeyAlias) {
+
+        try {
+
+            GetQueueUrlRequest urlRequest =  GetQueueUrlRequest.builder()
+                    .queueName(queueName)
+                    .build();
+
+            GetQueueUrlResponse getQueueUrlResponse = sqsClient.getQueueUrl(urlRequest);
+            String queueUrl = getQueueUrlResponse.queueUrl();
+
+            HashMap<QueueAttributeName, String> attributes = new HashMap<>();
+            attributes.put(QueueAttributeName.KMS_MASTER_KEY_ID, kmsMasterKeyAlias);
+            attributes.put(QueueAttributeName.KMS_DATA_KEY_REUSE_PERIOD_SECONDS, "140");
+
+             SetQueueAttributesRequest attRequest = SetQueueAttributesRequest.builder()
+                    .queueUrl(queueUrl)
+                    .attributes(attributes)
+                    .build();
+
+            sqsClient.setQueueAttributes(attRequest);
+            System.out.println("The attributes have been applied to "+queueName);
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

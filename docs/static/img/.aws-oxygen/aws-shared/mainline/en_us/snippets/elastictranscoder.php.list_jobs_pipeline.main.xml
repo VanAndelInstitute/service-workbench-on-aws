@@ -1,0 +1,20 @@
+<programlisting>
+$transcoder_client = new ElasticTranscoderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2012-09-25',
+]);
+
+$pipelineID = '1549322799801-b1yvqs';
+
+
+try {
+    $result = $transcoder_client -> listJobsByPipeline([
+        'PipelineId' => $pipelineID, 
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+</programlisting>

@@ -1,0 +1,3 @@
+<programlisting>
+import * as widget_service from '../lib/widget_service';
+</programlisting>

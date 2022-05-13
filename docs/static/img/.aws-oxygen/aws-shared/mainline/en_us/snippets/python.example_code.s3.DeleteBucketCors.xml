@@ -1,0 +1,14 @@
+<programlisting>
+    def delete_cors(self):
+        """
+        Delete the CORS rules from the bucket.
+
+        :param bucket_name: The name of the bucket to update.
+        """
+        try:
+            self.bucket.Cors().delete()
+            logger.info("Deleted CORS from bucket '%s'.", self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't delete CORS from bucket '%s'.", self.bucket.name)
+            raise
+</programlisting>

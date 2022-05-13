@@ -1,0 +1,12 @@
+    table := flag.String("d", "", "The name of the database table")
+    year := flag.Int("y", 0, "The year the movie debuted")
+    title := flag.String("t", "", "The title of the movie")
+    plot := flag.String("p", "", "The plot of the movie")
+    rating := flag.Float64("r", -1.0, "The movie rating, from 0.0 to 10.0")
+    flag.Parse()
+
+    if *table == "" || *year == 0 || *title == "" || *plot == "" || *rating == -1.0 {
+        fmt.Println("You must supply a database table name, year, title, plot and rating")
+        fmt.Println("-d TABLE -y YEAR -t TITLE -r RATING")
+        return
+    }

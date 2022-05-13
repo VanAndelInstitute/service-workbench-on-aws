@@ -1,0 +1,5 @@
+<programlisting>
+	results, err := svc.GetParameter(&ssm.GetParameterInput{
+		Name:  name,
+	})
+</programlisting>

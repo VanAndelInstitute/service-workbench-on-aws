@@ -1,0 +1,35 @@
+    public static String CreateNewService(EcsClient ecsClient,
+                                          String clusterName,
+                                          String serviceName,
+                                          String securityGroups,
+                                          String subnets,
+                                          String taskDefinition) {
+
+        try {
+            AwsVpcConfiguration vpcConfiguration = AwsVpcConfiguration.builder()
+                    .securityGroups(securityGroups)
+                    .subnets(subnets)
+                    .build();
+
+            NetworkConfiguration configuration = NetworkConfiguration.builder()
+                    .awsvpcConfiguration(vpcConfiguration)
+                    .build();
+
+            CreateServiceRequest serviceRequest = CreateServiceRequest.builder()
+                .cluster(clusterName)
+                .networkConfiguration(configuration)
+                .desiredCount(1)
+                .launchType(LaunchType.FARGATE)
+                .serviceName(serviceName)
+                .taskDefinition(taskDefinition)
+                .build();
+
+            CreateServiceResponse response = ecsClient.createService(serviceRequest) ;
+            return response.service().serviceArn();
+
+    } catch (EcsException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+    return "";
+  }

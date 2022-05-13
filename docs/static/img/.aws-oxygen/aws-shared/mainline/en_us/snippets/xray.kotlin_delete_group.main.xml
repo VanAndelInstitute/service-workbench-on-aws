@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteSpecificGroup(groupNameVal: String) {
+
+        val groupRequest = DeleteGroupRequest {
+            groupName = groupNameVal
+        }
+
+        XRayClient { region = "us-east-1" }.use { xRayClient ->
+            xRayClient.deleteGroup(groupRequest)
+            println("$groupNameVal was deleted!")
+        }
+    }
+</programlisting>

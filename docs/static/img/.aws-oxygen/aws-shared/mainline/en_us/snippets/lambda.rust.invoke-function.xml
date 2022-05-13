@@ -1,0 +1,9 @@
+<programlisting>
+async fn run_function(client: &Client, arn: &str) -> Result<(), Error> {
+    client.invoke().function_name(arn).send().await?;
+
+    println!("Invoked function.");
+
+    Ok(())
+}
+</programlisting>

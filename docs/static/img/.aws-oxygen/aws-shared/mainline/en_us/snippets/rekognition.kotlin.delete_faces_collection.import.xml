@@ -1,0 +1,4 @@
+<programlisting>
+import aws.sdk.kotlin.services.rekognition.RekognitionClient
+import aws.sdk.kotlin.services.rekognition.model.DeleteFacesRequest
+</programlisting>

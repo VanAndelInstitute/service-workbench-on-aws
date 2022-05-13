@@ -1,0 +1,19 @@
+    public static void listPoolIdentities(CognitoIdentityClient cognitoClient, String identityPoolId) {
+
+        try {
+            ListIdentitiesRequest identitiesRequest = ListIdentitiesRequest.builder()
+                    .identityPoolId(identityPoolId)
+                    .maxResults(15)
+                    .build() ;
+
+            ListIdentitiesResponse response = cognitoClient.listIdentities(identitiesRequest);
+            response.identities().forEach(identity -> {
+                System.out.println("The ID is : "+identity.identityId());
+                }
+            );
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

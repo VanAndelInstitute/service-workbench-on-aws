@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getToken(StsClient stsClient) {
+
+        try {
+            GetSessionTokenRequest tokenRequest = GetSessionTokenRequest.builder()
+                    .durationSeconds(1500)
+                    .build();
+
+            GetSessionTokenResponse tokenResponse = stsClient.getSessionToken(tokenRequest);
+            System.out.println("The token value is "+tokenResponse.credentials().sessionToken());
+
+        } catch (StsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,19 @@
+    def start(self, input_id):
+        """
+        Starts an application. After the application is running, it reads from the
+        specified input stream and runs the application code on the incoming data.
+
+        :param input_id: The ID of the input to read.
+        """
+        try:
+            self.analytics_client.start_application(
+                ApplicationName=self.name,
+                RunConfiguration={
+                    'SqlRunConfigurations': [{
+                        'InputId': input_id,
+                        'InputStartingPositionConfiguration': {
+                            'InputStartingPosition': 'NOW'}}]})
+            logger.info("Started application %s.", self.name)
+        except ClientError:
+            logger.exception("Couldn't start application %s.", self.name)
+            raise

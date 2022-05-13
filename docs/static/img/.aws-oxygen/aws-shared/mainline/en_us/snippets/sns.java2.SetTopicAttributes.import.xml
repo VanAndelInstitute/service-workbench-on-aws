@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sns.SnsClient;
+import software.amazon.awssdk.services.sns.model.SetTopicAttributesRequest;
+import software.amazon.awssdk.services.sns.model.SetTopicAttributesResponse;
+import software.amazon.awssdk.services.sns.model.SnsException;
+</programlisting>

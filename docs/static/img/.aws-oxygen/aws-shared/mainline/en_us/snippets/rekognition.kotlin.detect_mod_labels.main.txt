@@ -1,0 +1,18 @@
+suspend fun detectModLabels(sourceImage: String) {
+
+        val myImage = Image {
+            this.bytes = (File(sourceImage).readBytes())
+        }
+
+        val request = DetectModerationLabelsRequest {
+            image = myImage
+            minConfidence = 60f
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val response = rekClient.detectModerationLabels(request)
+          response.moderationLabels?.forEach { label ->
+              println("Label: ${label.name} - Confidence: ${label.confidence} % Parent: ${label.parentName}")
+           }
+       }
+}

@@ -1,0 +1,16 @@
+    public static void terminateFlow( EmrClient emrClient, String id) {
+
+        try{
+
+            TerminateJobFlowsRequest jobFlowsRequest = TerminateJobFlowsRequest.builder()
+                    .jobFlowIds(id)
+                    .build();
+
+            emrClient.terminateJobFlows(jobFlowsRequest);
+            System.out.println("You have successfully terminated "+id);
+
+        } catch(EmrException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,14 @@
+async fn show_streams(client: &Client) -> Result<(), Error> {
+    let resp = client.list_streams().send().await?;
+
+    println!("Stream names:");
+
+    let streams = resp.stream_names.unwrap_or_default();
+    for stream in &streams {
+        println!("  {}", stream);
+    }
+
+    println!("Found {} stream(s)", streams.len());
+
+    Ok(())
+}

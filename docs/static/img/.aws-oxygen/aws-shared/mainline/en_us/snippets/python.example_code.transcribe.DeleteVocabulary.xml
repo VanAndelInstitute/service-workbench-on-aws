@@ -1,0 +1,15 @@
+<programlisting>
+def delete_vocabulary(vocabulary_name, transcribe_client):
+    """
+    Deletes a custom vocabulary.
+
+    :param vocabulary_name: The name of the vocabulary to delete.
+    :param transcribe_client: The Boto3 Transcribe client.
+    """
+    try:
+        transcribe_client.delete_vocabulary(VocabularyName=vocabulary_name)
+        logger.info("Deleted vocabulary %s.", vocabulary_name)
+    except ClientError:
+        logger.exception("Couldn't delete vocabulary %s.", vocabulary_name)
+        raise
+</programlisting>

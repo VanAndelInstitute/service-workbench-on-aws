@@ -1,0 +1,2467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="java_code_examples" role="topic">
+    <info>
+        <title id="java_code_examples.title">&JavaV2; code examples</title>
+        <titleabbrev id="java_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &JavaV2long; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &JavaV2long; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="java_code_examples_categorized" role="topic">
+        <info>
+            <title id="java_code_examples_categorized.title">Single-service actions and scenarios using &JavaV2;</title>
+            <titleabbrev id="java_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &JavaV2; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &JavaV2long; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="java_api-gateway_code_examples" role="topic">
+            <info>
+                <title id="java_api-gateway_code_examples.title">&ABP; examples using &JavaV2;</title>
+                <titleabbrev id="java_api-gateway_code_examples.titleabbrev">&ABP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &ABP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &ABP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ABP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ABP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="api-gateway_CreateRestApi_java_topic">
+                        <info>
+                            <title id="api-gateway_CreateRestApi_java_topic.title">Create a REST API</title>
+                            <titleabbrev id="api-gateway_CreateRestApi_java_topic.titleabbrev">Create a REST API</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &ABP; REST API.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_CreateRestApi_Java.xml"></xi:include>
+                    </section>
+                    <section id="api-gateway_DeleteRestApi_java_topic">
+                        <info>
+                            <title id="api-gateway_DeleteRestApi_java_topic.title">Delete a REST API</title>
+                            <titleabbrev id="api-gateway_DeleteRestApi_java_topic.titleabbrev">Delete a REST API</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &ABP; REST API.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_DeleteRestApi_Java.xml"></xi:include>
+                    </section>
+                    <section id="api-gateway_DeleteDeployment_java_topic">
+                        <info>
+                            <title id="api-gateway_DeleteDeployment_java_topic.title">Delete a deployment</title>
+                            <titleabbrev id="api-gateway_DeleteDeployment_java_topic.titleabbrev">Delete a deployment</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a deployment.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_DeleteDeployment_Java.xml"></xi:include>
+                    </section>
+                    <section id="api-gateway_CreateDeployment_java_topic">
+                        <info>
+                            <title id="api-gateway_CreateDeployment_java_topic.title">Deploy a REST API</title>
+                            <titleabbrev id="api-gateway_CreateDeployment_java_topic.titleabbrev">Deploy a REST API</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to deploy an &ABP; REST API.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_CreateDeployment_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_route53-recovery-cluster_code_examples" role="topic">
+            <info>
+                <title id="java_route53-recovery-cluster_code_examples.title">&R53ARC; examples using &JavaV2;</title>
+                <titleabbrev id="java_route53-recovery-cluster_code_examples.titleabbrev">&R53ARC;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &R53ARC;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &R53ARC;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &R53ARC; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &R53ARC; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="route53-recovery-cluster_GetRoutingControlState_java_topic">
+                        <info>
+                            <title id="route53-recovery-cluster_GetRoutingControlState_java_topic.title">Get the state of a routing control</title>
+                            <titleabbrev id="route53-recovery-cluster_GetRoutingControlState_java_topic.titleabbrev">Get the state of a routing control</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the state of an &R53ARC; routing control.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/route53-recovery-cluster_GetRoutingControlState_Java.xml"></xi:include>
+                    </section>
+                    <section id="route53-recovery-cluster_UpdateRoutingControlState_java_topic">
+                        <info>
+                            <title id="route53-recovery-cluster_UpdateRoutingControlState_java_topic.title">Update the state of a routing control</title>
+                            <titleabbrev id="route53-recovery-cluster_UpdateRoutingControlState_java_topic.titleabbrev">Update the state of a routing control</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update the state of an &R53ARC; routing control.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/route53-recovery-cluster_UpdateRoutingControlState_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_cloudfront_code_examples" role="topic">
+            <info>
+                <title id="java_cloudfront_code_examples.title">&CF; examples using &JavaV2;</title>
+                <titleabbrev id="java_cloudfront_code_examples.titleabbrev">&CF;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &CF;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &CF;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CF; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CF; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudfront_CreateFunction_java_topic">
+                        <info>
+                            <title id="cloudfront_CreateFunction_java_topic.title">Create a function</title>
+                            <titleabbrev id="cloudfront_CreateFunction_java_topic.titleabbrev">Create a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CFlong; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudfront_CreateFunction_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudfront_UpdateDistribution_java_topic">
+                        <info>
+                            <title id="cloudfront_UpdateDistribution_java_topic.title">Update a distribution</title>
+                            <titleabbrev id="cloudfront_UpdateDistribution_java_topic.titleabbrev">Update a distribution</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &CFlong; distribution.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudfront_UpdateDistribution_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_cloudwatch_code_examples" role="topic">
+            <info>
+                <title id="java_cloudwatch_code_examples.title">&CW; examples using &JavaV2;</title>
+                <titleabbrev id="java_cloudwatch_code_examples.titleabbrev">&CW;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &CW;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &CW;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CW; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CW; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch_PutMetricAlarm_java_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricAlarm_java_topic.title">Create an alarm that watches a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricAlarm_java_topic.titleabbrev">Create an alarm that watches a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWlong; alarm that watches a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricAlarm_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DeleteAlarms_java_topic">
+                        <info>
+                            <title id="cloudwatch_DeleteAlarms_java_topic.title">Delete alarms</title>
+                            <titleabbrev id="cloudwatch_DeleteAlarms_java_topic.titleabbrev">Delete alarms</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete &CWlong; alarms.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DeleteAlarms_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DescribeAlarmsForMetric_java_topic">
+                        <info>
+                            <title id="cloudwatch_DescribeAlarmsForMetric_java_topic.title">Describe alarms for a metric</title>
+                            <titleabbrev id="cloudwatch_DescribeAlarmsForMetric_java_topic.titleabbrev">Describe alarms for a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWlong; alarms for a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DescribeAlarmsForMetric_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DisableAlarmActions_java_topic">
+                        <info>
+                            <title id="cloudwatch_DisableAlarmActions_java_topic.title">Disable alarm actions</title>
+                            <titleabbrev id="cloudwatch_DisableAlarmActions_java_topic.titleabbrev">Disable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DisableAlarmActions_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_EnableAlarmActions_java_topic">
+                        <info>
+                            <title id="cloudwatch_EnableAlarmActions_java_topic.title">Enable alarm actions</title>
+                            <titleabbrev id="cloudwatch_EnableAlarmActions_java_topic.titleabbrev">Enable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_EnableAlarmActions_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_ListMetrics_java_topic">
+                        <info>
+                            <title id="cloudwatch_ListMetrics_java_topic.title">List metrics</title>
+                            <titleabbrev id="cloudwatch_ListMetrics_java_topic.titleabbrev">List metrics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &CWlong; metrics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_ListMetrics_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_PutMetricData_java_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricData_java_topic.title">Put data into a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricData_java_topic.titleabbrev">Put data into a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put data into a &CWlong; metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricData_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_cloudwatch-events_code_examples" role="topic">
+            <info>
+                <title id="java_cloudwatch-events_code_examples.title">&CWE; examples using &JavaV2;</title>
+                <titleabbrev id="java_cloudwatch-events_code_examples.titleabbrev">&CWE;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &CWE;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &CWE;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWE; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWE; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-events_PutTargets_java_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutTargets_java_topic.title">Adding a &LAM; function target</title>
+                            <titleabbrev id="cloudwatch-events_PutTargets_java_topic.titleabbrev">Adding a &LAM; function target</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add an &LAMlong; function target to an &CWElong; event.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutTargets_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-events_PutRule_java_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutRule_java_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="cloudwatch-events_PutRule_java_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWElong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutRule_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-events_PutEvents_java_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutEvents_java_topic.title">Send events</title>
+                            <titleabbrev id="cloudwatch-events_PutEvents_java_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &CWElong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutEvents_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_cloudwatch-logs_code_examples" role="topic">
+            <info>
+                <title id="java_cloudwatch-logs_code_examples.title">&CWL; examples using &JavaV2;</title>
+                <titleabbrev id="java_cloudwatch-logs_code_examples.titleabbrev">&CWL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &CWL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &CWL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-logs_PutSubscriptionFilter_java_topic">
+                        <info>
+                            <title id="cloudwatch-logs_PutSubscriptionFilter_java_topic.title">Create a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_PutSubscriptionFilter_java_topic.titleabbrev">Create a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_PutSubscriptionFilter_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DeleteSubscriptionFilter_java_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DeleteSubscriptionFilter_java_topic.title">Delete a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_DeleteSubscriptionFilter_java_topic.titleabbrev">Delete a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DeleteSubscriptionFilter_Java.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeSubscriptionFilters_java_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeSubscriptionFilters_java_topic.title">Describe existing subscription filters</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeSubscriptionFilters_java_topic.titleabbrev">Describe existing subscription filters</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWLlong; existing subscription filters.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeSubscriptionFilters_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_comprehend_code_examples" role="topic">
+            <info>
+                <title id="java_comprehend_code_examples.title">&CMP; examples using &JavaV2;</title>
+                <titleabbrev id="java_comprehend_code_examples.titleabbrev">&CMP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &CMP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &CMP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CMP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CMP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="comprehend_CreateDocumentClassifier_java_topic">
+                        <info>
+                            <title id="comprehend_CreateDocumentClassifier_java_topic.title">Create a document classifier</title>
+                            <titleabbrev id="comprehend_CreateDocumentClassifier_java_topic.titleabbrev">Create a document classifier</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CMP; document classifier.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_CreateDocumentClassifier_Java.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectEntities_java_topic">
+                        <info>
+                            <title id="comprehend_DetectEntities_java_topic.title">Detect entities in a document</title>
+                            <titleabbrev id="comprehend_DetectEntities_java_topic.titleabbrev">Detect entities in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect entities in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectEntities_Java.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectKeyPhrases_java_topic">
+                        <info>
+                            <title id="comprehend_DetectKeyPhrases_java_topic.title">Detect key phrases in a document</title>
+                            <titleabbrev id="comprehend_DetectKeyPhrases_java_topic.titleabbrev">Detect key phrases in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect key phrases in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectKeyPhrases_Java.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectSyntax_java_topic">
+                        <info>
+                            <title id="comprehend_DetectSyntax_java_topic.title">Detect syntactical elements of a document</title>
+                            <titleabbrev id="comprehend_DetectSyntax_java_topic.titleabbrev">Detect syntactical elements of a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect syntactial elements of a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSyntax_Java.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectDominantLanguage_java_topic">
+                        <info>
+                            <title id="comprehend_DetectDominantLanguage_java_topic.title">Detect the dominant language in a document</title>
+                            <titleabbrev id="comprehend_DetectDominantLanguage_java_topic.titleabbrev">Detect the dominant language in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect the dominant language in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectDominantLanguage_Java.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectSentiment_java_topic">
+                        <info>
+                            <title id="comprehend_DetectSentiment_java_topic.title">Detect the sentiment of a document</title>
+                            <titleabbrev id="comprehend_DetectSentiment_java_topic.titleabbrev">Detect the sentiment of a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect the sentiment of a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSentiment_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="java_dynamodb_code_examples.title">&DDB; examples using &JavaV2;</title>
+                <titleabbrev id="java_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_java_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_java_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_java_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_java_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_java_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_java_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_java_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_java_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_java_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_java_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_java_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_java_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DescribeTable_java_topic">
+                        <info>
+                            <title id="dynamodb_DescribeTable_java_topic.title">Get information about a table</title>
+                            <titleabbrev id="dynamodb_DescribeTable_java_topic.titleabbrev">Get information about a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DescribeTable_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_java_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_java_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_java_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_java_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_java_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_java_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_java_topic">
+                        <info>
+                            <title id="dynamodb_Query_java_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_java_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_java_topic">
+                        <info>
+                            <title id="dynamodb_Scan_java_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_java_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_java_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_java_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_java_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchWriteItem_java_topic">
+                        <info>
+                            <title id="dynamodb_BatchWriteItem_java_topic.title">Write a batch of items</title>
+                            <titleabbrev id="dynamodb_BatchWriteItem_java_topic.titleabbrev">Write a batch of items</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to write a batch of &DDB; items.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchWriteItem_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_Scenario_GettingStartedMovies_java_topic">
+                        <info>
+                            <title id="dynamodb_Scenario_GettingStartedMovies_java_topic.title">Get started using tables, items, and queries</title>
+                            <titleabbrev id="dynamodb_Scenario_GettingStartedMovies_java_topic.titleabbrev">Get started using tables, items, and queries</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a table that can hold movie data.</para></listitem>
+                            <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+                            <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+                            <listitem><para>Query for movies that were released in a given year.</para></listitem>
+                            <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+                            <listitem><para>Delete a movie from the table.</para></listitem>
+                            <listitem><para>Delete the table.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scenario_GettingStartedMovies_Java.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ExecuteStatement_java_topic">
+                        <info>
+                            <title id="dynamodb_ExecuteStatement_java_topic.title">Query a &DDB; table using PartiQL</title>
+                            <titleabbrev id="dynamodb_ExecuteStatement_java_topic.titleabbrev">Query a &DDB; table using PartiQL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table using PartiQL.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ExecuteStatement_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_ec2_code_examples" role="topic">
+            <info>
+                <title id="java_ec2_code_examples.title">&EC2; examples using &JavaV2;</title>
+                <titleabbrev id="java_ec2_code_examples.titleabbrev">&EC2;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &EC2;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &EC2;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EC2; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EC2; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ec2_AllocateAddress_java_topic">
+                        <info>
+                            <title id="ec2_AllocateAddress_java_topic.title">Allocate an Elastic IP address</title>
+                            <titleabbrev id="ec2_AllocateAddress_java_topic.titleabbrev">Allocate an Elastic IP address</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to allocate an Elastic IP address for &EC2;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_AllocateAddress_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_CreateSecurityGroup_java_topic">
+                        <info>
+                            <title id="ec2_CreateSecurityGroup_java_topic.title">Create a security group</title>
+                            <titleabbrev id="ec2_CreateSecurityGroup_java_topic.titleabbrev">Create a security group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EC2; security group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_CreateSecurityGroup_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_CreateKeyPair_java_topic">
+                        <info>
+                            <title id="ec2_CreateKeyPair_java_topic.title">Create a security key pair</title>
+                            <titleabbrev id="ec2_CreateKeyPair_java_topic.titleabbrev">Create a security key pair</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a security key pair for &EC2;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_CreateKeyPair_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_DeleteSecurityGroup_java_topic">
+                        <info>
+                            <title id="ec2_DeleteSecurityGroup_java_topic.title">Delete a security group</title>
+                            <titleabbrev id="ec2_DeleteSecurityGroup_java_topic.titleabbrev">Delete a security group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EC2; security group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DeleteSecurityGroup_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_DeleteKeyPair_java_topic">
+                        <info>
+                            <title id="ec2_DeleteKeyPair_java_topic.title">Delete a security key pair</title>
+                            <titleabbrev id="ec2_DeleteKeyPair_java_topic.titleabbrev">Delete a security key pair</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EC2; security key pair.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DeleteKeyPair_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_ReleaseAddress_java_topic">
+                        <info>
+                            <title id="ec2_ReleaseAddress_java_topic.title">Release an Elastic IP address</title>
+                            <titleabbrev id="ec2_ReleaseAddress_java_topic.titleabbrev">Release an Elastic IP address</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to release an Elastic IP address.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_ReleaseAddress_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_StartInstances_java_topic">
+                        <info>
+                            <title id="ec2_StartInstances_java_topic.title">Start an instance</title>
+                            <titleabbrev id="ec2_StartInstances_java_topic.titleabbrev">Start an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_StartInstances_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_StopInstances_java_topic">
+                        <info>
+                            <title id="ec2_StopInstances_java_topic.title">Stop an instance</title>
+                            <titleabbrev id="ec2_StopInstances_java_topic.titleabbrev">Stop an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to stop an &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_StopInstances_Java.xml"></xi:include>
+                    </section>
+                    <section id="ec2_TerminateInstances_java_topic">
+                        <info>
+                            <title id="ec2_TerminateInstances_java_topic.title">Terminate an instance</title>
+                            <titleabbrev id="ec2_TerminateInstances_java_topic.titleabbrev">Terminate an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to terminate an &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_TerminateInstances_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ec2_Usage_InstanceCreationAndManagement_java_topic">
+                        <info>
+                            <title id="ec2_Usage_InstanceCreationAndManagement_java_topic.title">Create and manage instances</title>
+                            <titleabbrev id="ec2_Usage_InstanceCreationAndManagement_java_topic.titleabbrev">Create and manage instances</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create and manage &EC2; instances.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_Usage_InstanceCreationAndManagement_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_eventbridge_code_examples" role="topic">
+            <info>
+                <title id="java_eventbridge_code_examples.title">&EV; examples using &JavaV2;</title>
+                <titleabbrev id="java_eventbridge_code_examples.titleabbrev">&EV;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &EV;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &EV;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EV; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EV; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eventbridge_PutRule_java_topic">
+                        <info>
+                            <title id="eventbridge_PutRule_java_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="eventbridge_PutRule_java_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_Java.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_DeleteRule_java_topic">
+                        <info>
+                            <title id="eventbridge_DeleteRule_java_topic.title">Delete a scheduled rule</title>
+                            <titleabbrev id="eventbridge_DeleteRule_java_topic.titleabbrev">Delete a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_DeleteRule_Java.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutEvents_java_topic">
+                        <info>
+                            <title id="eventbridge_PutEvents_java_topic.title">Send events</title>
+                            <titleabbrev id="eventbridge_PutEvents_java_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &EVlong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_glue_code_examples" role="topic">
+            <info>
+                <title id="java_glue_code_examples.title">&GLU; examples using &JavaV2;</title>
+                <titleabbrev id="java_glue_code_examples.titleabbrev">&GLU;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &GLU;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &GLU;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &GLU; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &GLU; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glue_CreateCrawler_java_topic">
+                        <info>
+                            <title id="glue_CreateCrawler_java_topic.title">Create a crawler</title>
+                            <titleabbrev id="glue_CreateCrawler_java_topic.titleabbrev">Create a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_CreateCrawler_Java.xml"></xi:include>
+                    </section>
+                    <section id="glue_GetCrawler_java_topic">
+                        <info>
+                            <title id="glue_GetCrawler_java_topic.title">Get a crawler</title>
+                            <titleabbrev id="glue_GetCrawler_java_topic.titleabbrev">Get a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_GetCrawler_Java.xml"></xi:include>
+                    </section>
+                    <section id="glue_GetDatabase_java_topic">
+                        <info>
+                            <title id="glue_GetDatabase_java_topic.title">Get a database from the &GLUDC;</title>
+                            <titleabbrev id="glue_GetDatabase_java_topic.titleabbrev">Get a database from the &GLUDC;</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a database from the &GLUDCLong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_GetDatabase_Java.xml"></xi:include>
+                    </section>
+                    <section id="glue_GetTables_java_topic">
+                        <info>
+                            <title id="glue_GetTables_java_topic.title">Get tables from a database</title>
+                            <titleabbrev id="glue_GetTables_java_topic.titleabbrev">Get tables from a database</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get tables from a database in the &GLUDCLong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_GetTables_Java.xml"></xi:include>
+                    </section>
+                    <section id="glue_StartCrawler_java_topic">
+                        <info>
+                            <title id="glue_StartCrawler_java_topic.title">Start a crawler</title>
+                            <titleabbrev id="glue_StartCrawler_java_topic.titleabbrev">Start a crawler</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &GLU; crawler.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_StartCrawler_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glue_Scenario_GetStartedCrawlersJobs_java_topic">
+                        <info>
+                            <title id="glue_Scenario_GetStartedCrawlersJobs_java_topic.title">Get started running crawlers and jobs</title>
+                            <titleabbrev id="glue_Scenario_GetStartedCrawlersJobs_java_topic.titleabbrev">Get started running crawlers and jobs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create and run a crawler that crawls a public &S3long; (&S3;) bucket and generates a metadata database that describes the CSV-formatted data it finds.</para></listitem>
+                            <listitem><para>List information about databases and tables in your &GLUDCLong;.</para></listitem>
+                            <listitem><para>Create and run a job that extracts CSV data from the source &S3; bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another &S3; bucket.</para></listitem>
+                            <listitem><para>List information about job runs and view some of the transformed data.</para></listitem>
+                            <listitem><para>Delete all resources created by the demo.</para></listitem>
+                        </itemizedlist>
+                        <para>For more information, see <ulink type="documentation" url="glue/latest/ug/tutorial-create-job.html">Tutorial: Getting started with &GLU; Studio</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glue_Scenario_GetStartedCrawlersJobs_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_iam_code_examples" role="topic">
+            <info>
+                <title id="java_iam_code_examples.title">&IAM; examples using &JavaV2;</title>
+                <titleabbrev id="java_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_java_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_java_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_java_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_java_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_java_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_java_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_java_topic">
+                        <info>
+                            <title id="iam_CreateRole_java_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_java_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_java_topic">
+                        <info>
+                            <title id="iam_CreateUser_java_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_java_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_java_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_java_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_java_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccountAlias_java_topic">
+                        <info>
+                            <title id="iam_CreateAccountAlias_java_topic.title">Create an alias for an account</title>
+                            <titleabbrev id="iam_CreateAccountAlias_java_topic.titleabbrev">Create an alias for an account</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for an &IAM; account.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeletePolicy_java_topic">
+                        <info>
+                            <title id="iam_DeletePolicy_java_topic.title">Delete a policy</title>
+                            <titleabbrev id="iam_DeletePolicy_java_topic.titleabbrev">Delete a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_java_topic">
+                        <info>
+                            <title id="iam_DeleteUser_java_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_java_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_java_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_java_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_java_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccountAlias_java_topic">
+                        <info>
+                            <title id="iam_DeleteAccountAlias_java_topic.title">Delete an account alias</title>
+                            <titleabbrev id="iam_DeleteAccountAlias_java_topic.titleabbrev">Delete an account alias</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; account alias.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccountAlias_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_java_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_java_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_java_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccessKeys_java_topic">
+                        <info>
+                            <title id="iam_ListAccessKeys_java_topic.title">List a user's access keys</title>
+                            <titleabbrev id="iam_ListAccessKeys_java_topic.titleabbrev">List a user's access keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list a user's &IAM; access keys.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccountAliases_java_topic">
+                        <info>
+                            <title id="iam_ListAccountAliases_java_topic.title">List account aliases</title>
+                            <titleabbrev id="iam_ListAccountAliases_java_topic.titleabbrev">List account aliases</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; account aliases.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_java_topic">
+                        <info>
+                            <title id="iam_ListUsers_java_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_java_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateUser_java_topic">
+                        <info>
+                            <title id="iam_UpdateUser_java_topic.title">Update a user</title>
+                            <titleabbrev id="iam_UpdateUser_java_topic.titleabbrev">Update a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_Java.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateAccessKey_java_topic">
+                        <info>
+                            <title id="iam_UpdateAccessKey_java_topic.title">Update an access key</title>
+                            <titleabbrev id="iam_UpdateAccessKey_java_topic.titleabbrev">Update an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateAccessKey_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_java_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_java_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_java_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_kms_code_examples" role="topic">
+            <info>
+                <title id="java_kms_code_examples.title">&KMS; examples using &JavaV2;</title>
+                <titleabbrev id="java_kms_code_examples.titleabbrev">&KMS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &KMS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &KMS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &KMS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &KMS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kms_CreateGrant_java_topic">
+                        <info>
+                            <title id="kms_CreateGrant_java_topic.title">Create a grant for a key</title>
+                            <titleabbrev id="kms_CreateGrant_java_topic.titleabbrev">Create a grant for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a grant for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateGrant_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateKey_java_topic">
+                        <info>
+                            <title id="kms_CreateKey_java_topic.title">Create a key</title>
+                            <titleabbrev id="kms_CreateKey_java_topic.titleabbrev">Create a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &kms-key-long;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateAlias_java_topic">
+                        <info>
+                            <title id="kms_CreateAlias_java_topic.title">Create an alias for a key</title>
+                            <titleabbrev id="kms_CreateAlias_java_topic.titleabbrev">Create an alias for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for a &kms-key; key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateAlias_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_Decrypt_java_topic">
+                        <info>
+                            <title id="kms_Decrypt_java_topic.title">Decrypt ciphertext</title>
+                            <titleabbrev id="kms_Decrypt_java_topic.titleabbrev">Decrypt ciphertext</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to decrypt ciphertext that was encrypted by a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Decrypt_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_DescribeKey_java_topic">
+                        <info>
+                            <title id="kms_DescribeKey_java_topic.title">Describe a key</title>
+                            <titleabbrev id="kms_DescribeKey_java_topic.titleabbrev">Describe a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DescribeKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_DisableKey_java_topic">
+                        <info>
+                            <title id="kms_DisableKey_java_topic.title">Disable a key</title>
+                            <titleabbrev id="kms_DisableKey_java_topic.titleabbrev">Disable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DisableKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_EnableKey_java_topic">
+                        <info>
+                            <title id="kms_EnableKey_java_topic.title">Enable a key</title>
+                            <titleabbrev id="kms_EnableKey_java_topic.titleabbrev">Enable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_EnableKey_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_Encrypt_java_topic">
+                        <info>
+                            <title id="kms_Encrypt_java_topic.title">Encrypt text using a key</title>
+                            <titleabbrev id="kms_Encrypt_java_topic.titleabbrev">Encrypt text using a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to encrypt text using a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Encrypt_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListAliases_java_topic">
+                        <info>
+                            <title id="kms_ListAliases_java_topic.title">List aliases for a key</title>
+                            <titleabbrev id="kms_ListAliases_java_topic.titleabbrev">List aliases for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list aliases for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListAliases_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListGrants_java_topic">
+                        <info>
+                            <title id="kms_ListGrants_java_topic.title">List grants for a key</title>
+                            <titleabbrev id="kms_ListGrants_java_topic.titleabbrev">List grants for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list grants for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListGrants_Java.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListKeys_java_topic">
+                        <info>
+                            <title id="kms_ListKeys_java_topic.title">List keys</title>
+                            <titleabbrev id="kms_ListKeys_java_topic.titleabbrev">List keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &kms-keys;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListKeys_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_kinesis_code_examples" role="topic">
+            <info>
+                <title id="java_kinesis_code_examples.title">&AK; examples using &JavaV2;</title>
+                <titleabbrev id="java_kinesis_code_examples.titleabbrev">&AK;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &AK;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &AK;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &AK; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &AK; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kinesis_CreateStream_java_topic">
+                        <info>
+                            <title id="kinesis_CreateStream_java_topic.title">Create a stream</title>
+                            <titleabbrev id="kinesis_CreateStream_java_topic.titleabbrev">Create a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_CreateStream_Java.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_DeleteStream_java_topic">
+                        <info>
+                            <title id="kinesis_DeleteStream_java_topic.title">Delete a stream</title>
+                            <titleabbrev id="kinesis_DeleteStream_java_topic.titleabbrev">Delete a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_DeleteStream_Java.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_GetRecords_java_topic">
+                        <info>
+                            <title id="kinesis_GetRecords_java_topic.title">Get data in batches from a stream</title>
+                            <titleabbrev id="kinesis_GetRecords_java_topic.titleabbrev">Get data in batches from a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get data in batches from a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_GetRecords_Java.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_PutRecord_java_topic">
+                        <info>
+                            <title id="kinesis_PutRecord_java_topic.title">Put data into a stream</title>
+                            <titleabbrev id="kinesis_PutRecord_java_topic.titleabbrev">Put data into a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put data into a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_PutRecord_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_lambda_code_examples" role="topic">
+            <info>
+                <title id="java_lambda_code_examples.title">&LAM; examples using &JavaV2;</title>
+                <titleabbrev id="java_lambda_code_examples.titleabbrev">&LAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &LAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &LAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &LAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &LAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="lambda_CreateFunction_java_topic">
+                        <info>
+                            <title id="lambda_CreateFunction_java_topic.title">Create a function</title>
+                            <titleabbrev id="lambda_CreateFunction_java_topic.titleabbrev">Create a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_CreateFunction_Java.xml"></xi:include>
+                    </section>
+                    <section id="lambda_DeleteFunction_java_topic">
+                        <info>
+                            <title id="lambda_DeleteFunction_java_topic.title">Delete a function</title>
+                            <titleabbrev id="lambda_DeleteFunction_java_topic.titleabbrev">Delete a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_DeleteFunction_Java.xml"></xi:include>
+                    </section>
+                    <section id="lambda_Invoke_java_topic">
+                        <info>
+                            <title id="lambda_Invoke_java_topic.title">Invoke a function</title>
+                            <titleabbrev id="lambda_Invoke_java_topic.titleabbrev">Invoke a function</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to invoke a &LAM; function.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_Invoke_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="lambda_Scenario_GettingStartedFunctions_java_topic">
+                        <info>
+                            <title id="lambda_Scenario_GettingStartedFunctions_java_topic.title">Get started with functions</title>
+                            <titleabbrev id="lambda_Scenario_GettingStartedFunctions_java_topic.titleabbrev">Get started with functions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create an &IAMlong; (&IAM;) role that grants Lambda permission to write to logs.</para></listitem>
+                            <listitem><para>Create a &LAM; function and upload handler code.</para></listitem>
+                            <listitem><para>Invoke the function with a single parameter and get results.</para></listitem>
+                            <listitem><para>Update the function code and configure its &LAM; environment with an environment variable.</para></listitem>
+                            <listitem><para>Invoke the function with new parameters and get results. Display the execution log that's returned from the invocation.</para></listitem>
+                            <listitem><para>List the functions for your account.</para></listitem>
+                            <listitem><para>Delete the &IAM; role and the &LAM; function.</para></listitem>
+                        </itemizedlist>
+                        <para>For more information, see <ulink type="documentation" url="lambda/latest/dg/getting-started-create-function.html">Create a &LAM; function with the console</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/lambda_Scenario_GettingStartedFunctions_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_pinpoint_code_examples" role="topic">
+            <info>
+                <title id="java_pinpoint_code_examples.title">&PIN; examples using &JavaV2;</title>
+                <titleabbrev id="java_pinpoint_code_examples.titleabbrev">&PIN;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &PIN;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &PIN;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &PIN; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &PIN; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="pinpoint_CreateCampaign_java_topic">
+                        <info>
+                            <title id="pinpoint_CreateCampaign_java_topic.title">Create a campaign</title>
+                            <titleabbrev id="pinpoint_CreateCampaign_java_topic.titleabbrev">Create a campaign</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a campaign.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateCampaign_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateSegment_java_topic">
+                        <info>
+                            <title id="pinpoint_CreateSegment_java_topic.title">Create a segment</title>
+                            <titleabbrev id="pinpoint_CreateSegment_java_topic.titleabbrev">Create a segment</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a segment.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateSegment_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateApp_java_topic">
+                        <info>
+                            <title id="pinpoint_CreateApp_java_topic.title">Create an application</title>
+                            <titleabbrev id="pinpoint_CreateApp_java_topic.titleabbrev">Create an application</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an appliation.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateApp_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_DeleteApp_java_topic">
+                        <info>
+                            <title id="pinpoint_DeleteApp_java_topic.title">Delete an application</title>
+                            <titleabbrev id="pinpoint_DeleteApp_java_topic.titleabbrev">Delete an application</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an application.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteApp_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_DeleteEndpoint_java_topic">
+                        <info>
+                            <title id="pinpoint_DeleteEndpoint_java_topic.title">Delete an endpoint</title>
+                            <titleabbrev id="pinpoint_DeleteEndpoint_java_topic.titleabbrev">Delete an endpoint</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an endpoint.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_DeleteEndpoint_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateExportJob_java_topic">
+                        <info>
+                            <title id="pinpoint_CreateExportJob_java_topic.title">Export an endpoint</title>
+                            <titleabbrev id="pinpoint_CreateExportJob_java_topic.titleabbrev">Export an endpoint</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to export an endpoint.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateExportJob_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetEndpoint_java_topic">
+                        <info>
+                            <title id="pinpoint_GetEndpoint_java_topic.title">Get endpoints</title>
+                            <titleabbrev id="pinpoint_GetEndpoint_java_topic.titleabbrev">Get endpoints</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get endpoints.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetEndpoint_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_CreateImportJob_java_topic">
+                        <info>
+                            <title id="pinpoint_CreateImportJob_java_topic.title">Import a segment</title>
+                            <titleabbrev id="pinpoint_CreateImportJob_java_topic.titleabbrev">Import a segment</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to import a segment.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_CreateImportJob_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetUserEndpoints_java_topic">
+                        <info>
+                            <title id="pinpoint_GetUserEndpoints_java_topic.title">List endpoints</title>
+                            <titleabbrev id="pinpoint_GetUserEndpoints_java_topic.titleabbrev">List endpoints</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list endpoints.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetUserEndpoints_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetSegments_java_topic">
+                        <info>
+                            <title id="pinpoint_GetSegments_java_topic.title">List segments</title>
+                            <titleabbrev id="pinpoint_GetSegments_java_topic.titleabbrev">List segments</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list segments.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSegments_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_SendMessages_java_topic">
+                        <info>
+                            <title id="pinpoint_SendMessages_java_topic.title">Send email and text messages</title>
+                            <titleabbrev id="pinpoint_SendMessages_java_topic.titleabbrev">Send email and text messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send email and text messages with &PIN;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_UpdateEndpoint_java_topic">
+                        <info>
+                            <title id="pinpoint_UpdateEndpoint_java_topic.title">Update an endpoint</title>
+                            <titleabbrev id="pinpoint_UpdateEndpoint_java_topic.titleabbrev">Update an endpoint</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an endpoint.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_UpdateEndpoint_Java.xml"></xi:include>
+                    </section>
+                    <section id="pinpoint_GetSmsChannel_java_topic">
+                        <info>
+                            <title id="pinpoint_GetSmsChannel_java_topic.title">Update channels</title>
+                            <titleabbrev id="pinpoint_GetSmsChannel_java_topic.titleabbrev">Update channels</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update channels.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_GetSmsChannel_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_rds_code_examples" role="topic">
+            <info>
+                <title id="java_rds_code_examples.title">&RDS; examples using &JavaV2;</title>
+                <titleabbrev id="java_rds_code_examples.titleabbrev">&RDS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &RDS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &RDS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &RDS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &RDS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rds_CreateDBInstance_java_topic">
+                        <info>
+                            <title id="rds_CreateDBInstance_java_topic.title">Create an instance</title>
+                            <titleabbrev id="rds_CreateDBInstance_java_topic.titleabbrev">Create an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &RDS; instance and wait for it to be in an available state.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_CreateDBInstance_Java.xml"></xi:include>
+                    </section>
+                    <section id="rds_DeleteDBInstance_java_topic">
+                        <info>
+                            <title id="rds_DeleteDBInstance_java_topic.title">Delete an instance</title>
+                            <titleabbrev id="rds_DeleteDBInstance_java_topic.titleabbrev">Delete an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &RDS; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_DeleteDBInstance_Java.xml"></xi:include>
+                    </section>
+                    <section id="rds_DescribeDBInstances_java_topic">
+                        <info>
+                            <title id="rds_DescribeDBInstances_java_topic.title">Describe an instance</title>
+                            <titleabbrev id="rds_DescribeDBInstances_java_topic.titleabbrev">Describe an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe an &RDS; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeDBInstances_Java.xml"></xi:include>
+                    </section>
+                    <section id="rds_ModifyDBInstance_java_topic">
+                        <info>
+                            <title id="rds_ModifyDBInstance_java_topic.title">Modify an instance</title>
+                            <titleabbrev id="rds_ModifyDBInstance_java_topic.titleabbrev">Modify an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to modify an &RDS; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_ModifyDBInstance_Java.xml"></xi:include>
+                    </section>
+                    <section id="rds_RebootDBInstance_java_topic">
+                        <info>
+                            <title id="rds_RebootDBInstance_java_topic.title">Reboot an instance</title>
+                            <titleabbrev id="rds_RebootDBInstance_java_topic.titleabbrev">Reboot an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to reboot an &RDS; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_RebootDBInstance_Java.xml"></xi:include>
+                    </section>
+                    <section id="rds_DescribeAccountAttributes_java_topic">
+                        <info>
+                            <title id="rds_DescribeAccountAttributes_java_topic.title">Retrieve attributes</title>
+                            <titleabbrev id="rds_DescribeAccountAttributes_java_topic.titleabbrev">Retrieve attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve attributes that belong to an &RDS; account.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds_DescribeAccountAttributes_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_rekognition_code_examples" role="topic">
+            <info>
+                <title id="java_rekognition_code_examples.title">&REK; examples using &JavaV2;</title>
+                <titleabbrev id="java_rekognition_code_examples.titleabbrev">&REK;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &REK;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &REK;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &REK; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &REK; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rekognition_CompareFaces_java_topic">
+                        <info>
+                            <title id="rekognition_CompareFaces_java_topic.title">Compare faces in an image against a reference image</title>
+                            <titleabbrev id="rekognition_CompareFaces_java_topic.titleabbrev">Compare faces in an image against a reference image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to compare faces in an image against a reference image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-comparefaces.html">Comparing faces in images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CompareFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_CreateCollection_java_topic">
+                        <info>
+                            <title id="rekognition_CreateCollection_java_topic.title">Create a collection</title>
+                            <titleabbrev id="rekognition_CreateCollection_java_topic.titleabbrev">Create a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/create-collection-procedure.html">Creating a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CreateCollection_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteCollection_java_topic">
+                        <info>
+                            <title id="rekognition_DeleteCollection_java_topic.title">Delete a collection</title>
+                            <titleabbrev id="rekognition_DeleteCollection_java_topic.titleabbrev">Delete a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteCollection_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteFaces_java_topic">
+                        <info>
+                            <title id="rekognition_DeleteFaces_java_topic.title">Delete faces from a collection</title>
+                            <titleabbrev id="rekognition_DeleteFaces_java_topic.titleabbrev">Delete faces from a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete faces from an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-faces-procedure.html">Deleting faces from a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DescribeCollection_java_topic">
+                        <info>
+                            <title id="rekognition_DescribeCollection_java_topic.title">Describe a collection</title>
+                            <titleabbrev id="rekognition_DescribeCollection_java_topic.titleabbrev">Describe a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/describe-collection-procedure.html">Describing a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DescribeCollection_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectFaces_java_topic">
+                        <info>
+                            <title id="rekognition_DetectFaces_java_topic.title">Detect faces in an image</title>
+                            <titleabbrev id="rekognition_DetectFaces_java_topic.titleabbrev">Detect faces in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect faces in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-detect-images.html">Detecting faces in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectLabels_java_topic">
+                        <info>
+                            <title id="rekognition_DetectLabels_java_topic.title">Detect labels in an image</title>
+                            <titleabbrev id="rekognition_DetectLabels_java_topic.titleabbrev">Detect labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect labels in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/labels-detect-labels-image.html">Detecting labels in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectLabels_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectModerationLabels_java_topic">
+                        <info>
+                            <title id="rekognition_DetectModerationLabels_java_topic.title">Detect moderation labels in an image</title>
+                            <titleabbrev id="rekognition_DetectModerationLabels_java_topic.titleabbrev">Detect moderation labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect moderation labels in an image with &REK;. Moderation labels identify content that may be inappropriate for some audiences.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/procedure-moderate-images.html">Detecting inappropriate images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectModerationLabels_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectText_java_topic">
+                        <info>
+                            <title id="rekognition_DetectText_java_topic.title">Detect text in an image</title>
+                            <titleabbrev id="rekognition_DetectText_java_topic.titleabbrev">Detect text in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect text in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/text-detecting-text-procedure.html">Detecting text in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectText_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_IndexFaces_java_topic">
+                        <info>
+                            <title id="rekognition_IndexFaces_java_topic.title">Index faces to a collection</title>
+                            <titleabbrev id="rekognition_IndexFaces_java_topic.titleabbrev">Index faces to a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to index faces in an image and add them to an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/add-faces-to-collection-procedure.html">Adding faces to a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_IndexFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListCollections_java_topic">
+                        <info>
+                            <title id="rekognition_ListCollections_java_topic.title">List collections</title>
+                            <titleabbrev id="rekognition_ListCollections_java_topic.titleabbrev">List collections</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &REK; collections.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-collection-procedure.html">Listing collections</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListCollections_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListFaces_java_topic">
+                        <info>
+                            <title id="rekognition_ListFaces_java_topic.title">List faces in a collection</title>
+                            <titleabbrev id="rekognition_ListFaces_java_topic.titleabbrev">List faces in a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list faces in an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-faces-in-collection-procedure.html">Listing faces in a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_RecognizeCelebrities_java_topic">
+                        <info>
+                            <title id="rekognition_RecognizeCelebrities_java_topic.title">Recognize celebrities in an image</title>
+                            <titleabbrev id="rekognition_RecognizeCelebrities_java_topic.titleabbrev">Recognize celebrities in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to recognize celebrities in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/celebrities-procedure-image.html">Recognizing celebrities in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_RecognizeCelebrities_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_SearchFaces_java_topic">
+                        <info>
+                            <title id="rekognition_SearchFaces_java_topic.title">Search for faces in a collection</title>
+                            <titleabbrev id="rekognition_SearchFaces_java_topic.titleabbrev">Search for faces in a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to search for faces in an &REK; collection that match another face from the collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-id-procedure.html">Searching for a face (face ID)</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFaces_Java.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_SearchFacesByImage_java_topic">
+                        <info>
+                            <title id="rekognition_SearchFacesByImage_java_topic.title">Search for faces in a collection compared to a reference image</title>
+                            <titleabbrev id="rekognition_SearchFacesByImage_java_topic.titleabbrev">Search for faces in a collection compared to a reference image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to search for faces in an &REK; collection compared to a reference image.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-image-procedure.html">Searching for a face (image)</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFacesByImage_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rekognition_VideoDetection_java_topic">
+                        <info>
+                            <title id="rekognition_VideoDetection_java_topic.title">Detect information in videos</title>
+                            <titleabbrev id="rekognition_VideoDetection_java_topic.titleabbrev">Detect information in videos</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect information in videos.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_VideoDetection_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_s3_code_examples" role="topic">
+            <info>
+                <title id="java_s3_code_examples.title">&S3; examples using &JavaV2;</title>
+                <titleabbrev id="java_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_PutBucketCors_java_topic">
+                        <info>
+                            <title id="s3_PutBucketCors_java_topic.title">Add CORS rules to a bucket</title>
+                            <titleabbrev id="s3_PutBucketCors_java_topic.titleabbrev">Add CORS rules to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add cross-origin resource sharing (CORS) rules to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketCors_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketLifecycleConfiguration_java_topic">
+                        <info>
+                            <title id="s3_PutBucketLifecycleConfiguration_java_topic.title">Add a lifecycle configuration to a bucket</title>
+                            <titleabbrev id="s3_PutBucketLifecycleConfiguration_java_topic.titleabbrev">Add a lifecycle configuration to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a lifecycle configuration to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketLifecycleConfiguration_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketPolicy_java_topic">
+                        <info>
+                            <title id="s3_PutBucketPolicy_java_topic.title">Add a policy to a bucket</title>
+                            <titleabbrev id="s3_PutBucketPolicy_java_topic.titleabbrev">Add a policy to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a policy to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_CopyObject_java_topic">
+                        <info>
+                            <title id="s3_CopyObject_java_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_java_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_java_topic">
+                        <info>
+                            <title id="s3_CreateBucket_java_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_java_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketPolicy_java_topic">
+                        <info>
+                            <title id="s3_DeleteBucketPolicy_java_topic.title">Delete a policy from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketPolicy_java_topic.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a policy from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_java_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_java_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_java_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_java_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_java_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_java_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketWebsite_java_topic">
+                        <info>
+                            <title id="s3_DeleteBucketWebsite_java_topic.title">Delete the website configuration from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketWebsite_java_topic.titleabbrev">Delete the website configuration from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete the website configuration from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketWebsite_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_HeadObject_java_topic">
+                        <info>
+                            <title id="s3_HeadObject_java_topic.title">Determine the existence and content type of an object</title>
+                            <titleabbrev id="s3_HeadObject_java_topic.titleabbrev">Determine the existence and content type of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to determine the existence and content type of an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_HeadObject_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_java_topic">
+                        <info>
+                            <title id="s3_GetObject_java_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_java_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketAcl_java_topic">
+                        <info>
+                            <title id="s3_GetBucketAcl_java_topic.title">Get the ACL of a bucket</title>
+                            <titleabbrev id="s3_GetBucketAcl_java_topic.titleabbrev">Get the ACL of a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketAcl_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketPolicy_java_topic">
+                        <info>
+                            <title id="s3_GetBucketPolicy_java_topic.title">Get the policy for a bucket</title>
+                            <titleabbrev id="s3_GetBucketPolicy_java_topic.titleabbrev">Get the policy for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the policy for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListMultipartUploads_java_topic">
+                        <info>
+                            <title id="s3_ListMultipartUploads_java_topic.title">List in-progress multipart uploads</title>
+                            <titleabbrev id="s3_ListMultipartUploads_java_topic.titleabbrev">List in-progress multipart uploads</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list in-progress multipart uploads to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListMultipartUploads_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_java_topic">
+                        <info>
+                            <title id="s3_ListObjects_java_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_java_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_RestoreObject_java_topic">
+                        <info>
+                            <title id="s3_RestoreObject_java_topic.title">Restore an archived copy of an object</title>
+                            <titleabbrev id="s3_RestoreObject_java_topic.titleabbrev">Restore an archived copy of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to restore an archived copy of an object back into an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_RestoreObject_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketAcl_java_topic">
+                        <info>
+                            <title id="s3_PutBucketAcl_java_topic.title">Set a new ACL for a bucket</title>
+                            <titleabbrev id="s3_PutBucketAcl_java_topic.titleabbrev">Set a new ACL for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set a new access control list (ACL) for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketAcl_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketWebsite_java_topic">
+                        <info>
+                            <title id="s3_PutBucketWebsite_java_topic.title">Set the website configuration for a bucket</title>
+                            <titleabbrev id="s3_PutBucketWebsite_java_topic.titleabbrev">Set the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_java_topic">
+                        <info>
+                            <title id="s3_PutObject_java_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_java_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_PresignedUrl_java_topic">
+                        <info>
+                            <title id="s3_Scenario_PresignedUrl_java_topic.title">Create a presigned URL</title>
+                            <titleabbrev id="s3_Scenario_PresignedUrl_java_topic.titleabbrev">Create a presigned URL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a presigned URL for &S3; and upload an object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_Java.xml"></xi:include>
+                    </section>
+                    <section id="s3_Scenario_GettingStarted_java_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_java_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_java_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_glacier_code_examples" role="topic">
+            <info>
+                <title id="java_glacier_code_examples.title">&GLshort; examples using &JavaV2;</title>
+                <titleabbrev id="java_glacier_code_examples.titleabbrev">&GLshort;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &GLshort;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &GLshort;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &GLshort; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &GLshort; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glacier_CreateVault_java_topic">
+                        <info>
+                            <title id="glacier_CreateVault_java_topic.title">Create a vault</title>
+                            <titleabbrev id="glacier_CreateVault_java_topic.titleabbrev">Create a vault</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &GLlong; vault.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_CreateVault_Java.xml"></xi:include>
+                    </section>
+                    <section id="glacier_DeleteVault_java_topic">
+                        <info>
+                            <title id="glacier_DeleteVault_java_topic.title">Delete a vault</title>
+                            <titleabbrev id="glacier_DeleteVault_java_topic.titleabbrev">Delete a vault</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &GLlong; vault.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_DeleteVault_Java.xml"></xi:include>
+                    </section>
+                    <section id="glacier_DeleteArchive_java_topic">
+                        <info>
+                            <title id="glacier_DeleteArchive_java_topic.title">Delete an archive</title>
+                            <titleabbrev id="glacier_DeleteArchive_java_topic.titleabbrev">Delete an archive</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &GLlong; archive.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_DeleteArchive_Java.xml"></xi:include>
+                    </section>
+                    <section id="glacier_ListVaults_java_topic">
+                        <info>
+                            <title id="glacier_ListVaults_java_topic.title">List vaults</title>
+                            <titleabbrev id="glacier_ListVaults_java_topic.titleabbrev">List vaults</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &GLlong; vaults.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_ListVaults_Java.xml"></xi:include>
+                    </section>
+                    <section id="glacier_InitiateJob_InventoryRetrieval_java_topic">
+                        <info>
+                            <title id="glacier_InitiateJob_InventoryRetrieval_java_topic.title">Retrieve a vault inventory</title>
+                            <titleabbrev id="glacier_InitiateJob_InventoryRetrieval_java_topic.titleabbrev">Retrieve a vault inventory</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve an &GLlong; vault inventory.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_InitiateJob_InventoryRetrieval_Java.xml"></xi:include>
+                    </section>
+                    <section id="glacier_UploadArchive_java_topic">
+                        <info>
+                            <title id="glacier_UploadArchive_java_topic.title">Upload an archive to a vault</title>
+                            <titleabbrev id="glacier_UploadArchive_java_topic.titleabbrev">Upload an archive to a vault</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an archive to an &GLlong; vault.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_UploadArchive_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_ses_code_examples" role="topic">
+            <info>
+                <title id="java_ses_code_examples.title">&SES; examples using &JavaV2;</title>
+                <titleabbrev id="java_ses_code_examples.titleabbrev">&SES;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &SES;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &SES;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SES; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SES; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ses_ListIdentities_java_topic">
+                        <info>
+                            <title id="ses_ListIdentities_java_topic.title">List identities</title>
+                            <titleabbrev id="ses_ListIdentities_java_topic.titleabbrev">List identities</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SES; identities.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ses_ListIdentities_Java.xml"></xi:include>
+                    </section>
+                    <section id="ses_SendEmail_java_topic">
+                        <info>
+                            <title id="ses_SendEmail_java_topic.title">Send email</title>
+                            <titleabbrev id="ses_SendEmail_java_topic.titleabbrev">Send email</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send email with &SES;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ses_SendEmail_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_sns_code_examples" role="topic">
+            <info>
+                <title id="java_sns_code_examples.title">&SNS; examples using &JavaV2;</title>
+                <titleabbrev id="java_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_TagResource_java_topic">
+                        <info>
+                            <title id="sns_TagResource_java_topic.title">Add tags to a topic</title>
+                            <titleabbrev id="sns_TagResource_java_topic.titleabbrev">Add tags to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add tags to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_TagResource_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_CheckIfPhoneNumberIsOptedOut_java_topic">
+                        <info>
+                            <title id="sns_CheckIfPhoneNumberIsOptedOut_java_topic.title">Check whether a phone number is opted out</title>
+                            <titleabbrev id="sns_CheckIfPhoneNumberIsOptedOut_java_topic.titleabbrev">Check whether a phone number is opted out</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to check whether a phone number is opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_ConfirmSubscription_java_topic">
+                        <info>
+                            <title id="sns_ConfirmSubscription_java_topic.title">Confirm an endpoint owner wants to receive messages</title>
+                            <titleabbrev id="sns_ConfirmSubscription_java_topic.titleabbrev">Confirm an endpoint owner wants to receive messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to confirm the owner of an endpoint wants to receive &SNS; messages by validating the token sent to the endpoint by an earlier Subscribe action.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ConfirmSubscription_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_CreateTopic_java_topic">
+                        <info>
+                            <title id="sns_CreateTopic_java_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_java_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_Unsubscribe_java_topic">
+                        <info>
+                            <title id="sns_Unsubscribe_java_topic.title">Delete a subscription</title>
+                            <titleabbrev id="sns_Unsubscribe_java_topic.titleabbrev">Delete a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_java_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_java_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_java_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_java_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_java_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_java_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetSMSAttributes_java_topic">
+                        <info>
+                            <title id="sns_GetSMSAttributes_java_topic.title">Get the settings for sending SMS messages</title>
+                            <titleabbrev id="sns_GetSMSAttributes_java_topic.titleabbrev">Get the settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the settings for sending &SNS; SMS messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListPhoneNumbersOptedOut_java_topic">
+                        <info>
+                            <title id="sns_ListPhoneNumbersOptedOut_java_topic.title">List opted out phone numbers</title>
+                            <titleabbrev id="sns_ListPhoneNumbersOptedOut_java_topic.titleabbrev">List opted out phone numbers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list phone numbers that are opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListPhoneNumbersOptedOut_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_java_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_java_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_java_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_java_topic">
+                        <info>
+                            <title id="sns_ListTopics_java_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_java_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishTextSMS_java_topic">
+                        <info>
+                            <title id="sns_PublishTextSMS_java_topic.title">Publish an SMS text message</title>
+                            <titleabbrev id="sns_PublishTextSMS_java_topic.titleabbrev">Publish an SMS text message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishTextSMS_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_java_topic">
+                        <info>
+                            <title id="sns_Publish_java_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_java_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetSubscriptionAttributes_java_topic">
+                        <info>
+                            <title id="sns_SetSubscriptionAttributes_java_topic.title">Set a filter policy</title>
+                            <titleabbrev id="sns_SetSubscriptionAttributes_java_topic.titleabbrev">Set a filter policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set an &SNS; filter policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributes_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetSmsAttributes_java_topic">
+                        <info>
+                            <title id="sns_SetSmsAttributes_java_topic.title">Set the default settings for sending SMS messages</title>
+                            <titleabbrev id="sns_SetSmsAttributes_java_topic.titleabbrev">Set the default settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the default settings for sending SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetTopicAttributes_java_topic">
+                        <info>
+                            <title id="sns_SetTopicAttributes_java_topic.title">Set topic attributes</title>
+                            <titleabbrev id="sns_SetTopicAttributes_java_topic.titleabbrev">Set topic attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set &SNS; topic attributes.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_Lambda_java_topic">
+                        <info>
+                            <title id="sns_Subscribe_Lambda_java_topic.title">Subscribe a &LAM; function to a topic</title>
+                            <titleabbrev id="sns_Subscribe_Lambda_java_topic.titleabbrev">Subscribe a &LAM; function to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a &LAM; function so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_HTTP_java_topic">
+                        <info>
+                            <title id="sns_Subscribe_HTTP_java_topic.title">Subscribe an HTTP endpoint to a topic</title>
+                            <titleabbrev id="sns_Subscribe_HTTP_java_topic.titleabbrev">Subscribe an HTTP endpoint to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an HTTP or HTTPS endpoint so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_HTTP_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_java_topic">
+                        <info>
+                            <title id="sns_Subscribe_java_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_java_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_sqs_code_examples" role="topic">
+            <info>
+                <title id="java_sqs_code_examples.title">&SQS; examples using &JavaV2;</title>
+                <titleabbrev id="java_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_CreateQueue_java_topic">
+                        <info>
+                            <title id="sqs_CreateQueue_java_topic.title">Create a queue</title>
+                            <titleabbrev id="sqs_CreateQueue_java_topic.titleabbrev">Create a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_CreateQueue_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteMessage_java_topic">
+                        <info>
+                            <title id="sqs_DeleteMessage_java_topic.title">Delete a message from a queue</title>
+                            <titleabbrev id="sqs_DeleteMessage_java_topic.titleabbrev">Delete a message from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a message from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteMessage_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteQueue_java_topic">
+                        <info>
+                            <title id="sqs_DeleteQueue_java_topic.title">Delete a queue</title>
+                            <titleabbrev id="sqs_DeleteQueue_java_topic.titleabbrev">Delete a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteQueue_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_GetQueueUrl_java_topic">
+                        <info>
+                            <title id="sqs_GetQueueUrl_java_topic.title">Get the URL of a queue</title>
+                            <titleabbrev id="sqs_GetQueueUrl_java_topic.titleabbrev">Get the URL of a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the URL of an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_GetQueueUrl_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ListQueues_java_topic">
+                        <info>
+                            <title id="sqs_ListQueues_java_topic.title">List queues</title>
+                            <titleabbrev id="sqs_ListQueues_java_topic.titleabbrev">List queues</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SQS; queues.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ListQueues_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_java_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_java_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_java_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessageBatch_java_topic">
+                        <info>
+                            <title id="sqs_SendMessageBatch_java_topic.title">Send a batch of messages to a queue</title>
+                            <titleabbrev id="sqs_SendMessageBatch_java_topic.titleabbrev">Send a batch of messages to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a batch of messages to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessageBatch_Java.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_java_topic">
+                        <info>
+                            <title id="sqs_SendMessage_java_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_java_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_secrets-manager_code_examples" role="topic">
+            <info>
+                <title id="java_secrets-manager_code_examples.title">&ASM; examples using &JavaV2;</title>
+                <titleabbrev id="java_secrets-manager_code_examples.titleabbrev">&ASM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &ASM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &ASM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ASM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ASM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="secrets-manager_CreateSecret_java_topic">
+                        <info>
+                            <title id="secrets-manager_CreateSecret_java_topic.title">Create a secret</title>
+                            <titleabbrev id="secrets-manager_CreateSecret_java_topic.titleabbrev">Create a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_CreateSecret_Java.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_DeleteSecret_java_topic">
+                        <info>
+                            <title id="secrets-manager_DeleteSecret_java_topic.title">Delete a secret</title>
+                            <titleabbrev id="secrets-manager_DeleteSecret_java_topic.titleabbrev">Delete a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_DeleteSecret_Java.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_DescribeSecret_java_topic">
+                        <info>
+                            <title id="secrets-manager_DescribeSecret_java_topic.title">Describe a secret</title>
+                            <titleabbrev id="secrets-manager_DescribeSecret_java_topic.titleabbrev">Describe a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_DescribeSecret_Java.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_GetSecretValue_java_topic">
+                        <info>
+                            <title id="secrets-manager_GetSecretValue_java_topic.title">Get a secret value</title>
+                            <titleabbrev id="secrets-manager_GetSecretValue_java_topic.titleabbrev">Get a secret value</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a &ASM; secret value.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_GetSecretValue_Java.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_ListSecrets_java_topic">
+                        <info>
+                            <title id="secrets-manager_ListSecrets_java_topic.title">List secrets</title>
+                            <titleabbrev id="secrets-manager_ListSecrets_java_topic.titleabbrev">List secrets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &ASM; secrets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_ListSecrets_Java.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_PutSecretValue_java_topic">
+                        <info>
+                            <title id="secrets-manager_PutSecretValue_java_topic.title">Put a value in a secret</title>
+                            <titleabbrev id="secrets-manager_PutSecretValue_java_topic.titleabbrev">Put a value in a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put a value in a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_PutSecretValue_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="java_textract_code_examples" role="topic">
+            <info>
+                <title id="java_textract_code_examples.title">&TEXTRACT; examples using &JavaV2;</title>
+                <titleabbrev id="java_textract_code_examples.titleabbrev">&TEXTRACT;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JavaV2long; with &TEXTRACT;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JavaV2long; with &TEXTRACT;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &TEXTRACT; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &TEXTRACT; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="textract_AnalyzeDocument_java_topic">
+                        <info>
+                            <title id="textract_AnalyzeDocument_java_topic.title">Analyze a document</title>
+                            <titleabbrev id="textract_AnalyzeDocument_java_topic.titleabbrev">Analyze a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to analyze a document using &TEXTRACTlong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/textract_AnalyzeDocument_Java.xml"></xi:include>
+                    </section>
+                    <section id="textract_DetectDocumentText_java_topic">
+                        <info>
+                            <title id="textract_DetectDocumentText_java_topic.title">Detect text in a document</title>
+                            <titleabbrev id="textract_DetectDocumentText_java_topic.titleabbrev">Detect text in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect text in a document using &TEXTRACTlong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/textract_DetectDocumentText_Java.xml"></xi:include>
+                    </section>
+                    <section id="textract_StartDocumentAnalysis_java_topic">
+                        <info>
+                            <title id="textract_StartDocumentAnalysis_java_topic.title">Start asynchronous analysis of a document</title>
+                            <titleabbrev id="textract_StartDocumentAnalysis_java_topic.titleabbrev">Start asynchronous analysis of a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start asynchronous analysis of a document using &TEXTRACTlong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/textract_StartDocumentAnalysis_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+    <section id="java_code_examples_cross_service" role="topic">
+        <info>
+            <title id="java_code_examples_cross_service.title">Cross-service examples using &JavaV2;</title>
+            <titleabbrev id="java_code_examples_cross_service.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following sample applications use the &JavaV2long;
+                    to work across multiple &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use the &JavaV2long;
+            to work across multiple &AWS; services.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="cross_SubmitDataApp_java_topic" role="topic">
+            <info>
+                <title id="cross_SubmitDataApp_java_topic.title">Build an application to submit data to a &DDB; table</title>
+                <titleabbrev id="cross_SubmitDataApp_java_topic.titleabbrev">Build an app to submit data to a &DDB; table</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SubmitDataApp_Java.xml"></xi:include>
+        </section>
+        <section id="cross_LexChatbotLanguages_java_topic" role="topic">
+            <info>
+                <title id="cross_LexChatbotLanguages_java_topic.title">Create an &LEX2; Chatbot within a web application to engage your web site visitors</title>
+                <titleabbrev id="cross_LexChatbotLanguages_java_topic.titleabbrev">Building an &LEX2; Chatbot</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LexChatbotLanguages_Java.xml"></xi:include>
+        </section>
+        <section id="cross_SnsPublishSubscription_java_topic" role="topic">
+            <info>
+                <title id="cross_SnsPublishSubscription_java_topic.title">Build a publish and subscription application that translates messages</title>
+                <titleabbrev id="cross_SnsPublishSubscription_java_topic.titleabbrev">Building an &SNS; application</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SnsPublishSubscription_Java.xml"></xi:include>
+        </section>
+        <section id="cross_DynamoDBDataTracker_java_topic" role="topic">
+            <info>
+                <title id="cross_DynamoDBDataTracker_java_topic.title">Create a dynamic web application to track &DDB; data</title>
+                <titleabbrev id="cross_DynamoDBDataTracker_java_topic.titleabbrev">Create a web application to track &DDB; data</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_Java.xml"></xi:include>
+        </section>
+        <section id="cross_RDSDataTracker_java_topic" role="topic">
+            <info>
+                <title id="cross_RDSDataTracker_java_topic.title">Create an &RDSlong; item tracker</title>
+                <titleabbrev id="cross_RDSDataTracker_java_topic.titleabbrev">Create a web application to track &RDS; data</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RDSDataTracker_Java.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzerPPE_java_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzerPPE_java_topic.title">Detect PPE in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzerPPE_java_topic.titleabbrev">Detect PPE in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_Java.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzer_java_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzer_java_topic.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzer_java_topic.titleabbrev">Detect objects in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_Java.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionVideoDetection_java_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionVideoDetection_java_topic.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionVideoDetection_java_topic.titleabbrev">Detect people and objects in a video</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_Java.xml"></xi:include>
+        </section>
+        <section id="cross_LambdaAPIGateway_java_topic" role="topic">
+            <info>
+                <title id="cross_LambdaAPIGateway_java_topic.title">Use &ABP; to invoke a &LAM; function</title>
+                <titleabbrev id="cross_LambdaAPIGateway_java_topic.titleabbrev">Use &ABP; to invoke a &LAM; function</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_Java.xml"></xi:include>
+        </section>
+        <section id="cross_ServerlessWorkflows_java_topic" role="topic">
+            <info>
+                <title id="cross_ServerlessWorkflows_java_topic.title">Use &SFN; to invoke &LAM; functions</title>
+                <titleabbrev id="cross_ServerlessWorkflows_java_topic.titleabbrev">Use &SFN; to invoke &LAM; functions</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_Java.xml"></xi:include>
+        </section>
+        <section id="cross_LambdaScheduledEvents_java_topic" role="topic">
+            <info>
+                <title id="cross_LambdaScheduledEvents_java_topic.title">Use scheduled events to invoke a &LAM; function</title>
+                <titleabbrev id="cross_LambdaScheduledEvents_java_topic.titleabbrev">Use scheduled events to invoke a &LAM; function</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_Java.xml"></xi:include>
+        </section>
+    </section>
+</chapter>

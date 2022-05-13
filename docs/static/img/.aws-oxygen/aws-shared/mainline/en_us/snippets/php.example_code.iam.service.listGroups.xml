@@ -1,0 +1,17 @@
+<programlisting>
+    public function listGroups($pathPrefix = "", $marker = "", $maxItems = 0)
+    {
+        $listGroupsArguments = [];
+        if ($pathPrefix) {
+            $listGroupsArguments["PathPrefix"] = $pathPrefix;
+        }
+        if ($marker) {
+            $listGroupsArguments["Marker"] = $marker;
+        }
+        if ($maxItems) {
+            $listGroupsArguments["MaxItems"] = $maxItems;
+        }
+
+        return $this->iamClient->listGroups($listGroupsArguments);
+    }
+</programlisting>

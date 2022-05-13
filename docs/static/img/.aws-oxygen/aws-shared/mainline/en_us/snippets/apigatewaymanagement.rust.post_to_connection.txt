@@ -1,0 +1,14 @@
+async fn send_data(
+    client: &aws_sdk_apigatewaymanagement::Client,
+    con_id: &str,
+    data: &str,
+) -> Result<(), aws_sdk_apigatewaymanagement::Error> {
+    client
+        .post_to_connection()
+        .connection_id(con_id)
+        .data(Blob::new(data))
+        .send()
+        .await?;
+
+    Ok(())
+}

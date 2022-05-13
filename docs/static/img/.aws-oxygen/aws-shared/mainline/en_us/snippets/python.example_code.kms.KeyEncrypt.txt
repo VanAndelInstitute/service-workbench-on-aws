@@ -1,0 +1,3 @@
+class KeyEncrypt:
+    def __init__(self, kms_client):
+        self.kms_client = kms_client

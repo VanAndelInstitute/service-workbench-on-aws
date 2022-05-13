@@ -1,0 +1,52 @@
+<programlisting>
+    public static void signUp(CognitoIdentityProviderClient identityProviderClient,
+                                  String clientId,
+                                  String secretKey,
+                                  String userName,
+                                  String password,
+                                  String email) {
+
+        AttributeType attributeType = AttributeType.builder()
+                .name("email")
+                .value(email)
+                .build();
+
+        List<AttributeType> attrs = new ArrayList<>();
+        attrs.add(attributeType);
+
+       try {
+           String secretVal = calculateSecretHash(clientId, secretKey, userName);
+           SignUpRequest signUpRequest = SignUpRequest.builder()
+                   .userAttributes(attrs)
+                   .username(userName)
+                   .clientId(clientId)
+                   .password(password)
+                   .secretHash(secretVal)
+                   .build();
+
+           identityProviderClient.signUp(signUpRequest);
+           System.out.println("User has been signed up");
+
+       } catch(CognitoIdentityProviderException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }
+
+    public static String calculateSecretHash(String userPoolClientId, String userPoolClientSecret, String userName) {
+        final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
+
+        SecretKeySpec signingKey = new SecretKeySpec(
+                userPoolClientSecret.getBytes(StandardCharsets.UTF_8),
+                HMAC_SHA256_ALGORITHM);
+        try {
+            Mac mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
+            mac.init(signingKey);
+            mac.update(userName.getBytes(StandardCharsets.UTF_8));
+            byte[] rawHmac = mac.doFinal(userPoolClientId.getBytes(StandardCharsets.UTF_8));
+            return java.util.Base64.getEncoder().encodeToString(rawHmac);
+        } catch (Exception e) {
+            throw new RuntimeException("Error while calculating ");
+        }
+    }
+</programlisting>

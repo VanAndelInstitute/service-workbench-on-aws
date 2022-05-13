@@ -1,0 +1,3 @@
+    acl, err := svc.GetBucketAcl(&s3.GetBucketAclInput{
+        Bucket: bucket,
+    })

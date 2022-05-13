@@ -1,0 +1,26 @@
+<programlisting>
+    private static EmailChannelResponse getEmailChannel(PinpointClient client, String appId) {
+
+        try {
+            //TODO: Update personal identity and from address
+            UpdateEmailChannelRequest updateRequest = UpdateEmailChannelRequest.builder()
+                    .applicationId(appId)
+                    .emailChannelRequest(EmailChannelRequest.builder()
+                            .identity("")
+                            .fromAddress("Test Mail <no-reply@mypmail.com>")
+                            .enabled(true)
+                            .build())
+                    .build();
+
+            EmailChannelResponse response = client.updateEmailChannel(updateRequest).emailChannelResponse();
+
+            System.out.println("Channel state is " + response);
+            return response;
+
+        } catch (PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return null;
+    }
+</programlisting>

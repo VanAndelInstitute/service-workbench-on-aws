@@ -1,0 +1,15 @@
+suspend fun deleteDymamoDBItem(tableNameVal: String, keyName: String, keyVal: String) {
+
+        val keyToGet = mutableMapOf<String, AttributeValue>()
+        keyToGet[keyName] = AttributeValue.S(keyVal)
+
+        val request = DeleteItemRequest {
+            tableName = tableNameVal
+            key = keyToGet
+        }
+
+        DynamoDbClient { region = "us-east-1" }.use { ddb ->
+            ddb.deleteItem(request)
+            println("Item with key matching $keyVal was deleted")
+        }
+    }

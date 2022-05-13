@@ -1,0 +1,4 @@
+    result, err := svc.Encrypt(&kms.EncryptInput{
+        KeyId:     keyID,
+        Plaintext: []byte(*text),
+    })

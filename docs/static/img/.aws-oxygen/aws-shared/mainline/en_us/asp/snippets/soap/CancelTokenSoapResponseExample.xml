@@ -1,0 +1,23 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    MESSAGE123
+   </wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    http://www.w3.org/2005/08/addressing/anonymous
+   </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    CancelToken:Response
+   </wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    urn:uuid:5fb6a949-a481-4f6f-bdfb-bcdde0daea6b
+   </wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <CancelTokenResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <ResponseMetadata>
+       <RequestId>5fb6a949-a481-4f6f-bdfb-bcdde0daea6b:0</RequestId>
+     </ResponseMetadata>
+   </CancelTokenResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

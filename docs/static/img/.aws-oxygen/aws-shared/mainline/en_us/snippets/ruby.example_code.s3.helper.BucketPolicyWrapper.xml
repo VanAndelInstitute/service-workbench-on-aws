@@ -1,0 +1,10 @@
+<programlisting>
+# Wraps an Amazon S3 bucket policy.
+class BucketPolicyWrapper
+  attr_reader :bucket_policy
+
+  # @param bucket_policy [Aws::S3::BucketPolicy] A bucket policy object configured with an existing bucket.
+  def initialize(bucket_policy)
+    @bucket_policy = bucket_policy
+  end
+</programlisting>

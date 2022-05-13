@@ -1,0 +1,8 @@
+    stackName := flag.String("n", "", "The name of the stack to create or delete")
+    templateFile := flag.String("t", "", "The name of the file containing the CloudFormation template")
+    flag.Parse()
+
+    if *stackName == "" || *templateFile == "" {
+        fmt.Println("You must supply a stack name and template file name (-s STACK-NAME -t TEMPLATE-FILE)")
+        return
+    }

@@ -1,0 +1,32 @@
+<programlisting>
+
+        /// <summary>
+        /// Attach the policy to the role so that the user can assume it.
+        /// </summary>
+        /// <param name="client">The initialized IAM client object.</param>
+        /// <param name="policyArn">The ARN of the policy to attach.</param>
+        /// <param name="roleName">The name of the role to attach the policy to.</param>
+        public static async Task AttachRoleAsync(
+            AmazonIdentityManagementServiceClient client,
+            string policyArn,
+            string roleName)
+        {
+            var request = new AttachRolePolicyRequest
+            {
+                PolicyArn = policyArn,
+                RoleName = roleName,
+            };
+
+            var response = await client.AttachRolePolicyAsync(request);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine("Successfully attached the policy to the role.");
+            }
+            else
+            {
+                Console.WriteLine("Could not attach the policy.");
+            }
+        }
+
+</programlisting>

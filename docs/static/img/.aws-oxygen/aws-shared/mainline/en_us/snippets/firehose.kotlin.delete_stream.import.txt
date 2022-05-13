@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.firehose.FirehoseClient
+import aws.sdk.kotlin.services.firehose.model.DeleteDeliveryStreamRequest
+import kotlin.system.exitProcess

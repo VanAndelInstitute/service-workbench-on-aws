@@ -1,0 +1,10 @@
+    table := flag.String("t", "", "The name of the table")
+    movie := flag.String("m", "", "The name of the movie")
+    year := flag.String("y", "", "The year the movie was released")
+    flag.Parse()
+
+    if *table == "" || *movie == "" || *year == "" {
+        fmt.Println("You must specify a table, movie title, and year the movie was released:")
+        fmt.Println("-t TABLE -m MOVIE -y YEAR")
+        return
+    }

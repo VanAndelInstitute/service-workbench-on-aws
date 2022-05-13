@@ -1,0 +1,7 @@
+    policyArn := flag.String("a", "", "The ARN of the policy to retrieve")
+    flag.Parse()
+
+    if *policyArn == "" {
+        fmt.Println("You must supply the ARN of the policy to retrieve (-a POLICY-ARN)")
+        return
+    }

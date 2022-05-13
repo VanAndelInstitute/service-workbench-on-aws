@@ -1,0 +1,32 @@
+<programlisting>
+    public static void getLabelsfromImage(RekognitionClient rekClient, String bucket, String image) {
+
+        try {
+        S3Object s3Object = S3Object.builder()
+                .bucket(bucket)
+                .name(image)
+                .build() ;
+
+        Image myImage = Image.builder()
+                .s3Object(s3Object)
+                .build();
+
+        DetectLabelsRequest detectLabelsRequest = DetectLabelsRequest.builder()
+                .image(myImage)
+                .maxLabels(10)
+                .build();
+
+        DetectLabelsResponse labelsResponse = rekClient.detectLabels(detectLabelsRequest);
+        List<Label> labels = labelsResponse.labels();
+
+        System.out.println("Detected labels for the given photo");
+        for (Label label: labels) {
+            System.out.println(label.name() + ": " + label.confidence().toString());
+        }
+
+    } catch (RekognitionException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

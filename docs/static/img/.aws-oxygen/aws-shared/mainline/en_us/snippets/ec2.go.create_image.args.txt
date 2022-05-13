@@ -1,0 +1,10 @@
+    description := flag.String("d", "", "The description of the image")
+    instanceID := flag.String("i", "", "The ID of the instance")
+    name := flag.String("n", "", "The name of the image")
+    flag.Parse()
+
+    if *description == "" || *instanceID == "" || *name == "" {
+        fmt.Println("You must supply an image description, instance ID, and image name")
+        fmt.Println("(-d IMAGE-DESCRIPTION -i INSTANCE-ID -n IMAGE-NAME")
+        return
+    }

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="ipncommon">
+     <title id="ipncommon.title">Common IPN Response Elements</title>
+     <para>These IPN response elements are common to most types of transactions. 
+          <phrase condition="asp">For a list of IPN response elements for subscription transactions, see <xref linkend="subscriptionIPN" endterm="subscriptionIPN.title" />.</phrase> 
+          For a list of IPN response elements for marketplace transactions, see <xref linkend="marketplaceIPN" endterm="marketplaceIPN.title" />.
+     </para>
+     
+     <informaltable id="IPNTransactionElements">
+          <tgroup cols="2">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colnum="1" colwidth="1.59*"/>
+               <colspec colname="c2" colnum="2" colwidth="2.63*"/>
+               <thead>
+                    <row>
+                         <entry>Name</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry><parameter>addressFullName</parameter></entry>
+                         <entry>
+                              <para>Full name of the buyer/sender.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>addressLine1</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address (first line). For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>addressLine2</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address (second line). For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>addressState</parameter></entry>
+                         <entry>
+                              <para>Sender's state. For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>addressZip</parameter></entry>
+                         <entry>
+                              <para>Sender's post code. For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>addressCountry</parameter></entry>
+                         <entry>
+                              <para>Sender's country. For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>addressPhone</parameter></entry>
+                         <entry>
+                              <para>Sender's phone number. For IPN, this element is returned only if the value has been updated with Amazon.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>buyerEmail</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's email address.</para>
+                              <note>
+                                   <para>The <parameter>buyerEmail</parameter> element is not returned when the recipient is not the caller (i.e., marketplace transactions).</para>
+                              </note>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 65 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>buyerName</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's name.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 128 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><code>certificateUrl</code></para>
+                         </entry>
+                         <entry>
+                              <para>A url specifying the location of the certificate used for signing the response.</para>
+                              <simpara>Type: String</simpara>
+							  <simpara>Max Size: 1024 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>customerEmail</parameter></entry>
+                         <entry>
+                              <para>Customer's email address.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 65 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>customerName</parameter></entry>
+                         <entry>
+                              <para>Buyer/Sender Full Name.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 128 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>dateInstalled</parameter></entry>
+                         <entry>
+                              <para>If the <parameter>notificationType</parameter> element (below) is <parameter>TokenCancellation</parameter>, this element contains the date the token was installed.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 30 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>isShippingAddressProvided</parameter></entry>
+                         <entry>
+                            <para>If the IPN results include address updates, this element contains TRUE. Otherwise this element is not present in the response.</para>
+                            <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>operation</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The name of the payment action, also called an operation, used for this transaction.</para>
+                              <simpara condition="fps-api;fps-agg;fps-adv;fps-bas;fps-mkt">For example, <emphasis role="bold">PAY</emphasis> for the action 
+                                       <xref linkend="Pay" endterm="Pay.title"/>.</simpara>
+                              <simpara>Type: String</simpara>
+						<simpara>Max Size: 20 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>notificationType</parameter></entry>
+                         <entry>
+                            <para>Notification type may be either <parameter>TokenCancellation</parameter> or <parameter>TransactionStatus</parameter></para>
+                            <simpara>Type: String</simpara>
+							<simpara>Size: 20 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>paymentMethod</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The payment method used by the sender.</para>
+                              <simpara  condition="fps">For more information, see the IPN values in <xref endterm="PaymentMethod.title" linkend="PaymentMethod"/>.</simpara>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 20 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>paymentReason</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Reason for payment.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>recipientEmail</parameter></para>
+                         </entry>
+                         <entry>
+                             <para>Recipient's email address.</para>
+                             <note><simpara>As a security precaution, you should always check that the recipient email is the same as the one in your original request.</simpara></note>
+                             <simpara>Type: String</simpara>
+							<simpara>Size: 65 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>recipientName</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Recipient's name.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 128 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row condition="asp">
+                         <entry>
+                              <para><parameter>referenceId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>If you specified a referenceId in the button creation form, Amazon Payments returns the referenceId to you.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>signature</parameter></para>
+                         </entry>
+                         <entry>
+                            <para>The encoded string the caller uses to verify the IPN. Amazon Payments calculates the signature using the elements in the returnURL. 
+                                 The merchant must have manually signed the request.<phrase condition="fps-acc;fps-agg;fps-adv;fps-bas;fps-mkt"> 
+                                      For more information, see <link linkend="IPNContents" >Handling the Receipt of IPN Notifications</link>. We recommend that you always verify the signature using the method in <link linkend="VerifyingtheIPNSignature">How to Verify the IPN Signature</link></phrase>. </para>
+                            <simpara>Type: String</simpara>
+							<simpara>Size: 512 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>signatureVersion</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A value that specifies the <parameter>Signature</parameter> format.</para>
+                              <simpara>Type: Integer</simpara>
+                              <simpara>Valid Values: 2</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>signatureMethod</parameter></entry>
+                         <entry>
+                              <para>A value that specifies the signing method.</para>
+                              <simpara>Type: String</simpara>
+                              <simpara>Valid Values: HmacSHA256 (preferred) and HmacSHA1. </simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>tokenId</parameter></entry>
+                         <entry>
+                              <para>If <parameter>notificationType</parameter> is <parameter>TokenCancellation</parameter>, this element contains the ID of the cancelled token. </para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 255 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>tokenType</parameter></entry>
+                         <entry>
+                              <para>If <parameter>notificationType</parameter> is <parameter>TokenCancellation</parameter>, this element contains the type of the canceled token. </para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 20 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionAmount</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Specifies the amount payable in this transaction; for example, USD 10.00.</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 30 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionDate</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The date when this transaction occurred, specified in seconds since the start of the epoch.</para>
+                              <simpara>Type: Long </simpara>
+							<simpara>Size: 40 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>&TransactionId;</para>
+                              <simpara>Type: String</simpara>
+							<simpara>Size: 255 bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionStatus</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Specifies the status of the transaction.</para><simpara condition="fps">For more information, see <xref
+                                   endterm="TransactionStatusIPN.title"
+                                   linkend="TransactionStatusIPN"/>.</simpara>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+     <!-- Comment out Guest Checkout material 
+      <para>The following IPN response element can be returned by Pay, Reserve, Settle, Refund and
+          Cancel IPNs for transactions, in both initiated and final notifications. It will not be
+          returned by Subscription IPNs.</para>
+     <informaltable id="IPNSubscriptionCanceled">
+          <tgroup cols="2">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colnum="1" colwidth="1.59*"/>
+               <colspec colname="c2" colnum="2" colwidth="2.63*"/>
+               <thead>
+                    <row>
+                         <entry>Name</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry><parameter>IsSenderGuest</parameter></entry>
+                         <entry>
+                              <para>Returned containing TRUE, if the sender token was for guest checkout. 
+                                   Otherwise this element is not present in the response.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+     -->
+</section>

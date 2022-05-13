@@ -1,0 +1,24 @@
+<programlisting>
+    public static void detectAllEntities(ComprehendClient comClient,String text ) {
+
+        try {
+            DetectEntitiesRequest detectEntitiesRequest = DetectEntitiesRequest.builder()
+                    .text(text)
+                    .languageCode("en")
+                    .build();
+
+            DetectEntitiesResponse detectEntitiesResult = comClient.detectEntities(detectEntitiesRequest);
+            List<Entity> entList = detectEntitiesResult.entities();
+            Iterator<Entity> lanIterator = entList.iterator();
+
+            while (lanIterator.hasNext()) {
+                Entity entity = lanIterator.next();
+                System.out.println("Entity text is " + entity.text());
+            }
+
+        } catch (ComprehendException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+       }
+    }
+</programlisting>

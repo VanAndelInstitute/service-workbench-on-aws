@@ -1,0 +1,21 @@
+    public static String createKey(KmsClient kmsClient, String keyDesc) {
+
+    try {
+        CreateKeyRequest keyRequest = CreateKeyRequest.builder()
+                .description(keyDesc)
+                .customerMasterKeySpec(CustomerMasterKeySpec.SYMMETRIC_DEFAULT)
+                .keyUsage("ENCRYPT_DECRYPT")
+                .build();
+
+        CreateKeyResponse result = kmsClient.createKey(keyRequest);
+        System.out.printf(
+                "Created a customer key with id \"%s\"%n",
+                result.keyMetadata().arn());
+
+        return result.keyMetadata().keyId();
+    } catch (KmsException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+    return "";
+    }

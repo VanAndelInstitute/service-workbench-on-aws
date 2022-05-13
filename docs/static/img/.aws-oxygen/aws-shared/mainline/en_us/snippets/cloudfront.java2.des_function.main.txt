@@ -1,0 +1,18 @@
+    public static String describeSinFunction(CloudFrontClient cloudFrontClient, String functionName) {
+
+        try {
+
+            DescribeFunctionRequest functionRequest = DescribeFunctionRequest.builder()
+                    .name(functionName)
+                    .stage(FunctionStage.DEVELOPMENT)
+                    .build();
+
+            DescribeFunctionResponse functionResponse = cloudFrontClient.describeFunction(functionRequest);
+            return functionResponse.eTag();
+
+        } catch (CloudFrontException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

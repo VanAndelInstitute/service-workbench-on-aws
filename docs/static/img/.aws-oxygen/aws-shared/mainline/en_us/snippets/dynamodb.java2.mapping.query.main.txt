@@ -1,0 +1,26 @@
+    public static String queryTable(DynamoDbEnhancedClient enhancedClient) {
+
+        try{
+            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+            QueryConditional queryConditional = QueryConditional
+                    .keyEqualTo(Key.builder()
+                            .partitionValue("id120")
+                            .build());
+
+            // Get items in the table and write out the ID value
+            Iterator<Customer> results = mappedTable.query(queryConditional).items().iterator();
+            String result="";
+
+            while (results.hasNext()) {
+                Customer rec = results.next();
+                result = rec.getId();
+                System.out.println("The record id is "+result);
+            }
+            return result;
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }

@@ -1,0 +1,3 @@
+    request := getItemsRequest{"time", "descending", *maxItems}
+
+    payload, err := json.Marshal(request)

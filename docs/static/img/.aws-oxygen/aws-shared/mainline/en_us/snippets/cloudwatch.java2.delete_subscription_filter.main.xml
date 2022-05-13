@@ -1,0 +1,21 @@
+<programlisting>
+    public static void deleteSubFilter(CloudWatchLogsClient logs, String filter, String logGroup) {
+
+       try {
+           DeleteSubscriptionFilterRequest request =
+                DeleteSubscriptionFilterRequest.builder()
+                        .filterName(filter)
+                        .logGroupName(logGroup)
+                        .build();
+
+           logs.deleteSubscriptionFilter(request);
+           System.out.printf(
+                   "Successfully deleted CloudWatch logs subscription filter %s",
+                   filter);
+
+       } catch (CloudWatchException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+   }
+</programlisting>

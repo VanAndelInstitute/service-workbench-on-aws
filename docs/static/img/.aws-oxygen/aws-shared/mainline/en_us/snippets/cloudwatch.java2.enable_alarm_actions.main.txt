@@ -1,0 +1,15 @@
+    public static void enableActions(CloudWatchClient cw, String alarm) {
+
+        try {
+            EnableAlarmActionsRequest request = EnableAlarmActionsRequest.builder()
+                .alarmNames(alarm).build();
+
+           cw.enableAlarmActions(request);
+            System.out.printf(
+                    "Successfully enabled actions on alarm %s", alarm);
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+   }

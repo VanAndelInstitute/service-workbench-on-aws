@@ -1,0 +1,4 @@
+<programlisting>
+    fmt.Println("Allocated IP address", *allocRes.PublicIp, "with instance", *instanceID)
+    fmt.Println("Allocation id:", *allocRes.AllocationId, "association id: ", *assocRes.AssociationId)
+</programlisting>

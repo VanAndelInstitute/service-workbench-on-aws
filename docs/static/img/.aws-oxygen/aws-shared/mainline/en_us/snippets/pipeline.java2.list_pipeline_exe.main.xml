@@ -1,0 +1,24 @@
+<programlisting>
+    public static void listExecutions( CodePipelineClient pipelineClient, String name) {
+
+        try {
+
+            ListPipelineExecutionsRequest executionsRequest = ListPipelineExecutionsRequest.builder()
+                    .maxResults(10)
+                    .pipelineName(name)
+                    .build();
+
+
+            ListPipelineExecutionsResponse response = pipelineClient.listPipelineExecutions(executionsRequest);
+            List<PipelineExecutionSummary> executionSummaryList = response.pipelineExecutionSummaries();
+            for (PipelineExecutionSummary exe: executionSummaryList) {
+                System.out.println("The pipeline execution id is "+exe.pipelineExecutionId());
+                System.out.println("The execution status is "+exe.statusAsString());
+            }
+
+        } catch (CodePipelineException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

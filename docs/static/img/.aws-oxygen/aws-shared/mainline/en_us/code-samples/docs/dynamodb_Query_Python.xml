@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Query items by using a key condition expression.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.Movies.class_decl.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Query.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Query items and project them to return a subset of data.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.UpdateQueryWrapper.decl.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Query.ProjectionExpression.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/Query">Query</ulink>
+                        in <emphasis>&guide-python3-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

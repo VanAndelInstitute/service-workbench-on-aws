@@ -1,0 +1,23 @@
+<programlisting>
+    public static String createPersonalizeSolution(PersonalizeClient personalizeClient,
+                                                 String datasetGroupArn,
+                                                 String solutionName,
+                                                 String recipeArn) {
+
+        try {
+            CreateSolutionRequest solutionRequest = CreateSolutionRequest.builder()
+                .name(solutionName)
+                .datasetGroupArn(datasetGroupArn)
+                .recipeArn(recipeArn)
+                .build();
+
+            CreateSolutionResponse solutionResponse = personalizeClient.createSolution(solutionRequest);
+            return solutionResponse.solutionArn();
+
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+ }
+</programlisting>

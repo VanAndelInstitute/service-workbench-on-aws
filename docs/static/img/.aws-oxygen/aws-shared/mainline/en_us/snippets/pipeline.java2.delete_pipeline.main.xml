@@ -1,0 +1,18 @@
+<programlisting>
+ public static void deleteSpecificPipeline(CodePipelineClient pipelineClient, String name) {
+
+        try {
+
+            DeletePipelineRequest deletePipelineRequest = DeletePipelineRequest.builder()
+                    .name(name)
+                    .build() ;
+
+            pipelineClient.deletePipeline(deletePipelineRequest);
+            System.out.println(name +" was successfully deleted");
+
+        } catch (CodePipelineException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,15 @@
+GET\n
+fps.payments.amazon.com\n
+Action=SettleDebt
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=MyWish
+&CallerReference=CallerReference13
+&CreditInstrumentId=553IBMFCG7Z8J4D1H7BB3HMNPFQQUPVUNT8RHCT1AXDJNXE6LJZ4KSKU2PI1TTIG
+&SenderTokenId=543IJMECGZZ3J4K1F7BJ3TMNXFBQU9VXNT7RRCTNAJDJ8X36L1ZRKSUUPPIBTTIK
+&SettlementAmount.CurrencyCode=USD
+&SettlementAmount.Value=1
+&Signature=pwHqzj8Y1aQ1TFcer9aXCFkawg8PmIRcmOelQWvsvaQ%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A44%3A48.203Z
+&Version=2008-09-17

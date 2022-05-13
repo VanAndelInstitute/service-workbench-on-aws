@@ -1,0 +1,15 @@
+suspend fun describeVoice() {
+
+         PollyClient { region = "us-west-2" }.use { polly ->
+          val enUsVoicesResult = polly.describeVoices(DescribeVoicesRequest{
+              languageCode = LanguageCode.fromValue("en-US")
+          })
+          val voices = enUsVoicesResult.voices
+          if (voices != null) {
+                for (voice in voices) {
+                    println("The ID of the voice is ${voice.id}")
+                    println("The gender of the voice is ${voice.gender}")
+                }
+            }
+          }
+ }

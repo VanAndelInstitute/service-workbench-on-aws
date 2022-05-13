@@ -1,0 +1,25 @@
+<programlisting>
+# Checks whether the specified Amazon SNS
+# topic exists among those provided to this function.
+# This is a helper function that is called by the topic_exists? function.
+#
+# @param topics [Array] An array of Aws::SNS::Types::Topic objects.
+# @param topic_arn [String] The ARN of the topic to find.
+# @return [Boolean] true if the topic ARN was found; otherwise, false.
+# @example
+#   sns_client = Aws::SNS::Client.new(region: 'us-east-1')
+#   response = sns_client.list_topics
+#   if topic_found?(
+#     response.topics,
+#     'arn:aws:sns:us-east-1:111111111111:aws-doc-sdk-examples-topic'
+#   )
+#     puts 'Topic found.'
+#   end
+
+def topic_found?(topics, topic_arn)
+  topics.each do |topic|
+    return true if topic.topic_arn == topic_arn
+  end
+  return false
+end
+</programlisting>

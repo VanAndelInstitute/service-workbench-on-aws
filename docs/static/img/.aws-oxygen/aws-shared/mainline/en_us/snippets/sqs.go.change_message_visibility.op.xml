@@ -1,0 +1,7 @@
+<programlisting>
+    _, err := svc.ChangeMessageVisibility(&sqs.ChangeMessageVisibilityInput{
+        ReceiptHandle:     handle,
+        QueueUrl:          queueURL,
+        VisibilityTimeout: visibility,
+    })
+</programlisting>

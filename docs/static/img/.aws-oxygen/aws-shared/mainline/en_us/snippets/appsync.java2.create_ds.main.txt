@@ -1,0 +1,27 @@
+    public static String createDS(AppSyncClient appSyncClient, String name, String reg, String dsRole, String apiVal, String tableName) {
+        try {
+
+            DynamodbDataSourceConfig config = DynamodbDataSourceConfig.builder()
+                    .awsRegion(reg)
+                    .tableName(tableName)
+                    .versioned(true)
+                    .build();
+
+            CreateDataSourceRequest request = CreateDataSourceRequest.builder()
+                    .description("Created using the AWS SDK for Java")
+                    .apiId(apiVal)
+                    .name(name)
+                    .serviceRoleArn(dsRole)
+                    .dynamodbConfig(config)
+                    .type(DataSourceType.AMAZON_DYNAMODB)
+                    .build();
+
+            CreateDataSourceResponse response = appSyncClient.createDataSource(request);
+            return response.dataSource().dataSourceArn();
+
+        } catch (AppSyncException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }

@@ -1,0 +1,88 @@
+# Creates a rule in Amazon EventBridge.
+# This rule is triggered whenever an available instance in
+# Amazon EC2 changes to the specified state.
+# This rule is designed to be used specifically by this code example.
+#
+# Prerequisites:
+#
+# - A role in AWS Identity and Access Management (IAM) that is designed
+#   to be used specifically by this code example.
+# - A topic in Amazon SNS.
+#
+# @param cloudwatchevents_client [Aws::CloudWatchEvents::Client]
+#   An initialized Amazon EventBridge client.
+# @param rule_name [String] The name of the rule to create.
+# @param rule_description [String] Some description for this rule.
+# @param instance_state [String] The state that available instances in
+#   Amazon EC2 must change to, to
+#   trigger this rule.
+# @param role_arn [String] The Amazon Resource Name (ARN) of the IAM role.
+# @param target_id [String] Some identifying string for the rule's target.
+# @param topic_arn [String] The ARN of the Amazon SNS topic.
+# @return [Boolean] true if the rule was created; otherwise, false.
+# @example
+#   exit 1 unless rule_created?(
+#     Aws::CloudWatch::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-ec2-state-change',
+#     'Triggers when any available EC2 instance starts.',
+#     'running',
+#     'arn:aws:iam::111111111111:role/aws-doc-sdk-examples-ec2-state-change',
+#     'sns-topic',
+#     'arn:aws:sns:us-east-1:111111111111:aws-doc-sdk-examples-topic'
+#   )
+def rule_created?(
+  cloudwatchevents_client,
+  rule_name,
+  rule_description,
+  instance_state,
+  role_arn,
+  target_id,
+  topic_arn
+)
+  puts "Creating rule with name '#{rule_name}'..."
+  put_rule_response = cloudwatchevents_client.put_rule(
+    name: rule_name,
+    description: rule_description,
+    event_pattern: {
+      'source': [
+        'aws.ec2'
+      ],
+      'detail-type': [
+        'EC2 Instance State-change Notification'
+      ],
+      'detail': {
+        'state': [
+          instance_state
+        ]
+      }
+    }.to_json,
+    state: 'ENABLED',
+    role_arn: role_arn
+  )
+  puts "Rule created with ARN '#{put_rule_response.rule_arn}'."
+
+  put_targets_response = cloudwatchevents_client.put_targets(
+    rule: rule_name,
+    targets: [
+      {
+        id: target_id,
+        arn: topic_arn
+      }
+    ]
+  )
+  if put_targets_response.key?(:failed_entry_count) &&
+      put_targets_response.failed_entry_count > 0
+    puts 'Error(s) adding target to rule:'
+    put_targets_response.failed_entries.each do |failure|
+      puts failure.error_message
+    end
+    return false
+  else
+    return true
+  end
+rescue StandardError => e
+  puts "Error creating rule or adding target to rule: #{e.message}"
+  puts 'If the rule was created, you must add the target ' \
+    'to the rule yourself, or delete the rule yourself and try again.'
+  return false
+end

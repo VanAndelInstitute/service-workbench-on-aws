@@ -1,0 +1,21 @@
+ 
+$client = new CognitoIdentityProviderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2016-04-18'
+]);
+
+$results = 20;
+
+try {
+    $result = $client->listUserPools([
+        'MaxResults' => $results, 
+    ]);
+    
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+    error_log($e->getMessage());
+}
+

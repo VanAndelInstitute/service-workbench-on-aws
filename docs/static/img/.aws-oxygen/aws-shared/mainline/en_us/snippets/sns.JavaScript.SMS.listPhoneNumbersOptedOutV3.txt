@@ -1,0 +1,15 @@
+
+// Import required AWS SDK clients and commands for Node.js
+import {ListPhoneNumbersOptedOutCommand } from "@aws-sdk/client-sns";
+import {snsClient } from "./libs/snsClient.js";
+
+const run = async () => {
+  try {
+    const data = await snsClient.send(new ListPhoneNumbersOptedOutCommand({}));
+    console.log("Success.",  data);
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error", err.stack);
+  }
+};
+run();

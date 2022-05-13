@@ -1,0 +1,19 @@
+<programlisting>
+def stop_instance(instance_id):
+    """
+    Stops an instance. The request returns immediately. To wait for the instance
+    to stop, use the Instance.wait_until_stopped() function.
+
+    :param instance_id: The ID of the instance to stop.
+    :return: The response to the stop request. This includes both the previous and
+             current state of the instance.
+    """
+    try:
+        response = ec2.Instance(instance_id).stop()
+        logger.info("Stopped instance %s.", instance_id)
+    except ClientError:
+        logger.exception("Couldn't stop instance %s.", instance_id)
+        raise
+    else:
+        return response
+</programlisting>

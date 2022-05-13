@@ -1,0 +1,59 @@
+<!DOCTYPE varlistentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<varlistentry>
+    <term><code>mountPoints</code></term>
+    <listitem>
+        <para>Type: Object Array</para>
+        <para>Required: No</para>
+        <para>The mount points for data volumes in your container. </para>
+        <para>This parameter maps to <code>Volumes</code> in the
+            &link-docker-api-create-container; section of the &link-docker-api; and
+            the <code>--volume</code> option to <ulink
+                url="https://docs.docker.com/engine/reference/commandline/run/"
+                ><command>docker run</command></ulink>.</para>
+        <para>Windows containers can mount whole directories on the same drive as
+            <code>$env:ProgramData</code>. Windows containers cannot mount
+            directories on a different drive, and mount point cannot be across
+            drives.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>sourceVolume</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: Yes, when <code>mountPoints</code> are
+                        used</para>
+                    <para>The name of the volume to mount.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>containerPath</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: Yes, when <code>mountPoints</code> are
+                        used</para>
+                    <para>The path on the container to mount the volume at.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>readOnly</code></term>
+                <listitem>
+                    <para>Type: Boolean</para>
+                    <para>Required: No</para>
+                    <para>If this value is <code>true</code>, the container has
+                        read-only access to the volume. If this value is
+                        <code>false</code>, then the container can write to the
+                        volume. The default value is <code>false</code>.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>

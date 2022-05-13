@@ -1,0 +1,18 @@
+    def deploy_api(self, stage_name):
+        """
+        Deploys a REST API. After a REST API is deployed, it can be called from any
+        REST client, such as the Python Requests package or Postman.
+
+        :param stage_name: The stage of the API to deploy, such as 'test'.
+        :return: The base URL of the deployed REST API.
+        """
+        try:
+            self.apig_client.create_deployment(
+                restApiId=self.api_id, stageName=stage_name)
+            self.stage = stage_name
+            logger.info("Deployed stage %s.", stage_name)
+        except ClientError:
+            logger.exception("Couldn't deploy stage %s.", stage_name)
+            raise
+        else:
+            return self.api_url()

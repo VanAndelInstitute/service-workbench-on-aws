@@ -1,0 +1,6 @@
+async fn reboot_instance(client: &Client, id: &str) -> Result<(), Error> {
+    client.reboot_instances().instance_ids(id).send().await?;
+
+    println!("Rebooted instance.");
+    Ok(())
+}

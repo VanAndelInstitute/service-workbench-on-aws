@@ -1,0 +1,15 @@
+<programlisting>
+    for _, key := range result.SSHPublicKeys {
+        // Get an SSH public key.
+        keyResult, err := svc.GetSSHPublicKey(&iam.GetSSHPublicKeyInput{
+            UserName:       userName,
+            SSHPublicKeyId: key.SSHPublicKeyId,
+            Encoding:       aws.String("SSH"),
+        })
+        if err != nil {
+            continue
+        }
+
+        // append to list
+        bodies = append(bodies, keyResult.SSHPublicKey.SSHPublicKeyBody)
+</programlisting>

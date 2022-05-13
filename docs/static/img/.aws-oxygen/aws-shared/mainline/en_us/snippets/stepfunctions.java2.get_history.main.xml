@@ -1,0 +1,23 @@
+<programlisting>
+    public static void getExeHistory(SfnClient sfnClient, String exeARN) {
+
+        try {
+
+            GetExecutionHistoryRequest historyRequest = GetExecutionHistoryRequest.builder()
+                    .executionArn(exeARN)
+                    .maxResults(10)
+                    .build();
+
+            GetExecutionHistoryResponse historyResponse = sfnClient.getExecutionHistory(historyRequest);
+            List<HistoryEvent> events = historyResponse.events();
+            for (HistoryEvent event: events) {
+                System.out.println("The event type is "+event.type().toString());
+
+            }
+
+        } catch (SfnException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

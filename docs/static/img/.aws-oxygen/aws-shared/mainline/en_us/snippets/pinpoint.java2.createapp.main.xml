@@ -1,0 +1,22 @@
+<programlisting>
+    public static String createApplication(PinpointClient pinpoint, String appName) {
+
+        try {
+            CreateApplicationRequest appRequest = CreateApplicationRequest.builder()
+                    .name(appName)
+                    .build();
+
+            CreateAppRequest request = CreateAppRequest.builder()
+                    .createApplicationRequest(appRequest)
+                    .build();
+
+            CreateAppResponse result = pinpoint.createApp(request);
+            return result.applicationResponse().id();
+
+        } catch (PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

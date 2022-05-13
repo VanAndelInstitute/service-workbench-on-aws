@@ -1,0 +1,12 @@
+<programlisting>
+    svc := cloudformation.New(sess)
+    var filter []*string
+
+    if status != "all" {
+        filter = append(filter, aws.String(status))
+    }
+
+    input := &cloudformation.ListStacksInput{StackStatusFilter: filter}
+
+    resp, err := svc.ListStacks(input)
+</programlisting>

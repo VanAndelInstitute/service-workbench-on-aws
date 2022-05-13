@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteSpecificTemplate(CloudFormationClient cfClient, String stackName) {
+
+       try {
+
+        DeleteStackRequest stackRequest = DeleteStackRequest.builder()
+                .stackName(stackName)
+                .build();
+
+        cfClient.deleteStack(stackRequest);
+        System.out.println("The AWS CloudFormation stack was successfully deleted!");
+
+       } catch (CloudFormationException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+  }
+</programlisting>

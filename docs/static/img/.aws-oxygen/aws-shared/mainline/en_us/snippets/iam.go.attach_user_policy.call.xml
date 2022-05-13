@@ -1,0 +1,8 @@
+<programlisting>
+    policyArn := "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+
+    _, err := svc.AttachRolePolicy(&iam.AttachRolePolicyInput{
+        PolicyArn: &policyArn,
+        RoleName:  roleName,
+    })
+</programlisting>

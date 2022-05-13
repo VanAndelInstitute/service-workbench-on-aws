@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cognitoidentity.CognitoIdentityClient;
+import software.amazon.awssdk.services.cognitoidentity.model.CognitoIdentityProvider;
+import software.amazon.awssdk.services.cognitoidentity.model.UpdateIdentityPoolRequest;
+import software.amazon.awssdk.services.cognitoidentity.model.UpdateIdentityPoolResponse;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.CognitoIdentityProviderException;
+import java.util.ArrayList;
+import java.util.List;
+</programlisting>

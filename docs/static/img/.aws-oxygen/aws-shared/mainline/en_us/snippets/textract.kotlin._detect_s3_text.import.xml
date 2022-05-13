@@ -1,0 +1,7 @@
+<programlisting>
+import aws.sdk.kotlin.services.textract.TextractClient
+import aws.sdk.kotlin.services.textract.model.S3Object
+import aws.sdk.kotlin.services.textract.model.DetectDocumentTextRequest
+import aws.sdk.kotlin.services.textract.model.Document
+import kotlin.system.exitProcess
+</programlisting>

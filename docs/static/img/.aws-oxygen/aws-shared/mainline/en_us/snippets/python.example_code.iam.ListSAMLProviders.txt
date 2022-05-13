@@ -1,0 +1,16 @@
+def list_saml_providers(count):
+    """
+    Lists the SAML providers for the account.
+
+    :param count: The maximum number of providers to list.
+    """
+    try:
+        found = 0
+        for provider in iam.saml_providers.limit(count):
+            logger.info('Got SAML provider %s.', provider.arn)
+            found += 1
+        if found == 0:
+            logger.info("Your account has no SAML providers.")
+    except ClientError:
+        logger.exception("Couldn't list SAML providers.")
+        raise

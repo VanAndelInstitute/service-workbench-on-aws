@@ -1,0 +1,7 @@
+    for _, addr := range result.Addresses {
+        fmt.Println("IP address:   ", *addr.PublicIp)
+        fmt.Println("Allocation ID:", *addr.AllocationId)
+        if addr.InstanceId != nil {
+            fmt.Println("Instance ID:  ", *addr.InstanceId)
+        }
+    }

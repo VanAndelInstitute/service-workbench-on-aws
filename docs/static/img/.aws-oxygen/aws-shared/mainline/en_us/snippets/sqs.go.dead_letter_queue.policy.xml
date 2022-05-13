@@ -1,0 +1,6 @@
+<programlisting>
+    policy := map[string]string{
+        "deadLetterTargetArn": *dlQueueARN,
+        "maxReceiveCount":     "10",
+    }
+</programlisting>

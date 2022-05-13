@@ -1,0 +1,44 @@
+    public static String createBroker(MqClient mqClient, String engineType, String brokerName) {
+        
+        try {
+
+            // Create an Amazon MQ User object.
+            User user = User.builder()
+            .username("testAdminUser")
+            .password("testAdminPassword")
+            .consoleAccess(true)
+            .build();
+
+            // Check the latest minor version release for the given engine type,
+            // and use the latest version to create the broker.
+            DescribeBrokerEngineTypesRequest engineTypeRequest = DescribeBrokerEngineTypesRequest.builder()
+                .engineType(engineType)
+                .build();
+            
+            DescribeBrokerEngineTypesResponse enginesRequest = mqClient.describeBrokerEngineTypes(engineTypeRequest);
+            String engineVersion = enginesRequest.brokerEngineTypes().get(0)
+                .engineVersions().get(0)
+                .name();
+
+            // Creates a new Amazon MQ broker.
+            // Creates a new broker configuration for ActiveMQ brokers.
+            CreateBrokerResponse result = mqClient.createBroker(CreateBrokerRequest.builder()
+                .brokerName(brokerName)
+                .engineType(engineType)
+                .engineVersion(engineVersion)
+                .deploymentMode("SINGLE_INSTANCE")
+                .users(user)
+                .publiclyAccessible(true)
+                .autoMinorVersionUpgrade(true)
+                .hostInstanceType("mq.t3.micro")
+                .build());
+
+
+            return result.brokerId();
+
+        } catch (MqException e) {
+                System.err.println(e.awsErrorDetails().errorMessage());
+                System.exit(1);
+        }
+        return "";
+    }

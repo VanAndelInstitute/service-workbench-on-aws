@@ -1,0 +1,3 @@
+<programlisting>
+            asyncResult = client.BeginPutObject(request, SimpleCallback, null);
+</programlisting>

@@ -1,0 +1,9 @@
+    public function deleteRole(string $roleName)
+    {
+        return $this->customWaiter(function () use ($roleName) {
+            return $this->iamClient->deleteRole([
+                'RoleName' => $roleName,
+            ]);
+        });
+    }
+

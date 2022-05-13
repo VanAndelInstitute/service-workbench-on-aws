@@ -1,0 +1,37 @@
+<programlisting>
+        // Load data into the table.
+        public static void loadData(DynamoDbClient ddb, String tableName, String fileName) throws IOException {
+
+            DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
+                    .dynamoDbClient(ddb)
+                    .build();
+            DynamoDbTable<Movies> mappedTable = enhancedClient.table("Movies", TableSchema.fromBean(Movies.class));
+
+            JsonParser parser = new JsonFactory().createParser(new File(fileName));
+            com.fasterxml.jackson.databind.JsonNode rootNode = new ObjectMapper().readTree(parser);
+            Iterator<JsonNode> iter = rootNode.iterator();
+            ObjectNode currentNode;
+            int t = 0 ;
+            while (iter.hasNext()) {
+
+                // Only add 200 Movies to the table.
+                if (t == 200)
+                    break ;
+                currentNode = (ObjectNode) iter.next();
+
+                int year = currentNode.path("year").asInt();
+                String title = currentNode.path("title").asText();
+                String info = currentNode.path("info").toString();
+
+                Movies movies = new Movies();
+                movies.setYear(year);
+                movies.setTitle(title);
+                movies.setInfo(info);
+
+                // Put the data into the Amazon DynamoDB Movie table.
+                mappedTable.putItem(movies);
+                t++;
+            }
+       }
+
+</programlisting>

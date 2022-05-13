@@ -1,0 +1,40 @@
+<programlisting>
+	// Delete all objects in a bucket.
+
+	fmt.Println("Delete the objects in a bucket")
+	// Note: For versioned buckets, you must also delete all versions of
+	// all objects within the bucket with ListVersions and DeleteVersion.
+	listObjectsV2Response, err := client.ListObjectsV2(context.TODO(),
+		&s3.ListObjectsV2Input{
+			Bucket: aws.String(name),
+		})
+
+	for {
+
+		if err != nil {
+			panic("Couldn't list objects...")
+		}
+		for _, item := range listObjectsV2Response.Contents {
+			fmt.Printf("- Deleting object %s\n", *item.Key)
+			_, err = client.DeleteObject(context.Background(), &s3.DeleteObjectInput{
+				Bucket: aws.String(name),
+				Key:    item.Key,
+			})
+
+			if err != nil {
+				panic("Couldn't delete items")
+			}
+		}
+
+		if listObjectsV2Response.IsTruncated {
+			listObjectsV2Response, err = client.ListObjectsV2(context.TODO(),
+				&s3.ListObjectsV2Input{
+					Bucket:            aws.String(name),
+					ContinuationToken: listObjectsV2Response.ContinuationToken,
+				})
+		} else {
+			break
+		}
+
+	}
+</programlisting>

@@ -1,0 +1,7 @@
+<programlisting>
+	results, err := svc.PutParameter(&ssm.PutParameterInput{
+		Name:  name,
+		Value: value,
+		Type:  paramType,
+	})
+</programlisting>

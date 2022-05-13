@@ -1,0 +1,9 @@
+// Set the Amazon SNS subscription filter policies
+
+SNSMessageFilterPolicy wholesalePolicy = new SNSMessageFilterPolicy();
+wholesalePolicy.addAttribute("business", "wholesale");
+wholesalePolicy.apply(sns, wholesaleSubscriptionArn);
+
+SNSMessageFilterPolicy retailPolicy = new SNSMessageFilterPolicy();
+retailPolicy.addAttribute("business", "retail");
+retailPolicy.apply(sns, retailSubscriptionArn);

@@ -1,0 +1,82 @@
+<programlisting>
+    public static void recognizeAllCelebrities(RekognitionClient rekClient, String sourceImage) {
+
+        try {
+            BufferedImage image = null;
+            InputStream sourceStream = new FileInputStream(sourceImage);
+            SdkBytes sourceBytes = SdkBytes.fromInputStream(sourceStream);
+
+            image = ImageIO.read(sourceBytes.asInputStream());
+            int height = image.getHeight();
+            int width = image.getWidth();
+
+            Image souImage = Image.builder()
+                    .bytes(sourceBytes)
+                    .build();
+
+            RecognizeCelebritiesRequest request = RecognizeCelebritiesRequest.builder()
+                    .image(souImage)
+                    .build();
+
+            RecognizeCelebritiesResponse result = rekClient.recognizeCelebrities(request) ;
+
+            List<Celebrity> celebs=result.celebrityFaces();
+            System.out.println(celebs.size() + " celebrity(s) were recognized.\n");
+
+            for (Celebrity celebrity: celebs) {
+                System.out.println("Celebrity recognized: " + celebrity.name());
+                System.out.println("Celebrity ID: " + celebrity.id());
+                ComparedFace  face = celebrity.face();
+                ShowBoundingBoxPositions(height,
+                        width,
+                        face.boundingBox(),
+                        result.orientationCorrectionAsString());
+            }
+
+        } catch (RekognitionException | FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void ShowBoundingBoxPositions(int imageHeight, int imageWidth, BoundingBox box, String rotation) {
+
+        float left = 0;
+        float top = 0;
+
+        if(rotation==null){
+            System.out.println("No estimated estimated orientation.");
+            return;
+        }
+        // Calculate face position based on the image orientation
+        switch (rotation) {
+            case "ROTATE_0":
+                left = imageWidth * box.left();
+                top = imageHeight * box.top();
+                break;
+            case "ROTATE_90":
+                left = imageHeight * (1 - (box.top() + box.height()));
+                top = imageWidth * box.left();
+                break;
+            case "ROTATE_180":
+                left = imageWidth - (imageWidth * (box.left() + box.width()));
+                top = imageHeight * (1 - (box.top() + box.height()));
+                break;
+            case "ROTATE_270":
+                left = imageHeight * box.top();
+                top = imageWidth * (1 - box.left() - box.width());
+                break;
+            default:
+                System.out.println("No estimated orientation information. Check Exif data.");
+                return;
+        }
+
+        System.out.println("Left: " + (int) left);
+        System.out.println("Top: " + (int) top);
+        System.out.println("Face Width: " + (int) (imageWidth * box.width()));
+        System.out.println("Face Height: " + (int) (imageHeight * box.height()));
+    }
+
+</programlisting>

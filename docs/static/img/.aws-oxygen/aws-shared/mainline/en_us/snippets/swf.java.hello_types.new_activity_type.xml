@@ -1,0 +1,17 @@
+<programlisting>
+        try {
+            System.out.println("** Registering the activity type '" + ACTIVITY +
+                "-" + ACTIVITY_VERSION + "'.");
+            swf.registerActivityType(new RegisterActivityTypeRequest()
+                .withDomain(DOMAIN)
+                .withName(ACTIVITY)
+                .withVersion(ACTIVITY_VERSION)
+                .withDefaultTaskList(new TaskList().withName(TASKLIST))
+                .withDefaultTaskScheduleToStartTimeout("30")
+                .withDefaultTaskStartToCloseTimeout("600")
+                .withDefaultTaskScheduleToCloseTimeout("630")
+                .withDefaultTaskHeartbeatTimeout("10"));
+        } catch (TypeAlreadyExistsException e) {
+            System.out.println("** Activity type already exists!");
+        }
+</programlisting>

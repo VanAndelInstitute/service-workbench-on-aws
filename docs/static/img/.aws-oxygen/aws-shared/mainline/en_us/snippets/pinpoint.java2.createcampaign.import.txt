@@ -1,0 +1,11 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.CampaignResponse;
+import software.amazon.awssdk.services.pinpoint.model.Message;
+import software.amazon.awssdk.services.pinpoint.model.Schedule;
+import software.amazon.awssdk.services.pinpoint.model.Action;
+import software.amazon.awssdk.services.pinpoint.model.MessageConfiguration;
+import software.amazon.awssdk.services.pinpoint.model.WriteCampaignRequest;
+import software.amazon.awssdk.services.pinpoint.model.CreateCampaignResponse;
+import software.amazon.awssdk.services.pinpoint.model.CreateCampaignRequest;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;

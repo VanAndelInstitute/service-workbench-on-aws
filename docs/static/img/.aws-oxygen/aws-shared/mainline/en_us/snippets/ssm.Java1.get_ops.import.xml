@@ -1,0 +1,9 @@
+<programlisting>
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.simplesystemsmanagement.AWSSimpleSystemsManagement;
+import com.amazonaws.services.simplesystemsmanagement.AWSSimpleSystemsManagementClientBuilder;
+import com.amazonaws.services.simplesystemsmanagement.model.GetOpsItemResult;
+import com.amazonaws.services.simplesystemsmanagement.model.OpsItem;
+import com.amazonaws.services.simplesystemsmanagement.model.GetOpsItemRequest;
+import com.amazonaws.AmazonServiceException;
+</programlisting>

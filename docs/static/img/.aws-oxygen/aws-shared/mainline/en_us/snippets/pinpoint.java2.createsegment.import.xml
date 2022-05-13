@@ -1,0 +1,18 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.AttributeDimension;
+import software.amazon.awssdk.services.pinpoint.model.SegmentResponse;
+import software.amazon.awssdk.services.pinpoint.model.AttributeType;
+import software.amazon.awssdk.services.pinpoint.model.RecencyDimension;
+import software.amazon.awssdk.services.pinpoint.model.SegmentBehaviors;
+import software.amazon.awssdk.services.pinpoint.model.SegmentDemographics;
+import software.amazon.awssdk.services.pinpoint.model.SegmentLocation;
+import software.amazon.awssdk.services.pinpoint.model.SegmentDimensions;
+import software.amazon.awssdk.services.pinpoint.model.WriteSegmentRequest;
+import software.amazon.awssdk.services.pinpoint.model.CreateSegmentRequest;
+import software.amazon.awssdk.services.pinpoint.model.CreateSegmentResponse;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;
+import java.util.HashMap;
+import java.util.Map;
+</programlisting>

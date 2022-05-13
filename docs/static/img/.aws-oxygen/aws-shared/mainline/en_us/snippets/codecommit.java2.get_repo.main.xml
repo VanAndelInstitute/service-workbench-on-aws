@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getRepInformation(CodeCommitClient codeCommitClient, String repoName) {
+
+        try {
+            GetRepositoryRequest repositoryRequest = GetRepositoryRequest.builder()
+                .repositoryName(repoName)
+                .build();
+
+            GetRepositoryResponse repositoryResponse = codeCommitClient.getRepository(repositoryRequest);
+            System.out.println("The ARN of the "+ repoName +" is " +repositoryResponse.repositoryMetadata().arn());
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

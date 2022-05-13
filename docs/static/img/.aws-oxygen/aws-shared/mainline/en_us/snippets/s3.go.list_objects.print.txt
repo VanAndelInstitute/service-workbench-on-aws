@@ -1,0 +1,12 @@
+    fmt.Println("Objects in " + *bucket + ":")
+
+    for _, item := range resp.Contents {
+        fmt.Println("Name:          ", *item.Key)
+        fmt.Println("Last modified: ", *item.LastModified)
+        fmt.Println("Size:          ", *item.Size)
+        fmt.Println("Storage class: ", *item.StorageClass)
+        fmt.Println("")
+    }
+
+    fmt.Println("Found", len(resp.Contents), "items in bucket", bucket)
+    fmt.Println("")

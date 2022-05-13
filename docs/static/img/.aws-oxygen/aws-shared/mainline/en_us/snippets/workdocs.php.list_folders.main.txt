@@ -1,0 +1,29 @@
+$client = new Aws\WorkDocs\WorkDocsClient([
+    'profile' => 'default',
+    'version' => '2016-05-01',
+    'region' => 'us-east-2'
+]);
+
+$authTokenFilePath = 'token.txt';
+
+
+try {
+    $file = fopen($authTokenFilePath, 'r');
+    $authToken = fread($file, filesize($file));
+    fclose($authTokenFilePath);
+
+    $result = $client->describeRootFolders([
+        'AuthenticationToken' => $authToken
+    ]);
+    foreach ($result['Folders'] as $folder) {
+        print("Folder - " . $folder['Name'] . " , id - " . $folder['Id']);
+        print(" , Parent Folder - " . $folder['ParentFolderId'] . "\n");
+    }
+    var_dump($result);
+
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+
+

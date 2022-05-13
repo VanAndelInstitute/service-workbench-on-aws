@@ -1,0 +1,10 @@
+  # Deletes the CORS configuration of a bucket.
+  #
+  # @return [Boolean] True if the CORS rules were deleted; otherwise, false.
+  def delete_cors
+    @bucket_cors.delete
+    true
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't delete CORS rules for #{@bucket_cors.bucket.name}. Here's why: #{e.message}"
+    false
+  end

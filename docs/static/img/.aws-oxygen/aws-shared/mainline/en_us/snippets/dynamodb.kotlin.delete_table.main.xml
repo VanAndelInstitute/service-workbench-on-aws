@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteDynamoDBTable(tableNameVal: String) {
+
+    val request = DeleteTableRequest {
+        tableName = tableNameVal
+    }
+
+    DynamoDbClient { region = "us-east-1" }.use { ddb ->
+            ddb.deleteTable(request)
+            println("$tableNameVal was deleted")
+        }
+  }
+</programlisting>

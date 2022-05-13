@@ -1,0 +1,12 @@
+async fn update_group(client: &Client, name: &str, size: i32) -> Result<(), Error> {
+    client
+        .update_auto_scaling_group()
+        .auto_scaling_group_name(name)
+        .max_size(size)
+        .send()
+        .await?;
+
+    println!("Updated AutoScaling group");
+
+    Ok(())
+}

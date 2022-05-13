@@ -1,0 +1,22 @@
+$SesClient = new SesClient([
+    'profile' => 'default',
+    'version' => '2010-12-01',
+    'region' => 'us-east-1'
+]);
+
+$identity = "arn:aws:ses:us-east-1:123456789012:identity/example.com";
+$policies = ["policyName"];
+
+try {
+    $result = $SesClient->getIdentityPolicies([
+        'Identity' => $identity,
+        'PolicyNames' => $policies,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 

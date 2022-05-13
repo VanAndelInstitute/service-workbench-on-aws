@@ -1,0 +1,7 @@
+    lambdaARN := flag.String("l", "", "The ARN of the Lambda function")
+    flag.Parse()
+
+    if *lambdaARN == "" {
+        fmt.Println("You must supply a Lambda ARN with -l LAMBDA-ARN")
+        return
+    }

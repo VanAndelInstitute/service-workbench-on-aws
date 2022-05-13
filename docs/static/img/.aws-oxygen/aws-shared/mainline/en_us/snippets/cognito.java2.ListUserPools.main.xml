@@ -1,0 +1,20 @@
+<programlisting>
+    public static void listAllUserPools(CognitoIdentityProviderClient cognitoClient ) {
+
+        try {
+            ListUserPoolsRequest request = ListUserPoolsRequest.builder()
+                    .maxResults(10)
+                    .build();
+
+            ListUserPoolsResponse response = cognitoClient.listUserPools(request);
+            response.userPools().forEach(userpool -> {
+                        System.out.println("User pool " + userpool.name() + ", User ID " + userpool.id() );
+                    }
+            );
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.migrationhub.MigrationHubClient;
+import software.amazon.awssdk.services.migrationhub.model.CreatedArtifact;
+import software.amazon.awssdk.services.migrationhub.model.ListCreatedArtifactsRequest;
+import software.amazon.awssdk.services.migrationhub.model.ListCreatedArtifactsResponse;
+import software.amazon.awssdk.services.migrationhub.model.MigrationHubException;
+import java.util.Iterator;
+import java.util.List;
+</programlisting>

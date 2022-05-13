@@ -1,0 +1,15 @@
+    public static void deleteAPI( ApiGatewayClient apiGateway, String restApiId) {
+
+        try {
+            DeleteRestApiRequest request = DeleteRestApiRequest.builder()
+                    .restApiId(restApiId)
+                    .build();
+
+            apiGateway.deleteRestApi(request);
+            System.out.println("The API was successfully deleted");
+
+            } catch (ApiGatewayException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

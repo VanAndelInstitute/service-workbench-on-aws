@@ -1,0 +1,8 @@
+<programlisting>
+import aws.sdk.kotlin.services.rekognition.RekognitionClient
+import  aws.sdk.kotlin.services.rekognition.model.CompareFacesMatch
+import aws.sdk.kotlin.services.rekognition.model.CompareFacesRequest
+import aws.sdk.kotlin.services.rekognition.model.Image
+import java.io.File
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,6 @@
+<programlisting>
+    _, err = svc.AttachUserPolicy(&iam.AttachUserPolicyInput{
+        PolicyArn: createPolicyResult.Policy.Arn,
+        UserName:  userName,
+    })
+</programlisting>

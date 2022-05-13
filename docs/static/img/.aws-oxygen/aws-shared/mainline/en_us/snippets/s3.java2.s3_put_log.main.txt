@@ -1,0 +1,52 @@
+    public static void setlogRequest(S3Client s3, String bucketName, String targetBucket) {
+
+        try {
+
+            GetBucketAclRequest aclRequest = GetBucketAclRequest.builder()
+                    .bucket(targetBucket)
+                    .build();
+
+            GetBucketAclResponse response = s3.getBucketAcl(aclRequest);
+
+            String id = response.owner().id(); // Get the Id
+
+            // Create a Grantee object
+            Grantee grantee = Grantee.builder()
+                    .type(Type.GROUP)
+                    .uri("http://acs.amazonaws.com/groups/s3/LogDelivery")
+                    .build();
+
+             TargetGrant targetGrant = TargetGrant.builder()
+                    .grantee(grantee)
+                    .permission(BucketLogsPermission.FULL_CONTROL)
+                    .build();
+
+
+            List granteeList = new ArrayList<Grantee>();
+            granteeList.add(targetGrant);
+
+            LoggingEnabled loggingEnabled = LoggingEnabled.builder()
+                    .targetBucket(targetBucket)
+                    .targetGrants(granteeList)
+                    .build();
+
+            BucketLoggingStatus loggingStatus = BucketLoggingStatus.builder()
+                    .loggingEnabled(loggingEnabled)
+                    .build();
+
+            PutBucketLoggingRequest loggingRequest = PutBucketLoggingRequest.builder()
+                    .bucket(bucketName)
+                    .expectedBucketOwner("814548047983")
+                    .bucketLoggingStatus(loggingStatus)
+                    .build();
+
+
+            s3.putBucketLogging(loggingRequest);
+            System.out.println("Enabling logging for the target bucket " + targetBucket);
+
+
+        } catch (S3Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

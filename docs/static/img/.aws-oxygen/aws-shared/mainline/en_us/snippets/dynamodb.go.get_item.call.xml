@@ -1,0 +1,13 @@
+<programlisting>
+    result, err := svc.GetItem(&dynamodb.GetItemInput{
+        TableName: table,
+        Key: map[string]*dynamodb.AttributeValue{
+            "year": {
+                N: aws.String(strconv.Itoa(*year)),
+            },
+            "title": {
+                S: title,
+            },
+        },
+    })
+</programlisting>

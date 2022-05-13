@@ -1,0 +1,41 @@
+    public static void queryTableSort(DynamoDbEnhancedClient enhancedClient) {
+
+        try {
+
+            // Create a DynamoDbTable object based on Issues.
+            DynamoDbTable<Issues> table = enhancedClient.table("Issues", TableSchema.fromBean(Issues.class));
+            String dateVal = "2013-11-19";
+            DynamoDbIndex<Issues> secIndex =
+                    enhancedClient.table("Issues",
+                                    TableSchema.fromBean(Issues.class))
+                            .index("dueDateIndex");
+
+            AttributeValue attVal = AttributeValue.builder()
+                    .s(dateVal)
+                    .build();
+
+            // Create a QueryConditional object that's used in the query operation.
+            QueryConditional queryConditional = QueryConditional
+                    .keyEqualTo(Key.builder().partitionValue(attVal)
+                            .build());
+
+            // Get items in the Issues table.
+            SdkIterable<Page<Issues>> results =  secIndex.query(
+                    QueryEnhancedRequest.builder()
+                            .queryConditional(queryConditional)
+                            .build());
+
+            AtomicInteger atomicInteger = new AtomicInteger();
+            atomicInteger.set(0);
+            results.forEach(page -> {
+
+                Issues issue = (Issues) page.items().get(atomicInteger.get());
+                System.out.println("The issue title is "+issue.getTitle());
+                atomicInteger.incrementAndGet();
+            });
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }

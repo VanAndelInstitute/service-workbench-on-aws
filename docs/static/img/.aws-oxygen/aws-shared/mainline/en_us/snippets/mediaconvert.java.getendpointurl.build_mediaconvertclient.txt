@@ -1,0 +1,4 @@
+            Region region = Region.US_WEST_2;
+            MediaConvertClient mc = MediaConvertClient.builder()
+                    .region(region)
+                    .build();

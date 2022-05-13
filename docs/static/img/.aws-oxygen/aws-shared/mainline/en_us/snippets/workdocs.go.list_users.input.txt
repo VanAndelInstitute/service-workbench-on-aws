@@ -1,0 +1,10 @@
+    input := new(workdocs.DescribeUsersInput)
+    input.OrganizationId = orgPtr
+
+    // Show all users if we don't get a user name
+    if *userPtr == "" {
+        fmt.Println("Getting info about all users")
+    } else {
+        fmt.Println("Getting info about user " + *userPtr)
+        input.Query = userPtr
+    }

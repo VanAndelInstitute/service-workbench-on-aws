@@ -1,0 +1,16 @@
+<programlisting>
+    def put_cors(self, cors_rules):
+        """
+        Apply CORS rules to the bucket. CORS rules specify the HTTP actions that are
+        allowed from other domains.
+
+        :param cors_rules: The CORS rules to apply.
+        """
+        try:
+            self.bucket.Cors().put(CORSConfiguration={'CORSRules': cors_rules})
+            logger.info(
+                "Put CORS rules %s for bucket '%s'.", cors_rules, self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't put CORS rules for bucket %s.", self.bucket.name)
+            raise
+</programlisting>

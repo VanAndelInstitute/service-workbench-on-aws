@@ -1,0 +1,32 @@
+    public static String updateCampaign(PersonalizeClient personalizeClient,
+                                      String campaignArn,
+                                      String solutionVersionArn,
+                                      Integer minProvisionedTPS) {
+
+        try {
+            // build the updateCampaignRequest
+            UpdateCampaignRequest updateCampaignRequest = UpdateCampaignRequest.builder()
+                    .campaignArn(campaignArn)
+                    .solutionVersionArn(solutionVersionArn)
+                    .minProvisionedTPS(minProvisionedTPS)
+                    .build();
+
+            // update the campaign
+            personalizeClient.updateCampaign(updateCampaignRequest);
+
+            DescribeCampaignRequest campaignRequest = DescribeCampaignRequest.builder()
+                    .campaignArn(campaignArn)
+                    .build();
+
+            DescribeCampaignResponse campaignResponse = personalizeClient.describeCampaign(campaignRequest);
+            Campaign updatedCampaign = campaignResponse.campaign();
+
+            System.out.println("The Campaign status is " + updatedCampaign.status());
+            return updatedCampaign.status();
+
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

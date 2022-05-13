@@ -1,0 +1,13 @@
+suspend fun createPersonalCompaign(solutionVersionArnVal: String?, campaignName: String?) : String? {
+
+      val request = CreateCampaignRequest {
+          minProvisionedTps = 1
+          solutionVersionArn = solutionVersionArnVal
+          name = campaignName
+      }
+
+      PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+        val campaignResponse = personalizeClient.createCampaign(request)
+        return campaignResponse.campaignArn
+     }
+}

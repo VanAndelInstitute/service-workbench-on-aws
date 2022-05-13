@@ -1,0 +1,38 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1435216493000",
+            "Effect": "Allow",
+            "Action": [
+                "aws-portal:ViewBilling",
+                "aws-portal:ModifyBilling",
+                "budgets:ViewBudget",
+                "budgets:ModifyBudget"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1435216514000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1435216552000",
+            "Effect": "Allow",
+            "Action": [
+                "sns:*"
+            ],
+            "Resource": [
+                "arn:aws:sns:us-east-1"
+            ]
+        }
+    ]
+}

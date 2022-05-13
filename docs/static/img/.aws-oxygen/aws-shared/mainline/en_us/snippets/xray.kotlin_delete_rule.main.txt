@@ -1,0 +1,11 @@
+suspend fun deleteRule(ruleNameVal: String?) {
+
+        val ruleRequest = DeleteSamplingRuleRequest {
+            ruleName = ruleNameVal
+        }
+
+        XRayClient { region = "us-east-1" }.use { xRayClient ->
+            xRayClient.deleteSamplingRule(ruleRequest)
+            println("$ruleNameVal was deleted")
+        }
+ }

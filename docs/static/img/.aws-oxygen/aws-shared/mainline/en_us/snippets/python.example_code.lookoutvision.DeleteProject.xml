@@ -1,0 +1,17 @@
+<programlisting>
+    @staticmethod
+    def delete_project(lookoutvision_client, project_name):
+        """
+        Deletes a Lookout for Vision Model
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        :param project_name: The name of the project that you want to delete.
+        """
+        try:
+            logger.info("Deleting project: %s", project_name)
+            response = lookoutvision_client.delete_project(ProjectName=project_name)
+            logger.info("Deleted project ARN: %s ", response["ProjectArn"])
+        except ClientError as err:
+            logger.exception("Couldn't delete project %s.", project_name)
+            raise
+</programlisting>

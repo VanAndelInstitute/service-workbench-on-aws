@@ -1,0 +1,10 @@
+async fn add_item(client: &Client, table: &str, value: serde_json::Value) -> Result<(), Error> {
+    client
+        .put_item()
+        .table_name(table)
+        .set_item(Some(parse_item(value)))
+        .send()
+        .await?;
+
+    Ok(())
+}

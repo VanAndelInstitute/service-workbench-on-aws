@@ -1,0 +1,50 @@
+
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: Apache-2.0
+*/
+
+package com.example.xray;
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.xray.XRayClient;
+import software.amazon.awssdk.services.xray.model.GetSamplingRulesResponse;
+import software.amazon.awssdk.services.xray.model.SamplingRuleRecord;
+import software.amazon.awssdk.services.xray.model.XRayException;
+import java.util.List;
+
+/**
+ * To run this Java V2 code example, ensure that you have setup your development environment, including your credentials.
+ *
+ * For information, see this documentation topic:
+ *
+ * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ */
+public class GetSamplingRules {
+
+    public static void main(String[] args) {
+
+        Region region = Region.US_EAST_1;
+        XRayClient xRayClient = XRayClient.builder()
+                .region(region)
+                .build();
+
+        getRules(xRayClient);
+    }
+
+    public static void getRules(XRayClient xRayClient) {
+
+        try {
+            GetSamplingRulesResponse response = xRayClient.getSamplingRules(r->r.build());
+            List<SamplingRuleRecord> records = response.samplingRuleRecords();
+
+            for (SamplingRuleRecord record: records) {
+                System.out.println("The rule name is: "+record.samplingRule().ruleName());
+                System.out.println("The related service is: "+record.samplingRule().serviceName());
+            }
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }
+   }

@@ -1,0 +1,25 @@
+<programlisting>
+    public static void putSingleRecord( FirehoseClient firehoseClient, String textValue, String streamName) {
+
+      try {
+
+        SdkBytes sdkBytes = SdkBytes.fromByteArray(textValue.getBytes());
+
+        Record record = Record.builder()
+                .data(sdkBytes)
+                .build();
+
+        PutRecordRequest recordRequest = PutRecordRequest.builder()
+                .deliveryStreamName(streamName)
+                .record(record)
+                .build();
+
+        PutRecordResponse recordResponse = firehoseClient.putRecord(recordRequest) ;
+        System.out.println("The record ID is "+recordResponse.recordId());
+
+    } catch (FirehoseException e) {
+        System.out.println(e.getLocalizedMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

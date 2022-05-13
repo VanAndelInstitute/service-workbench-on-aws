@@ -1,0 +1,41 @@
+
+        /// <summary>
+        /// Delete all of the objects stored in an existing Amazon S3 bucket.
+        /// </summary>
+        /// <param name="client">An initialized Amazon S3 client object.</param>
+        /// <param name="bucketName">The name of the bucket from which the
+        /// contents will be deleted.</param>
+        /// <returns>A boolean value that represents the success or failure of
+        /// deleting all of the objects in the bucket.</returns>
+        public static async Task<bool> DeleteBucketContentsAsync(IAmazonS3 client, string bucketName)
+        {
+            // Iterate over the contents of the bucket and delete all objects.
+            var request = new ListObjectsV2Request
+            {
+                BucketName = bucketName,
+            };
+
+            try
+            {
+                var response = await client.ListObjectsV2Async(request);
+
+                do
+                {
+                    response.S3Objects
+                        .ForEach(async obj => await client.DeleteObjectAsync(bucketName, obj.Key));
+
+                    // If the response is truncated, set the request ContinuationToken
+                    // from the NextContinuationToken property of the response.
+                    request.ContinuationToken = response.NextContinuationToken;
+                }
+                while (response.IsTruncated);
+
+                return true;
+            }
+            catch (AmazonS3Exception ex)
+            {
+                Console.WriteLine($"Error deleting objects: {ex.Message}");
+                return false;
+            }
+        }
+

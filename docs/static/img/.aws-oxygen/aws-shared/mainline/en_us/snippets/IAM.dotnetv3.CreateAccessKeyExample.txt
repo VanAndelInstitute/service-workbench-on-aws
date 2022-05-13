@@ -1,0 +1,27 @@
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.IdentityManagement;
+    using Amazon.IdentityManagement.Model;
+
+    public class CreateAccessKey
+    {
+        /// <summary>
+        /// Initialize the IAM Client object and then create the IAM Access Key
+        /// for the user.
+        /// </summary>
+        public static async Task Main()
+        {
+            var client = new AmazonIdentityManagementServiceClient();
+            var userName = "DocExampleUser";
+
+            var response = await client.CreateAccessKeyAsync(new CreateAccessKeyRequest
+            {
+                UserName = userName,
+            });
+
+            AccessKey accessKey = response.AccessKey;
+
+            Console.WriteLine($"{accessKey.AccessKeyId} created for {accessKey.UserName}");
+        }
+    }
+

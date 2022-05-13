@@ -1,0 +1,38 @@
+<programlisting>
+suspend fun addToCollection(collectionIdVal: String?, sourceImage: String) {
+
+        val souImage = Image {
+            bytes = (File(sourceImage).readBytes())
+        }
+
+        val request = IndexFacesRequest {
+            collectionId = collectionIdVal
+            image = souImage
+            maxFaces = 1
+            qualityFilter = QualityFilter.Auto
+            detectionAttributes = listOf(Attribute.Default)
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+            val facesResponse = rekClient.indexFaces(request)
+
+            // Display the results.
+            println("Results for the image")
+            println("\n Faces indexed:")
+            facesResponse.faceRecords?.forEach { faceRecord ->
+                println("Face ID: ${faceRecord.face?.faceId}")
+                println("Location: ${faceRecord.faceDetail?.boundingBox.toString()}")
+            }
+
+            println("Faces not indexed:")
+            facesResponse.unindexedFaces?.forEach { unindexedFace ->
+                println("Location: ${unindexedFace.faceDetail?.boundingBox.toString()}")
+                println("Reasons:")
+
+                unindexedFace.reasons?.forEach { reason ->
+                    println("Reason:  $reason")
+                }
+            }
+        }
+}
+</programlisting>

@@ -1,0 +1,19 @@
+<programlisting>
+    def list_collections(self, max_results):
+        """
+        Lists collections for the current account.
+
+        :param max_results: The maximum number of collections to return.
+        :return: The list of collections for the current account.
+        """
+        try:
+            response = self.rekognition_client.list_collections(MaxResults=max_results)
+            collections = [
+                RekognitionCollection({'CollectionId': col_id}, self.rekognition_client)
+                for col_id in response['CollectionIds']]
+        except ClientError:
+            logger.exception("Couldn't list collections.")
+            raise
+        else:
+            return collections
+</programlisting>

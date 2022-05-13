@@ -1,0 +1,43 @@
+using namespace Aws;
+
+int main()
+{
+    //TODO: The object_key is the unique identifier for the object in the bucket. In this example set,
+    //it is the filename you added in put_object.cpp.
+    Aws::String objectKey = "<Enter object key>";
+    //TODO: Change from_bucket to the name of a bucket in your account.
+    Aws::String fromBucket = "<Enter bucket name>";
+    //TODO: Set to the AWS Region in which the bucket was created.
+    Aws::String region = "us-east-1";
+
+    Aws::SDKOptions options;
+    Aws::InitAPI(options);
+    {
+        Aws::Client::ClientConfiguration clientConfig;
+        if (!region.empty())
+            clientConfig.region = region;
+
+        S3::S3Client client(clientConfig);
+        Aws::S3::Model::DeleteObjectRequest request;
+
+        request.WithKey(objectKey)
+            .WithBucket(fromBucket);
+
+        Aws::S3::Model::DeleteObjectOutcome outcome =
+            client.DeleteObject(request);
+
+        if (!outcome.IsSuccess())
+        {
+            auto err = outcome.GetError();
+            std::cout << "Error: DeleteObject: " <<
+                err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted the object." << std::endl;
+        }
+    }
+    ShutdownAPI(options);
+
+    return 0;
+}

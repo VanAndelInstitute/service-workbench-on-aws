@@ -1,0 +1,19 @@
+        Aws::SQS::SQSClient sqs;
+
+        Aws::SQS::Model::CreateQueueRequest request;
+        request.SetQueueName(queue_name);
+        request.AddAttributes(
+            Aws::SQS::Model::QueueAttributeName::ReceiveMessageWaitTimeSeconds,
+            poll_time);
+
+        auto outcome = sqs.CreateQueue(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "Successfully created queue " << queue_name <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Error creating queue " << queue_name << ": " <<
+                outcome.GetError().GetMessage() << std::endl;
+        }

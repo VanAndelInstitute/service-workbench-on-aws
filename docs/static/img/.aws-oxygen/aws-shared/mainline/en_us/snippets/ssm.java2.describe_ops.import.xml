@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ssm.SsmClient;
+import software.amazon.awssdk.services.ssm.model.DescribeOpsItemsRequest;
+import software.amazon.awssdk.services.ssm.model.DescribeOpsItemsResponse;
+import software.amazon.awssdk.services.ssm.model.OpsItemSummary;
+import software.amazon.awssdk.services.ssm.model.SsmException;
+import java.util.List;
+</programlisting>

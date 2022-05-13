@@ -1,0 +1,30 @@
+suspend fun putEBEvents(resourceArn: String, resourceArn2: String) {
+
+            // Populate a List with the resource ARN values.
+            val resourcesOb  = mutableListOf<String>()
+            resourcesOb.add(resourceArn)
+            resourcesOb.add(resourceArn2)
+
+            val reqEntry = PutEventsRequestEntry {
+                resources = resourcesOb
+                source = "com.mycompany.myapp"
+                detailType = "myDetailType"
+                detail = "{ \"key1\": \"value1\", \"key2\": \"value2\" }"
+            }
+
+            val request = PutEventsRequest {
+                entries = listOf(reqEntry)
+            }
+
+            EventBridgeClient { region = "us-west-2" }.use { eventBrClient ->
+              val response = eventBrClient.putEvents(request)
+              response.entries?.forEach { resultEntry ->
+
+               if (resultEntry.eventId != null) {
+                    println("Event Id is ${resultEntry.eventId}")
+                } else {
+                    println("Injection failed with Error Code ${resultEntry.errorCode}")
+                }
+            }
+        }
+ }

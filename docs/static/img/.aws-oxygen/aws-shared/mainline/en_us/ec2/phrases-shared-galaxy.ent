@@ -1,0 +1,126 @@
+<!-- THIS FILE IS BEING DEPRECATED!  DO NOT UPDATE THIS FILE!  Please make changes or additions either to 
+AWSSharedContent\src\common\phrases-shared-services.ent or to AWSDirectoryServiceDocs\latest\shared\phrases-ds.ent -->
+
+<!-- ############################################################ -->
+<!-- Begin Galaxy-shared entities -->
+
+
+<!-- THIS FILE IS BEING DEPRECATED!  DO NOT UPDATE THIS FILE!  Please make changes or additions either to 
+AWSSharedContent\src\common\phrases-shared-services.ent or to AWSDirectoryServiceDocs\latest\shared\phrases-ds.ent -->
+
+
+<!ENTITY ad-connector 'AD Connector' >
+<!ENTITY simple-ad 'Simple AD' >
+
+<!ENTITY ads-password-special-characters '~!@#$&percnt;^&amp;*_-+=`|\(){}[]:;"&apos;&lt;&gt;,.?/'>
+
+<!ENTITY ads-connector-port-list '<itemizedlist>
+                    <listitem>
+                        <para>TCP/UDP 53 - DNS</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 88 - Kerberos authentication</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 389 - LDAP; note that &ADSlong; does not support LDAP with SSL (LDAPS)</para>
+                    </listitem>
+                </itemizedlist>'>
+
+<!ENTITY ads-connector-port-list-for-join '<itemizedlist>
+                    <listitem>
+                        <para>TCP/UDP 53 - DNS</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 88 - Kerberos authentication</para>
+                    </listitem>
+                    <listitem>
+                        <para>UDP 123 - NTP</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP 135 - RPC</para>
+                    </listitem>
+                    <listitem>
+                        <para>UDP 137-138 - Netlogon</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP 139 - Netlogon</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 389 - LDAP</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 445 - SMB</para>
+                    </listitem>
+<!-- Not used yet.                    
+                    <listitem>
+                        <para>TCP/UDP 464 - Kerberos password change/set</para>
+                    </listitem>
+-->                    
+<!-- Not used yet.                    
+                    <listitem>
+                        <para>TCP 636 - LDAPS (LDAP over TLS/SSL)</para>
+                    </listitem>
+-->                    
+                    <listitem>
+                        <para>TCP 1024-65535 - Dynamic ports for RPC</para>
+                    </listitem>
+                </itemizedlist>'>
+
+<!ENTITY simple-ds-port-list '<itemizedlist>
+                    <listitem>
+                        <para>TCP/UDP 53 - DNS</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 88 - Kerberos authentication</para>
+                    </listitem>
+                    <listitem>
+                        <para>UDP 123 - NTP</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP 135 - RPC</para>
+                    </listitem>
+                    <listitem>
+                        <para>UDP 137-138 - Netlogon</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP 139 - Netlogon</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 389 - LDAP; note that &ADSlong; does not support LDAP with SSL (LDAPS)</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP/UDP 445 - SMB</para>
+                    </listitem>
+<!-- Not used yet.                    
+                    <listitem>
+                        <para>TCP/UDP 464 - Kerberos password change/set</para>
+                    </listitem>
+-->                    
+<!-- Not used yet.                    
+                    <listitem>
+                        <para>TCP 636 - LDAPS (LDAP over TLS/SSL)</para>
+                    </listitem>
+-->                    
+                    <listitem>
+                        <para>TCP 873 - FRS</para>
+                    </listitem>
+                    <listitem>
+                        <para>TCP 3268 - Global Catalog</para>
+                    </listitem>
+<!-- Not used yet.
+                    <listitem>
+                        <para>TCP 3269 - Global Catalog SSL</para>
+                    </listitem>
+-->
+                    <listitem>
+                        <para>TCP/UDP 1024-65535 - Ephemeral ports for RPC</para>
+                    </listitem>
+                </itemizedlist>'>
+
+<!-- THIS FILE IS BEING DEPRECATED!  DO NOT UPDATE THIS FILE!  Please make changes or additions either to 
+AWSSharedContent\src\common\phrases-shared-services.ent or to AWSDirectoryServiceDocs\latest\shared\phrases-ds.ent -->
+
+
+<!-- End Galaxy-shared entities -->
+<!-- ############################################################ -->
+

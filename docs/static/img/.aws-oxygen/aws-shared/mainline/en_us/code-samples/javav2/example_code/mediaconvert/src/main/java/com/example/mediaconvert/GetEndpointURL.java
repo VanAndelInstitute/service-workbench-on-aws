@@ -1,0 +1,52 @@
+
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: Apache-2.0
+*/
+
+package com.example.mediaconvert;
+
+import java.util.Iterator;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.mediaconvert.MediaConvertClient;
+import software.amazon.awssdk.services.mediaconvert.model.DescribeEndpointsRequest;
+import software.amazon.awssdk.services.mediaconvert.model.DescribeEndpointsResponse;
+import software.amazon.awssdk.services.mediaconvert.model.Endpoint;
+import software.amazon.awssdk.services.mediaconvert.model.MediaConvertException;
+
+
+/**
+ * To run this Java V2 code example, ensure that you have setup your development environment, including your credentials.
+ *
+ * For information, see this documentation topic:
+ *
+ * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ */
+public class GetEndpointURL {
+    public static void main(String[] args) {
+
+            Region region = Region.US_WEST_2;
+            MediaConvertClient mc = MediaConvertClient.builder()
+                    .region(region)
+                    .build();
+            getEndpoint(mc) ;
+            mc.close();
+    }
+
+    public static void getEndpoint(MediaConvertClient mc) {
+
+        try {
+            DescribeEndpointsResponse res = mc
+                    .describeEndpoints(DescribeEndpointsRequest.builder().maxResults(20).build());
+
+            Iterator<Endpoint> endpoints = res.endpoints().iterator();
+            while (endpoints.hasNext()) {
+                System.out.println(endpoints.next().url());
+            }
+
+        } catch (MediaConvertException e) {
+            System.out.println(e.toString());
+            System.exit(0);
+        }
+    }
+}

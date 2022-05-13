@@ -1,0 +1,26 @@
+<programlisting>
+
+        /// <summary>
+        /// Create a policy to allow a user to list the buckets in an account.
+        /// </summary>
+        /// <param name="client">The initialized IAM client object.</param>
+        /// <param name="policyName">The name of the poicy to create.</param>
+        /// <param name="policyDocument">The permissions policy document.</param>
+        /// <returns>The newly created ManagedPolicy object.</returns>
+        public static async Task<ManagedPolicy> CreatePolicyAsync(
+            AmazonIdentityManagementServiceClient client,
+            string policyName,
+            string policyDocument)
+        {
+            var request = new CreatePolicyRequest
+            {
+                PolicyName = policyName,
+                PolicyDocument = policyDocument,
+            };
+
+            var response = await client.CreatePolicyAsync(request);
+
+            return response.Policy;
+        }
+
+</programlisting>

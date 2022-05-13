@@ -1,0 +1,21 @@
+<programlisting>
+pub async fn create_role(
+    client: &iamClient,
+    role_name: &str,
+    role_policy_document: &str,
+) -> Result<Role, iamError> {
+    let response: CreateRoleOutput = loop {
+        if let Ok(response) = client
+            .create_role()
+            .role_name(role_name)
+            .assume_role_policy_document(role_policy_document)
+            .send()
+            .await
+        {
+            break response;
+        }
+    };
+
+    Ok(response.role.unwrap())
+}
+</programlisting>

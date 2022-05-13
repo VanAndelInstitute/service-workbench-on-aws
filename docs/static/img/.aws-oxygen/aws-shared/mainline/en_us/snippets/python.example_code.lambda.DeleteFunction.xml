@@ -1,0 +1,13 @@
+<programlisting>
+    def delete_function(self, function_name):
+        """
+        Deletes a Lambda function.
+
+        :param function_name: The name of the function to delete.
+        """
+        try:
+            self.lambda_client.delete_function(FunctionName=function_name)
+        except ClientError:
+            logger.exception("Couldn't delete function %s.", function_name)
+            raise
+</programlisting>

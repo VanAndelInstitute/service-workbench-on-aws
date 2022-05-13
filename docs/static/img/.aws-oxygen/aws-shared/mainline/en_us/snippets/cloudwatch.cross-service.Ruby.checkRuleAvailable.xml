@@ -1,0 +1,38 @@
+<programlisting>
+# Checks whether the specified rule exists among those available to the
+# caller in Amazon EventBridge.
+#
+# @param cloudwatchevents_client [Aws::CloudWatchEvents::Client]
+#   An initialized Amazon EventBridge client.
+# @param rule_name [String] The name of the rule to find.
+# @return [Boolean] true if the rule name was found; otherwise, false.
+# @example
+#   exit 1 unless rule_exists?(
+#     Aws::CloudWatch::Client.new(region: 'us-east-1')
+#     'aws-doc-sdk-examples-ec2-state-change'
+#   )
+def rule_exists?(cloudwatchevents_client, rule_name)
+  puts "Searching for rule with name '#{rule_name}'..."
+  response = cloudwatchevents_client.list_rules
+  if response.rules.count.positive?
+    if rule_found?(response.rules, rule_name)
+      puts 'Rule found.'
+      return true
+    end
+    while response.next_page? do
+      response = response.next_page
+      if response.rules.count.positive?
+        if rule_found?(response.rules, rule_name)
+          puts 'Rule found.'
+          return true
+        end
+      end
+    end
+  end
+  puts 'Rule not found.'
+  return false
+rescue StandardError => e
+  puts "Rule not found: #{e.message}"
+  return false
+end
+</programlisting>

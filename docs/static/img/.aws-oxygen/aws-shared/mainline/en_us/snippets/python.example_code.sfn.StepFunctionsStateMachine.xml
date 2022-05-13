@@ -1,0 +1,11 @@
+<programlisting>
+class StepFunctionsStateMachine:
+    """Encapsulates Step Functions state machine functions."""
+    def __init__(self, stepfunctions_client):
+        """
+        :param stepfunctions_client: A Boto3 Step Functions client.
+        """
+        self.stepfunctions_client = stepfunctions_client
+        self.state_machine_name = None
+        self.state_machine_arn = None
+</programlisting>

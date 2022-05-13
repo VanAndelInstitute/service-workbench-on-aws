@@ -1,0 +1,10 @@
+<programlisting>
+    public init() async {
+        do {
+            cognitoIdentityClient = try await CognitoIdentityClient()
+        } catch {
+            print("ERROR: ", dump(error, name: "Initializing CognitoIdentityClient"))
+            exit(1)
+        }
+    }
+</programlisting>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-creds" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to get push messaging credentials for a Firebase or Google Cloud
+                Platform project.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-creds.title">Step 2: Get Push Messaging Credentials for
+        Android</title>
+    <para>To send push notifications to Android apps, you must have credentials from either
+        &FCMlong; (&FCM;) or its predecessor, &GCMlong; (&GCM;). The credentials are a server key
+        and a sender ID (also called project number). You get these credentials from a project that
+        has push messaging enabled. This project could either be in the Firebase console or the
+        Google Cloud Platform console, depending on where you created it.</para>
+    <para>This topic describes how to retrieve your credentials from FCM or GCM. Use FCM for new
+        Android apps. Use GCM only if you have a preexisting GCM project that you have not yet
+        updated for FCM support.</para>
+    <procedure>
+        <title>To obtain your credentials from FCM</title>
+        <step>
+            <para>Go to the Firebase console at <ulink url="https://console.firebase.google.com/"
+                    >https://console.firebase.google.com/</ulink> and open your project.</para>
+        </step>
+        <step>
+            <para>In the left pane, to the right of your project name, choose the gear icon, and
+                then choose <guilabel>Project Settings</guilabel>.</para>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-fcm-project-settings.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>Project Settings
+                        option.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+        <step>
+            <para>In the top menu, choose <guilabel>Cloud Messaging</guilabel>.</para>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-fcm-project-messaging.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>Cloud Messaging
+                        tab.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+        <step>
+            <para>Under <guilabel>Project credentials</guilabel>, you will find the server key and
+                sender ID. Save these values somewhere you can access later.</para>
+        </step>
+    </procedure>
+    <procedure>
+        <title>To obtain your credentials from GCM</title>
+        <step>
+            <para>Go to the Google API Console at <ulink url="https://console.developers.google.com"
+                    >https://console.developers.google.com</ulink>.</para>
+        </step>
+        <step>
+            <para>In the left pane, choose <guilabel>Credentials</guilabel>.</para>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-gcm-credentials-in-menu.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>Credentials.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+        <step>
+            <para>If you already have credentials for your app, your server key is shown in the
+                    <guilabel>API keys</guilabel> section. Save this key somewhere you can access
+                later.</para>
+        </step>
+        <step>
+            <para>If you don't have credentials for your app, the console displays the
+                    <guilabel>Credentials</guilabel> dialog box. Create a server key by completing
+                the following steps:</para>
+            <substeps>
+                <step>
+                    <para>Choose <guilabel>Create credentials</guilabel>.</para>
+                    <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-gcm-credentials-create.png"
+                                format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                        </imageobject>
+                        <textobject>
+                            <phrase><?oxy_insert_end?>Create credentials
+                                button.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                        </textobject>
+                    </mediaobject>
+                    <?oxy_insert_end?>
+                </step>
+                <step>
+                    <para>Save the API key somewhere you can access later.</para>
+                    <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-gcm-credentials-api-key-display.png"
+                                format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                        </imageobject>
+                        <textobject>
+                            <phrase><?oxy_insert_end?>API
+                                key.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                        </textobject>
+                    </mediaobject>
+                    <?oxy_insert_end?>
+                </step>
+            </substeps>
+        </step>
+        <step>
+            <para>To retrieve your sender ID (also called project number), go to the Google Cloud
+                Platform console at <ulink url="https://console.cloud.google.com/"/>. Select your
+                project from the <guilabel>Project</guilabel> menu. Then, choose the down arrow next
+                to the project name.</para>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-gcm-credentials-expand-project.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>A project in the Google Cloud Platform
+                        console.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+        <step>
+            <para>Save the displayed project number somewhere you can access later.</para>
+            <note>
+                <para>Project number is another name for sender ID.</para>
+            </note>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-gcm-credentials-expand-project.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>The project number in the Google Cloud Platform
+                        console.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+    </procedure>
+</section>

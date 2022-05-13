@@ -1,0 +1,17 @@
+// Import required AWS SDK clients and commands for Node.js
+import { ReleaseAddressCommand } from "@aws-sdk/client-ec2";
+import { ec2Client } from "./libs/ec2Client";
+
+// Set the parameters
+const paramsReleaseAddress = { AllocationId: "ALLOCATION_ID" }; //ALLOCATION_ID
+
+const run = async () => {
+  try {
+    const data = await ec2Client.send(new ReleaseAddressCommand({}));
+    console.log("Address released");
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();

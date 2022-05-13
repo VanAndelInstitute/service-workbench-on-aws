@@ -1,0 +1,16 @@
+<programlisting>
+async fn start(client: &Client, ledger: &str) -> Result<(), Error> {
+    let result = client
+        .send_command()
+        .start_session(StartSessionRequest::builder().ledger_name(ledger).build())
+        .send()
+        .await?;
+
+    println!(
+        "Session id: {:?}",
+        result.start_session().unwrap().session_token()
+    );
+
+    Ok(())
+}
+</programlisting>

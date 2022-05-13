@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<chapter id="sig-2-faq">
+    <title id="sig-2-faq.title">Signature Version 2 FAQ</title>
+    <para><emphasis><emphasis role="bold">General Questions</emphasis></emphasis></para>
+    <orderedlist>
+        <listitem>
+            <para><emphasis>Why did Amazon Payments upgrade from signature version 1 to 2?</emphasis></para>
+            <para>Signature version 2 enhances the security for inbound API requests and outbound notifications. Amazon Web Services has released signature version 2 for many other services, including Amazon EC2, Amazon Simple DB, and Amazon SQS. Where signature 2 has been released, signature version 1 has been deprecated. Additional information on signature version 2 can be found at
+                 <ulink
+                    url="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1928"
+                    >http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1928</ulink>.</para>
+        </listitem>
+        <listitem>
+            <para><emphasis>Is there a timeframe to deprecate signature version 1 for FPS and Simple Pay?</emphasis></para>
+            <para>Yes. Signature version 2 was released on &SIG2RELEASE;. Signature version 1 expired on &SIG1EXPIRIATION;. You must now use signature version 2 for signing your requests and verifying responses. </para>
+        </listitem>
+        <listitem>
+            <para><emphasis>What do I need to do to migrate to signature version 2?</emphasis></para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>You need to migrate all your inbound requests (FPS API requests, CBUI/Simple Pay requests) to use signature version 2.</para>
+                    </listitem>
+                    <listitem>
+                        <para>You need to start verifying signatures in outbound notifications (CBUI/Simple Pay return URLs and IPNs) using signature version 2.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>The exact steps to migrate from version 1 to 2 are documented in all of our 
+                <ulink url="http://aws.amazon.com/documentation/fps/">FPS Quick Start guides</ulink> and the Amazon Simple Pay 
+                <ulink url="http://&domain;/AmazonSimplePay/latest/ASPAdvancedUserGuide/">Advanced User Guide</ulink>. 
+                You can also download migration samples that can assist you in the language of your choice: 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3019">Java</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3020">C#</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3021">PHP</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3022">Ruby</ulink> |
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3023">Perl</ulink>.
+            </para>  
+        </listitem>
+        <listitem>
+            <para><emphasis>What changes can we expect going forward?</emphasis></para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>None, now that signature version 1 has been replaced by signature version 2. (Though some Amazon Web Services are using a newer signature version 3, there are no plans to support it in Amazon Payments, the Cobranded User Interface, Amazon Flexible Payments, or Amazon Simple Pay).</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+    </orderedlist>
+    <para><emphasis><emphasis role="bold">Differences between Signature Version 1 and Signature Version 2</emphasis></emphasis></para>  
+    <orderedlist inheritnum="inherit">
+        <listitem>
+            <para><emphasis>How is the signature version 2 algorithm different from the previous one for inbound API requests?</emphasis></para>
+            <para>If you're familiar with signature version 1, these are the main differences with signature version 2:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>The string to sign is formed in a different way.</para>
+                </listitem>
+                <listitem>
+                    <para><code>HMAC-SHA256</code> can be used when the request is signed (we prefer <code>HMAC-SHA256</code>, but we still support <parameter>HMAC-SHA1</parameter>).</para>
+                </listitem>
+                <listitem>
+                    <para>The <parameter>SignatureVersion</parameter> request parameter should be set to 2.</para>
+                </listitem>
+                <listitem>
+                    <para>The <parameter>SignatureMethod</parameter> request parameter should be set to either <parameter>HmacSHA256</parameter> or <parameter>HmacSHA1</parameter> to indicate which signing method you want.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+        <listitem>
+            <para><emphasis>How is the signature version 2 algorithm different from the previous one for outbound notifications (CBUI\Amazon Simple Pay return URLs and IPNs)?</emphasis></para>
+            <para>If you're familiar with validating signature using version 1, these are the main differences with validating signature using version 2:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>The string to sign is formed in a different way.</para>
+                </listitem>
+                <listitem>
+                    <para>The signature computed is based on asymmetric keys (<glossterm>PKI</glossterm> and <glossterm linkend="rsa-sha1"
+                        >RSA-SHA1</glossterm> encryption) instead of symmetric (using the developer’s AWS Access Key ID and AWS Secret Key).</para>
+                </listitem>
+                <listitem>
+                    <para>Signature validation is simpler, due to the <function>VerifySignature</function> API that validates the signature returned in IPNs and Return URLs.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+        <listitem>
+            <para><emphasis>What is different about forming the string to sign for signature version 2 (inbound and outbound)?</emphasis></para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Additional components of the request are included in the string to sign (HTTP method – GET\POST, Server URL endpoint).</para>
+                    </listitem>
+                    <listitem>
+                        <para>The query string control parameters (the equal sign and ampersand) are included in the string to sign.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The query string parameters are sorted using byte ordering.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The query string parameters and their values are URL encoded before signing the request.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para><emphasis>Why does Amazon Web Services use asymmetric instead of symmetric keys to compute the signature for <glossterm linkend="outboundnotifications" >outbound notifications</glossterm>?</emphasis></para>
+            <para>Signature computation for outbound notifications on the AWS end and signature validation on your end using symmetric keys becomes cumbersome and indeterministic by the introduction of AWS access key rotation (refer to <ulink
+                    url="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&amp;action=access-key"
+                    >https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&amp;action=access-key</ulink> for more details). Asymmetric key based signing will become an AWS wide standard for outbound notifications.</para>
+        </listitem>
+    </orderedlist>
+    <para><emphasis role="bold">Options to validate the signature in outbound notifications (CBUI\Simple Pay return URLs and IPNs)</emphasis></para>
+    <orderedlist inheritnum="inherit">
+        <listitem>
+            <para><emphasis>What are the options available to validate the signature?</emphasis></para>
+            <para>The signature version 2 security enables you to verify the signature of the responses from &ampmts; Server-side signature verification using the <function>VerifySignature</function> API.</para>
+            &SIG2CLIENTVALIDREVOKE;
+            <para>
+                You can also download migration samples that can assist you in the language of your choice: 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3019">Java</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3020">C#</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3021">PHP</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3022">Ruby</ulink> |
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3023">Perl</ulink>.
+            </para>
+         </listitem>
+    </orderedlist>
+
+    <para>&npsb;</para>
+    <para><emphasis><emphasis role="bold">About Verify Signature API</emphasis></emphasis></para>    
+    <orderedlist inheritnum="inherit">
+        <listitem>
+            <para><emphasis>How does the <function>VerifySignature</function> API work?</emphasis></para>
+            <para>The <function>VerifySignature</function> API is pretty straightforward to use. Send the entire URL with the HTTP parameters received to the <function>VerifySignature</function> API and it returns a Boolean expression that indicates whether the signature was validated or not.</para>
+        </listitem>
+        <listitem>
+            <para><emphasis>How do I access the VerifySignature API?</emphasis></para>
+            <para>The API is hosted on the FPS endpoint along with all the other APIs:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><ulink url="https://payments.amazon.com">https://payments.amazon.com</ulink> - Production</para>
+                    </listitem>
+                    <listitem>
+                        <para><ulink url="https://payments-sandbox.amazon.com">https://payments-sandbox.amazon.com</ulink> - Sandbox</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </listitem>
+    </orderedlist>
+    <para><emphasis><emphasis role="bold">Questions/Support</emphasis></emphasis></para>
+    <orderedlist inheritnum="inherit">
+        <listitem>
+            <para><emphasis>Now that signature version 1 is no longer supported, what will happen if I try to use it?</emphasis></para>
+            <para>It depends on where you try to use it.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>If you try to use signature version 1 for inbound requests for &asp_product; or the CBUI, your browser will display 
+                        the following error message from &ampmts;, and your request will not succeed.
+                    </para>
+                    <simpara>For &asp_product;, the error is <code>Input parameter signatureVersion = 1 is invalid. This signature version is no longer supported. Please use version 2 to sign requests.</code></simpara>
+                    <simpara>For the CBUI, the error is <code>Caller Input Exception. The following input(s) are not well formed:[signatureVersion  = 1. This signature version is no longer supported. Please use signature version 2 to sign requests].</code></simpara>
+                </listitem>
+                <listitem>
+                    <para>If you try to use signature version 1 for inbound requests for &fps_product_short;, your return value will contain 
+                        the following error message block, and your request will not succeed.
+                    </para>
+                    <para><programlisting format="linespecific"><![CDATA[<Response>
+  <Errors>
+    <Code>InvalidParameterValue</Code>
+    <Message>Value (1) for parameter SignatureVersion is invalid. This signature version is no longer supported. Please use signature version 2 to sign requests.</Message>
+  </Errors>
+</Response>]]></programlisting></para>
+                </listitem>
+                <listitem>
+                    <para>As of &SIG1EXPIRIATION;, &ampmts; will use signature version 2 only for outbound requests. You will not be able to 
+                        successfully validate your signatures using signature version 1.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+        <listitem>
+            <para><emphasis>I am an existing customer using signature 1. How can I get help with migration?</emphasis></para>
+            <para>The exact steps to migrate from version 1 to 2 are documented in all of our 
+                <ulink url="http://aws.amazon.com/documentation/fps/">FPS Quick Start guides</ulink> and the Amazon Simple Pay 
+                <ulink url="http://&domain;/AmazonSimplePay/latest/ASPAdvancedUserGuide/">Advanced User Guide</ulink>. 
+                You can also download migration samples that can assist you in the language of your choice: 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3019">Java</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3020">C#</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3021">PHP</ulink> | 
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3022">Ruby</ulink> |
+                <ulink url="http://aws.amazon.com/code/Amazon-FPS/3023">Perl</ulink>.
+            </para>
+            <para>If you face any problems, please feel free to contact-us on the <ulink
+                    url="http://developer.amazonwebservices.com/connect/forum.jspa?forumID=35"
+                    >Amazon FPS Developer Forum</ulink>. </para>
+        </listitem>
+        <listitem>
+            <para><emphasis>I have concerns about migrating to signature version 2. What do I do?</emphasis></para>
+            <para>Please go to <ulink url="http://aws.amazon.com/contact-us"
+                    >http://aws.amazon.com/contact-us</ulink> to file a Contact-Us request. We will address your concerns in the best possible way. </para>
+        </listitem>
+    </orderedlist>
+</chapter>

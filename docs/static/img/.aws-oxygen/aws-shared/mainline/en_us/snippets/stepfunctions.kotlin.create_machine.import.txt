@@ -1,0 +1,8 @@
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
+import aws.sdk.kotlin.services.sfn.SfnClient
+import aws.sdk.kotlin.services.sfn.model.CreateStateMachineRequest
+import aws.sdk.kotlin.services.sfn.model.StateMachineType
+import java.io.FileReader
+import java.io.IOException
+import kotlin.system.exitProcess

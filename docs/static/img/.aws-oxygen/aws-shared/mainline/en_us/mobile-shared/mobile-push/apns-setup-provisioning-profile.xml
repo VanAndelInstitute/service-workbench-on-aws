@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section role="topic" id="apns-setup-provisioning-profile">
+	<sectioninfo>
+		<abstract>
+			<para>Create a provisioning profile in the Apple Developer portal.</para>
+		</abstract>
+	</sectioninfo>
+	<title id="apns-setup-provisioning-profile.title">Step 5: Create a Provisioning Profile</title>
+	<para>A provisioning profile allows your app to run on your test device. You create and download a
+		provisioning profile from your Apple Developer account and then install the provisioning
+		profile in Xcode.</para>
+	<procedure>
+		<title>To create a provisioning profile</title>
+		<step>
+			<para>Sign in to your Apple Developer account at <ulink
+					url="https://developer.apple.com/membercenter/index.action"
+					>https://developer.apple.com/membercenter/index.action</ulink>.</para>
+		</step>
+		<step>
+			<para>Select <guilabel>Certificates, Identifiers &amp; Profiles</guilabel>.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T174123-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert04.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Certificates, identifiers, and profiles.</phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>In the <guilabel>Provisioning Profiles</guilabel> section, choose
+					<guilabel>Distribution</guilabel>.<!--TODO: Update screenshot.--></para>
+			<!--<informalfigure><mediaobject><imageobject><imagedata revisionflag="html;htmlcond" fileref="images/ios_appcert_prov_profile.png" format="PNG" scale="85"/></imageobject><imageobject><imagedata revisionflag="pdf;pdfcond" fileref="images/ios_appcert_prov_profile.png" format="PNG" scale="65"/></imageobject><imageobject><imagedata revisionflag="kindle-epub-cond" fileref="images/ios_appcert_prov_profile.png" format="PNG" scale="85"/></imageobject></mediaobject></informalfigure>-->
+		</step>
+		<step>
+			<para>In the <guilabel>iOS Provisioning Profiles (Distribution)</guilabel> pane, choose
+				the add button (+). The <guilabel>Add iOS Provisioning Profiles
+					(Distribution)</guilabel> pane is shown.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert20.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>iOS Provisioning Profiles
+						pane<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>In the <guilabel>Distribution</guilabel> section, select <guilabel>Ad
+					Hoc</guilabel>, and then choose
+				<guilabel>Continue</guilabel>.<!--Need to break down the decision between In House and Ad Hoc. Each have their own requirements. Perhaps Ad Hoc is easiest, but will require registering phone, which will be a new topic.--></para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert21.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>iOS Provisioning Profiles
+						pane<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>For <guilabel>App ID</guilabel>, select the app ID you created for your app, and
+				then choose <guilabel>Continue</guilabel>. </para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert22.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase><?oxy_insert_end?>Select App ID
+						pane.<?oxy_insert_start author="jacowarr" timestamp="20170202T170856-0800"?></phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Select your iOS Development certificate and then choose <guilabel>Continue</guilabel>.
+				<!--Will need to summarize what the prerequisites are. This is a production certificate, of type iOS Distribution, for use with In-House and Ad Hoc profiles. I don't have the option to create one. Should adding a certificate be one of the steps? Or assume user has one, and list as a prereq?--></para>
+		</step>
+		<step>
+			<para><!--TODO The topics prior to this point never told me to add a device. Need to add?-->For
+					<guilabel>Select devices</guilabel>, select the device that you registered for
+				testing, and choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>Type a name for this provisioning profile, such as
+					<userinput>ApnsDistributionProfile</userinput>, and choose
+					<guilabel>Continue</guilabel>.</para>
+			<!--TODO Screenshot-->
+		</step>
+		<step>
+			<para>Select <guilabel>Download</guilabel> to download the generated provisioning
+				profile.</para>
+		</step>
+		<step>
+			<para>Install the provisioning profile by double-clicking the downloaded file. The Xcode app
+				opens in response.</para>
+		</step>
+		<step>
+			<para>To verify that the provisioning profile is installed, check the list of installed
+				provisioning profiles in Xcode by doing the following:
+				<!--Mention Xcode version.--></para>
+			<substeps>
+				<step>
+					<para>In the Xcode menu bar, choose <guilabel>Xcode</guilabel> and then choose
+							<guilabel>Preferences</guilabel>.</para>
+				</step>
+				<step>
+					<para>In the preferences window, choose <guilabel>Accounts</guilabel>.</para>
+				</step>
+				<step>
+					<para>In the <guilabel>Accounts</guilabel> tab, select your Apple ID, and then choose
+							<guilabel>View Details</guilabel>.</para>
+				</step>
+				<step>
+					<para>Check that your provisioning profile is listed in the
+							<guilabel>Provisioning Profiles</guilabel> section.</para>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<!--<para>The Xcode Organizer should open in the Devices pane. The new provisioning profile should be in the Provisioning Profiles section of your Library. Make sure the status for this profile is "Valid profile". If the profile is invalid, make sure your developer certificate is installed in your Keychain. </para>-->
+</section>

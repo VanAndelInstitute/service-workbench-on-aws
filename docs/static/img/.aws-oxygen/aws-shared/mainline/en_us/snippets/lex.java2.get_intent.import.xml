@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.lexmodelbuilding.LexModelBuildingClient;
+import software.amazon.awssdk.services.lexmodelbuilding.model.LexModelBuildingException;
+import software.amazon.awssdk.services.lexmodelbuilding.model.GetIntentRequest;
+import software.amazon.awssdk.services.lexmodelbuilding.model.GetIntentResponse;
+</programlisting>

@@ -1,0 +1,30 @@
+$SesClient = new Aws\Ses\SesClient([
+    'profile' => 'default',
+    'version' => '2010-12-01',
+    'region' => 'us-east-2'
+]);
+
+$template_name = 'Template_Name';
+$sender_email = 'email_address';
+$recipient_emails = ['email_address'];
+
+
+try {
+    $result = $SesClient->sendTemplatedEmail([
+        'Destination' => [
+            'ToAddresses' => $verified_recipient_emails,
+        ],
+        'ReplyToAddresses' => [$sender_email],
+        'Source' => $sender_email,
+
+        'Template' => $template_name,
+        'TemplateData' => '{ }'
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 

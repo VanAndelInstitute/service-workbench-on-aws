@@ -1,0 +1,1 @@
+    fmt.Println("Put object with key " + *key + " into bucket" + *bucket)

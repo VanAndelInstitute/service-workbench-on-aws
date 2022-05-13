@@ -1,0 +1,3 @@
+        registerDomain();
+        registerWorkflowType();
+        registerActivityType();

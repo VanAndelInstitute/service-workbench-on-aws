@@ -1,0 +1,26 @@
+<programlisting>
+    public static String updateBrokerConfiguration(MqClient mqClient, String brokerId, String configurationId) {
+        try {
+            ConfigurationId configuration = ConfigurationId.builder()
+                .id(configurationId)
+                .build();
+
+            UpdateBrokerRequest request = UpdateBrokerRequest.builder()
+                //brokerId is the ID of an existing broker where the change is to be applied. 
+                .brokerId(brokerId)
+                // configuration is an existing XML broker configuration that will be associated
+                // with the specified broker.
+                .configuration(configuration)
+                .build();
+            
+            UpdateBrokerResponse response = mqClient.updateBroker(request);
+            
+            return response.brokerId();
+
+        } catch (MqException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

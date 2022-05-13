@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % fps-sig2-migration SYSTEM  "file://AWSShared/asp/xml/fps-sig2-migration.ent">
+   %fps-sig2-migration;
+   <!ENTITY % phrases-common SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases-common;   
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]  
+> 
+<section id="CommonRequestParameters" role="topic">
+     <title id="CommonRequestParameters.title">Common Request Parameters<phrase condition="fps-mbl"> for &fps_product_short;</phrase></title>
+     <indexterm>
+          <primary>parameters, common</primary>
+     </indexterm>
+     <para>Each action in the &fps_product_short; API has its own specific set of parameters, but there is also a set of parameters that all actions use. This section describes those input parameters.</para>
+     <para>You only need to add these parameters in REST requests. SOAP requests include them by default.</para>
+     <para>The following table describes parameters that can be used in all &fps_product_short; requests.</para>
+     <informaltable>
+          <?dbhtml table-width="100%" ?>
+          <?dbfo table-width="95%" ?>
+          <tgroup cols="3">
+               <colspec colname="c1" colwidth="1.66*"/>
+               <colspec colname="c2" colwidth="4.5*"/>
+               <colspec colname="c3" colwidth="0.87*"/>
+               <thead>
+                    <row>
+                         <entry>Parameter</entry>
+                         <entry>Description</entry>
+                         <entry>Required</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry>
+                              <para><parameter>Action</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The API operation, for example, <function>Settle</function> or <function>Refund</function>.</para>
+                              <simpara>Type: String:</simpara>
+                              <simpara>Default: None</simpara>
+                              <simpara>Constraint: Must be a valid operation such as Cancel, Refund, and so on.</simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>AWSAccessKeyId</parameter></entry>
+                         <entry>
+                              <para>A string, distributed by Amazon FPS when you sign up to be a developer, that uniquely identifies the caller.</para>
+                              <simpara>Type: String</simpara>
+                              <simpara>Default: None</simpara>
+                         </entry>
+                         <entry>Yes</entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>Signature</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A value calculated using the request parameters and a SHA256 (preferred) or SHA1 HMAC encryption algorithm.</para>
+                              <simpara>Type: String</simpara>                              
+                              <simpara>Default: None</simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>SignatureVersion</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A value that specifies the <parameter>Signature</parameter> format.</para>
+                              <simpara>Type: Integer</simpara>
+                              <simpara>Default: None</simpara>
+                              <simpara>Valid Value: 2</simpara>
+                              <simpara condition="fps-acc;fps-agg;fps-adv;fps-bas;fps-mkt">&SIGEXPIRENOTE;</simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>SignatureMethod</parameter></entry>
+                         <entry>
+                              <para>A value that specifies the signing method.</para>
+                              <simpara>Type: String</simpara>
+                              <simpara>Default: None</simpara>
+                              <simpara>Valid Values: HmacSHA256 (preferred) and HmacSHA1. </simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>Timestamp</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A date-time value that marks the day and time the request was sent. Requests expire after a certain length of time to prevent malicious users from capturing requests and resubmitting them at a later time.</para>
+                              <simpara>Type: dateTime, for example, 2008-09-18T13:00:01Z</simpara>
+                              <simpara>Default: None</simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>Version</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The version number of the WSDL to use in processing the request. Version numbers are dates, such as 2008-09-17. For a list of version numbers, go to the Amazon Resource Center at <ulink
+                                        url="http://aws.amazon.com/resources"
+                                        >http://aws.amazon.com/resources</ulink>.</para>
+                              <simpara>Type: String</simpara>
+                              <simpara>Default: None</simpara>
+                         </entry>
+                         <entry>
+                              <para>Yes</para>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+</section>

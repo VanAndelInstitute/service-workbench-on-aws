@@ -1,0 +1,16 @@
+    def exists(self):
+        """
+        Determine whether the bucket exists and you have access to it.
+
+        :return: True when the bucket exists; otherwise, False.
+        """
+        try:
+            self.bucket.meta.client.head_bucket(Bucket=self.bucket.name)
+            logger.info("Bucket %s exists.", self.bucket.name)
+            exists = True
+        except ClientError:
+            logger.warning(
+                "Bucket %s doesn't exist or you don't have access to it.",
+                self.bucket.name)
+            exists = False
+        return exists

@@ -1,0 +1,24 @@
+  # Creates a role that can be assumed by a user.
+  #
+  # @param role_name [String] The name to give the role.
+  # @param user [Aws::IAM::User] The user who is granted permission to assume the role.
+  # @return [Aws::IAM::Role] The newly created role.
+  def create_role(role_name, user)
+    role = @iam_resource.create_role(
+      role_name: role_name,
+      assume_role_policy_document: {
+        Version: "2012-10-17",
+        Statement: [{
+          Effect: "Allow",
+          Principal: {'AWS': user.arn},
+          Action: "sts:AssumeRole"
+        }]
+      }.to_json)
+    puts("Created role #{role.name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't create a role for the demo. Here's why: ")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    role
+  end

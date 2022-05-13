@@ -1,0 +1,25 @@
+<programlisting>
+def create_policy(name, description, content, policy_type, orgs_client):
+    """
+    Creates a policy.
+
+    :param name: The name of the policy.
+    :param description: The description of the policy.
+    :param content: The policy content as a dict. This is converted to JSON before
+                    it is sent to AWS. The specific format depends on the policy type.
+    :param policy_type: The type of the policy.
+    :param orgs_client: The Boto3 Organizations client.
+    :return: The newly created policy.
+    """
+    try:
+        response = orgs_client.create_policy(
+            Name=name, Description=description, Content=json.dumps(content),
+            Type=policy_type)
+        policy = response['Policy']
+        logger.info("Created policy %s.", name)
+    except ClientError:
+        logger.exception("Couldn't create policy %s.", name)
+        raise
+    else:
+        return policy
+</programlisting>

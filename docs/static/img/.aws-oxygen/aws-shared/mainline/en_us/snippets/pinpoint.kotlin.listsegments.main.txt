@@ -1,0 +1,12 @@
+suspend fun listSegs(appId: String?) {
+
+    PinpointClient { region = "us-west-2" }.use { pinpoint ->
+
+        val response = pinpoint.getSegments(GetSegmentsRequest {
+            applicationId = appId
+        })
+        response.segmentsResponse?.item?.forEach { segment ->
+                 println("Segement id is ${segment.id.toString()}")
+            }
+        }
+ }

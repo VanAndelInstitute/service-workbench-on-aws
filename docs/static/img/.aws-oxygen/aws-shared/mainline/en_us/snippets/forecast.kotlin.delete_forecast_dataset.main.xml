@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteForecastDataSet(myDataSetARN: String?) {
+
+       val request = DeleteDatasetRequest {
+        datasetArn = myDataSetARN
+        }
+
+        ForecastClient { region = "us-west-2" }.use { forecast ->
+            forecast.deleteDataset(request)
+            println("$myDataSetARN data set was deleted")
+    }
+}
+</programlisting>

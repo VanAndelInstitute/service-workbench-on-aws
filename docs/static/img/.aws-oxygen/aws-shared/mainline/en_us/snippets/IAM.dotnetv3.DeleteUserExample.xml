@@ -1,0 +1,37 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.IdentityManagement;
+    using Amazon.IdentityManagement.Model;
+
+    public class DeleteUser
+    {
+        /// <summary>
+        /// Initializes the IAM client object and then calls DeleteUserAsync
+        /// to delete and existing IAM user.
+        /// </summary>
+        public static async Task Main()
+        {
+            string userName = "IAMUser";
+
+            var client = new AmazonIdentityManagementServiceClient();
+
+            var deleteUserRequest = new DeleteUserRequest()
+            {
+                UserName = userName,
+            };
+
+            var response = await client.DeleteUserAsync(deleteUserRequest);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine($"Successfully deleted the user {userName}.");
+            }
+            else
+            {
+                Console.WriteLine($"Could not delete the user {userName}.");
+            }
+        }
+    }
+
+</programlisting>

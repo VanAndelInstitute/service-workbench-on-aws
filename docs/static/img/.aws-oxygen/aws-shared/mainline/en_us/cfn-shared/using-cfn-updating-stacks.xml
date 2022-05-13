@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+   >
+<section id="using-cfn-updating-stacks" role="topic">
+   <title id="using-cfn-updating-stacks.title">Updating &CFN; Stacks</title>
+   <titleabbrev>Updating Stacks</titleabbrev>
+
+  <!-- <para condition="json">To update an existing stack, you must submit a template that specifies updates for the properties of resources
+      in the stack. This can be done by using the &CFN; console, the <link linkend="update-stack"
+         >&aws21-update-stack;</link> CLI command, or with the <ulink
+         url="http://&domain;/AWSCloudFormation/latest/APIReference/API_UpdateStack.html"
+         >UpdateStack</ulink> API.</para>
+-->
+   <para>When &CFN; updates a stack, it gets new property settings for the current resources in the stack by using the
+      template that you submit. &CFN; updates only the resources that have changes specified in the template. &CFN; does
+      not update resources that have no changes, and those resources will continue to run without disruption during the
+      update process. Updates to resources are handled differently depending on the type of resource and, in some cases,
+      depending on the nature of a particular resource property. &CFN; uses one of the following techniques to update
+      the resource:</para>
+
+   <itemizedlist>
+      <listitem id="update-no-interrupt">
+         <para><emphasis role="bold">Update with no interruption.</emphasis> &CFN; updates the resource without
+            disrupting operation of that resource and without changing the resource's physical name. For example, if you
+            update any properties on an <link linkend="aws-properties-cw-alarm">AWS::CloudWatch::Alarm</link> resource,
+            &CFN; updates the alarm's configuration and, during the update, the alarm's operation continues without
+            disruption.</para>
+      </listitem>
+      <listitem id="update-some-interrupt">
+         <para><emphasis role="bold">Reconfiguration with some interruption.</emphasis> &CFN; updates the resource with
+            some interruption. Some resources may experience some interruption during the process of applying property
+            changes to those resources but they will retain their physical names. <!--For example, if you update any
+            properties on an <link linkend="aws-properties-ec2-elb">AWS::ElasticLoadBalancing::LoadBalancer</link>
+            resource, there may be some interruption of the LoadBalancer's operation while &CFN; and &ELB; reconfigure
+            the LoadBalancer.--></para>
+      </listitem>
+      <listitem id="update-replacement">
+         <para><emphasis role="bold">Replacement.</emphasis> &CFN; updates the resource by recreating the resource. Some
+            resources require creating a new resource with the property changes and generating a new physical name.
+            &CFN; creates the replacement resource first, changes references from other dependent resources to point to
+            the replacement resource, and then deletes the old resource. <!--For example, if you update the Engine property
+            of an <link linkend="aws-properties-rds-database-instance">AWS::RDS::DBInstance</link> resource, &CFN; must
+            create a new resource with the specified property changes and replace the current DBInstance resource with
+            the new one.--></para>
+      </listitem>
+   </itemizedlist>
+
+   <important>
+      <para>Whether or not a change in a resource causes an interruption in service depends on the resource itself and
+      on the type of change you're making to it. To learn more about updating a particular resource, see the
+      documentation associated with that resource <!--(for example, the EC2 documentation provides details about what
+      changes will interrupt an EC2 instance)--> and in the <link linkend="aws-template-resource-type-ref-aeb">AWS Resource
+      Types Reference</link>, where the effects of updating a resource are listed per property. You should be aware of
+      how each resource change will affect your stack before making a change.</para>
+   </important>
+
+   <para>Depending on the technique used to modify each updated resource in your stack, you can make good decisions
+      about when it's best to modify resources to reduce the impact of such changes on your application. In particular,
+      you should plan carefully when resources must be <emphasis>replaced</emphasis> during an update. <!--For example, if
+      you update the Port property of an AWS::RDS::DBInstance resource, &CFN; will create a new DB Instance with a
+      changed port setting, as well as a new physical name. To plan for this, you should take a snapshot of the current
+      databases, prepare a strategy for how applications using that DB Instance will handle an interruption while the DB
+      Instance is being replaced, ensure that the applications using that DB Instance take into account the new port
+      setting and any other updates you have made, and use the DB snapshot to restore the databases on the new DB
+      instance. This example is not exhaustive: it's meant to give you an idea of the things to plan for when the update
+      technique for a resource is replacement.--></para>
+
+   <para condition="json">Follow these steps to update a stack and monitor its progress.</para>
+
+   <!--<section id="using-cfn-updating-stacks-get-template" condition="json">
+      <title id="using-cfn-updating-stacks-get-template.title">Step 1. Get a copy of the template for the stack</title>
+
+      <para>The template used to update the stack must contain declarations for all the resources in the existing stack;
+         therefore, you should use the template for the existing stack as a starting point and make your updates to a
+         copy of that template. The first thing you need to do is get a copy of the template for the existing
+         stack.</para>
+
+      <para>If you are managing your template in a source control system, use a copy of that template as a starting
+         point. Otherwise, you can get a copy of the template used to create the stack from &CFN;.</para>
+
+      <para><emphasis role="bold">To get the template for a stack from &CFN;:</emphasis></para>
+
+      <section id="using-cfn-updating-stacks-get-stack.CON">
+         <title>AWS Management Console</title>
+         <procedure>
+            <step>
+               <para>In the <ulink url="http://console.aws.amazon.com/cloudformation">&CFN; console</ulink>, click the
+                  check box next to the stack you want to update and click the <guilabel>Template</guilabel> tab to view
+                  the template.</para>
+            </step>
+            <step>
+               <para>From the <guilabel>Template</guilabel>, copy the template, paste it into a text file, and save the
+                  file. You'll specify your changes to the stack's resources in this file.</para>
+            </step>
+         </procedure>
+      </section>
+      <section id="using-cfn-updating-stacks-get-stack.CLI">
+         <title>CLI</title>
+         <procedure>
+            <step>
+               <para>Use the command <function><link linkend="get-template">&aws21-get-template;</link></function> to
+                  get the template for the stack you want to update.</para>
+            </step>
+            <step>
+               <para>Copy the template, paste it into a text file, and save the file. Make sure that you copy
+                  <emphasis>only</emphasis> the template. The command encloses the template in double quotes&mdash;do
+                  not copy the double quotes surrounding the template. The template itself starts with an open brace and
+                  ends with the final close brace. You'll specify changes to the stack's resources in this file.</para>
+            </step>
+         </procedure>
+      </section>
+   </section>-->
+   <!--<section id="using-cfn-updating-stacks-update-template" condition="json">
+      <title id="using-cfn-updating-stacks-update-template.title">Step 2. Update the template</title>
+
+      <para>To specify changes to a stack, modify a copy of the stack's template. Currently, you can specify only the
+         following changes in the update template:</para>
+
+      <itemizedlist>
+         <listitem>
+            <para>Add new resources, or remove existing resources.</para>
+         </listitem>
+         <listitem>
+            <para>Add, modify, or delete properties of existing resources.</para>
+            <para>Information about the effects of updating particular properties for resources is provided in the <link
+               linkend="aws-template-resource-type-ref">AWS Resource Types Reference</link>. For each property, the
+               effects of an update will be one of the following:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>&update-no-interrupt;</para>
+               </listitem>
+               <listitem>
+                  <para>&update-some-interrupt;</para>
+               </listitem>
+               <listitem>
+                  <para>&update-replacement;</para>
+               </listitem>
+            </itemizedlist>
+         </listitem>
+         <listitem>
+            <para>Add, modify, or delete attributes for resources (<property>Metadata</property>,
+               <property>DependsOn</property>, and <property>DeletionPolicy</property>).</para>
+         </listitem>
+         <listitem>
+            <para>Add, modify, or delete parameter declarations. However, you cannot add, modify, or delete a parameter
+               that is used by a resource that does not support updates.</para>
+         </listitem>
+         <listitem>
+            <para>Add, modify, or delete output value declarations.</para>
+         </listitem>
+      </itemizedlist>
+
+      <warning>
+         <para>Changes to <property>DeletionPolicy</property> or output value declarations cannot be updated by
+            themselves. Changes to <property>DeletionPolicy</property> or output value declarations can be made only
+            with changes that add, modify or delete properties of existing resources or that change the resource
+            metadata.</para>
+         <para>Changing the logical name of a resource is equivalent to deleting that resource and replacing it with a
+            new one. Any other resources that depend on the one being renamed will also need to be updated and may cause
+            them to be replaced.</para>
+         <para>If your template includes an unsupported change, &CFN; returns a message that tells you that the change
+            is not permitted. This message may occur asynchonously, however, since resources are created and updated by
+            CloudFormation in a non-deterministic order by default.</para>
+      </warning>
+
+      <para>You must specify a template containing all the resources from the current stack configuration. Unchanged
+         resources must be specified with the <emphasis>same values</emphasis> as their current stack configuration. The
+         updated resources must be one of the supported resources in the list above. In addition, an updated resource
+         must list all the properties that you want to set on that resource and not just the properties that you want to
+         update.</para>
+
+      <para>Some resources or properties may have constraints on property values or changes to those values. For
+         example, changes to the AllocatedStorage property of an <link linkend="aws-properties-rds-database-instance">
+            AWS::RDS::DBInstance</link> resource must be greater than the current setting and if the value specified for
+         the update does not meet those constraints, the update for that resource will fail. For the specific
+         constraints on AllocatedStorage changes, see <ulink
+            url="http://&domain;/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">
+            ModifyDBInstance</ulink>.</para>
+
+      <para>Updates to a resource can affect the properties of other resources. If you used the <link
+         linkend="intrinsic-function-reference-ref"> Ref function </link> or the <link
+         linkend="intrinsic-function-reference-getatt"> Fn::GetAtt function</link> to specify an attribute from an
+         updated resource as part of a property value in another resource in the template, &CFN; will also update the
+         resource that contains the reference to the property that has changed. For example, if you updated the
+         MasterUsername property of an AWS::RDS::DBInstance resource and you had an
+         AWS::AutoScaling::LaunchConfiguration resource that had a UserData property that contained a reference to the
+         DB Instance name using the Ref function, &CFN; would recreate the DB Instance with a new name and also update
+         the LaunchConfiguration resource.</para>
+
+      <para><emphasis role="bold">To change a template to update a stack</emphasis></para>
+
+      <procedure>
+         <step>
+            <para>In the template file that you saved in Step 1, modify the template to reflect the changes you want to
+               make to the stack. Make sure you follow the guidelines above.</para>
+         </step>
+         <step>
+            <para>Save the template file. If you want to specify the template as a URL when you update the stack, upload
+               the update template to an &S3; bucket. Make sure that you use a bucket that is in the same region as the
+               stack you are updating.</para>
+         </step>
+      </procedure>
+   </section>-->
+   <!--<section id="using-cfn-updating-stacks-update-stack" condition="json">
+      <title id="using-cfn-updating-stacks-update-stack.title">Step 3. Update the stack</title>
+
+      <para>Updating a stack is similar to creating a stack&mdash;you specify a template, parameters, and capabilities
+         for the stack&mdash;but there are some differences. The stack retains the original settings for notification,
+         rollback, and timeout settings. Currently, these settings cannot be updated. As we discussed in <link
+            linkend="using-cfn-updating-stacks-update-template">Step 2</link>, an update template has specific
+         requirements that you need to follow for updates.</para>
+
+      <para>There are also some differences between creating and updating parameters. When you update the stack, you can
+         change the parameter values that are used for resources that support updates; however, you must keep the
+         existing values in the current stack for parameters that affect resources that do not support updates.
+         Parameters declared with NoEcho must be re-specified.</para>
+
+      <para><emphasis role="bold">To update an existing stack</emphasis></para>
+      <section id="using-cfn-updating-stacks-update-stack.CON">
+         <title>AWS Management Console</title>
+         <procedure>
+            <step>
+               <para>In the <ulink url="http://console.aws.amazon.com/cloudformation">&CFN; console</ulink>, click the
+                  check box next to the stack you want to update and click <guilabel>Update Stack</guilabel> to start
+                  the Update Stack Wizard.</para>
+            </step>
+            <step>
+               <para>Specify the location of the updated template:</para>
+               <itemizedlist>
+                  <listitem>
+                     <para><guilabel>For a template stored in a file</guilabel></para>
+                     <para>Click <guilabel>Upload a Template File</guilabel>. In the box below, enter the location for
+                        the template file, or click <guilabel>Browse</guilabel> to navigate to the file and select it,
+                        and then click <guilabel>Continue</guilabel>.</para>
+                  </listitem>
+                  <listitem>
+                     <para><guilabel>For a template stored in an &S3; bucket</guilabel></para>
+                     <para>Click <guilabel>Provide a Template URL</guilabel>. In the box below, type or paste the URL
+                        for the template, and then click <guilabel>Continue</guilabel>.</para>
+                  </listitem>
+               </itemizedlist>
+               <informalfigure>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata fileref="images/cfn_console_update1.png" format="PNG" scale="50"/>
+                     </imageobject>
+                  </mediaobject>
+               </informalfigure>
+            </step>
+            <step>
+               <para>On the <guilabel>Specify Parameters</guilabel> page, enter or modify the parameter values.</para>
+               <para>&CFN; populates each parameter with the value that is currently set in the stack with the exception
+                  of parameters declared with the NoEcho attribute.</para>
+               <para>When you have the settings the way you want, click <guilabel>Continue</guilabel>.</para>
+            </step>
+            <step>
+               <para>If you have IAM resources in the template, check <guilabel>I acknowledge that this template may
+                     create IAM resources</guilabel> to specify that you want to go ahead with using IAM resources in
+                  the template. For more information about using IAM resources in templates, see <link
+                     linkend="using-iam-template" endterm="using-iam-template.title"/>.</para>
+            </step>
+            <step>
+               <para>Review the information for the stack. When you’re satisfied with the settings, click
+                     <guilabel>Update Stack</guilabel>, and then click <guilabel>Close</guilabel>. Your stack may take
+                  several minutes to update.</para>
+            </step>
+         </procedure>
+      </section>
+
+      <section id="using-cfn-updating-stacks-update-stack.CLI">
+         <title>CLI</title>
+         <procedure>
+            <step>
+               <para>Use the command <function>
+                     <link linkend="update-stack">&aws21-update-stack;</link>
+                  </function> to update a stack by specifying the stack to update, updated template, parameter values,
+                  and capabilities.</para>
+            </step>
+         </procedure>
+      </section>
+   </section>-->
+  <!-- <section id="using-cfn-updating-stacks-monitor-stack" condition="json">
+      <title id="using-cfn-updating-stacks-monitor-stack.title">Step 4. Monitor the progress of the stack update</title>
+
+      <para>You can monitor the progress of a stack update by viewing the stack's events. The
+            <guilabel>Events</guilabel> tab displays each major step in the creation and update of the stack sorted by
+         the time of each event with latest events on top. The start of the stack update process is marked with an
+         UPDATE_IN_PROGRESS event for the stack:</para>
+
+      <programlisting>
+2011-09-30 09:35 PDT AWS::CloudFormation::Stack <replaceable>MyStack</replaceable> UPDATE_IN_PROGRESS </programlisting>
+
+      <para>Next are events that mark the beginning and completion of the update of each resource that was changed in
+         the update template. For example, updating an <link linkend="aws-properties-rds-database-instance"
+            >AWS::RDS::DBInstance</link> resource named MyDB would result in the following entries:</para>
+
+      <programlisting>
+2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_COMPLETE
+2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS </programlisting>
+
+      <para>The UPDATE_IN_PROGRESS event is logged when &CFN; reports that it has begun to update the resource. The
+         UPDATE_COMPLETE event is logged when the resource is successfully created.</para>
+
+      <para>When &CFN; has successfully updated the stack, you will see the following event:</para>
+
+      <programlisting>
+2011-09-30 09:35 PDT AWS::CloudFormation::Stack <replaceable>MyStack</replaceable> UPDATE_COMPLETE </programlisting>
+
+      <para>If an update of a resource fails, &CFN; reports an UPDATE_FAILED event that includes a reason for the
+         failure. For example, if your update template specified a property change that is not supported by the resource
+         such as reducing the size of AllocatedStorage for an <link linkend="aws-properties-rds-database-instance"
+         >AWS::RDS::DBInstance</link> resource, you would see events like these:</para>
+
+      <programlisting>
+2011-09-30 09:36 PDT AWS::RDS::DBInstance MyDB UPDATE_FAILED Size cannot be less than current size; requested: 5; current: 10
+2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS </programlisting>
+
+      <para>If a resource update fails, &CFN; rolls back any resources that it has updated during the upgrade to their
+         configurations before the update. Here is an example of the events you would see during an update
+         rollback:</para>
+
+      <programlisting>
+2011-09-30 09:38 PDT AWS::CloudFormation::Stack <replaceable>MyStack</replaceable> UPDATE_ROLLBACK_COMPLETE
+2011-09-30 09:38 PDT AWS::RDS::DBInstance MyDB UPDATE_COMPLETE
+2011-09-30 09:37 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS
+2011-09-30 09:37 PDT AWS::CloudFormation::Stack <replaceable>MyStack</replaceable> UPDATE_ROLLBACK_IN_PROGRESS The following resource(s) failed to update: [MyDB] </programlisting>
+
+      <para><emphasis role="bold">To view stack events</emphasis></para>
+      <section id="using-cfn-updating-stacks-monitor-stack.CON">
+         <title>AWS Management Console</title>
+         <procedure>
+            <step>
+               <para>In the <ulink url="http://console.aws.amazon.com/cloudformation">&CFN; console</ulink>, click the
+                  check box next to the stack you updated and click <guilabel>Events</guilabel> tab to view the stacks
+                  events.</para>
+            </step>
+            <step>
+               <para>To update the event list with the most recent events, you need to click the
+                  <guilabel>Refresh</guilabel> button in the lower pane.</para>
+            </step>
+         </procedure>
+      </section>
+
+      <section id="using-cfn-updating-stacks-monitor-stack.CLI">
+         <title>CLI</title>
+         <procedure>
+            <step>
+               <para>Use the command <function><link linkend="describe-stack-events"
+                  >&aws21-describe-stack-events;</link></function> to view the events for a stack.</para>
+            </step>
+         </procedure>
+      </section>
+   </section>-->
+</section>
+

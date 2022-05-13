@@ -1,0 +1,66 @@
+suspend fun startFaceDetection(channelVal: NotificationChannel?, bucketVal: String, videoVal: String) {
+
+        val s3Obj = S3Object {
+            bucket = bucketVal
+            name = videoVal
+        }
+        val vidOb = Video {
+            s3Object = s3Obj
+        }
+
+        val request = StartFaceDetectionRequest {
+             jobTag = "Faces"
+             faceAttributes = FaceAttributes.All
+             notificationChannel = channelVal
+             video = vidOb
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val startLabelDetectionResult = rekClient.startFaceDetection(request)
+          startJobId = startLabelDetectionResult.jobId.toString()
+        }
+}
+
+suspend fun getFaceResults() {
+
+    var finished = false
+    var status: String
+    var yy = 0
+    RekognitionClient { region = "us-east-1" }.use { rekClient ->
+        var response : GetFaceDetectionResponse? = null
+
+        val recognitionRequest = GetFaceDetectionRequest {
+            jobId = startJobId
+            maxResults = 10
+        }
+
+        // Wait until the job succeeds.
+        while (!finished) {
+            response = rekClient.getFaceDetection(recognitionRequest)
+            status = response.jobStatus.toString()
+            if (status.compareTo("SUCCEEDED") == 0)
+                finished = true
+            else {
+                println("$yy status is: $status")
+                delay(1000)
+            }
+            yy++
+        }
+
+        // Proceed when the job is done - otherwise VideoMetadata is null.
+        val videoMetaData = response?.videoMetadata
+        println("Format: ${videoMetaData?.format}")
+        println("Codec: ${videoMetaData?.codec}")
+        println("Duration: ${videoMetaData?.durationMillis}")
+        println("FrameRate: ${videoMetaData?.frameRate}")
+
+        // Show face information.
+        response?.faces?.forEach { face ->
+            println("Age: ${face.face?.ageRange}")
+            println("Face: ${face.face?.beard}")
+            println("Eye glasses: ${face?.face?.eyeglasses}")
+            println("Mustache: ${face.face?.mustache}")
+            println("Smile: ${face.face?.smile}")
+        }
+    }
+}

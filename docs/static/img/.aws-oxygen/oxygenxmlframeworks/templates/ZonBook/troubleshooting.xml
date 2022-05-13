@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="troubleshooting" role="topic">
+ <info>
+  <title id="troubleshooting.title">Troubleshooting ServiceNameEntity</title>
+  <titleabbrev>Troubleshooting</titleabbrev>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/Troubleshooting.html">Troubleshooting</ulink>.
+  Remove this remark before using this template code in your doc package. Save the file as <emphasis role="bold"
+   >troubleshooting.xml</emphasis>.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="troubleshooting-problem1">
+  <info>
+   <title id="troubleshooting-problem1.title">Problem</title>
+  </info>
+  <para>Solution</para>
+ </section>
+ <section id="troubleshooting-problem2">
+  <info>
+   <title id="troubleshooting-problem2.title">Problem</title>
+  </info>
+  <para>Solution</para>
+ </section>
+ <section id="troubleshooting-problem3">
+  <info>
+   <title id="troubleshooting-problem3.title">Problem</title>
+  </info>
+  <para>Solution</para>
+ </section>
+</chapter>

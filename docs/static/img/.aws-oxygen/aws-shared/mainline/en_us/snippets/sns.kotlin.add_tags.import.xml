@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.sns.SnsClient
+import aws.sdk.kotlin.services.sns.model.Tag
+import aws.sdk.kotlin.services.sns.model.TagResourceRequest
+import kotlin.system.exitProcess
+</programlisting>

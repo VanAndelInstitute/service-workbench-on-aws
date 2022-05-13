@@ -1,0 +1,30 @@
+    public static void createApiKey(ApiGatewayClient apiGateway) {
+
+        try {
+
+            CreateApiKeyRequest apiKeyRequest = CreateApiKeyRequest.builder()
+                    .name("Key Name")
+                    .description("Key description")
+                    .enabled(true)
+                    .generateDistinctId(true)
+                    .build();
+
+            //Creating a api key
+            CreateApiKeyResponse response = apiGateway.createApiKey(apiKeyRequest);
+         /*
+          If we have a plan for the api keys, we can set it for the created api key.
+         */
+            CreateUsagePlanKeyRequest planRequest = CreateUsagePlanKeyRequest.builder()
+                    .usagePlanId("<Enter Value>")
+                    .keyId(response.id())
+                    .keyType("API_KEY")
+                    .build();
+
+            apiGateway.createUsagePlanKey(planRequest);
+            apiGateway.close();
+
+        } catch (ApiGatewayException e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+    }
+}

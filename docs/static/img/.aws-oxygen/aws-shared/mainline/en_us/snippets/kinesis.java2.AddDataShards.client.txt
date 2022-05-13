@@ -1,0 +1,4 @@
+        Region region = Region.US_EAST_1;
+        KinesisClient kinesisClient = KinesisClient.builder()
+                .region(region)
+                .build();

@@ -1,0 +1,18 @@
+    public static void getSelectors(CloudTrailClient cloudTrailClientClient, String trailName) {
+
+       try {
+            GetEventSelectorsRequest selectorsRequest = GetEventSelectorsRequest.builder()
+                .trailName(trailName)
+                .build();
+
+            GetEventSelectorsResponse selectorsResponse = cloudTrailClientClient. getEventSelectors(selectorsRequest);
+            List<EventSelector> selectors = selectorsResponse.eventSelectors();
+
+            for (EventSelector selector: selectors) {
+                System.out.println("The type is  "+selector.readWriteTypeAsString());
+            }
+       } catch (CloudTrailException e) {
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+    }

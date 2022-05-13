@@ -1,0 +1,9 @@
+  # Deletes the table.
+  def delete_table
+    @table.delete
+    @table = nil
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't delete table. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end

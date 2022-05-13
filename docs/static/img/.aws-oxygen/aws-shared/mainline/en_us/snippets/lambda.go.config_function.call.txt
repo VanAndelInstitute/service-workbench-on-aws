@@ -1,0 +1,7 @@
+    _, err := svc.AddPermission(&lambda.AddPermissionInput{
+        Action:       aws.String("lambda:InvokeFunction"),
+        FunctionName: function,
+        Principal:    aws.String("s3.amazonaws.com"),
+        SourceArn:    s3ARN,
+        StatementId:  aws.String("lambda_s3_notification"),
+    })

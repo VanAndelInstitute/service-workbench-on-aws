@@ -1,0 +1,26 @@
+<programlisting>
+    def remove_tags(self, certificate_arn, tags):
+        """
+        Removes tags from a certificate. If the value of a tag is specified, the tag is
+        removed only when the value matches the value of the certificate's tag.
+        Otherwise, the tag is removed regardless of its value.
+
+        :param certificate_arn: The ARN of the certificate.
+        :param tags: The dictionary of tags to remove.
+        """
+        try:
+            cert_tags = []
+            for key, value in tags.items():
+                tag = {'Key': key}
+                if value is not None:
+                    tag['Value'] = value
+                cert_tags.append(tag)
+            self.acm_client.remove_tags_from_certificate(
+                CertificateArn=certificate_arn, Tags=cert_tags)
+            logger.info(
+                "Removed %s tags from certificate %s.", len(tags), certificate_arn)
+        except ClientError:
+            logger.exception(
+                "Couldn't remove tags from certificate %s.", certificate_arn)
+            raise
+</programlisting>

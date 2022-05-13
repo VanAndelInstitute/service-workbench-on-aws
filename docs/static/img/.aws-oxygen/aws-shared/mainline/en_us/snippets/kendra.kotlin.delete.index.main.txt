@@ -1,0 +1,11 @@
+suspend fun deleteSpecificIndex(indexId: String) {
+
+     val deleteIndexRequest = DeleteIndexRequest {
+         id = indexId
+     }
+
+    KendraClient { region = "us-east-1" }.use { kendra ->
+        kendra.deleteIndex(deleteIndexRequest)
+        println("$indexId was successfully deleted.")
+    }
+}

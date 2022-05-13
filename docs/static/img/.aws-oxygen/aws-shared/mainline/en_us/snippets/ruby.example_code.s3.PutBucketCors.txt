@@ -1,0 +1,23 @@
+  # Sets CORS rules on a bucket.
+  #
+  # @param allowed_methods [Array<String>] The types of HTTP requests to allow.
+  # @param allowed_origins [Array<String>] The origins to allow.
+  # @returns [Boolean] True if the CORS rules were set; otherwise, false.
+  def set_cors(allowed_methods, allowed_origins)
+    @bucket_cors.put(
+      cors_configuration: {
+        cors_rules: [
+          {
+            allowed_methods: allowed_methods,
+            allowed_origins: allowed_origins,
+            allowed_headers: %w[*],
+            max_age_seconds: 3600
+          }
+        ]
+      }
+    )
+    true
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't set CORS rules for #{@bucket_cors.bucket.name}. Here's why: #{e.message}"
+    false
+  end

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="ReturnValuesSubscriptions" role="topic">
+    <title id="ReturnValuesSubscriptions.title">Additional Return Values for Subscription Requests</title>
+    <informaltable>
+        <?dbhtml table-width="100%" ?>
+        <?dbfo table-width="95%" ?>
+        <tgroup cols="2">
+            <colspec colname="col1" colnum="1" colwidth="2.2*"/>
+            <colspec colname="col2" colnum="2" colwidth="3.81*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Parameter </para>
+                    </entry>
+                    <entry>
+                        <para>Description</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para><parameter>noOfPromotionTransactions</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Number of payment periods where the promotional discount is applied to a subscription. For example, if the subscription payment frequency is monthly and the promotional discount is for the first two months, the value of <parameter>noOfPromotionTransactions</parameter> is 2, i.e., two promotional discount transactions before the regular subscription price is charged.</para>
+                        <simpara>Type: Integer</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>promotionAmount</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Discount off the regular subscription price. </para>
+                        <simpara>Type: Integer</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>recurringFrequency</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Subscription payment frequency, such as monthly or annual.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>subscriptionId</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>A string that uniquely identifies a subscription.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>subscriptionPeriod</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The duration of the subscription.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>subscriptionReason</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>A string that describes the subscription.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>transactionSerialNumber</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>A string that uniquely identifies the transaction that purchased the subscription.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+</section>

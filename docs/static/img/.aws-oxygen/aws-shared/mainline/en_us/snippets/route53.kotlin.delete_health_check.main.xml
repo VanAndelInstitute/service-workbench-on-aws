@@ -1,0 +1,13 @@
+<programlisting>
+ suspend fun delHealthCheck(id: String?) {
+
+           val delRequest = DeleteHealthCheckRequest {
+                healthCheckId = id
+            }
+
+            Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+                route53Client.deleteHealthCheck(delRequest)
+                println("The HealthCheck with id $id was deleted")
+            }
+ }
+</programlisting>

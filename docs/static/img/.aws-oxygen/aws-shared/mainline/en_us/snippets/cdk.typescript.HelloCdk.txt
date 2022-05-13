@@ -1,0 +1,5 @@
+import * as cdk from '@aws-cdk/core';
+import { HelloCdkStack } from '../lib/HelloCdk-stack';
+
+const app = new cdk.App();
+new HelloCdkStack(app, 'HelloCdkStack');

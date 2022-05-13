@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+
+  <!ENTITY % _devtools-common-entities SYSTEM "../entities/_devtools-common.ent">    %_devtools-common-entities;
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+
+ 
+ <section id="notifications-permissions">
+     <info>
+         <title id="notifications-permissions.title">&ACC; managed policies and
+            notifications</title>
+         <abstract>
+             <para>Understand policy statements added for the notification feature to managed policies for &ACClong;.</para>   <!--replace all incidents of &YOUR_SERVICE with the entity for your service-->
+         </abstract></info>
+     <para>&ACClong; supports notifications, which can notify users of important changes to
+        repositories. <!-- replace entity value with the plural of resource for your service -->
+        Managed policies for &ACC; include policy statements for notification
+        functionality. For more information, see <ulink url="&url-acn-ug;welcome.html">What are
+            notifications?</ulink>.</para>
+<section id="notifications-fullaccess">
+    
+    <info><title id="notifications-fullaccess.title">Permissions related to notifications in full access
+                managed policies</title></info>
+    <!-- edit this para to only include the policy for your service -->
+    <para>The <code>AWSCodeCommitFullAccess</code> managed policy include the following statements
+            to allow full access to notifications. Users with this managed policy applied can also
+            create and manage &SNS; topics for notifications, subscribe and unsubscribe users to
+            topics, list topics to choose as targets for notification rules, and list &CBTlong;
+            clients configured for Slack.</para>
+    <programlisting>    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:DeleteNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource,"
+            "codestar-notifications:ListEventTypes"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:CreateTopic",
+            "sns:SetTopicAttributes"
+        ],
+        "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+    },
+    {
+        "Sid": "CodeStarNotificationsChatbotAccess",
+        "Effect": "Allow",
+        "Action": [
+            "chatbot:DescribeSlackChannelConfigurations"
+          ],
+       "Resource": "*"
+    }</programlisting>
+</section>
+
+<section id="notifications-readonly">
+    <info><title id="notifications-readonly.title">Permissions related to notifications in read-only managed
+                policies</title></info>
+    <para>The <code>AWSCodeCommitReadOnlyAccess</code> managed policy includes the following
+            statements to allow read-only access to notifications. Users with this managed policy
+            applied can view notifications for resources, but cannot create, manage, or subscribe to
+            them. </para>
+    <programlisting>   {
+        "Sid": "CodeStarNotificationsPowerUserAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:DescribeNotificationRule"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListEventTypes",
+            "codestar-notifications:ListTargets"
+        ],
+        "Resource": "*"
+    }</programlisting>
+</section>
+
+<section id="notifications-otheraccess">
+    <info><title id="notifications-otheraccess.title">Permissions related to notifications in other managed
+                policies</title></info>
+    <para>The <code>AWSCodeCommitPowerUser</code> managed policy includes the following statements
+            to allow users to create, edit, and subscribe to notifications. Users cannot delete
+            notification rules or manage tags for resources.</para>
+
+    <programlisting>    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:DeleteNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource",
+            "codestar-notifications:ListEventTypes"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:ListTopics"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "CodeStarNotificationsChatbotAccess",
+        "Effect": "Allow",
+        "Action": [
+            "chatbot:DescribeSlackChannelConfigurations"
+          ],
+       "Resource": "*"
+    }</programlisting>
+</section>
+     <para>For more information about &IAM; and notifications, see <ulink url="&url-acn-ug;security-iam.html">Identity and Access Management for &ACN;</ulink>.</para>
+</section>

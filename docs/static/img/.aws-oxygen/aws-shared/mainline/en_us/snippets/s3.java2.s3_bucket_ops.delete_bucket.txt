@@ -1,0 +1,3 @@
+        DeleteBucketRequest deleteBucketRequest = DeleteBucketRequest.builder().bucket(bucket).build();
+        s3.deleteBucket(deleteBucketRequest);
+        s3.close();

@@ -1,0 +1,17 @@
+<programlisting>
+    public static void delStream(FirehoseClient firehoseClient, String streamName) {
+
+        try {
+            DeleteDeliveryStreamRequest deleteDeliveryStreamRequest = DeleteDeliveryStreamRequest.builder()
+                    .deliveryStreamName(streamName)
+                    .build();
+
+            firehoseClient.deleteDeliveryStream(deleteDeliveryStreamRequest);
+            System.out.println("Delivery Stream "+streamName +" is deleted");
+
+        } catch (FirehoseException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,36 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string collectionId = "MyCollection2";
+            string bucket = "doc-example-bucket";
+            string photo = "input.jpg";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var image = new Image
+            {
+                S3Object = new S3Object
+                {
+                    Bucket = bucket,
+                    Name = photo,
+                },
+            };
+
+            var indexFacesRequest = new IndexFacesRequest
+            {
+                Image = image,
+                CollectionId = collectionId,
+                ExternalImageId = photo,
+                DetectionAttributes = new List<string>() { "ALL" },
+            };
+
+            IndexFacesResponse indexFacesResponse = await rekognitionClient.IndexFacesAsync(indexFacesRequest);
+
+            Console.WriteLine($"{photo} added");
+            foreach (FaceRecord faceRecord in indexFacesResponse.FaceRecords)
+            {
+                Console.WriteLine($"Face detected: Faceid is {faceRecord.Face.FaceId}");
+            }
+        }
+
+</programlisting>

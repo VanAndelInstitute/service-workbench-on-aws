@@ -1,0 +1,38 @@
+fn create_table(
+    client: &Client,
+    table_name: &str,
+) -> aws_sdk_dynamodb::client::fluent_builders::CreateTable {
+    client
+        .create_table()
+        .table_name(table_name)
+        .key_schema(
+            KeySchemaElement::builder()
+                .attribute_name("year")
+                .key_type(KeyType::Hash)
+                .build(),
+        )
+        .key_schema(
+            KeySchemaElement::builder()
+                .attribute_name("title")
+                .key_type(KeyType::Range)
+                .build(),
+        )
+        .attribute_definitions(
+            AttributeDefinition::builder()
+                .attribute_name("year")
+                .attribute_type(ScalarAttributeType::N)
+                .build(),
+        )
+        .attribute_definitions(
+            AttributeDefinition::builder()
+                .attribute_name("title")
+                .attribute_type(ScalarAttributeType::S)
+                .build(),
+        )
+        .provisioned_throughput(
+            ProvisionedThroughput::builder()
+                .read_capacity_units(10)
+                .write_capacity_units(10)
+                .build(),
+        )
+}

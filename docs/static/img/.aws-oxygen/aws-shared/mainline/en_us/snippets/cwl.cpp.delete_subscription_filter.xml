@@ -1,0 +1,17 @@
+<programlisting>
+
+        Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
+        Aws::CloudWatchLogs::Model::DeleteSubscriptionFilterRequest request;
+        request.SetFilterName(filter_name);
+        request.SetLogGroupName(log_group);
+
+        auto outcome = cwl.DeleteSubscriptionFilter(request);
+        if (!outcome.IsSuccess()) {
+            std::cout << "Failed to delete CloudWatch log subscription filter "
+                << filter_name << ": " << outcome.GetError().GetMessage() <<
+                std::endl;
+        } else {
+            std::cout << "Successfully deleted CloudWatch logs subscription " <<
+                "filter " << filter_name << std::endl;
+        }
+</programlisting>

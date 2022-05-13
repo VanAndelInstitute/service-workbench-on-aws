@@ -1,0 +1,7 @@
+<programlisting>
+    for _, v := range resp.Voices {
+        fmt.Println("Name:   " + *v.Name)
+        fmt.Println("Gender: " + *v.Gender)
+        fmt.Println("")
+    }
+</programlisting>

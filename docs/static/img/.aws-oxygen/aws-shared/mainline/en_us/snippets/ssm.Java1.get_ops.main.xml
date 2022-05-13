@@ -1,0 +1,24 @@
+<programlisting>
+
+        // Get the OpsItem ID value
+        String opsID = args[0];
+
+        // Create the AWSSimpleSystemsManagement client object
+        AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+
+        try {
+            GetOpsItemRequest opsRequest = new GetOpsItemRequest();
+            opsRequest.setOpsItemId(opsID);
+
+            GetOpsItemResult opsResults = ssm.getOpsItem(opsRequest);
+
+            OpsItem item = opsResults.getOpsItem();
+
+            System.out.println(item.getTitle());
+            System.out.println(item.getDescription());
+            System.out.println(item.getSource());
+
+        } catch (AmazonServiceException e) {
+            e.getStackTrace();
+        }
+</programlisting>

@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.mediastore.MediaStoreClient
+import aws.sdk.kotlin.services.mediastore.model.DeleteContainerRequest
+import kotlin.system.exitProcess
+</programlisting>

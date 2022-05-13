@@ -1,0 +1,31 @@
+<programlisting>
+        if (activity_completed) {
+            decisions.add(
+                new Decision()
+                    .withDecisionType(DecisionType.CompleteWorkflowExecution)
+                    .withCompleteWorkflowExecutionDecisionAttributes(
+                        new CompleteWorkflowExecutionDecisionAttributes()
+                            .withResult(result)));
+        } else {
+            if (open_activities == 0 && scheduled_activities == 0) {
+
+                ScheduleActivityTaskDecisionAttributes attrs =
+                    new ScheduleActivityTaskDecisionAttributes()
+                        .withActivityType(new ActivityType()
+                            .withName(HelloTypes.ACTIVITY)
+                            .withVersion(HelloTypes.ACTIVITY_VERSION))
+                        .withActivityId(UUID.randomUUID().toString())
+                        .withInput(workflow_input);
+
+                decisions.add(
+                        new Decision()
+                            .withDecisionType(DecisionType.ScheduleActivityTask)
+                            .withScheduleActivityTaskDecisionAttributes(attrs));
+            } else {
+                // an instance of HelloActivity is already scheduled or running. Do nothing, another
+                // task will be scheduled once the activity completes, fails or times out
+            }
+        }
+
+        System.out.println("Exiting the decision task with the decisions " + decisions);
+</programlisting>

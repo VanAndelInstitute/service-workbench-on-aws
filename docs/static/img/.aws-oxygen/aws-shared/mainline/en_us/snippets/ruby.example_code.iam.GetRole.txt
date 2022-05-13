@@ -1,0 +1,14 @@
+  # Gets data about a role.
+  #
+  # @param name [String] The name of the role to look up.
+  # @return [Aws::IAM::Role] The retrieved role.
+  def get_role(name)
+    role = @iam_resource.role(name)
+    puts("Got data for role '#{role.name}'. Its ARN is '#{role.arn}'.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't get data for role '#{name}' Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    role
+  end

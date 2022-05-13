@@ -1,0 +1,21 @@
+<programlisting>
+    public static void getAllDeployments(ApiGatewayClient apiGateway,  String restApiId) {
+
+        try {
+            GetDeploymentsRequest request = GetDeploymentsRequest.builder()
+                    .restApiId(restApiId)
+                    .build();
+
+            GetDeploymentsResponse response = apiGateway.getDeployments(request);
+            List<Deployment> deployments = response.items();
+            for (Deployment deployment: deployments) {
+                System.out.println("The deployment id is "+deployment.id());
+                System.out.println("The deployment description is "+deployment.description());
+            }
+
+        } catch (ApiGatewayException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,6 @@
+        DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        s3.deleteObject(deleteObjectRequest);

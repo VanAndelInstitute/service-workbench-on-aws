@@ -1,0 +1,20 @@
+async fn list_tables(client: &Client) -> Result<(), Error> {
+    let resp = client.list_tables().limit(10).send().await?;
+
+    println!("Tables:");
+
+    let names = resp.table_names().unwrap_or_default();
+
+    for name in names {
+        println!("  {}", name);
+    }
+
+    println!();
+    println!("Found {} tables", names.len());
+
+    if resp.last_evaluated_table_name != None {
+        println!("There are more tables");
+    }
+
+    Ok(())
+}

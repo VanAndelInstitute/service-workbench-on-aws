@@ -1,0 +1,9 @@
+<programlisting>
+    if len(resp.Body.Data) > 0 {
+        for i := range resp.Body.Data {
+            fmt.Println(resp.Body.Data[i].Item)
+        }
+    } else {
+        fmt.Println("There were no items")
+    }
+</programlisting>

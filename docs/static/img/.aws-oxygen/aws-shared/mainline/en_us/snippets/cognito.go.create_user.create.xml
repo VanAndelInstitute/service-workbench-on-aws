@@ -1,0 +1,23 @@
+<programlisting>
+    cognitoClient := cognitoidentityprovider.New(sess)
+
+    newUserData := &cognitoidentityprovider.AdminCreateUserInput{
+        DesiredDeliveryMediums: []*string{
+            aws.String("EMAIL"),
+        },
+        UserAttributes: []*cognitoidentityprovider.AttributeType{
+            {
+                Name:  aws.String("email"),
+                Value: aws.String(*emailIDPtr),
+            },
+        },
+    }
+
+    newUserData.SetUserPoolId(*userPoolIDPtr)
+    newUserData.SetUsername(*userNamePtr)
+
+    _, err := cognitoClient.AdminCreateUser(newUserData)
+    if err != nil {
+        fmt.Println("Got error creating user:", err)
+    }
+</programlisting>

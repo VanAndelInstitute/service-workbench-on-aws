@@ -1,0 +1,24 @@
+<programlisting>
+    @staticmethod
+    def upload_archive(vault, archive_description, archive_file):
+        """
+        Uploads an archive to a vault.
+
+        :param vault: The vault where the archive is put.
+        :param archive_description: A description of the archive.
+        :param archive_file: The archive file to put in the vault.
+        :return: The uploaded archive.
+        """
+        try:
+            archive = vault.upload_archive(
+                archiveDescription=archive_description, body=archive_file)
+            logger.info(
+                "Uploaded %s with ID %s to vault %s.", archive_description,
+                archive.id, vault.name)
+        except ClientError:
+            logger.exception(
+                "Couldn't upload %s to %s.", archive_description, vault.name)
+            raise
+        else:
+            return archive
+</programlisting>

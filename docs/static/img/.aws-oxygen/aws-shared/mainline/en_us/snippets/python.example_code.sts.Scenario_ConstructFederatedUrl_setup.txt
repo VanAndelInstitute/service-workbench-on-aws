@@ -1,0 +1,29 @@
+def setup(iam_resource):
+    """
+    Creates a role that can be assumed by the current user.
+    Attaches a policy that allows only Amazon S3 read-only access.
+
+    :param iam_resource: A Boto3 AWS Identity and Access Management (IAM) instance
+                         that has the permission to create a role.
+    :return: The newly created role.
+    """
+    role = iam_resource.create_role(
+        RoleName=unique_name('role'),
+        AssumeRolePolicyDocument=json.dumps({
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Principal': {'AWS': iam_resource.CurrentUser().arn},
+                    'Action': 'sts:AssumeRole'
+                }
+            ]
+        })
+    )
+    role.attach_policy(PolicyArn='arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess')
+    print(f"Created role {role.name}.")
+
+    print("Give AWS time to propagate these new resources and connections.", end='')
+    progress_bar(10)
+
+    return role

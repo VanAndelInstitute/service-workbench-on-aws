@@ -1,0 +1,15 @@
+    def get_lexicon(self, name):
+        """
+        Gets metadata and contents of an existing lexicon.
+
+        :param name: The name of the lexicon to retrieve.
+        :return: The retrieved lexicon.
+        """
+        try:
+            response = self.polly_client.get_lexicon(Name=name)
+            logger.info("Got lexicon %s.", name)
+        except ClientError:
+            logger.exception("Couldn't get lexicon %s.", name)
+            raise
+        else:
+            return response

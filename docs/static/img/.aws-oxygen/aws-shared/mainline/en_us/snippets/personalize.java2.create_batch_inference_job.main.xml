@@ -1,0 +1,84 @@
+<programlisting>
+    public static String createPersonalizeBatchInferenceJob(PersonalizeClient personalizeClient,
+                                                            String solutionVersionArn,
+                                                            String jobName,
+                                                            String s3InputDataSourcePath,
+                                                            String s3DataDestinationPath,
+                                                            String roleArn,
+                                                            String explorationWeight,
+                                                            String explorationItemAgeCutOff) {
+
+        long waitInMilliseconds = 60 * 1000;
+        String status;
+        String batchInferenceJobArn;
+
+        try {
+
+            // Set up data input and output parameters.
+            S3DataConfig inputSource = S3DataConfig.builder()
+                    .path(s3InputDataSourcePath)
+                    .build();
+            S3DataConfig outputDestination = S3DataConfig.builder()
+                    .path(s3DataDestinationPath)
+                    .build();
+
+            BatchInferenceJobInput jobInput = BatchInferenceJobInput.builder()
+                    .s3DataSource(inputSource)
+                    .build();
+            BatchInferenceJobOutput jobOutputLocation = BatchInferenceJobOutput.builder()
+                    .s3DataDestination(outputDestination)
+                    .build();
+
+            // Optional code to build the User-Personalization specific item exploration config.
+            HashMap<String, String> explorationConfig = new HashMap<>();
+
+            explorationConfig.put("explorationWeight", explorationWeight);
+            explorationConfig.put("explorationItemAgeCutOff", explorationItemAgeCutOff);
+
+            BatchInferenceJobConfig jobConfig = BatchInferenceJobConfig.builder()
+                    .itemExplorationConfig(explorationConfig)
+                    .build();
+            // End optional User-Personalization recipe specific code.
+
+            CreateBatchInferenceJobRequest createBatchInferenceJobRequest = CreateBatchInferenceJobRequest.builder()
+                    .solutionVersionArn(solutionVersionArn)
+                    .jobInput(jobInput)
+                    .jobOutput(jobOutputLocation)
+                    .jobName(jobName)
+                    .roleArn(roleArn)
+                    .batchInferenceJobConfig(jobConfig)   // Optional
+                    .build();
+
+            batchInferenceJobArn = personalizeClient.createBatchInferenceJob(createBatchInferenceJobRequest)
+                    .batchInferenceJobArn();
+            DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest = DescribeBatchInferenceJobRequest.builder()
+                    .batchInferenceJobArn(batchInferenceJobArn)
+                    .build();
+
+            long maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
+
+            while (Instant.now().getEpochSecond() < maxTime) {
+
+                BatchInferenceJob batchInferenceJob = personalizeClient
+                        .describeBatchInferenceJob(describeBatchInferenceJobRequest)
+                        .batchInferenceJob();
+
+                status = batchInferenceJob.status();
+                System.out.println("Batch inference job status: " + status);
+
+                if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                    break;
+                }
+                try {
+                    Thread.sleep(waitInMilliseconds);
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            return batchInferenceJobArn;
+
+        } catch (PersonalizeException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return "";
+</programlisting>

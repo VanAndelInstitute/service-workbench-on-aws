@@ -1,0 +1,4 @@
+require 'vendor/autoload.php';
+
+use GuzzleHttp\Client as httpClient;
+

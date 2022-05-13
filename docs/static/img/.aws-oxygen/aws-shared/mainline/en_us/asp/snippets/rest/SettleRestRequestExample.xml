@@ -1,0 +1,11 @@
+https://fps.sandbox.amazonaws.com?
+Action=Settle
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&ReserveTransactionId=14GKD9GE66FAA63E6O6B2JDPZKN53LZ7F22
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Signature=SJJLsIBghi7VIycBjX7c3hnfgZ%2FBvZbzqLtAZXDL8ys%3D
+&Timestamp=2009-10-06T07%3A53%3A11.750Z
+&TransactionAmount.CurrencyCode=USD
+&TransactionAmount.Value=1
+&Version=2008-09-17

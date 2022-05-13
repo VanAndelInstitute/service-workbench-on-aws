@@ -1,0 +1,7 @@
+    certName := flag.String("c", "", "The name of the certificate")
+    flag.Parse()
+
+    if *certName == "" {
+        fmt.Println("You must supply the name of a certificate (-c CERT-NAME)")
+        return
+    }

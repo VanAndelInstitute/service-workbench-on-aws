@@ -1,0 +1,26 @@
+<programlisting>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "386209384616"
+    },
+    "Action": [
+      "s3:GetBucketAcl",
+      "s3:GetBucketPolicy"
+    ],
+    "Resource": "arn:aws:s3:::<your bucketname>"
+  },
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "386209384616"
+    },
+    "Action": "s3:PutObject",
+    "Resource": "arn:aws:s3:::<your bucketname>/*"
+  }
+  ]
+}
+</programlisting>

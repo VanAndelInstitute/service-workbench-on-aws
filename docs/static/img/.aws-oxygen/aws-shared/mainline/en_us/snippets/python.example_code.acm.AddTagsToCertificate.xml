@@ -1,0 +1,18 @@
+<programlisting>
+    def add_tags(self, certificate_arn, tags):
+        """
+        Adds tags to a certificate. Tags are key-value pairs that contain custom
+        metadata.
+
+        :param certificate_arn: The ARN of the certificate.
+        :param tags: A dictionary of key-value tags to add to the certificate.
+        """
+        try:
+            self.acm_client.add_tags_to_certificate(
+                CertificateArn=certificate_arn,
+                Tags=[{'Key': key, 'Value': value} for key, value in tags.items()])
+            logger.info("Added %s tags to certificate %s.", len(tags), certificate_arn)
+        except ClientError:
+            logger.exception("Couldn't add tags to certificate %s.", certificate_arn)
+            raise
+</programlisting>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-virtual-device" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to set up a device to install the push messaging-enabled &AMHlong;
+                quickstart app in Android Studio.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-virtual-device.title">Create an Android Virtual Device</title>
+    <para>To send push notifications from Amazon Pinpoint to an Android app, you must install the app on an
+        Android device. As a proof of concept, you can use a virtual device. This topic describes
+        how to create a virtual device in Android Studio. If you have a physical Android device and
+        know how to install apps onto it using Android Studio, you can skip this step. </para>
+    <para>This topic helps you create a virtual device of type Nexus 6 phone with Lollipop API Level
+        22 x86 Android 5.1, but the &AMHlong; quickstart app is not limited to this device. You can
+        use any device that uses Android OS 4.0.3 (IceCreamSandwich) API Level 15 or higher.</para>
+    <procedure>
+        <title>To create a virtual device with Android Studio</title>
+        <step>
+            <para>Open Android Studio.</para>
+        </step>
+        <step>
+            <para>From the <guilabel>Tools</guilabel> menu, choose <guilabel>Android</guilabel>, and
+                then choose <guilabel>AVD Manager</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-avd-manager.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>On the <guilabel>Your Virtual Devices</guilabel> page, choose <guilabel>Create
+                    Virtual Device</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-create.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>On the <guilabel>Select Hardware</guilabel> page, choose <guilabel>Nexus
+                    6</guilabel>, and then choose <guilabel>Next</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-hardware.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>On the <guilabel>System Image</guilabel> page, choose the setup with
+                    <guilabel>Release name</guilabel> Lollipop, <guilabel>API Level</guilabel> 22,
+                    <guilabel>ABI</guilabel> x86, and <guilabel>Target</guilabel> Android 5.1 (with
+                Google APIs), and then choose <guilabel>Next</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-image.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>On the <guilabel>Android Virtual Device</guilabel> page, choose
+                    <guilabel>Finish</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-finish.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+        <step>
+            <para>To enable Android Studio to install an app on the virtual device, go to the
+                    <guilabel>Tools</guilabel> menu, choose <guilabel>Android</guilabel>, and then
+                choose <guilabel>Enable ADB Integration</guilabel>.</para>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-enable-adb.png"
+                            format="PNG" scale="65"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
+        </step>
+    </procedure>
+</section>

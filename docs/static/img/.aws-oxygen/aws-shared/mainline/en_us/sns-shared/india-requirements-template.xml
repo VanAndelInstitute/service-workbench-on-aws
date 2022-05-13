@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-sns-shared SYSTEM "file://AWSShared/sns-shared/phrases-shared.ent">
+    %phrases-sns-shared;
+]>
+<!-- UPDATE MARCH 2021: DO NOT USE. This template is currently out of date. DO NOT USE. 
+                Cause: Out of sync Pinpoint and SNS India DLT/UCC   
+                launches. The Pinpoint and SNS writers will reevaluate the use of a template after those launches, 
+                bandwidth permitting. -->
+<!-- Use this template to create the SMS Requirements for India page in the Pinpoint and SNS documentation.
+     This template replaces the old shared entity that Pinpoint and SNS docs formerly used for this content. 
+     When changes occur, update this template, and then copy everything AFTER the closing info tag and BEFORE the closing section
+     tag in your dev guide package. Then do the following:
+           * Replace &SERVICENAME with the entity for your service. 
+           * Replace &PRICINGPAGE with the link to your service's pricing page.
+
+--> 
+
+        <section id="india-requirements-template" role="topic">
+            <info>
+                <title id="india-requirements-template.title">Special requirements for
+                    sending SMS messages to recipients in India</title>
+                <titleabbrev>SMS requirements for India</titleabbrev>
+            </info>
+
+<!-- UPDATE MARCH 2021: DO NOT USE. This template is currently out of date. DO NOT USE. 
+                Cause: Out of sync Pinpoint and SNS India DLT/UCC   
+                launches. The Pinpoint and SNS writers will reevaluate the use of a template after those launches, 
+                bandwidth permitting. -->
+<!-- BEGIN COPY-->    
+<!-- IMPORTANT: DO NOT UPDATE this page in the xml file in your dev guide package. 
+     Instead, go to the AWSSNSDocsShared package and update the india-requirements-template file there.
+     Then copy and paste the content in the template into your xml in your dev guide package, and update the 
+      &SERVICENAME; and &PRICINGPAGE; entities. -->     
+            
+            <para>By default, when you send messages to recipients in India, &SERVICENAME; uses International
+                Long Distance Operator (ILDO) connections to transmit those messages. When recipients
+                see a message that&apos;s sent over an ILDO connection, it appears to be sent from a random
+                numeric ID. Choosing a route type (transactional or promotional) is mandatory when sending 
+                domestic messages to India. For a promotional message, choose the 
+                promotional route type as this uses a numeric sender ID. For a transactional message, 
+                choose the transactional route as this uses a case-sensitive alphanumeric sender ID. 
+                Note that your account cannot use both numeric sender IDs and alphanumeic sender IDs 
+                in the same account. Maintain separate accounts for each ID type. For additional content 
+                guidelines, see the <ulink url="https://www.vilpower.in">Vilpower website</ulink>.</para>
+                      
+            <para>If you prefer to use an alphabetic sender ID for your SMS messages, you have to send
+                those messages over local routes rather than ILDO routes. To send messages using local
+                routes, you must first register your use case and message templates with the Telecom
+                Regulatory Authority of India (TRAI) through Distributed Ledger Technology (DLT) portals. 
+                These registration requirements are designed to reduce the number of unsolicited 
+                messages that Indian consumers receive, and to protect consumers from potentially 
+                harmful messages. This registration process is managed by Vodafone India through 
+                its Vilpower service.</para>
+            
+            <!-- Here are the pricing links. Copy and paste the link for your service over the
+                 &PRICINGPAGE; placeholder in the paragraph that follows this comment.
+                 PinPoint: <ulink url="&url-mkt-domain;pinpoint/pricing/">&PIN; Pricing</ulink>
+                 SNS: <ulink url="&url-mkt-domain;sns/sms-pricing/">&SNS; Worldwide SMS Pricing</ulink>
+            -->
+    
+            <note>
+                <para>The price for sending messages using local routes is shown on the 
+                    &PRICINGPAGE;
+                    page. The price for sending messages using ILDO connections is higher than the
+                    price for sending messages through local routes.</para>
+            </note>
+            <para>To complete the registration process, provide the following information:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Your organization&apos;s Permanent Account Number (PAN).</para>
+                </listitem>
+                <listitem>
+                    <para>Your organization&apos;s Tax Deduction Account Number (TAN).</para>
+                </listitem>
+                <listitem>
+                    <para>Your organization&apos;s Goods and Services Tax Identification Number
+                        (GSTIN).</para>
+                </listitem>
+                <listitem>
+                    <para>Your organization&apos;s Corporate Identity Number (CIN).</para>
+                </listitem>
+                <listitem>
+                    <para>A letter of authorization that gives you the authority to register your
+                        organization with Vilpower. The Vilpower website includes a template that you
+                        can download and modify to fit your needs.</para>
+                </listitem>
+            </itemizedlist>
+            
+            <para>Vilpower charges a fee for completing the registration process.</para>
+            <procedure>
+                <title>To register your organization with TRAI</title>
+                <step>
+                    <para>In a web browser, go to the Vilpower website at <ulink
+                        url="https://www.vilpower.in">https://www.vilpower.in</ulink>.</para>
+                </step>
+                <step>
+                    <para>Choose <guilabel>Signup</guilabel> to create another account. During the
+                        registration process, do the following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>When you&apos;re asked to specify the type of entity that you want to
+                                register as, choose <guilabel>As Enterprise</guilabel>.</para>
+                        </listitem>
+                        <listitem>
+                            <para>On the Select your Telemarketer page, for Telemarketer Name, start typing
+                                <userinput>Infobip</userinput> and then choose <guilabel>Infobip Private Limited – ALL</guilabel>
+                                from the dropdown list.</para>
+                        </listitem>
+                        <listitem>
+                            <para> For
+                                <guilabel>Enter Telemarketer ID</guilabel>, enter
+                                <userinput>110200001152</userinput>.</para>
+                        </listitem>
+                        <listitem>
+                            <para>When prompted to provide your Header IDs, enter the sender IDs that
+                                you want to register.</para>
+                        </listitem>
+                        <listitem>
+                            <para>When prompted to provide your Content Templates, enter the message
+                                content that you plan to send to your recipients. Include a template for
+                                every message that you plan to send. </para>
+                        </listitem>
+                    </itemizedlist>
+                </step>                
+                <step>
+                    <para>Complete the steps at <xref linkend="channels-sms-awssupport-sender-id"
+                        endterm="channels-sms-awssupport-sender-id.titleabbrev"/> to request a
+                        sender ID for India. In your request, provide the following required information:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The company name used during the DLT registration process.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The Principal Entity ID (PEID) that you received after successful 
+                            DLT entity registration.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The estimated number of messages you plan to send to recipients in India.</para>
+                        </listitem>
+                        <listitem>
+                            <para>An explanation of your use case.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The CSV file of the DLT registered and approved templates. </para>
+                            <para>You can download templates by logging in to your 
+                                <ulink url="https://www.vilpower.in">https://www.vilpower.in</ulink>
+                                account. Navigate to the Template section, and choose download.
+                                After you download your templates, rename the file so that it 
+                                includes the entity ID that you received during registration. 
+                                If you have multiple principals, you must submit a separate file for 
+                                each principal. Include the entity ID in the name of each file.</para>
+                        </listitem>
+                    </itemizedlist>
+                </step>
+                <step>
+                    <para>Repeat step 3 if any information, such as a Unique Header ID and/or Template ID, has changed, 
+                        or if you modify an already registered template.</para>
+                </step>     
+            </procedure>
+<!-- END COPY-->
+    </section>
+
+

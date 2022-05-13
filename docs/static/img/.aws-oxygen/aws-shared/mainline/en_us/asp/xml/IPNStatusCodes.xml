@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<!-- RAMANP ASSERTS THESE ARE CBUI RESPONSES, NOT IPN -->
+<section id="ipn-statuscodes" role="topic">
+    <title id="ipn-statuscodes.title">IPN Status Codes</title>
+    <para>The following table describes the status codes you can receive through Instant Payment Notification.</para>
+    <informaltable>
+        <tgroup cols="2">
+            <?dbhtml table-width="95%" ?>
+            <?dbfo table-width="95%" ?>
+            <colspec colname="col1" colnum="1" colwidth="1.46*"/>
+            <colspec colname="col2" colnum="2" colwidth="3.56*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Status Code </para>
+                    </entry>
+                    <entry>
+                        <para>Description </para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para>PS </para>
+                    </entry>
+                    <entry>
+                        <para>The payment transaction was successful.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PF </para>
+                    </entry>
+                    <entry>
+                        <para>The payment transaction failed and the money was not transferred. You can redirect your customer to the Amazon Payments Payment Authorization page to select a different payment method.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PI </para>
+                    </entry>
+                    <entry>
+                        <para>Payment has been initiated. It will take between five seconds and 48 hours to complete, based on the availability of external payment networks and the riskiness of the transaction.</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PR </para>
+                    </entry>
+                    <entry>
+                        <para>The reserve transaction was successful. </para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>RS</entry>
+                    <entry><para>The refund transaction was successful.</para></entry>
+                </row>
+                <row>
+                    <entry>RF</entry>
+                    <entry><para>The refund transaction failed.</para></entry>
+                </row>
+                <row>
+                    <entry>PaymentSuccess</entry>
+                    <entry><para>Amazon collected a subscription payment.</para></entry>
+                </row>
+                <row>
+                    <entry>PendingUserAction</entry>
+                    <entry><para>Amazon tried to collect a payment which failed due to a payment method error. The subscriber has been advised to adjust the method. Amazon will retry the payment after 6 days.</para></entry>
+                </row>
+                <row>
+                    <entry>PaymentRescheduled</entry>
+                    <entry><para>Amazon tried to collect a payment which failed due to an error not involving a payment method. Amazon will retry the payment after 6 days.</para></entry>
+                </row>
+                <row>
+                    <entry>PaymentCancelled</entry>
+                    <entry><para>Amazon has failed to collect a payment, and will not make any more attempts. Other subscription payments will be attempted on schedule.</para></entry>
+                </row>
+                <row>
+                    <entry>SubscriptionCancelled</entry>
+                    <entry><para>The subscription was canceled successfully. Amazon will make no further attempts to collect payment against the subscription.</para></entry>
+                </row>
+                <row>
+                    <entry>SubscriptionCompleted</entry>
+                    <entry><para>The subscription was completed. All payments have been collected.</para></entry>
+                </row>
+                <row>
+                    <entry>SubscriptionSuccessful</entry>
+                    <entry><para>The subscription was created successfully.</para></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+</section>

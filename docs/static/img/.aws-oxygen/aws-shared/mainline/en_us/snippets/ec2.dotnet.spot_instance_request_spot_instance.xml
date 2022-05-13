@@ -1,0 +1,42 @@
+<programlisting>
+        /* Creates a spot instance
+         *
+         * Takes six args:
+         *   AmazonEC2Client ec2Client is the EC2 client through which the spot instance request is made
+         *   string amiId is the AMI of the instance to request
+         *   string securityGroupName is the name of the security group of the instance to request
+         *   InstanceType instanceType is the type of the instance to request
+         *   string spotPrice is the price of the instance to request
+         *   int instanceCount is the number of instances to request
+         *
+         * See https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/EC2/MEC2RequestSpotInstancesRequestSpotInstancesRequest.html
+         */
+        private static SpotInstanceRequest RequestSpotInstance(
+            AmazonEC2Client ec2Client,
+            string amiId,
+            string securityGroupName,
+            InstanceType instanceType,
+            string spotPrice,
+            int instanceCount)
+        {
+            RequestSpotInstancesRequest request = new RequestSpotInstancesRequest
+            {
+                SpotPrice = spotPrice,
+                InstanceCount = instanceCount
+            };
+
+            LaunchSpecification launchSpecification = new LaunchSpecification
+            {
+                ImageId = amiId,
+                InstanceType = instanceType
+            };
+
+            launchSpecification.SecurityGroups.Add(securityGroupName);
+
+            request.LaunchSpecification = launchSpecification;
+
+            var result = ec2Client.RequestSpotInstancesAsync(request);
+
+            return result.Result.SpotInstanceRequests[0];
+        }
+</programlisting>

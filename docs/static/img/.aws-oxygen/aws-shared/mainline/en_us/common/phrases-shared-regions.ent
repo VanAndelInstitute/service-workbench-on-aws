@@ -1,0 +1,233 @@
+<!-- REGIONS & ENDPOINTS -->
+
+<!-- To use these region and endpoint entities, you must have &endpoint; and &apiversion; defined in your local entity file -->
+
+<!ENTITY afsouth1-name 'Africa (Cape Town) Region'>
+<!ENTITY region-af-south-1 'Africa (Cape Town)'>
+<!ENTITY afsouth1-wsdl-url 'http://&endpoint;.af-south-1.amazon.aws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY afsouth1-query '&endpoint;.af-south-1.amazonaws.com'>
+
+<!ENTITY apsoutheast3-name 'Asia Pacific (Jakarta) Region'>
+<!ENTITY region-ap-southeast-3 'Asia Pacific (Jakarta)'>
+<!ENTITY apsoutheast3-query '&endpoint;.ap-southeast-3.amazonaws.com'>
+
+<!ENTITY apsouth1-name 'Asia Pacific (Mumbai) Region' >
+<!ENTITY region-ap-south-1 'Asia Pacific (Mumbai)' >
+<!ENTITY apsouth1-query '&endpoint;.ap-south-1.amazonaws.com'>
+
+<!ENTITY apnortheast1-name 'Asia Pacific (Tokyo) Region' >
+<!ENTITY region-ap-northeast-1 'Asia Pacific (Tokyo)' >
+<!ENTITY apnortheast1-wsdl-url 'http://&endpoint;.ap-northeast-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY apnortheast1-query '&endpoint;.ap-northeast-1.amazonaws.com'>
+
+<!ENTITY apnortheast2-name 'Asia Pacific (Seoul) Region' >
+<!ENTITY region-ap-northeast-2 'Asia Pacific (Seoul)' >
+<!ENTITY apnortheast2-query '&endpoint;.ap-northeast-2.amazonaws.com'>
+
+<!ENTITY apnortheast3-name 'Asia Pacific (Osaka) Region' >
+<!ENTITY region-ap-northeast-3 'Asia Pacific (Osaka)' >
+<!ENTITY apnortheast3-query '&endpoint;.ap-northeast-3.amazonaws.com'>
+
+<!ENTITY apeast1-name 'Asia Pacific (Hong Kong) Region'>
+<!ENTITY region-ap-east-1 'Asia Pacific (Hong Kong)'>
+<!ENTITY apeast1-wsdl-url 'http://&endpoint;.ap-east-1.amazon.aws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY apeast1-query '&endpoint;.ap-east-1.amazonaws.com'>
+
+<!ENTITY apsoutheast1-name 'Asia Pacific (Singapore) Region' >
+<!ENTITY region-ap-southeast-1 'Asia Pacific (Singapore)' >
+<!ENTITY apsoutheast1-wsdl-url 'http://&endpoint;.ap-southeast-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY apsoutheast1-query '&endpoint;.ap-southeast-1.amazonaws.com'>
+
+<!ENTITY apsoutheast2-name 'Asia Pacific (Sydney) Region' >
+<!ENTITY region-ap-southeast-2 'Asia Pacific (Sydney)' >
+<!ENTITY apsoutheast2-wsdl-url 'http://&endpoint;.ap-southeast-2.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY apsoutheast2-query '&endpoint;.ap-southeast-2.amazonaws.com'>
+
+<!ENTITY cacentral1-name 'Canada (Central) Region'>
+<!ENTITY region-ca-central-1 'Canada (Central)'>
+<!ENTITY cacentral1-query '&endpoint;.ca-central-1.amazonaws.com'>
+
+<!ENTITY cnnorth1-name 'China (Beijing) Region' >
+<!ENTITY region-cn-north-1 'China (Beijing)' >
+<!ENTITY cnnorth1-wsdl-url 'http://&endpoint;.cn-north-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY cnnorth1-query '&endpoint;.cn-north-1.amazonaws.com.cn'>
+
+<!ENTITY cnnorthwest1-name 'China (Ningxia) Region'>
+<!ENTITY region-cn-northwest-1 'China (Ningxia)' >
+<!ENTITY cnnorthwest1-wsdl-url 'http://&endpoint;.cn-northwest-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY cnnorthwest1-query '&endpoint;.cn-northwest-1.amazonaws.com.cn'>
+
+<!ENTITY cnall-name 'Beijing and Ningxia Regions'>
+<!ENTITY cnchina-name 'China Regions'>
+<!ENTITY region-cn-all 'Beijing and Ningxia'>
+<!ENTITY region-cn-china 'China'>
+
+<!ENTITY eunorth1-name 'Europe (Stockholm) Region' >
+<!ENTITY region-eu-north-1 'Europe (Stockholm)' >
+<!ENTITY eunorth1-wsdl-url 'http://&endpoint;.eu-north-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY eunorth1-query '&endpoint;.eu-north-1.amazonaws.com'>
+
+<!ENTITY euwest1-name 'Europe (Ireland) Region' >
+<!ENTITY region-eu-west-1 'Europe (Ireland)' >
+<!ENTITY euwest1-wsdl-url 'http://&endpoint;.eu-west-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY euwest1-query '&endpoint;.eu-west-1.amazonaws.com'>
+
+<!ENTITY eucentral1-name 'Europe (Frankfurt) Region' >
+<!ENTITY region-eu-central-1 'Europe (Frankfurt)' >
+<!ENTITY eucentral1-query '&endpoint;.eu-central-1.amazonaws.com'>
+
+<!ENTITY euwest2-name 'Europe (London) Region' >
+<!ENTITY region-eu-west-2 'Europe (London)' >
+<!ENTITY euwest2-query '&endpoint;.eu-west-2.amazonaws.com'>
+
+<!ENTITY eusouth1-name 'Europe (Milan) Region'>
+<!ENTITY region-eu-south-1 'Europe (Milan)'>
+<!ENTITY eusouth1-wsdl-url 'http://&endpoint;.eu-south-1.amazon.aws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY eusouth1-query '&endpoint;.eu-south-1.amazonaws.com'>
+
+<!ENTITY euwest3-name 'Europe (Paris) Region' >
+<!ENTITY region-eu-west-3 'Europe (Paris)' >
+<!ENTITY euwest3-query '&endpoint;.eu-west-3.amazonaws.com'>
+
+<!ENTITY govuswest1-name '&AWS; GovCloud (US-West)' >
+<!ENTITY region-gov-us-west-1 '&AWS; GovCloud (US-West)' >
+<!ENTITY region-us-gov-west-1 '&region-gov-us-west-1;'>
+<!ENTITY govuswest1-query '&endpoint;.us-gov-west-1.amazonaws.com'>
+
+<!ENTITY govuseast1-name '&AWS; GovCloud (US-East)' >
+<!ENTITY region-gov-us-east-1 '&AWS; GovCloud (US-East)' >
+<!ENTITY region-us-gov-east-1 '&region-gov-us-east-1;'>
+<!ENTITY govuseast1-query '&endpoint;.us-gov-east-1.amazonaws.com'>
+
+<!ENTITY mesouth1-name 'Middle East (Bahrain) Region'>
+<!ENTITY region-me-south-1 'Middle East (Bahrain)'>
+<!ENTITY mesouth1-wsdl-url 'http://&endpoint;.me-south-1.amazon.aws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY mesouth1-query '&endpoint;.me-south-1.amazonaws.com'>
+
+<!ENTITY saeast1-name 'South America (S&atilde;o Paulo) Region' >
+<!ENTITY region-sa-east-1 'South America (S&atilde;o Paulo)' >
+<!ENTITY saeast1-wsdl-url 'http://&endpoint;.sa-east-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY saeast1-query '&endpoint;.sa-east-1.amazonaws.com'>
+
+<!ENTITY useast1-name 'US East (N. Virginia) Region' >
+<!ENTITY region-us-east-1 'US East (N. Virginia)'>
+<!ENTITY useast1-wsdl-url 'http://&endpoint;.us-east-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY useast1-query '&endpoint;.us-east-1.amazonaws.com'>
+
+<!ENTITY useast2-name 'US East (Ohio) Region' >
+<!ENTITY region-us-east-2 'US East (Ohio)'>
+<!ENTITY useast2-query '&endpoint;.us-east-2.amazonaws.com'>
+
+<!ENTITY uswest1-name 'US West (N. California) Region' >
+<!ENTITY region-us-west-1 'US West (N. California)' >
+<!ENTITY uswest1-wsdl-url 'http://&endpoint;.us-west-1.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY uswest1-query '&endpoint;.us-west-1.amazonaws.com'>
+
+<!ENTITY uswest2-name 'US West (Oregon) Region' >
+<!ENTITY region-us-west-2 'US West (Oregon)' >
+<!ENTITY uswest2-wsdl-url 'http://&endpoint;.us-west-2.amazonaws.com/doc/&apiversion;/&wsdl-filename;.wsdl'>
+<!ENTITY uswest2-query '&endpoint;.us-west-2.amazonaws.com'>
+
+
+<!ENTITY endpoints-soap-all '
+<table>
+    <tgroup cols="2">
+      <colspec colnum="1" colname="col1" colwidth="1*"/>
+      <colspec colnum="2" colname="col2" colwidth="3*"/>
+      <thead>
+        <row>
+          <entry>Region</entry>
+          <entry>URL</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry colname="col1">&useast1-name;</entry>
+          <entry colname="col2">
+            <ulink url="&useast1-wsdl-url;"
+              >&useast1-wsdl-url;</ulink>
+          </entry>
+        </row>
+        <row>
+          <entry colname="col1">&uswest1-name;</entry>
+          <entry colname="col2">
+            <ulink url="&uswest1-wsdl-url;"
+              >&uswest1-wsdl-url;</ulink>
+          </entry>
+        </row>
+        <row>
+          <entry colname="col1">&euwest1-name;</entry>
+          <entry colname="col2">
+            <ulink
+              url="&euwest1-wsdl-url;"
+              >&euwest1-wsdl-url;</ulink>
+          </entry>
+        </row>
+        <row>
+          <entry colname="col1">&apsoutheast1-name;</entry>
+          <entry colname="col2">
+            <ulink
+              url="&apsoutheast1-wsdl-url;"
+              >&apsoutheast1-wsdl-url;</ulink>
+          </entry>
+        </row>
+        <row>
+          <entry colname="col1">&apnortheast1-name;</entry>
+          <entry colname="col2">
+            <ulink
+              url="&apnortheast1-wsdl-url;"
+              >&apnortheast1-wsdl-url;</ulink>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+'>
+
+<!ENTITY endpoints-query-all '
+<table>
+    <tgroup cols="2">
+      <colspec colnum="1" colname="col1" colwidth="1*"/>
+      <colspec colnum="2" colname="col2" colwidth="3*"/>
+      <thead>
+        <row>
+          <entry>Region</entry>
+          <entry>Endpoint</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry colname="col1">&useast1-name;</entry>
+          <entry colname="col2">&useast1-query;</entry>
+        </row>
+        <row>
+          <entry colname="col1">&uswest1-name;</entry>
+          <entry colname="col2">&uswest1-query;</entry>
+        </row>
+        <row>
+          <entry colname="col1">&euwest1-name;</entry>
+          <entry colname="col2">&euwest1-query;</entry>
+        </row>
+        <row>
+          <entry colname="col1">&apsoutheast1-name;</entry>
+          <entry colname="col2">&apsoutheast1-query;</entry>
+        </row>
+        <!--<row>
+          <entry colname="col1">&apnortheast1-name;</entry>
+          <entry colname="col2">&apnortheast1-query;</entry>
+        </row>-->
+      </tbody>
+    </tgroup>
+  </table>
+'>
+
+
+<!ENTITY default-region
+'<para>If you signed up for an <shared id="AWS-account"/> on or after May 17, 2017, 
+the default Region when you access a resource from the &console; 
+is &region-us-east-2; (us-east-2); for older accounts, the default Region
+is either &region-us-west-2; (us-west-2) or &region-us-east-1; (us-east-1). For more information, see
+<ulink url="&url-aws-gen-endp;">Regions and Endpoints</ulink>.
+</para>'
+>
+

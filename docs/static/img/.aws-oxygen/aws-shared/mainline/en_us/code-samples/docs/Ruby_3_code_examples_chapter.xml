@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="ruby_code_examples" role="topic">
+    <info>
+        <title id="ruby_code_examples.title">&Ruby; code examples</title>
+        <titleabbrev id="ruby_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Rubylong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Rubylong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="ruby_code_examples_categorized" role="topic">
+        <info>
+            <title id="ruby_code_examples_categorized.title">Single-service actions and scenarios using &Ruby;</title>
+            <titleabbrev id="ruby_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Ruby; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Rubylong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="ruby_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="ruby_dynamodb_code_examples.title">&DDB; examples using &Ruby;</title>
+                <titleabbrev id="ruby_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_ruby_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_ruby_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_ruby_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_ruby_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_ruby_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_ruby_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_ruby_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_ruby_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_ruby_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_ruby_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_ruby_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_ruby_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DescribeTable_ruby_topic">
+                        <info>
+                            <title id="dynamodb_DescribeTable_ruby_topic.title">Get information about a table</title>
+                            <titleabbrev id="dynamodb_DescribeTable_ruby_topic.titleabbrev">Get information about a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DescribeTable_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_ruby_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_ruby_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_ruby_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_ruby_topic">
+                        <info>
+                            <title id="dynamodb_Query_ruby_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_ruby_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_ruby_topic">
+                        <info>
+                            <title id="dynamodb_Scan_ruby_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_ruby_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_ruby_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_ruby_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_ruby_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchWriteItem_ruby_topic">
+                        <info>
+                            <title id="dynamodb_BatchWriteItem_ruby_topic.title">Write a batch of items</title>
+                            <titleabbrev id="dynamodb_BatchWriteItem_ruby_topic.titleabbrev">Write a batch of items</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to write a batch of &DDB; items.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchWriteItem_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_Scenario_GettingStartedMovies_ruby_topic">
+                        <info>
+                            <title id="dynamodb_Scenario_GettingStartedMovies_ruby_topic.title">Get started using tables, items, and queries</title>
+                            <titleabbrev id="dynamodb_Scenario_GettingStartedMovies_ruby_topic.titleabbrev">Get started using tables, items, and queries</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a table that can hold movie data.</para></listitem>
+                            <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+                            <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+                            <listitem><para>Query for movies that were released in a given year.</para></listitem>
+                            <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+                            <listitem><para>Delete a movie from the table.</para></listitem>
+                            <listitem><para>Delete the table.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scenario_GettingStartedMovies_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="ruby_eventbridge_code_examples" role="topic">
+            <info>
+                <title id="ruby_eventbridge_code_examples.title">&EV; examples using &Ruby;</title>
+                <titleabbrev id="ruby_eventbridge_code_examples.titleabbrev">&EV;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &EV;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &EV;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EV; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EV; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eventbridge_Scenario_createAndTriggerARule_ruby_topic">
+                        <info>
+                            <title id="eventbridge_Scenario_createAndTriggerARule_ruby_topic.title">Create and trigger a rule</title>
+                            <titleabbrev id="eventbridge_Scenario_createAndTriggerARule_ruby_topic.titleabbrev">Create and trigger a rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create and trigger a rule in &EVlong;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_Scenario_createAndTriggerARule_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="ruby_iam_code_examples" role="topic">
+            <info>
+                <title id="ruby_iam_code_examples.title">&IAM; examples using &Ruby;</title>
+                <titleabbrev id="ruby_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_ruby_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_ruby_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_ruby_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_ruby_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_ruby_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_ruby_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_ruby_topic">
+                        <info>
+                            <title id="iam_CreateRole_ruby_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_ruby_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateServiceLinkedRole_ruby_topic">
+                        <info>
+                            <title id="iam_CreateServiceLinkedRole_ruby_topic.title">Create a service-linked role</title>
+                            <titleabbrev id="iam_CreateServiceLinkedRole_ruby_topic.titleabbrev">Create a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_ruby_topic">
+                        <info>
+                            <title id="iam_CreateUser_ruby_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_ruby_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_ruby_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_ruby_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_ruby_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_PutUserPolicy_ruby_topic">
+                        <info>
+                            <title id="iam_PutUserPolicy_ruby_topic.title">Create an inline policy for a user</title>
+                            <titleabbrev id="iam_PutUserPolicy_ruby_topic.titleabbrev">Create an inline policy for a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an inline &IAM; policy for a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_PutUserPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeletePolicy_ruby_topic">
+                        <info>
+                            <title id="iam_DeletePolicy_ruby_topic.title">Delete a policy</title>
+                            <titleabbrev id="iam_DeletePolicy_ruby_topic.titleabbrev">Delete a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteRole_ruby_topic">
+                        <info>
+                            <title id="iam_DeleteRole_ruby_topic.title">Delete a role</title>
+                            <titleabbrev id="iam_DeleteRole_ruby_topic.titleabbrev">Delete a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRole_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteServiceLinkedRole_ruby_topic">
+                        <info>
+                            <title id="iam_DeleteServiceLinkedRole_ruby_topic.title">Delete a service-linked role</title>
+                            <titleabbrev id="iam_DeleteServiceLinkedRole_ruby_topic.titleabbrev">Delete a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServiceLinkedRole_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_ruby_topic">
+                        <info>
+                            <title id="iam_DeleteUser_ruby_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_ruby_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_ruby_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_ruby_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_ruby_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUserPolicy_ruby_topic">
+                        <info>
+                            <title id="iam_DeleteUserPolicy_ruby_topic.title">Delete an inline policy from a user</title>
+                            <titleabbrev id="iam_DeleteUserPolicy_ruby_topic.titleabbrev">Delete an inline policy from a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an inline &IAM; policy from a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUserPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_ruby_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_ruby_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_ruby_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_ruby_topic">
+                        <info>
+                            <title id="iam_GetPolicy_ruby_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_ruby_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_ruby_topic">
+                        <info>
+                            <title id="iam_GetRole_ruby_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_ruby_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_ruby_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_ruby_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_ruby_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_ruby_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_ruby_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_ruby_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccessKeys_ruby_topic">
+                        <info>
+                            <title id="iam_ListAccessKeys_ruby_topic.title">List a user's access keys</title>
+                            <titleabbrev id="iam_ListAccessKeys_ruby_topic.titleabbrev">List a user's access keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list a user's &IAM; access keys.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_ruby_topic">
+                        <info>
+                            <title id="iam_ListGroups_ruby_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_ruby_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_ruby_topic">
+                        <info>
+                            <title id="iam_ListPolicies_ruby_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_ruby_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_ruby_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_ruby_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_ruby_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_ruby_topic">
+                        <info>
+                            <title id="iam_ListRoles_ruby_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_ruby_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_ruby_topic">
+                        <info>
+                            <title id="iam_ListUsers_ruby_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_ruby_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_ruby_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_ruby_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_ruby_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="ruby_s3_code_examples" role="topic">
+            <info>
+                <title id="ruby_s3_code_examples.title">&S3; examples using &Ruby;</title>
+                <titleabbrev id="ruby_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_PutBucketCors_ruby_topic">
+                        <info>
+                            <title id="s3_PutBucketCors_ruby_topic.title">Add CORS rules to a bucket</title>
+                            <titleabbrev id="s3_PutBucketCors_ruby_topic.titleabbrev">Add CORS rules to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add cross-origin resource sharing (CORS) rules to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketCors_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketPolicy_ruby_topic">
+                        <info>
+                            <title id="s3_PutBucketPolicy_ruby_topic.title">Add a policy to a bucket</title>
+                            <titleabbrev id="s3_PutBucketPolicy_ruby_topic.titleabbrev">Add a policy to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a policy to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_CopyObject_ruby_topic">
+                        <info>
+                            <title id="s3_CopyObject_ruby_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_ruby_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_ruby_topic">
+                        <info>
+                            <title id="s3_CreateBucket_ruby_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_ruby_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketCors_ruby_topic">
+                        <info>
+                            <title id="s3_DeleteBucketCors_ruby_topic.title">Delete CORS rules from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketCors_ruby_topic.titleabbrev">Delete CORS rules from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete CORS rules from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketCors_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketPolicy_ruby_topic">
+                        <info>
+                            <title id="s3_DeleteBucketPolicy_ruby_topic.title">Delete a policy from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketPolicy_ruby_topic.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a policy from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_ruby_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_ruby_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_ruby_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_ruby_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_ruby_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_ruby_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_HeadObject_ruby_topic">
+                        <info>
+                            <title id="s3_HeadObject_ruby_topic.title">Determine the existence and content type of an object</title>
+                            <titleabbrev id="s3_HeadObject_ruby_topic.titleabbrev">Determine the existence and content type of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to determine the existence and content type of an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_HeadObject_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketCors_ruby_topic">
+                        <info>
+                            <title id="s3_GetBucketCors_ruby_topic.title">Get CORS rules for a bucket</title>
+                            <titleabbrev id="s3_GetBucketCors_ruby_topic.titleabbrev">Get CORS rules for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get cross-origin resource sharing (CORS) rules for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketCors_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_ruby_topic">
+                        <info>
+                            <title id="s3_GetObject_ruby_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_ruby_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketPolicy_ruby_topic">
+                        <info>
+                            <title id="s3_GetBucketPolicy_ruby_topic.title">Get the policy for a bucket</title>
+                            <titleabbrev id="s3_GetBucketPolicy_ruby_topic.titleabbrev">Get the policy for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the policy for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListBuckets_ruby_topic">
+                        <info>
+                            <title id="s3_ListBuckets_ruby_topic.title">List buckets</title>
+                            <titleabbrev id="s3_ListBuckets_ruby_topic.titleabbrev">List buckets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &S3; buckets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_ruby_topic">
+                        <info>
+                            <title id="s3_ListObjects_ruby_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_ruby_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketWebsite_ruby_topic">
+                        <info>
+                            <title id="s3_PutBucketWebsite_ruby_topic.title">Set the website configuration for a bucket</title>
+                            <titleabbrev id="s3_PutBucketWebsite_ruby_topic.titleabbrev">Set the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_ruby_topic">
+                        <info>
+                            <title id="s3_PutObject_ruby_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_ruby_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_PresignedUrl_ruby_topic">
+                        <info>
+                            <title id="s3_Scenario_PresignedUrl_ruby_topic.title">Create a presigned URL</title>
+                            <titleabbrev id="s3_Scenario_PresignedUrl_ruby_topic.titleabbrev">Create a presigned URL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a presigned URL for &S3; and upload an object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="s3_Scenario_GettingStarted_ruby_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_ruby_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_ruby_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="ruby_sns_code_examples" role="topic">
+            <info>
+                <title id="ruby_sns_code_examples.title">&SNS; examples using &Ruby;</title>
+                <titleabbrev id="ruby_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CreateTopic_ruby_topic">
+                        <info>
+                            <title id="sns_CreateTopic_ruby_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_ruby_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_ruby_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_ruby_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_ruby_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_ruby_topic">
+                        <info>
+                            <title id="sns_ListTopics_ruby_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_ruby_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_ruby_topic">
+                        <info>
+                            <title id="sns_Publish_ruby_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_ruby_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetTopicAttributes_ruby_topic">
+                        <info>
+                            <title id="sns_SetTopicAttributes_ruby_topic.title">Set topic attributes</title>
+                            <titleabbrev id="sns_SetTopicAttributes_ruby_topic.titleabbrev">Set topic attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set &SNS; topic attributes.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_Ruby.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_ruby_topic">
+                        <info>
+                            <title id="sns_Subscribe_ruby_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_ruby_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="ruby_sts_code_examples" role="topic">
+            <info>
+                <title id="ruby_sts_code_examples.title">&STS; examples using &Ruby;</title>
+                <titleabbrev id="ruby_sts_code_examples.titleabbrev">&STS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rubylong; with &STS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rubylong; with &STS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &STS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &STS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sts_AssumeRole_ruby_topic">
+                        <info>
+                            <title id="sts_AssumeRole_ruby_topic.title">Assume a role</title>
+                            <titleabbrev id="sts_AssumeRole_ruby_topic.titleabbrev">Assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to assume a role with &STS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sts_AssumeRole_Ruby.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</chapter>

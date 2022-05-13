@@ -1,0 +1,7 @@
+    alarmName := flag.String("a", "", "The name of the alarm to disable")
+    flag.Parse()
+
+    if *alarmName == "" {
+        fmt.Println("You must supply an alarm name to disable")
+        return
+    }

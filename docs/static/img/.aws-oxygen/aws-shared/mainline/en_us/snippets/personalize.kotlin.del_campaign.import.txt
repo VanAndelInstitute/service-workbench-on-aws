@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.personalize.PersonalizeClient
+import aws.sdk.kotlin.services.personalize.model.DeleteCampaignRequest
+import kotlin.system.exitProcess

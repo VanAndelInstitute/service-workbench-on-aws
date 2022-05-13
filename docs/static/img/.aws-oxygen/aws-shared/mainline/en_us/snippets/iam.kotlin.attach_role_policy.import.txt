@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.iam.IamClient
+import aws.sdk.kotlin.services.iam.model.AttachRolePolicyRequest
+import aws.sdk.kotlin.services.iam.model.AttachedPolicy
+import aws.sdk.kotlin.services.iam.model.ListAttachedRolePoliciesRequest
+import kotlin.system.exitProcess

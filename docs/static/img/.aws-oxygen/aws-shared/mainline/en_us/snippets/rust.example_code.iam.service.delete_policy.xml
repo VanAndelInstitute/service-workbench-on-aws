@@ -1,0 +1,10 @@
+<programlisting>
+pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iamError> {
+    client
+        .delete_policy()
+        .policy_arn(policy.arn.unwrap())
+        .send()
+        .await?;
+    Ok(())
+}
+</programlisting>

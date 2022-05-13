@@ -1,0 +1,7 @@
+<programlisting>
+    _, err = svc.EnableAlarmActions(&cloudwatch.EnableAlarmActionsInput{
+        AlarmNames: []*string{
+            instanceID,
+        },
+    })
+</programlisting>

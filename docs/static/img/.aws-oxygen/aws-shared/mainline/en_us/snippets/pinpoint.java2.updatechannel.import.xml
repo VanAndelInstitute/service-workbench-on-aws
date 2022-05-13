@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.SMSChannelResponse;
+import software.amazon.awssdk.services.pinpoint.model.GetSmsChannelRequest;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;
+import software.amazon.awssdk.services.pinpoint.model.SMSChannelRequest;
+import software.amazon.awssdk.services.pinpoint.model.UpdateSmsChannelRequest;
+import software.amazon.awssdk.services.pinpoint.model.UpdateSmsChannelResponse;
+</programlisting>

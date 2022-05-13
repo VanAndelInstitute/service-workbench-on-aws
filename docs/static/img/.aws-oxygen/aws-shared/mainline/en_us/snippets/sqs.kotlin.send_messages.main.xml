@@ -1,0 +1,40 @@
+<programlisting>
+suspend fun sendMessages(queueUrlVal: String, message : String) {
+    println("Sending multiple messages")
+    println("\nSend message")
+    val sendRequest = SendMessageRequest {
+        queueUrl = queueUrlVal
+        messageBody = message
+        delaySeconds = 10
+     }
+
+    SqsClient { region = "us-east-1" }.use { sqsClient ->
+        sqsClient.sendMessage(sendRequest)
+        println("A single message was successfully sent.")
+    }
+}
+
+suspend fun sendBatchMessages(queueUrlVal: String?) {
+    println("Sending multiple messages")
+
+    val msg1 = SendMessageBatchRequestEntry {
+         id = "id1"
+         messageBody = "Hello from msg 1"
+    }
+
+    val msg2 = SendMessageBatchRequestEntry {
+          id = "id2"
+          messageBody = "Hello from msg 2"
+    }
+
+    val sendMessageBatchRequest = SendMessageBatchRequest {
+        queueUrl = queueUrlVal
+         entries = listOf(msg1,msg2)
+    }
+
+    SqsClient { region = "us-east-1" }.use { sqsClient ->
+          sqsClient.sendMessageBatch(sendMessageBatchRequest)
+          println("Batch message were successfully sent.")
+    }
+}
+</programlisting>

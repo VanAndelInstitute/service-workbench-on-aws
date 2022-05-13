@@ -1,0 +1,18 @@
+    def describe(self, name):
+        """
+        Gets metadata about an application.
+
+        :param name: The name of the application to look up.
+        :return: Metadata about the application.
+        """
+        try:
+            response = self.analytics_client.describe_application(
+                ApplicationName=name)
+            details = response['ApplicationDetail']
+            self._update_details(details)
+            logger.info("Got metadata for application %s.", name)
+        except ClientError:
+            logger.exception("Couldn't get metadata for application %s.", name)
+            raise
+        else:
+            return details

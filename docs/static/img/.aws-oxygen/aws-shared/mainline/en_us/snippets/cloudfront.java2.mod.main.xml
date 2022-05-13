@@ -1,0 +1,48 @@
+<programlisting>
+ public static void modDistribution(CloudFrontClient cloudFrontClient, String idVal) {
+
+        try {
+
+            // Get the Distribution to modify.
+            GetDistributionRequest disRequest = GetDistributionRequest.builder()
+                    .id(idVal)
+                    .build();
+
+            GetDistributionResponse response = cloudFrontClient.getDistribution(disRequest);
+            Distribution disObject = response.distribution();
+            DistributionConfig config = disObject.distributionConfig();
+
+            // Create a new  DistributionConfig object and add new values to comment and aliases
+            DistributionConfig config1 = DistributionConfig.builder()
+                    .aliases(config.aliases()) // You can pass in new values here
+                    .comment("New Comment")
+                    .cacheBehaviors(config.cacheBehaviors())
+                    .priceClass(config.priceClass())
+                    .defaultCacheBehavior(config.defaultCacheBehavior())
+                    .enabled(config.enabled())
+                    .callerReference(config.callerReference())
+                    .logging(config.logging())
+                    .originGroups(config.originGroups())
+                    .origins(config.origins())
+                    .restrictions(config.restrictions())
+                    .defaultRootObject(config.defaultRootObject())
+                    .webACLId(config.webACLId())
+                    .httpVersion(config.httpVersion())
+                    .viewerCertificate(config.viewerCertificate())
+                    .customErrorResponses(config.customErrorResponses())
+                    .build();
+
+             UpdateDistributionRequest updateDistributionRequest = UpdateDistributionRequest.builder()
+                    .distributionConfig(config1)
+                    .id(disObject.id())
+                    .ifMatch(response.eTag())
+                    .build();
+
+            cloudFrontClient.updateDistribution(updateDistributionRequest);
+
+        } catch (CloudFrontException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+   }
+</programlisting>

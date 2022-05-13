@@ -1,0 +1,19 @@
+<programlisting>
+    def get_job_run(self, name, run_id):
+        """
+        Gets information about a single job run.
+
+        :param name: The name of the job definition for the run.
+        :param run_id: The ID of the run.
+        :return: Information about the run.
+        """
+        try:
+            response = self.glue_client.get_job_run(JobName=name, RunId=run_id)
+        except ClientError as err:
+            logger.error(
+                "Couldn't get job run %s/%s. Here's why: %s: %s", name, run_id,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['JobRun']
+</programlisting>

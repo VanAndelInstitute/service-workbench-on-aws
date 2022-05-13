@@ -1,0 +1,10 @@
+    tableName := flag.String("t", "", "The name of the table")
+    minRating := flag.Float64("r", -1.0, "The minimum rating of the movies to retrieve")
+    year := flag.Int("y", -1, "The year the movies to retrieve were released")
+    flag.Parse()
+
+    if *tableName == "" || *minRating < 0.0 || *year < 0 {
+        fmt.Println("You must supply a table name, minimum rating of 0.0, and year > 0 but < 2020")
+        fmt.Println("(-t TABLE -r RATING -y YEAR)")
+        return
+    }

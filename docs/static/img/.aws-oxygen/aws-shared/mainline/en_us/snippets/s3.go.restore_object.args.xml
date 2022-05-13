@@ -1,0 +1,11 @@
+<programlisting>
+    bucket := flag.String("b", "", "The bucket to which the object is restored")
+    item := flag.String("i", "", "The object to restore")
+    days := flag.Int64("d", 30, "The number of days to restore it from Glacier")
+    flag.Parse()
+
+    if *bucket == "" || *item == "" {
+        fmt.Println("You must supply the bucket (-b BUCKET), and item to restore (-i ITEM")
+        return
+    }
+</programlisting>

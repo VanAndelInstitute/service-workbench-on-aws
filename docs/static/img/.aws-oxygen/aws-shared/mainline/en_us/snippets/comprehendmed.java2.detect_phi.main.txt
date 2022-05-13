@@ -1,0 +1,21 @@
+    public static void detectPHIValues(ComprehendMedicalClient medClient, String text ) {
+
+        try {
+            DetectPhiRequest detectRequest = DetectPhiRequest.builder()
+                    .text(text)
+                    .build();
+
+            DetectPhiResponse detectResult = medClient.detectPHI(detectRequest);
+            List<Entity> entList = detectResult.entities();
+            Iterator<Entity> lanIterator = entList.iterator();
+
+            while (lanIterator.hasNext()) {
+                Entity entity = lanIterator.next();
+                System.out.println("Entity text is " + entity.text());
+            }
+
+        } catch (ComprehendMedicalException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

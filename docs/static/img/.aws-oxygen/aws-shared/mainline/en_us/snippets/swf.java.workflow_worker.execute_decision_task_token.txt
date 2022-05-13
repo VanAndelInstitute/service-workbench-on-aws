@@ -1,0 +1,6 @@
+        List<Decision> decisions = new ArrayList<Decision>();
+        String workflow_input = null;
+        int scheduled_activities = 0;
+        int open_activities = 0;
+        boolean activity_completed = false;
+        String result = null;

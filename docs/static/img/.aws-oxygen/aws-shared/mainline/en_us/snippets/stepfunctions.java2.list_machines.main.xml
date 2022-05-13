@@ -1,0 +1,17 @@
+<programlisting>
+    public static void listMachines(SfnClient sfnClient) {
+
+        try {
+        ListStateMachinesResponse response = sfnClient.listStateMachines();
+        List<StateMachineListItem> machines = response.stateMachines();
+        for (StateMachineListItem machine :machines) {
+            System.out.println("The name of the state machine is: "+machine.name());
+            System.out.println("The ARN value is : "+machine.stateMachineArn());
+        }
+
+        } catch (SfnException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

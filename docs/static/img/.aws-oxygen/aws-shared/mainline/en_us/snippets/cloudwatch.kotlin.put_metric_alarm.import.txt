@@ -1,0 +1,7 @@
+import aws.sdk.kotlin.services.cloudwatch.CloudWatchClient
+import aws.sdk.kotlin.services.cloudwatch.model.Dimension
+import aws.sdk.kotlin.services.cloudwatch.model.PutMetricAlarmRequest
+import aws.sdk.kotlin.services.cloudwatch.model.ComparisonOperator
+import aws.sdk.kotlin.services.cloudwatch.model.StandardUnit
+import aws.sdk.kotlin.services.cloudwatch.model.Statistic
+import kotlin.system.exitProcess

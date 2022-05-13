@@ -1,0 +1,4 @@
+<programlisting>
+import aws.sdk.kotlin.services.comprehend.ComprehendClient
+import aws.sdk.kotlin.services.comprehend.model.DetectDominantLanguageRequest
+</programlisting>

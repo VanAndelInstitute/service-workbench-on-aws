@@ -1,0 +1,15 @@
+    public static void listAllClusters(EcsClient ecsClient) {
+
+        try {
+
+            ListClustersResponse response = ecsClient.listClusters();
+            List<String> clusters = response.clusterArns();
+            for (String cluster: clusters) {
+                System.out.println("The cluster arn is "+cluster);
+            }
+
+        } catch (EcsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

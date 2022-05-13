@@ -1,0 +1,16 @@
+<programlisting>
+    public function listAttachedRolePolicies($roleName, $pathPrefix = "", $marker = "", $maxItems = 0)
+    {
+        $listAttachRolePoliciesArguments = ['RoleName' => $roleName];
+        if ($pathPrefix) {
+            $listAttachRolePoliciesArguments['PathPrefix'] = $pathPrefix;
+        }
+        if ($marker) {
+            $listAttachRolePoliciesArguments['Marker'] = $marker;
+        }
+        if ($maxItems) {
+            $listAttachRolePoliciesArguments['MaxItems'] = $maxItems;
+        }
+        return $this->iamClient->listAttachedRolePolicies($listAttachRolePoliciesArguments);
+    }
+</programlisting>

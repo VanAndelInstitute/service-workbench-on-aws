@@ -1,0 +1,8 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.opensearch.OpenSearchClient;
+import software.amazon.awssdk.services.opensearch.model.DomainInfo;
+import software.amazon.awssdk.services.opensearch.model.ListDomainNamesRequest;
+import software.amazon.awssdk.services.opensearch.model.ListDomainNamesResponse;
+import software.amazon.awssdk.services.opensearch.model.OpenSearchException;
+</programlisting>

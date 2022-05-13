@@ -1,0 +1,36 @@
+$SesClient = new Aws\Ses\SesClient([
+    'profile' => 'default',
+    'version' => '2010-12-01',
+    'region' => 'us-east-2'
+]);
+
+$rule_name = 'Rule_Name';
+$rule_set_name = 'Rule_Set_Name';
+$s3_bucket = 'Bucket_Name';
+
+try {
+    $result = $SesClient->createReceiptRule([
+        'Rule' => [
+            'Actions' => [
+                [
+                    'S3Action' => [
+                        'BucketName' => $s3_bucket,
+                    ],
+                ],
+            ],
+            'Name' => $rule_name,
+            'ScanEnabled' => true,
+            'TlsPolicy' => 'Optional',
+            'Recipients' => ['<string>', ...]
+        ],
+        'RuleSetName' =>  $rule_set_name,
+        
+     ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 

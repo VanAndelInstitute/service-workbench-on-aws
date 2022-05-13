@@ -1,0 +1,28 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Amazon.Glacier;
+    using Amazon.Glacier.Model;
+
+    public class AddTagsToVaule
+    {
+        public static async Task Main(string[] args)
+        {
+            string vaultName = "example-vault";
+
+            var client = new AmazonGlacierClient();
+            var request = new AddTagsToVaultRequest
+            {
+                Tags = new Dictionary<string, string>
+                {
+                    { "examplekey1", "examplevalue1" },
+                    { "examplekey2", "examplevalue2" },
+                },
+                AccountId = "-",
+                VaultName = vaultName,
+            };
+
+            var response = await client.AddTagsToVaultAsync(request);
+        }
+    }
+

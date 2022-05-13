@@ -1,0 +1,56 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/sts"
+    "github.com/aws/aws-sdk-go/service/sts/stsiface"
+)
+
+// TakeRole gets temporary security credentials to access resources
+// Inputs:
+//     svc is an AWS STS service client
+//     roleARN is the Amazon Resource Name (ARN) of the role to assume
+//     sessionName is a unique identifier for the session
+// Output:
+//     If success, information about the assumed role and nil
+//     Otherwise, nil and an error from the call to AssumeRole
+func TakeRole(svc stsiface.STSAPI, roleARN, sessionName *string) (*sts.AssumeRoleOutput, error) {
+    result, err := svc.AssumeRole(&sts.AssumeRoleInput{
+        RoleArn:         roleARN,
+        RoleSessionName: sessionName,
+    })
+
+    return result, err
+}
+
+func main() {
+    roleARN := flag.String("r", "", "The Amazon Resource Name (ARN) of the role to assume")
+    sessionName := flag.String("s", "", "A unique identifier for the session")
+
+    if *roleARN == "" || *sessionName == "" {
+        fmt.Println("You must supply a role ARN and session name")
+        fmt.Println("-r ROLE-ARN -S SESSION-NAME")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := sts.New(sess)
+
+    result, err := TakeRole(svc, roleARN, sessionName)
+    if err != nil {
+        fmt.Println("Got an error assuming the role:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println(result.AssumedRoleUser)
+    // credentials := *result.Credentials
+}
+</programlisting>

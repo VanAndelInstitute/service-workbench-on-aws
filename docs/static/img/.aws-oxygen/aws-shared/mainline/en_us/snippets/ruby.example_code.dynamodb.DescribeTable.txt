@@ -1,0 +1,19 @@
+  # Determines whether a table exists. As a side effect, stores the table in
+  # a member variable.
+  #
+  # @param table_name [String] The name of the table to check.
+  # @return [Boolean] True when the table exists; otherwise, False.
+  def exists?(table_name)
+    table = Aws::DynamoDB::Table.new(table_name)
+    table.load
+    @table = table
+  rescue Aws::DynamoDB::Errors::ResourceNotFoundException
+    puts("Table #{table_name} doesn't exist. Let's create it.")
+    false
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't check for existence of #{table_name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    !@table.nil?
+  end

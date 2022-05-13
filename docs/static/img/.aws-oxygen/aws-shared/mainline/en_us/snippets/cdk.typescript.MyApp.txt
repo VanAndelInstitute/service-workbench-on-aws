@@ -1,0 +1,18 @@
+import * as core from "@aws-cdk/core";
+import { MyStack } from "../lib/MyApp-stack";
+
+const app = new core.App();
+
+new MyStack(app, "MyWestCdkStack", {
+  env: {
+    region: "us-west-2"
+  },
+  enc: false
+});
+
+new MyStack(app, "MyEastCdkStack", {
+  env: {
+    region: "us-east-1"
+  },
+  enc: true
+});

@@ -1,0 +1,20 @@
+<programlisting>
+    func createIdentityPool(name: String) async throws -> String? {
+        let cognitoInputCall = CreateIdentityPoolInput(developerProviderName: "com.exampleco.CognitoIdentityDemo",
+                                                       identityPoolName: name)
+
+        do {
+            let result = try await cognitoIdentityClient.createIdentityPool(input: cognitoInputCall)
+            guard let poolId = result.identityPoolId  else {
+                return nil
+            }
+            
+            return poolId
+            
+        } catch {
+            print("ERROR: ", dump(error, name: "Error attempting to create the identity pool"))
+        }
+        
+        return nil
+    }
+</programlisting>

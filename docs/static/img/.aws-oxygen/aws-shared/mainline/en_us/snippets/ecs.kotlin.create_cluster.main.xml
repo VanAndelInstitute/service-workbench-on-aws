@@ -1,0 +1,23 @@
+<programlisting>
+suspend fun createGivenCluster(clusterNameVal: String?): String? {
+
+        val commandConfiguration = ExecuteCommandConfiguration {
+            logging = ExecuteCommandLogging.Default
+        }
+
+        val clusterConfiguration = ClusterConfiguration {
+            executeCommandConfiguration = commandConfiguration
+        }
+
+        val request = CreateClusterRequest {
+            clusterName = clusterNameVal
+            configuration = clusterConfiguration
+        }
+
+        EcsClient { region = "us-east-1" }.use { ecsClient ->
+         val response = ecsClient.createCluster(request)
+         return response.cluster?.clusterArn
+    }
+}
+
+</programlisting>

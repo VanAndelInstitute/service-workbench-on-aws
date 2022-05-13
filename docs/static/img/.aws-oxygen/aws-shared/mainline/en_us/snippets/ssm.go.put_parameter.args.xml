@@ -1,0 +1,26 @@
+<programlisting>
+	parameterName := flag.String("n", "", "The name of the parameter")
+	parameterValue := flag.String("v", "", "The value of the parameter")
+	parameterType := flag.String("t", "", "The type of the parameter")
+	flag.Parse()
+
+	if *parameterName == "" {
+		fmt.Println("You must supply the name of the parameter")
+		fmt.Println("-n NAME")
+		return
+	}
+
+	if *parameterValue == "" {
+		fmt.Println("You must supply the value of the parameter")
+		fmt.Println("-v VALUE")
+		return
+	}
+
+	if *parameterType == "" || (*parameterType != ssm.ParameterTypeString && *parameterType != ssm.ParameterTypeStringList && *parameterType != ssm.ParameterTypeSecureString) {
+		fmt.Println("You must supply one of the listed value for Type (String,StringList,SecureString)")
+		fmt.Println("-t TYPE")
+		return
+	}
+
+
+</programlisting>

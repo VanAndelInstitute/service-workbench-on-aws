@@ -1,0 +1,1 @@
+    fmt.Println("Deleted key pair")

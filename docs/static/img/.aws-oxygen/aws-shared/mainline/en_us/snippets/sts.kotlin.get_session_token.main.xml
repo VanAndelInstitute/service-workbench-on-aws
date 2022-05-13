@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun getToken() {
+
+    val request = GetSessionTokenRequest{
+        durationSeconds = 1500
+    }
+
+    StsClient { region = "us-east-1" }.use { stsClient ->
+        val tokenResponse = stsClient.getSessionToken(request)
+        println("The token value is ${tokenResponse.credentials?.sessionToken}")
+    }
+}
+</programlisting>

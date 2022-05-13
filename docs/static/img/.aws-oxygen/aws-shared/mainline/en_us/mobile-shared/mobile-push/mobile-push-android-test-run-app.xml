@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-test-run-app" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to run the push messaging-enabled &AMHlong; quickstart app in
+                Android Studio, and send it a push notification using &SNS;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-test-run-app.title">Run a Push Messaging-Enabled &AMHlong; App
+        for Android</title>
+    <titleabbrev id="mobile-push-android-test-run-app.titleabbrev">Run the App</titleabbrev>
+    <para>In this topic, you run a push messaging-enabled app that you created with &AMHlong; on an
+        Android virtual device.</para>
+    <section id="mobile-push-android-run-app-prerequisites">
+        <sectioninfo>
+            <abstract>
+                <para>Describes prerequisites you need to run the push messaging-enabled &AMHlong;
+                    quickstart app in Android Studio, and send it a push notification using
+                    &SNS;.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-run-app-prerequisites.title">Prerequisites</title>
+        <para>We assume that you have already generated the quickstart app code using the &AMHlong;
+            console, downloaded the code to your computer, built the project in Android Studio, and
+            created a virtual device. </para>
+    </section>
+    <section id="mobile-push-android-run-app-steps">
+        <sectioninfo>
+            <abstract>
+                <para>Describes how to run the push messaging-enabled &AMHlong; quickstart app on an
+                    Android virtual device.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-run-app-steps.title">Steps</title>
+        <para>The following procedure shows how to run the app on the virtual device. In the
+            procedure, you start the virtual device, put the app on the device, and then open the
+            app.</para>
+        <procedure>
+            <title>To run the app on the device</title>
+            <step>
+                <para>In Android Studio, open the project that contains the &AMHlong; quickstart app
+                    that you built.</para>
+            </step>
+            <step>
+                <para>From the <guilabel>Tools</guilabel> menu, choose <guilabel>Android</guilabel>,
+                    and then choose <guilabel>AVD Manager</guilabel>.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-virtual-device-avd-manager.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>In the <guilabel>Your Virtual Devices</guilabel> window, go to the virtual
+                    device you created, and choose the play button.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-start-device.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+                <para>The virtual device will appear.</para>
+            </step>
+            <step>
+                <para>Wait for the virtual device to display the home screen.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-home-screen.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>In Android Studio, from the <guilabel>Run</guilabel> menu, choose
+                        <guilabel>Run app</guilabel>.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-run-menu.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>In the <guilabel>Select Deployment Target</guilabel> window, choose the
+                    virtual device that is running, and then choose <guilabel>OK</guilabel>.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-select-target.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+                <para>Although it might not be evident on the home screen of the device, the app is
+                    being installed on the device.</para>
+            </step>
+            <step>
+                <para>On the device, navigate to the app list. On a Nexus 6 device, you can get to
+                    the app list by choosing the large, white button.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-app-button.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>From the app list, choose <guilabel>My Sample App</guilabel>.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-app-list.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+                <para>The sample app appears. The device is ready to receive push notifications.
+                    (You do not need to choose <guilabel>Push Notifications</guilabel> to prepare
+                    the device to receive notifications, unless you want to experiment with enabling
+                    and disabling topic subscriptions.)</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-home-screen.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+        </procedure>
+    </section>
+</section>

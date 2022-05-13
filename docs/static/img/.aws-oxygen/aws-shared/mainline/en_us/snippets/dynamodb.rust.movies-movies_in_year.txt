@@ -1,0 +1,8 @@
+fn movies_in_year(client: &Client, table_name: &str, year: u16) -> Query {
+    client
+        .query()
+        .table_name(table_name)
+        .key_condition_expression("#yr = :yyyy")
+        .expression_attribute_names("#yr", "year")
+        .expression_attribute_values(":yyyy", AttributeValue::N(year.to_string()))
+}

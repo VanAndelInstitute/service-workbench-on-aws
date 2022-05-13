@@ -1,0 +1,30 @@
+<programlisting>
+    public static void getSpecificPipeline(CodePipelineClient pipelineClient, String name) {
+
+
+        try {
+            GetPipelineRequest pipelineRequest = GetPipelineRequest.builder()
+                .name(name)
+                .version(1)
+                .build();
+
+            GetPipelineResponse response = pipelineClient.getPipeline(pipelineRequest);
+            List<StageDeclaration> stages = response.pipeline().stages();
+
+            for (StageDeclaration stage: stages) {
+                System.out.println("Stage name is " + stage.name() + " and actions are:");
+
+                //Get the stage actions
+                List<ActionDeclaration> actions = stage.actions();
+                for (ActionDeclaration action : actions) {
+                    System.out.println("Action name is " + action.name());
+                    System.out.println("Action type id is " + action.actionTypeId());
+                }
+            }
+
+        } catch (CodePipelineException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

@@ -1,0 +1,10 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.firehose.FirehoseClient;
+import software.amazon.awssdk.services.firehose.model.Record;
+import software.amazon.awssdk.services.firehose.model.PutRecordBatchRequest;
+import software.amazon.awssdk.services.firehose.model.PutRecordBatchResponse;
+import software.amazon.awssdk.services.firehose.model.FirehoseException;
+import software.amazon.awssdk.services.firehose.model.PutRecordBatchResponseEntry;
+import software.amazon.awssdk.core.SdkBytes;
+import java.util.ArrayList;
+import java.util.List;

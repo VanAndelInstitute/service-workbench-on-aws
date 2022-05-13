@@ -1,0 +1,10 @@
+try {
+    $s3client->createBucket([
+        'Bucket' => $bucket_name,
+        'CreateBucketConfiguration' => ['LocationConstraint' => $region],
+    ]);
+    echo "Created bucket named: $bucket_name \n";
+} catch (Exception $exception) {
+    echo "Failed to create bucket $bucket_name with error: " . $exception->getMessage();
+    exit("Please fix error with bucket creation before continuing.");
+}

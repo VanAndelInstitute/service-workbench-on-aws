@@ -1,0 +1,26 @@
+<programlisting>
+$client = new IamClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2010-05-08'
+]);
+
+try {
+    $result = $client->createAccessKey([
+        'UserName' => 'IAM_USER_NAME',
+    ]);
+    $keyID = $result['AccessKey']['AccessKeyId'];
+    $createDate = $result['AccessKey']['CreateDate'];
+    $userName = $result['AccessKey']['UserName'];
+    $status = $result['AccessKey']['Status'];
+    // $secretKey = $result['AccessKey']['SecretAccessKey']
+    echo "<p>AccessKey " . $keyID . " created on " . $createDate . "</p>";
+    echo "<p>Username: " . $userName . "</p>";
+    echo "<p>Status: " . $status . "</p>";
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 
+</programlisting>

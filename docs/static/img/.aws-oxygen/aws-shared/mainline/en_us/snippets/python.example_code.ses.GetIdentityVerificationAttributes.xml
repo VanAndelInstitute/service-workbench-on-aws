@@ -1,0 +1,21 @@
+<programlisting>
+    def get_identity_status(self, identity):
+        """
+        Gets the status of an identity. This can be used to discover whether
+        an identity has been successfully verified.
+
+        :param identity: The identity to query.
+        :return: The status of the identity.
+        """
+        try:
+            response = self.ses_client.get_identity_verification_attributes(
+                Identities=[identity])
+            status = response['VerificationAttributes'].get(
+                identity, {'VerificationStatus': 'NotFound'})['VerificationStatus']
+            logger.info("Got status of %s for %s.", status, identity)
+        except ClientError:
+            logger.exception("Couldn't get status for %s.", identity)
+            raise
+        else:
+            return status
+</programlisting>

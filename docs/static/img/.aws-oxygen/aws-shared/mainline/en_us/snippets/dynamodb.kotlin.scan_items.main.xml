@@ -1,0 +1,18 @@
+<programlisting>
+suspend fun scanItems(tableNameVal: String) {
+
+    val request = ScanRequest {
+        tableName = tableNameVal
+    }
+
+    DynamoDbClient { region = "us-east-1" }.use { ddb ->
+            val response = ddb.scan(request)
+            response.items?.forEach { item ->
+                 item.keys.forEach { key ->
+                     println("The key name is $key\n")
+                     println("The value is ${item[key]}")
+                }
+            }
+        }
+ }
+</programlisting>

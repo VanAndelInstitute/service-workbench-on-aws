@@ -1,0 +1,10 @@
+<programlisting>
+    public function deleteUser($userName)
+    {
+        return $this->customWaiter(function () use ($userName) {
+            return $this->iamClient->deleteUser([
+                'UserName' => $userName,
+            ]);
+        });
+    }
+</programlisting>

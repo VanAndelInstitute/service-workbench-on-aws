@@ -1,0 +1,33 @@
+<programlisting>
+
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+using System;
+
+var client = new AmazonIdentityManagementServiceClient();
+
+var request = new ListPoliciesRequest
+{
+    MaxItems = 10,
+};
+
+var response = new ListPoliciesResponse();
+
+do
+{
+    response = await client.ListPoliciesAsync(request);
+    response.Policies.ForEach(policy =>
+    {
+        Console.Write($"{policy.PolicyName} ");
+        Console.Write($"with ID: {policy.PolicyId} ");
+        Console.Write($"and ARN: {policy.Arn}. ");
+        Console.WriteLine($"It was created on {policy.CreateDate}.");
+    });
+
+    if (response.IsTruncated)
+    {
+        request.Marker = response.Marker;
+    }
+} while (response.IsTruncated);
+
+</programlisting>

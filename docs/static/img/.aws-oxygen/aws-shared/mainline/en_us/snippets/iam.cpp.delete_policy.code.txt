@@ -1,0 +1,15 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::DeletePolicyRequest request;
+        request.SetPolicyArn(policy_arn);
+
+        auto outcome = iam.DeletePolicy(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error deleting policy with arn " << policy_arn << ": "
+                << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted policy with arn " << policy_arn
+                << std::endl;
+        }

@@ -1,0 +1,12 @@
+<programlisting>
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions',
+    'batch_config' => [
+        'before' => function ($command) {
+            $command['@http']['delay'] = 5000;
+        }
+    ]
+]);
+
+$sessionHandler->garbageCollect();
+</programlisting>

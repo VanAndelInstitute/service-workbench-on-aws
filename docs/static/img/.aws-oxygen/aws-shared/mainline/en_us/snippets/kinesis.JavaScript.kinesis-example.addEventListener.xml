@@ -1,0 +1,35 @@
+<programlisting>
+    // Get the ID of the Web page element.
+    var blogContent = document.getElementById('BlogContent');
+
+    // Get Scrollable height
+    var scrollableHeight = blogContent.clientHeight;
+
+    var recordData = [];
+    var TID = null;
+    blogContent.addEventListener('scroll', function(event) {
+        clearTimeout(TID);
+        // Prevent creating a record while a user is actively scrolling
+        TID = setTimeout(function() {
+            // calculate percentage
+            var scrollableElement = event.target;
+            var scrollHeight = scrollableElement.scrollHeight;
+            var scrollTop = scrollableElement.scrollTop;
+
+            var scrollTopPercentage = Math.round((scrollTop / scrollHeight) * 100);
+            var scrollBottomPercentage = Math.round(((scrollTop + scrollableHeight) / scrollHeight) * 100);
+
+            // Create the Amazon Kinesis record
+            var record = {
+                Data: JSON.stringify({
+                    blog: window.location.href,
+                    scrollTopPercentage: scrollTopPercentage,
+                    scrollBottomPercentage: scrollBottomPercentage,
+                    time: new Date()
+                }),
+                PartitionKey: 'partition-' + AWS.config.credentials.identityId
+            };
+            recordData.push(record);
+        }, 100);
+    });
+</programlisting>

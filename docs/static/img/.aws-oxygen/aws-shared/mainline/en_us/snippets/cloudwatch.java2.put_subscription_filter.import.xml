@@ -1,0 +1,6 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;
+import software.amazon.awssdk.services.cloudwatchlogs.model.CloudWatchLogsException;
+import software.amazon.awssdk.services.cloudwatchlogs.model.PutSubscriptionFilterRequest;
+</programlisting>

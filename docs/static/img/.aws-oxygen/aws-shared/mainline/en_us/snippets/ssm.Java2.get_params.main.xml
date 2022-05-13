@@ -1,0 +1,26 @@
+<programlisting>
+        public static void describeParams(SsmClient ssmClient) {
+
+            try {
+                // Create a DescribeParametersRequest object
+                DescribeParametersRequest desRequest = DescribeParametersRequest.builder()
+                    .maxResults(10)
+                    .build();
+
+                // Get SSM Parameters (you can define them in the AWS Console)
+                DescribeParametersResponse desResponse = ssmClient.describeParameters(desRequest);
+
+                List<ParameterMetadata> params = desResponse.parameters();
+
+                //Iterate through the list
+                Iterator<ParameterMetadata> paramIterator = params.iterator();
+                while(paramIterator.hasNext()) {
+                    ParameterMetadata paraMeta = paramIterator.next();
+                    System.out.println(paraMeta.name());
+                    System.out.println(paraMeta.description());
+                }
+            } catch (SsmException e) {
+                e.getStackTrace();
+            }
+        }
+</programlisting>

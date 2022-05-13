@@ -1,0 +1,21 @@
+$client = new IamClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2010-05-08'
+]);
+
+try {
+    $result = $client->createLoginProfile(array(
+        // UserName is required
+        'UserName' => 'string',
+        // Password is required
+        'Password' => 'string',
+        'PasswordResetRequired' => false,
+    ));
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 

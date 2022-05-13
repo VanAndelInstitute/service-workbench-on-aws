@@ -1,0 +1,3 @@
+<programlisting>
+    file, err := os.Open(*filename)
+</programlisting>

@@ -1,0 +1,4 @@
+import aws.sdk.kotlin.services.opensearch.OpenSearchClient
+import aws.sdk.kotlin.services.opensearch.model.ClusterConfig
+import aws.sdk.kotlin.services.opensearch.model.UpdateDomainConfigRequest
+import kotlin.system.exitProcess

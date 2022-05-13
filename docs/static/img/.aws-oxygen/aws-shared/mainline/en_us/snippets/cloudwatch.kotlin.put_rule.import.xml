@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.cloudwatchevents.CloudWatchEventsClient
+import aws.sdk.kotlin.services.cloudwatchevents.model.PutRuleRequest
+import aws.sdk.kotlin.services.cloudwatchevents.model.RuleState
+import kotlin.system.exitProcess
+</programlisting>

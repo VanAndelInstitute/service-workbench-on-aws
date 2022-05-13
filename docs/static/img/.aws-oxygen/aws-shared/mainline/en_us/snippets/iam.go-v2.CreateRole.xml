@@ -1,0 +1,27 @@
+<programlisting>
+	// CreateRole
+	myRole, err := service.CreateRole(context.Background(), &iam.CreateRoleInput{
+		RoleName:    aws.String(ExampleRoleName),
+		Description: aws.String("My super awesome example role"),
+		AssumeRolePolicyDocument: aws.String(`{
+			"Version": "2012-10-17",
+			"Statement": [
+			  {
+				"Effect": "Allow",
+				"Principal": {
+				  "Service": "ec2.amazonaws.com"
+				},
+				"Action": "sts:AssumeRole"
+			  }
+			]
+		  }`),
+	})
+
+	if err != nil {
+		panic("Couldn't create role: " + err.Error())
+	}
+
+	fmt.Println("☑️ Create Role")
+	fmt.Printf("The new role's ARN is %s \n", *myRole.Role.Arn)
+
+</programlisting>

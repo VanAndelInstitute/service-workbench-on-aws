@@ -1,0 +1,19 @@
+    public static void displayGrantIds(KmsClient kmsClient, String keyId) {
+
+     try {
+        ListGrantsRequest grantsRequest = ListGrantsRequest.builder()
+                .keyId(keyId)
+                .limit(15)
+                .build();
+
+        ListGrantsResponse response = kmsClient.listGrants(grantsRequest);
+        List<GrantListEntry> grants = response.grants();
+        for ( GrantListEntry grant: grants) {
+            System.out.println("The grant Id is : "+grant.grantId());
+        }
+
+     } catch (KmsException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }

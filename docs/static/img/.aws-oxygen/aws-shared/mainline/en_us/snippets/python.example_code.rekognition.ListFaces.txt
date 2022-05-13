@@ -1,0 +1,19 @@
+    def list_faces(self, max_results):
+        """
+        Lists the faces currently indexed in the collection.
+
+        :param max_results: The maximum number of faces to return.
+        :return: The list of faces in the collection.
+        """
+        try:
+            response = self.rekognition_client.list_faces(
+                CollectionId=self.collection_id, MaxResults=max_results)
+            faces = [RekognitionFace(face) for face in response['Faces']]
+            logger.info(
+                "Found %s faces in collection %s.", len(faces), self.collection_id)
+        except ClientError:
+            logger.exception(
+                "Couldn't list faces in collection %s.", self.collection_id)
+            raise
+        else:
+            return faces

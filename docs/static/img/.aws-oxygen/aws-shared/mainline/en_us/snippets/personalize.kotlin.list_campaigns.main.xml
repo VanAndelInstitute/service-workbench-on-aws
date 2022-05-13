@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun listAllCampaigns(solutionArnVal: String?) {
+
+        val request = ListCampaignsRequest {
+            maxResults =10
+            solutionArn = solutionArnVal
+        }
+        PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+            val response = personalizeClient.listCampaigns(request)
+            response.campaigns?.forEach { campaign ->
+                    println("Campaign name is ${campaign.name}")
+                    println("Campaign ARN is ${campaign.campaignArn}")
+            }
+        }
+}
+</programlisting>

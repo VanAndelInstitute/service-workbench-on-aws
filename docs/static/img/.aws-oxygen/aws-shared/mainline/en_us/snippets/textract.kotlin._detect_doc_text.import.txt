@@ -1,0 +1,6 @@
+import aws.sdk.kotlin.services.textract.TextractClient
+import aws.sdk.kotlin.services.textract.model.Document
+import aws.sdk.kotlin.services.textract.model.DetectDocumentTextRequest
+import java.io.File
+import java.io.FileInputStream
+import kotlin.system.exitProcess

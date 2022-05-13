@@ -1,0 +1,53 @@
+<programlisting>
+    public static String createEventTracker(PersonalizeClient personalizeClient, String eventTrackerName, String datasetGroupArn) {
+        
+        String eventTrackerId = "";
+        String eventTrackerArn;
+        long maxTime = 3 * 60 * 60; // 3 hours
+        long waitInMilliseconds = 20 * 1000; // 20 seconds
+        String status;
+        
+        try {
+
+            CreateEventTrackerRequest createEventTrackerRequest = CreateEventTrackerRequest.builder()
+                .name(eventTrackerName)
+                .datasetGroupArn(datasetGroupArn)
+                .build();
+           
+            CreateEventTrackerResponse createEventTrackerResponse = personalizeClient.createEventTracker(createEventTrackerRequest);
+            
+            eventTrackerArn = createEventTrackerResponse.eventTrackerArn();
+            eventTrackerId = createEventTrackerResponse.trackingId();
+            System.out.println("Event tracker ARN: " + eventTrackerArn);
+            System.out.println("Event tracker ID: " + eventTrackerId);
+
+            maxTime = Instant.now().getEpochSecond() + maxTime;
+
+            DescribeEventTrackerRequest describeRequest = DescribeEventTrackerRequest.builder()
+                .eventTrackerArn(eventTrackerArn)
+                .build();
+
+            
+            while (Instant.now().getEpochSecond() < maxTime) {
+
+                status = personalizeClient.describeEventTracker(describeRequest).eventTracker().status();
+                System.out.println("EventTracker status: " + status);
+
+                if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                    break;
+                }
+                try {
+                    Thread.sleep(waitInMilliseconds);
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            return eventTrackerId;
+        }
+        catch (PersonalizeException e){
+            System.out.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return eventTrackerId;
+    }
+</programlisting>

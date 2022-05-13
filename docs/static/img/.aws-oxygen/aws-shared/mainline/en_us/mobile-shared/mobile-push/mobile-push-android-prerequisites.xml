@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-prerequisites" role="topic">
+   <sectioninfo>
+      <abstract>
+         <para>Set up the prerequisites required to use the &AMHlong; quickstart app to push
+            notifications to an Android app using &SNS;.</para>
+      </abstract>
+   </sectioninfo>
+   <title id="mobile-push-android-prerequisites.title">Get the Prerequisites for Android Push
+      Messaging</title>
+   <titleabbrev id="mobile-push-android-prerequisites.titleabbrev">Get the
+      Prerequisites</titleabbrev>
+<!--   <para>To use the &AMHlong; quickstart app with push notifications, you need:</para>
+   <itemizedlist>
+      <listitem>
+         <para><phrase role="topcom">An AWS account</phrase> &ndash; Before you can access &SNS;,
+            &AMHlong;, and other AWS services, you must set up an AWS account at <ulink
+               url="&url-mkt-domain;">&url-mkt-domain;</ulink>.</para>
+      </listitem>
+      <listitem>
+         <para><phrase role="topcom">Android Studio</phrase> &ndash; To build the &AMHlong;
+            quickstart app, you must have Android Studio with the following SDK support, which you
+            can download from <ulink url="https://developer.android.com/studio/index.html"
+               >https://developer.android.com/studio/index.html</ulink>:</para>
+         <itemizedlist>
+            <listitem>
+               <para>Android Studio 1.4 or newer</para>
+            </listitem>
+            <listitem>
+               <para>Android SDK 4.4 (KitKat) API Level 19 or newer</para>
+            </listitem>
+            <listitem>
+               <para>Android SDK Build-tools 23.0.1</para>
+            </listitem>
+         </itemizedlist>
+      </listitem>
+      <listitem>
+         <para><phrase role="topcom">Android device</phrase> &ndash; To run the &AMHlong; quickstart
+            app, you must have a physical or virtual mobile device with Android OS 4.0.3
+            (IceCreamSandwich) API Level 15 or newer and Google Play Services.</para>
+      </listitem>
+      <listitem>
+         <para><phrase role="topcom">Push messaging-enabled project</phrase> &ndash; You must have a
+            push messaging-enabled project with Firebase or Google Cloud Platform. For more
+            information, see <xref linkend="mobile-push-android-cloud-messaging-project"
+               endterm="mobile-push-android-cloud-messaging-project.title"/>.</para>
+      </listitem>
+      <listitem>
+         <para><phrase role="topcom">Push messaging credentials</phrase> &ndash; You must have a
+            &FCMlong; (&FCM;) or &GCMlong; (&GCM;) server key and a sender ID (also called project
+            number). For more information, see <xref linkend="mobile-push-android-creds"
+               endterm="mobile-push-android-creds.title"/>.</para>
+      </listitem>
+   </itemizedlist>
+   <xi:include href="mobile-push-android-cloud-messaging-project.xml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"/>
+   <xi:include href="mobile-push-android-creds.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
+</section>

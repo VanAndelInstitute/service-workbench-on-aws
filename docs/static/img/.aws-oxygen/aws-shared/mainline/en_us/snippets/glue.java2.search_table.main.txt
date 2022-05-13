@@ -1,0 +1,21 @@
+    public static void searchGlueTable(GlueClient glueClient, String text) {
+
+        try {
+            SearchTablesRequest tablesRequest = SearchTablesRequest.builder()
+                .searchText(text)
+                .resourceShareType("ALL")
+                .maxResults(10)
+                .build();
+
+            SearchTablesResponse tablesResponse = glueClient.searchTables(tablesRequest);
+
+            List<Table> tables = tablesResponse.tableList();
+            for (Table table: tables) {
+                System.out.println("Table name is : "+table.name());
+                System.out.println("Database name is : "+table.databaseName());
+            }
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

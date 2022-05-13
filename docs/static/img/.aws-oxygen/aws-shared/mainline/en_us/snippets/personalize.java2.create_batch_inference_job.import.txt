@@ -1,0 +1,7 @@
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalize.model.*;
+
+import java.time.Instant;
+import java.util.HashMap;

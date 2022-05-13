@@ -1,0 +1,8 @@
+public static String createSNSTopic(AmazonSNSClient snsClient) {
+    CreateTopicRequest createTopic = new CreateTopicRequest("mySNSTopic");
+    CreateTopicResult result = snsClient.createTopic(createTopic);
+    System.out.println("Create topic request: " +
+        snsClient.getCachedResponseMetadata(createTopic));
+    System.out.println("Create topic result: " + result);
+    return result.getTopicArn();
+}

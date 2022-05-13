@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Java; 1.x</term>
+        <listitem>
+            <block>
+                <para>Create a topic and return its ARN.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/sns.java.publish_sms_to_topic.create_topic.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Subscribe an endpoint to a topic.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/sns.java.publish_sms_to_topic.subscribe.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Set attributes on the message, such as the ID of the sender, the maximum price, and its type.
+Message attributes are optional.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/sns.java.publish_sms_to_topic.set_message_attributes.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Publish a message to a topic. The message is sent to every subscriber.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/sns.java.publish_sms_to_topic.publish.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Call the previous functions to create a topic, subscribe a phone number, set message attributes, and
+publish a message to the topic.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/sns.java.publish_sms_to_topic.main.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

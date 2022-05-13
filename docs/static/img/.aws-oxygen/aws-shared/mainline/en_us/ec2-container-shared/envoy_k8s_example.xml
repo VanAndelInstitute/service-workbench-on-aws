@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE example PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+    <!ENTITY % phrases-shared-appmesh SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-appmesh.ent"> 
+    %phrases-shared-appmesh;
+]>
+<example>
+  <title>Kubernetes pod spec</title>
+  <programlisting language="yaml">spec:
+  containers:
+    - name: envoy
+      image: &envoy-image;
+      securityContext:
+        runAsUser: 1337
+      env:
+        - name: "APPMESH_VIRTUAL_NODE_NAME"
+          value: "mesh/<replaceable>meshName</replaceable>/virtualNode/<replaceable>virtualNodeName</replaceable>"
+        - name: "ENVOY_LOG_LEVEL"
+          value: "info"
+        - name: "AWS_REGION"
+          value: "<replaceable>aws_region_name</replaceable>"
+  initContainers:
+    - name: proxyinit
+      image: &router-image;
+      securityContext:
+        capabilities:
+          add: 
+            - NET_ADMIN
+      env:
+        - name: "APPMESH_START_ENABLED"
+          value: "1"
+        - name: "APPMESH_IGNORE_UID"
+          value: "1337"
+        - name: "APPMESH_ENVOY_INGRESS_PORT"
+          value: "15000"
+        - name: "APPMESH_ENVOY_EGRESS_PORT"
+          value: "15001"
+        - name: "APPMESH_APP_PORTS"
+          value: "<replaceable>application_port_list</replaceable>"
+        - name: "APPMESH_EGRESS_IGNORED_IP"
+          value: "169.254.169.254"</programlisting>
+</example>

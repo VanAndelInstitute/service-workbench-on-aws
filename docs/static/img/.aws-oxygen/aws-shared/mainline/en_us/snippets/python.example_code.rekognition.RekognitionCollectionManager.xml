@@ -1,0 +1,14 @@
+<programlisting>
+class RekognitionCollectionManager:
+    """
+    Encapsulates Amazon Rekognition collection management functions.
+    This class is a thin wrapper around parts of the Boto3 Amazon Rekognition API.
+    """
+    def __init__(self, rekognition_client):
+        """
+        Initializes the collection manager object.
+
+        :param rekognition_client: A Boto3 Rekognition client.
+        """
+        self.rekognition_client = rekognition_client
+</programlisting>

@@ -1,0 +1,5 @@
+<programlisting>
+    svc := ec2.New(sess)
+
+    result, err := svc.DescribeKeyPairs(nil)
+</programlisting>

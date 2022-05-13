@@ -1,0 +1,17 @@
+<programlisting>
+    public static void releaseEC2Address(Ec2Client ec2,String allocId) {
+
+        try {
+            ReleaseAddressRequest request = ReleaseAddressRequest.builder()
+                .allocationId(allocId).build();
+
+            ReleaseAddressResponse response = ec2.releaseAddress(request);
+
+         System.out.printf(
+                "Successfully released elastic IP address %s", allocId);
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

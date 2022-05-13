@@ -1,0 +1,19 @@
+func listTrails(sess *session.Session) error {
+    svc := cloudtrail.New(sess)
+
+    resp, err := svc.DescribeTrails(nil)
+    if err != nil {
+        return err
+    }
+
+    fmt.Println("Found", len(resp.TrailList), "trail(s):")
+    fmt.Println("")
+
+    for _, trail := range resp.TrailList {
+        fmt.Println("Trail name:  " + *trail.Name)
+        fmt.Println("Bucket name: " + *trail.S3BucketName)
+        fmt.Println("")
+    }
+
+    return nil
+}

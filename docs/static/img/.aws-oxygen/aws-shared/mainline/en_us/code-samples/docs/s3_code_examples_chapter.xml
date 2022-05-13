@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &S3; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &S3; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &S3; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &S3; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &S3; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &S3;
+            actions with &AWS; SDKs. These excerpts call the &S3; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&S3; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_s3_PutBucketCors_section" role="topic">
+            <info>
+                <title id="example_s3_PutBucketCors_section.title">Add CORS rules to an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutBucketCors_section.titleabbrev">Add CORS rules to a bucket</titleabbrev>
+                <abstract>
+                    <para>Add CORS rules to an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketCors_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketCors_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutBucketLifecycleConfiguration_section" role="topic">
+            <info>
+                <title id="example_s3_PutBucketLifecycleConfiguration_section.title">Add a lifecycle configuration to an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutBucketLifecycleConfiguration_section.titleabbrev">Add a lifecycle configuration to a bucket</titleabbrev>
+                <abstract>
+                    <para>Add a lifecycle configuration to an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketLifecycleConfiguration_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketLifecycleConfiguration_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutBucketPolicy_section" role="topic">
+            <info>
+                <title id="example_s3_PutBucketPolicy_section.title">Add a policy to an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutBucketPolicy_section.titleabbrev">Add a policy to a bucket</titleabbrev>
+                <abstract>
+                    <para>Add a policy to an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_CopyObject_section" role="topic">
+            <info>
+                <title id="example_s3_CopyObject_section.title">Copy an object from one &S3; bucket to another using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_CopyObject_section.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                <abstract>
+                    <para>Copy an object from one &S3; bucket to another using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_CreateBucket_section" role="topic">
+            <info>
+                <title id="example_s3_CreateBucket_section.title">Create an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_CreateBucket_section.titleabbrev">Create a bucket</titleabbrev>
+                <abstract>
+                    <para>Create an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteBucketCors_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteBucketCors_section.title">Delete CORS rules from an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteBucketCors_section.titleabbrev">Delete CORS rules from a bucket</titleabbrev>
+                <abstract>
+                    <para>Delete CORS rules from an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketCors_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketCors_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteBucketPolicy_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteBucketPolicy_section.title">Delete a policy from an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteBucketPolicy_section.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                <abstract>
+                    <para>Delete a policy from an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteBucket_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteBucket_section.title">Delete an empty &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteBucket_section.titleabbrev">Delete an empty bucket</titleabbrev>
+                <abstract>
+                    <para>Delete an empty &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteObject_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteObject_section.title">Delete an &S3; object using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteObject_section.titleabbrev">Delete an object</titleabbrev>
+                <abstract>
+                    <para>Delete an &S3; object using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteObjects_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteObjects_section.title">Delete multiple objects from an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteObjects_section.titleabbrev">Delete multiple objects</titleabbrev>
+                <abstract>
+                    <para>Delete multiple objects from an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteBucketLifecycle_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteBucketLifecycle_section.title">Delete the lifecycle configuration of an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteBucketLifecycle_section.titleabbrev">Delete the lifecycle configuration of a bucket</titleabbrev>
+                <abstract>
+                    <para>Delete the lifecycle configuration of an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketLifecycle_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketLifecycle_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_DeleteBucketWebsite_section" role="topic">
+            <info>
+                <title id="example_s3_DeleteBucketWebsite_section.title">Delete the website configuration from an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_DeleteBucketWebsite_section.titleabbrev">Delete the website configuration from a bucket</titleabbrev>
+                <abstract>
+                    <para>Delete the website configuration from an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketWebsite_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketWebsite_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_HeadObject_section" role="topic">
+            <info>
+                <title id="example_s3_HeadObject_section.title">Determine the existence and content type of an object in an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_HeadObject_section.titleabbrev">Determine the existence and content type of an object</titleabbrev>
+                <abstract>
+                    <para>Determine the existence and content type of an object in an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_HeadObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_HeadObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_HeadBucket_section" role="topic">
+            <info>
+                <title id="example_s3_HeadBucket_section.title">Determine the existence of an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_HeadBucket_section.titleabbrev">Determine the existence of a bucket</titleabbrev>
+                <abstract>
+                    <para>Determine the existence of an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_HeadBucket_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_HeadBucket_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketCors_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketCors_section.title">Get CORS rules for an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketCors_section.titleabbrev">Get CORS rules for a bucket</titleabbrev>
+                <abstract>
+                    <para>Get CORS rules for an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketCors_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketCors_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetObject_section" role="topic">
+            <info>
+                <title id="example_s3_GetObject_section.title">Get an object from an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetObject_section.titleabbrev">Get an object from a bucket</titleabbrev>
+                <abstract>
+                    <para>Get an object from an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketAcl_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketAcl_section.title">Get the ACL of an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketAcl_section.titleabbrev">Get the ACL of a bucket</titleabbrev>
+                <abstract>
+                    <para>Get the ACL of an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketAcl_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketAcl_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetObjectAcl_section" role="topic">
+            <info>
+                <title id="example_s3_GetObjectAcl_section.title">Get the ACL of an &S3; object using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetObjectAcl_section.titleabbrev">Get the ACL of an object</titleabbrev>
+                <abstract>
+                    <para>Get the ACL of an &S3; object using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetObjectAcl_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetObjectAcl_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketLocation_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketLocation_section.title">Get the Region where the &S3; bucket resides using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketLocation_section.titleabbrev">Get the Region location for a bucket</titleabbrev>
+                <abstract>
+                    <para>Get the Region where the &S3; bucket resides using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketLocation_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketLocation_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketLifecycleConfiguration_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketLifecycleConfiguration_section.title">Get the lifecycle configuration of an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketLifecycleConfiguration_section.titleabbrev">Get the lifecycle configuration of a bucket</titleabbrev>
+                <abstract>
+                    <para>Get the lifecycle configuration of an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketLifecycleConfiguration_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketLifecycleConfiguration_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketPolicy_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketPolicy_section.title">Get the policy for an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketPolicy_section.titleabbrev">Get the policy for a bucket</titleabbrev>
+                <abstract>
+                    <para>Get the policy for an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_GetBucketWebsite_section" role="topic">
+            <info>
+                <title id="example_s3_GetBucketWebsite_section.title">Get the website configuration for an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_GetBucketWebsite_section.titleabbrev">Get the website configuration for a bucket</titleabbrev>
+                <abstract>
+                    <para>Get the website configuration for an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketWebsite_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketWebsite_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_ListBuckets_section" role="topic">
+            <info>
+                <title id="example_s3_ListBuckets_section.title">List &S3; buckets using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_ListBuckets_section.titleabbrev">List buckets</titleabbrev>
+                <abstract>
+                    <para>List &S3; buckets using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_ListMultipartUploads_section" role="topic">
+            <info>
+                <title id="example_s3_ListMultipartUploads_section.title">List in-progress multipart uploads to an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_ListMultipartUploads_section.titleabbrev">List in-progress multipart uploads</titleabbrev>
+                <abstract>
+                    <para>List in-progress multipart uploads to an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListMultipartUploads_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListMultipartUploads_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_ListObjectVersions_section" role="topic">
+            <info>
+                <title id="example_s3_ListObjectVersions_section.title">List the version of objects in an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_ListObjectVersions_section.titleabbrev">List object versions in a bucket</titleabbrev>
+                <abstract>
+                    <para>List the version of objects in an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjectVersions_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjectVersions_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_ListObjects_section" role="topic">
+            <info>
+                <title id="example_s3_ListObjects_section.title">List objects in an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_ListObjects_section.titleabbrev">List objects in a bucket</titleabbrev>
+                <abstract>
+                    <para>List objects in an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_RestoreObject_section" role="topic">
+            <info>
+                <title id="example_s3_RestoreObject_section.title">Restore an archived copy of an object back into an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_RestoreObject_section.titleabbrev">Restore an archived copy of an object</titleabbrev>
+                <abstract>
+                    <para>Restore an archived copy of an object back into an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_RestoreObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_RestoreObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutBucketAcl_section" role="topic">
+            <info>
+                <title id="example_s3_PutBucketAcl_section.title">Set a new ACL for an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutBucketAcl_section.titleabbrev">Set a new ACL for a bucket</titleabbrev>
+                <abstract>
+                    <para>Set a new ACL for an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketAcl_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketAcl_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutObjectAcl_section" role="topic">
+            <info>
+                <title id="example_s3_PutObjectAcl_section.title">Set the ACL of an &S3; object using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutObjectAcl_section.titleabbrev">Set the ACL of an object</titleabbrev>
+                <abstract>
+                    <para>Set the ACL of an &S3; object using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutObjectAcl_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutObjectAcl_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutBucketWebsite_section" role="topic">
+            <info>
+                <title id="example_s3_PutBucketWebsite_section.title">Set the website configuration for an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutBucketWebsite_section.titleabbrev">Set the website configuration for a bucket</titleabbrev>
+                <abstract>
+                    <para>Set the website configuration for an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_PutObject_section" role="topic">
+            <info>
+                <title id="example_s3_PutObject_section.title">Upload an object to an &S3; bucket using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_PutObject_section.titleabbrev">Upload an object to a bucket</titleabbrev>
+                <abstract>
+                    <para>Upload an object to an &S3; bucket using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &S3; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &S3; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &S3;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &S3;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_s3_Scenario_PresignedUrl_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_PresignedUrl_section.title">Create a presigned URL for &S3; using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_PresignedUrl_section.titleabbrev">Create a presigned URL</titleabbrev>
+                <abstract>
+                    <para>Create a presigned URL for &S3; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_Scenario_GettingStarted_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_GettingStarted_section.title">Getting started with &S3; buckets and objects using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_GettingStarted_section.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                <abstract>
+                    <para>Getting started with &S3; buckets and objects using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_Scenario_BatchObjectVersioning_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_BatchObjectVersioning_section.title">Manage versioned &S3; objects in batches with a &LAM; function using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_BatchObjectVersioning_section.titleabbrev">Manage versioned objects in batches with a &LAM; function</titleabbrev>
+                <abstract>
+                    <para>Manage versioned &S3; objects in batches with a &LAM; function using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_BatchObjectVersioning_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_BatchObjectVersioning_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_Scenario_RemoveDeleteMarkers_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_RemoveDeleteMarkers_section.title">Remove delete markers from versioned &S3; objects using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_RemoveDeleteMarkers_section.titleabbrev">Remove delete markers from versioned objects</titleabbrev>
+                <abstract>
+                    <para>Remove delete markers from versioned &S3; objects using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_RemoveDeleteMarkers_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_RemoveDeleteMarkers_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_Scenario_TransferManager_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_TransferManager_section.title">Use a transfer manager to upload and download files to and from &S3; using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_TransferManager_section.titleabbrev">Use a transfer manager to upload and download files</titleabbrev>
+                <abstract>
+                    <para>Use a transfer manager to upload and download files to and from &S3; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_TransferManager_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="AmazonS3/latest/userguide/mpu-upload-object.html">Uploading an object using multipart upload</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_TransferManager_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_s3_Scenario_ObjectVersioningUsage_section" role="topic">
+            <info>
+                <title id="example_s3_Scenario_ObjectVersioningUsage_section.title">Work with &S3; versioned objects using an &AWS; SDK</title>
+                <titleabbrev id="example_s3_Scenario_ObjectVersioningUsage_section.titleabbrev">Work with versioned objects</titleabbrev>
+                <abstract>
+                    <para>Work with &S3; versioned objects using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_ObjectVersioningUsage_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_ObjectVersioningUsage_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &S3; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &S3; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &S3;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_TranscriptionApp_section" role="topic">
+            <info>
+                <title id="example_cross_TranscriptionApp_section.title">Build an &TSC; app</title>
+                <titleabbrev id="example_cross_TranscriptionApp_section.titleabbrev">Build an &TSC; app</titleabbrev>
+                <abstract>
+                    <para>Build an &TSC; app</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_Telephone_section" role="topic">
+            <info>
+                <title id="example_cross_Telephone_section.title">Convert text to speech and back to text using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_Telephone_section.titleabbrev">Convert text to speech and back to text</titleabbrev>
+                <abstract>
+                    <para>Convert text to speech and back to text using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_Telephone_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_Telephone_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractExplorer_section" role="topic">
+            <info>
+                <title id="example_cross_TextractExplorer_section.title">Create an &TEXTRACT; explorer application</title>
+                <titleabbrev id="example_cross_TextractExplorer_section.titleabbrev">Create an &TEXTRACT; explorer application</titleabbrev>
+                <abstract>
+                    <para>Create an &TEXTRACT; explorer application</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionPhotoAnalyzerPPE_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzerPPE_section.title">Detect PPE in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzerPPE_section.titleabbrev">Detect PPE in images</titleabbrev>
+                <abstract>
+                    <para>Detect PPE in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_TextractComprehendDetectEntities_section" role="topic">
+            <info>
+                <title id="example_cross_TextractComprehendDetectEntities_section.title">Detect entities in text extracted from an image using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_TextractComprehendDetectEntities_section.titleabbrev">Detect entities in text extracted from an image</titleabbrev>
+                <abstract>
+                    <para>Detect entities in text extracted from an image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractComprehendDetectEntities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_DetectFaces_section" role="topic">
+            <info>
+                <title id="example_cross_DetectFaces_section.title">Detect faces in an image using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_DetectFaces_section.titleabbrev">Detect faces in an image</titleabbrev>
+                <abstract>
+                    <para>Detect faces in an image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionPhotoAnalyzer_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzer_section.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzer_section.titleabbrev">Detect objects in images</titleabbrev>
+                <abstract>
+                    <para>Detect objects in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionVideoDetection_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionVideoDetection_section.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionVideoDetection_section.titleabbrev">Detect people and objects in a video</titleabbrev>
+                <abstract>
+                    <para>Detect people and objects in a video with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_s3_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_DetectLabels_section" role="topic">
+            <info>
+                <title id="example_cross_DetectLabels_section.title">Save EXIF and other image information using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_DetectLabels_section.titleabbrev">Save EXIF and other image information</titleabbrev>
+                <abstract>
+                    <para>Save EXIF and other image information using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectLabels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectLabels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

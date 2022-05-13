@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getClientID(CognitoIdentityClient cognitoClient, String identityPoolId){
+        try {
+
+            GetIdRequest request = GetIdRequest.builder()
+                    .identityPoolId(identityPoolId)
+                    .build();
+
+            GetIdResponse response = cognitoClient.getId(request);
+            System.out.println("Identity ID " + response.identityId());
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

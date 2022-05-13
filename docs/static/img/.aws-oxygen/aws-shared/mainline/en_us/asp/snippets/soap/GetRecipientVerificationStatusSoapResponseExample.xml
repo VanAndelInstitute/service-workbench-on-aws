@@ -1,0 +1,29 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      MESSAGE123
+    </wsa:RelatesTo>
+    <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      http://www.w3.org/2005/08/addressing/anonymous
+    </wsa:To>
+    <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      GetRecipientVerificationStatus:Response
+    </wsa:Action>
+    <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      urn:uuid:95f01489-c0de-451d-8f0d-63b44b9c5bd5
+    </wsa:MessageID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <GetRecipientVerificationStatusResponse
+      xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+      <GetRecipientVerificationStatusResult>
+        <RecipientVerificationStatus>
+          VerificationComplete
+        </RecipientVerificationStatus>
+      </GetRecipientVerificationStatusResult>
+      <ResponseMetadata>
+        <RequestId>95f01489-c0de-451d-8f0d-63b44b9c5bd5:0</RequestId>
+      </ResponseMetadata>
+    </GetRecipientVerificationStatusResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

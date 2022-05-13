@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.dynamodb.DynamoDbClient
+import aws.sdk.kotlin.services.dynamodb.model.ScanRequest
+import kotlin.system.exitProcess
+</programlisting>

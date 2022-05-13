@@ -1,0 +1,34 @@
+<programlisting>
+
+        /// <summary>
+        /// Creates a new access key for the user represented by the userName
+        /// parameter.
+        /// </summary>
+        /// <param name="client">The client object which will call
+        /// CreateAccessKeyAsync.</param>
+        /// <param name="userName">The name of the user for whom an access key
+        /// is created by the call to CreateAccessKeyAsync.</param>
+        /// <returns>Returns the response from the call to
+        /// CreateAccessKeyAsync.</returns>
+        public static async Task<CreateAccessKeyResponse> CreateNewAccessKeyAsync(
+            AmazonIdentityManagementServiceClient client,
+            string userName)
+        {
+            try
+            {
+                // Create an access key for the IAM user that can be used by the SDK.
+                var response = await client.CreateAccessKeyAsync(new CreateAccessKeyRequest
+                {
+                    // Use the user you created in the CreateUser example
+                    UserName = userName,
+                });
+                return response;
+            }
+            catch (LimitExceededException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+</programlisting>

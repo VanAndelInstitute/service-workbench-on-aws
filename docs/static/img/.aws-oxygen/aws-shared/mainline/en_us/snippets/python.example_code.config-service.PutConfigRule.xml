@@ -1,0 +1,31 @@
+<programlisting>
+    def put_config_rule(self, rule_name):
+        """
+        Sets a configuration rule that prohibits making Amazon S3 buckets publicly
+        readable.
+
+        :param rule_name: The name to give the rule.
+        """
+        try:
+            self.config_client.put_config_rule(
+                ConfigRule={
+                    'ConfigRuleName': rule_name,
+                    'Description': 'S3 Public Read Prohibited Bucket Rule',
+                    'Scope': {
+                        'ComplianceResourceTypes': [
+                            'AWS::S3::Bucket',
+                        ],
+                    },
+                    'Source': {
+                        'Owner': 'AWS',
+                        'SourceIdentifier': 'S3_BUCKET_PUBLIC_READ_PROHIBITED',
+                    },
+                    'InputParameters': '{}',
+                    'ConfigRuleState': 'ACTIVE'
+                }
+            )
+            logger.info("Created configuration rule %s.", rule_name)
+        except ClientError:
+            logger.exception("Couldn't create configuration rule %s.", rule_name)
+            raise
+</programlisting>

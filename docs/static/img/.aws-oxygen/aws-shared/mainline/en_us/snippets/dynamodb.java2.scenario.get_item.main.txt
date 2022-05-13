@@ -1,0 +1,35 @@
+    public static void getItem(DynamoDbClient ddb) {
+
+            HashMap<String,AttributeValue> keyToGet = new HashMap<String,AttributeValue>();
+
+            keyToGet.put("year", AttributeValue.builder()
+                    .n("1933")
+                    .build());
+
+            keyToGet.put("title", AttributeValue.builder()
+                    .s("King Kong")
+                    .build());
+
+            GetItemRequest request = GetItemRequest.builder()
+                    .key(keyToGet)
+                    .tableName("Movies")
+                    .build();
+
+            try {
+                Map<String,AttributeValue> returnedItem = ddb.getItem(request).item();
+
+                if (returnedItem != null) {
+                    Set<String> keys = returnedItem.keySet();
+                    System.out.println("Amazon DynamoDB table attributes: \n");
+
+                    for (String key1 : keys) {
+                        System.out.format("%s: %s\n", key1, returnedItem.get(key1).toString());
+                    }
+                } else {
+                    System.out.format("No item found with the key %s!\n", "year");
+                }
+            } catch (DynamoDbException e) {
+                System.err.println(e.getMessage());
+                System.exit(1);
+            }
+    }

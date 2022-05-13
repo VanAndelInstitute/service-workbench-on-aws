@@ -1,0 +1,5 @@
+<programlisting>
+    _, err := svc.DeleteServerCertificate(&iam.DeleteServerCertificateInput{
+        ServerCertificateName: certName,
+    })
+</programlisting>

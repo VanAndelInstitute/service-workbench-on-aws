@@ -1,0 +1,57 @@
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/ec2"
+    "github.com/aws/aws-sdk-go/service/ec2/ec2iface"
+)
+
+// MakeKeyPair creates a Amazon Elastic Compute Cloud (Amazon EC2) key pair.
+// Inputs:
+//     svc is an Amazon EC2 service client
+//     keyName is the name of the key pair
+// Output:
+//     If success, information about the key pair and nil
+//     Otherwise, nil and an error from the call to CreateKeyPair
+func MakeKeyPair(svc ec2iface.EC2API, keyName *string) (*ec2.CreateKeyPairOutput, error) {
+    result, err := svc.CreateKeyPair(&ec2.CreateKeyPairInput{
+        KeyName: keyName,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    keyName := flag.String("k", "", "The name of the key pair")
+    flag.Parse()
+
+    if *keyName == "" {
+        fmt.Println("You must supply the name of the key pair (-k KEY-NAME)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := ec2.New(sess)
+
+    // Creates a key pair with the given name
+    result, err := MakeKeyPair(svc, keyName)
+    if err != nil {
+        fmt.Println("Got an error creating the key pair:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Created key pair:")
+    fmt.Println("  Name:        " + *result.KeyName)
+    fmt.Println("  Fingerprint: " + *result.KeyFingerprint)
+    fmt.Println("  Material:    " + *result.KeyMaterial)
+}

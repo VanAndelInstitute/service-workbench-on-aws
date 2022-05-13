@@ -1,0 +1,9 @@
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalize.model.CreateEventTrackerRequest;
+import software.amazon.awssdk.services.personalize.model.CreateEventTrackerResponse;
+import software.amazon.awssdk.services.personalize.model.PersonalizeException;
+import software.amazon.awssdk.services.personalize.model.DescribeEventTrackerRequest;
+
+import java.time.Instant;

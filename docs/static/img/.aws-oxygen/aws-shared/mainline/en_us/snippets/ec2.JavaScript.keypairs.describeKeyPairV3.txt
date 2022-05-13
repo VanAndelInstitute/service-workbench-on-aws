@@ -1,0 +1,13 @@
+// Import required AWS SDK clients and commands for Node.js
+import { DescribeKeyPairsCommand } from "@aws-sdk/client-ec2";
+import { ec2Client } from "./libs/ec2Client";
+const run = async () => {
+  try {
+    const data = await ec2Client.send(new DescribeKeyPairsCommand({}));
+    console.log("Success", JSON.stringify(data.KeyPairs));
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();

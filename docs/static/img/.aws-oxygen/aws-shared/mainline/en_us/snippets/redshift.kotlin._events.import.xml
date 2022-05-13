@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.redshift.RedshiftClient
+import aws.sdk.kotlin.services.redshift.model.DescribeEventsRequest
+import aws.sdk.kotlin.services.redshift.model.SourceType
+import kotlin.system.exitProcess
+</programlisting>

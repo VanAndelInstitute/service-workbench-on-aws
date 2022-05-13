@@ -1,0 +1,4 @@
+<programlisting>
+import aws.sdk.kotlin.services.cognitoidentity.CognitoIdentityClient
+import aws.sdk.kotlin.services.cognitoidentity.model.ListIdentityPoolsRequest
+</programlisting>

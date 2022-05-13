@@ -1,0 +1,33 @@
+<programlisting>
+    public static void startLog( CloudTrailClient cloudTrailClientClient, String trailName) {
+
+        try {
+            StopLoggingRequest loggingRequest = StopLoggingRequest.builder()
+                .name(trailName)
+                .build() ;
+
+            cloudTrailClientClient.stopLogging(loggingRequest);
+            System.out.println(trailName +" has stopped logging");
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void stopLog( CloudTrailClient cloudTrailClientClient, String trailName) {
+
+        try {
+            StartLoggingRequest loggingRequest = StartLoggingRequest.builder()
+                    .name(trailName)
+                    .build() ;
+
+            cloudTrailClientClient.startLogging(loggingRequest);
+            System.out.println(trailName +" has started logging");
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,22 @@
+<programlisting>
+# Creates a log group in Amazon CloudWatch Logs.
+#
+# @param cloudwatchlogs_client [Aws::CloudWatchLogs::Client] An initialized
+#   Amazon CloudWatch Logs client.
+# @param log_group_name [String] The name of the log group to create.
+# @return [Boolean] true if the log group name was created; otherwise, false.
+# @example
+#   exit 1 unless log_group_created?(
+#     Aws::CloudWatchLogs::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-cloudwatch-log'
+#   )
+def log_group_created?(cloudwatchlogs_client, log_group_name)
+  puts "Attempting to create log group with the name '#{log_group_name}'..."
+  cloudwatchlogs_client.create_log_group(log_group_name: log_group_name)
+  puts 'Log group created.'
+  return true
+rescue StandardError => e
+  puts "Error creating log group: #{e.message}"
+  return false
+end
+</programlisting>

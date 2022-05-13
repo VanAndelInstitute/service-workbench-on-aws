@@ -1,0 +1,13 @@
+<programlisting>
+
+// DeleteTable deletes the DynamoDB table and all of its data.
+func (basics TableBasics) DeleteTable() error {
+	_, err := basics.DynamoDbClient.DeleteTable(context.TODO(), &dynamodb.DeleteTableInput{
+		TableName: aws.String(basics.TableName)})
+	if err != nil {
+		log.Printf("Couldn't delete table %v. Here's why: %v\n", basics.TableName, err)
+	}
+	return err
+}
+
+</programlisting>

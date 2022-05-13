@@ -1,0 +1,4 @@
+    _, err = svc.PutItem(&dynamodb.PutItemInput{
+        Item:      av,
+        TableName: table,
+    })

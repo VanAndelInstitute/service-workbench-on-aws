@@ -1,0 +1,15 @@
+Inputs:
+- TOPIC_ARN
+ */
+import {
+  SubscribeCommand,
+  ListSubscriptionsByTopicCommand,
+  ListSubscriptionsCommand,
+  UnsubscribeCommand,
+    PublishCommand
+} from "@aws-sdk/client-sns";
+import { snsClient } from "../libs/snsClient.js";
+
+// Set global parameters.
+const TOPIC_ARN = "TOPIC_ARN";
+

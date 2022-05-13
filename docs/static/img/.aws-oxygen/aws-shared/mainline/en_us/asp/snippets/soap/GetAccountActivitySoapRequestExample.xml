@@ -1,0 +1,12 @@
+<SOAP-ENV:Envelope>
+  <SOAP-ENV:Body 
+    wsu:Id="body" 
+    xmlns:wsu=
+    "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <ns2:GetAccountActivity 
+      xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+      <ns2:StartDate>2005-01-10T07:39:32.000-08:00</StartDate>
+      <ns2:EndDate>2009-01-10T07:39:37.000-08:00</EndDate>
+    </ns2:GetAccountActivity>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

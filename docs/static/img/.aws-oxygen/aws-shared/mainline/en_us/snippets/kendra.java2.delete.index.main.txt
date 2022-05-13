@@ -1,0 +1,15 @@
+    public static void deleteSpecificIndex(KendraClient kendra, String indexId) {
+
+        try {
+            DeleteIndexRequest deleteIndexRequest = DeleteIndexRequest.builder()
+                    .id(indexId)
+                    .build();
+
+            kendra.deleteIndex(deleteIndexRequest);
+            System.out.println(indexId + " was successfully deleted.");
+
+        } catch (KendraException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

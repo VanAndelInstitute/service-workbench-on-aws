@@ -1,0 +1,19 @@
+<programlisting>
+void PutObjectAsyncFinished(const Aws::S3::S3Client* s3Client, 
+    const Aws::S3::Model::PutObjectRequest& request, 
+    const Aws::S3::Model::PutObjectOutcome& outcome,
+    const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context)
+{
+    if (outcome.IsSuccess()) {
+        std::cout << "Success: PutObjectAsyncFinished: Finished uploading '" 
+            << context->GetUUID() << "'." << std::endl;
+    }
+    else {
+        std::cout << "Error: PutObjectAsyncFinished: " <<
+            outcome.GetError().GetMessage() << std::endl;
+    }
+
+    // Unblock the thread that is waiting for this function to complete.
+    upload_variable.notify_one();
+}
+</programlisting>

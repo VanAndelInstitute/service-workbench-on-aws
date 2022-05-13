@@ -1,0 +1,24 @@
+<programlisting>
+    for *resp.IsTruncated {
+        input := &iam.GetAccountAuthorizationDetailsInput{Filter: []*string{&user}, Marker: resp.Marker}
+        resp, err = svc.GetAccountAuthorizationDetails(input)
+        if err != nil {
+            return 0, 0, err
+        }
+
+        // Wade through resulting users
+        for _, user := range resp.UserDetailList {
+            numUsers++
+
+            isAdmin, err := isUserAdmin(svc, user, adminName)
+            if err != nil {
+                return 0, 0, err
+            }
+
+            if isAdmin {
+                fmt.Println(*user.UserName)
+                numAdmins++
+            }
+        }
+    }
+</programlisting>

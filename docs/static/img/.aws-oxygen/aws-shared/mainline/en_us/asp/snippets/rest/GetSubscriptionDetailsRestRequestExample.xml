@@ -1,0 +1,9 @@
+https://fps.sandbox.amazonaws.com/?
+Action=GetSubscriptionDetails
+&SubscriptionId=YourSubscriptionId
+&AWSAccessKeyId=YourAccessKey
+&Version=2010-08-28
+&Timestamp=2011-03-11T06%3A46%3A23Z
+&SignatureVersion=2
+&Signature=YourCalculatedSignature
+&SignatureMethod=HmacSHA256

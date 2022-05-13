@@ -1,0 +1,10 @@
+<programlisting>
+    bucket := flag.String("b", "", "The bucket containing the object")
+    key := flag.String("k", "", "The bucket object to get ACL from")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket (-b BUCKET) and item key (-k ITEM)")
+        return
+    }
+</programlisting>

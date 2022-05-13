@@ -1,0 +1,33 @@
+<programlisting>
+    def find(self, state_machine_name):
+        """
+        Finds a state machine by name. This function iterates the state machines for
+        the current account until it finds a match and returns the first matching
+        state machine.
+
+        :param state_machine_name: The name of the state machine to find.
+        :return: The ARN of the named state machine when found; otherwise, None.
+        """
+        self._clear()
+        try:
+            paginator = self.stepfunctions_client.get_paginator('list_state_machines')
+            for page in paginator.paginate():
+                for machine in page['stateMachines']:
+                    if machine['name'] == state_machine_name:
+                        self.state_machine_name = state_machine_name
+                        self.state_machine_arn = machine['stateMachineArn']
+                        break
+                if self.state_machine_arn is not None:
+                    break
+            if self.state_machine_arn is not None:
+                logger.info(
+                    "Found state machine %s with ARN %s.", self.state_machine_name,
+                    self.state_machine_arn)
+            else:
+                logger.info("Couldn't find state machine %s.", state_machine_name)
+        except ClientError:
+            logger.exception("Couldn't find state machine %s.", state_machine_name)
+            raise
+        else:
+            return self.state_machine_arn
+</programlisting>

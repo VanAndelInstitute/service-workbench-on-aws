@@ -1,0 +1,16 @@
+
+using System;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+
+var client = new AmazonIdentityManagementServiceClient();
+var request = new GetPolicyRequest
+{
+    PolicyArn = "POLICY_ARN",
+};
+
+var response = await client.GetPolicyAsync(request);
+
+Console.Write($"{response.Policy.PolicyName} was created on ");
+Console.WriteLine($"{response.Policy.CreateDate}");
+

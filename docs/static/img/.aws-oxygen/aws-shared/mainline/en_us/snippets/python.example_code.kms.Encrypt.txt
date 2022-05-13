@@ -1,0 +1,17 @@
+    def encrypt(self, key_id):
+        """
+        Encrypts text by using the specified key.
+
+        :param key_id: The ARN or ID of the key to use for encryption.
+        :return: The encrypted version of the text.
+        """
+        text = input("Enter some text to encrypt: ")
+        try:
+            cipher_text = self.kms_client.encrypt(
+                KeyId=key_id, Plaintext=text.encode())['CiphertextBlob']
+        except ClientError as err:
+            logger.error(
+                "Couldn't encrypt text. Here's why: %s", err.response['Error']['Message'])
+        else:
+            print(f"Your ciphertext is: {cipher_text}")
+            return cipher_text

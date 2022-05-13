@@ -1,0 +1,3 @@
+<programlisting>
+    defClient, err := http.DefaultClient.Do(req)
+</programlisting>

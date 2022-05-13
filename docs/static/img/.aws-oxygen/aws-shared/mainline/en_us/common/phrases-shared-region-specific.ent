@@ -1,0 +1,58 @@
+<!--   
+NOTE:
+This file is for entities that are different depending on the region.
+-->
+
+<!-- AWS URLs -->
+<!ENTITY url-api-domain "http://&api-domain;/">
+<!ENTITY url-blog-domain "https://&blog-domain;/">
+<!ENTITY url-console-domain "https://&console-domain;/">
+<!ENTITY url-doc-domain "http://&doc-domain;/">
+<!ENTITY url-forum-domain "https://&forum-domain;/">
+<!ENTITY url-mkt-domain "https://&mkt-domain;/">
+<!ENTITY url-portal-domain "https://&portal-domain;/">
+<!ENTITY url-retail-domain "https://&retail-domain;/">
+<!ENTITY url-status-domain "https://&status-domain;/">
+
+<!ENTITY url-qrc 'http://awsdocs.s3.amazonaws.com/'>
+<!ENTITY url-calculator-domain 'https://calculator.s3.amazonaws.com/calc5.html'> 
+<!ENTITY url-pricing-domain 'https://d0.awsstatic.com/whitepapers/aws_pricing_overview.pdf'>
+    <!ENTITY url-pricing-paper 'https://d0.awsstatic.com/whitepapers/aws_pricing_overview.pdf'> <!-- NEW -->
+<!ENTITY url-awspartner-domain 'https://www.aws-partner-directory.com/PartnerDirectory/'>
+<!-- End AWS URLs -->
+
+<!ENTITY s3-domain "s3.&api-domain;">
+<!ENTITY s3-website-domain "s3-website-us-east-1.&api-domain;">
+<!ENTITY url-s3-domain "https://&s3-domain;/">
+<!ENTITY url-cfn-templates-us-east-1 "&url-s3-domain;cloudformation-templates-us-east-1/">
+<!ENTITY url-awspolicygen "https://awspolicygen.&s3-domain;/">
+<!ENTITY url-policysim-domain "https://policysim.&mkt-domain;/">
+<!ENTITY url-code-domain "&url-mkt-domain;code/">
+<!ENTITY url-articles-domain "&url-mkt-domain;articles/">
+
+<!ENTITY hsm-safenet-docs-5-1 "cloudhsm-safenet-docs.s3.&api-domain;">
+<!ENTITY hsm-safenet-docs-5-3 "cloudhsm-safenet-docs-5.3.&s3-website-domain;">
+
+<!--
+    To be used in policy Principal, such as
+    "Principal": {"Service": "ec2.amazonaws.com"}
+-->
+<!ENTITY region-principal "&api-domain;">
+<!-- 
+    To be used in ARNs, such as 
+    "arn:aws:s3:::<disk-image-file-bucket>"
+-->
+<!ENTITY region-arn "arn:aws:">
+
+<!ENTITY region_api_default "us-east-1">
+<!ENTITY region_console_default "us-east-2">
+<!ENTITY region_console_default_name "&region-us-east-2;">
+
+<!-- This style of endpoint is used in the SDKs with the RegionEndpoint data type -->
+<!ENTITY region_sdk_default "USEast1">
+
+<!-- This entity is a placeholder for JEDI. Will resolve to KAPU, which means forbidden in Hawaiian for all regions other than JDI and SEA. -->
+<!ENTITY jedi "KAPU">
+
+<!-- This entity should be included with any pre-release codenames. It will add (Codename) in Alpha and KUHIHEWA (mistaken in Hawaiian) in all other regions.  -->
+<!ENTITY codename " (KUHIHEWA)">

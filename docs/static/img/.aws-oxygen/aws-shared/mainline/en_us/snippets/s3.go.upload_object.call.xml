@@ -1,0 +1,9 @@
+<programlisting>
+    uploader := s3manager.NewUploader(sess)
+
+    _, err = uploader.Upload(&s3manager.UploadInput{
+        Bucket: bucket,
+        Key:    filename,
+        Body:   file,
+    })
+</programlisting>

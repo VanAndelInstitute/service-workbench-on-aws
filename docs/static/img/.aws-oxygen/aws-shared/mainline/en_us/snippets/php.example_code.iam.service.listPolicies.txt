@@ -1,0 +1,15 @@
+    public function listPolicies($pathPrefix = "", $marker = "", $maxItems = 0)
+    {
+        $listPoliciesArguments = [];
+        if ($pathPrefix) {
+            $listPoliciesArguments["PathPrefix"] = $pathPrefix;
+        }
+        if ($marker) {
+            $listPoliciesArguments["Marker"] = $marker;
+        }
+        if ($maxItems) {
+            $listPoliciesArguments["MaxItems"] = $maxItems;
+        }
+
+        return $this->iamClient->listPolicies($listPoliciesArguments);
+    }

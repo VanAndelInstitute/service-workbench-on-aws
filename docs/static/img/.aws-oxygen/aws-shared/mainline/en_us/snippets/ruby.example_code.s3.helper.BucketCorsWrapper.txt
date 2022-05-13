@@ -1,0 +1,10 @@
+require "aws-sdk-s3"
+
+# Wraps Amazon S3 bucket CORS configuration.
+class BucketCorsWrapper
+  attr_reader :bucket_cors
+
+  # @param bucket_cors [Aws::S3::BucketCors] A bucket CORS object configured with an existing bucket.
+  def initialize(bucket_cors)
+    @bucket_cors = bucket_cors
+  end

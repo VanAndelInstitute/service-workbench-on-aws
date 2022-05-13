@@ -1,0 +1,7 @@
+#include <aws/core/Aws.h>
+#include <aws/iam/IAMClient.h>
+#include <aws/iam/model/AttachRolePolicyRequest.h>
+#include <aws/iam/model/ListAttachedRolePoliciesRequest.h>
+#include <aws/iam/model/ListAttachedRolePoliciesResult.h>
+#include <iostream>
+#include <iomanip>

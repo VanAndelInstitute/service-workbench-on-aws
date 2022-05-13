@@ -1,0 +1,16 @@
+    def get_speech_synthesis_task(self, task_id):
+        """
+        Gets metadata about an asynchronous speech synthesis task, such as its status.
+
+        :param task_id: The ID of the task to retrieve.
+        :return: Metadata about the task.
+        """
+        try:
+            response = self.polly_client.get_speech_synthesis_task(TaskId=task_id)
+            task = response['SynthesisTask']
+            logger.info("Got synthesis task. Status is %s.", task['TaskStatus'])
+        except ClientError:
+            logger.exception("Couldn't get synthesis task %s.", task_id)
+            raise
+        else:
+            return task

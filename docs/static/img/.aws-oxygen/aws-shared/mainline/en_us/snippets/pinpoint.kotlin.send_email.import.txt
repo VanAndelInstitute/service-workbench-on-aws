@@ -1,0 +1,10 @@
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.SendMessagesRequest
+import aws.sdk.kotlin.services.pinpoint.model.AddressConfiguration
+import aws.sdk.kotlin.services.pinpoint.model.ChannelType
+import aws.sdk.kotlin.services.pinpoint.model.SimpleEmailPart
+import aws.sdk.kotlin.services.pinpoint.model.SimpleEmail
+import aws.sdk.kotlin.services.pinpoint.model.EmailMessage
+import aws.sdk.kotlin.services.pinpoint.model.DirectMessageConfiguration
+import aws.sdk.kotlin.services.pinpoint.model.MessageRequest
+import kotlin.system.exitProcess

@@ -1,0 +1,5 @@
+<CancelTokenResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <ResponseMetadata>
+    <RequestId>a10e0ad6-148f-4afe-8bcd-e80a2680793d:0</RequestId>
+  </ResponseMetadata>
+</CancelTokenResponse>

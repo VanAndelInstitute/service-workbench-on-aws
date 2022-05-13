@@ -1,0 +1,21 @@
+  public static void deleteDymamoDBItem(DynamoDbClient ddb, String tableName, String key, String keyVal) {
+
+        HashMap<String,AttributeValue> keyToGet =
+                new HashMap<String,AttributeValue>();
+
+        keyToGet.put(key, AttributeValue.builder()
+                .s(keyVal)
+                .build());
+
+        DeleteItemRequest deleteReq = DeleteItemRequest.builder()
+                .tableName(tableName)
+                .key(keyToGet)
+                .build();
+
+        try {
+            ddb.deleteItem(deleteReq);
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

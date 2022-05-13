@@ -1,0 +1,18 @@
+<programlisting>
+    public static void describeSpecificTemplate(QuickSightClient qsClient, String account,String templateId) {
+        try {
+
+            DescribeTemplateRequest temRequest = DescribeTemplateRequest.builder()
+                    .awsAccountId(account)
+                    .templateId(templateId)
+                    .build();
+
+            DescribeTemplateResponse templateResponse = qsClient.describeTemplate(temRequest);
+            System.out.println("The template ARN is " +templateResponse.template().arn());
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+       }
+    }
+</programlisting>

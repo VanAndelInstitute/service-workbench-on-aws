@@ -1,0 +1,9 @@
+<SettleDebtResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <SettleDebtResult>
+    <TransactionId>14GND25ZN3B7O49QVHNASTT98UOBN83NC92</TransactionId>
+    <TransactionStatus>Pending</TransactionStatus>
+  </SettleDebtResult>
+  <ResponseMetadata>
+    <RequestId>9ddfbffc-f909-4628-b247-36a5ef3fc7f3:0</RequestId>
+  </ResponseMetadata>
+</SettleDebtResponse>

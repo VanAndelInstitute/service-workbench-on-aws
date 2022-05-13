@@ -1,0 +1,12 @@
+<!-- FPS -->
+<!ENTITY SIG1EXPIRIATION '10 February, 2011'>
+<!ENTITY SIG1AND2DIFFS 'For information on the differences between signature version 1 and signature version 2 signing, see <link endterm="Sig1VsSig2Diffs.title" linkend="Sig1VsSig2Diffs"/>.' >
+<!ENTITY SIG2NOTE '<important><para>The example is for the signature version 2 signing method, which replaced the previous version (signature version 1 expired on &SIG1EXPIRIATION;). &SIG1AND2DIFFS;</para></important>'>
+<!ENTITY SIG1OBNOTE '<note><para>This process is based on signatures formed using signature version 1 authentication. The process has changed for signature version 2 (signature version 1 is no longer supported).</para></note>' >
+<!ENTITY SIG2RELEASE 'November 3rd, 2009'>
+<!ENTITY SIG1CAUTION '<caution><para>The example is for the signature version 1 signing method, which expired on &SIG1EXPIRIATION;</para></caution>'>
+<!ENTITY SIGEXPIRENOTE '<important><para>The previous method for signing (signature version 1) was deprecated on &SIG2RELEASE;, and as of &SIG1EXPIRIATION; it is no longer supported. Whenever you sign a request with your access keys, you must now use signature version 2.</para></important>'>
+<!ENTITY SIG1AND2DIFFS 'For information on the differences between signature version 1 and signature version 2 signing, see <link endterm="Sig1VsSig2Diffs.title" linkend="Sig1VsSig2Diffs"/>.' >
+<!ENTITY SIG2WHATSNEWNOTEFPS '<row><entry><para>Enhanced Feature</para></entry><entry><para>&fps_product_short; now supports a more secure method for calculating signatures that supports SHA256.</para>&SIGEXPIRENOTE;</entry><entry><para>&SIG2RELEASE;</para></entry></row>' >
+<!ENTITY SIG2MIGRATIONREFER '<important><para>If you are currently using signature version 1, you must migrate to signature version 2. Please see <link linkend="Sig2Migration" endterm="Sig2Migration.title"/>.</para></important>'>
+<!ENTITY SIG2CLIENTVALIDREVOKE '<important><para>The original implementation of signature version 2 supported client-side signature validation using PKI. Client-side signature validation was deprecated on &SIG2RELEASE;, and as of &SIG1EXPIRIATION; it is no longer supported. If you have been using client-side signature validation, you must switch to server-side validation using the FPS action <function>VerifySignature</function>.</para></important>'>

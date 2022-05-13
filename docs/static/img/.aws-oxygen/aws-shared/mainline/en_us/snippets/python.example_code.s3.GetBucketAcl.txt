@@ -1,0 +1,15 @@
+    def get_acl(self):
+        """
+        Get the ACL of the bucket.
+
+        :return: The ACL of the bucket.
+        """
+        try:
+            acl = self.bucket.Acl()
+            logger.info(
+                "Got ACL for bucket %s. Owner is %s.", self.bucket.name, acl.owner)
+        except ClientError:
+            logger.exception("Couldn't get ACL for bucket %s.", self.bucket.name)
+            raise
+        else:
+            return acl

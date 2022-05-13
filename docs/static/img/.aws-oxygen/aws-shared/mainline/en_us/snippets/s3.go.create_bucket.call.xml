@@ -1,0 +1,7 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    _, err := svc.CreateBucket(&s3.CreateBucketInput{
+        Bucket: bucket,
+    })
+</programlisting>

@@ -1,0 +1,22 @@
+<programlisting>
+suspend fun getMovie(tableNameVal: String, keyName: String, keyVal: String) {
+
+    val keyToGet = mutableMapOf<String, AttributeValue>()
+    keyToGet[keyName] = AttributeValue.N(keyVal)
+    keyToGet["title"] = AttributeValue.S("King Kong")
+
+    val request = GetItemRequest {
+        key = keyToGet
+        tableName = tableNameVal
+    }
+
+    DynamoDbClient { region = "us-east-1" }.use { ddb ->
+        val returnedItem = ddb.getItem(request)
+        val numbersMap = returnedItem.item
+        numbersMap?.forEach { key1 ->
+            println(key1.key)
+            println(key1.value)
+        }
+    }
+}
+</programlisting>

@@ -1,0 +1,27 @@
+    public static void sendVoiceMsg(PinpointSmsVoiceClient client, String originationNumber, String destinationNumber ) {
+
+        try {
+            SSMLMessageType ssmlMessageType = SSMLMessageType.builder()
+                    .languageCode(languageCode)
+                    .text(ssmlMessage)
+                     .voiceId(voiceName)
+                     .build();
+
+            VoiceMessageContent content = VoiceMessageContent.builder()
+                    .ssmlMessage(ssmlMessageType)
+                    .build();
+
+            SendVoiceMessageRequest voiceMessageRequest = SendVoiceMessageRequest.builder()
+                    .destinationPhoneNumber(destinationNumber)
+                    .originationPhoneNumber(originationNumber)
+                    .content(content)
+                    .build();
+
+            client.sendVoiceMessage(voiceMessageRequest);
+            System.out.println("The message was sent successfully.");
+
+        } catch (PinpointSmsVoiceException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

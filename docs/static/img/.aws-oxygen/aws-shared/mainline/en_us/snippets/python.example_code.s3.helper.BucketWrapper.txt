@@ -1,0 +1,4 @@
+class BucketWrapper:
+    def __init__(self, bucket):
+        self.bucket = bucket
+        self.name = bucket.name

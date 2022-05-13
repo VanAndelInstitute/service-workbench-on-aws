@@ -1,0 +1,23 @@
+<programlisting>
+pub async fn create_access_key(client: &iamClient, user_name: &str) -> Result<AccessKey, iamError> {
+    let mut tries: i32 = 0;
+    let max_tries: i32 = 10;
+
+    let response: Result<CreateAccessKeyOutput, SdkError<CreateAccessKeyError>> = loop {
+        match client.create_access_key().user_name(user_name).send().await {
+            Ok(inner_response) => {
+                break Ok(inner_response);
+            }
+            Err(e) => {
+                tries += 1;
+                if tries > max_tries {
+                    break Err(e);
+                }
+                sleep(Duration::from_secs(2)).await;
+            }
+        }
+    };
+
+    Ok(response.unwrap().access_key.unwrap())
+}
+</programlisting>

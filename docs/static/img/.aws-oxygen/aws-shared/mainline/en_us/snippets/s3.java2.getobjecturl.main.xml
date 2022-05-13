@@ -1,0 +1,19 @@
+<programlisting>
+    public static void getURL(S3Client s3, String bucketName, String keyName ) {
+
+        try {
+
+            GetUrlRequest request = GetUrlRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .build();
+
+            URL url = s3.utilities().getUrl(request);
+            System.out.println("The URL for  "+keyName +" is "+url.toString());
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

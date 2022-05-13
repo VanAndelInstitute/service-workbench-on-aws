@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Function ARN: " + *result.FunctionArn)
+</programlisting>

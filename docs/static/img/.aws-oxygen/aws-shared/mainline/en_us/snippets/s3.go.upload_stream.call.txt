@@ -1,0 +1,25 @@
+    file, err := os.Open(*filename)
+    if err != nil {
+        return err
+    }
+
+    reader, writer := io.Pipe()
+
+    go func() {
+        gw := gzip.NewWriter(writer)
+        _, err := io.Copy(gw, file)
+        if err != nil {
+            return
+        }
+        file.Close()
+        gw.Close()
+        writer.Close()
+    }()
+
+    uploader := s3manager.NewUploader(sess)
+
+    _, err = uploader.Upload(&s3manager.UploadInput{
+        Body:   reader,
+        Bucket: bucket,
+        Key:    key,
+    })

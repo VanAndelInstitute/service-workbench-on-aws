@@ -1,0 +1,9 @@
+HTTP/1.x 403
+Content-Type: application/xml
+Content-Length: 175
+X-Amz-RequestID: 123456
+
+<Status>
+   <Code>AuthenticationFailure</Code>
+   <Reason>The email address and password do not match any accounts on record</Reason>
+</Status>

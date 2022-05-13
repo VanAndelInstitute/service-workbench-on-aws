@@ -1,0 +1,24 @@
+<programlisting>
+    public static void describeApps(ElasticBeanstalkClient beanstalkClient) {
+
+        try {
+            DescribeApplicationsResponse applicationsResponse = beanstalkClient.describeApplications();
+            List<ApplicationDescription> apps = applicationsResponse.applications();
+            for (ApplicationDescription app: apps) {
+                System.out.println("The application name is "+app.applicationName());
+                DescribeEnvironmentsRequest desRequest =  DescribeEnvironmentsRequest.builder()
+                            .applicationName(app.applicationName())
+                            .build();
+
+                DescribeEnvironmentsResponse res = beanstalkClient.describeEnvironments(desRequest) ;
+                List<EnvironmentDescription> envDesc = res.environments();
+                for (EnvironmentDescription desc: envDesc) {
+                    System.out.println("The Environment ARN is "+desc.environmentArn());
+                }
+            }
+        } catch (ElasticBeanstalkException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

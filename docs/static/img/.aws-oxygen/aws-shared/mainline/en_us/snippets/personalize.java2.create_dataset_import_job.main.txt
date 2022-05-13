@@ -1,0 +1,55 @@
+    public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
+                                                           String jobName,
+                                                           String datasetArn,
+                                                           String s3BucketPath,
+                                                           String roleArn) {
+
+        long waitInMilliseconds = 60 * 1000;
+        String status;
+        String datasetImportJobArn;
+
+        try {
+            DataSource importDataSource = DataSource.builder()
+                    .dataLocation(s3BucketPath)
+                    .build();
+
+            CreateDatasetImportJobRequest createDatasetImportJobRequest = CreateDatasetImportJobRequest.builder()
+                    .datasetArn(datasetArn)
+                    .dataSource(importDataSource)
+                    .jobName(jobName)
+                    .roleArn(roleArn)
+                    .build();
+
+            datasetImportJobArn = personalizeClient.createDatasetImportJob(createDatasetImportJobRequest)
+                    .datasetImportJobArn();
+            DescribeDatasetImportJobRequest describeDatasetImportJobRequest = DescribeDatasetImportJobRequest.builder()
+                    .datasetImportJobArn(datasetImportJobArn)
+                    .build();
+
+            long maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
+
+            while (Instant.now().getEpochSecond() < maxTime) {
+
+                DatasetImportJob datasetImportJob = personalizeClient
+                        .describeDatasetImportJob(describeDatasetImportJobRequest)
+                        .datasetImportJob();
+
+                status = datasetImportJob.status();
+                System.out.println("Dataset import job status: " + status);
+
+                if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                    break;
+                }
+                try {
+                    Thread.sleep(waitInMilliseconds);
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            return datasetImportJobArn;
+
+        } catch (PersonalizeException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return "";
+    }

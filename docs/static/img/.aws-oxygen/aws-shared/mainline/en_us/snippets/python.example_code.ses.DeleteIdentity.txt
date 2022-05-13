@@ -1,0 +1,12 @@
+    def delete_identity(self, identity):
+        """
+        Deletes an identity.
+
+        :param identity: The identity to remove.
+        """
+        try:
+            self.ses_client.delete_identity(Identity=identity)
+            logger.info("Deleted identity %s.", identity)
+        except ClientError:
+            logger.exception("Couldn't delete identity %s.", identity)
+            raise

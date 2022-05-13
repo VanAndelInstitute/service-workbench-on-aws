@@ -1,0 +1,16 @@
+    public static void deleteEC2SecGroup(Ec2Client ec2,String groupId) {
+
+        try {
+            DeleteSecurityGroupRequest request = DeleteSecurityGroupRequest.builder()
+                .groupId(groupId)
+                .build();
+
+            ec2.deleteSecurityGroup(request);
+            System.out.printf(
+                "Successfully deleted Security Group with id %s", groupId);
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }

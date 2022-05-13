@@ -1,0 +1,21 @@
+<programlisting>
+
+// GetMovie gets movie data from the DynamoDB table by using the primary composite key
+// made of title and year.
+func (basics TableBasics) GetMovie(title string, year int) (Movie, error) {
+	movie := Movie{Title: title, Year: year}
+	response, err := basics.DynamoDbClient.GetItem(context.TODO(), &dynamodb.GetItemInput{
+		Key: movie.GetKey(), TableName: aws.String(basics.TableName),
+	})
+	if err != nil {
+		log.Printf("Couldn't get info about %v. Here's why: %v\n", title, err)
+	} else {
+		err = attributevalue.UnmarshalMap(response.Item, &movie)
+		if err != nil {
+			log.Printf("Couldn't unmarshal response. Here's why: %v\n", err)
+		}
+	}
+	return movie, err
+}
+
+</programlisting>

@@ -1,0 +1,21 @@
+<programlisting>
+    createRes, err := svc.CreateSecurityGroup(&ec2.CreateSecurityGroupInput{
+        GroupName:   aws.String(*namePtr),
+        Description: aws.String(*descPtr),
+        VpcId:       aws.String(*vpcIDPtr),
+    })
+    if err != nil {
+        if aerr, ok := err.(awserr.Error); ok {
+            switch aerr.Code() {
+            case "InvalidVpcID.NotFound":
+                exitErrorf("Unable to find VPC with ID %q.", *vpcIDPtr)
+            case "InvalidGroup.Duplicate":
+                exitErrorf("Security group %q already exists.", *namePtr)
+            }
+        }
+        exitErrorf("Unable to create security group %q, %v", *namePtr, err)
+    }
+
+    fmt.Printf("Created security group %s with VPC %s.\n",
+        aws.StringValue(createRes.GroupId), *vpcIDPtr)
+</programlisting>

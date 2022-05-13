@@ -1,0 +1,2 @@
+import aws.sdk.kotlin.services.athena.AthenaClient
+import aws.sdk.kotlin.services.athena.model.ListQueryExecutionsRequest

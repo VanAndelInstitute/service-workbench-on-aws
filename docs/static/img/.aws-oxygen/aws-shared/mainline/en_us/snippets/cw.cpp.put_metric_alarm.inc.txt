@@ -1,0 +1,4 @@
+#include <aws/core/Aws.h>
+#include <aws/monitoring/CloudWatchClient.h>
+#include <aws/monitoring/model/PutMetricAlarmRequest.h>
+#include <iostream>

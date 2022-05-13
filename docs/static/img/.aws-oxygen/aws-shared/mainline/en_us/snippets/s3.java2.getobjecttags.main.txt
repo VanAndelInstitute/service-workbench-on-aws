@@ -1,0 +1,25 @@
+    public static void listTags(S3Client s3, String bucketName, String keyName ) {
+
+         try {
+             GetObjectTaggingRequest getTaggingRequest = GetObjectTaggingRequest
+                    .builder()
+                    .key(keyName)
+                    .bucket(bucketName)
+                    .build();
+
+            GetObjectTaggingResponse tags = s3.getObjectTagging(getTaggingRequest);
+            List<Tag> tagSet= tags.tagSet();
+
+            // Write out the tags
+            Iterator<Tag> tagIterator = tagSet.iterator();
+            while(tagIterator.hasNext()) {
+
+                Tag tag = (Tag)tagIterator.next();
+                System.out.println(tag.key());
+                System.out.println(tag.value());
+            }
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

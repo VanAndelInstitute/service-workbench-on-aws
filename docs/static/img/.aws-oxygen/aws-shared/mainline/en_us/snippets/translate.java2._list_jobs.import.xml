@@ -1,0 +1,8 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.translate.TranslateClient;
+import software.amazon.awssdk.services.translate.model.ListTextTranslationJobsRequest;
+import software.amazon.awssdk.services.translate.model.ListTextTranslationJobsResponse;
+import software.amazon.awssdk.services.translate.model.TextTranslationJobProperties;
+import software.amazon.awssdk.services.translate.model.TranslateException;
+</programlisting>

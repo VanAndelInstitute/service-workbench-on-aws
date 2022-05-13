@@ -1,0 +1,5 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    result, err := svc.ListBuckets(&s3.ListBucketsInput{})
+</programlisting>

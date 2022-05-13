@@ -1,0 +1,74 @@
+<programlisting>
+def usage_demo():
+    print('-'*88)
+    print("Welcome to the Amazon CloudWatch metrics and alarms demo!")
+    print('-'*88)
+
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+    cw_wrapper = CloudWatchWrapper(boto3.resource('cloudwatch'))
+
+    minutes = 20
+    metric_namespace = 'doc-example-metric'
+    metric_name = 'page_views'
+    start = datetime.utcnow() - timedelta(minutes=minutes)
+    print(f"Putting data into metric {metric_namespace}.{metric_name} spanning the "
+          f"last {minutes} minutes.")
+    for offset in range(0, minutes):
+        stamp = start + timedelta(minutes=offset)
+        cw_wrapper.put_metric_data_set(
+            metric_namespace, metric_name, stamp, 'Count', {
+                'values': [
+                    random.randint(bound, bound * 2)
+                    for bound in range(offset + 1, offset + 11)],
+                'counts': [random.randint(1, offset + 1) for _ in range(10)]
+            })
+
+    alarm_name = 'high_page_views'
+    period = 60
+    eval_periods = 2
+    print(f"Creating alarm {alarm_name} for metric {metric_name}.")
+    alarm = cw_wrapper.create_metric_alarm(
+        metric_namespace, metric_name, alarm_name, 'Maximum', period, eval_periods,
+        100, 'GreaterThanThreshold')
+    print(f"Alarm ARN is {alarm.alarm_arn}.")
+    print(f"Current alarm state is: {alarm.state_value}.")
+
+    print(f"Sending data to trigger the alarm. This requires data over the threshold "
+          f"for {eval_periods} periods of {period} seconds each.")
+    while alarm.state_value == 'INSUFFICIENT_DATA':
+        print("Sending data for the metric.")
+        cw_wrapper.put_metric_data(
+            metric_namespace, metric_name, random.randint(100, 200), 'Count')
+        alarm.load()
+        print(f"Current alarm state is: {alarm.state_value}.")
+        if alarm.state_value == 'INSUFFICIENT_DATA':
+            print(f"Waiting for {period} seconds...")
+            time.sleep(period)
+        else:
+            print("Wait for a minute for eventual consistency of metric data.")
+            time.sleep(period)
+            if alarm.state_value == 'OK':
+                alarm.load()
+                print(f"Current alarm state is: {alarm.state_value}.")
+
+    print(f"Getting data for metric {metric_namespace}.{metric_name} during timespan "
+          f"of {start} to {datetime.utcnow()} (times are UTC).")
+    stats = cw_wrapper.get_metric_statistics(
+        metric_namespace, metric_name, start, datetime.utcnow(), 60,
+        ['Average', 'Minimum', 'Maximum'])
+    print(f"Got {len(stats['Datapoints'])} data points for metric "
+          f"{metric_namespace}.{metric_name}.")
+    pprint(sorted(stats['Datapoints'], key=lambda x: x['Timestamp']))
+
+    print(f"Getting alarms for metric {metric_name}.")
+    alarms = cw_wrapper.get_metric_alarms(metric_namespace, metric_name)
+    for alarm in alarms:
+        print(f"Alarm {alarm.name} is currently in state {alarm.state_value}.")
+
+    print(f"Deleting alarms for metric {metric_name}.")
+    cw_wrapper.delete_metric_alarms(metric_namespace, metric_name)
+
+    print("Thanks for watching!")
+    print('-'*88)
+</programlisting>

@@ -1,0 +1,22 @@
+<SOAP-ENV:Body wsu:Id="body" xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <ns2:FundPrepaid xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+     <ns2:SenderTokenId>
+      R74QEB8KRTSE4PN2S8KI7PLD2LXZGGI6UMF8HXUHJ9PVKLI2EISA5MHPIZJ4V4NF
+     </ns2:SenderTokenId>
+     <ns2:PrepaidInstrumentId>
+      RA4QLBMKRVSK4PZ2J8KN72LDDL4ZGTI4UM581XUPJJPV6LZ2EGS55MBP5ZJ5V7NA
+     </ns2:PrepaidInstrumentId>
+     <ns2:FundingAmount>
+       <ns2:CurrencyCode>USD</ns2:CurrencyCode>
+       <ns2:Value>50</ns2:Value>
+     </ns2:FundingAmount>
+     <ns2:CallerReference>
+      ReferenceString????f2VW12290544025471
+     </ns2:CallerReference>
+     <ns2:CallerDescription>
+      DescriptionString-????j38y12290544025481
+     </ns2:CallerDescription>
+   </ns2:FundPrepaid>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

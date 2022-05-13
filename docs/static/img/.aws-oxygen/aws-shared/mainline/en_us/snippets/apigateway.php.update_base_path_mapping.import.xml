@@ -1,0 +1,6 @@
+<programlisting>
+require 'vendor/autoload.php';
+
+use Aws\ApiGateway\ApiGatewayClient;
+use Aws\Exception\AwsException;
+</programlisting>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+
+    
+<section id="EMR_CreateJobFlow" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Follow these steps to create an &EMR; cluster for use with &DDBlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="EMR_CreateJobFlow.title">Step 2: Create a &Cluster;</title>
+    <titleabbrev>Step 2: Create a &Cluster;</titleabbrev>
+    <para>In order for Hive to run on &EMR;, you must create a &cluster; with Hive enabled. This
+		sets up the necessary applications and infrastructure for Hive to connect to &DDB;. The
+		following procedures explain how to create an interactive Hive &cluster; from the &console;
+		and the CLI. </para>
+    <para role="topiclist"/> 
+    <section id="CreateJobFlowConsole"><title id="CreateJobFlowConsole.title">To start a &cluster; using the &console;</title>
+        <procedure>
+<step> &ElasticMapReduceConsole_DirectURL; </step>
+			<step>
+				<para>Click <guilabel>Create Cluster</guilabel>.</para>
+			</step>
+			
+<step>			
+				<para>In the <guilabel>Create Cluster</guilabel> page, in the <guilabel>Cluster
+					Configuration</guilabel> section, verify the fields according to the
+					following table.</para>
+				
+				<informalfigure>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="&url-emr-dev;images/cluster-configuration-newcon.png"
+								format="PNG"/>
+						</imageobject>
+						<textobject>
+							<phrase>Cluster Configuration</phrase>
+						</textobject>
+					</mediaobject>
+				</informalfigure>
+
+				<informaltable>
+					<tgroup cols="2">
+						<colspec colname="c1" colnum="1" colwidth="1*"/>
+						<colspec colname="c2" colnum="2" colwidth="3.67*"/>
+						<thead>
+							<row>
+								<entry>Field</entry>
+								<entry>Action</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Cluster name</entry>
+								<entry>
+									<para>Enter a descriptive name for your cluster.</para>
+									<para>The name is optional, and does not need to be unique.
+									</para>
+								</entry>
+							</row>							
+							<row>
+								<entry>Termination protection</entry>
+								<entry>
+									<para>Choose <guilabel>Yes</guilabel>. </para>
+									<para>Enabling termination protection ensures that the cluster does not shut down due to
+										accident or error. For more information, see <ulink url="&url-emr-dev;UsingEMR_TerminationProtection.html">Protect a Cluster from Termination</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.
+											
+										Typically, set this value to <guilabel>Yes</guilabel> only
+										when developing an application (so you can debug errors that
+										would have otherwise terminated the cluster) and to
+										protect long-running clusters or clusters that contain
+										data. </para>
+								</entry>
+							</row>
+								<row>
+								<entry>Logging</entry>
+								<entry>
+									<para> Choose <guilabel>Enabled</guilabel>. </para>
+									<para>This determines whether &EMR; captures detailed log data to &S3;. </para>
+									<para>For more information, see <ulink url="&url-emr-dev;emr-manage-view-web-log-files.html">View Log Files</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+
+							<row>
+								<entry>Log folder S3 location</entry>
+								<entry>
+									<para> Enter an &S3; path to store your debug logs if you enabled logging in the previous
+										field. </para>								
+									<para>When this value is set, &EMR; copies the log files from the EC2 instances in
+										the cluster to &S3;. This prevents the log files from
+										being lost when the cluster ends and the EC2 instances
+										hosting the cluster are terminated. These logs are useful for troubleshooting purposes. </para>
+									<para>For more information, see <ulink url="&url-emr-dev;emr-manage-view-web-log-files.html">View Log Files</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+
+							<row>
+								<entry>Debugging</entry>
+								<entry>
+									<para> Choose <guilabel>Enabled</guilabel>. </para>
+									<para> This option creates a debug log index in SimpleDB (additional charges apply) to
+										enable detailed debugging in the &EMR; console. You can only
+										set this when the cluster is created. For more information
+										about Amazon SimpleDB, go to the <ulink
+											url="http://&awsdomain;/simpledb/">Amazon
+											SimpleDB</ulink> product description page. </para>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+			</step>
+
+
+<step>
+				<para>In the <guilabel>Software Configuration</guilabel> section, verify the fields according to
+					the following table.</para>
+				<informalfigure>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="&url-emr-dev;images/software-configuration-newcon.png"
+								format="PNG"/>
+						</imageobject>
+						<textobject>
+							<phrase>Software Configuration</phrase>
+						</textobject>
+					</mediaobject>
+				</informalfigure>
+				
+				<informaltable frame="all">
+					<tgroup cols="2">
+						<colspec colname="c1" colnum="1" colwidth="1*"/>
+						<colspec colname="c2" colnum="2" colwidth="4*"/>
+						<thead>
+							<row>
+									<entry>Field</entry>
+								<entry>Action</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Hadoop distribution</entry>
+								<entry>
+									<para>Choose <guilabel>Amazon</guilabel>. </para><para>This
+										determines which distribution of Hadoop to run on your cluster.
+										You can choose to run the Amazon distribution of Hadoop or
+										one of several MapR distributions. For more information, 
+										see <ulink url="&url-emr-dev;emr-mapr.html">Using the MapR Distribution for Hadoop</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+							<row>
+								<entry>AMI version</entry>
+								<entry>
+									<para>Choose the latest AMI version in the list.</para>
+									<para>This determines the version of Hadoop and other applications such as Hive or Pig to run on your cluster.
+										For more information, see <ulink url="&url-emr-dev;emr-plan-ami.html">Choose a Machine Image</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. </para>
+								</entry>
+							</row>
+						    
+						    <row>
+						        <entry>Applications to be installed - Hive</entry>
+						        <entry>
+						            <para>A default Hive version should already be selected and displayed in the list. If it does not appear, choose it from the <guilabel>Additional applications</guilabel> list.</para>
+						        	<para>For more information, see <ulink url="&url-emr-dev;emr-hive.html">Analyze Data with Hive</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. </para>
+						        </entry>
+						    </row>
+						    
+						    <row>
+						        <entry>Applications to be installed - Pig</entry>
+						        <entry>
+						            <para>A default Pig version should already be selected and displayed in the list. If it does not appear, choose it from the <guilabel>Additional applications</guilabel> list.</para>
+						        	<para>For more information, see <ulink url="&url-emr-dev;emr-pig.html">Process Data with Pig</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. </para>
+						        </entry>
+						    </row>
+						
+						</tbody>
+					</tgroup>
+				</informaltable>
+			</step>
+
+<step>
+				<para>In the <guilabel>Hardware Configuration</guilabel> section, verify the fields according to
+					the following table.</para>
+					<note>
+					<para>The default maximum number of nodes <emphasis role="italic">per AWS account</emphasis> is
+						twenty. For example, if you have two clusters running, the total number of
+						nodes running for both clusters must be 20 or less. Exceeding this limit
+						will result in cluster failures. If you need more than 20 nodes, you must
+						submit a request to increase your &EC2; instance limit. Ensure that your
+						requested limit increase includes sufficient capacity for any temporary,
+						unplanned increases in your needs. For more information, go to the <ulink
+							url="&url-limit-ec2-instances;">Request to Increase &EC2; Instance Limit
+							Form</ulink>. </para>
+				</note>
+				<informalfigure>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="&url-emr-dev;images/hardware-configuration-newcon.png"
+								format="PNG"/>
+						</imageobject>
+						<textobject>
+							<phrase>Hardware Configuration</phrase>
+						</textobject>
+					</mediaobject>
+				</informalfigure>
+				
+				
+				<informaltable frame="all">
+					<tgroup cols="2">
+						<colspec colname="c1" colnum="1" colwidth="1*"/>
+						<colspec colname="c2" colnum="2" colwidth="3.95*"/>
+						<thead>
+							<row>
+									<entry>Field</entry>
+								<entry>Action</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Network</entry>
+								<entry><para>Choose <guilabel>Launch into EC2-Classic</guilabel>.</para>
+									<para> Optionally, choose a VPC subnet identifier from the list to launch the
+										cluster in an &VPC;. For more information, see <ulink url="&url-emr-dev;emr-plan-vpc-subnet.html">Select a Amazon VPC Subnet for the Cluster (Optional)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. </para>
+								</entry>
+							</row>
+							<row>
+								<entry>EC2 Availability Zone</entry>
+								<entry><para>Choose <guilabel>No preference</guilabel>.</para>
+									<para>Optionally, you can launch the cluster in a specific EC2 Availability Zone.</para> 
+									<para revision="release">For more
+										information, see <ulink url="http://&domain;/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Availability Zones</ulink> in the &EC2; User Guide.
+										</para>
+								</entry>
+							</row>
+							<row>
+								<entry>Master - &EC2; Instance Type</entry>
+								<entry>
+									<para>For this tutorial, use the default <guilabel>EC2 instance
+											type</guilabel> that is shown in this field.</para>
+									<para>This specifies the EC2 instance types to use as master
+										nodes. The master node assigns Hadoop tasks to core and task
+										nodes, and monitors their status. There is always one master
+										node in each cluster.</para>
+									<para>For more information, see <ulink url="&url-emr-dev;InstanceGroups.html">Instance
+											Groups</ulink> in the <emphasis>&EMR; Developer
+											Guide</emphasis>. </para>
+								</entry>
+							</row>
+							<row>
+								<entry revision="release">Request Spot Instances</entry>
+								<entry><para>Leave this box unchecked.</para>
+									<para>This specifies whether to run master nodes on Spot Instances.
+										For more information, see <ulink url="&url-emr-dev;emr-plan-spot-instances.html">Lower Costs with Spot Instances (Optional)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+							<row>
+								<entry>Core - &EC2; Instance Type</entry>
+								<entry>
+									<para>For this tutorial, use the default <guilabel>EC2 instance
+											type</guilabel> that is shown in this field.</para>
+									<para>This specifies the EC2 instance types to use as core
+										nodes.  A core node is an EC2 instance that runs Hadoop map
+										and reduce tasks and stores data using the Hadoop
+										Distributed File System (HDFS). Core nodes are managed by
+										the master node.</para>
+									<para>For more information, see <ulink
+											url="&url-emr-dev;InstanceGroups.html">Instance
+											Groups</ulink> in the <emphasis>&EMR; Developer
+											Guide</emphasis>. </para>
+								</entry>
+							</row>
+							<row>
+								<entry>Count</entry>
+								<entry><para>Choose <guilabel>2</guilabel>.</para>
+								</entry>
+							</row>
+							<row revision="release">
+								<entry>Request Spot Instances</entry>
+								<entry><para>Leave this box unchecked.</para>
+									<para>This specifies whether to run core nodes on Spot Instances. For
+										more information, see <ulink url="&url-emr-dev;emr-plan-spot-instances.html">Lower Costs with Spot Instances (Optional)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+							<row>
+								<entry>Task - &EC2; Instance Type</entry>
+								<entry>
+									<para>For this tutorial, use the default <guilabel>EC2 instance
+											type</guilabel> that is shown in this field.</para>
+									<para>This specifies the EC2 instance types to use as task
+										nodes. A task node only processes Hadoop tasks and
+										don&apos;t store data. You can add and remove them from a
+										cluster to manage the EC2 instance capacity your cluster
+										uses, increasing capacity to handle peak loads and
+										decreasing it later. Task nodes only run a TaskTracker
+										Hadoop daemon.</para>
+									<para>For more information, see <ulink
+											url="&url-emr-dev;InstanceGroups.html">Instance
+											Groups</ulink> in the <emphasis>&EMR; Developer
+											Guide</emphasis>. </para>
+								</entry>
+							</row>
+							<row>
+								<entry>Count</entry>
+								<entry><para>Choose <guilabel>0</guilabel>.</para>
+								</entry>
+							</row>
+							<row revision="release">
+								<entry>Request Spot Instances</entry>
+								<entry><para>Leave this box unchecked.</para>
+									<para>This specifies whether to run task nodes on Spot Instances. For
+										more information, see <ulink url="&url-emr-dev;emr-plan-spot-instances.html">Lower Costs with Spot Instances (Optional)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+			</step>
+
+<step>
+					<para>In the <guilabel>Security and Access</guilabel> section, complete the
+						fields according to the following table.</para>
+			
+			<informaltable frame="all">
+				<tgroup cols="2">
+					<colspec colname="c1" colnum="1" colwidth="1*"/>
+					<colspec colname="c2" colnum="2" colwidth="4*"/>
+					<thead>
+						<row>
+								<entry>Field</entry>
+								<entry>Action</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>EC2 key pair</entry>
+							<entry><para>Choose the key pair that you created in <xref linkend="EMR_SetUp_KeyPair" endterm="EMR_SetUp_KeyPair.title"/>.</para>
+								<para>For more information, see <ulink url="&url-emr-dev;emr-plan-access-ssh.html">Create
+											SSH Credentials for the Master Node</ulink> in the
+											<emphasis>&EMR; Developer Guide</emphasis>. </para>
+								<para>If you do not enter a value in this field, you will not be able to connect to the
+										master node using SSH. For more information, see <ulink
+											url="&url-emr-dev;emr-connect-master-node.html">Connect
+											to the Cluster</ulink> in the <emphasis>&EMR; Developer
+											Guide</emphasis>. </para>
+							</entry>
+						</row>
+						<row>
+							<entry>IAM user access</entry>
+							<entry><para>Choose <guilabel>No other IAM users</guilabel>.</para>
+								<para>Optionally, choose <guilabel>All other IAM users</guilabel> to make the cluster
+									visible and accessible to all IAM users on the AWS account.
+									For more information, see <ulink url="&url-emr-dev;emr-plan-access-iam.html">Configure IAM User Permissions</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+							</entry>
+						</row>
+						<row>
+							<entry>IAM role</entry>
+							<entry><para>Choose <guilabel>Proceed without roles</guilabel>.</para>
+								<para>This controls application access to the EC2 instances in the cluster.</para>
+								<para>For more information, see <ulink url="&url-emr-dev;emr-iam-roles.html">Configure IAM Roles for Amazon EMR</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. </para>
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+			
+				</step>
+
+<step>
+				<para>Review the <guilabel>Bootstrap Actions</guilabel> section, but note that you do not need
+					to make any changes. There are no bootstrap actions necessary for this sample
+					configuration.</para>
+				<para>Optionally, you can use bootstrap actions, which are scripts that can install additional software 
+					and change the configuration of applications on the cluster before Hadoop starts.
+					For more information, see <ulink url="&url-emr-dev;emr-plan-bootstrap.html">Create Bootstrap Actions to Install Additional Software (Optional)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+			</step>	
+            
+
+<step>
+				<para>Review your configuration and if you are satisfied with the settings, click <guilabel>Create Cluster</guilabel>.</para>
+			</step>
+			
+			<step>
+				<para>When the cluster starts, you see the <guilabel>Summary</guilabel> pane.</para>
+				<informalfigure>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="&url-emr-dev;images/cluster-starting-newcon.png"
+								format="PNG" scale="70"/>
+						</imageobject>
+						<textobject>
+							<phrase>Cluster Starting</phrase>
+						</textobject>
+					</mediaobject>
+				</informalfigure>				
+			</step>            
+            
+        </procedure>      
+            
+    </section>
+ </section>   

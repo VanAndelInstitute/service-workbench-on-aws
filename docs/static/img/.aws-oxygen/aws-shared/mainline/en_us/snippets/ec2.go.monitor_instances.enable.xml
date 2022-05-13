@@ -1,0 +1,14 @@
+<programlisting>
+    input := &ec2.MonitorInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.MonitorInstances(input)
+    awsErr, ok := err.(awserr.Error)
+
+    if ok && awsErr.Code() == "DryRunOperation" {
+        input.DryRun = aws.Bool(false)
+        result, err := svc.MonitorInstances(input)
+</programlisting>

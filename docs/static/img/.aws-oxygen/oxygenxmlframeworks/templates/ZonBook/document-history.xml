@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent"> 
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="document-history" role="topic">
+ <info>
+  <title id="document-history.title">Document History for ServiceNameEntity</title>
+  <titleabbrev>Document History</titleabbrev>
+  <abstract>
+   <para>Insert document history abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/DocHist.html">Document History</ulink>. Remove
+  this remark before using this template code in your doc package. Save the file as <emphasis role="bold"
+   >document-history.xml</emphasis>.</remark>
+ <para>The following table describes the documentation for this release of ServiceNameEntity.</para>
+ <itemizedlist>
+  <listitem>
+   <para><emphasis role="bold">API version:</emphasis>
+   </para>
+  </listitem>
+  <listitem>
+   <para><emphasis role="bold">Latest documentation update:</emphasis> Month DD, YYYY</para>
+  </listitem>
+ </itemizedlist>
+ <table id="doc-history-table">
+  <tgroup cols="3">
+   <colspec colname="change" colnum="1"/>
+   <colspec colname="description" colnum="2"/>
+   <colspec colname="date" colnum="3"/>
+   <thead>
+    <row>
+     <entry>Change</entry>
+     <entry>Description</entry>
+     <entry>Date</entry>
+    </row>
+   </thead>
+   <tbody>
+    <row>
+     <entry>Brief description of change</entry>
+     <entry>Detailed description of change with link to topic/section that was changed.</entry>
+     <entry>Month DD, YYYY</entry>
+    </row>
+    <row>
+     <entry>Brief description of change</entry>
+     <entry>Detailed description of change with link to topic/section that was changed.</entry>
+     <entry>Month DD, YYYY</entry>
+    </row>
+   </tbody>
+  </tgroup>
+ </table>
+</chapter>

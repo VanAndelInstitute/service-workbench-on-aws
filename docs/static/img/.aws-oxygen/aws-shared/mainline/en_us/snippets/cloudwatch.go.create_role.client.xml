@@ -1,0 +1,3 @@
+<programlisting>
+    svc := iam.New(sess)
+</programlisting>

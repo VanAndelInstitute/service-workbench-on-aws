@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">              %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">  %phrases-shared;     
+
+<!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+<!ENTITY SERVICENAME 'SERVICE SHORTNAME'>      
+]>
+<!--The text in this template has been approved by the security and compliance team, therefore we highly recommend that you use this text as-is. However, if you have good reason to alter the wording for your specific service, you can.--> 
+<!--The marketing sites vary considerably for BJS, DCA, and LCK. Verify any new links -->
+<!--SEA/IAD: https://aws.amazon.com/ -->
+<!--BJS: http://www.amazonaws.cn/ -->
+<!--DCA: http://aws-mktg-site-hz-mvp-prod.amazon.com/ -->
+<!--LCK. https://aws-lck-live.aka.amazon.com/ -->
+<chapter role="topic" id="security">
+  <info>
+     <title id="security.title">Security in &SERVICENAMElong;</title>
+    <titleabbrev>Security</titleabbrev>
+    <abstract>
+      <para>Configure &SERVICENAMElong; to meet your security and compliance objectives, and learn
+        how to use other &AWS; services that help you to secure your &SERVICENAME; resources.</para>
+    </abstract>
+  </info>
+  <para>Cloud security at &AWS; is the highest priority. As an &AWS; customer, you benefit from data
+    centers and network architectures that are built to meet the requirements of the most
+    security-sensitive organizations.</para>
+ <para>Security is a shared responsibility between &AWS; and you. The <ulink type="marketing"
+   url="compliance/shared-responsibility-model/" region="SEA;IAD">shared responsibility model</ulink><ulink
+   url="https://aws.amazon.com/compliance/shared-responsibility-model/" region="BJS">shared responsibility
+   model</ulink><phrase region="DCA;LCK">shared responsibility model</phrase> describes this as security
+   <emphasis>of</emphasis> the cloud and security <emphasis>in</emphasis> the cloud:</para>
+ <itemizedlist>
+  <listitem>
+   <para><emphasis role="bold">Security of the cloud</emphasis> &ndash; &AWS; is responsible for protecting the
+     infrastructure that runs &AWS; services in the &AWS-Cloud;. &AWS; also provides you with services that you can use
+    securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the <ulink
+     type="marketing" url="compliance/programs/" region="SEA;IAD">&AWS; Compliance Programs</ulink><ulink
+     type="marketing" url="compliance" region="DCA;LCK">&AWS; Compliance Programs</ulink><ulink
+     url="https://aws.amazon.com/compliance/programs/" region="BJS">&AWS; Compliance Programs</ulink>. <phrase
+     region="SEA;IAD;BJS">To learn about the compliance programs that apply to &SERVICENAMElong;, see <ulink
+       type="marketing" url="compliance/services-in-scope/" region="SEA;IAD">&AWS; Services in Scope by Compliance
+       Program</ulink><ulink url="https://aws.amazon.com/compliance/services-in-scope/" region="BJS">&AWS; Services in
+      Scope by Compliance Program</ulink>.</phrase></para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Security in the cloud</emphasis> &ndash; Your responsibility is
+        determined by the &AWS; service that you use. You are also responsible for other factors
+        including the sensitivity of your data, your company’s requirements, and applicable laws and
+        regulations. </para>
+    </listitem>
+  </itemizedlist>
+  <para>This documentation helps you understand how to apply the shared responsibility model when
+    using &SERVICENAME;. The following topics show you how to configure &SERVICENAME; to meet your
+    security and compliance objectives. You also learn how to use other &AWS; services that help you
+    to monitor and secure your &SERVICENAME; resources. </para>
+  <para role="topiclist">Topics</para>
+  <remark>TODO: Include additional security XML files as you add them to your package.</remark>
+  
+  <!--You will need to un-comment out each of the following topics as you add them to your guide-->
+  <!--You are not complete until all of these topics have been added-->
+  <!--
+      <xi:include href="data-protection.xml"/> 
+      <xi:include href="security-iam.xml"/>
+      <xi:include href="incident-response.xml"/>
+      <xi:include href="compliance-validation.xml"/>
+      <xi:include href="disaster-recovery-resiliency.xml"/>
+      <xi:include href="infrastructure-security.xml"/>
+      <xi:include href="vulnerability-analysis-and-management.xml"/>
+      <xi:include href="security-best-practices.xml"/>
+ -->
+   
+</chapter>

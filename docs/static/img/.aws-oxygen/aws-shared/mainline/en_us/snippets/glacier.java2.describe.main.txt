@@ -1,0 +1,21 @@
+    public static void describeGlacierVault(GlacierClient glacier, String vaultName) {
+
+        try {
+            DescribeVaultRequest describeVaultRequest = DescribeVaultRequest.builder()
+                    .vaultName(vaultName)
+                    .build();
+
+            DescribeVaultResponse desVaultResult = glacier.describeVault(describeVaultRequest);
+            System.out.println("Describing the vault: " + vaultName);
+            System.out.print(
+                    "CreationDate: " + desVaultResult.creationDate() +
+                            "\nLastInventoryDate: " + desVaultResult.lastInventoryDate() +
+                            "\nNumberOfArchives: " + desVaultResult.numberOfArchives() +
+                            "\nSizeInBytes: " + desVaultResult.sizeInBytes() +
+                            "\nVaultARN: " + desVaultResult.vaultARN() +
+                            "\nVaultName: " + desVaultResult.vaultName());
+        } catch(GlacierException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

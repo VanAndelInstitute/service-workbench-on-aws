@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.cognitoidentityprovider.CognitoIdentityProviderClient
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.DeleteUserPoolRequest
+import kotlin.system.exitProcess

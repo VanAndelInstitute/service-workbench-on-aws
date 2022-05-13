@@ -1,0 +1,95 @@
+    public static void putS3ObjectTags(S3Client s3,  String bucketName, String objectKey, String objectPath) {
+
+        try {
+            // Define the tags.
+            Tag tag1 = Tag.builder()
+                .key("Tag 1")
+                .value("This is tag 1")
+                .build();
+
+            Tag tag2 = Tag.builder()
+                .key("Tag 2")
+                .value("This is tag 2")
+                .build();
+
+            List<Tag> tags = new ArrayList<Tag>();
+            tags.add(tag1);
+            tags.add(tag2);
+
+            Tagging allTags = Tagging.builder()
+                .tagSet(tags)
+                .build();
+
+            PutObjectRequest putOb = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(objectKey)
+                .tagging(allTags)
+                .build();
+
+            s3.putObject(putOb, RequestBody.fromBytes(getObjectFile(objectPath)));
+
+        } catch (S3Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void updateObjectTags(S3Client s3,  String bucketName, String objectKey) {
+
+        try {
+
+            // Retrieve the object's tags.
+            GetObjectTaggingRequest taggingRequest = GetObjectTaggingRequest.builder()
+                    .bucket(bucketName)
+                    .key(objectKey)
+                    .build();
+
+            GetObjectTaggingResponse getTaggingRes = s3.getObjectTagging(taggingRequest);
+
+            // Write out the tags.
+            List<Tag> obTags =   getTaggingRes.tagSet();
+            for (Tag sinTag: obTags) {
+                System.out.println("The tag key is: "+sinTag.key());
+                System.out.println("The tag value is: "+sinTag.value());
+            }
+
+            // Replace the object's tags with two new tags.
+            Tag tag3 = Tag.builder()
+                    .key("Tag 3")
+                    .value("This is tag 3")
+                    .build();
+
+            Tag tag4 = Tag.builder()
+                    .key("Tag 4")
+                    .value("This is tag 4")
+                    .build();
+
+            List<Tag> tags = new ArrayList<Tag>();
+            tags.add(tag3);
+            tags.add(tag4);
+
+            Tagging updatedTags = Tagging.builder()
+                    .tagSet(tags)
+                    .build();
+
+            PutObjectTaggingRequest taggingRequest1 = PutObjectTaggingRequest.builder()
+                    .bucket(bucketName)
+                    .key(objectKey)
+                    .tagging(updatedTags)
+                    .build();
+
+            s3.putObjectTagging(taggingRequest1);
+
+            // Write out the modified tags.
+            GetObjectTaggingResponse getTaggingRes2 = s3.getObjectTagging(taggingRequest);
+            List<Tag> modTags =   getTaggingRes2.tagSet();
+            for (Tag sinTag: modTags) {
+                System.out.println("The tag key is: "+sinTag.key());
+                System.out.println("The tag value is: "+sinTag.value());
+            }
+
+        } catch (S3Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,13 @@
+suspend fun createAPI(restApiName: String?): String? {
+
+    val request = CreateRestApiRequest {
+        description = "Created using the Gateway Kotlin API"
+        name = restApiName
+    }
+
+    ApiGatewayClient { region = "us-east-1" }.use { apiGateway ->
+        val response = apiGateway.createRestApi(request)
+        println("The id of the new api is ${response.id}")
+        return response.id
+    }
+}

@@ -1,0 +1,18 @@
+    public static void describeMigTask(MigrationHubClient migrationClient, String migrationTask, String progressStream) {
+        try {
+
+            DescribeMigrationTaskRequest migrationTaskRequestRequest = DescribeMigrationTaskRequest.builder()
+                    .progressUpdateStream(progressStream)
+                    .migrationTaskName(migrationTask)
+                    .build();
+
+            DescribeMigrationTaskResponse migrationTaskResponse=  migrationClient.describeMigrationTask(migrationTaskRequestRequest);
+
+            // Display the result
+            System.out.println("The name is "+ migrationTaskResponse.migrationTask().migrationTaskName());
+
+        } catch (MigrationHubException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }

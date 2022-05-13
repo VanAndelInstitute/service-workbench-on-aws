@@ -1,0 +1,19 @@
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(256);
+
+        // generate a symmetric encryption key for testing
+        SecretKey secretKey = keyGenerator.generateKey();
+
+        String s3ObjectKey = "EncryptedContent1.txt";
+        String s3ObjectContent = "This is the 1st content to encrypt";
+
+        AmazonS3EncryptionV2 s3Encryption = AmazonS3EncryptionClientV2Builder.standard()
+                .withRegion(Regions.DEFAULT_REGION)
+                .withClientConfiguration(new ClientConfiguration())
+                .withCryptoConfiguration(new CryptoConfigurationV2().withCryptoMode(CryptoMode.StrictAuthenticatedEncryption))
+                .withEncryptionMaterialsProvider(new StaticEncryptionMaterialsProvider(new EncryptionMaterials(secretKey)))
+                .build();
+
+        s3Encryption.putObject(bucketName, s3ObjectKey, s3ObjectContent);
+        System.out.println(s3Encryption.getObjectAsString(bucketName, s3ObjectKey));
+        s3Encryption.shutdown();

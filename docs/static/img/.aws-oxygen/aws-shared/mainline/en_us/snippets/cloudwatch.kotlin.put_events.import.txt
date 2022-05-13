@@ -1,0 +1,4 @@
+import aws.sdk.kotlin.services.cloudwatchevents.CloudWatchEventsClient
+import aws.sdk.kotlin.services.cloudwatchevents.model.PutEventsRequest
+import aws.sdk.kotlin.services.cloudwatchevents.model.PutEventsRequestEntry
+import kotlin.system.exitProcess

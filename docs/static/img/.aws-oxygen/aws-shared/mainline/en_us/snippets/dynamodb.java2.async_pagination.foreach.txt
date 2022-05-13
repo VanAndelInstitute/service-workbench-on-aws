@@ -1,0 +1,3 @@
+        // Use forEach
+        CompletableFuture<Void> future = publisher.subscribe(System.out::println);
+        future.get();

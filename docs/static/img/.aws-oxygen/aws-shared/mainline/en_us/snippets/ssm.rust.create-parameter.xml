@@ -1,0 +1,22 @@
+<programlisting>
+async fn make_parameter(
+    client: &Client,
+    name: &str,
+    value: &str,
+    description: &str,
+) -> Result<(), Error> {
+    let resp = client
+        .put_parameter()
+        .overwrite(true)
+        .r#type(ParameterType::String)
+        .name(name)
+        .value(value)
+        .description(description)
+        .send()
+        .await?;
+
+    println!("Success! Parameter now has version: {}", resp.version());
+
+    Ok(())
+}
+</programlisting>

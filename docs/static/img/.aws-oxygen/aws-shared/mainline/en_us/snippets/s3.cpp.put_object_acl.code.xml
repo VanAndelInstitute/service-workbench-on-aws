@@ -1,0 +1,76 @@
+<programlisting>
+bool AwsDoc::S3::PutObjectAcl(const Aws::String& bucketName,
+    const Aws::String& objectKey, 
+    const Aws::String& region, 
+    const Aws::String& ownerID, 
+    const Aws::String& granteePermission, 
+    const Aws::String& granteeType, 
+    const Aws::String& granteeID, 
+    const Aws::String& granteeDisplayName, 
+    const Aws::String& granteeEmailAddress, 
+    const Aws::String& granteeURI)
+{
+    Aws::Client::ClientConfiguration config;
+    config.region = region;
+
+    Aws::S3::S3Client s3_client(config);
+
+    Aws::S3::Model::Owner owner;
+    owner.SetID(ownerID);
+
+    Aws::S3::Model::Grantee grantee;
+    grantee.SetType(SetGranteeType(granteeType));
+
+    if (granteeEmailAddress != "")
+    {
+        grantee.SetEmailAddress(granteeEmailAddress);
+    }
+
+    if (granteeID != "")
+    {
+        grantee.SetID(granteeID);
+    }
+
+    if (granteeDisplayName != "")
+    {
+        grantee.SetDisplayName(granteeDisplayName);
+    }
+
+    if (granteeURI != "")
+    {
+        grantee.SetURI(granteeURI);
+    }
+
+    Aws::S3::Model::Grant grant;
+    grant.SetGrantee(grantee);
+    grant.SetPermission(SetGranteePermission(granteePermission));
+
+    Aws::Vector<Aws::S3::Model::Grant> grants;
+    grants.push_back(grant);
+
+    Aws::S3::Model::AccessControlPolicy acp;
+    acp.SetOwner(owner);
+    acp.SetGrants(grants);
+
+    Aws::S3::Model::PutObjectAclRequest request;
+    request.SetAccessControlPolicy(acp);
+    request.SetBucket(bucketName);
+    request.SetKey(objectKey);
+
+    Aws::S3::Model::PutObjectAclOutcome outcome =
+        s3_client.PutObjectAcl(request);
+
+    if (outcome.IsSuccess())
+    {
+        return true;
+    }
+    else
+    {
+        auto error = outcome.GetError();
+        std::cout << "Error: PutObjectAcl: " << error.GetExceptionName()
+            << " - " << error.GetMessage() << std::endl;
+
+        return false;
+    }
+}
+</programlisting>

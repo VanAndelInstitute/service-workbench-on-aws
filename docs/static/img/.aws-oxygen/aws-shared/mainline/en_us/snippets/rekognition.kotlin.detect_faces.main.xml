@@ -1,0 +1,22 @@
+<programlisting>
+suspend fun detectFacesinImage(sourceImage: String?) {
+
+        val souImage = Image {
+            bytes = (File(sourceImage).readBytes())
+        }
+
+        val request = DetectFacesRequest {
+            attributes = listOf(Attribute.All)
+            image = souImage
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val response = rekClient.detectFaces(request)
+          response.faceDetails?.forEach { face ->
+               val ageRange = face.ageRange
+                println("The detected face is estimated to be between ${ageRange?.low.toString()} and ${ageRange?.high.toString()} years old.")
+                println("There is a smile ${face.smile?.value.toString()}")
+          }
+       }
+}
+</programlisting>

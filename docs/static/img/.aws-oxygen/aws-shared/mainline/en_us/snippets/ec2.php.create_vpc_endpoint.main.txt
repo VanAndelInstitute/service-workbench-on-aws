@@ -1,0 +1,16 @@
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+$result = $ec2Client->createVpcEndpoint(array(
+    // VpcId is required
+    'VpcId' => 'string',
+    // ServiceName is required
+    'ServiceName' => 'string'
+));
+
+var_dump($result);
+ 
+ 

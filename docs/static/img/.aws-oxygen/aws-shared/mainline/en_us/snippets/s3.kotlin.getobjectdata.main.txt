@@ -1,0 +1,15 @@
+suspend fun getObjectBytes(bucketName: String, keyName: String, path: String) {
+
+         val request =  GetObjectRequest {
+             key = keyName
+             bucket= bucketName
+         }
+
+         S3Client { region = "us-east-1" }.use { s3 ->
+             s3.getObject(request) { resp ->
+                    val myFile = File(path)
+                    resp.body?.writeToFile(myFile)
+                    println("Successfully read $keyName from $bucketName")
+               }
+         }
+ }

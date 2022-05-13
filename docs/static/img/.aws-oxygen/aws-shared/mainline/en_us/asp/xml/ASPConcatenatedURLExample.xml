@@ -1,0 +1,5 @@
+
+POST\n
+https://authorize.payments.amazon.com\n
+/pba/paypipeline\n
+&amp;abandonUrl=http://yourwebsite.com/abandon&amp;accessKey=11SEM03K88SD016FS1G2&amp;SignatureVersion=2&amp;SignatureMethod=HmacSHA256&amp;amazonPaymentsAccountId=WFQISAVAYLSB2VZ1LVCDJ2KLJ8H2BVULDVJ2GH&amp;amount=USD 10.00&amp;cobrandingstyle=logo&amp;description=pay fordinner&amp;immediateReturn=TRUE&amp;ipnUrl=http://yourwebsite.com/instantpaymentnotification&amp;isDonationWidget=1&amp;minimumDonationAmount=USD 10&amp;processImmediate=TRUE&amp;referenceId=MyTransaction-001&amp;returnUrl=http://yourwebsite.com/success

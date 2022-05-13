@@ -1,0 +1,19 @@
+        Aws::Client::ClientConfiguration clientConfig;
+        Aws::DynamoDB::DynamoDBClient dynamoClient(clientConfig);
+
+        std::cout << "Updating " << table << " with new provisioned throughput values" << std::endl;
+        std::cout << "Read capacity : " << rc << std::endl;
+        std::cout << "Write capacity: " << wc << std::endl;
+
+        Aws::DynamoDB::Model::UpdateTableRequest utr;
+        Aws::DynamoDB::Model::ProvisionedThroughput pt;
+        pt.WithReadCapacityUnits(rc).WithWriteCapacityUnits(wc);
+        utr.WithProvisionedThroughput(pt).WithTableName(table);
+
+        const Aws::DynamoDB::Model::UpdateTableOutcome& result = dynamoClient.UpdateTable(utr);
+        if (!result.IsSuccess())
+        {
+            std::cout << result.GetError().GetMessage() << std::endl;
+            return 1;
+        }
+        std::cout << "Done!" << std::endl;

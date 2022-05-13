@@ -1,0 +1,20 @@
+<programlisting>
+    @staticmethod
+    def initiate_archive_retrieval(archive):
+        """
+        Initiates an archive retrieval job. Standard retrievals typically complete
+        within 3—5 hours. When the job completes, you can get the archive contents
+        by calling get_output().
+
+        :param archive: The archive to retrieve.
+        :return: The archive retrieval job.
+        """
+        try:
+            job = archive.initiate_archive_retrieval()
+            logger.info("Started %s job with ID %s.", job.action, job.id)
+        except ClientError:
+            logger.exception("Couldn't start job on archive %s.", archive.id)
+            raise
+        else:
+            return job
+</programlisting>

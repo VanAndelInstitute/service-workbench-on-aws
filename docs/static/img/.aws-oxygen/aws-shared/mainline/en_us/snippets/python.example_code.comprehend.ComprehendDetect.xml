@@ -1,0 +1,10 @@
+<programlisting>
+class ComprehendDetect:
+    """Encapsulates Comprehend detection functions."""
+    def __init__(self, comprehend_client):
+        """
+        :param comprehend_client: A Boto3 Comprehend client.
+        """
+        self.comprehend_client = comprehend_client
+
+</programlisting>

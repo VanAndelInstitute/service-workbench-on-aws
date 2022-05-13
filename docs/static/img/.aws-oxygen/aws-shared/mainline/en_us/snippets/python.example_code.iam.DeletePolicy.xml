@@ -1,0 +1,14 @@
+<programlisting>
+def delete_policy(policy_arn):
+    """
+    Deletes a policy.
+
+    :param policy_arn: The ARN of the policy to delete.
+    """
+    try:
+        iam.Policy(policy_arn).delete()
+        logger.info("Deleted policy %s.", policy_arn)
+    except ClientError:
+        logger.exception("Couldn't delete policy %s.", policy_arn)
+        raise
+</programlisting>

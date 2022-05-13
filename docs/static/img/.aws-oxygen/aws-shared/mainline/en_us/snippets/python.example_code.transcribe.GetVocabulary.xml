@@ -1,0 +1,18 @@
+<programlisting>
+def get_vocabulary(vocabulary_name, transcribe_client):
+    """
+    Gets information about a customer vocabulary.
+
+    :param vocabulary_name: The name of the vocabulary to retrieve.
+    :param transcribe_client: The Boto3 Transcribe client.
+    :return: Information about the vocabulary.
+    """
+    try:
+        response = transcribe_client.get_vocabulary(VocabularyName=vocabulary_name)
+        logger.info("Got vocabulary %s.", response['VocabularyName'])
+    except ClientError:
+        logger.exception("Couldn't get vocabulary %s.", vocabulary_name)
+        raise
+    else:
+        return response
+</programlisting>

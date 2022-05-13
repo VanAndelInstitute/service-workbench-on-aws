@@ -1,0 +1,7 @@
+<programlisting>
+import aws.sdk.kotlin.services.rds.RdsClient
+import aws.sdk.kotlin.services.rds.model.CreateDbInstanceRequest
+import aws.sdk.kotlin.services.rds.model.DescribeDbInstancesRequest
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

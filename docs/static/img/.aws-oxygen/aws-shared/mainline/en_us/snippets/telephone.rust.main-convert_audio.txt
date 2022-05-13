@@ -1,0 +1,81 @@
+async fn convert_audio(
+    verbose: bool,
+    client: &aws_sdk_transcribe::Client,
+    uri: &str,
+    job_name: &str,
+) -> Result<()> {
+    if verbose {
+        println!("Opening audio file location {} to get text", uri);
+        println!();
+    }
+
+    let media = Media::builder().media_file_uri(uri).build();
+
+    client
+        .start_transcription_job()
+        .transcription_job_name(job_name)
+        .media(media)
+        .media_format(MediaFormat::Mp3)
+        .language_code(LanguageCode::EnUs)
+        .send()
+        .await
+        .unwrap();
+
+    let mut snooze: u64 = 100;
+    let mut snooze_total = snooze;
+
+    let mut found = false;
+
+    println!("Waiting for transcription job to finish.");
+    while !found {
+        let resp = client
+            .get_transcription_job()
+            .transcription_job_name(job_name)
+            .send()
+            .await
+            .unwrap();
+
+        let job = resp.transcription_job.unwrap();
+
+        let status = job.transcription_job_status.unwrap();
+
+        if status == TranscriptionJobStatus::Completed || status == TranscriptionJobStatus::Failed {
+            if verbose {
+                println!("Waited {} milliseconds for job to finish", snooze_total);
+            }
+
+            if status == TranscriptionJobStatus::Completed {
+                if !verbose {
+                    println!();
+                }
+                // Get translation and show it.
+                println!("Transcript:");
+                let uri = job.transcript.unwrap().transcript_file_uri.unwrap();
+                if verbose {
+                    println!("Got URI for transcription: {}", uri);
+                    println!();
+                }
+
+                let json_body = reqwest::get(uri).await.unwrap().text().await.unwrap();
+
+                if verbose {
+                    println!("body = {:?}", json_body);
+                    println!();
+                }
+
+                let v: Value = serde_json::from_str(&json_body)?;
+
+                println!("{}", v["results"]["transcripts"][0]["transcript"]);
+            }
+
+            found = true;
+        } else {
+            snooze *= 2;
+            snooze_total += snooze;
+
+            tokio::time::sleep(Duration::from_millis(snooze)).await;
+        }
+    }
+
+    Ok(())
+}

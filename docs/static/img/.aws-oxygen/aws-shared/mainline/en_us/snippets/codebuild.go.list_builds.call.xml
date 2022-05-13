@@ -1,0 +1,7 @@
+<programlisting>
+    svc := codebuild.New(sess)
+    // Get the list of builds
+    names, err := svc.ListBuilds(&codebuild.ListBuildsInput{
+        SortOrder: aws.String("ASCENDING"),
+    })
+</programlisting>

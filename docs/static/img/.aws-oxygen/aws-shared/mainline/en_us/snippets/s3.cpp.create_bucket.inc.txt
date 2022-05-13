@@ -1,0 +1,7 @@
+#include <iostream>
+#include <aws/core/Aws.h>
+#include <aws/s3/S3Client.h>
+#include <aws/s3/model/CreateBucketRequest.h>
+#include <aws/s3/model/BucketLocationConstraint.h>
+#include <aws/core/utils/UUID.h>
+#include <aws/core/utils/StringUtils.h>

@@ -1,0 +1,27 @@
+--------------------------
+transactionId: 14GKD9GE66FAA63E6O6B2JDPZKN53LZ7F22
+statusMessage: The transaction was successful and the payment instrument was charged.
+transactionDate: 1254815482
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference05
+referenceId: [original_reference_id]
+operation: SETTLE
+transactionStatus: SUCCESS
+transactionAmount: USD 1.00
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: pwozZP+lYONFq39g13ux44vFFMRAt4eJ9kOUWMV2uPCrvBqzi4LFYDQY5UE3VW8OUiW+qpbukqFz
+YNvE+8mh7adhX/qee2U8ZUUNZi6LaM3sKtpPxus2ZJ3wDVPjuO02Obtu1G6Eo79iMi8viX7Dz1LL
+8pFTdhspHZb0XDWkuOt2pK2aELa7TOZ/pXXUFLvGrn4MOd6INwbyM2fvnJpIDTcNdzedBO3Rw3vp
+2f2GfpFAZJD6Imu57rsr9RsHVUqu2bIhJaAgTRFleVKzMHQJqft5jo6M9N4vKmPfccsuAvoF+rDn
++/6a9VEvTBrVcvAhJ5jrBp3FkXYkOPbHchqHfQ==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: Reserve
+statusCode: Success
+--------------------------
+

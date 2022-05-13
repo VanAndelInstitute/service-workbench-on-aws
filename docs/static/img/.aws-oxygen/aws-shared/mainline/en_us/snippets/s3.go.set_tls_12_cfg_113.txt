@@ -1,0 +1,1 @@
+        tr.ForceAttemptHTTP2 = true

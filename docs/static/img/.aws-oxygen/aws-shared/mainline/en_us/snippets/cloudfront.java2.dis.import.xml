@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudfront.CloudFrontClient;
+import software.amazon.awssdk.services.cloudfront.model.CloudFrontException;
+import software.amazon.awssdk.services.cloudfront.model.DistributionList;
+import software.amazon.awssdk.services.cloudfront.model.DistributionSummary;
+import software.amazon.awssdk.services.cloudfront.model.ListDistributionsResponse;
+import java.util.List;
+</programlisting>

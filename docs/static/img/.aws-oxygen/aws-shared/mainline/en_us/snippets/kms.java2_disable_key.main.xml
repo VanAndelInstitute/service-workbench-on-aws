@@ -1,0 +1,17 @@
+<programlisting>
+    public static void disableKey( KmsClient kmsClient, String keyId) {
+
+       try {
+
+           DisableKeyRequest keyRequest = DisableKeyRequest.builder()
+                .keyId(keyId)
+                .build();
+
+           kmsClient.disableKey(keyRequest);
+
+       } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

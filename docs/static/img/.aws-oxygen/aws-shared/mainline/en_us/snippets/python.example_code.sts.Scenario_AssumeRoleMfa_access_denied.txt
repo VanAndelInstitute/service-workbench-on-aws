@@ -1,0 +1,18 @@
+def try_to_assume_role_without_mfa(assume_role_arn, session_name, sts_client):
+    """
+    Shows that attempting to assume the role without sending MFA credentials results
+    in an AccessDenied error.
+
+    :param assume_role_arn: The Amazon Resource Name (ARN) of the role to assume.
+    :param session_name: The name of the STS session.
+    :param sts_client: A Boto3 STS instance that has permission to assume the role.
+    """
+    print(f"Trying to assume the role without sending MFA credentials...")
+    try:
+        sts_client.assume_role(RoleArn=assume_role_arn, RoleSessionName=session_name)
+        raise RuntimeError("Expected AccessDenied error.")
+    except ClientError as error:
+        if error.response['Error']['Code'] == 'AccessDenied':
+            print("Got AccessDenied.")
+        else:
+            raise

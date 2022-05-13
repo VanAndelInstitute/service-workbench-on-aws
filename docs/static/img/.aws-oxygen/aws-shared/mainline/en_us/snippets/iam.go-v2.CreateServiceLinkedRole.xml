@@ -1,0 +1,18 @@
+<programlisting>
+	// CreateServiceLinkedRole
+
+	fmt.Println("➡️ Create SLR for " + ExampleSLRService)
+	createSlrResult, err := service.CreateServiceLinkedRole(context.Background(), &iam.CreateServiceLinkedRoleInput{
+		AWSServiceName: aws.String(ExampleSLRService),
+		Description:    aws.String(ExampleSLRDescription),
+	})
+
+	// NOTE: We don't consider this an error as running this example multiple times will cause an error.
+	if err != nil {
+		fmt.Printf("Couldn't create service-linked role: %v\n", err.Error())
+	} else {
+
+		fmt.Printf("Created service-linked role with ARN: %s\n", *createSlrResult.Role.Arn)
+	}
+
+</programlisting>

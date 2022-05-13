@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalize.model.DescribeRecipeRequest;
+import software.amazon.awssdk.services.personalize.model.DescribeRecipeResponse;
+import software.amazon.awssdk.services.personalize.model.PersonalizeException;
+</programlisting>

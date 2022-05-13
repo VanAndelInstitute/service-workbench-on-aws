@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.workdocs.WorkDocsClient;
+import software.amazon.awssdk.services.workdocs.model.DescribeFolderContentsRequest;
+import software.amazon.awssdk.services.workdocs.model.DescribeFolderContentsResponse;
+import software.amazon.awssdk.services.workdocs.model.DocumentMetadata;
+import software.amazon.awssdk.services.workdocs.model.DocumentVersionMetadata;
+import software.amazon.awssdk.services.workdocs.model.WorkDocsException;
+import software.amazon.awssdk.services.workdocs.model.DescribeUsersResponse;
+import software.amazon.awssdk.services.workdocs.model.DescribeUsersRequest;
+import software.amazon.awssdk.services.workdocs.model.User;

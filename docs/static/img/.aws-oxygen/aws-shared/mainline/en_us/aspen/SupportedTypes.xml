@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+
+<section id="SupportedTypes" role="topic">
+	<title id="SupportedTypes.title">Supported Data Types</title>
+
+
+
+	<para>This section lists the set of data types the &servicename; supports. The language doesn't
+		support all types for each policy element (for the supported data types for each element, see <xref
+			linkend="AccessPolicyLanguage_ElementDescriptions"
+			endterm="AccessPolicyLanguage_ElementDescriptions.title"/>).</para>
+	<para>The &servicename; supports the following data types:</para>
+	<itemizedlist>
+		<listitem>
+			<para>Strings</para>
+		</listitem>
+		<listitem>
+			<para>Numbers (Ints and Floats)</para>
+		</listitem>
+		<listitem>
+			<para>Boolean</para>
+		</listitem>
+		<listitem>
+			<para>Null</para>
+		</listitem>
+		<listitem>
+			<para>Lists</para>
+		</listitem>
+		<listitem>
+			<para>Maps</para>
+		</listitem>
+		<listitem>
+			<para>Structs (which are just nested Maps)</para>
+		</listitem>
+	</itemizedlist>
+
+	<para>The following table maps each data type to the serialization. Note that all policies must be in
+		UTF-8. For information about the JSON data types, go to <ulink
+			url="http://www.rfc-ref.org/RFC-TEXTS/4627/chapter2.html">RFC 4627</ulink>.
+		<!--<phrase
+			os="prerelease">For information about the XML data types, go to <ulink
+				url="http://www.w3.org/TR/xmlschema-2/">XML Schema Part 2: Datatypes Second
+		Edition</ulink>.</phrase>--></para>
+	<!-- ### The following table includes both JSON and XML. Hide until we're ready with both ##### -->
+	<!--
+	<informaltable>
+		<tgroup cols="3">
+			<colspec colnum="1" colname="col1" colwidth="1*"/>
+			<colspec colnum="2" colname="col2" colwidth="2*"/>
+			<colspec colnum="3" colname="col3" colwidth="2*"/>
+			<thead>
+				<row>
+					<entry>Type</entry>
+					<entry>JSON</entry>
+					<entry>XML</entry>
+				</row>
+			</thead>
+
+
+			<tbody>
+				<row>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+					<entry>
+						<simpara>string</simpara>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<simpara>Integer</simpara>
+					</entry>
+					<entry>
+						<simpara>Number</simpara>
+					</entry>
+					<entry>
+						<simpara>decimal</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Float</simpara>
+					</entry>
+					<entry>
+						<simpara>Number</simpara>
+					</entry>
+					<entry>
+						<simpara>decimal</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Boolean</simpara>
+					</entry>
+					<entry>
+						<simpara>true false</simpara>
+					</entry>
+					<entry>
+						<simpara>boolean</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Null</simpara>
+					</entry>
+					<entry>
+						<simpara>null</simpara>
+					</entry>
+					<entry>
+						<simpara>XML with an empty element</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Date</simpara>
+					</entry>
+					<entry>
+						<simpara>String adhering to the <ulink url="http://www.w3.org/TR/NOTE-datetime">W3C
+								Profile of ISO 8601</ulink></simpara>
+					</entry>
+					<entry>
+						<simpara>dateTime</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>IpAddress</simpara>
+					</entry>
+					<entry>
+						<simpara>String adhering to <ulink
+								url="http://rfc-ref.org/RFC-TEXTS/4632/chapter3.html#sub1">RFC
+						4632</ulink></simpara>
+					</entry>
+					<entry>
+						<simpara>string adhering to <ulink
+								url="http://rfc-ref.org/RFC-TEXTS/4632/chapter3.html#sub1">RFC
+						4632</ulink></simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>List</simpara>
+					</entry>
+					<entry>
+						<simpara>Array</simpara>
+					</entry>
+					<entry>
+						<simpara>Multiple elements with the same name</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Object</simpara>
+					</entry>
+					<entry>
+						<simpara>Object</simpara>
+					</entry>
+					<entry>
+						<simpara>Core XML</simpara>
+					</entry>
+
+				</row>
+
+
+			</tbody>
+
+
+		</tgroup>
+		</informaltable>-->
+
+
+	<informaltable>
+		<tgroup cols="2">
+			<colspec colnum="1" colname="col1" colwidth="1*"/>
+			<colspec colnum="2" colname="col2" colwidth="2*"/>
+			<thead>
+				<row>
+					<entry>Type</entry>
+					<entry>JSON</entry>
+				</row>
+			</thead>
+
+
+			<tbody>
+				<row>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Integer</simpara>
+					</entry>
+					<entry>
+						<simpara>Number</simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Float</simpara>
+					</entry>
+					<entry>
+						<simpara>Number</simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Boolean</simpara>
+					</entry>
+					<entry>
+						<simpara>true false</simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Null</simpara>
+					</entry>
+					<entry>
+						<simpara>null</simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Date</simpara>
+					</entry>
+					<entry>
+						<simpara>String adhering to the <ulink url="http://www.w3.org/TR/NOTE-datetime">W3C
+								Profile of ISO 8601</ulink></simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>IpAddress</simpara>
+					</entry>
+					<entry>
+						<simpara>String adhering to <ulink
+								url="http://rfc-ref.org/RFC-TEXTS/4632/chapter3.html#sub1">RFC
+							4632</ulink></simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>List</simpara>
+					</entry>
+					<entry>
+						<simpara>Array</simpara>
+					</entry>
+
+
+				</row>
+				<row>
+					<entry>
+						<simpara>Object</simpara>
+					</entry>
+					<entry>
+						<simpara>Object</simpara>
+					</entry>
+
+				</row>
+			</tbody>
+		</tgroup>
+	</informaltable>
+
+
+</section>

@@ -1,0 +1,15 @@
+    public static void listSNSSubscriptions( SnsClient snsClient) {
+
+        try {
+            ListSubscriptionsRequest request = ListSubscriptionsRequest.builder()
+                    .build();
+
+            ListSubscriptionsResponse result = snsClient.listSubscriptions(request);
+            System.out.println(result.subscriptions());
+
+        } catch (SnsException e) {
+
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,59 @@
+<programlisting>
+bool AwsDoc::S3::GetObjectAcl(const Aws::String& bucketName,
+    const Aws::String& objectKey, 
+    const Aws::String& region)
+{
+    Aws::Client::ClientConfiguration config;
+    config.region = region;
+
+    Aws::S3::S3Client s3_client(config);
+
+    Aws::S3::Model::GetObjectAclRequest request;
+    request.SetBucket(bucketName);
+    request.SetKey(objectKey);
+
+    Aws::S3::Model::GetObjectAclOutcome outcome =
+        s3_client.GetObjectAcl(request);
+
+    if (outcome.IsSuccess())
+    {
+        Aws::S3::Model::Owner owner = outcome.GetResult().GetOwner();
+        Aws::Vector<Aws::S3::Model::Grant> grants =
+            outcome.GetResult().GetGrants();
+
+        std::cout << "Object ACL information for object '" << objectKey <<
+            "' in bucket '" << bucketName << "':" << std::endl << std::endl;
+
+        std::cout << "Owner:" << std::endl << std::endl;
+        std::cout << "Display name:  " << owner.GetDisplayName() << std::endl;
+        std::cout << "ID:            " << owner.GetID() << std::endl <<
+            std::endl;
+
+        std::cout << "Grantees:" << std::endl << std::endl;
+
+        for (auto it = std::begin(grants); it != end(grants); ++it) {
+            auto grantee = it->GetGrantee();
+            std::cout << "Display name:  " << grantee.GetDisplayName() <<
+                std::endl;
+            std::cout << "Email address: " << grantee.GetEmailAddress() <<
+                std::endl;
+            std::cout << "ID:            " << grantee.GetID() << std::endl;
+            std::cout << "Type:          " << GetGranteeType(
+                grantee.GetType()) <<
+                std::endl;
+            std::cout << "URI:           " << grantee.GetURI() << std::endl <<
+                std::endl;
+        }
+
+        return true;
+    }
+    else
+    {
+        auto error = outcome.GetError();
+        std::cout << "Error: GetObjectAcl: " << error.GetExceptionName()
+            << " - " << error.GetMessage() << std::endl;
+
+        return false;
+    }
+}
+</programlisting>

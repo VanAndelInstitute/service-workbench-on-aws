@@ -1,0 +1,13 @@
+<programlisting>
+            ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
+                .queueUrl(queueUrl)
+                .maxNumberOfMessages(5)
+                .build();
+            List<Message> messages = sqsClient.receiveMessage(receiveMessageRequest).messages();
+            return messages;
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return null;
+</programlisting>

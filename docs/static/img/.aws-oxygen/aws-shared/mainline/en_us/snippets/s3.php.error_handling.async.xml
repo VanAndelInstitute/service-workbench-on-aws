@@ -1,0 +1,13 @@
+<programlisting>
+//Asynchronous Error Handling
+$promise = $s3Client->createBucketAsync(['Bucket' => 'my-bucket']);
+$promise->otherwise(function ($reason) {
+    var_dump($reason);
+});
+
+// This does the same thing as the "otherwise" function.
+$promise->then(null, function ($reason) {
+    var_dump($reason);
+});
+
+</programlisting>

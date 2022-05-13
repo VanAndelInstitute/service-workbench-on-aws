@@ -1,0 +1,52 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/iam/iamiface"
+)
+
+// WhenWasKeyUsed retrieves when an access key was last used, including the AWS Region and with which service
+// Inputs:
+//     svc is an IAM service client
+//     keyID is the ID of an access key
+// Output:
+//     If success, when the access key was last used and nil
+//     Otherwise, nil and an error from the call to GetAccessKeyLastUsed
+func WhenWasKeyUsed(svc iamiface.IAMAPI, keyID *string) (*iam.GetAccessKeyLastUsedOutput, error) {
+    result, err := svc.GetAccessKeyLastUsed(&iam.GetAccessKeyLastUsedInput{
+        AccessKeyId: keyID,
+    })
+
+    return result, err
+}
+
+func main() {
+    keyID := flag.String("k", "", "The ID of the access key")
+    flag.Parse()
+
+    if *keyID == "" {
+        fmt.Println("You must supply the ID of an access key (-k KEY-ID)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := iam.New(sess)
+
+    result, err := WhenWasKeyUsed(svc, keyID)
+    if err != nil {
+        fmt.Println("Got an error retrieving when access key was last used:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("The key was last used:", *result.AccessKeyLastUsed)
+}

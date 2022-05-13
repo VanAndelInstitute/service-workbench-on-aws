@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+%phrases-shared;           
+]>
+
+<section id="getting-started-cleanup-s3" role="topic">
+	<sectioninfo>
+		<abstract><para>Clean up the &S3; resources that you are done with.</para></abstract>
+	</sectioninfo>
+	<title id="getting-started-cleanup-s3.title">Delete the Amazon S3 Bucket</title>
+	<para>Before you can delete an &S3; bucket, you must delete all objects in the bucket.
+		You should also ensure that logging is disabled for the bucket; otherwise, 
+		we will write logs to your bucket as you delete the objects in your bucket.</para>
+
+	<procedure>
+		<title>To disable logging for a bucket</title>
+		<step><para>Open the &S3; console.</para></step>
+		<step>
+			<para>
+				Select your bucket and then click <guilabel>Properties</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Properties</guilabel> pane, click <guilabel>Logging</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Clear the <guilabel>Enabled</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>Click <guilabel>Save</guilabel>.</para>
+		</step>
+	</procedure>
+	
+	<procedure>
+		<title>To delete the objects in a bucket</title>
+		<step><para>Open the &S3; console.</para></step>
+		<step><para>Select the bucket.</para></step>
+		<step>
+			<para>Select one or more objects, click <guilabel>Actions</guilabel>, and then click <guilabel>Delete</guilabel>.</para>
+		</step>
+		<step>
+			<para>In the confirmation message that appears, click <guilabel>Yes, Delete</guilabel>.</para>
+		</step>
+	</procedure>
+	
+	<procedure>
+		<title>To delete a bucket</title>
+		<step><para>Open the &S3; console.</para></step>
+		<step>
+			<para>Select the bucket, click <guilabel>Actions</guilabel>, and then click <guilabel>Delete</guilabel>.</para>
+		</step>
+		<step>
+			<para>When prompted for confirmation, click <guilabel>Yes, Delete</guilabel>.</para>
+		</step>
+	</procedure>
+	
+</section>
+	

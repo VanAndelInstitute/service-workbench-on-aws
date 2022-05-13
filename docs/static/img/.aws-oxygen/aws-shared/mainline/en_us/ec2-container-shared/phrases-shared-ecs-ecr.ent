@@ -1,0 +1,596 @@
+<!-- AMI ENTITIES -->
+<!ENTITY AMI 'AMI'>
+<!ENTITY ecs-ami-general '&ECS;-optimized &AMI;'>
+<!--  ECS-optimized AMI entities -->
+<!ENTITY al2 'Amazon Linux 2' >
+<!ENTITY ecs-ami-general '&ECS;-optimized &AMI;' >
+<!ENTITY ecs-ami-general-caps '&ECS;-Optimized &AMI;' >
+<!ENTITY ecs-windows-ami '&ECS;-optimized Windows &AMI;' >
+<!ENTITY ecs-linux-ami-caps '&ECS;-Optimized Linux &AMI;' >
+
+<!-- /// Amazon Linux AMI Details \\\ -->
+<!ENTITY al1ami '&ECS;-optimized Amazon Linux &AMI;' >
+<!ENTITY al1ami-caps '&ECS;-Optimized Amazon Linux &AMI;' >
+<!ENTITY ecs-linux-ami '&al1ami;' >
+
+<!-- /// Amazon Linux 2 AMI Details \\\ -->
+<!ENTITY al2ami '&ECS;-optimized &AL2; &AMI;' >
+<!ENTITY al2ami-caps '&ECS;-Optimized &AL2; &AMI;' >
+
+<!-- /// Amazon Linux 2 arm64 AMI Details \\\ -->
+<!ENTITY al2arm64ami '&ECS;-optimized &AL2; (arm64) &AMI;' >
+
+<!-- /// Amazon Linux 2 gpu-optimized AMI Details \\\ -->
+<!ENTITY gpuami '&ECS; GPU-optimized &AMI;' >
+<!ENTITY gpuami-caps '&ECS; GPU-Optimized &AMI;' >
+
+<!-- NVIDIA container runtime hook version https://github.com/NVIDIA/nvidia-container-runtime/releases/tag/v1.4.0-1 -->
+<!ENTITY gpu-nvidia-runtime-hook-version 'v1.4.0-1' >
+
+<!-- /// Windows 2016 AMI Details \\\ -->
+<!ENTITY ecs-windows-2016-ami '&ECS;-optimized Windows 2016 Full &AMI;' >
+<!ENTITY ecs-windows-2016-ami-caps '&ECS;-Optimized Windows 2016 Full &AMI;' >
+
+<!-- /// Windows 2019 AMI Details \\\ -->
+<!ENTITY ecs-windows-2019-ami '&ECS;-optimized Windows 2019 Full &AMI;' >
+<!ENTITY ecs-windows-2019-core-ami '&ECS;-optimized Windows 2019 Core &AMI;' >
+<!ENTITY ecs-windows-2019-ami-caps '&ECS;-Optimized Windows 2019 Full &AMI;' >
+
+<!-- /// Windows 1909 AMI Details \\\ -->
+<!ENTITY ecs-windows-1909-core-ami '&ECS;-optimized Windows 1909 Core &AMI;' >
+
+<!ENTITY service-as 'Service Auto Scaling'>
+<!ENTITY service-discovery 'service discovery'>
+<!ENTITY service-discovery-caps 'Service Discovery'>
+<!ENTITY service-discovery-first 'Service discovery'>
+<!ENTITY ecs-apiversion '2014-11-13'>
+
+<!-- Fargate -->
+<!ENTITY fargate-launch-type 'Fargate'>
+<!ENTITY ec2-launch-type 'EC2'>
+<!ENTITY fargate '&AWS; Fargate'>
+
+<!ENTITY example_account_id '<replaceable>aws_account_id</replaceable>'>
+<!ENTITY ECS_agent_awslogs_min_version '1.9.0'>
+
+<!ENTITY cluster-exists-caveat '<note><para>The <code>ecs:CreateCluster</code> line in the above policy is optional, provided that the cluster you intend to register your container instance into already exists. If the cluster does not already exist, the agent must have permission to create it, or you can create the cluster with the <command>create-cluster</command> command prior to launching your container instance.</para><para>If you omit the <code>ecs:CreateCluster</code> line, the &ECS; container agent can not create clusters, including the default cluster.</para></note>'>
+<!ENTITY minimum-docker-version '1.9.0'>
+<!ENTITY minimum-docker-message '&ECS; requires a minimum Docker version of
+                    &minimum-docker-version; (version &rec-docker-version; is recommended), and the default Docker versions in many
+                    system package managers, such as <command>yum</command> or
+                        <command>apt-get</command> do not meet this minimum requirement. For
+                    information about installing the latest Docker version on your particular Linux
+                    distribution, see <ulink url="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</ulink>.'>
+
+<!ENTITY default-allowed-chars "Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.">
+<!ENTITY default-allowed-chars 'Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.'>
+<!ENTITY image-allowed-chars 'Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed.'>
+<!ENTITY failures-message '<para>Any failures associated with the call.</para>'>
+<!ENTITY docker-api-vers 'v1.38'>
+<!ENTITY requires-docker-1.18 '<para>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.</para>'>
+<!ENTITY requires-docker-1.19 '<para>This parameter requires version 1.19 of the Docker Remote API or greater on your container instance.</para>'>
+<!ENTITY requires-docker-1.20 '<para>This parameter requires version 1.20 of the Docker Remote API or greater on your container instance.</para>'>
+<!ENTITY requires-docker-1.25 '<para>This parameter requires version 1.25 of the Docker Remote API or greater on your container instance.</para>'>
+<!ENTITY url-docker-remote-api 'https://docs.docker.com/engine/api/&docker-api-vers;/'>
+<!ENTITY docker_run_reference 'https://docs.docker.com/engine/reference/run/'>
+<!ENTITY link-docker-api '<ulink url="&url-docker-remote-api;">Docker Remote API</ulink>'>
+<!ENTITY link-docker-api-create-container '<ulink url="&url-docker-remote-api;#operation/ContainerCreate">Create a container</ulink>'>
+<!ENTITY task-cpu-memory '<table frame="all">
+    <tgroup cols="2">
+        <colspec colname="c1" colnum="1"/>
+        <colspec colname="c2" colnum="2"/>
+        <thead>
+            <row>
+                <entry>CPU value</entry>
+                <entry>Memory value (MiB)</entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry>256 (.25 vCPU)</entry>
+                <entry>512 (0.5GB), 1024 (1GB), 2048 (2GB)</entry>
+            </row>
+            <row>
+                <entry>512 (.5 vCPU)</entry>
+                <entry>1024 (1GB), 2048 (2GB), 3072 (3GB), 4096
+                    (4GB)</entry>
+            </row>
+            <row>
+                <entry>1024 (1 vCPU)</entry>
+                <entry>2048 (2GB), 3072 (3GB), 4096 (4GB), 5120 (5GB), 6144
+                    (6GB), 7168 (7GB), 8192 (8GB)</entry>
+            </row>
+            <row>
+                <entry>2048 (2 vCPU)</entry>
+                <entry>Between 4096 (4GB) and 16384 (16GB) in increments of
+                    1024 (1GB)</entry>
+            </row>
+            <row>
+                <entry>4096 (4 vCPU)</entry>
+                <entry>Between 8192 (8GB) and 30720 (30GB) in increments of
+                    1024 (1GB)</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</table>'>
+
+<!ENTITY ecs-task-placement '<para>(Optional) For <guilabel>Task Placement</guilabel>, you can specify how tasks
+                    are placed using task placement strategies and constraints. Choose from the
+                    following options:</para><itemizedlist>
+                        <listitem>
+                            <para><guilabel>AZ Balanced Spread</guilabel> - distribute tasks across
+                                Availability Zones and across container instances in the
+                                Availability Zone.</para>
+                        </listitem>
+                        <listitem>
+                            <para><guilabel>AZ Balanced BinPack</guilabel> - distribute tasks across
+                                Availability Zones and across container instances with the least
+                                available memory.</para>
+                        </listitem>
+                        <listitem>
+                            <para><guilabel>BinPack</guilabel> - distribute tasks based on the least
+                                available amount of CPU or memory.</para>
+                        </listitem>
+                        <listitem>
+                            <para><guilabel>One Task Per Host</guilabel> - place, at most, one task
+                                from the service on each container instance.</para>
+                        </listitem>
+                        <listitem>
+                            <para><guilabel>Custom</guilabel> - define your own task placement
+                                strategy. See <xref linkend="task-placement" endterm="task-placement.title"/> for examples.</para>
+                        </listitem>
+                    </itemizedlist><para> For more information, see <xref linkend="task-placement" endterm="task-placement.title"/>.</para>'>
+<!ENTITY NAT-para '<para><phrase revision="ecs">Container instances</phrase><phrase revision="batch"
+                        >Compute resources</phrase> need access to communicate with the &ECS;
+                    service endpoint. This can be through an interface VPC endpoint or through your
+                        <phrase revision="ecs">container instances</phrase><phrase revision="batch"
+                        >compute resources</phrase> having public IP addresses.</para>
+                <para>For more information about interface VPC endpoints, see <phrase revision="ecs"
+                            ><xref linkend="vpc-endpoints" endterm="vpc-endpoints.title"
+                        /></phrase><phrase revision="batch"><ulink type="documentation"
+                            url="AmazonECS/latest/developerguide/vpc-endpoints.html">&ECS; Interface
+                            VPC Endpoints (&privatelink;)</ulink> in the
+                            <emphasis>&guide-ecs-dev;</emphasis></phrase>.</para>
+                <para>If you do not have an interface VPC endpoint configured and your <phrase
+                        revision="ecs">container instances</phrase><phrase revision="batch">compute
+                        resources</phrase> do not have public IP addresses, then they must use
+                    network address translation (NAT) to provide this access. For more information,
+                    see <ulink url="&url-vpc-user;vpc-nat-gateway.html">NAT gateways</ulink> in the
+                        <emphasis>&guide-vpc-user;</emphasis><phrase revision="ecs"> and <xref
+                            linkend="http_proxy_config" endterm="http_proxy_config.title"/> in this
+                        guide</phrase>. For more information, see
+                        <xref linkend="create-a-vpc"/>..</para>' >
+<!ENTITY NAT-caveat '<note>
+                        &NAT-para;
+                    </note>'>
+<!ENTITY no-windows '<note>
+                        <para>This parameter is not supported for Windows containers.</para>
+                     </note>'>
+<!ENTITY no-fargate '<note>
+                          <para>This parameter is not supported for tasks using the &fargate-launch-type; launch type.</para>
+                     </note>'>
+<!ENTITY no-windows-fargate '<note>
+                                    <para>This parameter is not supported for Windows containers or
+                                        tasks using the &fargate-launch-type; launch type.</para>
+                                </note>'>
+<!ENTITY fargate-storage '<row>
+                    <entry>Maximum layer size of an image used by a task using the
+                        &fargate-launch-type; launch type</entry>
+                    <entry>4 GB</entry>
+                </row>
+                <row>
+                    <entry>Maximum size of a shared volume used by multiple containers within a task
+                        using the &fargate-launch-type; launch type</entry>
+                    <entry>4 GB</entry>
+                </row>
+                <row>
+                    <entry>Maximum container storage for tasks using the &fargate-launch-type;
+                        launch type</entry>
+                    <entry>10 GB</entry>
+                </row>'>
+<!ENTITY ecs-instance '<phrase revision="ecs">container instance</phrase><phrase revision="batch">compute resource</phrase>'>
+<!ENTITY ecs-instance-caps '<phrase revision="ecs">Container Instance</phrase><phrase revision="batch">Compute Resource</phrase>'>
+<!ENTITY ecs-instance-sentence '<phrase revision="ecs">Container instance</phrase><phrase revision="batch">Compute resource</phrase>'>
+<!ENTITY ecs-cluster '<phrase revision="ecs">cluster</phrase><phrase revision="batch">compute environment</phrase>'>
+<!ENTITY ecs-cluster-caps '<phrase revision="ecs">Cluster</phrase><phrase revision="batch">Compute Environment</phrase>'>
+<!ENTITY ecs-cluster-sentence '<phrase revision="ecs">Cluster</phrase><phrase revision="batch">Compute environment</phrase>'>
+<!ENTITY ecs-task '<phrase revision="ecs">task</phrase><phrase revision="batch">job</phrase>'>
+<!ENTITY ecs-task-caps '<phrase revision="ecs">Task</phrase><phrase revision="batch">Job</phrase>'>
+
+
+    
+
+                
+<!-- Resource and Cost Allocation Tagging entities -->
+<!ENTITY enable-managed-tags 'Enable ECS managed tags'>
+<!ENTITY tagging-steps-service-ecs-managed-tags '<xi:include href="file://AWSShared/ec2-container-shared/tagging-steps-service-ecs-managed-tags.xml" />'>
+<!ENTITY tagging-steps-task-ecs-managed-tags '<xi:include href="file://AWSShared/ec2-container-shared/tagging-steps-task-ecs-managed-tags.xml" />'>
+<!ENTITY tagging-steps-task-console '<step>
+                        <para>In the <guilabel>Tags</guilabel> section, specify the key and value 
+                            for each tag to associate with the task. For more information, 
+                            see <ulink url="&url-ecs-dev;ecs-using-tags.html">Tagging Your &ECS; Resources</ulink>.</para>
+                      </step>'>
+<!ENTITY tagging-steps-taskdef-console '<step>
+                        <para>In the <guilabel>Tags</guilabel> section, specify the key and value 
+                            for each tag to associate with the task definition. For more information, 
+                            see <ulink url="&url-ecs-dev;ecs-using-tags.html">Tagging Your &ECS; Resources</ulink>.</para>
+                      </step>'>
+<!ENTITY tagging-steps-cluster-console '<step>
+                <para>In the <guilabel>Tags</guilabel> section, specify the key and value 
+                    for each tag to associate with the cluster. For more information, 
+                    see <ulink url="&url-ecs-dev;ecs-using-tags.html">Tagging Your &ECS; Resources</ulink>.</para>
+            </step>'>
+
+<!ENTITY tagging-note-asg '<important>
+						<para>If you launch your container instances using an &EC2; Auto Scaling
+							group, then you should use the ECS_CONTAINER_INSTANCE_TAGS agent configuration 
+							parameter to add tags. This is due to the way in which tags are added to &EC2; instances that 
+							are launched using Auto Scaling groups.</para>
+					</important>'>
+
+<!-- Entities used in the Batch limits documentation -->
+<!ENTITY batch-limits-max-JQ               '50'     >
+<!ENTITY batch-limits-max-CE               '50'     >
+<!ENTITY batch-limits-max-CE-per-JQ        '3'      >
+<!ENTITY batch-limits-max-job-depends      '20'     >
+<!ENTITY batch-limits-max-job-def-size     '24 KiB' >
+<!ENTITY batch-limits-max-job-payload-size '30 KiB' >
+<!ENTITY batch-limits-max-array-size       '10000'  >
+<!ENTITY batch-limits-max-submitted-jobs   '1000000'>
+
+<!-- Amazon ECR entities used in both ECS/ECR guides -->
+<!ENTITY registry_format '<code><replaceable>aws_account_id</replaceable>.dkr.ecr.<replaceable>region</replaceable>.amazonaws.com</code>'>
+<!ENTITY url_registry_format '<code>https://</code>&registry_format;'>
+<!ENTITY ecr-min-awscli-version '1.9.15'>
+<!ENTITY ecr-rec-awscli-version '1.11.91'>
+<!ENTITY ecr-minimum-docker-version '1.7'>
+<!ENTITY ECRConsole_switch2
+      '<para>Open the &ECR; console at
+         <ulink url="&url-console-domain;ecr/repositories">&url-console-domain;ecr/repositories</ulink>.</para>'>
+<!ENTITY get-login-procedure '<procedure>
+    <title>To authenticate Docker to an &ECR; registry with <command>get-login</command></title>
+    <para>When using &CLI; versions prior to 1.17.10, the <command>get-login</command> command is
+        available to authenticate to your &ECR; registry. You can check your &CLI; version with the
+            <command>aws --version</command> command.</para>
+
+    <step>
+        <para>Run the <command>aws ecr get-login</command> command. The example below is for the
+            default registry associated with the account making the request. To access other account
+            registries, use the <code>--registry-ids &example_account_id;</code> option. For more
+            information, see <ulink url="&url-cli-ref;ecr/get-login.html">get-login</ulink> in the
+                <emphasis>&guide-cli-ref;</emphasis>.</para>
+        <programlisting><userinput>aws ecr get-login --region <replaceable>region</replaceable> --no-include-email</userinput></programlisting>
+        <para>The resulting output is a <command>docker login</command> command that you use to
+            authenticate your Docker client to your &ECR; registry.</para>
+        <screen>docker login -u AWS -p <replaceable>password</replaceable> https://&example_account_id;.dkr.ecr.us-east-1.amazonaws.com</screen>
+    </step>
+    <step>
+        <para>Copy and paste the <command>docker login</command> command into a terminal to
+            authenticate your Docker CLI to the registry. This command provides an authorization
+            token that is valid for the specified registry for 12 hours.</para>
+        <note>
+            <para>If you are using Windows PowerShell, copying and pasting long strings like this
+                does not work. Use the following command instead.</para>
+            <programlisting><userinput>Invoke-Expression -Command (aws ecr get-login --no-include-email)</userinput></programlisting>
+        </note>
+        </step>
+</procedure>' >
+<!-- Volume Parameters -->
+<!ENTITY volume-types '<para features="ec2">The following are the types of data volumes that can be used:</para>
+    <itemizedlist features="ec2">
+        <listitem>
+            <para>Docker volumes &mdash; A Docker-managed volume that is created under
+                    <code>/var/lib/docker/volumes</code> on the container instance. Docker volume
+                drivers (also referred to as plugins) are used to integrate the volumes with
+                external storage systems, such as &EBS;. The built-in <code>local</code> volume
+                driver or a third-party volume driver can be used. Docker volumes are only supported
+                when using the &ec2-launch-type; launch type. Windows containers only support the
+                use of the <code>local</code> driver. To use Docker volumes, specify a
+                    <code>dockerVolumeConfiguration</code> in your task definition. For more
+                information, see <ulink url="https://docs.docker.com/storage/volumes/">Using
+                    volumes</ulink>.</para>
+        </listitem>
+        <listitem>
+            <para>Bind mounts &mdash; A file or directory on the host machine is mounted into a
+                container. Bind mount host volumes are supported when using either the
+                &ec2-launch-type; or &fargate-launch-type; launch types. To use bind mount host
+                volumes, specify a <code>host</code> and optional <code>sourcePath</code> value in
+                your task definition. For more information, see <ulink
+                    url="https://docs.docker.com/storage/bind-mounts/">Using bind
+                mounts</ulink>.</para>
+        </listitem>
+    </itemizedlist>'>
+<!ENTITY volume-name '<varlistentry>
+                    <term><code>name</code></term>
+                    <listitem>
+                        <para>Type: String</para>
+                        <para>Required: No</para>
+                        <para>The name of the volume. Up to 255 letters (uppercase and lowercase),
+                            numbers, hyphens, and underscores are allowed. This name is referenced
+                            in the <code>sourceVolume</code> parameter of container definition
+                                <code>mountPoints</code>.</para>
+                    </listitem>
+                </varlistentry>'>
+<!ENTITY docker-volume-config '<varlistentry features="ec2">
+    <term><code>dockerVolumeConfiguration</code></term>
+    <listitem>
+        <para>Type: Object</para>
+        <para>Required: No</para>
+        <para>This parameter is specified when using Docker volumes. Docker volumes are only
+            supported when using the &ec2-launch-type; launch type. Windows containers only support
+            the use of the <code>local</code> driver. To use bind mounts, specify a
+                <code>host</code> instead.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>scope</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Valid Values: <code>task</code> | <code>shared</code></para>
+                    <para>Required: No</para>
+                    <para>The scope for the Docker volume, which determines its lifecycle. Docker
+                        volumes that are scoped to a <code>task</code> are automatically provisioned
+                        when the task starts destroyed when the task is cleaned up. Docker volumes that
+                        are scoped as <code>shared</code> persist after the task stops.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>autoprovision</code></term>
+                <listitem>
+                    <para>Type: Boolean</para>
+                    <para>Default value: <code>false</code></para>
+                    <para>Required: No</para>
+                    <para>If this value is <code>true</code>, the Docker volume is created if it
+                        does not already exist. This field is only used if the <code>scope</code> is
+                            <code>shared</code>. If the <code>scope</code> is <code>task</code> then
+                        this parameter must either be omitted or set to <code>false</code>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>driver</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>The Docker volume driver to use. The driver value must match the driver
+                        name provided by Docker because it is used for task placement. If the driver
+                        was installed using the Docker plugin CLI, use <code>docker plugin ls</code>
+                        to retrieve the driver name from your container instance. If the driver was
+                        installed using another method, use Docker plugin discovery to retrieve the
+                        driver name. For more information, see <ulink
+                            url="https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery"
+                            >Docker plugin discovery</ulink>. This parameter maps to
+                            <code>Driver</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--driver</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>driverOpts</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>A map of Docker driver specific options to pass through. This parameter
+                        maps to <code>DriverOpts</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--opt</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>labels</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>Custom metadata to add to your Docker volume. This parameter maps to
+                            <code>Labels</code> in the <ulink
+                            url="&url-docker-remote-api;#operation/VolumeCreate">Create a
+                            volume</ulink> section of the &link-docker-api; and the
+                            <code>--label</code> option to <ulink
+                            url="https://docs.docker.com/engine/reference/commandline/volume_create/"
+                                ><code>docker volume create</code></ulink>.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>'>
+<!ENTITY volume-host '<varlistentry>
+    <term><code>host</code></term>
+    <listitem>
+        <para>Required: No</para>
+        <para>This parameter is specified when using bind mounts. To use Docker
+            volumes, specify a <code>dockerVolumeConfiguration</code> instead. The
+            contents of the <code>host</code> parameter determine whether your bind
+            mount data volume persists on the host container instance and where it
+            is stored. If the <code>host</code> parameter is empty, then the Docker
+            daemon assigns a host path for your data volume, but the data is not
+            guaranteed to persist after the containers associated with it stop
+            running.</para>
+        <para>Bind mount host volumes are supported when using either the
+            &ec2-launch-type; or &fargate-launch-type; launch types.</para>
+        <para>Windows containers can mount whole directories on the same drive as
+            <code>$env:ProgramData</code>.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>sourcePath</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>When the <code>host</code> parameter is used, specify a
+                        <code>sourcePath</code> to declare the path on the host
+                        container instance that is presented to the container. If
+                        this parameter is empty, then the Docker daemon has assigned
+                        a host path for you. If the <code>host</code> parameter
+                        contains a <code>sourcePath</code> file location, then the
+                        data volume persists at the specified location on the host
+                        container instance until you delete it manually. If the
+                        <code>sourcePath</code> value does not exist on the host
+                        container instance, the Docker daemon creates it. If the
+                        location does exist, the contents of the source path folder
+                        are exported.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>'>
+<!ENTITY mount-points '<varlistentry>
+    <term><code>mountPoints</code></term>
+    <listitem>
+        <para>Type: Object Array</para>
+        <para>Required: No</para>
+        <para>The mount points for data volumes in your container. </para>
+        <para>This parameter maps to <code>Volumes</code> in the
+            &link-docker-api-create-container; section of the &link-docker-api; and
+            the <code>--volume</code> option to <ulink
+                url="https://docs.docker.com/engine/reference/commandline/run/"
+                ><command>docker run</command></ulink>.</para>
+        <para>Windows containers can mount whole directories on the same drive as
+            <code>$env:ProgramData</code>. Windows containers cannot mount
+            directories on a different drive, and mount point cannot be across
+            drives.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>sourceVolume</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: Yes, when <code>mountPoints</code> are
+                        used</para>
+                    <para>The name of the volume to mount.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>containerPath</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: Yes, when <code>mountPoints</code> are
+                        used</para>
+                    <para>The path on the container to mount the volume at.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><code>readOnly</code></term>
+                <listitem>
+                    <para>Type: Boolean</para>
+                    <para>Required: No</para>
+                    <para>If this value is <code>true</code>, the container has
+                        read-only access to the volume. If this value is
+                        <code>false</code>, then the container can write to the
+                        volume. The default value is <code>false</code>.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>'>
+<!ENTITY efs-volume-config '<varlistentry>
+                        <term><code>efsVolumeConfiguration</code></term>
+                        <listitem>
+                            <para>Type: Object</para>
+                            <para>Required: No</para>
+                            <para>This parameter is specified when using &EFS; volumes.</para>
+                            <variablelist>
+                                <varlistentry>
+                                    <term><code>fileSystemId</code></term>
+                                    <listitem>
+                                        <para>Type: String</para>
+                                        <para>Required: Yes</para>
+                                        <para>The &EFS; file system ID to use.</para>
+                                    </listitem>
+                                </varlistentry>
+                                <varlistentry>
+                                    <term><code>rootDirectory</code></term>
+                                    <listitem>
+                                        <para>Type: String</para>
+                                        <para>Required: No</para>
+                                        <para>The directory within the &EFS; file system to mount as
+                                            the root directory inside the host. If this parameter is
+                                            omitted, the root of the &EFS; volume will be used.
+                                            Specifying <code>/</code> will have the same effect as
+                                            omitting this parameter.</para>
+                                    </listitem>
+                                </varlistentry>
+                                <varlistentry>
+                                    <term><code>transitEncryption</code></term>
+                                    <listitem>
+                                        <para>Type: String</para>
+                                        <para>Valid values: <code>ENABLED</code> |
+                                                <code>DISABLED</code></para>
+                                        <para>Required: No</para>
+                                        <para>Whether or not to enable encryption for &EFS; data in
+                                            transit between the &ECS; host and the &EFS; server.
+                                            Transit encryption must be enabled if &EFS; IAM
+                                            authorization is used. If this parameter is omitted, the
+                                            default value of <code>DISABLED</code> is used. For more
+                                            information, see <ulink type="documentation"
+                                                url="efs/latest/ug/encryption-in-transit.html"
+                                                >Encrypting Data in Transit</ulink> in the
+                                                <emphasis>&guide-efs-ug;</emphasis>.</para>
+                                    </listitem>
+                                </varlistentry>
+                                <varlistentry>
+                                    <term><code>transitEncryptionPort</code></term>
+                                    <listitem>
+                                        <para>Type: Integer</para>
+                                        <para>Required: No</para>
+                                        <para>The port to use when sending encrypted data between
+                                            the &ECS; host and the &EFS; server. If you do not
+                                            specify a transit encryption port, it will use the port
+                                            selection strategy that the &EFS; mount helper uses. For
+                                            more information, see <ulink type="documentation"
+                                                url="efs/latest/ug/efs-mount-helper.html">EFS Mount
+                                                Helper</ulink> in the
+                                                <emphasis>&guide-efs-ug;</emphasis>.</para>
+                                    </listitem>
+                                </varlistentry>
+                                <varlistentry>
+                                    <term><code>authorizationConfig</code></term>
+                                    <listitem>
+                                        <para>Type: Object</para>
+                                        <para>Required: No</para>
+                                        <para>The authorization configuration details for the &EFS;
+                                            file system.</para>
+                                        <variablelist>
+                                            <varlistentry>
+                                                <term><code>accessPointId</code></term>
+                                                <listitem>
+                                                  <para>Type: String</para>
+                                                  <para>Required: No</para>
+                                                  <para>The access point ID to use. If an access
+                                                  point is specified, the root directory value will
+                                                  be relative to the directory set for the access
+                                                  point. If specified, transit encryption must be
+                                                  enabled in the
+                                                  <code>EFSVolumeConfiguration</code>. For more
+                                                  information, see <ulink type="documentation"
+                                                  url="efs/latest/ug/efs-access-points.html">Working
+                                                  with Amazon EFS Access Points</ulink> in the
+                                                  <emphasis>&guide-efs-ug;</emphasis>.</para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term><code>iam</code></term>
+                                                <listitem>
+                                                  <para>Type: String</para>
+                                                  <para>Valid values: <code>ENABLED</code> |
+                                                  <code>DISABLED</code></para>
+                                                  <para>Required: No</para>
+                                                  <para>Whether or not to use the &ECS; task IAM
+                                                  role defined in a task definition when mounting
+                                                  the &EFS; file system. If enabled, transit
+                                                  encryption must be enabled in the
+                                                  <code>EFSVolumeConfiguration</code>. If this
+                                                  parameter is omitted, the default value of
+                                                  <code>DISABLED</code> is used. For more
+                                                  information, see <ulink type="documentation"
+                                                  url="AmazonECS/latest/developerguide/task-iam-roles.html"
+                                                  >IAM Roles for Tasks</ulink>.</para>
+                                                </listitem>
+                                            </varlistentry>
+                                        </variablelist>
+                                    </listitem>
+                                </varlistentry>
+                            </variablelist>
+                        </listitem>
+                    </varlistentry>'>

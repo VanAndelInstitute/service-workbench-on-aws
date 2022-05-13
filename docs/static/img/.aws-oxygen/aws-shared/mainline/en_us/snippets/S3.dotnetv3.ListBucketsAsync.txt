@@ -1,0 +1,33 @@
+
+        /// <summary>
+        /// List the Amazon S3 buckets owned by the user.
+        /// </summary>
+        /// <param name="accessKeyId">The access key Id for the user.</param>
+        /// <param name="secretAccessKey">The Secret access key for the user.</param>
+        public static async Task ListMyBucketsAsync(AmazonS3Client client)
+        {
+            Console.WriteLine("\nPress <Enter> to list the S3 buckets using the new user.\n");
+            Console.ReadLine();
+
+            try
+            {
+                // Get the list of buckets accessible by the new user.
+                var response = await client.ListBucketsAsync();
+
+                // Loop through the list and print each bucket's name
+                // and creation date.
+                Console.WriteLine(new string('-', 80));
+                Console.WriteLine("Listing S3 buckets:\n");
+                response.Buckets
+                    .ForEach(b => Console.WriteLine($"Bucket name: {b.BucketName}, created on: {b.CreationDate}"));
+            }
+            catch (AmazonS3Exception ex)
+            {
+                // Something else went wrong. Display the error message.
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            Console.WriteLine("Press <Enter> to continue.");
+            Console.ReadLine();
+        }
+

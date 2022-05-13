@@ -1,0 +1,25 @@
+<programlisting>
+    public static void detectAllKeyPhrases(ComprehendClient comClient, String text) {
+
+        try {
+            DetectKeyPhrasesRequest detectKeyPhrasesRequest = DetectKeyPhrasesRequest.builder()
+                    .text(text)
+                    .languageCode("en")
+                    .build();
+
+            DetectKeyPhrasesResponse detectKeyPhrasesResult = comClient.detectKeyPhrases(detectKeyPhrasesRequest);
+
+            List<KeyPhrase> phraseList = detectKeyPhrasesResult.keyPhrases();
+            Iterator<KeyPhrase> keyIterator = phraseList.iterator();
+
+            while (keyIterator.hasNext()) {
+                KeyPhrase keyPhrase = keyIterator.next();
+                System.out.println("Key phrase text is " + keyPhrase.text());
+            }
+
+        } catch (ComprehendException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,44 @@
+import { CreateTableCommand } from "@aws-sdk/client-dynamodb";
+import { ddbClient } from "../libs/ddbClient.js";
+
+const tableName = process.argv[2];
+export const createTable = async () => {
+  // Set the parameters.
+  const params = {
+    AttributeDefinitions: [
+      {
+        AttributeName: "VALUE_1",
+        AttributeType: "S",
+      },
+      {
+        AttributeName: "VALUE_1",
+        AttributeType: "N",
+      },
+    ],
+    KeySchema: [
+      {
+        AttributeName: "VALUE_1",
+        KeyType: "HASH",
+      },
+      {
+        AttributeName: "VALUE_2",
+        KeyType: "RANGE",
+      },
+    ],
+    TableName: "TABLE_NAME",
+    ProvisionedThroughput: {
+      ReadCapacityUnits: 5,
+      WriteCapacityUnits: 5,
+    },
+  };
+  try {
+    const data = await ddbClient.send(new CreateTableCommand(params));
+    console.log(
+      "Table created. Table name is ",
+      data.TableDescription.TableName
+    );
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+createTable();

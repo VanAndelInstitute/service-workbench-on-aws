@@ -1,0 +1,12 @@
+<programlisting>
+        SdkAsyncHttpClient httpClient = NettyNioAsyncHttpClient.builder()
+                .maxConcurrency(100)
+                .maxPendingConnectionAcquires(10_000)
+                .build();
+
+        KinesisAsyncClient kinesisClient = KinesisAsyncClient.builder()
+                .httpClient(httpClient)
+                .build();
+
+        httpClient.close();
+</programlisting>

@@ -1,0 +1,27 @@
+<programlisting>
+//Create a RDSClient
+$rdsClient = new Aws\Rds\RdsClient([
+    'profile' => 'default',
+    'version' => '2014-10-31',
+    'region' => 'us-east-2'
+]);
+
+try {
+    $result = $rdsClient->describeDBInstances([
+
+    ]);
+    foreach ($result['DBInstances'] as $instance) {
+        print('<p>DB Identifier: ' . $instance['DBInstanceIdentifier']);
+        print('<br />Endpoint: ' . $instance['Endpoint']["Address"]
+            . ':' . $instance['Endpoint']["Port"]);
+        print('<br />Current Status: ' . $instance["DBInstanceStatus"]);
+        print('</p>');
+    }
+    print(" Raw Result ");
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+} 
+</programlisting>

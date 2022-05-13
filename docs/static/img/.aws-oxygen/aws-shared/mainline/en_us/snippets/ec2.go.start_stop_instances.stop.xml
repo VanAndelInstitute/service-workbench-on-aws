@@ -1,0 +1,13 @@
+<programlisting>
+    input := &ec2.StopInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.StopInstances(input)
+    awsErr, ok := err.(awserr.Error)
+    if ok && awsErr.Code() == "DryRunOperation" {
+        input.DryRun = aws.Bool(false)
+        _, err = svc.StopInstances(input)
+</programlisting>

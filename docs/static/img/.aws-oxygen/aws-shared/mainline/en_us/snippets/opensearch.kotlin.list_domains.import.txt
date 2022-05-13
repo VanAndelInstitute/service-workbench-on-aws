@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.opensearch.OpenSearchClient
+import aws.sdk.kotlin.services.opensearch.model.ListDomainNamesResponse
+import aws.sdk.kotlin.services.opensearch.model.ListDomainNamesRequest

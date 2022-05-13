@@ -1,0 +1,7 @@
+<programlisting>
+import aws.sdk.kotlin.services.redshift.RedshiftClient
+import aws.sdk.kotlin.services.redshift.model.DescribeReservedNodesRequest
+import aws.sdk.kotlin.services.redshift.model.ReservedNodeOffering
+import aws.sdk.kotlin.services.redshift.model.ReservedNode
+import aws.sdk.kotlin.services.redshift.model.DescribeReservedNodeOfferingsRequest
+</programlisting>

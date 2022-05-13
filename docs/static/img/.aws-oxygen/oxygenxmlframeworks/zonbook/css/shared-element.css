@@ -1,0 +1,4804 @@
+
+  shared[id=ACCTlong] {
+    content:"AWS Account Management";
+  }
+
+  shared[id=ACCT] {
+    content:"Account Management";
+  }
+
+
+
+  shared[id=ActivateConsolelong] {
+    content:"AWS Activate Console";
+  }
+
+  shared[id=ActivateConsole] {
+    content:"Activate Console";
+  }
+
+
+
+  shared[id=AGTSVClong] {
+    content:"AWS Agent Service";
+  }
+
+  shared[id=AGTSVC] {
+    content:"AWS Agent Service";
+  }
+
+
+
+  shared[id=ABUSlong] {
+    content:"Alexa for Business";
+  }
+
+  shared[id=ABUS] {
+    content:"Alexa for Business";
+  }
+
+
+
+  shared[id=ATSlong] {
+    content:"Alexa Top Sites";
+  }
+
+  shared[id=ATS] {
+    content:"Alexa Top Sites";
+  }
+
+
+
+  shared[id=AWISlong] {
+    content:"Alexa Web Information Service";
+  }
+
+  shared[id=AWIS] {
+    content:"Alexa Web Information Service";
+  }
+
+
+
+  shared[id=AMPLIFYlong] {
+    content:"AWS Amplify";
+  }
+
+  shared[id=AMPLIFY] {
+    content:"Amplify";
+  }
+
+
+
+  shared[id=ABPlong] {
+    content:"Amazon API Gateway";
+  }
+
+  shared[id=ABP] {
+    content:"API Gateway";
+  }
+
+
+
+  shared[id=APPClong] {
+    content:"AWS AppConfig";
+  }
+
+  shared[id=APPC] {
+    content:"AWS AppConfig";
+  }
+
+
+
+  shared[id=AppConfigDatalong] {
+    content:"AWS AppConfig Data";
+  }
+
+  shared[id=AppConfigData] {
+    content:"AWS AppConfig Data";
+  }
+
+
+
+  shared[id=APFLlong] {
+    content:"Amazon AppFlow";
+  }
+
+  shared[id=APFL] {
+    content:"Amazon AppFlow";
+  }
+
+
+
+  shared[id=APP-DSlong] {
+    content:"AWS Application Discovery Service";
+  }
+
+  shared[id=APP-DS] {
+    content:"Application Discovery Service";
+  }
+
+
+
+  shared[id=MGNlong] {
+    content:"AWS Application Migration Service";
+  }
+
+  shared[id=MGN] {
+    content:"Application Migration Service";
+  }
+
+
+
+  shared[id=AIlong] {
+    content:"Amazon CloudWatch Application Insights";
+  }
+
+  shared[id=AI] {
+    content:"CloudWatch Application Insights";
+  }
+
+
+
+  shared[id=MESHlong] {
+    content:"AWS App Mesh";
+  }
+
+  shared[id=MESH] {
+    content:"App Mesh";
+  }
+
+
+
+  shared[id=ARlong] {
+    content:"AWS App Runner";
+  }
+
+  shared[id=AR] {
+    content:"App Runner";
+  }
+
+
+
+  shared[id=AAS2long] {
+    content:"Amazon AppStream 2.0";
+  }
+
+  shared[id=AAS2] {
+    content:"AppStream 2.0";
+  }
+
+
+
+  shared[id=AASlong] {
+    content:"Amazon AppStream";
+  }
+
+  shared[id=AAS] {
+    content:"Amazon AppStream";
+  }
+
+
+
+  shared[id=APSYlong] {
+    content:"AWS AppSync";
+  }
+
+  shared[id=APSY] {
+    content:"AWS AppSync";
+  }
+
+
+
+  shared[id=ARTlong] {
+    content:"AWS Artifact";
+  }
+
+  shared[id=ART] {
+    content:"AWS Artifact";
+  }
+
+
+
+  shared[id=ATElong] {
+    content:"Amazon Athena";
+  }
+
+  shared[id=ATE] {
+    content:"Athena";
+  }
+
+
+
+  shared[id=AMlong] {
+    content:"AWS Audit Manager";
+  }
+
+  shared[id=AM] {
+    content:"Audit Manager";
+  }
+
+
+
+  shared[id=AURlong] {
+    content:"Amazon Aurora";
+  }
+
+  shared[id=AUR] {
+    content:"Aurora";
+  }
+
+
+
+  shared[id=AURlongPostgres] {
+    content:"Amazon Aurora PostgreSQL";
+  }
+
+  shared[id=AURPostgres] {
+    content:"Aurora PostgreSQL";
+  }
+
+
+
+  shared[id=AURlongPostgresmed] {
+    content:"Amazon Aurora PostgreSQL-Compatible";
+  }
+
+  shared[id=AURPostgresmed] {
+    content:"Aurora PostgreSQL-Compatible";
+  }
+
+
+
+  shared[id=AURlongPostgreslong] {
+    content:"Amazon Aurora PostgreSQL-Compatible Edition";
+  }
+
+  shared[id=AURPostgreslong] {
+    content:"Aurora PostgreSQL-Compatible Edition";
+  }
+
+
+
+  shared[id=AURlongMySQL] {
+    content:"Amazon Aurora MySQL";
+  }
+
+  shared[id=AURMySQL] {
+    content:"Aurora MySQL";
+  }
+
+
+
+  shared[id=AURlongMySQLmed] {
+    content:"Amazon Aurora MySQL-Compatible";
+  }
+
+  shared[id=AURMySQLmed] {
+    content:"Aurora MySQL-Compatible";
+  }
+
+
+
+  shared[id=AURlongMySQLlong] {
+    content:"Amazon Aurora MySQL-Compatible Edition";
+  }
+
+  shared[id=AURMySQLlong] {
+    content:"Aurora MySQL-Compatible Edition";
+  }
+
+
+
+  shared[id=AWS-ASPlanslong] {
+    content:"AWS Auto Scaling Plans";
+  }
+
+  shared[id=AWS-ASPlans] {
+    content:"Auto Scaling Plans";
+  }
+
+
+
+  shared[id=AWS-ASlong] {
+    content:"AWS Auto Scaling";
+  }
+
+  shared[id=AWS-AS] {
+    content:"AWS Auto Scaling";
+  }
+
+
+
+  shared[id=APP-ASlong] {
+    content:"Application Auto Scaling";
+  }
+
+  shared[id=APP-AS] {
+    content:"Application Auto Scaling";
+  }
+
+
+
+  shared[id=ASlong] {
+    content:"Amazon EC2 Auto Scaling";
+  }
+
+  shared[id=AS] {
+    content:"Auto Scaling";
+  }
+
+
+
+  shared[id=BKPlong] {
+    content:"AWS Backup";
+  }
+
+  shared[id=BKP] {
+    content:"AWS Backup";
+  }
+
+
+
+  shared[id=BGWlong] {
+    content:"AWS Backup gateway";
+  }
+
+  shared[id=BGW] {
+    content:"Backup gateway";
+  }
+
+
+
+  shared[id=BATCHlong] {
+    content:"AWS Batch";
+  }
+
+  shared[id=BATCH] {
+    content:"AWS Batch";
+  }
+
+
+
+  shared[id=ABlong] {
+    content:"AWS Billing and Cost Management";
+  }
+
+  shared[id=AB] {
+    content:"Billing and Cost Management";
+  }
+
+
+
+  shared[id=ABClong] {
+    content:"AWS Billing Conductor";
+  }
+
+  shared[id=ABC] {
+    content:"Billing Conductor";
+  }
+
+
+
+  shared[id=CMConsolelong] {
+    content:"AWS Cost Management Console";
+  }
+
+  shared[id=CMConsole] {
+    content:"Cost Management Console";
+  }
+
+
+
+  shared[id=AWSDOCSlong] {
+    content:"AWS Documentation";
+  }
+
+  shared[id=AWSDOCS] {
+    content:"AWS Documentation";
+  }
+
+
+
+  shared[id=consolelong] {
+    content:"AWS Management Console";
+  }
+
+  shared[id=console] {
+    content:"AWS Management Console";
+  }
+
+
+
+  shared[id=consolehomelong] {
+    content:"AWS Console Home";
+  }
+
+  shared[id=consolehome] {
+    content:"AWS Console Home";
+  }
+
+
+
+  shared[id=MarketingSitelong] {
+    content:"AWS Marketing Website";
+  }
+
+  shared[id=MarketingSite] {
+    content:"AWS Marketing Website";
+  }
+
+
+
+  shared[id=ce-long] {
+    content:"AWS Cost Explorer";
+  }
+
+  shared[id=ce] {
+    content:"Cost Explorer";
+  }
+
+
+
+  shared[id=BLXlong] {
+    content:"Blox";
+  }
+
+  shared[id=BLX] {
+    content:"Blox";
+  }
+
+
+
+  shared[id=BRAKETlong] {
+    content:"Amazon Braket";
+  }
+
+  shared[id=BRAKET] {
+    content:"Braket";
+  }
+
+
+
+  shared[id=ABBlong] {
+    content:"AWS BugBust";
+  }
+
+  shared[id=ABB] {
+    content:"AWS BugBust";
+  }
+
+
+
+  shared[id=ACMlong] {
+    content:"AWS Certificate Manager";
+  }
+
+  shared[id=ACM] {
+    content:"ACM";
+  }
+
+
+
+  shared[id=CBTlong] {
+    content:"AWS Chatbot";
+  }
+
+  shared[id=CBT] {
+    content:"AWS Chatbot";
+  }
+
+
+
+  shared[id=CHMlong] {
+    content:"Amazon Chime";
+  }
+
+  shared[id=CHM] {
+    content:"Amazon Chime";
+  }
+
+
+
+  shared[id=AC9long] {
+    content:"AWS Cloud9";
+  }
+
+  shared[id=AC9] {
+    content:"AWS Cloud9";
+  }
+
+
+
+  shared[id=CDIlong] {
+    content:"AWS Cloud Digital Interface";
+  }
+
+  shared[id=CDI] {
+    content:"AWS CDI";
+  }
+
+
+
+  shared[id=CDKlong] {
+    content:"AWS Cloud Development Kit (CDK)";
+  }
+
+  shared[id=CDK] {
+    content:"AWS CDK";
+  }
+
+
+
+  shared[id=CMAPlong] {
+    content:"AWS Cloud Map";
+  }
+
+  shared[id=CMAP] {
+    content:"AWS Cloud Map";
+  }
+
+
+
+  shared[id=CFNlong] {
+    content:"AWS CloudFormation";
+  }
+
+  shared[id=CFN] {
+    content:"AWS CloudFormation";
+  }
+
+
+
+  shared[id=CFlong] {
+    content:"Amazon CloudFront";
+  }
+
+  shared[id=CF] {
+    content:"CloudFront";
+  }
+
+
+
+  shared[id=HSMlong] {
+    content:"AWS CloudHSM";
+  }
+
+  shared[id=HSM] {
+    content:"AWS CloudHSM";
+  }
+
+
+
+  shared[id=HSMClassiclong] {
+    content:"AWS CloudHSM Classic";
+  }
+
+  shared[id=HSMClassic] {
+    content:"AWS CloudHSM Classic";
+  }
+
+
+
+  shared[id=CSlong] {
+    content:"Amazon CloudSearch";
+  }
+
+  shared[id=CS] {
+    content:"Amazon CloudSearch";
+  }
+
+
+
+  shared[id=CShell] {
+    content:"AWS CloudShell";
+  }
+
+  shared[id=CShellshort] {
+    content:"CloudShell";
+  }
+
+
+
+  shared[id=CTlong] {
+    content:"AWS CloudTrail";
+  }
+
+  shared[id=CT] {
+    content:"CloudTrail";
+  }
+
+
+
+  shared[id=CWlong] {
+    content:"Amazon CloudWatch";
+  }
+
+  shared[id=CW] {
+    content:"CloudWatch";
+  }
+
+
+
+  shared[id=CWElong] {
+    content:"Amazon CloudWatch Events";
+  }
+
+  shared[id=CWE] {
+    content:"CloudWatch Events";
+  }
+
+
+
+  shared[id=CWLlong] {
+    content:"Amazon CloudWatch Logs";
+  }
+
+  shared[id=CWL] {
+    content:"CloudWatch Logs";
+  }
+
+
+
+  shared[id=ACAlong] {
+    content:"AWS CodeArtifact";
+  }
+
+  shared[id=ACA] {
+    content:"CodeArtifact";
+  }
+
+
+
+  shared[id=ACBlong] {
+    content:"AWS CodeBuild";
+  }
+
+  shared[id=ACB] {
+    content:"CodeBuild";
+  }
+
+
+
+  shared[id=ACClong] {
+    content:"AWS CodeCommit";
+  }
+
+  shared[id=ACC] {
+    content:"CodeCommit";
+  }
+
+
+
+  shared[id=ACDlong] {
+    content:"AWS CodeDeploy";
+  }
+
+  shared[id=ACD] {
+    content:"CodeDeploy";
+  }
+
+
+
+  shared[id=ACPlong] {
+    content:"AWS CodePipeline";
+  }
+
+  shared[id=ACP] {
+    content:"CodePipeline";
+  }
+
+
+
+  shared[id=GURUALLlong] {
+    content:"Amazon CodeGuru";
+  }
+
+  shared[id=GURUALLshort] {
+    content:"CodeGuru";
+  }
+
+
+
+  shared[id=ACPRlong] {
+    content:"Amazon CodeGuru Profiler";
+  }
+
+  shared[id=ACPR] {
+    content:"CodeGuru Profiler";
+  }
+
+
+
+  shared[id=ACRElong] {
+    content:"Amazon CodeGuru Reviewer";
+  }
+
+  shared[id=ACRE] {
+    content:"CodeGuru Reviewer";
+  }
+
+
+
+  shared[id=ACSlong] {
+    content:"AWS CodeStar";
+  }
+
+  shared[id=ACS] {
+    content:"AWS CodeStar";
+  }
+
+
+
+  shared[id=COGlong] {
+    content:"Amazon Cognito";
+  }
+
+  shared[id=COG] {
+    content:"Amazon Cognito";
+  }
+
+
+
+  shared[id=COGSYNClong] {
+    content:"Amazon Cognito Sync";
+  }
+
+  shared[id=COGSYNC] {
+    content:"Amazon Cognito Sync";
+  }
+
+
+
+  shared[id=CLIlong] {
+    content:"AWS Command Line Interface";
+  }
+
+  shared[id=CLI] {
+    content:"AWS CLI";
+  }
+
+
+
+  shared[id=CMPlong] {
+    content:"Amazon Comprehend";
+  }
+
+  shared[id=CMP] {
+    content:"Amazon Comprehend";
+  }
+
+
+
+  shared[id=CMPMlong] {
+    content:"Amazon Comprehend Medical";
+  }
+
+  shared[id=CMPM] {
+    content:"Amazon Comprehend Medical";
+  }
+
+
+
+  shared[id=COlong] {
+    content:"AWS Compute Optimizer";
+  }
+
+  shared[id=CO] {
+    content:"Compute Optimizer";
+  }
+
+
+
+  shared[id=CClong] {
+    content:"AWS Config";
+  }
+
+  shared[id=CC] {
+    content:"AWS Config";
+  }
+
+
+
+  shared[id=CCAPIlong] {
+    content:"AWS Cloud Control API";
+  }
+
+  shared[id=CCAPI] {
+    content:"Cloud Control API";
+  }
+
+
+
+  shared[id=CCRlong] {
+    content:"AWS Config Rules";
+  }
+
+  shared[id=CCR] {
+    content:"AWS Config Rules";
+  }
+
+
+
+  shared[id=CONlong] {
+    content:"Amazon Connect";
+  }
+
+  shared[id=CON] {
+    content:"Amazon Connect";
+  }
+
+
+
+  shared[id=AWSConnectorServicelong] {
+    content:"AWS Connector Service";
+  }
+
+  shared[id=AWSConnectorService] {
+    content:"Connector Service";
+  }
+
+
+
+  shared[id=CMAlong] {
+    content:"AWS Console Mobile Application";
+  }
+
+  shared[id=CMA] {
+    content:"Console Mobile Application";
+  }
+
+
+
+  shared[id=CTowerlong] {
+    content:"AWS Control Tower";
+  }
+
+  shared[id=CTower] {
+    content:"AWS Control Tower";
+  }
+
+
+
+  shared[id=AWSCostExplorerServicelong] {
+    content:"AWS Cost Explorer Service";
+  }
+
+  shared[id=AWSCostExplorerService] {
+    content:"Cost Explorer Service";
+  }
+
+
+
+  shared[id=DLMlong] {
+    content:"Amazon Data Lifecycle Manager";
+  }
+
+  shared[id=DLM] {
+    content:"Amazon Data Lifecycle Manager";
+  }
+
+
+
+  shared[id=ADElong] {
+    content:"AWS Data Exchange";
+  }
+
+  shared[id=ADE] {
+    content:"AWS Data Exchange";
+  }
+
+
+
+  shared[id=AWSDPlong] {
+    content:"AWS Data Pipeline";
+  }
+
+  shared[id=AWSDP] {
+    content:"AWS Data Pipeline";
+  }
+
+
+
+  shared[id=DMSlong] {
+    content:"AWS Database Migration Service";
+  }
+
+  shared[id=DMS] {
+    content:"AWS DMS";
+  }
+
+
+
+  shared[id=DSYlong] {
+    content:"AWS DataSync";
+  }
+
+  shared[id=DSY] {
+    content:"DataSync";
+  }
+
+
+
+  shared[id=dlalong] {
+    content:"AWS Deep Learning AMI";
+  }
+
+  shared[id=dla] {
+    content:"DLAMI";
+  }
+
+
+
+  shared[id=DLlong] {
+    content:"AWS DeepLens";
+  }
+
+  shared[id=DL] {
+    content:"AWS DeepLens";
+  }
+
+
+
+  shared[id=AWSDeepRacerlong] {
+    content:"AWS DeepRacer";
+  }
+
+  shared[id=AWSDeepRacer] {
+    content:"AWS DeepRacer";
+  }
+
+
+
+  shared[id=DETlong] {
+    content:"Amazon Detective";
+  }
+
+  shared[id=DET] {
+    content:"Detective";
+  }
+
+
+
+  shared[id=ATPlong] {
+    content:"AWS Device Farm";
+  }
+
+  shared[id=ATP] {
+    content:"Device Farm";
+  }
+
+
+
+  shared[id=CGOlong] {
+    content:"Amazon DevOps Guru";
+  }
+
+  shared[id=CGO] {
+    content:"DevOps Guru";
+  }
+
+
+
+  shared[id=DPlong] {
+    content:"Amazon DevPay";
+  }
+
+  shared[id=DP] {
+    content:"Amazon DevPay";
+  }
+
+
+
+  shared[id=AWS-DC-long] {
+    content:"AWS Direct Connect";
+  }
+
+  shared[id=AWS-DC] {
+    content:"AWS Direct Connect";
+  }
+
+
+
+  shared[id=ADSlong] {
+    content:"AWS Directory Service";
+  }
+
+  shared[id=ADS] {
+    content:"AWS Directory Service";
+  }
+
+
+
+  shared[id=GXYlong] {
+    content:"AWS Directory Service";
+  }
+
+  shared[id=GXY] {
+    content:"AWS Directory Service";
+  }
+
+
+
+  shared[id=managed-ad-long] {
+    content:"AWS Directory Service for Microsoft Active Directory";
+  }
+
+  shared[id=managed-ad] {
+    content:"AWS Managed Microsoft AD";
+  }
+
+
+
+  shared[id=CDSlong] {
+    content:"Amazon Cloud Directory";
+  }
+
+  shared[id=CDS] {
+    content:"Cloud Directory";
+  }
+
+
+
+  shared[id=DocDBlong] {
+    content:"Amazon DocumentDB (with MongoDB compatibility)";
+  }
+
+  shared[id=DocDB] {
+    content:"Amazon DocumentDB";
+  }
+
+
+
+  shared[id=DDBlong] {
+    content:"Amazon DynamoDB";
+  }
+
+  shared[id=DDB] {
+    content:"DynamoDB";
+  }
+
+
+
+  shared[id=DAXlong] {
+    content:"DynamoDB Accelerator";
+  }
+
+  shared[id=DAX] {
+    content:"DAX";
+  }
+
+
+
+  shared[id=DDBEClong] {
+    content:"Amazon DynamoDB Encryption Client";
+  }
+
+  shared[id=DDBEC] {
+    content:"DynamoDB Encryption Client";
+  }
+
+
+
+  shared[id=DSlong] {
+    content:"Amazon DynamoDB Streams";
+  }
+
+  shared[id=DS] {
+    content:"DynamoDB Streams";
+  }
+
+
+
+  shared[id=EBSlong] {
+    content:"Amazon Elastic Block Store";
+  }
+
+  shared[id=EBS] {
+    content:"Amazon EBS";
+  }
+
+
+
+  shared[id=EC2long] {
+    content:"Amazon Elastic Compute Cloud";
+  }
+
+  shared[id=EC2] {
+    content:"Amazon EC2";
+  }
+
+
+
+  shared[id=EC2Consolelong] {
+    content:"Amazon Elastic Compute Cloud console";
+  }
+
+  shared[id=EC2Console] {
+    content:"Amazon EC2 console";
+  }
+
+
+
+  shared[id=EC2DedicatedHostslong] {
+    content:"Amazon Elastic Compute Cloud Dedicated Hosts";
+  }
+
+  shared[id=EC2DedicatedHosts] {
+    content:"Amazon EC2 Dedicated Hosts";
+  }
+
+
+
+  shared[id=EC2LV2long] {
+    content:"EC2Launch v2";
+  }
+
+  shared[id=EC2LV2] {
+    content:"EC2Launch";
+  }
+
+
+
+  shared[id=ECRlong] {
+    content:"Amazon Elastic Container Registry";
+  }
+
+  shared[id=ECR] {
+    content:"Amazon ECR";
+  }
+
+
+
+  shared[id=ECRPubliclong] {
+    content:"Amazon Elastic Container Registry Public";
+  }
+
+  shared[id=ECRPublic] {
+    content:"Amazon ECR Public";
+  }
+
+
+
+  shared[id=ECSlong] {
+    content:"Amazon Elastic Container Service";
+  }
+
+  shared[id=ECS] {
+    content:"Amazon ECS";
+  }
+
+
+
+  shared[id=FARGATElong] {
+    content:"AWS Fargate";
+  }
+
+  shared[id=FARGATE] {
+    content:"Fargate";
+  }
+
+
+
+  shared[id=EKSlong] {
+    content:"Amazon Elastic Kubernetes Service";
+  }
+
+  shared[id=EKS] {
+    content:"Amazon EKS";
+  }
+
+
+
+  shared[id=AEBlong] {
+    content:"AWS Elastic Beanstalk";
+  }
+
+  shared[id=AEB] {
+    content:"Elastic Beanstalk";
+  }
+
+
+
+  shared[id=DRSlong] {
+    content:"AWS Elastic Disaster Recovery";
+  }
+
+  shared[id=DRS] {
+    content:"Elastic Disaster Recovery";
+  }
+
+
+
+  shared[id=EFSlong] {
+    content:"Amazon Elastic File System";
+  }
+
+  shared[id=EFS] {
+    content:"Amazon EFS";
+  }
+
+
+
+  shared[id=EIAlong] {
+    content:"Amazon Elastic Inference";
+  }
+
+  shared[id=EIA] {
+    content:"Elastic Inference";
+  }
+
+
+
+  shared[id=ELBlong] {
+    content:"Elastic Load Balancing";
+  }
+
+  shared[id=ELB] {
+    content:"Elastic Load Balancing";
+  }
+
+
+
+  shared[id=NLBlong] {
+    content:"Network Load Balancer";
+  }
+
+  shared[id=NLB] {
+    content:"Network Load Balancer";
+  }
+
+
+
+  shared[id=ELClong] {
+    content:"Amazon ElastiCache";
+  }
+
+  shared[id=ELC] {
+    content:"ElastiCache";
+  }
+
+
+
+  shared[id=ELCRlong] {
+    content:"Amazon ElastiCache for Redis";
+  }
+
+  shared[id=ELCR] {
+    content:"ElastiCache for Redis";
+  }
+
+
+
+  shared[id=ELCMlong] {
+    content:"Amazon ElastiCache for Memcached";
+  }
+
+  shared[id=ELCM] {
+    content:"ElastiCache for Memcached";
+  }
+
+
+
+  shared[id=ESlong] {
+    content:"Amazon OpenSearch Service";
+  }
+
+  shared[id=ES] {
+    content:"OpenSearch Service";
+  }
+
+
+
+  shared[id=ECFlong] {
+    content:"AWS Elemental Conductor File";
+  }
+
+  shared[id=ECF] {
+    content:"Conductor File";
+  }
+
+
+
+  shared[id=ECL3long] {
+    content:"AWS Elemental Conductor Live";
+  }
+
+  shared[id=ECL3] {
+    content:"Conductor Live";
+  }
+
+
+
+  shared[id=ECLDlong] {
+    content:"AWS Elemental Cloud";
+  }
+
+  shared[id=ECLD] {
+    content:"AWS Elemental Cloud";
+  }
+
+
+
+  shared[id=EDLTlong] {
+    content:"AWS Elemental Delta";
+  }
+
+  shared[id=EDLT] {
+    content:"Delta";
+  }
+
+
+
+  shared[id=ELNKlong] {
+    content:"AWS Elemental Link";
+  }
+
+  shared[id=ELNK] {
+    content:"AWS Elemental Link";
+  }
+
+
+
+  shared[id=ELVlong] {
+    content:"AWS Elemental Live";
+  }
+
+  shared[id=ELV] {
+    content:"Elemental Live";
+  }
+
+
+
+  shared[id=EMXlong] {
+    content:"AWS Elemental MediaConnect";
+  }
+
+  shared[id=EMX] {
+    content:"MediaConnect";
+  }
+
+
+
+  shared[id=EMClong] {
+    content:"AWS Elemental MediaConvert";
+  }
+
+  shared[id=EMC] {
+    content:"MediaConvert";
+  }
+
+
+
+  shared[id=EMLlong] {
+    content:"AWS Elemental MediaLive";
+  }
+
+  shared[id=EML] {
+    content:"MediaLive";
+  }
+
+
+
+  shared[id=EMPlong] {
+    content:"AWS Elemental MediaPackage";
+  }
+
+  shared[id=EMP] {
+    content:"MediaPackage";
+  }
+
+
+
+  shared[id=EMSlong] {
+    content:"AWS Elemental MediaStore";
+  }
+
+  shared[id=EMS] {
+    content:"MediaStore";
+  }
+
+
+
+  shared[id=EMTlong] {
+    content:"AWS Elemental MediaTailor";
+  }
+
+  shared[id=EMT] {
+    content:"MediaTailor";
+  }
+
+
+
+  shared[id=ESRVRlong] {
+    content:"AWS Elemental Server";
+  }
+
+  shared[id=ESRVR] {
+    content:"AWS Elemental Server";
+  }
+
+
+
+  shared[id=ESMXlong] {
+    content:"AWS Elemental Statmux";
+  }
+
+  shared[id=ESMX] {
+    content:"Statmux";
+  }
+
+
+
+  shared[id=EMRlong] {
+    content:"Amazon EMR";
+  }
+
+  shared[id=EMR] {
+    content:"Amazon EMR";
+  }
+
+
+
+  shared[id=CryptoSDKlong] {
+    content:"AWS Encryption SDK";
+  }
+
+  shared[id=CryptoSDK] {
+    content:"AWS Encryption SDK";
+  }
+
+
+
+  shared[id=ETlong] {
+    content:"Amazon Elastic Transcoder";
+  }
+
+  shared[id=ET] {
+    content:"Elastic Transcoder";
+  }
+
+
+
+  shared[id=EVlong] {
+    content:"Amazon EventBridge";
+  }
+
+  shared[id=EV] {
+    content:"EventBridge";
+  }
+
+
+
+  shared[id=FISlong] {
+    content:"AWS Fault Injection Simulator";
+  }
+
+  shared[id=FIS] {
+    content:"AWS FIS";
+  }
+
+
+
+  shared[id=FSlong] {
+    content:"Amazon FinSpace";
+  }
+
+  shared[id=FS] {
+    content:"FinSpace";
+  }
+
+
+
+  shared[id=FMSlong] {
+    content:"AWS Firewall Manager";
+  }
+
+  shared[id=FMS] {
+    content:"Firewall Manager";
+  }
+
+
+
+  shared[id=FFlong] {
+    content:"AWS Flow Framework";
+  }
+
+  shared[id=FF] {
+    content:"the framework";
+  }
+
+
+
+  shared[id=FORlong] {
+    content:"Amazon Forecast";
+  }
+
+  shared[id=FOR] {
+    content:"Forecast";
+  }
+
+
+
+  shared[id=FPSlong] {
+    content:"Amazon Flexible Payments Service";
+  }
+
+  shared[id=FPS] {
+    content:"Amazon FPS";
+  }
+
+
+
+  shared[id=AFDlong] {
+    content:"Amazon Fraud Detector";
+  }
+
+  shared[id=AFD] {
+    content:"Amazon Fraud Detector";
+  }
+
+
+
+  shared[id=RTOSlong] {
+    content:"FreeRTOS";
+  }
+
+  shared[id=RTOS] {
+    content:"FreeRTOS";
+  }
+
+
+
+  shared[id=FSXlong] {
+    content:"Amazon FSx";
+  }
+
+  shared[id=FSX] {
+    content:"Amazon FSx";
+  }
+
+
+
+  shared[id=FSXLustrelong] {
+    content:"Amazon FSx for Lustre";
+  }
+
+  shared[id=FSXLustre] {
+    content:"FSx for Lustre";
+  }
+
+
+
+  shared[id=FSxONTAPlong] {
+    content:"Amazon FSx for NetApp ONTAP";
+  }
+
+  shared[id=FSxONTAP] {
+    content:"FSx for ONTAP";
+  }
+
+
+
+  shared[id=FSxOpenZFSlong] {
+    content:"Amazon FSx for OpenZFS";
+  }
+
+  shared[id=FSxOpenZFS] {
+    content:"FSx for OpenZFS";
+  }
+
+
+
+  shared[id=FSXWindowslong] {
+    content:"Amazon FSx for Windows File Server";
+  }
+
+  shared[id=FSXWindows] {
+    content:"FSx for Windows File Server";
+  }
+
+
+
+  shared[id=FWSlong] {
+    content:"Amazon Fulfillment Web Service";
+  }
+
+  shared[id=FWS] {
+    content:"Amazon FWS";
+  }
+
+
+
+  shared[id=AGSlong] {
+    content:"Amazon GameLift";
+  }
+
+  shared[id=AGS] {
+    content:"GameLift";
+  }
+
+
+
+  shared[id=GLlong] {
+    content:"Amazon S3 Glacier";
+  }
+
+  shared[id=GL] {
+    content:"S3 Glacier";
+  }
+
+
+
+  shared[id=GAXlong] {
+    content:"AWS Global Accelerator";
+  }
+
+  shared[id=GAX] {
+    content:"Global Accelerator";
+  }
+
+
+
+  shared[id=GLUlong] {
+    content:"AWS Glue";
+  }
+
+  shared[id=GLU] {
+    content:"AWS Glue";
+  }
+
+
+
+  shared[id=dsrlong] {
+    content:"AWSGlueSchemaRegistry";
+  }
+
+  shared[id=dsr] {
+    content:"AWSGlueSchemaRegistry";
+  }
+
+
+
+  shared[id=GLUDCLong] {
+    content:"AWS Glue Data Catalog";
+  }
+
+  shared[id=GLUDC] {
+    content:"Data Catalog";
+  }
+
+
+
+  shared[id=JESlong] {
+    content:"AWS Glue Jobs system";
+  }
+
+  shared[id=JES] {
+    content:"Jobs system";
+  }
+
+
+
+  shared[id=BRUlong] {
+    content:"AWS Glue DataBrew";
+  }
+
+  shared[id=BRU] {
+    content:"DataBrew";
+  }
+
+
+
+  shared[id=GGlong] {
+    content:"AWS IoT Greengrass";
+  }
+
+  shared[id=GG] {
+    content:"AWS IoT Greengrass";
+  }
+
+
+
+  shared[id=GG1long] {
+    content:"AWS IoT Greengrass Version 1";
+  }
+
+  shared[id=GG1] {
+    content:"AWS IoT Greengrass V1";
+  }
+
+
+
+  shared[id=GG2long] {
+    content:"AWS IoT Greengrass Version 2";
+  }
+
+  shared[id=GG2] {
+    content:"AWS IoT Greengrass V2";
+  }
+
+
+
+  shared[id=GRSlong] {
+    content:"AWS Ground Station";
+  }
+
+  shared[id=GRS] {
+    content:"AWS Ground Station";
+  }
+
+
+
+  shared[id=GDUlong] {
+    content:"Amazon GuardDuty";
+  }
+
+  shared[id=GDU] {
+    content:"GuardDuty";
+  }
+
+
+
+  shared[id=awshealthlong] {
+    content:"AWS Health";
+  }
+
+  shared[id=awshealth] {
+    content:"AWS Health";
+  }
+
+
+
+  shared[id=phdlong] {
+    content:"AWS Health Dashboard";
+  }
+
+  shared[id=phd] {
+    content:"AWS Health Dashboard";
+  }
+
+
+
+  shared[id=IAMlong] {
+    content:"AWS Identity and Access Management";
+  }
+
+  shared[id=IAM] {
+    content:"IAM";
+  }
+
+
+
+  shared[id=iam-citadel-long] {
+    content:"AWS Identity and Access Management Access Analyzer";
+  }
+
+  shared[id=iam-citadel] {
+    content:"IAM Access Analyzer";
+  }
+
+
+
+  shared[id=IBlong] {
+    content:"EC2 Image Builder";
+  }
+
+  shared[id=IB] {
+    content:"Image Builder";
+  }
+
+
+
+  shared[id=TOElong] {
+    content:"AWS Task Orchestrator and Executor";
+  }
+
+  shared[id=TOE] {
+    content:"AWSTOE";
+  }
+
+
+
+  shared[id=IElong] {
+    content:"AWS Import/Export";
+  }
+
+  shared[id=IE] {
+    content:"AWS Import/Export";
+  }
+
+
+
+  shared[id=Disklong] {
+    content:"AWS Import/Export Disk";
+  }
+
+  shared[id=Disk] {
+    content:"Disk";
+  }
+
+
+
+  shared[id=Frozenlong] {
+    content:"AWS Snowball";
+  }
+
+  shared[id=Frozen] {
+    content:"Snowball";
+  }
+
+
+
+  shared[id=Signerlong] {
+    content:"AWS Signer";
+  }
+
+  shared[id=Signer] {
+    content:"Signer";
+  }
+
+
+
+  shared[id=SnowballEdgelong] {
+    content:"AWS Snowball Edge";
+  }
+
+  shared[id=SnowballEdge] {
+    content:"Snowball Edge";
+  }
+
+
+
+  shared[id=SNClong] {
+    content:"AWS Snowcone";
+  }
+
+  shared[id=SNC] {
+    content:"Snowcone";
+  }
+
+
+
+  shared[id=OpsHublong] {
+    content:"AWS OpsHub for Snow Family";
+  }
+
+  shared[id=OpsHub] {
+    content:"AWS OpsHub";
+  }
+
+
+
+  shared[id=INS1long] {
+    content:"Amazon Inspector Classic";
+  }
+
+  shared[id=INS1] {
+    content:"Amazon Inspector Classic";
+  }
+
+
+
+  shared[id=INSlong] {
+    content:"Amazon Inspector";
+  }
+
+  shared[id=INS] {
+    content:"Amazon Inspector";
+  }
+
+
+
+  shared[id=IoTlong] {
+    content:"AWS IoT";
+  }
+
+  shared[id=IoT] {
+    content:"AWS IoT";
+  }
+
+
+
+  shared[id=IoTAlexa] {
+    content:"Alexa Voice Service (AVS) Integration for AWS IoT";
+  }
+
+  shared[id=IoTAlexashort] {
+    content:"AVS for AWS IoT";
+  }
+
+
+
+  shared[id=ITAlong] {
+    content:"AWS IoT Analytics";
+  }
+
+  shared[id=ITA] {
+    content:"AWS IoT Analytics";
+  }
+
+
+
+  shared[id=IoTDatalong] {
+    content:"AWS IoT data";
+  }
+
+  shared[id=IoTData] {
+    content:"AWS IoT data";
+  }
+
+
+
+  shared[id=ITDDlong] {
+    content:"AWS IoT Device Defender";
+  }
+
+  shared[id=ITDD] {
+    content:"AWS IoT Device Defender";
+  }
+
+
+
+  shared[id=ITDMlong] {
+    content:"AWS IoT Device Management";
+  }
+
+  shared[id=ITDM] {
+    content:"AWS IoT Device Management";
+  }
+
+
+
+  shared[id=IoTMonitorlong] {
+    content:"Fleet Hub for AWS IoT Device Management";
+  }
+
+  shared[id=IoTMonitor] {
+    content:"Fleet Hub";
+  }
+
+
+
+  shared[id=ITElong] {
+    content:"AWS IoT Events";
+  }
+
+  shared[id=ITE] {
+    content:"AWS IoT Events";
+  }
+
+
+
+  shared[id=ITEDlong] {
+    content:"AWS IoT Events-Data";
+  }
+
+  shared[id=ITED] {
+    content:"AWS IoT Events-Data";
+  }
+
+
+
+  shared[id=IoTIdentitylong] {
+    content:"AWS IoT Identity";
+  }
+
+  shared[id=IoTIdentity] {
+    content:"AWS IoT Identity";
+  }
+
+
+
+  shared[id=ITOClong] {
+    content:"AWS IoT 1-Click";
+  }
+
+  shared[id=ITOC] {
+    content:"AWS IoT 1-Click";
+  }
+
+
+
+  shared[id=IoTJobsSDKreleaselong] {
+    content:"AWS IoT Jobs SDK release";
+  }
+
+  shared[id=IoTJobsSDKrelease] {
+    content:"AWS IoT Jobs SDK release";
+  }
+
+
+
+  shared[id=IoTSecureTunnellong] {
+    content:"AWS IoT Secure Tunneling";
+  }
+
+  shared[id=IoTSecureTunnel] {
+    content:"AWS IoT Secure Tunneling";
+  }
+
+
+
+  shared[id=ITSWlong] {
+    content:"AWS IoT SiteWise";
+  }
+
+  shared[id=ITSW] {
+    content:"AWS IoT SiteWise";
+  }
+
+
+
+  shared[id=ITSWMlong] {
+    content:"AWS IoT SiteWise Monitor";
+  }
+
+  shared[id=ITSWM] {
+    content:"SiteWise Monitor";
+  }
+
+
+
+  shared[id=ITTGlong] {
+    content:"AWS IoT Things Graph";
+  }
+
+  shared[id=ITTG] {
+    content:"AWS IoT Things Graph";
+  }
+
+
+
+  shared[id=IoTTMlong] {
+    content:"AWS IoT TwinMaker";
+  }
+
+  shared[id=IoTTM] {
+    content:"AWS IoT TwinMaker";
+  }
+
+
+
+  shared[id=KENlong] {
+    content:"Amazon Kendra";
+  }
+
+  shared[id=KEN] {
+    content:"Amazon Kendra";
+  }
+
+
+
+  shared[id=KEYlong] {
+    content:"Amazon Keyspaces (for Apache Cassandra)";
+  }
+
+  shared[id=KEY] {
+    content:"Amazon Keyspaces";
+  }
+
+
+
+  shared[id=KMSlong] {
+    content:"AWS Key Management Service";
+  }
+
+  shared[id=KMS] {
+    content:"AWS KMS";
+  }
+
+
+
+  shared[id=kms-key-long] {
+    content:"AWS KMS key";
+  }
+
+  shared[id=kms-key] {
+    content:"KMS key";
+  }
+
+
+
+  shared[id=kms-keys-long] {
+    content:"AWS KMS keys";
+  }
+
+  shared[id=kms-keys] {
+    content:"KMS keys";
+  }
+
+
+
+  shared[id=AKlong] {
+    content:"Amazon Kinesis";
+  }
+
+  shared[id=AK] {
+    content:"Kinesis";
+  }
+
+
+
+  shared[id=AKAlong] {
+    content:"Amazon Kinesis Data Analytics";
+  }
+
+  shared[id=AKA] {
+    content:"Kinesis Data Analytics";
+  }
+
+
+
+  shared[id=FHlong] {
+    content:"Amazon Kinesis Data Firehose";
+  }
+
+  shared[id=FH] {
+    content:"Kinesis Data Firehose";
+  }
+
+
+
+  shared[id=AKFlong] {
+    content:"Amazon Kinesis Data Firehose";
+  }
+
+  shared[id=AKF] {
+    content:"Kinesis Data Firehose";
+  }
+
+
+
+  shared[id=AHLlong] {
+    content:"Amazon HealthLake";
+  }
+
+  shared[id=AHL] {
+    content:"HealthLake";
+  }
+
+
+
+  shared[id=commander-long] {
+    content:"AWS Systems Manager Incident Manager";
+  }
+
+  shared[id=commander] {
+    content:"Incident Manager";
+  }
+
+
+
+  shared[id=AKSlong] {
+    content:"Amazon Kinesis Data Streams";
+  }
+
+  shared[id=AKS] {
+    content:"Kinesis Data Streams";
+  }
+
+
+
+  shared[id=AKVSlong] {
+    content:"Amazon Kinesis Video Streams";
+  }
+
+  shared[id=AKVS] {
+    content:"Kinesis Video Streams";
+  }
+
+
+
+  shared[id=AKVS-res-long] {
+    content:"Amazon Kinesis video stream";
+  }
+
+  shared[id=AKVS-res] {
+    content:"Kinesis video stream";
+  }
+
+
+
+  shared[id=IVSlong] {
+    content:"Amazon Interactive Video Service";
+  }
+
+  shared[id=IVS] {
+    content:"Amazon IVS";
+  }
+
+
+
+  shared[id=LFlong] {
+    content:"AWS Lake Formation";
+  }
+
+  shared[id=LF] {
+    content:"Lake Formation";
+  }
+
+
+
+  shared[id=LAMlong] {
+    content:"AWS Lambda";
+  }
+
+  shared[id=LAM] {
+    content:"Lambda";
+  }
+
+
+
+  shared[id=LAMConsolelong] {
+    content:"AWS Lambda console";
+  }
+
+  shared[id=LAMConsole] {
+    content:"Lambda console";
+  }
+
+
+
+  shared[id=LWlong] {
+    content:"AWS Launch Wizard";
+  }
+
+  shared[id=LW] {
+    content:"Launch Wizard";
+  }
+
+
+
+  shared[id=LEXMBSlong] {
+    content:"Amazon Lex Model Building Service";
+  }
+
+  shared[id=LEXMBS] {
+    content:"Amazon Lex MBS";
+  }
+
+
+
+  shared[id=LEXlong] {
+    content:"Amazon Lex";
+  }
+
+  shared[id=LEX] {
+    content:"Amazon Lex";
+  }
+
+
+
+  shared[id=LEX2long] {
+    content:"Amazon Lex";
+  }
+
+  shared[id=LEX2] {
+    content:"Amazon Lex";
+  }
+
+
+
+  shared[id=LIClong] {
+    content:"AWS License Manager";
+  }
+
+  shared[id=LIC] {
+    content:"License Manager";
+  }
+
+
+
+  shared[id=LICMasterAcctSlrlong] {
+    content:"AWS License Manager master account SLR";
+  }
+
+  shared[id=LICMasterAcctSlr] {
+    content:"License Manager master account SLR";
+  }
+
+
+
+  shared[id=LICMemberAcctSlrlong] {
+    content:"AWS License Manager member account SLR";
+  }
+
+  shared[id=LICMemberAcctSlr] {
+    content:"License Manager member account SLR";
+  }
+
+
+
+  shared[id=lightsaillong] {
+    content:"Amazon Lightsail";
+  }
+
+  shared[id=lightsail] {
+    content:"Lightsail";
+  }
+
+
+
+  shared[id=ALlong] {
+    content:"Amazon Location Service";
+  }
+
+  shared[id=ALshort] {
+    content:"Amazon Location";
+  }
+
+
+
+  shared[id=ALYlong] {
+    content:"Amazon Lumberyard";
+  }
+
+  shared[id=ALY] {
+    content:"Lumberyard";
+  }
+
+
+
+  shared[id=HOGlong] {
+    content:"Amazon Lookout for Equipment";
+  }
+
+  shared[id=HOG] {
+    content:"Lookout for Equipment";
+  }
+
+
+
+  shared[id=LFMlong] {
+    content:"Amazon Lookout for Metrics";
+  }
+
+  shared[id=LFM] {
+    content:"Lookout for Metrics";
+  }
+
+
+
+  shared[id=LYRAlong] {
+    content:"Amazon Lookout for Vision";
+  }
+
+  shared[id=LYRA] {
+    content:"Lookout for Vision";
+  }
+
+
+
+  shared[id=MLlong] {
+    content:"Amazon Machine Learning";
+  }
+
+  shared[id=ML] {
+    content:"Amazon ML";
+  }
+
+
+
+  shared[id=MCElong] {
+    content:"Amazon Macie";
+  }
+
+  shared[id=MCE] {
+    content:"Macie";
+  }
+
+
+
+  shared[id=AMBlong] {
+    content:"Amazon Managed Blockchain";
+  }
+
+  shared[id=AMB] {
+    content:"Managed Blockchain";
+  }
+
+
+
+  shared[id=GRAlong] {
+    content:"Amazon Managed Grafana";
+  }
+
+  shared[id=GRA] {
+    content:"Amazon Managed Grafana";
+  }
+
+
+
+  shared[id=PROlong] {
+    content:"Amazon Managed Service for Prometheus";
+  }
+
+  shared[id=PRO] {
+    content:"Amazon Managed Service for Prometheus";
+  }
+
+
+
+  shared[id=AMSlong] {
+    content:"AWS Managed Services";
+  }
+
+  shared[id=AMS] {
+    content:"AMS";
+  }
+
+
+
+  shared[id=MSKlong] {
+    content:"Amazon Managed Streaming for Apache Kafka";
+  }
+
+  shared[id=MSK] {
+    content:"Amazon MSK";
+  }
+
+
+
+  shared[id=AMPlong] {
+    content:"AWS Management Portal for vCenter";
+  }
+
+  shared[id=AMP] {
+    content:"management portal";
+  }
+
+
+
+  shared[id=AMPClong] {
+    content:"AWS Connector for vCenter";
+  }
+
+  shared[id=AMPC] {
+    content:"connector";
+  }
+
+
+
+  shared[id=MKTCAPIlong] {
+    content:"AWS Marketplace Catalog API";
+  }
+
+  shared[id=MKTCAPI] {
+    content:"AWS Marketplace Catalog API";
+  }
+
+
+
+  shared[id=MKTCAlong] {
+    content:"AWS Marketplace Commerce Analytics";
+  }
+
+  shared[id=MKTCA] {
+    content:"AWS Marketplace Commerce Analytics";
+  }
+
+
+
+  shared[id=MKTESlong] {
+    content:"AWS Marketplace Entitlement Service";
+  }
+
+  shared[id=MKTES] {
+    content:"AWS Marketplace Entitlement Service";
+  }
+
+
+
+  shared[id=MKTMSlong] {
+    content:"AWS Marketplace Metering Service";
+  }
+
+  shared[id=MKTMS] {
+    content:"AWS Marketplace Metering Service";
+  }
+
+
+
+  shared[id=MTlong] {
+    content:"Amazon Mechanical Turk";
+  }
+
+  shared[id=MT] {
+    content:"Mechanical Turk";
+  }
+
+
+
+  shared[id=MDBlong] {
+    content:"Amazon MemoryDB for Redis";
+  }
+
+  shared[id=MDB] {
+    content:"MemoryDB";
+  }
+
+
+
+  shared[id=MHBlong] {
+    content:"AWS Migration Hub";
+  }
+
+  shared[id=MHB] {
+    content:"Migration Hub";
+  }
+
+
+
+  shared[id=MHBRefactorlong] {
+    content:"AWS Migration Hub Refactor Spaces";
+  }
+
+  shared[id=MHBRefactor] {
+    content:"Refactor Spaces";
+  }
+
+
+
+  shared[id=MAlong] {
+    content:"Amazon Mobile Analytics";
+  }
+
+  shared[id=MA] {
+    content:"Mobile Analytics";
+  }
+
+
+
+  shared[id=AMHlong] {
+    content:"AWS Mobile Hub";
+  }
+
+  shared[id=AMH] {
+    content:"Mobile Hub";
+  }
+
+
+
+  shared[id=MMlong] {
+    content:"AWS Molecular Modeling";
+  }
+
+  shared[id=MM] {
+    content:"Molecular Modeling";
+  }
+
+
+
+  shared[id=MONlong] {
+    content:"Amazon Monitron";
+  }
+
+  shared[id=MON] {
+    content:"Amazon Monitron";
+  }
+
+
+
+  shared[id=AMQlong] {
+    content:"Amazon MQ";
+  }
+
+  shared[id=AMQ] {
+    content:"Amazon MQ";
+  }
+
+
+
+  shared[id=neptunelong] {
+    content:"Amazon Neptune";
+  }
+
+  shared[id=neptune] {
+    content:"Neptune";
+  }
+
+
+
+  shared[id=nep_dbinstancelong] {
+    content:"Amazon Neptune DB instance";
+  }
+
+  shared[id=nep_dbinstance] {
+    content:"Neptune DB instance";
+  }
+
+
+
+  shared[id=NWFWlong] {
+    content:"AWS Network Firewall";
+  }
+
+  shared[id=NWFW] {
+    content:"Network Firewall";
+  }
+
+
+
+  shared[id=NMlong] {
+    content:"Transit Gateway Network Manager";
+  }
+
+  shared[id=NM] {
+    content:"Network Manager";
+  }
+
+
+
+  shared[id=ANSlong] {
+    content:"Amazon Nimble Studio";
+  }
+
+  shared[id=ANS] {
+    content:"Nimble Studio";
+  }
+
+
+
+  shared[id=AOSlong] {
+    content:"Amazon OpenSearch Service";
+  }
+
+  shared[id=AOS] {
+    content:"OpenSearch Service";
+  }
+
+
+
+  shared[id=OPSlong] {
+    content:"AWS OpsWorks";
+  }
+
+  shared[id=OPS] {
+    content:"AWS OpsWorks";
+  }
+
+
+
+  shared[id=OPSCAlong] {
+    content:"AWS OpsWorks for Chef Automate";
+  }
+
+  shared[id=OPSCA] {
+    content:"AWS OpsWorks for Chef Automate";
+  }
+
+
+
+  shared[id=OPSPUPlong] {
+    content:"AWS OpsWorks for Puppet Enterprise";
+  }
+
+  shared[id=OPSPUP] {
+    content:"OpsWorks for Puppet Enterprise";
+  }
+
+
+
+  shared[id=OPSCMlong] {
+    content:"AWS OpsWorks CM";
+  }
+
+  shared[id=OPSCM] {
+    content:"AWS OpsWorks CM";
+  }
+
+
+
+  shared[id=AOlong] {
+    content:"AWS Organizations";
+  }
+
+  shared[id=AO] {
+    content:"Organizations";
+  }
+
+
+
+  shared[id=OSGlong] {
+    content:"AWSOrigamiServiceGateway";
+  }
+
+  shared[id=OSG] {
+    content:"OrigamiServiceGateway";
+  }
+
+
+
+  shared[id=OUTlong] {
+    content:"AWS Outposts";
+  }
+
+  shared[id=OUT] {
+    content:"AWS Outposts";
+  }
+
+
+
+  shared[id=PANlong] {
+    content:"AWS Panorama";
+  }
+
+  shared[id=PAN] {
+    content:"AWS Panorama";
+  }
+
+
+
+  shared[id=parallelclusterlong] {
+    content:"AWS ParallelCluster";
+  }
+
+  shared[id=parallelcluster] {
+    content:"AWS ParallelCluster";
+  }
+
+
+
+  shared[id=PMNTGatewaylong] {
+    content:"AWSPaymentsGatewayService";
+  }
+
+  shared[id=PMNTGateway] {
+    content:"AWSPaymentsGatewayService";
+  }
+
+
+
+  shared[id=PAAPIlong] {
+    content:"Product Advertising API";
+  }
+
+  shared[id=PAAPI] {
+    content:"PA-API";
+  }
+
+
+
+  shared[id=APNlong] {
+    content:"AWS Partner Network";
+  }
+
+  shared[id=APN] {
+    content:"AWS Partner";
+  }
+
+
+
+  shared[id=PERSlong] {
+    content:"Amazon Personalize";
+  }
+
+  shared[id=PERS] {
+    content:"Amazon Personalize";
+  }
+
+
+
+  shared[id=PSlong] {
+    content:"IAM Policy Simulator";
+  }
+
+  shared[id=PS] {
+    content:"Policy Simulator";
+  }
+
+
+
+  shared[id=PCAlong] {
+    content:"AWS Certificate Manager Private Certificate Authority";
+  }
+
+  shared[id=PCA] {
+    content:"ACM PCA";
+  }
+
+
+
+  shared[id=PINlong] {
+    content:"Amazon Pinpoint";
+  }
+
+  shared[id=PIN] {
+    content:"Amazon Pinpoint";
+  }
+
+
+
+  shared[id=POLlong] {
+    content:"Amazon Polly";
+  }
+
+  shared[id=POL] {
+    content:"Amazon Polly";
+  }
+
+
+
+  shared[id=EClong] {
+    content:"Porting Assistant for .NET";
+  }
+
+  shared[id=EC] {
+    content:"Porting Assistant for .NET";
+  }
+
+
+
+  shared[id=APClong] {
+    content:"AWS Pricing Calculator";
+  }
+
+  shared[id=APC] {
+    content:"AWS Pricing Calculator";
+  }
+
+
+
+  shared[id=interface-endpoint-long] {
+    content:"interface VPC endpoint";
+  }
+
+  shared[id=interface-endpoint] {
+    content:"interface endpoint";
+  }
+
+
+
+  shared[id=ARWlong] {
+    content:"AWS Proton";
+  }
+
+  shared[id=ARW] {
+    content:"AWS Proton";
+  }
+
+
+
+  shared[id=QLDBlong] {
+    content:"Amazon QLDB";
+  }
+
+  shared[id=QLDB] {
+    content:"QLDB";
+  }
+
+
+
+  shared[id=QSlong] {
+    content:"Amazon QuickSight";
+  }
+
+  shared[id=QS] {
+    content:"Amazon QuickSight";
+  }
+
+
+
+  shared[id=RAMlong] {
+    content:"AWS Resource Access Manager";
+  }
+
+  shared[id=RAM] {
+    content:"AWS RAM";
+  }
+
+
+
+  shared[id=RDSlong] {
+    content:"Amazon Relational Database Service";
+  }
+
+  shared[id=RDS] {
+    content:"Amazon RDS";
+  }
+
+
+
+  shared[id=RDSlongMaria] {
+    content:"Amazon RDS for MariaDB";
+  }
+
+  shared[id=RDSMaria] {
+    content:"RDS for MariaDB";
+  }
+
+
+
+  shared[id=RDSlongMSlong] {
+    content:"Amazon RDS for Microsoft SQL Server";
+  }
+
+  shared[id=RDSlongMS] {
+    content:"Amazon RDS for SQL Server";
+  }
+
+
+
+  shared[id=RDSMSlong] {
+    content:"RDS for Microsoft SQL Server";
+  }
+
+  shared[id=RDSMS] {
+    content:"RDS for SQL Server";
+  }
+
+
+
+  shared[id=RDSlongMySQL] {
+    content:"Amazon RDS for MySQL";
+  }
+
+  shared[id=RDSMySQL] {
+    content:"RDS for MySQL";
+  }
+
+
+
+  shared[id=RDSlongOra] {
+    content:"Amazon RDS for Oracle";
+  }
+
+  shared[id=RDSOra] {
+    content:"RDS for Oracle";
+  }
+
+
+
+  shared[id=RDSlongPostgres] {
+    content:"Amazon RDS for PostgreSQL";
+  }
+
+  shared[id=RDSPostgres] {
+    content:"RDS for PostgreSQL";
+  }
+
+
+
+  shared[id=RAlong] {
+    content:"VPC Reachability Analyzer";
+  }
+
+  shared[id=RA] {
+    content:"Reachability Analyzer";
+  }
+
+
+
+  shared[id=RClong] {
+    content:"Amazon Remote Configuration";
+  }
+
+  shared[id=RC] {
+    content:"Amazon Remote Configuration";
+  }
+
+
+
+  shared[id=RSlong] {
+    content:"Amazon Redshift";
+  }
+
+  shared[id=RS] {
+    content:"Amazon Redshift";
+  }
+
+
+
+  shared[id=SPClong] {
+    content:"Amazon Redshift Spectrum";
+  }
+
+  shared[id=SPC] {
+    content:"Redshift Spectrum";
+  }
+
+
+
+  shared[id=REKlong] {
+    content:"Amazon Rekognition";
+  }
+
+  shared[id=REK] {
+    content:"Amazon Rekognition";
+  }
+
+
+
+  shared[id=ARHlong] {
+    content:"AWS Resilience Hub";
+  }
+
+  shared[id=ARH] {
+    content:"Resilience Hub";
+  }
+
+
+
+  shared[id=ARGlong] {
+    content:"AWS Resource Groups";
+  }
+
+  shared[id=ARG] {
+    content:"Resource Groups";
+  }
+
+
+
+  shared[id=ARGTAPIlong] {
+    content:"AWS Resource Groups Tagging API";
+  }
+
+  shared[id=ARGTAPI] {
+    content:"Resource Groups Tagging API";
+  }
+
+
+
+  shared[id=RBMlong] {
+    content:"AWS RoboMaker";
+  }
+
+  shared[id=RBM] {
+    content:"AWS RoboMaker";
+  }
+
+
+
+  shared[id=R53long] {
+    content:"Amazon Route 53";
+  }
+
+  shared[id=R53] {
+    content:"Route 53";
+  }
+
+
+
+  shared[id=R53PDPlong] {
+    content:"Amazon Route 53 Public Data Plane";
+  }
+
+  shared[id=R53PDP] {
+    content:"Route 53 Public Data Plane";
+  }
+
+
+
+  shared[id=R53AWSIntlong] {
+    content:"Amazon Route 53 AWS Integration";
+  }
+
+  shared[id=R53AWSInt] {
+    content:"Route 53 AWS Integration";
+  }
+
+
+
+  shared[id=R53PDNSVPClong] {
+    content:"Amazon Route 53 Private DNS for VPCs";
+  }
+
+  shared[id=R53PDNSVPC] {
+    content:"Route 53 Private DNS for VPCs";
+  }
+
+
+
+  shared[id=R53DRlong] {
+    content:"Amazon Route 53 domain registration";
+  }
+
+  shared[id=R53DR] {
+    content:"Route 53 domain registration";
+  }
+
+
+
+  shared[id=R53Rlong] {
+    content:"Amazon Route 53 Resolver";
+  }
+
+  shared[id=R53R] {
+    content:"Route 53 Resolver";
+  }
+
+
+
+  shared[id=R53ARClong] {
+    content:"Amazon Route 53 Application Recovery Controller";
+  }
+
+  shared[id=R53ARC] {
+    content:"Route 53 ARC";
+  }
+
+
+
+  shared[id=SMlong] {
+    content:"Amazon SageMaker";
+  }
+
+  shared[id=SM] {
+    content:"SageMaker";
+  }
+
+
+
+  shared[id=SAIlong] {
+    content:"Amazon SageMaker Ground Truth";
+  }
+
+  shared[id=SAI] {
+    content:"Ground Truth";
+  }
+
+
+
+  shared[id=a2ilong] {
+    content:"Amazon Augmented AI";
+  }
+
+  shared[id=a2ishort] {
+    content:"Amazon A2I";
+  }
+
+
+
+  shared[id=SMRuntimelong] {
+    content:"Amazon SageMaker";
+  }
+
+  shared[id=SMRuntime] {
+    content:"SageMaker";
+  }
+
+
+
+  shared[id=S3long] {
+    content:"Amazon Simple Storage Service";
+  }
+
+  shared[id=S3] {
+    content:"Amazon S3";
+  }
+
+
+
+  shared[id=S3onOutpostsLong] {
+    content:"Amazon S3 on Outposts";
+  }
+
+  shared[id=S3onOutposts] {
+    content:"S3 on Outposts";
+  }
+
+
+
+  shared[id=S3Controllong] {
+    content:"Amazon S3 Control";
+  }
+
+  shared[id=S3Control] {
+    content:"Amazon S3 Control";
+  }
+
+
+
+  shared[id=AWSSCTlong] {
+    content:"AWS Schema Conversion Tool";
+  }
+
+  shared[id=AWSSCT] {
+    content:"AWS SCT";
+  }
+
+
+
+  shared[id=Androidlong] {
+    content:"AWS Mobile SDK for Android";
+  }
+
+  shared[id=Android] {
+    content:"Mobile SDK for Android";
+  }
+
+
+
+  shared[id=CPPlong] {
+    content:"AWS SDK for C++";
+  }
+
+  shared[id=CPP] {
+    content:"SDK for C++";
+  }
+
+
+
+  shared[id=Golong] {
+    content:"AWS SDK for Go";
+  }
+
+  shared[id=Go] {
+    content:"SDK for Go";
+  }
+
+
+
+  shared[id=iOSlong] {
+    content:"AWS Mobile SDK for iOS";
+  }
+
+  shared[id=iOS] {
+    content:"Mobile SDK for iOS";
+  }
+
+
+
+  shared[id=Javalong] {
+    content:"AWS SDK for Java";
+  }
+
+  shared[id=Java] {
+    content:"SDK for Java";
+  }
+
+
+
+  shared[id=JavaV2long] {
+    content:"AWS SDK for Java 2.x";
+  }
+
+  shared[id=JavaV2] {
+    content:"SDK for Java 2.x";
+  }
+
+
+
+  shared[id=JSBlong] {
+    content:"AWS SDK for JavaScript";
+  }
+
+  shared[id=JSB] {
+    content:"SDK for JavaScript";
+  }
+
+
+
+  shared[id=SDKMlong] {
+    content:"AWS SDK Metrics for Enterprise Support";
+  }
+
+  shared[id=SDKM] {
+    content:"SDK Metrics";
+  }
+
+
+
+  shared[id=NETlong] {
+    content:"AWS SDK for .NET";
+  }
+
+  shared[id=NET] {
+    content:"AWS SDK for .NET";
+  }
+
+
+
+  shared[id=PHPlong] {
+    content:"AWS SDK for PHP";
+  }
+
+  shared[id=PHP] {
+    content:"SDK for PHP";
+  }
+
+
+
+  shared[id=PHP2long] {
+    content:"AWS SDK for PHP";
+  }
+
+  shared[id=PHP2] {
+    content:"SDK for PHP";
+  }
+
+
+
+  shared[id=Pythonlong] {
+    content:"AWS SDK for Python (Boto)";
+  }
+
+  shared[id=Python] {
+    content:"SDK for Python";
+  }
+
+
+
+  shared[id=Python3long] {
+    content:"AWS SDK for Python (Boto3)";
+  }
+
+  shared[id=Python3] {
+    content:"SDK for Python (Boto3)";
+  }
+
+
+
+  shared[id=Rubylong] {
+    content:"AWS SDK for Ruby";
+  }
+
+  shared[id=Ruby] {
+    content:"SDK for Ruby";
+  }
+
+
+
+  shared[id=SMSlong] {
+    content:"AWS Server Migration Service";
+  }
+
+  shared[id=SMS] {
+    content:"AWS SMS";
+  }
+
+
+
+  shared[id=ASMlong] {
+    content:"AWS Secrets Manager";
+  }
+
+  shared[id=ASM] {
+    content:"Secrets Manager";
+  }
+
+
+
+  shared[id=ASHlong] {
+    content:"AWS Security Hub";
+  }
+
+  shared[id=ASH] {
+    content:"Security Hub";
+  }
+
+
+
+  shared[id=SAMlong] {
+    content:"AWS Serverless Application Model";
+  }
+
+  shared[id=SAM] {
+    content:"AWS SAM";
+  }
+
+
+
+  shared[id=SARlong] {
+    content:"AWS Serverless Application Repository";
+  }
+
+  shared[id=SAR] {
+    content:"AWS Serverless Application Repository";
+  }
+
+
+
+  shared[id=SAZRlong] {
+    content:"Service Authorization Reference";
+  }
+
+  shared[id=SAZR] {
+    content:"Service Authorization Reference";
+  }
+
+
+
+  shared[id=SClong] {
+    content:"AWS Service Catalog";
+  }
+
+  shared[id=SC] {
+    content:"AWS Service Catalog";
+  }
+
+
+
+  shared[id=SCARlong] {
+    content:"AWS Service Catalog AppRegistry";
+  }
+
+  shared[id=SCAR] {
+    content:"AWS Service Catalog AppRegistry";
+  }
+
+
+
+  shared[id=SQlong] {
+    content:"Service Quotas";
+  }
+
+  shared[id=SQ] {
+    content:"Service Quotas";
+  }
+
+
+
+  shared[id=SESlong] {
+    content:"Amazon Simple Email Service";
+  }
+
+  shared[id=SES] {
+    content:"Amazon SES";
+  }
+
+
+
+  shared[id=SFTPlong] {
+    content:"AWS Transfer for SFTP";
+  }
+
+  shared[id=SFTP] {
+    content:"AWS SFTP";
+  }
+
+
+
+  shared[id=SHDlong] {
+    content:"AWS Shield";
+  }
+
+  shared[id=SHD] {
+    content:"Shield";
+  }
+
+
+
+  shared[id=SHDSTDlong] {
+    content:"AWS Shield Standard";
+  }
+
+  shared[id=SHDSTD] {
+    content:"Shield Standard";
+  }
+
+
+
+  shared[id=SHDADVlong] {
+    content:"AWS Shield Advanced";
+  }
+
+  shared[id=SHDADV] {
+    content:"Shield Advanced";
+  }
+
+
+
+  shared[id=SLKlong] {
+    content:"Amazon Silk";
+  }
+
+  shared[id=SLK] {
+    content:"Amazon Silk";
+  }
+
+
+
+  shared[id=SPlong] {
+    content:"Amazon Simple Pay";
+  }
+
+  shared[id=SP] {
+    content:"Amazon Simple Pay";
+  }
+
+
+
+  shared[id=SSOlong] {
+    content:"AWS Single Sign-On";
+  }
+
+  shared[id=SSO] {
+    content:"AWS SSO";
+  }
+
+
+
+  shared[id=SDMlong] {
+    content:"AWS Snow Device Management";
+  }
+
+  shared[id=SDM] {
+    content:"Snow Device Management";
+  }
+
+
+
+  shared[id=SPKlong] {
+    content:"Secure Packager and Encoder Key Exchange";
+  }
+
+  shared[id=SPK] {
+    content:"SPEKE";
+  }
+
+
+
+  shared[id=sumerianlong] {
+    content:"Amazon Sumerian";
+  }
+
+  shared[id=sumerian] {
+    content:"Sumerian";
+  }
+
+
+
+  shared[id=SYSlong] {
+    content:"AWS Systems Manager";
+  }
+
+  shared[id=SYS] {
+    content:"Systems Manager";
+  }
+
+
+
+  shared[id=SSMlong] {
+    content:"Amazon EC2 Systems Manager";
+  }
+
+  shared[id=SSM] {
+    content:"SSM";
+  }
+
+
+
+  shared[id=SYSElong] {
+    content:"AWS Systems Manager Explorer";
+  }
+
+  shared[id=SYSE] {
+    content:"Systems Manager Explorer";
+  }
+
+
+
+  shared[id=SDBlong] {
+    content:"Amazon SimpleDB";
+  }
+
+  shared[id=SDB] {
+    content:"Amazon SimpleDB";
+  }
+
+
+
+  shared[id=SNSlong] {
+    content:"Amazon Simple Notification Service";
+  }
+
+  shared[id=SNS] {
+    content:"Amazon SNS";
+  }
+
+
+
+  shared[id=SQSlong] {
+    content:"Amazon Simple Queue Service";
+  }
+
+  shared[id=SQS] {
+    content:"Amazon SQS";
+  }
+
+
+
+  shared[id=SFNlong] {
+    content:"AWS Step Functions";
+  }
+
+  shared[id=SFN] {
+    content:"Step Functions";
+  }
+
+
+
+  shared[id=SFNSElong] {
+    content:"AWS Step Functions - Sync Express";
+  }
+
+  shared[id=SFNSE] {
+    content:"Step Functions - Sync Express";
+  }
+
+
+
+  shared[id=AWSSGlong] {
+    content:"AWS Storage Gateway";
+  }
+
+  shared[id=AWSSG] {
+    content:"Storage Gateway";
+  }
+
+
+
+  shared[id=STSlong] {
+    content:"AWS Security Token Service";
+  }
+
+  shared[id=STS] {
+    content:"AWS STS";
+  }
+
+
+
+  shared[id=SUPlong] {
+    content:"AWS Support";
+  }
+
+  shared[id=SUP] {
+    content:"AWS Support";
+  }
+
+
+
+  shared[id=SUPCtrConsolelong] {
+    content:"AWS Support Center Console";
+  }
+
+  shared[id=SUPCtrConsole] {
+    content:"Support Center Console";
+  }
+
+
+
+  shared[id=SWFlong] {
+    content:"Amazon Simple Workflow Service";
+  }
+
+  shared[id=SWF] {
+    content:"Amazon SWF";
+  }
+
+
+
+  shared[id=TEXTRACTlong] {
+    content:"Amazon Textract";
+  }
+
+  shared[id=TEXTRACT] {
+    content:"Amazon Textract";
+  }
+
+
+
+  shared[id=TIMElong] {
+    content:"Amazon Timestream";
+  }
+
+  shared[id=TIME] {
+    content:"Timestream";
+  }
+
+
+
+  shared[id=TElong] {
+    content:"AWS Toolkit for Eclipse";
+  }
+
+  shared[id=TE] {
+    content:"Toolkit for Eclipse";
+  }
+
+
+
+  shared[id=JBIDEToolkitlong] {
+    content:"AWS Toolkit for JetBrains";
+  }
+
+  shared[id=JBIDEToolkit] {
+    content:"AWS Toolkit for JetBrains";
+  }
+
+
+
+  shared[id=TVSlong] {
+    content:"AWS Toolkit for Visual Studio";
+  }
+
+  shared[id=TVS] {
+    content:"Toolkit for Visual Studio";
+  }
+
+
+
+  shared[id=VSCIDElong] {
+    content:"Visual Studio Code";
+  }
+
+  shared[id=VSCIDE] {
+    content:"VS Code";
+  }
+
+
+
+  shared[id=VSCIDEToolkit] {
+    content:"AWS Toolkit for Visual Studio Code";
+  }
+
+  shared[id=VSCIDEToolkitshort] {
+    content:"Toolkit for VS Code";
+  }
+
+
+
+  shared[id=TTSlong] {
+    content:"AWS Toolkit for Microsoft Azure DevOps";
+  }
+
+  shared[id=TTS] {
+    content:"AWS Toolkit for Azure DevOps";
+  }
+
+
+
+  shared[id=TWPlong] {
+    content:"AWS Tools for Windows PowerShell";
+  }
+
+  shared[id=TWP] {
+    content:"Tools for Windows PowerShell";
+  }
+
+
+
+  shared[id=TWPALLlong] {
+    content:"AWS Tools for PowerShell";
+  }
+
+  shared[id=TWPALL] {
+    content:"Tools for PowerShell";
+  }
+
+
+
+  shared[id=TPClong] {
+    content:"AWS Tools for PowerShell Core";
+  }
+
+  shared[id=TPC] {
+    content:"Tools for PowerShell Core";
+  }
+
+
+
+  shared[id=TFlong] {
+    content:"AWS Transfer Family";
+  }
+
+  shared[id=TF] {
+    content:"Transfer Family";
+  }
+
+
+
+  shared[id=FTPlong] {
+    content:"AWS Transfer for FTP";
+  }
+
+  shared[id=FTP] {
+    content:"AWS FTP";
+  }
+
+
+
+  shared[id=FTPSlong] {
+    content:"AWS Transfer for FTPS";
+  }
+
+  shared[id=FTPS] {
+    content:"AWS FTPS";
+  }
+
+
+
+  shared[id=TSLlong] {
+    content:"Amazon Translate";
+  }
+
+  shared[id=TSL] {
+    content:"Amazon Translate";
+  }
+
+
+
+  shared[id=TSClong] {
+    content:"Amazon Transcribe";
+  }
+
+  shared[id=TSC] {
+    content:"Amazon Transcribe";
+  }
+
+
+
+  shared[id=AWS-TA-long] {
+    content:"AWS Trusted Advisor";
+  }
+
+  shared[id=AWS-TA] {
+    content:"Trusted Advisor";
+  }
+
+
+
+  shared[id=VMIElong] {
+    content:"VM Import/Export";
+  }
+
+  shared[id=VMIE] {
+    content:"VM Import/Export";
+  }
+
+
+
+  shared[id=VPClong] {
+    content:"Amazon Virtual Private Cloud";
+  }
+
+  shared[id=VPC] {
+    content:"Amazon VPC";
+  }
+
+
+
+  shared[id=VPCConsolelong] {
+    content:"Amazon Virtual Private Cloud Console";
+  }
+
+  shared[id=VPCConsole] {
+    content:"Amazon VPC Console";
+  }
+
+
+
+  shared[id=ipam-long] {
+    content:"Amazon VPC IP Address Manager";
+  }
+
+  shared[id=ipam] {
+    content:"IPAM";
+  }
+
+
+
+  shared[id=AWSTGlong] {
+    content:"AWS Transit Gateway";
+  }
+
+  shared[id=AWSTG] {
+    content:"Transit Gateway";
+  }
+
+
+
+  shared[id=CVPNlong] {
+    content:"AWS Client VPN";
+  }
+
+  shared[id=CVPN] {
+    content:"Client VPN";
+  }
+
+
+
+  shared[id=S2Slong] {
+    content:"AWS Site-to-Site VPN";
+  }
+
+  shared[id=S2S] {
+    content:"Site-to-Site VPN";
+  }
+
+
+
+  shared[id=VPNlong] {
+    content:"AWS Virtual Private Network";
+  }
+
+  shared[id=VPN] {
+    content:"AWS VPN";
+  }
+
+
+
+  shared[id=WAFlong] {
+    content:"AWS WAF";
+  }
+
+  shared[id=WAF] {
+    content:"AWS WAF";
+  }
+
+
+
+  shared[id=WAFv2long] {
+    content:"AWS WAFV2";
+  }
+
+  shared[id=WAFv2] {
+    content:"AWS WAFV2";
+  }
+
+
+
+  shared[id=WAFRegionallong] {
+    content:"AWS WAF";
+  }
+
+  shared[id=WAFRegional] {
+    content:"AWS WAF";
+  }
+
+
+
+  shared[id=WAVElong] {
+    content:"AWS Wavelength";
+  }
+
+  shared[id=WAVE] {
+    content:"Wavelength";
+  }
+
+
+
+  shared[id=WATlong] {
+    content:"AWS Well-Architected Tool";
+  }
+
+  shared[id=WAT] {
+    content:"AWS WA Tool";
+  }
+
+
+
+  shared[id=WSPlong] {
+    content:"Amazon WorkSpaces";
+  }
+
+  shared[id=WSP] {
+    content:"WorkSpaces";
+  }
+
+
+
+  shared[id=WAMlong] {
+    content:"Amazon WorkSpaces Application Manager";
+  }
+
+  shared[id=WAM] {
+    content:"Amazon WAM";
+  }
+
+
+
+  shared[id=WLKlong] {
+    content:"Amazon WorkLink";
+  }
+
+  shared[id=WLK] {
+    content:"Amazon WorkLink";
+  }
+
+
+
+  shared[id=WMlong] {
+    content:"Amazon WorkMail";
+  }
+
+  shared[id=WM] {
+    content:"Amazon WorkMail";
+  }
+
+
+
+  shared[id=WDlong] {
+    content:"Amazon WorkDocs";
+  }
+
+  shared[id=WD] {
+    content:"Amazon WorkDocs";
+  }
+
+
+
+  shared[id=ZCLlong] {
+    content:"Amazon WorkDocs";
+  }
+
+  shared[id=ZCL] {
+    content:"Amazon WorkDocs";
+  }
+
+
+
+  shared[id=xraylong] {
+    content:"AWS X-Ray";
+  }
+
+  shared[id=xray] {
+    content:"X-Ray";
+  }
+
+
+
+  shared[id=zelkovalong] {
+    content:"AWS Zelkova Service";
+  }
+
+  shared[id=zelkova] {
+    content:"Zelkova Service";
+  }
+
+
+
+  shared[id=ad-connector] {
+    content:"AD Connector";
+  }
+
+  shared[id=ALB] {
+    content:"Application Load Balancer";
+  }
+
+  shared[id=ALBs] {
+    content:"Application Load Balancers";
+  }
+
+  shared[id=AMR] {
+    content:"AWS Managed Rules";
+  }
+
+  shared[id=AMRrg] {
+    content:"AWS Managed Rules rule group";
+  }
+
+  shared[id=AMRrgs] {
+    content:"AWS Managed Rules rule groups";
+  }
+
+  shared[id=AMS-Acclong] {
+    content:"AMS Accelerate";
+  }
+
+  shared[id=ASMshort] {
+    content:"Secrets Manager";
+  }
+
+  shared[id=AWS] {
+    content:"AWS";
+  }
+
+  shared[id=AWS-always] {
+    content:"AWS";
+  }
+
+  shared[id=AWSlong] {
+    content:"Amazon Web Services";
+  }
+
+  shared[id=AWS-account] {
+    content:"AWS account";
+  }
+
+  shared[id=AWS-accounts] {
+    content:"AWS accounts";
+  }
+
+  shared[id=AWS-Cloud] {
+    content:"AWS Cloud";
+  }
+
+  shared[id=AWS-DC-Long] {
+    content:"AWS Direct Connect";
+  }
+
+  shared[id=AWS-DClong] {
+    content:"AWS Direct Connect";
+  }
+
+  shared[id=aws-managed-key] {
+    content:"AWS managed key";
+  }
+
+  shared[id=aws-managed-keys] {
+    content:"AWS managed keys";
+  }
+
+  shared[id=aws-owned-key] {
+    content:"AWS owned key";
+  }
+
+  shared[id=aws-owned-keys] {
+    content:"AWS owned keys";
+  }
+
+  shared[id=AWS-Region] {
+    content:"AWS Region";
+  }
+
+  shared[id=AWS-Regions] {
+    content:"AWS Regions";
+  }
+
+  shared[id=AWS-service] {
+    content:"AWS service";
+  }
+
+  shared[id=AWS-services] {
+    content:"AWS services";
+  }
+
+  shared[id=AWS-TA-Long] {
+    content:"AWS Trusted Advisor";
+  }
+
+  shared[id=AWS-Training] {
+    content:"AWS Training";
+  }
+
+  shared[id=Billinglong] {
+    content:"AWS Billing";
+  }
+
+  shared[id=Billing] {
+    content:"Billing";
+  }
+
+  shared[id=Budgetslong] {
+    content:"AWS Budgets";
+  }
+
+  shared[id=Bulda] {
+    content:"Snowball client";
+  }
+
+  shared[id=CCLong] {
+    content:"AWS Config";
+  }
+
+  shared[id=CDKshort] {
+    content:"CDK";
+  }
+
+  shared[id=CFNLong] {
+    content:"AWS CloudFormation";
+  }
+
+  shared[id=CFNshort] {
+    content:"CloudFormation";
+  }
+
+  shared[id=CFNGUARDlong] {
+    content:"AWS CloudFormation Guard";
+  }
+
+  shared[id=CFNGUARDshort] {
+    content:"Guard";
+  }
+
+  shared[id=CHM_plus] {
+    content:"plus license";
+  }
+
+  shared[id=CHM_pro] {
+    content:"pro license";
+  }
+
+  shared[id=CHMPro] {
+    content:"Amazon Chime Pro";
+  }
+
+  shared[id=CLB] {
+    content:"Classic Load Balancer";
+  }
+
+  shared[id=CLBs] {
+    content:"Classic Load Balancers";
+  }
+
+  shared[id=cluster] {
+    content:"cluster";
+  }
+
+  shared[id=Cluster] {
+    content:"Cluster";
+  }
+
+  shared[id=CMG] {
+    content:"AWS Cost Management";
+  }
+
+  shared[id=COGID] {
+    content:"Amazon Cognito Identity";
+  }
+
+  shared[id=COGUP] {
+    content:"Amazon Cognito user pools";
+  }
+
+  shared[id=CryptoSDKC] {
+    content:"AWS Encryption SDK for C";
+  }
+
+  shared[id=CryptoSDKJava] {
+    content:"AWS Encryption SDK for Java";
+  }
+
+  shared[id=CryptoSDKJS] {
+    content:"AWS Encryption SDK for JavaScript";
+  }
+
+  shared[id=CryptoSDKPy] {
+    content:"AWS Encryption SDK for Python";
+  }
+
+  shared[id=CSC] {
+    content:"AWS CodeStar connections";
+  }
+
+  shared[id=CURlong] {
+    content:"AWS Cost and Usage Report";
+  }
+
+  shared[id=cust-key] {
+    content:"customer managed key";
+  }
+
+  shared[id=cust-keys] {
+    content:"customer managed keys";
+  }
+
+  shared[id=cust-key-cap] {
+    content:"Customer managed key";
+  }
+
+  shared[id=cust-keys-cap] {
+    content:"Customer managed keys";
+  }
+
+  shared[id=data-key] {
+    content:"data key";
+  }
+
+  shared[id=data-keys] {
+    content:"data keys";
+  }
+
+  shared[id=data-key-cap] {
+    content:"Data key";
+  }
+
+  shared[id=data-keys-cap] {
+    content:"Data keys";
+  }
+
+  shared[id=DCV] {
+    content:"NICE DCV";
+  }
+
+  shared[id=EBSapis] {
+    content:"EBS direct APIs";
+  }
+
+  shared[id=EBSencrypt] {
+    content:"Amazon EBS encryption";
+  }
+
+  shared[id=EBSencrypt_capitalized] {
+    content:"Amazon EBS Encryption";
+  }
+
+  shared[id=ecr-public-gallery] {
+    content:"Amazon ECR Public Gallery";
+  }
+
+  shared[id=ECRfirst] {
+    content:"Amazon Elastic Container Registry (Amazon ECR)";
+  }
+
+  shared[id=ECSfirst] {
+    content:"Amazon Elastic Container Service (Amazon ECS)";
+  }
+
+  shared[id=EMR-EKS] {
+    content:"Amazon EMR on EKS";
+  }
+
+  shared[id=ES-OPEN] {
+    content:"OpenSearch";
+  }
+
+  shared[id=FARGATEfirst] {
+    content:"AWS Fargate (Fargate)";
+  }
+
+  shared[id=FGW-S3long] {
+    content:"Amazon S3 File Gateway";
+  }
+
+  shared[id=FGW-S3] {
+    content:"S3 File Gateway";
+  }
+
+  shared[id=FGW-FSxWlong] {
+    content:"Amazon FSx File Gateway";
+  }
+
+  shared[id=FGW-FSxW] {
+    content:"FSx File Gateway";
+  }
+
+  shared[id=flex] {
+    content:"FlexMatch";
+  }
+
+  shared[id=GLB] {
+    content:"Gateway Load Balancer";
+  }
+
+  shared[id=GLBs] {
+    content:"Gateway Load Balancers";
+  }
+
+  shared[id=GLshort] {
+    content:"S3 Glacier";
+  }
+
+  shared[id=GLUAPI] {
+    content:"AWS Glue API";
+  }
+
+  shared[id=GLverylong] {
+    content:"Amazon Simple Storage Service Glacier";
+  }
+
+  shared[id=govcloud-us] {
+    content:"AWS GovCloud (US)";
+  }
+
+  shared[id=govcloud-us-region] {
+    content:"AWS GovCloud (US) Region";
+  }
+
+  shared[id=GSG] {
+    content:"Getting Started with AWS";
+  }
+
+  shared[id=IntellijIDE] {
+    content:"IntelliJ IDE";
+  }
+
+  shared[id=iot-lorawan] {
+    content:"AWS IoT Core for LoRaWAN";
+  }
+
+  shared[id=iot-wireless-api] {
+    content:"AWS IoT Wireless";
+  }
+
+  shared[id=IoTAYSDK] {
+    content:"AWS IoT Device SDK for Arduino Yún";
+  }
+
+  shared[id=IoTC] {
+    content:"AWS IOT Device SDK for C";
+  }
+
+  shared[id=IoTCEmbeddedSDK] {
+    content:"AWS IoT Device SDK for Embedded C";
+  }
+
+  shared[id=IoTCore] {
+    content:"AWS IoT Core";
+  }
+
+  shared[id=IoTCPPSDK] {
+    content:"AWS IoT Device SDK for C++";
+  }
+
+  shared[id=IoTDA] {
+    content:"Device Advisor";
+  }
+
+  shared[id=IoTDAlong] {
+    content:"AWS IoT Core Device Advisor";
+  }
+
+  shared[id=IoTDD] {
+    content:"AWS IoT Device Defender";
+  }
+
+  shared[id=IoTDSDK] {
+    content:"AWS IoT Device SDK";
+  }
+
+  shared[id=IoTDT] {
+    content:"AWS IoT Device Tester";
+  }
+
+  shared[id=IoTFH] {
+    content:"AWS IoT Fleet Hub";
+  }
+
+  shared[id=IoTJavaSDK] {
+    content:"AWS IoT Device SDK for Java";
+  }
+
+  shared[id=IoTJobsData] {
+    content:"AWS IoT jobs data";
+  }
+
+  shared[id=IoTJS] {
+    content:"AWS IoT Device SDK for JavaScript";
+  }
+
+  shared[id=IoTJSSDK] {
+    content:"AWS IoT Device SDK for JavaScript";
+  }
+
+  shared[id=IoTPythonSDK] {
+    content:"AWS IoT Device SDK for Python";
+  }
+
+  shared[id=ITE-data] {
+    content:"AWS IoT Events Data";
+  }
+
+  shared[id=ITTG-data-model] {
+    content:"AWS IoT Things Graph Data Model";
+  }
+
+  shared[id=ITTGconsole] {
+    content:"AWS IoT Things Graph console";
+  }
+
+  shared[id=ITTGmapdes] {
+    content:"AWS IoT Things Graph mapping designer";
+  }
+
+  shared[id=ITTGmodel] {
+    content:"AWS IoT Things Graph model editor";
+  }
+
+  shared[id=JBIDE] {
+    content:"JetBrains";
+  }
+
+  shared[id=JBIDEToolkitIntelliJ] {
+    content:"AWS Toolkit for IntelliJ";
+  }
+
+  shared[id=JBIDEToolkitPyCharm] {
+    content:"AWS Toolkit for PyCharm";
+  }
+
+  shared[id=JBToolkitMarketName] {
+    content:"AWS Toolkit";
+  }
+
+  shared[id=JDKlong] {
+    content:"Amazon Corretto";
+  }
+
+  shared[id=JDKlong8] {
+    content:"Amazon Corretto 8";
+  }
+
+  shared[id=JDKlong11] {
+    content:"Amazon Corretto 11";
+  }
+
+  shared[id=JDKlong15] {
+    content:"Amazon Corretto 15";
+  }
+
+  shared[id=JDKlong16] {
+    content:"Amazon Corretto 16";
+  }
+
+  shared[id=JDKlong17] {
+    content:"Amazon Corretto 17";
+  }
+
+  shared[id=JDKlongpreview] {
+    content:"Amazon Corretto 8";
+  }
+
+  shared[id=JDKpreview] {
+    content:"Corretto 8";
+  }
+
+  shared[id=JDKshort] {
+    content:"Corretto";
+  }
+
+  shared[id=JDKshort8] {
+    content:"Corretto 8";
+  }
+
+  shared[id=JDKshort11] {
+    content:"Corretto 11";
+  }
+
+  shared[id=JDKshort15] {
+    content:"Corretto 15";
+  }
+
+  shared[id=JDKshort16] {
+    content:"Corretto 16";
+  }
+
+  shared[id=JDKshort17] {
+    content:"Corretto 17";
+  }
+
+  shared[id=MGMTACCT-NoCaps] {
+    content:"management account";
+  }
+
+  shared[id=MGMTACCT-Caps] {
+    content:"Management account";
+  }
+
+  shared[id=MKT] {
+    content:"AWS Marketplace";
+  }
+
+  shared[id=MKTlong] {
+    content:"AWS Marketplace";
+  }
+
+  shared[id=MMPlong] {
+    content:"AWS Marketplace Management Portal";
+  }
+
+  shared[id=MSExtractlong] {
+    content:"AWS Microservice Extractor for .NET";
+  }
+
+  shared[id=MSExtract] {
+    content:"Microservice Extractor";
+  }
+
+  shared[id=NLBs] {
+    content:"Network Load Balancers";
+  }
+
+  shared[id=opensearch] {
+    content:"OpenSearch";
+  }
+
+  shared[id=OPSStack] {
+    content:"AWS OpsWorks Stacks";
+  }
+
+  shared[id=PCAshort] {
+    content:"ACM Private CA";
+  }
+
+  shared[id=PClong] {
+    content:"AWS Promotional Credit";
+  }
+
+  shared[id=PIN-Email-API] {
+    content:"Amazon Pinpoint Email API";
+  }
+
+  shared[id=PIN-SMS-Voice-API] {
+    content:"Amazon Pinpoint SMS and Voice API";
+  }
+
+  shared[id=PLlong] {
+    content:"AWS Price List";
+  }
+
+  shared[id=privatelink] {
+    content:"AWS PrivateLink";
+  }
+
+  shared[id=PyCharmIDE] {
+    content:"PyCharm IDE";
+  }
+
+  shared[id=QLDBfirst] {
+    content:"Amazon Quantum Ledger Database (Amazon QLDB)";
+  }
+
+  shared[id=RDS-VMW] {
+    content:"Amazon RDS on VMware";
+  }
+
+  shared[id=REKimg] {
+    content:"Amazon Rekognition Image";
+  }
+
+  shared[id=REKvid] {
+    content:"Amazon Rekognition Video";
+  }
+
+  shared[id=REPOST] {
+    content:"AWS re:Post";
+  }
+
+  shared[id=root-key] {
+    content:"root key";
+  }
+
+  shared[id=root-keys] {
+    content:"root keys";
+  }
+
+  shared[id=root-key-cap] {
+    content:"Root key";
+  }
+
+  shared[id=root-keys-cap] {
+    content:"Root keys";
+  }
+
+  shared[id=S3-storage-class-glacier] {
+    content:"S3 Glacier Flexible Retrieval";
+  }
+
+  shared[id=S3-storage-class-glacier-ir] {
+    content:"S3 Glacier Instant Retrieval";
+  }
+
+  shared[id=S3-storage-class-deep-archive] {
+    content:"S3 Glacier Deep Archive";
+  }
+
+  shared[id=SDKCodeSampCat] {
+    content:"AWS Code Sample Catalog";
+  }
+
+  shared[id=simple-ad] {
+    content:"Simple AD";
+  }
+
+  shared[id=Swift] {
+    content:"SDK for Swift";
+  }
+
+  shared[id=Swiftlong] {
+    content:"AWS SDK for Swift";
+  }
+
+  shared[id=Snowball] {
+    content:"Snowball";
+  }
+
+  shared[id=Snowballlong] {
+    content:"AWS Snowball";
+  }
+
+  shared[id=Snowconsole] {
+    content:"AWS Snow Family Management Console";
+  }
+
+  shared[id=Snowlong] {
+    content:"Snowball appliance";
+  }
+
+  shared[id=SnowDevices] {
+    content:"Snow Family devices";
+  }
+
+  shared[id=SnowDeviceslong] {
+    content:"AWS Snow Family devices";
+  }
+
+  shared[id=SnowFamily] {
+    content:"Snow Family";
+  }
+
+  shared[id=SnowFamilylong] {
+    content:"AWS Snow Family";
+  }
+
+  shared[id=SP-singular] {
+    content:"Savings Plan";
+  }
+
+  shared[id=SPs] {
+    content:"Savings Plans";
+  }
+
+  shared[id=SLN] {
+    content:"Amazon States Language";
+  }
+
+  shared[id=STSshort] {
+    content:"AWS STS";
+  }
+
+  shared[id=SvrlessAppTitle] {
+    content:"AWS Serverless Application";
+  }
+
+  shared[id=TFW] {
+    content:"AWS Tools for Windows";
+  }
+
+  shared[id=TIME-query] {
+    content:"Amazon Timestream Query";
+  }
+
+  shared[id=TIME-write] {
+    content:"Amazon Timestream Write";
+  }
+
+  shared[id=TTSshort] {
+    content:"Toolkit for Azure DevOps";
+  }
+
+  shared[id=VS] {
+    content:"Visual Studio";
+  }
+
+  shared[id=VS-req-ver] {
+    content:"Visual Studio 2010 or later";
+  }
+
+  shared[id=VSCTKMarketName] {
+    content:"AWS Toolkit for Visual Studio Code";
+  }
+
+  shared[id=WAFclassic] {
+    content:"AWS WAF Classic";
+  }
+
+  shared[id=WAFClassicRegional] {
+    content:"AWS WAF Classic Regional";
+  }
+
+  shared[id=WAMfirst] {
+    content:"Amazon WorkSpaces Application Manager (Amazon WAM)";
+  }
+
+  shared[id=xray-dotnetsdk] {
+    content:"AWS X-Ray SDK for .NET";
+  }
+
+  shared[id=xray-javasdk] {
+    content:"AWS X-Ray SDK for Java";
+  }
+
+  shared[id=xray-nodejssdk] {
+    content:"AWS X-Ray SDK for Node.js";
+  }
+
+  shared[id=xray-pythonsdk] {
+    content:"AWS X-Ray SDK for Python";
+  }
+
+  shared[id=DCA-top-secret] {
+    content:"";
+  }
+
+  shared[id=LCK-secret] {
+    content:"";
+  }
+
+
+  shared {
+    content: "UNDEFINED shared element id ("  attr(id) ")";
+  }
+

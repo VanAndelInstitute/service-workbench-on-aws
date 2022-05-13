@@ -1,0 +1,22 @@
+<programlisting>
+async fn add_block(
+    client: &Client,
+    id: &str,
+    idx: usize,
+    block: Vec<u8>,
+    checksum: &str,
+) -> Result<(), Error> {
+    client
+        .put_snapshot_block()
+        .snapshot_id(id)
+        .block_index(idx as i32)
+        .block_data(ByteStream::from(block))
+        .checksum(checksum)
+        .checksum_algorithm(ChecksumAlgorithm::ChecksumAlgorithmSha256)
+        .data_length(EBS_BLOCK_SIZE as i32)
+        .send()
+        .await?;
+
+    Ok(())
+}
+</programlisting>

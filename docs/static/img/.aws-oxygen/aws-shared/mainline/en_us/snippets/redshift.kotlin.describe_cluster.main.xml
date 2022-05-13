@@ -1,0 +1,17 @@
+<programlisting>
+suspend fun describeRedshiftClusters() {
+
+    RedshiftClient { region = "us-west-2" }.use { redshiftClient ->
+      val clusterResponse= redshiftClient.describeClusters(DescribeClustersRequest{})
+      val clusterList = clusterResponse.clusters
+
+      if (clusterList != null) {
+        for (cluster in clusterList) {
+             println("Cluster database name is ${cluster.dbName}")
+             println("Cluster status is ${cluster.clusterStatus}")
+            }
+        }
+
+    }
+}
+</programlisting>

@@ -1,0 +1,18 @@
+<programlisting>
+    // Create item in table Movies
+    tableName := "Movies"
+
+    input := &dynamodb.PutItemInput{
+        Item:      av,
+        TableName: aws.String(tableName),
+    }
+
+    _, err = svc.PutItem(input)
+    if err != nil {
+        log.Fatalf("Got error calling PutItem: %s", err)
+    }
+
+    year := strconv.Itoa(item.Year)
+
+    fmt.Println("Successfully added '" + item.Title + "' (" + year + ") to table " + tableName)
+</programlisting>

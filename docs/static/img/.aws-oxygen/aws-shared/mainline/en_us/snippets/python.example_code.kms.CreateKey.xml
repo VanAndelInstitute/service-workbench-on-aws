@@ -1,0 +1,23 @@
+<programlisting>
+    def create_key(self):
+        """
+        Creates a key (or multiple keys) with a user-provided description.
+        """
+        answer = 'y'
+        while answer.lower() == 'y':
+            key_desc = input("\nLet's create a key. Describe it for me: ")
+            if not key_desc:
+                key_desc = "Key management demo key"
+            try:
+                key = self.kms_client.create_key(Description=key_desc)['KeyMetadata']
+            except ClientError as err:
+                logging.error(
+                    "Couldn't create your key. Here's why: %s",
+                    err.response['Error']['Message'])
+                raise
+            else:
+                print("Key created:")
+                pprint(key)
+                self.created_keys.append(key)
+                answer = input("Create another (y/n)? ")
+</programlisting>

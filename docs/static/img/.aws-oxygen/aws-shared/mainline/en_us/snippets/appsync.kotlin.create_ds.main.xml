@@ -1,0 +1,24 @@
+<programlisting>
+suspend fun createDS(dsName: String, dsRole: String, apiVal: String, tableNameVal: String): String? {
+
+    val config = DynamodbDataSourceConfig {
+        awsRegion = "us-east-1"
+        tableName = tableNameVal
+        versioned = true
+    }
+
+    val request = CreateDataSourceRequest {
+        description = "Created using the AWS SDK for Kotlin"
+        apiId = apiVal
+        name = dsName
+        serviceRoleArn = dsRole
+        dynamodbConfig = config
+        type = DataSourceType.AmazonDynamodb
+    }
+
+    AppSyncClient { region = "us-east-1" }.use { appClient ->
+        val response = appClient.createDataSource(request)
+        return response.dataSource?.dataSourceArn
+    }
+}
+</programlisting>

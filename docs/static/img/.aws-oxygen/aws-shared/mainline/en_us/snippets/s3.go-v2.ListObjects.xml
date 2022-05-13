@@ -1,0 +1,18 @@
+<programlisting>
+	// List objects in the bucket.
+	// n.b. object keys in Amazon S3 do not begin with '/'. You do not need to lead your
+	// prefix with it.
+	fmt.Println("Listing the objects in the bucket:")
+	listObjsResponse, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
+		Bucket: aws.String(name),
+		Prefix: aws.String(""),
+	})
+
+	if err != nil {
+		panic("Couldn't list bucket contents")
+	}
+
+	for _, object := range listObjsResponse.Contents {
+		fmt.Printf("%s (%d bytes, class %v) \n", *object.Key, object.Size, object.StorageClass)
+	}
+</programlisting>

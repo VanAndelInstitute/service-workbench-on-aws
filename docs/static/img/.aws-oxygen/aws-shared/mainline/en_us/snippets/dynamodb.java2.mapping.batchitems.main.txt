@@ -1,0 +1,41 @@
+    public static void putBatchRecords(DynamoDbEnhancedClient enhancedClient) {
+        try {
+
+           DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+
+            LocalDate localDate = LocalDate.parse("2020-04-07");
+            LocalDateTime localDateTime = localDate.atStartOfDay();
+            Instant instant = localDateTime.toInstant(ZoneOffset.UTC);
+
+            Customer record2 = new Customer();
+            record2.setCustName("Fred Pink");
+            record2.setId("id110");
+            record2.setEmail("fredp@noserver.com");
+            record2.setRegistrationDate(instant) ;
+
+            Customer record3 = new Customer();
+            record3.setCustName("Susan Pink");
+            record3.setId("id120");
+            record3.setEmail("spink@noserver.com");
+            record3.setRegistrationDate(instant) ;
+
+            // Create a BatchWriteItemEnhancedRequest object
+            BatchWriteItemEnhancedRequest batchWriteItemEnhancedRequest =
+                    BatchWriteItemEnhancedRequest.builder()
+                            .writeBatches(
+                                    WriteBatch.builder(Customer.class)
+                                            .mappedTableResource(mappedTable)
+                                            .addPutItem(r -> r.item(record2))
+                                            .addPutItem(r -> r.item(record3))
+                                            .build())
+                            .build();
+
+            // Add these two items to the table
+            enhancedClient.batchWriteItem(batchWriteItemEnhancedRequest);
+            System.out.println("done");
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

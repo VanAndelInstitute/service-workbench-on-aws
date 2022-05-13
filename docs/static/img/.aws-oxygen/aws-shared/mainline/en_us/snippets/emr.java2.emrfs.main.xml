@@ -1,0 +1,71 @@
+<programlisting>
+    public static String createEmrfsCluster( EmrClient emrClient,
+                                        String jar,
+                                        String myClass,
+                                        String keys,
+                                        String logUri,
+                                        String name) {
+
+        try {
+
+
+            Map emrfsProperties = new HashMap<String,String>() ;
+            emrfsProperties.put("fs.s3.cse.encryptionMaterialsProvider.uri","s3://emrscott/MyCustomEncryptionMaterialsProvider.jar");
+            emrfsProperties.put("fs.s3.cse.enabled","true");
+            emrfsProperties.put("fs.s3.consistent","true");
+            emrfsProperties.put("fs.s3.cse.encryptionMaterialsProvider","full.class.name.of.EncryptionMaterialsProvider");
+
+
+            Configuration configuration = Configuration.builder()
+                    .classification("emrfs-site")
+                    .properties(emrfsProperties)
+                    .build();
+
+            HadoopJarStepConfig jarStepConfig = HadoopJarStepConfig.builder()
+                    .jar(jar)
+                    .mainClass(myClass)
+                    .build();
+
+            Application app = Application.builder()
+                    .name("Spark")
+                    .build();
+
+            StepConfig enabledebugging = StepConfig.builder()
+                    .name("Enable debugging")
+                    .actionOnFailure("TERMINATE_JOB_FLOW")
+                    .hadoopJarStep(jarStepConfig)
+                    .build();
+
+            JobFlowInstancesConfig instancesConfig = JobFlowInstancesConfig.builder()
+                    .ec2SubnetId("subnet-206a9c58")
+                    .ec2KeyName(keys)
+                    .instanceCount(3)
+                    .keepJobFlowAliveWhenNoSteps(true)
+                    .masterInstanceType("m4.large")
+                    .slaveInstanceType("m4.large")
+                    .build();
+
+
+            RunJobFlowRequest jobFlowRequest = RunJobFlowRequest.builder()
+                    .name(name)
+                    .configurations(configuration)
+                    .releaseLabel("emr-5.20.0")
+                    .steps(enabledebugging)
+                    .applications(app)
+                    .logUri(logUri)
+                    .serviceRole("EMR_DefaultRole")
+                    .jobFlowRole("EMR_EC2_DefaultRole")
+                    .instances(instancesConfig)
+                    .build();
+
+            RunJobFlowResponse response = emrClient.runJobFlow(jobFlowRequest);
+            return response.jobFlowId();
+
+        } catch(EmrException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+
+        return "";
+    }
+</programlisting>

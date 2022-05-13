@@ -1,0 +1,3 @@
+<programlisting>
+$promise = $s3Client->createBucketAsync(['Bucket' => 'my-bucket']);
+</programlisting>

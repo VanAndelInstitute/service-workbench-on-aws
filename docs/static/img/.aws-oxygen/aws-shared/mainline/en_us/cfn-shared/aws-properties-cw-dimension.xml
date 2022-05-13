@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!--
+   AWS::CloudWatch::Alarm
+-->
+<section id="aws-properties-cw-dimension" role="topic">
+	<title id="aws-properties-cw-dimension.title">CloudWatch Metric Dimension Property Type</title>
+	<titleabbrev>CloudWatch Metric Dimension</titleabbrev>
+	<para>The following properties are available with &CW; Metric Dimension.</para>
+	<para>The Metric Dimension is an embedded property of the 
+		<link linkend="aws-properties-cw-alarm">AWS::CloudWatch::Alarm</link> type.</para>
+	<informaltable>
+		<tgroup cols="4">
+			<colspec colnum="1" colname="c1" colwidth="1.58*"/>
+			<colspec colnum="2" colname="c2" colwidth="1.32*"/>
+			<colspec colnum="3" colname="c3" colwidth="1.0*"/>
+			<colspec colnum="4" colname="c4" colwidth="4.54*"/>
+			<thead>
+				<row>
+					<entry>Property</entry>
+					<entry>Type</entry>
+					<entry>Required</entry>
+					<entry>Notes</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<simpara>Name</simpara>
+					</entry>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+					<entry>
+						<simpara>Yes</simpara>
+					</entry>
+					<entry>
+						<simpara>Name of the dimension.</simpara>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<simpara>Value</simpara>
+					</entry>
+					<entry>
+						<simpara>String</simpara>
+					</entry>
+					<entry>
+						<simpara>Yes</simpara>
+					</entry>
+					<entry>
+						<simpara>The value representing the dimension measurement.</simpara>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</informaltable>
+</section>

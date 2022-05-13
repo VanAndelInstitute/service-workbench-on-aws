@@ -1,0 +1,53 @@
+<programlisting>
+// Create API clients
+
+AWSCredentialsProvider credentials = getCredentials();
+
+AmazonSNS sns = new AmazonSNSClient(credentials);
+AmazonSQS sqs = new AmazonSQSClient(credentials);
+
+// Create FIFO topic
+
+Map<String, String> topicAttributes = new HashMap<String, String>();
+
+topicAttributes.put("FifoTopic", "true");
+topicAttributes.put("ContentBasedDeduplication", "false");
+
+String topicArn = sns.createTopic(
+    new CreateTopicRequest()
+        .withName("PriceUpdatesTopic.fifo")
+        .withAttributes(topicAttributes)
+).getTopicArn();
+
+// Create FIFO queues
+
+Map<String, String> queueAttributes = new HashMap<String, String>();
+
+queueAttributes.put("FifoQueue", "true");
+
+// Disable content-based deduplication because messages published with the same body
+// might carry different attributes that must be processed independently.
+// The price management system uses the message attributes to define whether a given
+// price update applies to the wholesale application or to the retail application.
+queueAttributes.put("ContentBasedDeduplication", "false");
+
+String wholesaleQueueUrl = sqs.createQueue(
+    new CreateQueueRequest()
+        .withName("WholesaleQueue.fifo")
+        .withAttributes(queueAttributes)
+).getQueueUrl();
+
+String retailQueueUrl = sqs.createQueue(
+    new CreateQueueRequest()
+        .withName("RetailQueue.fifo")
+        .withAttributes(queueAttributes)
+).getQueueUrl();
+
+// Subscribe FIFO queues to FIFO topic, setting required permissions
+
+String wholesaleSubscriptionArn =
+    Topics.subscribeQueue(sns, sqs, topicArn, wholesaleQueueUrl);
+
+String retailSubscriptionArn =
+    Topics.subscribeQueue(sns, sqs, topicArn, retailQueueUrl);
+</programlisting>

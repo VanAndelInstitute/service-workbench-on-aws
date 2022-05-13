@@ -1,0 +1,9 @@
+<programlisting>
+import aws.sdk.kotlin.services.ecs.EcsClient
+import aws.sdk.kotlin.services.ecs.model.ExecuteCommandConfiguration
+import aws.sdk.kotlin.services.ecs.model.ExecuteCommandLogging
+import aws.sdk.kotlin.services.ecs.model.ClusterConfiguration
+import aws.sdk.kotlin.services.ecs.model.CreateClusterRequest
+import kotlin.system.exitProcess
+
+</programlisting>

@@ -1,0 +1,26 @@
+async fn determine_prefix_file_size(
+    // Now we take an instance of our enum rather than the S3 client
+    list_objects_impl: ListObjects,
+    bucket: &str,
+    prefix: &str,
+) -> Result<usize, Box<dyn Error + Send + Sync + 'static>> {
+    let mut next_token: Option<String> = None;
+    let mut total_size_bytes = 0;
+    loop {
+        let result = list_objects_impl
+            .list_objects(bucket, prefix, next_token.take())
+            .await?;
+
+        // Add up the file sizes we got back
+        for object in result.objects {
+            total_size_bytes += object.size() as usize;
+        }
+
+        // Handle pagination, and break the loop if there are no more pages
+        next_token = result.continuation_token;
+        if !result.has_more {
+            break;
+        }
+    }
+    Ok(total_size_bytes)
+}

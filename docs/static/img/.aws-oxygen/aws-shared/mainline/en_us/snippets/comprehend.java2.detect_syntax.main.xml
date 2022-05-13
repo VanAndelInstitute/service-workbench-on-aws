@@ -1,0 +1,25 @@
+<programlisting>
+    public static void detectAllSyntax(ComprehendClient comClient, String text){
+
+        try {
+            DetectSyntaxRequest detectSyntaxRequest = DetectSyntaxRequest.builder()
+                .text(text)
+                .languageCode("en")
+                .build();
+
+        DetectSyntaxResponse detectSyntaxResult = comClient.detectSyntax(detectSyntaxRequest);
+        List<SyntaxToken> syntaxTokens = detectSyntaxResult.syntaxTokens();
+        Iterator<SyntaxToken> syntaxIterator = syntaxTokens.iterator();
+
+        while(syntaxIterator.hasNext()) {
+            SyntaxToken token = syntaxIterator.next();
+            System.out.println("Language is " +token.text());
+            System.out.println("Part of speech is "+ token.partOfSpeech().tagAsString());
+        }
+
+        } catch (ComprehendException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+       }
+</programlisting>

@@ -1,0 +1,23 @@
+<programlisting>
+ 
+$client = new CognitoIdentityProviderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2016-04-18'
+]);
+
+$userPoolId = "us-east-2_P0oL1D";
+
+try {
+    $result = $client->listUserPoolClients([
+        'UserPoolId' => $userPoolId, 
+    ]);
+    
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+    error_log($e->getMessage());
+}
+
+</programlisting>

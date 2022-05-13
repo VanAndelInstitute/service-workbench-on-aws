@@ -1,0 +1,8 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.iam.IamClient;
+import software.amazon.awssdk.services.iam.model.IamException;
+import software.amazon.awssdk.services.iam.model.AttachRolePolicyRequest;
+import software.amazon.awssdk.services.iam.model.AttachedPolicy;
+import software.amazon.awssdk.services.iam.model.ListAttachedRolePoliciesRequest;
+import software.amazon.awssdk.services.iam.model.ListAttachedRolePoliciesResponse;
+import java.util.List;

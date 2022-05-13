@@ -1,0 +1,6 @@
+import aws.sdk.kotlin.services.cloudwatchlogs.CloudWatchLogsClient
+import aws.sdk.kotlin.services.cloudwatchlogs.model.DescribeLogStreamsRequest
+import aws.sdk.kotlin.services.cloudwatchlogs.model.DescribeLogStreamsResponse
+import aws.sdk.kotlin.services.cloudwatchlogs.model.InputLogEvent
+import aws.sdk.kotlin.services.cloudwatchlogs.model.PutLogEventsRequest
+import kotlin.system.exitProcess

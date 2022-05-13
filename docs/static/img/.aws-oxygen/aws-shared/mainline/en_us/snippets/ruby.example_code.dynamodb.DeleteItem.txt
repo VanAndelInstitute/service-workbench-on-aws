@@ -1,0 +1,11 @@
+  # Deletes a movie from the table.
+  #
+  # @param title [String] The title of the movie to delete.
+  # @param year [Integer] The release year of the movie to delete.
+  def delete_movie(title, year)
+    @table.delete_item(key: {"year" => year, "title" => title})
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't delete movie #{title}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end

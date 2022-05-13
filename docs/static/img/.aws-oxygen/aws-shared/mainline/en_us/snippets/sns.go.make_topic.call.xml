@@ -1,0 +1,5 @@
+<programlisting>
+    results, err := svc.CreateTopic(&sns.CreateTopicInput{
+        Name: topic,
+    })
+</programlisting>

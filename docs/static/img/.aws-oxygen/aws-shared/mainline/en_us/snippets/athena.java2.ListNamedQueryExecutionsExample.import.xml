@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.athena.AthenaClient;
+import software.amazon.awssdk.services.athena.model.AthenaException;
+import software.amazon.awssdk.services.athena.model.ListQueryExecutionsRequest;
+import software.amazon.awssdk.services.athena.model.ListQueryExecutionsResponse;
+import software.amazon.awssdk.services.athena.paginators.ListQueryExecutionsIterable;
+import java.util.List;
+</programlisting>

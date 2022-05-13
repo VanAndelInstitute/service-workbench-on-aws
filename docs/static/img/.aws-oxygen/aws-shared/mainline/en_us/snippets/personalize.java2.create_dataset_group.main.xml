@@ -1,0 +1,14 @@
+<programlisting>
+    public static String createDatasetGroup(PersonalizeClient personalizeClient, String datasetGroupName) {
+
+        try {
+            CreateDatasetGroupRequest createDatasetGroupRequest = CreateDatasetGroupRequest.builder()
+                    .name(datasetGroupName)
+                    .build();
+            return personalizeClient.createDatasetGroup(createDatasetGroupRequest).datasetGroupArn();
+        } catch (PersonalizeException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return "";
+    }
+</programlisting>

@@ -1,0 +1,24 @@
+<programlisting>
+    public static String modifyItem(DynamoDbEnhancedClient enhancedClient, String keyVal, String email) {
+        try {
+            //Create a DynamoDbTable object
+            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+
+            //Create a KEY object
+            Key key = Key.builder()
+                    .partitionValue(keyVal)
+                    .build();
+
+            // Get the item by using the key and update the email value.
+            Customer customerRec = mappedTable.getItem(r->r.key(key));
+            customerRec.setEmail(email);
+            mappedTable.updateItem(customerRec);
+            return customerRec.getEmail();
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

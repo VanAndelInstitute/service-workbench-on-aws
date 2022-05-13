@@ -1,0 +1,4 @@
+    for _, user := range result.Users {
+        result, err := svc.DescribeFolderContents(&workdocs.DescribeFolderContentsInput{
+            FolderId: user.RootFolderId,
+        })

@@ -1,0 +1,20 @@
+<programlisting>
+    public static String createGrant(KmsClient kmsClient, String keyId, String granteePrincipal, String operation) {
+
+    try {
+        CreateGrantRequest grantRequest = CreateGrantRequest.builder()
+                .keyId(keyId)
+                .granteePrincipal(granteePrincipal)
+                .operationsWithStrings(operation)
+                .build();
+
+        CreateGrantResponse response = kmsClient.createGrant(grantRequest);
+        return response.grantId();
+
+     } catch (KmsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+     }
+        return "";
+    }
+</programlisting>

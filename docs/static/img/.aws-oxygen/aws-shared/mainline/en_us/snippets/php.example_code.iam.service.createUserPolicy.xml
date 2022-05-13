@@ -1,0 +1,11 @@
+<programlisting>
+    public function createUserPolicy(string $policyName, string $policyDocument, string $userName)
+    {
+        $result = $this->iamClient->putUserPolicy([
+            'PolicyName' => $policyName,
+            'PolicyDocument' => $policyDocument,
+            'UserName' => $userName,
+        ]);
+        return $result['Policy'];
+    }
+</programlisting>

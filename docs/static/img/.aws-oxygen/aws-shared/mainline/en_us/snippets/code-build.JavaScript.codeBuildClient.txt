@@ -1,0 +1,8 @@
+import { CodeBuildClient } from "@aws-sdk/client-codebuild";
+
+const REGION = "REGION";
+
+// Create an AWS CodeBuild service client object.
+const codeBuildClient = new CodeBuildClient({region: REGION});
+
+export { codeBuildClient };

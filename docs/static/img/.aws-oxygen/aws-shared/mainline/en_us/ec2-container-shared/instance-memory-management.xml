@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<section id="memory-management" role="topic">
+    <info>
+        <title id="memory-management.title">&ecs-instance-caps; Memory Management</title>
+        <titleabbrev>Memory Management</titleabbrev>
+    </info>
+    <para>When the &ECS; container agent registers a &ecs-instance; into a &ecs-cluster;, the agent
+        must determine how much memory the &ecs-instance; has available to reserve for your
+        &ecs-task;s. Because of platform memory overhead and memory occupied by the system kernel,
+        this number is different than the installed memory amount that is advertised for &EC2;
+        instances. For example, an <code>m4.large</code> instance has 8 GiB of installed memory.
+        However, this does not always translate to exactly 8192 MiB of memory available for
+        &ecs-task;s when the &ecs-instance; registers.</para>
+    <para>If you specify 8192 MiB for the &ecs-task;, and none of your &ecs-instance;s have 8192 MiB
+        or greater of memory available to satisfy this requirement, then the &ecs-task; cannot be
+        placed in your &ecs-cluster;<phrase revision="batch">. If you are using a managed compute
+            environment, then &BATCH; must launch a larger instance type to accommodate the
+            request</phrase>.</para>
+    <para><phrase revision="ecs">You should also reserve some memory for the &ECS; container agent
+            and other critical system processes on your container instances, so that your task's
+            containers do not contend for the same memory and possibly trigger a system
+            failure.</phrase><phrase revision="batch"> The default &BATCH; compute resource AMI also
+            reserves 32 MiB of memory for the &ECS; container agent and other critical system
+            processes. This memory is not available for job allocation.</phrase> For more
+        information, see <xref linkend="ecs-reserved-memory" endterm="ecs-reserved-memory.title"
+        />.</para>
+    <para>The &ECS; container agent uses the Docker <code>ReadMemInfo()</code> function to query the
+        total memory available to the operating system. <phrase revision="ecs">Both </phrase>Linux
+            <phrase revision="ecs">and Windows provide </phrase><phrase revision="batch">provides
+        </phrase>command line utilities to determine the total memory.</para>
+    <example>
+        <title>- Determine Linux total memory</title>
+        <para>The <command>free</command> command returns the total memory that is recognized by the
+            operating system.</para>
+        <programlisting language="sh">&userprompt;<userinput>free -b</userinput></programlisting>
+        <para>Example output for an <code>m4.large</code> instance running the
+            &ecs-linux-ami;.</para>
+        <programlisting>             total       used       free     shared    buffers     cached
+Mem:    <replaceable>8373026816</replaceable>  348180480 8024846336      90112   25534464  205418496
+-/+ buffers/cache:  117227520 8255799296</programlisting>
+        <para>This instance has 8373026816 bytes of total memory, which translates to 7985 MiB
+            available for tasks.</para>
+    </example>
+    <example revision="ecs">
+        <title>- Determine Windows total memory</title>
+        <para>The <command>wmic</command> command returns the total memory that is recognized by the
+            operating system.</para>
+        <programlisting language="cmd">&windowsprompt;<userinput>wmic ComputerSystem get TotalPhysicalMemory</userinput></programlisting>
+        <para>Example output for an <code>m4.large</code> instance running the
+            &ecs-windows-ami;.</para>
+        <programlisting>TotalPhysicalMemory
+<replaceable>8589524992</replaceable></programlisting>
+        <para>This instance has 8589524992 bytes of total memory, which translates to 8191 MiB
+            available for tasks.</para>
+    </example>
+    <section id="ecs-reserved-memory">
+        <info>
+            <title id="ecs-reserved-memory.title">Reserving System Memory</title>
+        </info>
+        <para>If you occupy all of the memory on a &ecs-instance; with your &ecs-task;s, then it is
+            possible that your &ecs-task;s will contend with critical system processes for memory
+            and possibly trigger a system failure. The &ECS; container agent provides a
+            configuration variable called <code>ECS_RESERVED_MEMORY</code>, which you can use to
+            remove a specified number of MiB of memory from the pool that is allocated to your
+            &ecs-task;s. This effectively reserves that memory for critical system processes.</para>
+        <para revision="batch">The default &BATCH; compute resource AMI reserves 32 MiB of memory
+            for the &ECS; container agent and other critical system processes.</para>
+        <para revision="ecs">For example, if you specify <code>ECS_RESERVED_MEMORY=256</code> in
+            your container agent configuration file, then the agent registers the total memory minus
+            256 MiB for that instance, and 256 MiB of memory could not be allocated by ECS tasks.
+            For more information about agent configuration variables and how to set them, see <xref
+                endterm="ecs-agent-config.title" linkend="ecs-agent-config"/> and <xref
+                endterm="bootstrap_container_instance.title" linkend="bootstrap_container_instance"
+            />.</para>
+    </section>
+    <section id="viewing-memory">
+        <info>
+            <title id="viewing-memory.title">Viewing &ecs-instance-caps; Memory</title>
+        </info>
+        <para>You can view how much memory a &ecs-instance; registers with in the &ECS; console (or
+            with the <ulink url="&url-ecs-api;API_DescribeContainerInstances.html">DescribeContainerInstances</ulink> API operation). If you are trying to
+            maximize your resource utilization by providing your &ecs-task;s as much memory as
+            possible for a particular instance type, you can observe the memory available for that
+            &ecs-instance; and then assign your &ecs-task;s that much memory.</para>
+        <procedure>
+            <title>To view &ecs-instance; memory</title>
+            <step>&ECSConsole_switch;</step>
+            <step>
+                <para>Choose the cluster that hosts your &ecs-instance;s to view.<phrase
+                        revision="batch"> The cluster name for your compute environment begins with
+                        your compute environment name.</phrase></para>
+            </step>
+            <step>
+                <para>Choose <guilabel>ECS Instances</guilabel>, and select a &ecs-instance; from
+                    the <guilabel>Container Instance</guilabel> column to view.</para>
+            </step>
+            <step>
+                <para>The <guilabel>Resources</guilabel> section shows the registered and available
+                    memory for the &ecs-instance;.</para>
+                <mediaobject>
+                    <imageobject>
+                     <imagedata fileref="images/instance-memory.png" format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+                <para>The <guilabel>Registered</guilabel> memory value is what the &ecs-instance;
+                    registered with &ECS; when it was first launched, and the
+                        <guilabel>Available</guilabel> memory value is what has not already been
+                    allocated to &ecs-task;s.</para>
+            </step>
+        </procedure>
+    </section>
+</section>

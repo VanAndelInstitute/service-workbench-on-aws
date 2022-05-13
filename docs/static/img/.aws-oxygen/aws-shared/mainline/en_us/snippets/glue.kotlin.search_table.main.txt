@@ -1,0 +1,16 @@
+suspend fun searchGlueTable(text: String?) {
+
+    val request = SearchTablesRequest {
+        searchText = text
+        resourceShareType = ResourceShareType.fromValue("All")
+        maxResults = 10
+    }
+
+    GlueClient { region = "us-west-2" }.use { glueClient ->
+          val response = glueClient.searchTables(request)
+          response.tableList?.forEach { table ->
+                println("Table name is ${table.name}")
+                println("Database name is ${table.databaseName}")
+         }
+    }
+}

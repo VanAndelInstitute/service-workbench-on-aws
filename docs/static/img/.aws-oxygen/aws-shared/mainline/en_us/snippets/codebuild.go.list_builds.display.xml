@@ -1,0 +1,8 @@
+<programlisting>
+    for _, build := range builds.Builds {
+        fmt.Printf("Project: %s\n", aws.StringValue(build.ProjectName))
+        fmt.Printf("Phase:   %s\n", aws.StringValue(build.CurrentPhase))
+        fmt.Printf("Status:  %s\n", aws.StringValue(build.BuildStatus))
+        fmt.Println("")
+    }
+</programlisting>

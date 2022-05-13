@@ -1,0 +1,12 @@
+<programlisting>
+import aws.sdk.kotlin.services.rekognition.RekognitionClient
+import aws.sdk.kotlin.services.rekognition.model.StartFaceDetectionRequest
+import aws.sdk.kotlin.services.rekognition.model.NotificationChannel
+import aws.sdk.kotlin.services.rekognition.model.S3Object
+import aws.sdk.kotlin.services.rekognition.model.Video
+import aws.sdk.kotlin.services.rekognition.model.FaceAttributes
+import aws.sdk.kotlin.services.rekognition.model.GetFaceDetectionResponse
+import aws.sdk.kotlin.services.rekognition.model.GetFaceDetectionRequest
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

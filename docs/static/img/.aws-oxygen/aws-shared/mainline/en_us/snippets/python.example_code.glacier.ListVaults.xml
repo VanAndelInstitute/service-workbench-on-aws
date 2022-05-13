@@ -1,0 +1,12 @@
+<programlisting>
+    def list_vaults(self):
+        """
+        Lists vaults for the current account.
+        """
+        try:
+            for vault in self.glacier_resource.vaults.all():
+                logger.info("Got vault %s.", vault.name)
+        except ClientError:
+            logger.exception("Couldn't list vaults.")
+            raise
+</programlisting>

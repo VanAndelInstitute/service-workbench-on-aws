@@ -1,0 +1,21 @@
+<programlisting>
+$firehoseClient = new Aws\Firehose\FirehoseClient([
+    'profile' => 'default',
+    'version' => '2015-08-04',
+    'region' => 'us-east-2'
+]);
+
+
+try {
+    $result = $firehoseClient->listDeliveryStreams([
+        'DeliveryStreamType' => 'KinesisStreamAsSource',
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 
+</programlisting>

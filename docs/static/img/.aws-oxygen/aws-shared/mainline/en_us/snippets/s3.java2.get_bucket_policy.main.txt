@@ -1,0 +1,19 @@
+    public static String getPolicy(S3Client s3, String bucketName) {
+
+        String policyText = "";
+        System.out.format("Getting policy for bucket: \"%s\"\n\n", bucketName);
+
+        GetBucketPolicyRequest policyReq = GetBucketPolicyRequest.builder()
+                .bucket(bucketName)
+                .build();
+
+        try {
+            GetBucketPolicyResponse policyRes = s3.getBucketPolicy(policyReq);
+            policyText = policyRes.policy();
+            return policyText;
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

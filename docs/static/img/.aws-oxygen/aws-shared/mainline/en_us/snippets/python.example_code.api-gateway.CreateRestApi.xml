@@ -1,0 +1,31 @@
+<programlisting>
+    def create_rest_api(self, api_name):
+        """
+        Creates a REST API on API Gateway. The default API has only a root resource
+        and no HTTP methods.
+
+        :param api_name: The name of the API. This descriptive name is not used in
+                         the API path.
+        :return: The ID of the newly created API.
+        """
+        try:
+            result = self.apig_client.create_rest_api(name=api_name)
+            self.api_id = result['id']
+            logger.info("Created REST API %s with ID %s.", api_name, self.api_id)
+        except ClientError:
+            logger.exception("Couldn't create REST API %s.", api_name)
+            raise
+
+        try:
+            result = self.apig_client.get_resources(restApiId=self.api_id)
+            self.root_id = next(
+                item for item in result['items'] if item['path'] == '/')['id']
+        except ClientError:
+            logger.exception("Couldn't get resources for API %s.", self.api_id)
+            raise
+        except StopIteration as err:
+            logger.exception("No root resource found in API %s.", self.api_id)
+            raise ValueError from err
+
+        return self.api_id
+</programlisting>

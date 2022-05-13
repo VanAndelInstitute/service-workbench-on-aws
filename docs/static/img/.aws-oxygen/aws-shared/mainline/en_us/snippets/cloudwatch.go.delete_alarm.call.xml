@@ -1,0 +1,9 @@
+<programlisting>
+    svc := cloudwatch.New(sess)
+
+    _, err := svc.DeleteAlarms(&cloudwatch.DeleteAlarmsInput{
+        AlarmNames: []*string{
+            alarmName,
+        },
+    })
+</programlisting>

@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.quicksight.QuickSightClient;
+import software.amazon.awssdk.services.quicksight.model.DescribeTemplateRequest;
+import software.amazon.awssdk.services.quicksight.model.DescribeTemplateResponse;
+import software.amazon.awssdk.services.quicksight.model.QuickSightException;
+</programlisting>

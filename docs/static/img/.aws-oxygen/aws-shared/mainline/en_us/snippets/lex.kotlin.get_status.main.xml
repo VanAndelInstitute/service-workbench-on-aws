@@ -1,0 +1,23 @@
+<programlisting>
+suspend fun getStatus(botName: String?) {
+
+
+    val request = GetBotRequest {
+        name = botName
+        versionOrAlias = "\$LATEST"
+    }
+
+    LexModelBuildingClient { region = "us-west-2" }.use { lexClient ->
+        var status: String
+
+        do {
+            delay(2000)
+            val response = lexClient.getBot(request)
+            status = response.status.toString()
+            println("The status is $status")
+
+        } while (status.compareTo("READY") != 0)
+
+    }
+}
+</programlisting>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-test" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to run the push messaging-enabled &AMHlong; quickstart app in
+                Android Studio, and send it a push notification using &SNS;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-test.title">Test a Push Messaging-Enabled &AMHlong; App for
+        Android</title>
+    <para>This section describes how to test the push messaging-enabled &AMHlong; quickstart app. As
+        a proof of concept, you run the app on an Android virtual device, and then send a push
+        notification from the &SNS; console to the device in two ways: using a direct push, and by
+        publishing to an &SNS; topic. </para>
+    <section id="mobile-push-android-test-prerequisites">
+        <sectioninfo>
+            <abstract>
+                <para>Describes prerequisites you need to test the push messaging-enabled &AMHlong;
+                    quickstart app in Android Studio, and send it a push notification using
+                    &SNS;.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-test-prerequisites.title">Prerequisites</title>
+        <para>We assume that you have already generated the quickstart app code using the &AMHlong;
+            console, downloaded the code to your computer, built the project in Android Studio, and
+            created a virtual device.</para>
+    </section>
+    <section id="mobile-push-android-test-steps">
+        <sectioninfo>
+            <abstract>
+                <para>Lists the steps you need to test the push messaging-enabled &AMHlong;
+                    quickstart app in Android Studio, and send it a push notification using
+                    &SNS;.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-test-steps.title">Steps</title>
+        <para>To test the push-enabled &AMHlong; app on an Android virtual device, perform the
+            following steps:</para>
+        <orderedlist>
+            <listitem>
+                <para><xref linkend="mobile-push-android-test-run-app"
+                        endterm="mobile-push-android-test-run-app.titleabbrev"/></para>
+            </listitem>
+            <listitem>
+                <para><xref linkend="mobile-push-android-test-send-notification"
+                        endterm="mobile-push-android-test-send-notification.titleabbrev"/></para>
+            </listitem>
+        </orderedlist>
+        <para>After you successfully receive the test notifications, we recommend that you browse
+            the &AMHlong; quickstart code so that you can see how the app interacts with &GCM;
+            (&GCMlong;) and &SNS;.</para>
+    </section>
+    <xi:include href="mobile-push-android-test-run-app.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mobile-push-android-test-send-notification.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</section>

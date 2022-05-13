@@ -1,0 +1,44 @@
+<programlisting>
+   public static void findRunningEC2Instances(Ec2Client ec2) {
+
+       try {
+           String nextToken = null;
+
+           do {
+                Filter filter = Filter.builder()
+                    .name("instance-state-name")
+                    .values("running")
+                    .build();
+
+                DescribeInstancesRequest request = DescribeInstancesRequest.builder()
+                    .filters(filter)
+                    .build();
+
+                DescribeInstancesResponse response = ec2.describeInstances(request);
+
+                for (Reservation reservation : response.reservations()) {
+                    for (Instance instance : reservation.instances()) {
+                    System.out.printf(
+                            "Found Reservation with id %s, " +
+                                    "AMI %s, " +
+                                    "type %s, " +
+                                    "state %s " +
+                                    "and monitoring state %s",
+                            instance.instanceId(),
+                            instance.imageId(),
+                            instance.instanceType(),
+                            instance.state().name(),
+                            instance.monitoring().state());
+                    System.out.println("");
+                }
+            }
+            nextToken = response.nextToken();
+
+            } while (nextToken != null);
+
+        } catch (Ec2Exception e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+        }
+      }
+</programlisting>

@@ -1,0 +1,15 @@
+exports.handler = async (event, context) => {
+  try {
+    if (
+      event.request.privateChallengeParameters.answer ==
+      event.request.challengeAnswer
+    ) {
+      event.response.answerCorrect = true;
+    } else {
+      event.response.answerCorrect = false;
+    }
+  } catch (err) {
+    // Return to Amazon Cognito
+    return null;
+  }
+};

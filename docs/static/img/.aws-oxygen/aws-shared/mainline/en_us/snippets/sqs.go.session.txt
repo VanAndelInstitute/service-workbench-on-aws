@@ -1,0 +1,5 @@
+    // Create a session using credentials from ~/.aws/credentials
+    // and the Region from ~/.aws/config
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))

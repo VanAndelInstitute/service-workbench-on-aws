@@ -1,0 +1,24 @@
+    svc := cloudwatch.New(sess)
+
+    _, err := svc.PutMetricAlarm(&cloudwatch.PutMetricAlarmInput{
+        AlarmName:          alarmName,
+        ComparisonOperator: aws.String(cloudwatch.ComparisonOperatorGreaterThanThreshold),
+        EvaluationPeriods:  aws.Int64(1),
+        MetricName:         aws.String("CPUUtilization"),
+        Namespace:          aws.String("AWS/EC2"),
+        Period:             aws.Int64(60),
+        Statistic:          aws.String(cloudwatch.StatisticAverage),
+        Threshold:          aws.Float64(70.0),
+        ActionsEnabled:     aws.Bool(true),
+        AlarmDescription:   aws.String("Alarm when server CPU exceeds 70%"),
+        Unit:               aws.String(cloudwatch.StandardUnitSeconds),
+        AlarmActions: []*string{
+            aws.String(fmt.Sprintf("arn:aws:swf:"+*svc.Config.Region+":%s:action/actions/AWS_EC2.InstanceId.Reboot/1.0", instanceName)),
+        },
+        Dimensions: []*cloudwatch.Dimension{
+            {
+                Name:  aws.String("InstanceId"),
+                Value: instanceID,
+            },
+        },
+    })

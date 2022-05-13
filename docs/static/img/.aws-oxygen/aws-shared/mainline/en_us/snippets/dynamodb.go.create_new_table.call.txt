@@ -1,0 +1,7 @@
+
+    _, err := svc.CreateTable(&dynamodb.CreateTableInput{
+        AttributeDefinitions:  attributeDefinitions,
+        KeySchema:             keySchema,
+        ProvisionedThroughput: provisionedThroughput,
+        TableName:             tableName,
+    })

@@ -1,0 +1,14 @@
+<programlisting>
+    def delete(self):
+        """
+        Deletes the classifier.
+        """
+        try:
+            self.comprehend_client.delete_document_classifier(
+                DocumentClassifierArn=self.classifier_arn)
+            logger.info("Deleted classifier %s.", self.classifier_arn)
+            self.classifier_arn = None
+        except ClientError:
+            logger.exception("Couldn't deleted classifier %s.", self.classifier_arn)
+            raise
+</programlisting>

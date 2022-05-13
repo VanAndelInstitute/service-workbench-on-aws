@@ -1,0 +1,23 @@
+<programlisting>
+    public static void describeEC2Address(Ec2Client ec2 ) {
+
+        try {
+            DescribeAddressesResponse response = ec2.describeAddresses();
+
+            for(Address address : response.addresses()) {
+                System.out.printf(
+                    "Found address with public IP %s, " +
+                            "domain %s, " +
+                            "allocation id %s " +
+                            "and NIC id %s",
+                    address.publicIp(),
+                    address.domain(),
+                    address.allocationId(),
+                    address.networkInterfaceId());
+            }
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,16 @@
+    public func getOrCreateIdentityPoolID(name: String) async throws -> String? {
+        // See if the pool already exists
+        
+        do {
+            guard let poolId = try await self.getIdentityPoolID(name: name) else {
+                let poolId = try await self.createIdentityPool(name: name)
+                return poolId
+            }
+      
+            return poolId
+           
+        } catch {
+            print("ERROR: ", dump(error, name: "Trying to get the identity pool ID"))
+            return nil
+        }
+    }

@@ -1,0 +1,29 @@
+<programlisting>
+    // Builds our policy document for IAM.
+    policy := PolicyDocument{
+        Version: "2012-10-17",
+        Statement: []StatementEntry{
+            StatementEntry{
+                Effect: "Allow",
+                Action: []string{
+                    "logs:CreateLogGroup", // Allow for creating log groups
+                },
+                Resource: "RESOURCE ARN FOR logs:*",
+            },
+            StatementEntry{
+                Effect: "Allow",
+                // Allows for DeleteItem, GetItem, PutItem, Scan, and UpdateItem
+                Action: []string{
+                    "dynamodb:DeleteItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:Scan",
+                    "dynamodb:UpdateItem",
+                },
+                Resource: "RESOURCE ARN FOR dynamodb:*",
+            },
+        },
+    }
+
+    b, err := json.Marshal(&policy)
+</programlisting>

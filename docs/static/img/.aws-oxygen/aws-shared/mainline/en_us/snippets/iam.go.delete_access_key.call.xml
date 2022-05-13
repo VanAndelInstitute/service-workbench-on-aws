@@ -1,0 +1,6 @@
+<programlisting>
+    _, err := svc.DeleteAccessKey(&iam.DeleteAccessKeyInput{
+        AccessKeyId: keyID,
+        UserName:    userName,
+    })
+</programlisting>

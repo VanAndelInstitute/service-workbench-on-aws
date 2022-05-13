@@ -1,0 +1,35 @@
+<programlisting>
+def usage_demo():
+    """Shows how to use the policy functions."""
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    print('-'*88)
+    print("Welcome to the AWS Identity and Account Management policy demo.")
+    print('-'*88)
+    print("Policies let you define sets of permissions that can be attached to "
+          "other IAM resources, like users and roles.")
+    bucket_arn = f'arn:aws:s3:::made-up-bucket-name'
+    policy = create_policy(
+        'demo-iam-policy', 'Policy for IAM demonstration.',
+        ['s3:ListObjects'], bucket_arn)
+    print(f"Created policy {policy.policy_name}.")
+    policies = list_policies('Local')
+    print(f"Your account has {len(policies)} managed policies:")
+    print(*[pol.policy_name for pol in policies], sep=', ')
+    time.sleep(1)
+    policy_version = create_policy_version(
+        policy.arn, ['s3:PutObject'], bucket_arn, True)
+    print(f"Added policy version {policy_version.version_id} to policy "
+          f"{policy.policy_name}.")
+    default_statement = get_default_policy_statement(policy.arn)
+    print(f"The default policy statement for {policy.policy_name} is:")
+    pprint.pprint(default_statement)
+    rollback_version = rollback_policy_version(policy.arn)
+    print(f"Rolled back to version {rollback_version.version_id} for "
+          f"{policy.policy_name}.")
+    default_statement = get_default_policy_statement(policy.arn)
+    print(f"The default policy statement for {policy.policy_name} is now:")
+    pprint.pprint(default_statement)
+    delete_policy(policy.arn)
+    print(f"Deleted policy {policy.policy_name}.")
+    print("Thanks for watching!")
+</programlisting>

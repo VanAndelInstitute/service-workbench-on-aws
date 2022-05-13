@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun createZone(domainName: String?): String? {
+
+            // You must use a unique CallerReference string.
+            val callerReferenceVal = UUID.randomUUID().toString()
+            val zoneRequest = CreateHostedZoneRequest {
+                callerReference = callerReferenceVal
+                name= domainName
+            }
+
+           Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+              val zoneResponse = route53Client.createHostedZone(zoneRequest)
+              return zoneResponse.hostedZone?.id
+          }
+    }
+</programlisting>

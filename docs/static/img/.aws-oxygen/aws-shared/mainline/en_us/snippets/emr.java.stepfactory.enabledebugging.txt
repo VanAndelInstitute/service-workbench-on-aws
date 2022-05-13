@@ -1,0 +1,5 @@
+    StepFactory stepFactory = new StepFactory(); 
+	StepConfig enabledebugging = new StepConfig()
+   		.withName("Enable debugging")
+   		.withActionOnFailure("TERMINATE_JOB_FLOW")
+   		.withHadoopJarStep(stepFactory.newEnableDebuggingStep());

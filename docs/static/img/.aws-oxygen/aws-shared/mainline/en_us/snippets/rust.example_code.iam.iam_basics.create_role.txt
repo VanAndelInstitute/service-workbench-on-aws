@@ -1,0 +1,10 @@
+    let assume_role_role = iam_service::create_role(
+        &client,
+        &format!("{}{}", "iam_demo_role_", uuid),
+        &assume_role_policy_document,
+    )
+    .await?;
+    println!(
+        "Created the role with the ARN: {}",
+        assume_role_role.arn.as_ref().unwrap()
+    );

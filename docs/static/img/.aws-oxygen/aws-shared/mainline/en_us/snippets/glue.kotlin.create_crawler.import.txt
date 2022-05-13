@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.glue.GlueClient
+import aws.sdk.kotlin.services.glue.model.CrawlerTargets
+import aws.sdk.kotlin.services.glue.model.CreateCrawlerRequest
+import aws.sdk.kotlin.services.glue.model.S3Target
+import kotlin.system.exitProcess

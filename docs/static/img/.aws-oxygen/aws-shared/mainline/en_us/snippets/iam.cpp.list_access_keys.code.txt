@@ -1,0 +1,45 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::ListAccessKeysRequest request;
+        request.SetUserName(userName);
+
+        bool done = false;
+        bool header = false;
+        while (!done)
+        {
+            auto outcome = iam.ListAccessKeys(request);
+            if (!outcome.IsSuccess())
+            {
+                std::cout << "Failed to list access keys for user " << userName
+                    << ": " << outcome.GetError().GetMessage() << std::endl;
+                break;
+            }
+
+            if (!header)
+            {
+                std::cout << std::left << std::setw(32) << "UserName" <<
+                    std::setw(30) << "KeyID" << std::setw(20) << "Status" <<
+                    std::setw(20) << "CreateDate" << std::endl;
+                header = true;
+            }
+
+            const auto &keys = outcome.GetResult().GetAccessKeyMetadata();
+            for (const auto &key : keys)
+            {
+                Aws::String statusString =
+                    Aws::IAM::Model::StatusTypeMapper::GetNameForStatusType(
+                        key.GetStatus());
+                std::cout << std::left << std::setw(32) << key.GetUserName() <<
+                    std::setw(30) << key.GetAccessKeyId() << std::setw(20) <<
+                    statusString << std::setw(20) <<
+                    key.GetCreateDate().ToGmtString(DATE_FORMAT) << std::endl;
+            }
+
+            if (outcome.GetResult().GetIsTruncated())
+            {
+                request.SetMarker(outcome.GetResult().GetMarker());
+            }
+            else
+            {
+                done = true;
+            }
+        }

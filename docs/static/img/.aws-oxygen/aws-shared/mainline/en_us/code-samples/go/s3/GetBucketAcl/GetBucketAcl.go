@@ -1,0 +1,78 @@
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+   This file is licensed under the Apache License, Version 2.0 (the "License").
+   You may not use this file except in compliance with the License. A copy of
+   the License is located at
+
+    http://aws.amazon.com/apache2.0/
+
+   This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations under the License.
+*/
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// GetBucketACL gets the ACL for a bucket
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     bucket is the name of the bucket
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to GetBucketAcl
+func GetBucketACL(sess *session.Session, bucket *string) (*s3.GetBucketAclOutput, error) {
+    svc := s3.New(sess)
+
+    result, err := svc.GetBucketAcl(&s3.GetBucketAclInput{
+        Bucket: bucket,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    bucket := flag.String("b", "", "The bucket for which the ACL is returned")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    result, err := GetBucketACL(sess, bucket)
+    if err != nil {
+        fmt.Println("Got an error retrieving ACL for " + *bucket)
+    }
+
+    fmt.Println("Owner:", *result.Owner.DisplayName)
+    fmt.Println("")
+    fmt.Println("Grants")
+
+    for _, g := range result.Grants {
+        // If we add a canned ACL, the name is nil
+        if g.Grantee.DisplayName == nil {
+            fmt.Println("  Grantee:    EVERYONE")
+        } else {
+            fmt.Println("  Grantee:   ", *g.Grantee.DisplayName)
+        }
+
+        fmt.Println("  Type:      ", *g.Grantee.Type)
+        fmt.Println("  Permission:", *g.Permission)
+        fmt.Println("")
+    }
+}

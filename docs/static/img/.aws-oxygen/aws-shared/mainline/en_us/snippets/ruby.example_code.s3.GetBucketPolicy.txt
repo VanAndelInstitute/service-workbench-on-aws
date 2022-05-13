@@ -1,0 +1,10 @@
+  # Gets the policy of a bucket.
+  #
+  # @return [Aws::S3::GetBucketPolicyOutput, nil] The current bucket policy.
+  def get_policy
+    policy = @bucket_policy.data.policy
+    policy.respond_to?(:read) ? policy.read : policy
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't get the policy for #{@bucket_policy.bucket.name}. Here's why: #{e.message}"
+    nil
+  end

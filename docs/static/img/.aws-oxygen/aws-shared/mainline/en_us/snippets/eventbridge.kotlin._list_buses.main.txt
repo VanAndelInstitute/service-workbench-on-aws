@@ -1,0 +1,15 @@
+suspend fun listBuses() {
+
+    val request = ListEventBusesRequest {
+        limit = 10
+    }
+
+    EventBridgeClient { region = "us-west-2" }.use { eventBrClient ->
+        val response: ListEventBusesResponse = eventBrClient.listEventBuses(request)
+        response.eventBuses?.forEach { bus ->
+            println("The name of the event bus is ${bus.name}")
+            println("The ARN of the event bus is ${bus.arn}")
+        }
+
+    }
+}

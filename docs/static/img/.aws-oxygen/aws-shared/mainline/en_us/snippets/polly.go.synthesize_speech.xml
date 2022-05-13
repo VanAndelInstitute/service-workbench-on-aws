@@ -1,0 +1,83 @@
+<programlisting>
+package main
+
+import (
+    "errors"
+    "flag"
+    "fmt"
+    "io"
+    "io/ioutil"
+    "os"
+    "strings"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/polly"
+    "github.com/aws/aws-sdk-go/service/polly/pollyiface"
+)
+
+// MakeSpeech synthesizes the text in a file to produce an MP3 file.
+// Inputs:
+//     svc is an Amazon Polly service client
+//     fileName is the name of the file containing text to synthesize
+// Output:
+//     If success, information about the speech and nil
+//     Otherwise, nil and an error from the call to ReadFile or SynthesizeSpeech
+func MakeSpeech(svc pollyiface.PollyAPI, fileName *string) (*polly.SynthesizeSpeechOutput, error) {
+    contents, err := ioutil.ReadFile(*fileName)
+    if err != nil {
+        return nil, errors.New("Got an error opening the file " + *fileName)
+    }
+
+    s := string(contents[:])
+
+    output, err := svc.SynthesizeSpeech(&polly.SynthesizeSpeechInput{
+        OutputFormat: aws.String("mp3"),
+        Text:         aws.String(s),
+        VoiceId:      aws.String("Joanna"),
+    })
+    return output, err
+}
+
+func main() {
+    fileName := flag.String("f", "", "The file to translate into speech")
+    flag.Parse()
+
+    if *fileName == "" {
+        fmt.Println("You must supply a file name (-f FILENAME)")
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := polly.New(sess)
+
+    output, err := MakeSpeech(svc, fileName)
+    if err != nil {
+        fmt.Println("Got an error calling SynthesizeSpeech:")
+        fmt.Print(err)
+        return
+    }
+
+    // Save as MP3
+    names := strings.Split(*fileName, ".")
+    name := names[0]
+    mp3File := name + ".mp3"
+
+    outFile, err := os.Create(mp3File)
+    if err != nil {
+        fmt.Println("Got an error creating the file " + mp3File + ":")
+        fmt.Print(err)
+        return
+    }
+
+    defer outFile.Close()
+    _, err = io.Copy(outFile, output.AudioStream)
+    if err != nil {
+        fmt.Println("Got an error saving the MP3 to the file:")
+        fmt.Print(err)
+        return
+    }
+}
+</programlisting>

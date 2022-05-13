@@ -1,0 +1,19 @@
+    public static void getKeys(AppSyncClient appSyncClient, String apiId) {
+
+        try {
+            ListApiKeysRequest request = ListApiKeysRequest.builder()
+                    .apiId(apiId)
+                    .build();
+
+            ListApiKeysResponse response = appSyncClient.listApiKeys(request);
+            List<ApiKey> keys = response.apiKeys();
+            for (ApiKey key: keys) {
+                System.out.println("The key Id is : "+key.id());
+            }
+
+        } catch (AppSyncException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+}

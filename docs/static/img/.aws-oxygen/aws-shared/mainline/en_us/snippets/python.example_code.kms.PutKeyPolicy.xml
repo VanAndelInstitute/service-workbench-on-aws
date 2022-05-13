@@ -1,0 +1,37 @@
+<programlisting>
+    def set_policy(self, key_id, policy):
+        """
+        Sets the policy of a key. Setting a policy entirely overwrites the existing
+        policy, so care is taken to add a statement to the existing list of statements
+        rather than simply writing a new policy.
+
+        :param key_id: The ARN or ID of the key to set the policy to.
+        :param policy: The existing policy of the key.
+        """
+        user = input("Enter the ARN of an IAM user to set as the principal on the policy: ")
+        if key_id != '' and user != '':
+            # The updated policy replaces the existing policy. Add a new statement to
+            # the list along with the original policy statements.
+            policy['Statement'].append({
+                "Sid": "Allow access for ExampleUser",
+                "Effect": "Allow",
+                "Principal": {"AWS": user},
+                "Action": [
+                    "kms:Encrypt",
+                    "kms:GenerateDataKey*",
+                    "kms:Decrypt",
+                    "kms:DescribeKey",
+                    "kms:ReEncrypt*"],
+                "Resource": "*"})
+            try:
+                self.kms_client.put_key_policy(
+                    KeyId=key_id, PolicyName='default', Policy=json.dumps(policy))
+            except ClientError as err:
+                logger.error(
+                    "Couldn't set policy for key %s. Here's why %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                print(f"Set policy for key {key_id}.")
+        else:
+            print("Skipping set policy demo.")
+</programlisting>

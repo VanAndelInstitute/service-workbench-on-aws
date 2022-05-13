@@ -1,0 +1,4 @@
+<programlisting>
+    fmt.Println("Website Configuration:")
+    fmt.Println(result)
+</programlisting>

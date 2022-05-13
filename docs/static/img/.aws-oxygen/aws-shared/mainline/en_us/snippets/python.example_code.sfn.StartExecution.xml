@@ -1,0 +1,25 @@
+<programlisting>
+    def start_run(self, run_name, run_input=None):
+        """
+        Starts a run with the current state definition.
+
+        :param run_name: The name of the run. This name must be unique for all runs
+                         for the state machine.
+        :param run_input: Data that is passed as input to the run.
+        :return: The ARN of the run.
+        """
+        if self.state_machine_arn is None:
+            raise ValueError
+        try:
+            kwargs = {'stateMachineArn': self.state_machine_arn, 'name': run_name}
+            if run_input is not None:
+                kwargs['input'] = json.dumps(run_input)
+            response = self.stepfunctions_client.start_execution(**kwargs)
+            run_arn = response['executionArn']
+            logger.info("Started run %s. ARN is %s.", run_name, run_arn)
+        except ClientError:
+            logger.exception("Couldn't start run %s.", run_name)
+            raise
+        else:
+            return run_arn
+</programlisting>

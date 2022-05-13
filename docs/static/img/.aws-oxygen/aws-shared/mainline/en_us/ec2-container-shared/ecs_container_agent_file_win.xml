@@ -1,0 +1,229 @@
+<!DOCTYPE table PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<table frame="all">
+        <tgroup cols="4">
+                <colspec colname="c1" colnum="1"/>
+                <colspec colname="c2" colnum="2"/>
+                <colspec colname="c3" colnum="3"/>
+                <colspec colname="c4" colnum="4"/>
+                <thead>
+                        <row>
+                                <entry>Region</entry>
+                                <entry>Region Name</entry>
+                                <entry>Container agent</entry>
+                                <entry>Container agent signature</entry>
+                        </row>
+                </thead>
+                <tbody>
+                        <row>
+                                <entry>us-east-2</entry>
+                                <entry>&region-us-east-2;</entry>
+                                <entry><ulink
+                                        url="http://s3-us-east-2.amazonaws.com/amazon-ecs-agent-us-east-2/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-us-east-2.amazonaws.com/amazon-ecs-agent-us-east-2/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>us-east-1</entry>
+                                <entry>&region-us-east-1;</entry>
+                                <entry><ulink
+                                        url="http://s3.amazonaws.com/amazon-ecs-agent-us-east-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3.amazonaws.com/amazon-ecs-agent-us-east-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>us-west-1</entry>
+                                <entry>&region-us-west-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-us-west-1.amazonaws.com/amazon-ecs-agent-us-west-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-us-west-1.amazonaws.com/amazon-ecs-agent-us-west-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>us-west-2</entry>
+                                <entry>&region-us-west-2;</entry>
+                                <entry><ulink
+                                        url="http://s3-us-west-2.amazonaws.com/amazon-ecs-agent-us-west-2/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-us-west-2.amazonaws.com/amazon-ecs-agent-us-west-2/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-east-1</entry>
+                                <entry>&region-ap-east-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-east-1.amazonaws.com/amazon-ecs-agent-ap-east-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-east-1.amazonaws.com/amazon-ecs-agent-ap-east-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-northeast-1</entry>
+                                <entry>&region-ap-northeast-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-northeast-1.amazonaws.com/amazon-ecs-agent-ap-northeast-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-northeast-1.amazonaws.com/amazon-ecs-agent-ap-northeast-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-northeast-2</entry>
+                                <entry>&region-ap-northeast-2;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-northeast-2.amazonaws.com/amazon-ecs-agent-ap-northeast-2/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-northeast-2.amazonaws.com/amazon-ecs-agent-ap-northeast-2/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-south-1</entry>
+                                <entry>&region-ap-south-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-south-1.amazonaws.com/amazon-ecs-agent-ap-south-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-south-1.amazonaws.com/amazon-ecs-agent-ap-south-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-southeast-1</entry>
+                                <entry>&region-ap-southeast-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-southeast-1.amazonaws.com/amazon-ecs-agent-ap-southeast-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-southeast-1.amazonaws.com/amazon-ecs-agent-ap-southeast-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ap-southeast-2</entry>
+                                <entry>&region-ap-southeast-2;</entry>
+                                <entry><ulink
+                                        url="http://s3-ap-southeast-2.amazonaws.com/amazon-ecs-agent-ap-southeast-2/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ap-southeast-2.amazonaws.com/amazon-ecs-agent-ap-southeast-2/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>ca-central-1</entry>
+                                <entry>&region-ca-central-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-ca-central-1.amazonaws.com/amazon-ecs-agent-ca-central-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-ca-central-1.amazonaws.com/amazon-ecs-agent-ca-central-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>eu-central-1</entry>
+                                <entry>&region-eu-central-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-eu-central-1.amazonaws.com/amazon-ecs-agent-eu-central-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-eu-central-1.amazonaws.com/amazon-ecs-agent-eu-central-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>eu-west-1</entry>
+                                <entry>&region-eu-west-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-1.amazonaws.com/amazon-ecs-agent-eu-west-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-1.amazonaws.com/amazon-ecs-agent-eu-west-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>eu-west-2</entry>
+                                <entry>&region-eu-west-2;</entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-2.amazonaws.com/amazon-ecs-agent-eu-west-2/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-2.amazonaws.com/amazon-ecs-agent-eu-west-2/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>eu-west-3</entry>
+                                <entry>&region-eu-west-3;</entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-3.amazonaws.com/amazon-ecs-agent-eu-west-3/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-eu-west-3.amazonaws.com/amazon-ecs-agent-eu-west-3/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>sa-east-1</entry>
+                                <entry>&region-sa-east-1;</entry>
+                                <entry><ulink
+                                        url="http://s3-sa-east-1.amazonaws.com/amazon-ecs-agent-sa-east-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-sa-east-1.amazonaws.com/amazon-ecs-agent-sa-east-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>cn-north-1</entry>
+                                <entry>&region-cn-north-1;</entry>
+                                <entry><ulink
+                                        url="http://s3.cn-north-1.amazonaws.com.cn/amazon-ecs-agent-cn-north-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3.cn-north-1.amazonaws.com.cn/amazon-ecs-agent-cn-north-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>cn-northwest-1</entry>
+                                <entry>&region-cn-northwest-1;</entry>
+                                <entry><ulink
+                                        url="http://s3.cn-northwest-1.amazonaws.com.cn/amazon-ecs-agent-cn-northwest-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3.cn-northwest-1.amazonaws.com.cn/amazon-ecs-agent-cn-northwest-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>us-gov-east-1</entry>
+                                <entry>&govuseast1-name;</entry>
+                                <entry><ulink
+                                        url="http://s3-us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-us-gov-east-1.amazonaws.com/amazon-ecs-agent-us-gov-east-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                        <row>
+                                <entry>us-gov-west-1</entry>
+                                <entry>&govuswest1-name;</entry>
+                                <entry><ulink
+                                        url="http://s3-us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/ecs-agent-windows-latest.zip"
+                                        >ECS container agent</ulink></entry>
+                                <entry><ulink
+                                        url="http://s3-us-gov-west-1.amazonaws.com/amazon-ecs-agent-us-gov-west-1/ecs-agent-windows-latest.zip.asc"
+                                        >PGP signature</ulink></entry>
+                        </row>
+                </tbody>
+        </tgroup>
+</table>

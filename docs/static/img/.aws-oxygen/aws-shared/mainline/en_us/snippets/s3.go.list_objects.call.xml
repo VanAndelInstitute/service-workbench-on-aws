@@ -1,0 +1,6 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    // Get the list of items
+    resp, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{Bucket: bucket})
+</programlisting>

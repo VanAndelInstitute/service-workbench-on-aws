@@ -1,0 +1,20 @@
+    def detect_syntax(self, text, language_code):
+        """
+        Detects syntactical elements of a document. Syntax tokens are portions of
+        text along with their use as parts of speech, such as nouns, verbs, and
+        interjections.
+
+        :param text: The document to inspect.
+        :param language_code: The language of the document.
+        :return: The list of syntax tokens along with their confidence scores.
+        """
+        try:
+            response = self.comprehend_client.detect_syntax(
+                Text=text, LanguageCode=language_code)
+            tokens = response['SyntaxTokens']
+            logger.info("Detected %s syntax tokens.", len(tokens))
+        except ClientError:
+            logger.exception("Couldn't detect syntax.")
+            raise
+        else:
+            return tokens

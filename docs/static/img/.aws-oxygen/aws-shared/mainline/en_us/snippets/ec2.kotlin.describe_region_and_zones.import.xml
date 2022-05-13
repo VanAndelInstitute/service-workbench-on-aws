@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.ec2.Ec2Client
+import aws.sdk.kotlin.services.ec2.model.DescribeRegionsRequest
+import aws.sdk.kotlin.services.ec2.model.DescribeAvailabilityZonesRequest
+</programlisting>

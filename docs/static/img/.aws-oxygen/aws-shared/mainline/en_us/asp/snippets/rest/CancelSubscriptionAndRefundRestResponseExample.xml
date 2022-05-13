@@ -1,0 +1,11 @@
+<CancelSubscriptionAndRefundResponse 
+  xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <CancelSubscriptionAndRefundResult>
+    <RefundTransactionId>
+      14GKE3B85HCMF1BTSH5C4PD2IHZL95RJ2LM
+    </RefundTransactionId>
+  </CancelSubscriptionAndRefundResult>
+  <ResponseMetadata>
+    <RequestId>bfbc0b1e-3430-4a74-a75e-5292f59107ca:0</RequestId>
+  </ResponseMetadata>
+</CancelSubscriptionAndRefundResponse>

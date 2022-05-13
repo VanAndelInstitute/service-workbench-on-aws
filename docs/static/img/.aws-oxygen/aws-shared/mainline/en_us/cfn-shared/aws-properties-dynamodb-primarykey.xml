@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- DynamoDB Primary Key -->
+<section id="aws-properties-dynamodb-primarykey" role="topic">
+   <title id="aws-properties-dynamodb-primarykey.title">DynamoDB Primary Key</title>
+
+   <para>Describes an &DDB; primary key for an <link linkend="aws-resource-dynamodb-table"
+      endterm="aws-resource-dynamodb-table.title"/> resource.</para>
+
+   <para>There are two types of primary key types: <emphasis>hash</emphasis> type primary keys, and <emphasis>hash and
+         range</emphasis> type primary keys:</para>
+
+   <itemizedlist>
+      <listitem>
+         <para>A hash type primary key creates a table that has an unordered hash index based on the
+               <parameter>AttributeName</parameter> of the <property>HashKeyElement</property>.</para>
+      </listitem>
+      <listitem>
+         <para>A hash and range type primary key creates a table that has both an unordered hash index based on the
+               <parameter>AttributeName</parameter> of the <property>HashKeyElement</property>, and an ordered hash
+            index based on the <parameter>AttributeName</parameter> of the <property>RangeKeyElement</property>.</para>
+      </listitem>
+   </itemizedlist>
+
+   <para>For a complete discussion of &DDB; primary keys, see <ulink
+      url="http://&domain;/amazondynamodb/2011-12-05/developerguide/DataModel.html#DataModelPrimaryKey">Primary
+      Key</ulink> in the <citetitle>&DDB; Developer Guide</citetitle>.</para>
+
+   <section>
+      <title>Syntax</title>
+      <programlisting condition="json">
+{
+   "HashKeyElement": {
+      "<link linkend="cfn-dynamodb-primarykey-attributename">AttributeName</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-dynamodb-primarykey-attributetype">AttributeType</link>" : <replaceable>String</replaceable>
+   },
+   "RangeKeyElement" : {
+      "<link linkend="cfn-dynamodb-primarykey-attributename">AttributeName</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-dynamodb-primarykey-attributetype">AttributeType</link>" : <replaceable>String</replaceable>
+   }
+   }</programlisting>
+   	
+   	<programlisting condition="yaml">HashKeyElement: 
+  <link linkend="cfn-dynamodb-primarykey-attributename">AttributeName</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-dynamodb-primarykey-attributetype">AttributeType</link>: <replaceable>String</replaceable>
+RangeKeyElement: 
+  <link linkend="cfn-dynamodb-primarykey-attributename">AttributeName</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-dynamodb-primarykey-attributetype">AttributeType</link>: <replaceable>String</replaceable></programlisting>
+   </section>
+
+   <section>
+      <title>Parameters</title>
+      <para>Each element type has an AttributeName and AttributeType, defined as follows:</para>
+      <variablelist>
+         <varlistentry id="cfn-dynamodb-primarykey-attributename">
+            <term>AttributeName</term>
+            <listitem>
+               <para>The name of the attribute that will serve as the primary key for this table. Primary key element
+                  names can be 1 &ndash; 255 characters long and have no character restrictions.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-dynamodb-primarykey-attributetype">
+            <term>AttributeType</term>
+            <listitem>
+               <para>The type of this attribute. This must be either "S" for string data, or "N" for numeric
+                  data.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+      <note>
+         <para>For detailed information about the limits of primary key values in &DDB;, see <ulink
+               url="http://&domain;/amazondynamodb/2011-12-05/developerguide/Limits.html">Limits in
+               Amazon DynamoDB</ulink> in the <citetitle>&DDB; Developer Guide</citetitle>.</para>
+      </note>
+   </section>
+
+   <section>
+      <title>Examples</title>
+      <para>For an example of a declared primary key, see <link linkend="aws-resource-dynamodb-table"
+            endterm="aws-resource-dynamodb-table.title"/>.</para>
+   </section>
+</section>

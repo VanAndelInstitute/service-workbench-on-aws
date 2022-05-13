@@ -1,0 +1,29 @@
+<programlisting>
+
+        /// <summary>
+        /// This method adds Amazon S3 readonly permissions to the group
+        /// created earlier.
+        /// </summary>
+        /// <param name="client">The IAM client object.</param>
+        /// <param name="group">The name of the group to create.</param>
+        /// <returns>Returns a boolean value that indicates the success of the
+        /// PutGroupPolicyAsync call.</returns>
+        public static async Task<bool> AddGroupPermissionsAsync(AmazonIdentityManagementServiceClient client, Group group)
+        {
+            // Add appropriate permissions so the new user can access S3 on
+            // a readonly basis.
+            var groupPolicyRequest = new PutGroupPolicyRequest
+            {
+                GroupName = group.GroupName,
+                PolicyName = PolicyName,
+                PolicyDocument = S3FullAccessPolicy,
+            };
+
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
+            var response = await client.PutGroupPolicyAsync(groupPolicyRequest);
+            Console.WriteLine($"Successfully added S3 full access access policy to {group.GroupName}.");
+
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+
+</programlisting>

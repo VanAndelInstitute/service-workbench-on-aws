@@ -1,0 +1,8 @@
+    topic := flag.String("t", "", "The name of the topic")
+    flag.Parse()
+
+    if *topic == "" {
+        fmt.Println("You must supply the name of the topic")
+        fmt.Println("-t TOPIC")
+        return
+    }

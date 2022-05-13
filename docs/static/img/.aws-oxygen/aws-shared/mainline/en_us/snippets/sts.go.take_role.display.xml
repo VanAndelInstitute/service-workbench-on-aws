@@ -1,0 +1,4 @@
+<programlisting>
+    fmt.Println(result.AssumedRoleUser)
+    // credentials := *result.Credentials
+</programlisting>

@@ -1,0 +1,13 @@
+
+    def api_url(self, resource=None):
+        """
+        Builds the REST API URL from its parts.
+
+        :param resource: The resource path to append to the base URL.
+        :return: The REST URL to the specified resource.
+        """
+        url = (f'https://{self.api_id}.execute-api.{self.apig_client.meta.region_name}'
+               f'.amazonaws.com/{self.stage}')
+        if resource is not None:
+            url = f'{url}/{resource}'
+        return url

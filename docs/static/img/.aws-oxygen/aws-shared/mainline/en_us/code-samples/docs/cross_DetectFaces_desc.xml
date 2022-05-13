@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code example shows how to:</para>
+    <itemizedlist>
+        <listitem><para>Save an image in an &S3long; &S3;) bucket.</para></listitem>
+        <listitem><para>Use &REKlong; (&REK;) to detect facial details, such as age range, gender, and emotion (smiling, etc.).</para></listitem>
+        <listitem><para>Display those details.</para></listitem>
+    </itemizedlist>
+</block>

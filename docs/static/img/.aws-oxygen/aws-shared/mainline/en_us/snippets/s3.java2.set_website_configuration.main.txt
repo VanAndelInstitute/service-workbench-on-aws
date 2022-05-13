@@ -1,0 +1,22 @@
+    public static void setWebsiteConfig( S3Client s3,
+                                         String bucketName,
+                                         String indexDoc) {
+
+        try {
+            WebsiteConfiguration websiteConfig = WebsiteConfiguration.builder()
+                .indexDocument(IndexDocument.builder().suffix(indexDoc).build())
+                .build();
+
+            PutBucketWebsiteRequest pubWebsiteReq = PutBucketWebsiteRequest.builder()
+                .bucket(bucketName)
+                .websiteConfiguration(websiteConfig)
+                .build();
+
+            s3.putBucketWebsite(pubWebsiteReq);
+            System.out.println("The call was successful");
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- Fn::Join -->
+<section id="intrinsic-function-reference-join" role="topic">
+   <title id="intrinsic-function-reference-join.title">Fn::Join</title>
+   
+   <para>The intrinsic function <function>Fn::Join</function> appends a set of values into a single value, separated
+      by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no
+      delimiter.</para>
+
+   <section>
+      <title>Declaration</title>
+      <para>"Fn::Join" : [ "<parameter>delimiter</parameter>", [ <replaceable>comma-delimited list of
+         values</replaceable> ] ]</para>
+   </section>
+
+   <section>
+      <title>Parameters</title>
+      <variablelist>
+         <varlistentry>
+            <term>delimiter</term>
+            <listitem>
+               <simpara>The value you want to occur between fragments. The delimiter will occur between fragments only. It
+                  will not terminate the final value.</simpara>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>listOfValues</term>
+            <listitem>
+               <simpara>The list of values you want combined.</simpara>               
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Value</title><para>The combined string.</para>
+   </section>
+
+   <section>
+      <title>Example</title>
+      <programlisting format="linespecific">"Fn::Join" : [ ":", [ "a", "b", "c" ] ]</programlisting>
+      <para>This example returns: <returnvalue>"a:b:c"</returnvalue>.</para>
+   </section>
+</section>
+

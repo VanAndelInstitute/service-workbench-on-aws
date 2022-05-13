@@ -1,0 +1,9 @@
+    svc := s3.New(sess)
+
+    _, err := svc.PutObject(&s3.PutObjectInput{
+        Body:                 strings.NewReader(*object),
+        Bucket:               bucket,
+        Key:                  object,
+        ServerSideEncryption: aws.String("aws:kms"),
+        SSEKMSKeyId:          kmsKey,
+    })

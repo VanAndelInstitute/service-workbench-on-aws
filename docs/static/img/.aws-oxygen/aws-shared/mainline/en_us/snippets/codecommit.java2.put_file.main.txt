@@ -1,0 +1,35 @@
+    public static void uploadFile(CodeCommitClient codeCommitClient,
+                                  String filePath,
+                                  String repoName,
+                                  String branchName,
+                                  String email,
+                                  String name,
+                                  String repoPath,
+                                  String commitId ){
+
+        try {
+            // Create an SdkBytes object that represents the file to upload
+            File myFile = new File(filePath);
+            InputStream is = new FileInputStream(myFile);
+            SdkBytes fileToUpload = SdkBytes.fromInputStream(is);
+
+            PutFileRequest fileRequest = PutFileRequest.builder()
+                .fileContent(fileToUpload)
+                .repositoryName(repoName)
+                .commitMessage("Uploaded via the Java API")
+                .branchName(branchName)
+                .filePath(repoPath)
+                .parentCommitId(commitId)
+                .email(email)
+                .name(name)
+                .build();
+
+            // Upload file to the branch
+            PutFileResponse fileResponse = codeCommitClient.putFile(fileRequest);
+            System.out.println("The commit ID is "+fileResponse.commitId());
+
+        } catch (CodeCommitException | FileNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

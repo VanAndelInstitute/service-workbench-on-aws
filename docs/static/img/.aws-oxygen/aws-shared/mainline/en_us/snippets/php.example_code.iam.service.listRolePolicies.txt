@@ -1,0 +1,13 @@
+    public function listRolePolicies($roleName, $marker = "", $maxItems = 0)
+    {
+        $listRolePoliciesArguments = ['RoleName' => $roleName];
+        if ($marker) {
+            $listRolePoliciesArguments['Marker'] = $marker;
+        }
+        if ($maxItems) {
+            $listRolePoliciesArguments['MaxItems'] = $maxItems;
+        }
+        return $this->customWaiter(function () use ($listRolePoliciesArguments) {
+            return $this->iamClient->listRolePolicies($listRolePoliciesArguments);
+        });
+    }

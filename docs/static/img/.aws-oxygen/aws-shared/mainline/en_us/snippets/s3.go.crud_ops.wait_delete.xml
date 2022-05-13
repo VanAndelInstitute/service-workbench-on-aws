@@ -1,0 +1,5 @@
+<programlisting>
+    err := svc.WaitUntilBucketNotExists(&s3.HeadBucketInput{
+        Bucket: bucket,
+    })
+</programlisting>

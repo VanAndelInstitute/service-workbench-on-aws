@@ -1,0 +1,11 @@
+<programlisting>
+    fmt.Println("Topic ARN")
+    fmt.Println("Subscription ARN")
+    fmt.Println("-------------------------")
+    for _, s := range result.Subscriptions {
+        fmt.Println(*s.TopicArn)
+        fmt.Println(*s.SubscriptionArn)
+
+        fmt.Println("")
+    }
+</programlisting>

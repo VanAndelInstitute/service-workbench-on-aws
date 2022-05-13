@@ -1,0 +1,24 @@
+<programlisting>
+# Checks whether the specified AWS Identity and Access Management (IAM)
+# role exists among those provided to this function.
+# This is a helper function that is called by the role_exists? function.
+#
+# @param roles [Array] An array of Aws::IAM::Role objects.
+# @param role_arn [String] The ARN of the role to find.
+# @return [Boolean] true if the role ARN was found; otherwise, false.
+# @example
+#   iam_client = Aws::IAM::Client.new(region: 'us-east-1')
+#   response = iam_client.list_roles
+#   if role_found?(
+#     response.roles,
+#     'arn:aws:iam::111111111111:role/aws-doc-sdk-examples-ec2-state-change'
+#   )
+#     puts 'Role found.'
+#   end
+def role_found?(roles, role_arn)
+  roles.each do |role|
+    return true if role.arn == role_arn
+  end
+  return false
+end
+</programlisting>

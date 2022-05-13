@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JavaV2;</term>
+        <listitem>
+            <block>
+                <para>Create functions that wrap &IAM; user actions.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="java"><xi:include parse="text" href="file://AWSShared/snippets/iam.java2.scenario.main.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-javaV2-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy">AttachRolePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey">CreateAccessKey</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy">CreatePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/CreateRole">CreateRole</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/CreateUser">CreateUser</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DeleteAccessKey">DeleteAccessKey</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DeletePolicy">DeletePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DeleteRole">DeleteRole</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DeleteUser">DeleteUser</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DeleteUserPolicy">DeleteUserPolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/DetachRolePolicy">DetachRolePolicy</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/SdkForJavaV2/iam-2010-05-08/PutUserPolicy">PutUserPolicy</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

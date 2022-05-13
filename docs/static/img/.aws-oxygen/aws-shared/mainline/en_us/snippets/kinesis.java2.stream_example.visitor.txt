@@ -1,0 +1,12 @@
+    private static CompletableFuture<Void> responseHandlerBuilderVisitorBuilder(KinesisAsyncClient client, SubscribeToShardRequest request) {
+        SubscribeToShardResponseHandler.Visitor visitor = SubscribeToShardResponseHandler.Visitor
+                .builder()
+                .onSubscribeToShardEvent(e -> System.out.println("Received subscribe to shard event " + e))
+                .build();
+        SubscribeToShardResponseHandler responseHandler = SubscribeToShardResponseHandler
+                .builder()
+                .onError(t -> System.err.println("Error during stream - " + t.getMessage()))
+                .subscriber(visitor)
+                .build();
+        return client.subscribeToShard(request, responseHandler);
+    }

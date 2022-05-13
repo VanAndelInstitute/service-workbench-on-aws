@@ -1,0 +1,41 @@
+<programlisting>
+    def send_templated_email(
+            self, source, destination, template_name, template_data,
+            reply_tos=None):
+        """
+        Sends an email based on a template. A template contains replaceable tags
+        each enclosed in two curly braces, such as {{name}}. The template data passed
+        in this function contains key-value pairs that define the values to insert
+        in place of the template tags.
+
+        Note: If your account is in the Amazon SES  sandbox, the source and
+        destination email accounts must both be verified.
+
+        :param source: The source email account.
+        :param destination: The destination email account.
+        :param template_name: The name of a previously created template.
+        :param template_data: JSON-formatted key-value pairs of replacement values
+                              that are inserted in the template before it is sent.
+        :return: The ID of the message, assigned by Amazon SES.
+        """
+        send_args = {
+            'Source': source,
+            'Destination': destination.to_service_format(),
+            'Template': template_name,
+            'TemplateData': json.dumps(template_data)
+        }
+        if reply_tos is not None:
+            send_args['ReplyToAddresses'] = reply_tos
+        try:
+            response = self.ses_client.send_templated_email(**send_args)
+            message_id = response['MessageId']
+            logger.info(
+                "Sent templated mail %s from %s to %s.", message_id, source,
+                destination.tos)
+        except ClientError:
+            logger.exception(
+                "Couldn't send templated mail from %s to %s.", source, destination.tos)
+            raise
+        else:
+            return message_id
+</programlisting>

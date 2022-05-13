@@ -1,0 +1,13 @@
+    public void encryptionOnly_RangeGet_CustomerManagedKey() throws NoSuchAlgorithmException {
+        SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
+        AmazonS3Encryption s3Encryption = AmazonS3EncryptionClientBuilder
+                .standard()
+                .withRegion(Regions.US_WEST_2)
+                .withCryptoConfiguration(new CryptoConfiguration(CryptoMode.EncryptionOnly))
+                .withEncryptionMaterials(new StaticEncryptionMaterialsProvider(new EncryptionMaterials(secretKey)))
+                .build();
+
+        s3Encryption.putObject(BUCKET_NAME, ENCRYPTED_KEY, "some contents");
+        System.out.println(s3Encryption.getObject(new GetObjectRequest(BUCKET_NAME, ENCRYPTED_KEY)
+                .withRange(0, 2)));
+    }

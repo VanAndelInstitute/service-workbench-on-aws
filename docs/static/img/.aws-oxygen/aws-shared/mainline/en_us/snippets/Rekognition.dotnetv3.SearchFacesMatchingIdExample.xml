@@ -1,0 +1,29 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string collectionId = "MyCollection";
+            string faceId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            // Search collection for faces matching the face id.
+            var searchFacesRequest = new SearchFacesRequest
+            {
+                CollectionId = collectionId,
+                FaceId = faceId,
+                FaceMatchThreshold = 70F,
+                MaxFaces = 2,
+            };
+
+            SearchFacesResponse searchFacesResponse = await rekognitionClient.SearchFacesAsync(searchFacesRequest);
+
+            Console.WriteLine("Face matching faceId " + faceId);
+
+            Console.WriteLine("Matche(s): ");
+            searchFacesResponse.FaceMatches.ForEach(face =>
+            {
+                Console.WriteLine($"FaceId: {face.Face.FaceId} Similarity: {face.Similarity}");
+            });
+        }
+
+</programlisting>

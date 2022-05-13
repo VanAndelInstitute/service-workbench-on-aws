@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="CancelingAService" role="topic">
+    <title id="CancelingAService.title">How to Cancel Your Registration to &ServiceName;</title>
+    <para>You can cancel your registration with &ServiceName; at any time.</para>
+    <orderedlist>
+        <title>To cancel your registration with &ServiceName;</title>
+        <listitem>
+            <para>Go to <ulink url="http://aws.amazon.com">aws.amazon.com</ulink></para>
+        </listitem>
+        <listitem>
+            <para>Point to <guilabel>Your Account</guilabel> and click <guilabel>Account
+                    Activity</guilabel>.</para>
+            <para>The <guilabel>Account Activity</guilabel> page displays.</para>
+        </listitem>
+        <listitem>
+            <para>Click the <guilabel>View/Edit Service</guilabel> link under &ServiceName;.</para>
+            <para>The <guilabel>View/Edit Service </guilabel>page displays.</para>
+        </listitem>
+        <listitem>
+            <para>Click the link, <guilabel>cancel this service</guilabel>. </para>
+            <simpara>This link is typically in the last sentence of the opening paragraph.</simpara>
+        </listitem>
+    </orderedlist>
+</section>

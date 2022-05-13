@@ -1,0 +1,21 @@
+<programlisting>
+    def describe(self, certificate_arn):
+        """
+        Gets certificate metadata.
+
+        :param certificate_arn: The Amazon Resource Name (ARN) of the certificate.
+        :return: Metadata about the certificate.
+        """
+        try:
+            response = self.acm_client.describe_certificate(
+                CertificateArn=certificate_arn)
+            certificate = response['Certificate']
+            logger.info(
+                "Got metadata for certificate for domain %s.",
+                certificate['DomainName'])
+        except ClientError:
+            logger.exception("Couldn't get data for certificate %s.", certificate_arn)
+            raise
+        else:
+            return certificate
+</programlisting>

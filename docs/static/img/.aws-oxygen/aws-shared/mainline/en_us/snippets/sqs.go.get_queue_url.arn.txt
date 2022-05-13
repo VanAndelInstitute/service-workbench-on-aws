@@ -1,0 +1,4 @@
+    parts := strings.Split(*queueURL, "/")
+    subParts := strings.Split(parts[2], ".")
+
+    arn := "arn:aws:" + subParts[0] + ":" + subParts[1] + ":" + parts[3] + ":" + parts[4]

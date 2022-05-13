@@ -1,0 +1,9 @@
+class ConfigWrapper:
+    """
+    Encapsulates AWS Config functions.
+    """
+    def __init__(self, config_client):
+        """
+        :param config_client: A Boto3 AWS Config client.
+        """
+        self.config_client = config_client

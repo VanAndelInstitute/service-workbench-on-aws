@@ -1,0 +1,5 @@
+<programlisting>
+HadoopJarStepConfig hbaseSnapshotConf = new HadoopJarStepConfig()
+  .withJar("command-runner.jar")
+  .withArgs("hbase","snapshot","create","-n","snapshotName","-t","tableName");
+</programlisting>

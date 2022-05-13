@@ -1,0 +1,17 @@
+<programlisting>
+  # Creates a user.
+  #
+  # @param user_name [String] The name to give the user.
+  # @return [Aws::IAM::User] The newly created user.
+  def create_user(user_name)
+    user = @iam_resource.create_user(user_name: user_name)
+    puts("Created demo user named #{user.name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Tried and failed to create demo user.")
+    puts("\t#{e.code}: #{e.message}")
+    puts("\nCan't continue the demo without a user!")
+    raise
+  else
+    user
+  end
+</programlisting>

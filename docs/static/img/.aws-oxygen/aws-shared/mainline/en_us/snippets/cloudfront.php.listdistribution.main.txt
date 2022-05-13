@@ -1,0 +1,34 @@
+function listDistributions($cloudFrontClient)
+{
+    try {
+        $result = $cloudFrontClient->listDistributions([]);
+        return $result;
+    } catch (AwsException $e) {
+        exit('Error: ' . $e->getAwsErrorMessage());
+    }
+}
+
+function listTheDistributions()
+{
+    $cloudFrontClient = new Aws\CloudFront\CloudFrontClient([
+        'profile' => 'default',
+        'version' => '2018-06-18',
+        'region' => 'us-east-2'
+    ]);
+
+    $distributions = listDistributions($cloudFrontClient);
+
+    if (count($distributions) == 0)
+    {
+        echo 'Could not find any distributions.';
+    } else {
+        foreach ($distributions['DistributionList']['Items'] as $distribution)
+        {
+            echo 'The distribution with the ID of ' . $distribution['Id'] . 
+                ' has the status of ' . $distribution['Status'] . '.' . "\n";
+        }
+    }
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// listTheDistributions();

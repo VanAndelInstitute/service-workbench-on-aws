@@ -1,0 +1,26 @@
+<programlisting>
+	fmt.Println("Download a file")
+	getObjectResponse, err := client.GetObject(context.TODO(), &s3.GetObjectInput{
+		Bucket: aws.String(name),
+		Key:    aws.String("path/myfile.jpg"),
+	})
+
+	if err == nil {
+		file, err = os.Create("download.jpg")
+
+		if err != nil {
+			panic("didnt open file to write: " + err.Error())
+		}
+		written, err := io.Copy(file, getObjectResponse.Body)
+		if err != nil {
+			panic("Failed to write file contents! " + err.Error())
+		} else if written != getObjectResponse.ContentLength {
+			panic("wrote a different size than was given to us")
+		}
+		fmt.Println("Done pulling file")
+		file.Close()
+
+	} else {
+		panic("Couldn't download object")
+	}
+</programlisting>

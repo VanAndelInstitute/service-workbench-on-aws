@@ -1,0 +1,21 @@
+<programlisting>
+suspend fun getText(text: String,botNameVal:String, botAliasVal:String ): String? {
+
+        val userIdVal = "chatbot-demo"
+        val sessionAttributesVal =  mutableMapOf<String, String>()
+
+        val request = PostTextRequest {
+            botName = botNameVal
+            botAlias = botAliasVal
+            inputText=text
+            userId = userIdVal
+            sessionAttributes = sessionAttributesVal
+        }
+
+        LexRuntimeClient { region = "us-west-2" }.use { lexClient ->
+          val textResponse = lexClient.postText(request)
+          val message = textResponse.message
+          return message
+        }
+}
+</programlisting>

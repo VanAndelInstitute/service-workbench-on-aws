@@ -1,0 +1,77 @@
+<programlisting>
+$jobSetting = [
+    "OutputGroups" => [
+        [
+            "Name" => "File Group",
+            "OutputGroupSettings" => [
+                "Type" => "FILE_GROUP_SETTINGS",
+                "FileGroupSettings" => [
+                    "Destination" => "s3://OUTPUT_BUCKET_NAME/"
+                ]
+            ],
+            "Outputs" => [
+                [
+                    // Will use default Audio Source 1
+                    "Preset" => "System-Generic_Hd_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps",
+                    "NameModifier" => "_1"
+                ],
+                [
+                    // Will use Audio Source 2 via overloading the parameter
+                    "Preset" => "System-Generic_Hd_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps",
+                    "NameModifier" => "_2",
+                    "AudioDescriptions" => [
+                        [
+                            "AudioSourceName" => "Audio Selector 2",
+                            "Codec" => "AAC",
+                            "CodecSettings" => [
+                                "AacSettings" => [
+                                    "CodingMode" => 'CODING_MODE_2_0',
+                                    "SampleRate" => 48000
+                            ],
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ],
+    "AdAvailOffset" => 0,
+    "Inputs" => [
+        [
+            "AudioSelectors" => [
+                "Audio Selector 1" => [
+                    "Offset" => 0,
+                    "DefaultSelection" => "NOT_DEFAULT",
+                    "ProgramSelection" => 1,
+                    "SelectorType" => "TRACK",
+                    "Tracks" => [
+                        1
+                    ]
+                ],
+                "Audio Selector 2" => [
+                    "Offset" => 0,
+                    "DefaultSelection" => "NOT_DEFAULT",
+                    "ProgramSelection" => 1,
+                    "SelectorType" => "TRACK",
+                    "Tracks" => [
+                        2
+                    ]
+                ]
+            ],
+            "VideoSelector" => [
+                "ColorSpace" => "FOLLOW"
+            ],
+            "FilterEnable" => "AUTO",
+            "PsiControl" => "USE_PSI",
+            "FilterStrength" => 0,
+            "DeblockFilter" => "DISABLED",
+            "DenoiseFilter" => "DISABLED",
+            "TimecodeSource" => "EMBEDDED",
+            "FileInput" => "s3://INPUT_BUCKET_AND_FILE_NAME"
+        ]
+    ],
+    "TimecodeConfig" => [
+        "Source" => "EMBEDDED"
+    ]
+];
+</programlisting>

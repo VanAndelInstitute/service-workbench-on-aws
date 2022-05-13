@@ -1,0 +1,15 @@
+<programlisting>
+$transcoder_client = new ElasticTranscoderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2012-09-25',
+]);
+
+try {
+    $result = $transcoder_client -> listPipelines([]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+</programlisting>

@@ -1,0 +1,14 @@
+<programlisting>
+    @classmethod
+    def from_bucket(cls, s3_object, rekognition_client):
+        """
+        Creates a RekognitionImage object from an Amazon S3 object.
+
+        :param s3_object: An Amazon S3 object that identifies the image. The image
+                          is not retrieved until needed for a later call.
+        :param rekognition_client: A Boto3 Rekognition client.
+        :return: The RekognitionImage object, initialized with Amazon S3 object data.
+        """
+        image = {'S3Object': {'Bucket': s3_object.bucket_name, 'Name': s3_object.key}}
+        return cls(image, s3_object.key, rekognition_client)
+</programlisting>

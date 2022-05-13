@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&JSB; V3</term>
+        <listitem>
+            <block>
+                <para>Create the client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/dynamodb.JavaScript.scenario.basics.createclientv3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create the &DDB; document client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/dynamodb.JavaScript.scenario.basics.createdocclientv3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Update an item in a table using the &DDB; document client.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/dynamodb.JavaScript.movies.updateItemV3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Update an item in a table using PartiQL.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/dynamodb.JavaScript.partiQL.updateItemV3.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Update items by batch in a table using PartiQL.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="javascript"><xi:include parse="text" href="file://AWSShared/snippets/dynamodb.JavaScript.partiQL.updateItemsV3.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        For API details, see
+                        <ulink type="documentation" url="AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/classes/updateitemcommand.html">UpdateItem</ulink>
+                        in <emphasis>&guide-jsb-api;</emphasis>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

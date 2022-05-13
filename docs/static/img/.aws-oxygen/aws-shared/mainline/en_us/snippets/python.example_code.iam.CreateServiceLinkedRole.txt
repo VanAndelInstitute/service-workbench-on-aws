@@ -1,0 +1,18 @@
+def create_service_linked_role(service_name, description):
+    """
+    Creates a service-linked role.
+
+    :param service_name: The name of the service that owns the role.
+    :param description: A description to give the role.
+    :return: The newly created role.
+    """
+    try:
+        response = iam.meta.client.create_service_linked_role(
+            AWSServiceName=service_name, Description=description)
+        role = iam.Role(response['Role']['RoleName'])
+        logger.info("Created service-linked role %s.", role.name)
+    except ClientError:
+        logger.exception("Couldn't create service-linked role for %s.", service_name)
+        raise
+    else:
+        return role

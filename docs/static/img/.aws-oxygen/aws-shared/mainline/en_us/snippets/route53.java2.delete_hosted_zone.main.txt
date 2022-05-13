@@ -1,0 +1,15 @@
+    public static void delHostedZone(Route53Client route53Client, String hostedZoneId ) {
+
+        try {
+            DeleteHostedZoneRequest deleteHostedZoneRequestRequest = DeleteHostedZoneRequest.builder()
+                    .id(hostedZoneId)
+                    .build();
+
+            route53Client.deleteHostedZone(deleteHostedZoneRequestRequest);
+            System.out.println("The hosted zone was deleted");
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

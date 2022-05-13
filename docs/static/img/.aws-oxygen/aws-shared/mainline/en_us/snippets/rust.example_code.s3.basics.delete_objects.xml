@@ -1,0 +1,27 @@
+<programlisting>
+pub async fn delete_objects(client: &Client, bucket_name: &str) -> Result<(), Error> {
+    let objects = client.list_objects_v2().bucket(bucket_name).send().await?;
+
+    let mut delete_objects: Vec<ObjectIdentifier> = vec![];
+    for obj in objects.contents().unwrap_or_default() {
+        let obj_id = ObjectIdentifier::builder()
+            .set_key(Some(obj.key().unwrap().to_string()))
+            .build();
+        delete_objects.push(obj_id);
+    }
+    client
+        .delete_objects()
+        .bucket(bucket_name)
+        .delete(Delete::builder().set_objects(Some(delete_objects)).build())
+        .send()
+        .await?;
+
+    let objects: ListObjectsV2Output = client.list_objects_v2().bucket(bucket_name).send().await?;
+    match objects.key_count {
+        0 => Ok(()),
+        _ => Err(Error::Unhandled(Box::from(
+            "There were still objects left in the bucket.",
+        ))),
+    }
+}
+</programlisting>

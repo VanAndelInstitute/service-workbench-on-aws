@@ -1,0 +1,10 @@
+POST /mps/v1/payauth/98174132432/ HTTP/1.1
+User-Agent: sampleapp/1.0.1
+X-Amz-DvcID: 352099001761481
+X-Amz-DvcMfr: Nokia
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 134
+
+InstrumentId=0h_TU_CUS_bbfd4489-d504-4b20-ad90-2e3ec5c409a5&
+Status=Active

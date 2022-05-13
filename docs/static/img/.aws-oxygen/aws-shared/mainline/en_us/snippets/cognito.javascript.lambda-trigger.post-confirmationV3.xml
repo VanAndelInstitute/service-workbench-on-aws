@@ -1,0 +1,51 @@
+<programlisting>
+
+// Import required AWS SDK clients and commands for Node.js
+const { SES, SendEmailCommand } = require("@aws-sdk/client-ses");
+// Set the AWS Region
+const REGION = "region"; //e.g. "us-east-1"
+const ses = new SES();
+
+exports.handler = async (event, context) => {
+  console.log(event);
+  if (event.request.userAttributes.email) {
+    await sendTheEmail(
+      event.request.userAttributes.email,
+      "Congratulations " + event.userName + ", you have been confirmed:"
+    );
+    {
+      // Return to Amazon Cognito
+      return null, event;
+    }
+  } else {
+    // Nothing to do, the user's email ID is unknown
+    return null, event;
+  }
+};
+
+const sendTheEmail = async (to, body) => {
+  const eParams = {
+    Destination: {
+      ToAddresses: [to],
+    },
+    Message: {
+      Body: {
+        Text: {
+          Data: body,
+        },
+      },
+      Subject: {
+        Data: "Cognito Identity Provider registration completed",
+      },
+    },
+    // Replace source_email with your SES validated email address
+    Source: "<source_email>",
+  };
+  try {
+    const email = await ses.send(new SendEmailCommand(eParams));
+    console.log("===EMAIL SENT===");
+  } catch (err) {
+    console.log(err);
+  }
+};
+</programlisting>

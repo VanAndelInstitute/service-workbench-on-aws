@@ -1,0 +1,7 @@
+<programlisting>
+    svc := sqs.New(sess)
+
+    result, err := svc.GetQueueUrl(&sqs.GetQueueUrlInput{
+        QueueName: queue,
+    })
+</programlisting>

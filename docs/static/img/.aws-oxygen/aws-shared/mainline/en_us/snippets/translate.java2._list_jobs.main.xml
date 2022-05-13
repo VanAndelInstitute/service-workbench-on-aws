@@ -1,0 +1,21 @@
+<programlisting>
+    public static void getTranslationJobs( TranslateClient translateClient) {
+        try {
+        ListTextTranslationJobsRequest textTranslationJobsRequest = ListTextTranslationJobsRequest.builder()
+                .maxResults(10)
+                .build();
+
+        ListTextTranslationJobsResponse jobsResponse = translateClient.listTextTranslationJobs(textTranslationJobsRequest);
+        List<TextTranslationJobProperties> props = jobsResponse.textTranslationJobPropertiesList();
+
+        for (TextTranslationJobProperties prop: props) {
+            System.out.println("The job name is: "+prop.jobName());
+            System.out.println("The job id is: "+prop.jobId());
+        }
+
+    } catch (TranslateException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+ }
+</programlisting>

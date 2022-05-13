@@ -1,0 +1,17 @@
+suspend fun listRedShiftEvents(clusterId: String?, eventSourceType: String) {
+
+   val request = DescribeEventsRequest {
+            sourceIdentifier=clusterId
+            sourceType = SourceType.fromValue(eventSourceType)
+            startTime =aws.smithy.kotlin.runtime.time.Instant.fromEpochSeconds("1634058260")
+            maxRecords = 20
+   }
+
+    RedshiftClient { region = "us-west-2" }.use { redshiftClient ->
+        val eventsResponse = redshiftClient.describeEvents(request)
+        eventsResponse.events?.forEach { event ->
+              println("Source type is ${event.sourceType}")
+              println("Event message is ${event.message}")
+        }
+    }
+  }

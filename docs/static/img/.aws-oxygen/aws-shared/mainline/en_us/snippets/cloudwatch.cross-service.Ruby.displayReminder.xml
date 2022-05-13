@@ -1,0 +1,155 @@
+<programlisting>
+
+# Displays a reminder to the caller to manually clean up any associated
+# AWS resources that they no longer need.
+#
+# @param topic_name [String] The name of the Amazon SNS topic.
+# @param role_name [String] The name of the IAM role.
+# @param rule_name [String] The name of the Amazon EventBridge rule.
+# @param log_group_name [String] The name of the Amazon CloudWatch Logs log group.
+# @param instance_id [String] The ID of the Amazon EC2 instance.
+# @example
+#   manual_cleanup_notice(
+#     'aws-doc-sdk-examples-topic',
+#     'aws-doc-sdk-examples-cloudwatch-events-rule-role',
+#     'aws-doc-sdk-examples-ec2-state-change',
+#     'aws-doc-sdk-examples-cloudwatch-log',
+#     'i-033c48ef067af3dEX'
+#   )
+def manual_cleanup_notice(
+  topic_name, role_name, rule_name, log_group_name, instance_id
+)
+  puts '-' * 10
+  puts 'Some of the following AWS resources might still exist in your account.'
+  puts 'If you no longer want to use this code example, then to clean up'
+  puts 'your AWS account and avoid unexpected costs, you might want to'
+  puts 'manually delete any of the following resources if they exist:'
+  puts "- The Amazon SNS topic named '#{topic_name}'."
+  puts "- The IAM role named '#{role_name}'."
+  puts "- The Amazon EventBridge rule named '#{rule_name}'."
+  puts "- The Amazon CloudWatch Logs log group named '#{log_group_name}'."
+  puts "- The Amazon EC2 instance with the ID '#{instance_id}'."
+end
+
+# Full example call:
+def run_me
+  # Properties for the Amazon SNS topic.
+  topic_name = 'aws-doc-sdk-examples-topic'
+  email_address = 'mary@example.com'
+  # Properties for the IAM role.
+  role_name = 'aws-doc-sdk-examples-cloudwatch-events-rule-role'
+  # Properties for the Amazon EventBridge rule.
+  rule_name = 'aws-doc-sdk-examples-ec2-state-change'
+  rule_description = 'Triggers when any available EC2 instance starts.'
+  instance_state = 'running'
+  target_id = 'sns-topic'
+  # Properties for the Amazon EC2 instance.
+  instance_id = 'i-033c48ef067af3dEX'
+  # Properties for displaying the event rule's activity.
+  start_time = Time.now - 600 # Go back over the past 10 minutes
+                              # (10 minutes * 60 seconds = 600 seconds).
+  end_time = Time.now
+  period = 60 # Look back every 60 seconds over the past 10 minutes.
+  # Properties for the Amazon CloudWatch Logs log group.
+  log_group_name = 'aws-doc-sdk-examples-cloudwatch-log'
+  # AWS service clients for this code example.
+  region = 'us-east-1'
+  sts_client = Aws::STS::Client.new(region: region)
+  sns_client = Aws::SNS::Client.new(region: region)
+  iam_client = Aws::IAM::Client.new(region: region)
+  cloudwatchevents_client = Aws::CloudWatchEvents::Client.new(region: region)
+  ec2_client = Aws::EC2::Client.new(region: region)
+  cloudwatch_client = Aws::CloudWatch::Client.new(region: region)
+  cloudwatchlogs_client = Aws::CloudWatchLogs::Client.new(region: region)
+
+  # Get the caller's account ID for use in forming
+  # Amazon Resource Names (ARNs) that this code relies on later.
+  account_id = sts_client.get_caller_identity.account
+
+  # If the Amazon SNS topic doesn't exist, create it.
+  topic_arn = "arn:aws:sns:#{region}:#{account_id}:#{topic_name}"
+  unless topic_exists?(sns_client, topic_arn)
+    topic_arn = create_topic(sns_client, topic_name, email_address)
+    if topic_arn == 'Error'
+      puts 'Could not create the Amazon SNS topic correctly. Program stopped.'
+      manual_cleanup_notice(
+        topic_name, role_name, rule_name, log_group_name, instance_id
+      )
+      exit 1
+    end
+  end
+
+  # If the IAM role doesn't exist, create it.
+  role_arn = "arn:aws:iam::#{account_id}:role/#{role_name}"
+  unless role_exists?(iam_client, role_arn)
+    role_arn = create_role(iam_client, role_name)
+    if role_arn == 'Error'
+      puts 'Could not create the IAM role correctly. Program stopped.'
+      manual_cleanup_notice(
+        topic_name, role_name, rule_name, log_group_name, instance_id
+      )
+    end
+  end
+
+  # If the Amazon EventBridge rule doesn't exist, create it.
+  unless rule_exists?(cloudwatchevents_client, rule_name)
+    unless rule_created?(
+      cloudwatchevents_client,
+      rule_name,
+      rule_description,
+      instance_state,
+      role_arn,
+      target_id,
+      topic_arn
+    )
+      puts 'Could not create the Amazon EventBridge rule correctly. ' \
+        'Program stopped.'
+      manual_cleanup_notice(
+        topic_name, role_name, rule_name, log_group_name, instance_id
+      )
+    end
+  end
+
+  # If the Amazon CloudWatch Logs log group doesn't exist, create it.
+  unless log_group_exists?(cloudwatchlogs_client, log_group_name)
+    unless log_group_created?(cloudwatchlogs_client, log_group_name)
+      puts 'Could not create the Amazon CloudWatch Logs log group ' \
+      'correctly. Program stopped.'
+      manual_cleanup_notice(
+        topic_name, role_name, rule_name, log_group_name, instance_id
+      )
+    end
+  end
+
+  # Restart the Amazon EC2 instance, which triggers the rule.
+  unless instance_restarted?(
+    ec2_client,
+    cloudwatchlogs_client,
+    instance_id,
+    log_group_name
+  )
+    puts 'Could not restart the instance to trigger the rule. ' \
+      'Continuing anyway to show information about the rule and logs...'
+  end
+
+  # Display how many times the rule was triggered over the past 10 minutes.
+  display_rule_activity(
+    cloudwatch_client,
+    rule_name,
+    start_time,
+    end_time,
+    period
+  )
+
+  # Display related log data in Amazon CloudWatch Logs.
+  display_log_data(cloudwatchlogs_client, log_group_name)
+
+  # Reminder the caller to clean up any AWS resources that are used
+  # by this code example and are no longer needed.
+  manual_cleanup_notice(
+    topic_name, role_name, rule_name, log_group_name, instance_id
+  )
+end
+
+run_me if $PROGRAM_NAME == __FILE__
+</programlisting>

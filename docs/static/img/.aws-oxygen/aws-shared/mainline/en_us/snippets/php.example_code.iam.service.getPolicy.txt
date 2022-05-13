@@ -1,0 +1,6 @@
+    public function getPolicy($policyArn)
+    {
+        return $this->customWaiter(function () use ($policyArn) {
+            return $this->iamClient->getPolicy(['PolicyArn' => $policyArn]);
+        });
+    }

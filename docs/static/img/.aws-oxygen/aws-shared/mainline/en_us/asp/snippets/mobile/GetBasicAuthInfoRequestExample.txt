@@ -1,0 +1,7 @@
+GET /mps/v1/payauth/amzn1.mps.PA28423878234 HTTP/1.1
+User-Agent: sampleapp/1.0.1
+Accept: application/xml
+X-Amz-DvcID: 352099001761481
+X-Amz-DvcMfr: Nokia
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+Content-Length: 0

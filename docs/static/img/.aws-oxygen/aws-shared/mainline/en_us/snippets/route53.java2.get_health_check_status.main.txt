@@ -1,0 +1,18 @@
+    public static void getHealthStatus(Route53Client route53Client, String healthCheckId) {
+
+        try {
+            GetHealthCheckStatusRequest statusRequest = GetHealthCheckStatusRequest.builder()
+                    .healthCheckId(healthCheckId)
+                    .build();
+
+            GetHealthCheckStatusResponse statusResponse = route53Client.getHealthCheckStatus(statusRequest);
+            List<HealthCheckObservation> observations = statusResponse.healthCheckObservations();
+            for (HealthCheckObservation observation: observations) {
+                System.out.println("(The health check observation status: "+observation.statusReport().status());
+            }
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

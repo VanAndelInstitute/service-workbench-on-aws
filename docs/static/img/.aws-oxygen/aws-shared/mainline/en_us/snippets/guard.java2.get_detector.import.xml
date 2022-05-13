@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.guardduty.GuardDutyClient;
+import software.amazon.awssdk.services.guardduty.model.GetDetectorRequest;
+import software.amazon.awssdk.services.guardduty.model.GetDetectorResponse;
+import software.amazon.awssdk.services.guardduty.model.GuardDutyException;
+</programlisting>

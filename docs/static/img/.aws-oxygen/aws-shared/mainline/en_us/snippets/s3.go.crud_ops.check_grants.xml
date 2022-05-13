@@ -1,0 +1,4 @@
+<programlisting>
+    for _, g := range acl.Grants {
+        if *g.Grantee.Type == "Group" && *g.Grantee.URI == "http://acs.amazonaws.com/groups/global/AllUsers" && *g.Permission == "READ" {
+</programlisting>

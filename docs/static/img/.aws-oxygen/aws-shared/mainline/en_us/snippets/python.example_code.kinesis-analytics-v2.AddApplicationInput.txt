@@ -1,0 +1,32 @@
+    def add_input(self, input_prefix, stream_arn, input_schema):
+        """
+        Adds an input stream to the application. The input stream data is mapped
+        to an in-application stream that can be processed by your code running in
+        Kinesis Data Analytics.
+
+        :param input_prefix: The prefix prepended to in-application input stream names.
+        :param stream_arn: The ARN of the input stream.
+        :param input_schema: A schema that maps the data in the input stream to the
+                             runtime environment. This can be automatically generated
+                             by using `discover_input_schema` or you can create it
+                             yourself.
+        :return: Metadata about the newly added input.
+        """
+        try:
+            response = self.analytics_client.add_application_input(
+                ApplicationName=self.name,
+                CurrentApplicationVersionId=self.version_id,
+                Input={
+                    'NamePrefix': input_prefix,
+                    'KinesisStreamsInput': {'ResourceARN': stream_arn},
+                    'InputSchema': input_schema})
+            self.version_id = response['ApplicationVersionId']
+            logger.info(
+                "Add input stream %s to application %s.", stream_arn, self.name)
+        except ClientError:
+            logger.exception(
+                "Couldn't add input stream %s to application %s.", stream_arn,
+                self.name)
+            raise
+        else:
+            return response

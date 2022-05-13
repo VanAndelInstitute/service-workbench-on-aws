@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+]>
+<chapter id="best-practices" role="topic">
+ <info>
+  <title id="best-practices.title">Best Practices for ServiceNameEntity</title>
+  <titleabbrev>Best Practices</titleabbrev>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/bestpractices.html">Best Practices</ulink>.
+  Remove this remark before using this template code in your doc package. Save the file as <emphasis role="bold"
+   >best-practices.xml</emphasis>.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="bestpractice1">
+  <info>
+   <title id="bestpractice1.title">First Best Practice</title>
+  </info>
+  <para>Sample text.</para>
+ </section>
+ <section id="bestpractice2">
+  <info>
+   <title id="bestpractice2.title">Second Best Practice</title>
+  </info>
+  <para>Sample text.</para>
+ </section>
+ <section id="bestpractice3">
+  <info>
+   <title id="bestpractice3.title">Third Best Practice</title>
+  </info>
+  <para>Sample text.</para>
+ </section>
+</chapter>

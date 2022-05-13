@@ -1,0 +1,21 @@
+def create_key_pair(key_name, private_key_file_name=None):
+    """
+    Creates a key pair that can be used to securely connect to an Amazon EC2 instance.
+
+    :param key_name: The name of the key pair to create.
+    :param private_key_file_name: The file name where the private key portion of
+                                  the newly created key is stored.
+    :return: The newly created key pair.
+    """
+    try:
+        key_pair = ec2.create_key_pair(KeyName=key_name)
+        logger.info("Created key %s.", key_pair.name)
+        if private_key_file_name is not None:
+            with open(private_key_file_name, 'w') as pk_file:
+                pk_file.write(key_pair.key_material)
+            logger.info("Wrote private key to %s.", private_key_file_name)
+    except ClientError:
+        logger.exception("Couldn't create key %s.", key_name)
+        raise
+    else:
+        return key_pair

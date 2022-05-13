@@ -1,0 +1,3 @@
+<programlisting>
+    results, err := svc.ListTopics(nil)
+</programlisting>

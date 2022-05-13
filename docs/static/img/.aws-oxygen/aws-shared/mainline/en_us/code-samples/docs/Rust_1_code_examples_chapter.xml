@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="rust_code_examples" role="topic">
+    <info>
+        <title id="rust_code_examples.title">&Rust; code examples</title>
+        <titleabbrev id="rust_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Rustlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Rustlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="rust_code_examples_categorized" role="topic">
+        <info>
+            <title id="rust_code_examples_categorized.title">Single-service actions and scenarios using &Rust;</title>
+            <titleabbrev id="rust_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Rust; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Rustlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="rust_api-gateway_code_examples" role="topic">
+            <info>
+                <title id="rust_api-gateway_code_examples.title">&ABP; examples using &Rust;</title>
+                <titleabbrev id="rust_api-gateway_code_examples.titleabbrev">&ABP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &ABP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &ABP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ABP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ABP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="api-gateway_GetRestApis_rust_topic">
+                        <info>
+                            <title id="api-gateway_GetRestApis_rust_topic.title">List REST APIs</title>
+                            <titleabbrev id="api-gateway_GetRestApis_rust_topic.titleabbrev">List REST APIs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &ABP; REST APIs.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/api-gateway_GetRestApis_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_apigatewaymanagementapi_code_examples" role="topic">
+            <info>
+                <title id="rust_apigatewaymanagementapi_code_examples.title">&ABPMA; examples using &Rust;</title>
+                <titleabbrev id="rust_apigatewaymanagementapi_code_examples.titleabbrev">&ABPMA;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &ABPMA;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &ABPMA;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ABPMA; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ABPMA; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="apigatewaymanagementapi_PostToConnection_rust_topic">
+                        <info>
+                            <title id="apigatewaymanagementapi_PostToConnection_rust_topic.title">Send data to a connection</title>
+                            <titleabbrev id="apigatewaymanagementapi_PostToConnection_rust_topic.titleabbrev">Send data to a connection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send data to a connection.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/apigatewaymanagementapi_PostToConnection_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_application-autoscaling_code_examples" role="topic">
+            <info>
+                <title id="rust_application-autoscaling_code_examples.title">&APP-AS; examples using &Rust;</title>
+                <titleabbrev id="rust_application-autoscaling_code_examples.titleabbrev">&APP-AS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &APP-AS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &APP-AS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &APP-AS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &APP-AS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="application-autoscaling_DescribeScalingPolicies_rust_topic">
+                        <info>
+                            <title id="application-autoscaling_DescribeScalingPolicies_rust_topic.title">Describes scaling policies</title>
+                            <titleabbrev id="application-autoscaling_DescribeScalingPolicies_rust_topic.titleabbrev">Describes scaling policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &APP-AS; scaling policies for the specified service namespace.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/application-autoscaling_DescribeScalingPolicies_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_batch_code_examples" role="topic">
+            <info>
+                <title id="rust_batch_code_examples.title">&BATCH; examples using &Rust;</title>
+                <titleabbrev id="rust_batch_code_examples.titleabbrev">&BATCH;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &BATCH;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &BATCH;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &BATCH; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &BATCH; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="batch_DescribeComputeEnvironments_rust_topic">
+                        <info>
+                            <title id="batch_DescribeComputeEnvironments_rust_topic.title">Describe compute environments</title>
+                            <titleabbrev id="batch_DescribeComputeEnvironments_rust_topic.titleabbrev">Describe compute environments</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe one or more &BATCH; compute environments.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/batch_DescribeComputeEnvironments_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_cognito-identity-provider_code_examples" role="topic">
+            <info>
+                <title id="rust_cognito-identity-provider_code_examples.title">&COGIDP; examples using &Rust;</title>
+                <titleabbrev id="rust_cognito-identity-provider_code_examples.titleabbrev">&COGIDP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &COGIDP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &COGIDP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &COGIDP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &COGIDP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cognito-identity-provider_ListUserPools_rust_topic">
+                        <info>
+                            <title id="cognito-identity-provider_ListUserPools_rust_topic.title">List the user pools</title>
+                            <titleabbrev id="cognito-identity-provider_ListUserPools_rust_topic.titleabbrev">List the user pools</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list the &COGIDP; user pools.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cognito-identity-provider_ListUserPools_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_cognito-sync_code_examples" role="topic">
+            <info>
+                <title id="rust_cognito-sync_code_examples.title">&COGSYNC; examples using &Rust;</title>
+                <titleabbrev id="rust_cognito-sync_code_examples.titleabbrev">&COGSYNC;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &COGSYNC;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &COGSYNC;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &COGSYNC; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &COGSYNC; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cognito-sync_ListIdentityPoolUsage_rust_topic">
+                        <info>
+                            <title id="cognito-sync_ListIdentityPoolUsage_rust_topic.title">List identity pools</title>
+                            <titleabbrev id="cognito-sync_ListIdentityPoolUsage_rust_topic.titleabbrev">List identity pools</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &COG; identity pools.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cognito-sync_ListIdentityPoolUsage_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="rust_dynamodb_code_examples.title">&DDB; examples using &Rust;</title>
+                <titleabbrev id="rust_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_rust_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_rust_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_rust_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_rust_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_rust_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_rust_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_rust_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_rust_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_rust_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_rust_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_rust_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_rust_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_rust_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_rust_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_rust_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_rust_topic">
+                        <info>
+                            <title id="dynamodb_Query_rust_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_rust_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_Rust.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_rust_topic">
+                        <info>
+                            <title id="dynamodb_Scan_rust_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_rust_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_ebs_code_examples" role="topic">
+            <info>
+                <title id="rust_ebs_code_examples.title">&EBS; examples using &Rust;</title>
+                <titleabbrev id="rust_ebs_code_examples.titleabbrev">&EBS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &EBS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &EBS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EBS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EBS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ebs_StartSnapshot_rust_topic">
+                        <info>
+                            <title id="ebs_StartSnapshot_rust_topic.title">Create a snapshot</title>
+                            <titleabbrev id="ebs_StartSnapshot_rust_topic.titleabbrev">Create a snapshot</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EBS; snapshot.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ebs_StartSnapshot_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ebs_CompleteSnapshot_rust_topic">
+                        <info>
+                            <title id="ebs_CompleteSnapshot_rust_topic.title">Seal and complete a snapshot</title>
+                            <titleabbrev id="ebs_CompleteSnapshot_rust_topic.titleabbrev">Seal and complete a snapshot</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to seal and complete an &EBS; snapshot.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ebs_CompleteSnapshot_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ebs_PutSnapshotBlock_rust_topic">
+                        <info>
+                            <title id="ebs_PutSnapshotBlock_rust_topic.title">Write a block of data to a snapshot</title>
+                            <titleabbrev id="ebs_PutSnapshotBlock_rust_topic.titleabbrev">Write a block of data to a snapshot</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to write a block of data to an &EBS; snapshot.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ebs_PutSnapshotBlock_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_ec2_code_examples" role="topic">
+            <info>
+                <title id="rust_ec2_code_examples.title">&EC2; examples using &Rust;</title>
+                <titleabbrev id="rust_ec2_code_examples.titleabbrev">&EC2;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &EC2;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &EC2;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EC2; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EC2; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ec2_DeleteSnapshot_rust_topic">
+                        <info>
+                            <title id="ec2_DeleteSnapshot_rust_topic.title">Delete a snapshot</title>
+                            <titleabbrev id="ec2_DeleteSnapshot_rust_topic.titleabbrev">Delete a snapshot</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EBS; snapshot.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DeleteSnapshot_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_DescribeSnapshots_rust_topic">
+                        <info>
+                            <title id="ec2_DescribeSnapshots_rust_topic.title">Describe snapshots</title>
+                            <titleabbrev id="ec2_DescribeSnapshots_rust_topic.titleabbrev">Describe snapshots</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &EBS; snapshots.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DescribeSnapshots_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_StartInstances_rust_topic">
+                        <info>
+                            <title id="ec2_StartInstances_rust_topic.title">Start an instance</title>
+                            <titleabbrev id="ec2_StartInstances_rust_topic.titleabbrev">Start an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_StartInstances_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_StopInstances_rust_topic">
+                        <info>
+                            <title id="ec2_StopInstances_rust_topic.title">Stop an instance</title>
+                            <titleabbrev id="ec2_StopInstances_rust_topic.titleabbrev">Stop an instance</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to stop an &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_StopInstances_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ec2_DescribeRegions_rust_topic">
+                        <info>
+                            <title id="ec2_DescribeRegions_rust_topic.title">Describe Regions</title>
+                            <titleabbrev id="ec2_DescribeRegions_rust_topic.titleabbrev">Describe Regions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &EC2; Regions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DescribeRegions_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_DescribeInstances_rust_topic">
+                        <info>
+                            <title id="ec2_DescribeInstances_rust_topic.title">Describe instances</title>
+                            <titleabbrev id="ec2_DescribeInstances_rust_topic.titleabbrev">Describe instances</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &EC2; instances.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DescribeInstances_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_DescribeInstanceStatus_rust_topic">
+                        <info>
+                            <title id="ec2_DescribeInstanceStatus_rust_topic.title">Describe status</title>
+                            <titleabbrev id="ec2_DescribeInstanceStatus_rust_topic.titleabbrev">Describe status</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &EC2; status.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_DescribeInstanceStatus_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_MonitorInstances_rust_topic">
+                        <info>
+                            <title id="ec2_MonitorInstances_rust_topic.title">Enable monitoring</title>
+                            <titleabbrev id="ec2_MonitorInstances_rust_topic.titleabbrev">Enable monitoring</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &EC2; monitoring.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_MonitorInstances_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ec2_RebootInstances_rust_topic">
+                        <info>
+                            <title id="ec2_RebootInstances_rust_topic.title">Reboot instances</title>
+                            <titleabbrev id="ec2_RebootInstances_rust_topic.titleabbrev">Reboot instances</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to reboot &EC2; instance.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ec2_RebootInstances_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_auto-scaling_code_examples" role="topic">
+            <info>
+                <title id="rust_auto-scaling_code_examples.title">&AS; examples using &Rust;</title>
+                <titleabbrev id="rust_auto-scaling_code_examples.titleabbrev">&AS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &AS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &AS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &AS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &AS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="auto-scaling_CreateAutoScalingGroup_rust_topic">
+                        <info>
+                            <title id="auto-scaling_CreateAutoScalingGroup_rust_topic.title">Create a group</title>
+                            <titleabbrev id="auto-scaling_CreateAutoScalingGroup_rust_topic.titleabbrev">Create a group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &AS; group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/auto-scaling_CreateAutoScalingGroup_Rust.xml"></xi:include>
+                    </section>
+                    <section id="auto-scaling_DeleteAutoScalingGroup_rust_topic">
+                        <info>
+                            <title id="auto-scaling_DeleteAutoScalingGroup_rust_topic.title">Delete a group</title>
+                            <titleabbrev id="auto-scaling_DeleteAutoScalingGroup_rust_topic.titleabbrev">Delete a group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &AS; group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/auto-scaling_DeleteAutoScalingGroup_Rust.xml"></xi:include>
+                    </section>
+                    <section id="auto-scaling_DescribeAutoScalingGroups_rust_topic">
+                        <info>
+                            <title id="auto-scaling_DescribeAutoScalingGroups_rust_topic.title">Get group information</title>
+                            <titleabbrev id="auto-scaling_DescribeAutoScalingGroups_rust_topic.titleabbrev">Get group information</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about &AS; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/auto-scaling_DescribeAutoScalingGroups_Rust.xml"></xi:include>
+                    </section>
+                    <section id="auto-scaling_UpdateAutoScalingGroup_rust_topic">
+                        <info>
+                            <title id="auto-scaling_UpdateAutoScalingGroup_rust_topic.title">Update group configuration</title>
+                            <titleabbrev id="auto-scaling_UpdateAutoScalingGroup_rust_topic.titleabbrev">Update group configuration</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update the configuration for an &AS; group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/auto-scaling_UpdateAutoScalingGroup_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_ecr_code_examples" role="topic">
+            <info>
+                <title id="rust_ecr_code_examples.title">&ECR; examples using &Rust;</title>
+                <titleabbrev id="rust_ecr_code_examples.titleabbrev">&ECR;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &ECR;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &ECR;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ECR; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ECR; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ecr_ListImages_rust_topic">
+                        <info>
+                            <title id="ecr_ListImages_rust_topic.title">List the image IDs</title>
+                            <titleabbrev id="ecr_ListImages_rust_topic.titleabbrev">List the image IDs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list the image IDs for a repository.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ecr_ListImages_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ecr_DescribeRepositories_rust_topic">
+                        <info>
+                            <title id="ecr_DescribeRepositories_rust_topic.title">List your repositories</title>
+                            <titleabbrev id="ecr_DescribeRepositories_rust_topic.titleabbrev">List your repositories</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your repositories.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ecr_DescribeRepositories_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_ecs_code_examples" role="topic">
+            <info>
+                <title id="rust_ecs_code_examples.title">&ECS; examples using &Rust;</title>
+                <titleabbrev id="rust_ecs_code_examples.titleabbrev">&ECS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &ECS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &ECS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ECS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ECS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ecs_CreateCluster_rust_topic">
+                        <info>
+                            <title id="ecs_CreateCluster_rust_topic.title">Create a cluster</title>
+                            <titleabbrev id="ecs_CreateCluster_rust_topic.titleabbrev">Create a cluster</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &ECS; cluster.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ecs_CreateCluster_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ecs_DeleteCluster_rust_topic">
+                        <info>
+                            <title id="ecs_DeleteCluster_rust_topic.title">Delete a cluster</title>
+                            <titleabbrev id="ecs_DeleteCluster_rust_topic.titleabbrev">Delete a cluster</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &ECS; cluster.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ecs_DeleteCluster_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ecs_DescribeClusters_rust_topic">
+                        <info>
+                            <title id="ecs_DescribeClusters_rust_topic.title">List your clusters</title>
+                            <titleabbrev id="ecs_DescribeClusters_rust_topic.titleabbrev">List your clusters</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &ECS; clusters.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ecs_DescribeClusters_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_eks_code_examples" role="topic">
+            <info>
+                <title id="rust_eks_code_examples.title">&EKS; examples using &Rust;</title>
+                <titleabbrev id="rust_eks_code_examples.titleabbrev">&EKS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &EKS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &EKS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EKS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EKS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eks_CreateCluster_rust_topic">
+                        <info>
+                            <title id="eks_CreateCluster_rust_topic.title">Create a cluster control plane</title>
+                            <titleabbrev id="eks_CreateCluster_rust_topic.titleabbrev">Create a cluster control plane</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EKS; cluster control plane.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eks_CreateCluster_Rust.xml"></xi:include>
+                    </section>
+                    <section id="eks_DeleteCluster_rust_topic">
+                        <info>
+                            <title id="eks_DeleteCluster_rust_topic.title">Delete a cluster control plane</title>
+                            <titleabbrev id="eks_DeleteCluster_rust_topic.titleabbrev">Delete a cluster control plane</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &EKS; cluster.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eks_DeleteCluster_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_iam_code_examples" role="topic">
+            <info>
+                <title id="rust_iam_code_examples.title">&IAM; examples using &Rust;</title>
+                <titleabbrev id="rust_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_rust_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_rust_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_rust_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_AttachUserPolicy_rust_topic">
+                        <info>
+                            <title id="iam_AttachUserPolicy_rust_topic.title">Attach a policy to a user</title>
+                            <titleabbrev id="iam_AttachUserPolicy_rust_topic.titleabbrev">Attach a policy to a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachUserPolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_rust_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_rust_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_rust_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_rust_topic">
+                        <info>
+                            <title id="iam_CreateRole_rust_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_rust_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateServiceLinkedRole_rust_topic">
+                        <info>
+                            <title id="iam_CreateServiceLinkedRole_rust_topic.title">Create a service-linked role</title>
+                            <titleabbrev id="iam_CreateServiceLinkedRole_rust_topic.titleabbrev">Create a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_rust_topic">
+                        <info>
+                            <title id="iam_CreateUser_rust_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_rust_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_rust_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_rust_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_rust_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeletePolicy_rust_topic">
+                        <info>
+                            <title id="iam_DeletePolicy_rust_topic.title">Delete a policy</title>
+                            <titleabbrev id="iam_DeletePolicy_rust_topic.titleabbrev">Delete a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteRole_rust_topic">
+                        <info>
+                            <title id="iam_DeleteRole_rust_topic.title">Delete a role</title>
+                            <titleabbrev id="iam_DeleteRole_rust_topic.titleabbrev">Delete a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRole_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteServiceLinkedRole_rust_topic">
+                        <info>
+                            <title id="iam_DeleteServiceLinkedRole_rust_topic.title">Delete a service-linked role</title>
+                            <titleabbrev id="iam_DeleteServiceLinkedRole_rust_topic.titleabbrev">Delete a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServiceLinkedRole_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_rust_topic">
+                        <info>
+                            <title id="iam_DeleteUser_rust_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_rust_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_rust_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_rust_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_rust_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUserPolicy_rust_topic">
+                        <info>
+                            <title id="iam_DeleteUserPolicy_rust_topic.title">Delete an inline policy from a user</title>
+                            <titleabbrev id="iam_DeleteUserPolicy_rust_topic.titleabbrev">Delete an inline policy from a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an inline &IAM; policy from a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUserPolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_rust_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_rust_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_rust_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachUserPolicy_rust_topic">
+                        <info>
+                            <title id="iam_DetachUserPolicy_rust_topic.title">Detach a policy from a user</title>
+                            <titleabbrev id="iam_DetachUserPolicy_rust_topic.titleabbrev">Detach a policy from a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachUserPolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_rust_topic">
+                        <info>
+                            <title id="iam_GetRole_rust_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_rust_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_rust_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_rust_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_rust_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_rust_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_rust_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_rust_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_rust_topic">
+                        <info>
+                            <title id="iam_ListGroups_rust_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_rust_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRolePolicies_rust_topic">
+                        <info>
+                            <title id="iam_ListRolePolicies_rust_topic.title">List inline policies for a role</title>
+                            <titleabbrev id="iam_ListRolePolicies_rust_topic.titleabbrev">List inline policies for a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list inline policies for an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_rust_topic">
+                        <info>
+                            <title id="iam_ListPolicies_rust_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_rust_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_rust_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_rust_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_rust_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_rust_topic">
+                        <info>
+                            <title id="iam_ListRoles_rust_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_rust_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_rust_topic">
+                        <info>
+                            <title id="iam_ListUsers_rust_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_rust_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_rust_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_rust_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_rust_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_iot_code_examples" role="topic">
+            <info>
+                <title id="rust_iot_code_examples.title">&IoT; examples using &Rust;</title>
+                <titleabbrev id="rust_iot_code_examples.titleabbrev">&IoT;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &IoT;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &IoT;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IoT; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IoT; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iot_DescribeEndpoint_rust_topic">
+                        <info>
+                            <title id="iot_DescribeEndpoint_rust_topic.title">Get endpoint information</title>
+                            <titleabbrev id="iot_DescribeEndpoint_rust_topic.titleabbrev">Get endpoint information</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get &IoT; endpoint information.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iot_DescribeEndpoint_Rust.xml"></xi:include>
+                    </section>
+                    <section id="iot_ListThings_rust_topic">
+                        <info>
+                            <title id="iot_ListThings_rust_topic.title">List your things</title>
+                            <titleabbrev id="iot_ListThings_rust_topic.titleabbrev">List your things</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &IoT; things.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iot_ListThings_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_kms_code_examples" role="topic">
+            <info>
+                <title id="rust_kms_code_examples.title">&KMS; examples using &Rust;</title>
+                <titleabbrev id="rust_kms_code_examples.titleabbrev">&KMS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &KMS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &KMS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &KMS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &KMS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kms_CreateKey_rust_topic">
+                        <info>
+                            <title id="kms_CreateKey_rust_topic.title">Create a key</title>
+                            <titleabbrev id="kms_CreateKey_rust_topic.titleabbrev">Create a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &kms-key-long;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateKey_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_GenerateRandom_rust_topic">
+                        <info>
+                            <title id="kms_GenerateRandom_rust_topic.title">Create a random byte string</title>
+                            <titleabbrev id="kms_GenerateRandom_rust_topic.titleabbrev">Create a random byte string</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a random byte string that is cryptographically secure using &KMS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_GenerateRandom_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_Decrypt_rust_topic">
+                        <info>
+                            <title id="kms_Decrypt_rust_topic.title">Decrypt ciphertext</title>
+                            <titleabbrev id="kms_Decrypt_rust_topic.titleabbrev">Decrypt ciphertext</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to decrypt ciphertext that was encrypted by a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Decrypt_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_Encrypt_rust_topic">
+                        <info>
+                            <title id="kms_Encrypt_rust_topic.title">Encrypt text using a key</title>
+                            <titleabbrev id="kms_Encrypt_rust_topic.titleabbrev">Encrypt text using a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to encrypt text using a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Encrypt_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_GenerateDataKey_rust_topic">
+                        <info>
+                            <title id="kms_GenerateDataKey_rust_topic.title">Generate a plaintext data key for client-side encryption</title>
+                            <titleabbrev id="kms_GenerateDataKey_rust_topic.titleabbrev">Generate a plaintext data key for client-side encryption</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to generate a unique symmetric data key for client-side encryption from an &kms-key-long;. The key contains both plaintext and ciphertext versions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_GenerateDataKey_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_GenerateDataKeyWithoutPlaintext_rust_topic">
+                        <info>
+                            <title id="kms_GenerateDataKeyWithoutPlaintext_rust_topic.title">Generate an encrypted data key</title>
+                            <titleabbrev id="kms_GenerateDataKeyWithoutPlaintext_rust_topic.titleabbrev">Generate an encrypted data key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to generate an encrypted data key from an &kms-key-long;. The key contains only a ciphertext version.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_GenerateDataKeyWithoutPlaintext_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListKeys_rust_topic">
+                        <info>
+                            <title id="kms_ListKeys_rust_topic.title">List keys</title>
+                            <titleabbrev id="kms_ListKeys_rust_topic.titleabbrev">List keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &kms-keys;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListKeys_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kms_ReEncrypt_rust_topic">
+                        <info>
+                            <title id="kms_ReEncrypt_rust_topic.title">Recencrypt ciphertext from one key to another</title>
+                            <titleabbrev id="kms_ReEncrypt_rust_topic.titleabbrev">Recencrypt ciphertext from one key to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to reencrypt ciphertext from one &kms-key; to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ReEncrypt_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_kinesis_code_examples" role="topic">
+            <info>
+                <title id="rust_kinesis_code_examples.title">&AK; examples using &Rust;</title>
+                <titleabbrev id="rust_kinesis_code_examples.titleabbrev">&AK;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &AK;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &AK;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &AK; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &AK; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kinesis_CreateStream_rust_topic">
+                        <info>
+                            <title id="kinesis_CreateStream_rust_topic.title">Create a stream</title>
+                            <titleabbrev id="kinesis_CreateStream_rust_topic.titleabbrev">Create a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_CreateStream_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_DeleteStream_rust_topic">
+                        <info>
+                            <title id="kinesis_DeleteStream_rust_topic.title">Delete a stream</title>
+                            <titleabbrev id="kinesis_DeleteStream_rust_topic.titleabbrev">Delete a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_DeleteStream_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_DescribeStream_rust_topic">
+                        <info>
+                            <title id="kinesis_DescribeStream_rust_topic.title">Describe a stream</title>
+                            <titleabbrev id="kinesis_DescribeStream_rust_topic.titleabbrev">Describe a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_DescribeStream_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_ListStreams_rust_topic">
+                        <info>
+                            <title id="kinesis_ListStreams_rust_topic.title">List streams</title>
+                            <titleabbrev id="kinesis_ListStreams_rust_topic.titleabbrev">List streams</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list information about one or more &AK; streams.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_ListStreams_Rust.xml"></xi:include>
+                    </section>
+                    <section id="kinesis_PutRecord_rust_topic">
+                        <info>
+                            <title id="kinesis_PutRecord_rust_topic.title">Put data into a stream</title>
+                            <titleabbrev id="kinesis_PutRecord_rust_topic.titleabbrev">Put data into a stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put data into a &AK; stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kinesis_PutRecord_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_medialive_code_examples" role="topic">
+            <info>
+                <title id="rust_medialive_code_examples.title">&EML; examples using &Rust;</title>
+                <titleabbrev id="rust_medialive_code_examples.titleabbrev">&EML;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &EML;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &EML;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EML; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EML; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="medialive_ListInputs_rust_topic">
+                        <info>
+                            <title id="medialive_ListInputs_rust_topic.title">List inputs</title>
+                            <titleabbrev id="medialive_ListInputs_rust_topic.titleabbrev">List inputs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &EML; inputs.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/medialive_ListInputs_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_mediapackage_code_examples" role="topic">
+            <info>
+                <title id="rust_mediapackage_code_examples.title">&EMP; examples using &Rust;</title>
+                <titleabbrev id="rust_mediapackage_code_examples.titleabbrev">&EMP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &EMP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &EMP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EMP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EMP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="mediapackage_ListChannels_rust_topic">
+                        <info>
+                            <title id="mediapackage_ListChannels_rust_topic.title">List channels</title>
+                            <titleabbrev id="mediapackage_ListChannels_rust_topic.titleabbrev">List channels</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &EMP; channels.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/mediapackage_ListChannels_Rust.xml"></xi:include>
+                    </section>
+                    <section id="mediapackage_ListOriginEndpoints_rust_topic">
+                        <info>
+                            <title id="mediapackage_ListOriginEndpoints_rust_topic.title">List your origin endpoints</title>
+                            <titleabbrev id="mediapackage_ListOriginEndpoints_rust_topic.titleabbrev">List your origin endpoints</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &EMP; origin endpoints.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/mediapackage_ListOriginEndpoints_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_polly_code_examples" role="topic">
+            <info>
+                <title id="rust_polly_code_examples.title">&POL; examples using &Rust;</title>
+                <titleabbrev id="rust_polly_code_examples.titleabbrev">&POL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &POL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &POL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &POL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &POL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="polly_DescribeVoices_rust_topic">
+                        <info>
+                            <title id="polly_DescribeVoices_rust_topic.title">Get voices available for synthesis</title>
+                            <titleabbrev id="polly_DescribeVoices_rust_topic.titleabbrev">Get voices available for synthesis</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get &POL; voices available for synthesis.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/polly_DescribeVoices_Rust.xml"></xi:include>
+                    </section>
+                    <section id="polly_ListLexicons_rust_topic">
+                        <info>
+                            <title id="polly_ListLexicons_rust_topic.title">List pronunciation lexicons</title>
+                            <titleabbrev id="polly_ListLexicons_rust_topic.titleabbrev">List pronunciation lexicons</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &POL; pronunciation lexicons.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/polly_ListLexicons_Rust.xml"></xi:include>
+                    </section>
+                    <section id="polly_PutLexicon_rust_topic">
+                        <info>
+                            <title id="polly_PutLexicon_rust_topic.title">Store a pronunciation lexicon</title>
+                            <titleabbrev id="polly_PutLexicon_rust_topic.titleabbrev">Store a pronunciation lexicon</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to store an &POL; pronunciation lexicon.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/polly_PutLexicon_Rust.xml"></xi:include>
+                    </section>
+                    <section id="polly_SynthesizeSpeech_rust_topic">
+                        <info>
+                            <title id="polly_SynthesizeSpeech_rust_topic.title">Synthesize speech from text</title>
+                            <titleabbrev id="polly_SynthesizeSpeech_rust_topic.titleabbrev">Synthesize speech from text</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to synthesize speech from text with &POL;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/polly_SynthesizeSpeech_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_qldb_code_examples" role="topic">
+            <info>
+                <title id="rust_qldb_code_examples.title">&QLDB; examples using &Rust;</title>
+                <titleabbrev id="rust_qldb_code_examples.titleabbrev">&QLDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &QLDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &QLDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &QLDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &QLDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="qldb_CreateLedger_rust_topic">
+                        <info>
+                            <title id="qldb_CreateLedger_rust_topic.title">Create a ledger</title>
+                            <titleabbrev id="qldb_CreateLedger_rust_topic.titleabbrev">Create a ledger</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &QLDB; ledger.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/qldb_CreateLedger_Rust.xml"></xi:include>
+                    </section>
+                    <section id="qldb_ListLedgers_rust_topic">
+                        <info>
+                            <title id="qldb_ListLedgers_rust_topic.title">List your ledgers</title>
+                            <titleabbrev id="qldb_ListLedgers_rust_topic.titleabbrev">List your ledgers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list your &QLDB; ledgers.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/qldb_ListLedgers_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_rds-data_code_examples" role="topic">
+            <info>
+                <title id="rust_rds-data_code_examples.title">&RDSDataService; examples using &Rust;</title>
+                <titleabbrev id="rust_rds-data_code_examples.titleabbrev">&RDSDataService;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &RDSDataService;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &RDSDataService;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &RDSDataService; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &RDSDataService; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rds-data_ExecuteStatement_rust_topic">
+                        <info>
+                            <title id="rds-data_ExecuteStatement_rust_topic.title">Run an SQL statement</title>
+                            <titleabbrev id="rds-data_ExecuteStatement_rust_topic.titleabbrev">Run an SQL statement</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to run an SQL statement.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rds-data_ExecuteStatement_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_route-53_code_examples" role="topic">
+            <info>
+                <title id="rust_route-53_code_examples.title">&R53; examples using &Rust;</title>
+                <titleabbrev id="rust_route-53_code_examples.titleabbrev">&R53;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &R53;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &R53;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &R53; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &R53; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="route-53_ListHostedZones_rust_topic">
+                        <info>
+                            <title id="route-53_ListHostedZones_rust_topic.title">Get a list of the public and private hosted zones</title>
+                            <titleabbrev id="route-53_ListHostedZones_rust_topic.titleabbrev">Get a list of the public and private hosted zones</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a list of the public and private hosted zones.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/route-53_ListHostedZones_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_s3_code_examples" role="topic">
+            <info>
+                <title id="rust_s3_code_examples.title">&S3; examples using &Rust;</title>
+                <titleabbrev id="rust_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_CopyObject_rust_topic">
+                        <info>
+                            <title id="s3_CopyObject_rust_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_rust_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_rust_topic">
+                        <info>
+                            <title id="s3_CreateBucket_rust_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_rust_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_rust_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_rust_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_rust_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObject_rust_topic">
+                        <info>
+                            <title id="s3_DeleteObject_rust_topic.title">Delete an object</title>
+                            <titleabbrev id="s3_DeleteObject_rust_topic.titleabbrev">Delete an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_rust_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_rust_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_rust_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_rust_topic">
+                        <info>
+                            <title id="s3_GetObject_rust_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_rust_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketLocation_rust_topic">
+                        <info>
+                            <title id="s3_GetBucketLocation_rust_topic.title">Get the Region location for a bucket</title>
+                            <titleabbrev id="s3_GetBucketLocation_rust_topic.titleabbrev">Get the Region location for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the Region location for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketLocation_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListBuckets_rust_topic">
+                        <info>
+                            <title id="s3_ListBuckets_rust_topic.title">List buckets</title>
+                            <titleabbrev id="s3_ListBuckets_rust_topic.titleabbrev">List buckets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &S3; buckets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjectVersions_rust_topic">
+                        <info>
+                            <title id="s3_ListObjectVersions_rust_topic.title">List object versions in a bucket</title>
+                            <titleabbrev id="s3_ListObjectVersions_rust_topic.titleabbrev">List object versions in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list object versions in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjectVersions_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_rust_topic">
+                        <info>
+                            <title id="s3_ListObjects_rust_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_rust_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_Rust.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_rust_topic">
+                        <info>
+                            <title id="s3_PutObject_rust_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_rust_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_GettingStarted_rust_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_rust_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_rust_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_sesv2_code_examples" role="topic">
+            <info>
+                <title id="rust_sesv2_code_examples.title">&SESv2; examples using &Rust;</title>
+                <titleabbrev id="rust_sesv2_code_examples.titleabbrev">&SESv2;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &SESv2;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &SESv2;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SESv2; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SESv2; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sesv2_CreateContact_rust_topic">
+                        <info>
+                            <title id="sesv2_CreateContact_rust_topic.title">Create a contact in a contact list</title>
+                            <titleabbrev id="sesv2_CreateContact_rust_topic.titleabbrev">Create a contact in a contact list</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SESv2; contact in a contact list.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContact_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sesv2_CreateContactList_rust_topic">
+                        <info>
+                            <title id="sesv2_CreateContactList_rust_topic.title">Create a contact list</title>
+                            <titleabbrev id="sesv2_CreateContactList_rust_topic.titleabbrev">Create a contact list</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SESv2; contact list.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_CreateContactList_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sesv2_GetEmailIdentity_rust_topic">
+                        <info>
+                            <title id="sesv2_GetEmailIdentity_rust_topic.title">Get identity information</title>
+                            <titleabbrev id="sesv2_GetEmailIdentity_rust_topic.titleabbrev">Get identity information</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get &SESv2; identity information.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_GetEmailIdentity_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sesv2_ListContactLists_rust_topic">
+                        <info>
+                            <title id="sesv2_ListContactLists_rust_topic.title">List the contact lists</title>
+                            <titleabbrev id="sesv2_ListContactLists_rust_topic.titleabbrev">List the contact lists</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list the &SESv2; contact lists.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContactLists_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sesv2_ListContacts_rust_topic">
+                        <info>
+                            <title id="sesv2_ListContacts_rust_topic.title">List the contacts in a contact list</title>
+                            <titleabbrev id="sesv2_ListContacts_rust_topic.titleabbrev">List the contacts in a contact list</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list the contacts in an &SESv2; contact list.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_ListContacts_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sesv2_SendEmail_rust_topic">
+                        <info>
+                            <title id="sesv2_SendEmail_rust_topic.title">Send an email</title>
+                            <titleabbrev id="sesv2_SendEmail_rust_topic.titleabbrev">Send an email</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send an &SESv2; email.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sesv2_SendEmail_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_sns_code_examples" role="topic">
+            <info>
+                <title id="rust_sns_code_examples.title">&SNS; examples using &Rust;</title>
+                <titleabbrev id="rust_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CreateTopic_rust_topic">
+                        <info>
+                            <title id="sns_CreateTopic_rust_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_rust_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_rust_topic">
+                        <info>
+                            <title id="sns_ListTopics_rust_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_rust_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_rust_topic">
+                        <info>
+                            <title id="sns_Publish_rust_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_rust_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_rust_topic">
+                        <info>
+                            <title id="sns_Subscribe_rust_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_rust_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_sqs_code_examples" role="topic">
+            <info>
+                <title id="rust_sqs_code_examples.title">&SQS; examples using &Rust;</title>
+                <titleabbrev id="rust_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_ListQueues_rust_topic">
+                        <info>
+                            <title id="sqs_ListQueues_rust_topic.title">List queues</title>
+                            <titleabbrev id="sqs_ListQueues_rust_topic.titleabbrev">List queues</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SQS; queues.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ListQueues_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_rust_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_rust_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_rust_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_rust_topic">
+                        <info>
+                            <title id="sqs_SendMessage_rust_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_rust_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_sagemaker_code_examples" role="topic">
+            <info>
+                <title id="rust_sagemaker_code_examples.title">&SM; examples using &Rust;</title>
+                <titleabbrev id="rust_sagemaker_code_examples.titleabbrev">&SM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &SM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &SM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sagemaker_ListNotebookInstances_rust_topic">
+                        <info>
+                            <title id="sagemaker_ListNotebookInstances_rust_topic.title">List notebook instances</title>
+                            <titleabbrev id="sagemaker_ListNotebookInstances_rust_topic.titleabbrev">List notebook instances</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SM; notebook instances.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sagemaker_ListNotebookInstances_Rust.xml"></xi:include>
+                    </section>
+                    <section id="sagemaker_ListTrainingJobs_rust_topic">
+                        <info>
+                            <title id="sagemaker_ListTrainingJobs_rust_topic.title">List training jobs</title>
+                            <titleabbrev id="sagemaker_ListTrainingJobs_rust_topic.titleabbrev">List training jobs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SM; training jobs.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sagemaker_ListTrainingJobs_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_secrets-manager_code_examples" role="topic">
+            <info>
+                <title id="rust_secrets-manager_code_examples.title">&ASM; examples using &Rust;</title>
+                <titleabbrev id="rust_secrets-manager_code_examples.titleabbrev">&ASM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &ASM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &ASM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &ASM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &ASM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="secrets-manager_CreateSecret_rust_topic">
+                        <info>
+                            <title id="secrets-manager_CreateSecret_rust_topic.title">Create a secret</title>
+                            <titleabbrev id="secrets-manager_CreateSecret_rust_topic.titleabbrev">Create a secret</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &ASM; secret.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_CreateSecret_Rust.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_GetSecretValue_rust_topic">
+                        <info>
+                            <title id="secrets-manager_GetSecretValue_rust_topic.title">Get a secret value</title>
+                            <titleabbrev id="secrets-manager_GetSecretValue_rust_topic.titleabbrev">Get a secret value</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a &ASM; secret value.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_GetSecretValue_Rust.xml"></xi:include>
+                    </section>
+                    <section id="secrets-manager_ListSecrets_rust_topic">
+                        <info>
+                            <title id="secrets-manager_ListSecrets_rust_topic.title">List secrets</title>
+                            <titleabbrev id="secrets-manager_ListSecrets_rust_topic.titleabbrev">List secrets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &ASM; secrets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/secrets-manager_ListSecrets_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="rust_ssm_code_examples" role="topic">
+            <info>
+                <title id="rust_ssm_code_examples.title">&SYS; examples using &Rust;</title>
+                <titleabbrev id="rust_ssm_code_examples.titleabbrev">&SYS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Rustlong; with &SYS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Rustlong; with &SYS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SYS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SYS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="ssm_PutParameter_rust_topic">
+                        <info>
+                            <title id="ssm_PutParameter_rust_topic.title">Add a parameter</title>
+                            <titleabbrev id="ssm_PutParameter_rust_topic.titleabbrev">Add a parameter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a &SYS; parameter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ssm_PutParameter_Rust.xml"></xi:include>
+                    </section>
+                    <section id="ssm_DescribeParameters_rust_topic">
+                        <info>
+                            <title id="ssm_DescribeParameters_rust_topic.title">Get parameters information</title>
+                            <titleabbrev id="ssm_DescribeParameters_rust_topic.titleabbrev">Get parameters information</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get &SYS; parameters information.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/ssm_DescribeParameters_Rust.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+    <section id="rust_code_examples_cross_service" role="topic">
+        <info>
+            <title id="rust_code_examples_cross_service.title">Cross-service examples using &Rust;</title>
+            <titleabbrev id="rust_code_examples_cross_service.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following sample applications use the &Rustlong;
+                    to work across multiple &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use the &Rustlong;
+            to work across multiple &AWS; services.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="cross_Telephone_rust_topic" role="topic">
+            <info>
+                <title id="cross_Telephone_rust_topic.title">Convert text to speech and back to text using an &AWS; SDK</title>
+                <titleabbrev id="cross_Telephone_rust_topic.titleabbrev">Convert text to speech and back to text</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_Telephone_Rust.xml"></xi:include>
+        </section>
+        <section id="cross_DetectFaces_rust_topic" role="topic">
+            <info>
+                <title id="cross_DetectFaces_rust_topic.title">Detect faces in an image using an &AWS; SDK</title>
+                <titleabbrev id="cross_DetectFaces_rust_topic.titleabbrev">Detect faces in an image</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectFaces_Rust.xml"></xi:include>
+        </section>
+        <section id="cross_DetectLabels_rust_topic" role="topic">
+            <info>
+                <title id="cross_DetectLabels_rust_topic.title">Save EXIF and other image information using an &AWS; SDK</title>
+                <titleabbrev id="cross_DetectLabels_rust_topic.titleabbrev">Save EXIF and other image information</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectLabels_Rust.xml"></xi:include>
+        </section>
+    </section>
+</chapter>

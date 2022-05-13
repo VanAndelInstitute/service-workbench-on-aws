@@ -1,0 +1,6 @@
+#include <aws/core/Aws.h>
+#include <aws/iam/IAMClient.h>
+#include <aws/iam/model/ListServerCertificatesRequest.h>
+#include <aws/iam/model/ListServerCertificatesResult.h>
+#include <iomanip>
+#include <iostream>

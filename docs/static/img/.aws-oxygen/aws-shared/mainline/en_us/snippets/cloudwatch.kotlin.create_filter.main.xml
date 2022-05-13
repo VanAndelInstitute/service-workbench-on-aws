@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun putSubFilters(filter: String, pattern: String, logGroup: String, functionArn: String) {
+
+    val request = PutSubscriptionFilterRequest {
+        filterName = filter
+        filterPattern = pattern
+        logGroupName = logGroup
+        destinationArn = functionArn
+    }
+
+    CloudWatchLogsClient { region = "us-west-2" }.use { cwlClient ->
+            cwlClient.putSubscriptionFilter(request)
+            println("Successfully created CloudWatch logs subscription filter named $filter")
+           }
+    }
+</programlisting>

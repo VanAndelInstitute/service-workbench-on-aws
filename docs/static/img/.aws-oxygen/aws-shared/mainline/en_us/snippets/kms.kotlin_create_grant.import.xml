@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.kms.KmsClient
+import aws.sdk.kotlin.services.kms.model.CreateGrantRequest
+import aws.sdk.kotlin.services.kms.model.GrantOperation
+import kotlin.system.exitProcess
+</programlisting>

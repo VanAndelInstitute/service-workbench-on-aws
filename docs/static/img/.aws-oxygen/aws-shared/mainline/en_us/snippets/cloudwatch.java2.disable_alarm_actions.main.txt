@@ -1,0 +1,16 @@
+    public static void disableActions(CloudWatchClient cw, String alarmName) {
+
+        try {
+             DisableAlarmActionsRequest request = DisableAlarmActionsRequest.builder()
+                     .alarmNames(alarmName)
+                     .build();
+
+            cw.disableAlarmActions(request);
+            System.out.printf(
+                    "Successfully disabled actions on alarm %s", alarmName);
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

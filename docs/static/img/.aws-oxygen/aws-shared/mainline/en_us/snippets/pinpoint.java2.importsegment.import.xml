@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.CreateImportJobRequest;
+import software.amazon.awssdk.services.pinpoint.model.ImportJobResponse;
+import software.amazon.awssdk.services.pinpoint.model.ImportJobRequest;
+import software.amazon.awssdk.services.pinpoint.model.Format;
+import software.amazon.awssdk.services.pinpoint.model.CreateImportJobResponse;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;
+</programlisting>

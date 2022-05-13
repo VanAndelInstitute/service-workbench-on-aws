@@ -1,0 +1,83 @@
+
+<!ENTITY return-value-desc "You can pass the logical ID of the resource to an intrinsic function to get a value back
+   from the resource. The value that is returned depends on the function used.">
+
+<!ENTITY ref-returns-name "When this resource's logical ID is provided to the <function>Ref</function> intrinsic
+   function, it will return the resource's Amazon Resource Name (ARN)." >
+
+<!ENTITY ref-more-info 'For more information about using the <function>Ref</function> function, see <link
+   linkend="intrinsic-function-reference-ref">Ref</link>.' >
+
+<!ENTITY getatt-returns-various "<function>Fn::GetAtt</function> returns a value for a specified attribute of this type.
+   This section lists the available attributes and corresponding return values.">
+
+<!ENTITY getatt-more-info 'For more information about using <function>Fn:GetAtt</function>, see <link
+   linkend="intrinsic-function-reference-getatt">Fn::GetAtt</link>.'>
+
+<!ENTITY iam-role-more-info 'For detailed information about IAM Roles, see <ulink
+   url="http://&domain;/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</ulink> in the
+   <citetitle>AWS Identity and Access Management User Guide</citetitle>.'>
+
+<!ENTITY required-no '<emphasis>Required</emphasis>: No'>
+<!ENTITY required-yes '<emphasis>Required</emphasis>: Yes'>
+<!ENTITY required-conditional '<emphasis>Required</emphasis>: Conditional'>
+<!ENTITY requireddecl '<emphasis>Required</emphasis>:'>
+
+<!ENTITY type-boolean '<emphasis>Type</emphasis>: Boolean'>
+<!ENTITY type-json '<emphasis>Type</emphasis>: JSON object'>
+<!ENTITY type-string '<emphasis>Type</emphasis>: String'>
+<!ENTITY type-stringlist '<emphasis>Type</emphasis>: a list of strings'>
+<!ENTITY typedecl '<emphasis>Type</emphasis>:'>
+
+<!ENTITY update-no-interrupt '<emphasis>Update requires</emphasis>: <link linkend="update-no-interrupt">no interruption</link>' >
+<!ENTITY update-some-interrupt '<emphasis>Update requires</emphasis>: <link linkend="update-some-interrupt">some interruptions</link>' >
+<!ENTITY update-replacement '<emphasis>Update requires</emphasis>: <link linkend="update-replacement">replacement</link>' >
+
+<!-- Custom Resource Entities -->
+<!ENTITY cfn-crp 'custom resource provider'>
+<!ENTITY cfn-crp-title 'Custom Resource Provider'>
+<!ENTITY templatedev 'template developer'>
+
+<!ENTITY cfn-customresource-what-is 'Custom resources are special &CFN; resources that provide a way for a &templatedev;
+   to include resources in an &CFN; stack that are provided by a source other than Amazon Web Services. The &cfn-crp;
+   can be either a &templatedev; or a separate third-party resource provider.'>
+
+<!ENTITY cfn-cr-request-responseurl-desc 'The response URL identifies a pre-signed S3 bucket that receives responses
+   from the &cfn-crp; to &CFN;.'>
+<!ENTITY cfn-cr-request-stackid-desc 'The Amazon Resource Name (ARN) that identifies the stack that contains the custom
+   resource.'>
+<!ENTITY cfn-cr-request-requestid-desc 'A unique ID for the request.'>
+<!ENTITY cfn-cr-request-logicalresourceid-desc 'The &templatedev;-chosen name (logical id) of the custom resource in the
+   &CFN; template. '>
+<!ENTITY cfn-cr-request-physicalresourceid-desc 'A required &cfn-crp;-defined physical ID that is unique
+   for that provider.'>
+<!ENTITY cfn-cr-request-resourceproperties-desc 'This field contains the contents of the <property>Properties</property>
+   object sent by the &templatedev;. Its contents are defined by the &cfn-crp;.'>
+<!ENTITY cfn-cr-request-oldresourceproperties-desc 'Used only for <code>Update</code> requests. Contains the resource
+   properties that were declared previous to the update request.'>
+<!ENTITY cfn-cr-request-unique-note 'Combining the <parameter>StackId</parameter> with the
+   <parameter>RequestId</parameter> forms a value that can be used to uniquely identify a request on a particular
+   custom resource.'>
+
+<!ENTITY cfn-cr-response-status-desc 'The status value sent by the &cfn-crp; in response to an &CFN;-generated
+   request.'>
+<!ENTITY cfn-cr-response-reason-desc 'Describes the reason for a failure response.'>
+<!ENTITY cfn-cr-response-physicalresourceid-desc 'This value should be an identifier unique to the custom resource
+   vendor, and can be up to 1Kb in size.'>
+<!ENTITY cfn-cr-response-stackid-desc '&cfn-cr-request-stackid-desc; &copy-response-value-verbatim;'>
+<!ENTITY cfn-cr-response-requestid-desc '&cfn-cr-request-requestid-desc; &copy-response-value-verbatim;'>
+<!ENTITY cfn-cr-response-logicalresourceid-desc '&cfn-cr-request-logicalresourceid-desc; &copy-response-value-verbatim;'>
+<!ENTITY cfn-cr-response-data-desc 'Optional, &cfn-crp;-defined name/value pairs to send with the response. The values
+   provided here can be accessed by name in the template with <function>Fn::GetAtt</function>.'>
+<!ENTITY cfn-cr-response-copyparams-note 'The <parameter>StackId</parameter>, <parameter>RequestId</parameter>, and
+   <parameter>LogicalResourceId</parameter> fields must be copied verbatim from the request.'>
+
+<!ENTITY cfn-template-region-restriction '&CFN; templates that are stored in an S3 bucket must be accessible to the user
+   who is creating the stack, and must exist in the <emphasis>same region</emphasis> as the stack being created.
+   Therefore, if the S3 bucket exists in the us-east-1 region, the stack must also be created in us-east-1.'>
+   
+<!ENTITY getatt-more-info 'For more information about using <function>Fn:GetAtt</function>, see <link
+   linkend="intrinsic-function-reference-getatt">Fn::GetAtt</link>.'>
+   
+<!ENTITY ref-more-info 'For more information about using the <function>Ref</function> function, see <link
+   linkend="intrinsic-function-reference-ref">Ref</link>.' >

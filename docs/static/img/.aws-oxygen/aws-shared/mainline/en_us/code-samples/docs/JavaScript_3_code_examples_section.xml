@@ -1,0 +1,1489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<section id="javascript_code_examples" role="topic">
+    <info>
+        <title id="javascript_code_examples.title">&JSB; V3 code examples</title>
+        <titleabbrev id="javascript_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &JSBlong; V3 with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &JSBlong; V3 with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="javascript_code_examples_categorized" role="topic">
+        <info>
+            <title id="javascript_code_examples_categorized.title">Single-service actions and scenarios using &JSB; V3</title>
+            <titleabbrev id="javascript_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &JSB; V3 with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &JSBlong; V3 with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="javascript_cloudwatch_code_examples" role="topic">
+            <info>
+                <title id="javascript_cloudwatch_code_examples.title">&CW; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_cloudwatch_code_examples.titleabbrev">&CW;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &CW;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &CW;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CW; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CW; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch_PutMetricAlarm_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricAlarm_javascript_topic.title">Create an alarm that watches a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricAlarm_javascript_topic.titleabbrev">Create an alarm that watches a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWlong; alarm that watches a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricAlarm_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DeleteAlarms_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_DeleteAlarms_javascript_topic.title">Delete alarms</title>
+                            <titleabbrev id="cloudwatch_DeleteAlarms_javascript_topic.titleabbrev">Delete alarms</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete &CWlong; alarms.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DeleteAlarms_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DescribeAlarmsForMetric_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_DescribeAlarmsForMetric_javascript_topic.title">Describe alarms for a metric</title>
+                            <titleabbrev id="cloudwatch_DescribeAlarmsForMetric_javascript_topic.titleabbrev">Describe alarms for a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWlong; alarms for a metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DescribeAlarmsForMetric_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DisableAlarmActions_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_DisableAlarmActions_javascript_topic.title">Disable alarm actions</title>
+                            <titleabbrev id="cloudwatch_DisableAlarmActions_javascript_topic.titleabbrev">Disable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DisableAlarmActions_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_EnableAlarmActions_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_EnableAlarmActions_javascript_topic.title">Enable alarm actions</title>
+                            <titleabbrev id="cloudwatch_EnableAlarmActions_javascript_topic.titleabbrev">Enable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_EnableAlarmActions_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_ListMetrics_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_ListMetrics_javascript_topic.title">List metrics</title>
+                            <titleabbrev id="cloudwatch_ListMetrics_javascript_topic.titleabbrev">List metrics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &CWlong; metrics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_ListMetrics_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_PutMetricData_javascript_topic">
+                        <info>
+                            <title id="cloudwatch_PutMetricData_javascript_topic.title">Put data into a metric</title>
+                            <titleabbrev id="cloudwatch_PutMetricData_javascript_topic.titleabbrev">Put data into a metric</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put data into a &CWlong; metric.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_PutMetricData_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_cloudwatch-events_code_examples" role="topic">
+            <info>
+                <title id="javascript_cloudwatch-events_code_examples.title">&CWE; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_cloudwatch-events_code_examples.titleabbrev">&CWE;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &CWE;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &CWE;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWE; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWE; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-events_PutTargets_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutTargets_javascript_topic.title">Adding a &LAM; function target</title>
+                            <titleabbrev id="cloudwatch-events_PutTargets_javascript_topic.titleabbrev">Adding a &LAM; function target</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add an &LAMlong; function target to an &CWElong; event.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutTargets_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-events_PutRule_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutRule_javascript_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="cloudwatch-events_PutRule_javascript_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWElong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutRule_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-events_PutEvents_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-events_PutEvents_javascript_topic.title">Send events</title>
+                            <titleabbrev id="cloudwatch-events_PutEvents_javascript_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &CWElong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-events_PutEvents_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_cloudwatch-logs_code_examples" role="topic">
+            <info>
+                <title id="javascript_cloudwatch-logs_code_examples.title">&CWL; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_cloudwatch-logs_code_examples.titleabbrev">&CWL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &CWL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &CWL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-logs_PutSubscriptionFilter_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-logs_PutSubscriptionFilter_javascript_topic.title">Create a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_PutSubscriptionFilter_javascript_topic.titleabbrev">Create a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_PutSubscriptionFilter_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DeleteSubscriptionFilter_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DeleteSubscriptionFilter_javascript_topic.title">Delete a subscription filter</title>
+                            <titleabbrev id="cloudwatch-logs_DeleteSubscriptionFilter_javascript_topic.titleabbrev">Delete a subscription filter</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &CWLlong; subscription filter.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DeleteSubscriptionFilter_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeSubscriptionFilters_javascript_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeSubscriptionFilters_javascript_topic.title">Describe existing subscription filters</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeSubscriptionFilters_javascript_topic.titleabbrev">Describe existing subscription filters</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWLlong; existing subscription filters.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeSubscriptionFilters_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="javascript_dynamodb_code_examples.title">&DDB; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_javascript_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_javascript_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_javascript_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_javascript_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_javascript_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_javascript_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_javascript_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_javascript_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchGetItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_BatchGetItem_javascript_topic.title">Get a batch of items</title>
+                            <titleabbrev id="dynamodb_BatchGetItem_javascript_topic.titleabbrev">Get a batch of items</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a batch of &DDB; items.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchGetItem_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_javascript_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_javascript_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DescribeTable_javascript_topic">
+                        <info>
+                            <title id="dynamodb_DescribeTable_javascript_topic.title">Get information about a table</title>
+                            <titleabbrev id="dynamodb_DescribeTable_javascript_topic.titleabbrev">Get information about a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DescribeTable_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_javascript_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_javascript_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_javascript_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_javascript_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_javascript_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_javascript_topic">
+                        <info>
+                            <title id="dynamodb_Query_javascript_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_javascript_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_javascript_topic">
+                        <info>
+                            <title id="dynamodb_Scan_javascript_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_javascript_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_javascript_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_javascript_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchWriteItem_javascript_topic">
+                        <info>
+                            <title id="dynamodb_BatchWriteItem_javascript_topic.title">Write a batch of items</title>
+                            <titleabbrev id="dynamodb_BatchWriteItem_javascript_topic.titleabbrev">Write a batch of items</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to write a batch of &DDB; items.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchWriteItem_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_Scenario_GettingStartedMovies_javascript_topic">
+                        <info>
+                            <title id="dynamodb_Scenario_GettingStartedMovies_javascript_topic.title">Get started using tables, items, and queries</title>
+                            <titleabbrev id="dynamodb_Scenario_GettingStartedMovies_javascript_topic.titleabbrev">Get started using tables, items, and queries</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a table that can hold movie data.</para></listitem>
+                            <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+                            <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+                            <listitem><para>Query for movies that were released in a given year.</para></listitem>
+                            <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+                            <listitem><para>Delete a movie from the table.</para></listitem>
+                            <listitem><para>Delete the table.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scenario_GettingStartedMovies_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchExecuteStatement_javascript_topic">
+                        <info>
+                            <title id="dynamodb_BatchExecuteStatement_javascript_topic.title">Query a &DDB; table by batch using PartiQL</title>
+                            <titleabbrev id="dynamodb_BatchExecuteStatement_javascript_topic.titleabbrev">Query a &DDB; table by batch using PartiQL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table by batch using PartiQL.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchExecuteStatement_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ExecuteStatement_javascript_topic">
+                        <info>
+                            <title id="dynamodb_ExecuteStatement_javascript_topic.title">Query a &DDB; table using PartiQL</title>
+                            <titleabbrev id="dynamodb_ExecuteStatement_javascript_topic.titleabbrev">Query a &DDB; table using PartiQL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table using PartiQL.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ExecuteStatement_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_eventbridge_code_examples" role="topic">
+            <info>
+                <title id="javascript_eventbridge_code_examples.title">&EV; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_eventbridge_code_examples.titleabbrev">&EV;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &EV;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &EV;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &EV; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &EV; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="eventbridge_PutTargets_javascript_topic">
+                        <info>
+                            <title id="eventbridge_PutTargets_javascript_topic.title">Add a &LAM; function target</title>
+                            <titleabbrev id="eventbridge_PutTargets_javascript_topic.titleabbrev">Add a &LAM; function target</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add an &LAMlong; function target to an &EVlong; event.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutTargets_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutRule_javascript_topic">
+                        <info>
+                            <title id="eventbridge_PutRule_javascript_topic.title">Create a scheduled rule</title>
+                            <titleabbrev id="eventbridge_PutRule_javascript_topic.titleabbrev">Create a scheduled rule</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &EVlong; scheduled rule.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutRule_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="eventbridge_PutEvents_javascript_topic">
+                        <info>
+                            <title id="eventbridge_PutEvents_javascript_topic.title">Send events</title>
+                            <titleabbrev id="eventbridge_PutEvents_javascript_topic.titleabbrev">Send events</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send &EVlong; events.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/eventbridge_PutEvents_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_iam_code_examples" role="topic">
+            <info>
+                <title id="javascript_iam_code_examples.title">&IAM; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_javascript_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_javascript_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_javascript_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_javascript_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_javascript_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_javascript_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_javascript_topic">
+                        <info>
+                            <title id="iam_CreateRole_javascript_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_javascript_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateServiceLinkedRole_javascript_topic">
+                        <info>
+                            <title id="iam_CreateServiceLinkedRole_javascript_topic.title">Create a service-linked role</title>
+                            <titleabbrev id="iam_CreateServiceLinkedRole_javascript_topic.titleabbrev">Create a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_javascript_topic">
+                        <info>
+                            <title id="iam_CreateUser_javascript_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_javascript_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_javascript_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_javascript_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_javascript_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccountAlias_javascript_topic">
+                        <info>
+                            <title id="iam_CreateAccountAlias_javascript_topic.title">Create an alias for an account</title>
+                            <titleabbrev id="iam_CreateAccountAlias_javascript_topic.titleabbrev">Create an alias for an account</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for an &IAM; account.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeletePolicy_javascript_topic">
+                        <info>
+                            <title id="iam_DeletePolicy_javascript_topic.title">Delete a policy</title>
+                            <titleabbrev id="iam_DeletePolicy_javascript_topic.titleabbrev">Delete a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeletePolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteRole_javascript_topic">
+                        <info>
+                            <title id="iam_DeleteRole_javascript_topic.title">Delete a role</title>
+                            <titleabbrev id="iam_DeleteRole_javascript_topic.titleabbrev">Delete a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRole_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteServerCertificate_javascript_topic">
+                        <info>
+                            <title id="iam_DeleteServerCertificate_javascript_topic.title">Delete a server certificate</title>
+                            <titleabbrev id="iam_DeleteServerCertificate_javascript_topic.titleabbrev">Delete a server certificate</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; server certificate.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteServerCertificate_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_javascript_topic">
+                        <info>
+                            <title id="iam_DeleteUser_javascript_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_javascript_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_javascript_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_javascript_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_javascript_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccountAlias_javascript_topic">
+                        <info>
+                            <title id="iam_DeleteAccountAlias_javascript_topic.title">Delete an account alias</title>
+                            <titleabbrev id="iam_DeleteAccountAlias_javascript_topic.titleabbrev">Delete an account alias</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; account alias.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccountAlias_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_javascript_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_javascript_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_javascript_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_javascript_topic">
+                        <info>
+                            <title id="iam_GetPolicy_javascript_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_javascript_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_javascript_topic">
+                        <info>
+                            <title id="iam_GetRole_javascript_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_javascript_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetServerCertificate_javascript_topic">
+                        <info>
+                            <title id="iam_GetServerCertificate_javascript_topic.title">Get a server certificate</title>
+                            <titleabbrev id="iam_GetServerCertificate_javascript_topic.titleabbrev">Get a server certificate</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; server certificate.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetServerCertificate_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccessKeyLastUsed_javascript_topic">
+                        <info>
+                            <title id="iam_GetAccessKeyLastUsed_javascript_topic.title">Get data about the last use of an access key</title>
+                            <titleabbrev id="iam_GetAccessKeyLastUsed_javascript_topic.titleabbrev">Get data about the last use of an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get data about the last use of an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccessKeyLastUsed_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_javascript_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_javascript_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_javascript_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_javascript_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_javascript_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_javascript_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccessKeys_javascript_topic">
+                        <info>
+                            <title id="iam_ListAccessKeys_javascript_topic.title">List a user's access keys</title>
+                            <titleabbrev id="iam_ListAccessKeys_javascript_topic.titleabbrev">List a user's access keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list a user's &IAM; access keys.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccountAliases_javascript_topic">
+                        <info>
+                            <title id="iam_ListAccountAliases_javascript_topic.title">List account aliases</title>
+                            <titleabbrev id="iam_ListAccountAliases_javascript_topic.titleabbrev">List account aliases</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; account aliases.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_javascript_topic">
+                        <info>
+                            <title id="iam_ListGroups_javascript_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_javascript_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRolePolicies_javascript_topic">
+                        <info>
+                            <title id="iam_ListRolePolicies_javascript_topic.title">List inline policies for a role</title>
+                            <titleabbrev id="iam_ListRolePolicies_javascript_topic.titleabbrev">List inline policies for a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list inline policies for an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_javascript_topic">
+                        <info>
+                            <title id="iam_ListPolicies_javascript_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_javascript_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_javascript_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_javascript_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_javascript_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_javascript_topic">
+                        <info>
+                            <title id="iam_ListRoles_javascript_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_javascript_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListServerCertificates_javascript_topic">
+                        <info>
+                            <title id="iam_ListServerCertificates_javascript_topic.title">List server certificates</title>
+                            <titleabbrev id="iam_ListServerCertificates_javascript_topic.titleabbrev">List server certificates</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; server certificates.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListServerCertificates_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_javascript_topic">
+                        <info>
+                            <title id="iam_ListUsers_javascript_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_javascript_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateServerCertificate_javascript_topic">
+                        <info>
+                            <title id="iam_UpdateServerCertificate_javascript_topic.title">Update a server certificate</title>
+                            <titleabbrev id="iam_UpdateServerCertificate_javascript_topic.titleabbrev">Update a server certificate</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; server certificate.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateServerCertificate_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateUser_javascript_topic">
+                        <info>
+                            <title id="iam_UpdateUser_javascript_topic.title">Update a user</title>
+                            <titleabbrev id="iam_UpdateUser_javascript_topic.titleabbrev">Update a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateAccessKey_javascript_topic">
+                        <info>
+                            <title id="iam_UpdateAccessKey_javascript_topic.title">Update an access key</title>
+                            <titleabbrev id="iam_UpdateAccessKey_javascript_topic.titleabbrev">Update an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateAccessKey_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_javascript_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_javascript_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_javascript_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_pinpoint_code_examples" role="topic">
+            <info>
+                <title id="javascript_pinpoint_code_examples.title">&PIN; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_pinpoint_code_examples.titleabbrev">&PIN;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &PIN;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &PIN;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &PIN; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &PIN; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="pinpoint_SendMessages_javascript_topic">
+                        <info>
+                            <title id="pinpoint_SendMessages_javascript_topic.title">Send email and text messages</title>
+                            <titleabbrev id="pinpoint_SendMessages_javascript_topic.titleabbrev">Send email and text messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send email and text messages with &PIN;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/pinpoint_SendMessages_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_s3_code_examples" role="topic">
+            <info>
+                <title id="javascript_s3_code_examples.title">&S3; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_PutBucketCors_javascript_topic">
+                        <info>
+                            <title id="s3_PutBucketCors_javascript_topic.title">Add CORS rules to a bucket</title>
+                            <titleabbrev id="s3_PutBucketCors_javascript_topic.titleabbrev">Add CORS rules to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add cross-origin resource sharing (CORS) rules to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketCors_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketPolicy_javascript_topic">
+                        <info>
+                            <title id="s3_PutBucketPolicy_javascript_topic.title">Add a policy to a bucket</title>
+                            <titleabbrev id="s3_PutBucketPolicy_javascript_topic.titleabbrev">Add a policy to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to add a policy to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketPolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_CopyObject_javascript_topic">
+                        <info>
+                            <title id="s3_CopyObject_javascript_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_javascript_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_javascript_topic">
+                        <info>
+                            <title id="s3_CreateBucket_javascript_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_javascript_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketPolicy_javascript_topic">
+                        <info>
+                            <title id="s3_DeleteBucketPolicy_javascript_topic.title">Delete a policy from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketPolicy_javascript_topic.titleabbrev">Delete a policy from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a policy from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketPolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_javascript_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_javascript_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_javascript_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObject_javascript_topic">
+                        <info>
+                            <title id="s3_DeleteObject_javascript_topic.title">Delete an object</title>
+                            <titleabbrev id="s3_DeleteObject_javascript_topic.titleabbrev">Delete an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_javascript_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_javascript_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_javascript_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucketWebsite_javascript_topic">
+                        <info>
+                            <title id="s3_DeleteBucketWebsite_javascript_topic.title">Delete the website configuration from a bucket</title>
+                            <titleabbrev id="s3_DeleteBucketWebsite_javascript_topic.titleabbrev">Delete the website configuration from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete the website configuration from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucketWebsite_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketCors_javascript_topic">
+                        <info>
+                            <title id="s3_GetBucketCors_javascript_topic.title">Get CORS rules for a bucket</title>
+                            <titleabbrev id="s3_GetBucketCors_javascript_topic.titleabbrev">Get CORS rules for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get cross-origin resource sharing (CORS) rules for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketCors_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_javascript_topic">
+                        <info>
+                            <title id="s3_GetObject_javascript_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_javascript_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketAcl_javascript_topic">
+                        <info>
+                            <title id="s3_GetBucketAcl_javascript_topic.title">Get the ACL of a bucket</title>
+                            <titleabbrev id="s3_GetBucketAcl_javascript_topic.titleabbrev">Get the ACL of a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketAcl_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketPolicy_javascript_topic">
+                        <info>
+                            <title id="s3_GetBucketPolicy_javascript_topic.title">Get the policy for a bucket</title>
+                            <titleabbrev id="s3_GetBucketPolicy_javascript_topic.titleabbrev">Get the policy for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the policy for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketPolicy_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketWebsite_javascript_topic">
+                        <info>
+                            <title id="s3_GetBucketWebsite_javascript_topic.title">Get the website configuration for a bucket</title>
+                            <titleabbrev id="s3_GetBucketWebsite_javascript_topic.titleabbrev">Get the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketWebsite_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListBuckets_javascript_topic">
+                        <info>
+                            <title id="s3_ListBuckets_javascript_topic.title">List buckets</title>
+                            <titleabbrev id="s3_ListBuckets_javascript_topic.titleabbrev">List buckets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &S3; buckets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_javascript_topic">
+                        <info>
+                            <title id="s3_ListObjects_javascript_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_javascript_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketAcl_javascript_topic">
+                        <info>
+                            <title id="s3_PutBucketAcl_javascript_topic.title">Set a new ACL for a bucket</title>
+                            <titleabbrev id="s3_PutBucketAcl_javascript_topic.titleabbrev">Set a new ACL for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set a new access control list (ACL) for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketAcl_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutBucketWebsite_javascript_topic">
+                        <info>
+                            <title id="s3_PutBucketWebsite_javascript_topic.title">Set the website configuration for a bucket</title>
+                            <titleabbrev id="s3_PutBucketWebsite_javascript_topic.titleabbrev">Set the website configuration for a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the website configuration for an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutBucketWebsite_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_javascript_topic">
+                        <info>
+                            <title id="s3_PutObject_javascript_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_javascript_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_PresignedUrl_javascript_topic">
+                        <info>
+                            <title id="s3_Scenario_PresignedUrl_javascript_topic.title">Create a presigned URL</title>
+                            <titleabbrev id="s3_Scenario_PresignedUrl_javascript_topic.titleabbrev">Create a presigned URL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a presigned URL for &S3; and upload an object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="s3_Scenario_GettingStarted_javascript_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_javascript_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_javascript_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_glacier_code_examples" role="topic">
+            <info>
+                <title id="javascript_glacier_code_examples.title">&GLshort; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_glacier_code_examples.titleabbrev">&GLshort;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &GLshort;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &GLshort;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &GLshort; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &GLshort; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="glacier_CreateVault_javascript_topic">
+                        <info>
+                            <title id="glacier_CreateVault_javascript_topic.title">Create a vault</title>
+                            <titleabbrev id="glacier_CreateVault_javascript_topic.titleabbrev">Create a vault</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &GLlong; vault.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_CreateVault_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="glacier_UploadArchive_javascript_topic">
+                        <info>
+                            <title id="glacier_UploadArchive_javascript_topic.title">Upload an archive to a vault</title>
+                            <titleabbrev id="glacier_UploadArchive_javascript_topic.titleabbrev">Upload an archive to a vault</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an archive to an &GLlong; vault.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/glacier_UploadArchive_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_sns_code_examples" role="topic">
+            <info>
+                <title id="javascript_sns_code_examples.title">&SNS; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CheckIfPhoneNumberIsOptedOut_javascript_topic">
+                        <info>
+                            <title id="sns_CheckIfPhoneNumberIsOptedOut_javascript_topic.title">Check whether a phone number is opted out</title>
+                            <titleabbrev id="sns_CheckIfPhoneNumberIsOptedOut_javascript_topic.titleabbrev">Check whether a phone number is opted out</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to check whether a phone number is opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_ConfirmSubscription_javascript_topic">
+                        <info>
+                            <title id="sns_ConfirmSubscription_javascript_topic.title">Confirm an endpoint owner wants to receive messages</title>
+                            <titleabbrev id="sns_ConfirmSubscription_javascript_topic.titleabbrev">Confirm an endpoint owner wants to receive messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to confirm the owner of an endpoint wants to receive &SNS; messages by validating the token sent to the endpoint by an earlier Subscribe action.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ConfirmSubscription_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_CreateTopic_javascript_topic">
+                        <info>
+                            <title id="sns_CreateTopic_javascript_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_javascript_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_Unsubscribe_javascript_topic">
+                        <info>
+                            <title id="sns_Unsubscribe_javascript_topic.title">Delete a subscription</title>
+                            <titleabbrev id="sns_Unsubscribe_javascript_topic.titleabbrev">Delete a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Unsubscribe_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_javascript_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_javascript_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_javascript_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_javascript_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_javascript_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_javascript_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetSMSAttributes_javascript_topic">
+                        <info>
+                            <title id="sns_GetSMSAttributes_javascript_topic.title">Get the settings for sending SMS messages</title>
+                            <titleabbrev id="sns_GetSMSAttributes_javascript_topic.titleabbrev">Get the settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the settings for sending &SNS; SMS messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetSMSAttributes_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_javascript_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_javascript_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_javascript_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_javascript_topic">
+                        <info>
+                            <title id="sns_ListTopics_javascript_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_javascript_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_javascript_topic">
+                        <info>
+                            <title id="sns_Publish_javascript_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_javascript_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetSmsAttributes_javascript_topic">
+                        <info>
+                            <title id="sns_SetSmsAttributes_javascript_topic.title">Set the default settings for sending SMS messages</title>
+                            <titleabbrev id="sns_SetSmsAttributes_javascript_topic.titleabbrev">Set the default settings for sending SMS messages</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set the default settings for sending SMS messages using &SNS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSmsAttributes_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_SetTopicAttributes_javascript_topic">
+                        <info>
+                            <title id="sns_SetTopicAttributes_javascript_topic.title">Set topic attributes</title>
+                            <titleabbrev id="sns_SetTopicAttributes_javascript_topic.titleabbrev">Set topic attributes</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set &SNS; topic attributes.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetTopicAttributes_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_Lambda_javascript_topic">
+                        <info>
+                            <title id="sns_Subscribe_Lambda_javascript_topic.title">Subscribe a &LAM; function to a topic</title>
+                            <titleabbrev id="sns_Subscribe_Lambda_javascript_topic.titleabbrev">Subscribe a &LAM; function to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a &LAM; function so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Lambda_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_App_javascript_topic">
+                        <info>
+                            <title id="sns_Subscribe_App_javascript_topic.title">Subscribe a mobile application to a topic</title>
+                            <titleabbrev id="sns_Subscribe_App_javascript_topic.titleabbrev">Subscribe a mobile application to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe a mobile application endpoint so it receives notifications from an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_App_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_javascript_topic">
+                        <info>
+                            <title id="sns_Subscribe_javascript_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_javascript_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_sqs_code_examples" role="topic">
+            <info>
+                <title id="javascript_sqs_code_examples.title">&SQS; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_SetQueueAttributes_javascript_topic">
+                        <info>
+                            <title id="sqs_SetQueueAttributes_javascript_topic.title">Change how long a queue waits for a message</title>
+                            <titleabbrev id="sqs_SetQueueAttributes_javascript_topic.titleabbrev">Change how long a queue waits for a message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to change how long an &SQS; queue waits for a message to arrive.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SetQueueAttributes_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ChangeMessageVisibility_javascript_topic">
+                        <info>
+                            <title id="sqs_ChangeMessageVisibility_javascript_topic.title">Change message timeout visibility</title>
+                            <titleabbrev id="sqs_ChangeMessageVisibility_javascript_topic.titleabbrev">Change message timeout visibility</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to change an &SQS; message timeout visibility.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ChangeMessageVisibility_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_CreateQueue_javascript_topic">
+                        <info>
+                            <title id="sqs_CreateQueue_javascript_topic.title">Create a queue</title>
+                            <titleabbrev id="sqs_CreateQueue_javascript_topic.titleabbrev">Create a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_CreateQueue_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteMessage_javascript_topic">
+                        <info>
+                            <title id="sqs_DeleteMessage_javascript_topic.title">Delete a message from a queue</title>
+                            <titleabbrev id="sqs_DeleteMessage_javascript_topic.titleabbrev">Delete a message from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a message from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteMessage_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteQueue_javascript_topic">
+                        <info>
+                            <title id="sqs_DeleteQueue_javascript_topic.title">Delete a queue</title>
+                            <titleabbrev id="sqs_DeleteQueue_javascript_topic.titleabbrev">Delete a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteQueue_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_GetQueueUrl_javascript_topic">
+                        <info>
+                            <title id="sqs_GetQueueUrl_javascript_topic.title">Get the URL of a queue</title>
+                            <titleabbrev id="sqs_GetQueueUrl_javascript_topic.titleabbrev">Get the URL of a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the URL of an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_GetQueueUrl_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ListQueues_javascript_topic">
+                        <info>
+                            <title id="sqs_ListQueues_javascript_topic.title">List queues</title>
+                            <titleabbrev id="sqs_ListQueues_javascript_topic.titleabbrev">List queues</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SQS; queues.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ListQueues_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_javascript_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_javascript_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_javascript_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_javascript_topic">
+                        <info>
+                            <title id="sqs_SendMessage_javascript_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_javascript_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_sts_code_examples" role="topic">
+            <info>
+                <title id="javascript_sts_code_examples.title">&STS; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_sts_code_examples.titleabbrev">&STS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &STS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &STS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &STS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &STS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sts_AssumeRole_javascript_topic">
+                        <info>
+                            <title id="sts_AssumeRole_javascript_topic.title">Assume a role</title>
+                            <titleabbrev id="sts_AssumeRole_javascript_topic.titleabbrev">Assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to assume a role with &STS;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sts_AssumeRole_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="javascript_transcribe_code_examples" role="topic">
+            <info>
+                <title id="javascript_transcribe_code_examples.title">&TSC; examples using &JSB; V3</title>
+                <titleabbrev id="javascript_transcribe_code_examples.titleabbrev">&TSC;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &JSBlong; V3 with &TSC;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &JSBlong; V3 with &TSC;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &TSC; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &TSC; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="transcribe_DeleteMedicalTranscriptionJob_javascript_topic">
+                        <info>
+                            <title id="transcribe_DeleteMedicalTranscriptionJob_javascript_topic.title">Delete a medical transcription job</title>
+                            <titleabbrev id="transcribe_DeleteMedicalTranscriptionJob_javascript_topic.titleabbrev">Delete a medical transcription job</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &TSCM; transcription job.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_DeleteMedicalTranscriptionJob_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="transcribe_DeleteTranscriptionJob_javascript_topic">
+                        <info>
+                            <title id="transcribe_DeleteTranscriptionJob_javascript_topic.title">Delete a transcription job</title>
+                            <titleabbrev id="transcribe_DeleteTranscriptionJob_javascript_topic.titleabbrev">Delete a transcription job</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &TSC; transcription job.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_DeleteTranscriptionJob_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="transcribe_ListMedicalTranscriptionJobs_javascript_topic">
+                        <info>
+                            <title id="transcribe_ListMedicalTranscriptionJobs_javascript_topic.title">List medical transcription jobs</title>
+                            <titleabbrev id="transcribe_ListMedicalTranscriptionJobs_javascript_topic.titleabbrev">List medical transcription jobs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &TSCM; transcription jobs.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_ListMedicalTranscriptionJobs_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="transcribe_ListTranscriptionJobs_javascript_topic">
+                        <info>
+                            <title id="transcribe_ListTranscriptionJobs_javascript_topic.title">List transcription jobs</title>
+                            <titleabbrev id="transcribe_ListTranscriptionJobs_javascript_topic.titleabbrev">List transcription jobs</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &TSC; transcription jobs.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_ListTranscriptionJobs_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="transcribe_StartMedicalTranscriptionJob_javascript_topic">
+                        <info>
+                            <title id="transcribe_StartMedicalTranscriptionJob_javascript_topic.title">Start a medical transcription job</title>
+                            <titleabbrev id="transcribe_StartMedicalTranscriptionJob_javascript_topic.titleabbrev">Start a medical transcription job</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &TSCM; transcription job.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_StartMedicalTranscriptionJob_JavaScript.xml"></xi:include>
+                    </section>
+                    <section id="transcribe_StartTranscriptionJob_javascript_topic">
+                        <info>
+                            <title id="transcribe_StartTranscriptionJob_javascript_topic.title">Start a transcription job</title>
+                            <titleabbrev id="transcribe_StartTranscriptionJob_javascript_topic.titleabbrev">Start a transcription job</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &TSC; transcription job.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/transcribe_StartTranscriptionJob_JavaScript.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+    <section id="javascript_code_examples_cross_service" role="topic">
+        <info>
+            <title id="javascript_code_examples_cross_service.title">Cross-service examples using &JSB; V3</title>
+            <titleabbrev id="javascript_code_examples_cross_service.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following sample applications use the &JSBlong; V3
+                    to work across multiple &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use the &JSBlong; V3
+            to work across multiple &AWS; services.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="cross_TranscriptionApp_javascript_topic" role="topic">
+            <info>
+                <title id="cross_TranscriptionApp_javascript_topic.title">Build an &TSC; app</title>
+                <titleabbrev id="cross_TranscriptionApp_javascript_topic.titleabbrev">Build an &TSC; app</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionApp_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_TranscriptionStreamingApp_javascript_topic" role="topic">
+            <info>
+                <title id="cross_TranscriptionStreamingApp_javascript_topic.title">Build an &TSC; streaming app</title>
+                <titleabbrev id="cross_TranscriptionStreamingApp_javascript_topic.titleabbrev">Build an &TSC; streaming app</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionStreamingApp_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_SubmitDataApp_javascript_topic" role="topic">
+            <info>
+                <title id="cross_SubmitDataApp_javascript_topic.title">Build an application to submit data to a &DDB; table</title>
+                <titleabbrev id="cross_SubmitDataApp_javascript_topic.titleabbrev">Build an app to submit data to a &DDB; table</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SubmitDataApp_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_DynamoDBDataTracker_javascript_topic" role="topic">
+            <info>
+                <title id="cross_DynamoDBDataTracker_javascript_topic.title">Create a dynamic web application to track &DDB; data</title>
+                <titleabbrev id="cross_DynamoDBDataTracker_javascript_topic.titleabbrev">Create a web application to track &DDB; data</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_TextractExplorer_javascript_topic" role="topic">
+            <info>
+                <title id="cross_TextractExplorer_javascript_topic.title">Create an &TEXTRACT; explorer application</title>
+                <titleabbrev id="cross_TextractExplorer_javascript_topic.titleabbrev">Create an &TEXTRACT; explorer application</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TextractExplorer_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzerPPE_javascript_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzerPPE_javascript_topic.title">Detect PPE in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzerPPE_javascript_topic.titleabbrev">Detect PPE in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzer_javascript_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzer_javascript_topic.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzer_javascript_topic.titleabbrev">Detect objects in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionVideoDetection_javascript_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionVideoDetection_javascript_topic.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionVideoDetection_javascript_topic.titleabbrev">Detect people and objects in a video</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_LambdaForBrowser_javascript_topic" role="topic">
+            <info>
+                <title id="cross_LambdaForBrowser_javascript_topic.title">Invoke a &LAM; function from a browser</title>
+                <titleabbrev id="cross_LambdaForBrowser_javascript_topic.titleabbrev">Invoke a &LAM; function from a browser</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaForBrowser_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_LambdaAPIGateway_javascript_topic" role="topic">
+            <info>
+                <title id="cross_LambdaAPIGateway_javascript_topic.title">Use &ABP; to invoke a &LAM; function</title>
+                <titleabbrev id="cross_LambdaAPIGateway_javascript_topic.titleabbrev">Use &ABP; to invoke a &LAM; function</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaAPIGateway_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_ServerlessWorkflows_javascript_topic" role="topic">
+            <info>
+                <title id="cross_ServerlessWorkflows_javascript_topic.title">Use &SFN; to invoke &LAM; functions</title>
+                <titleabbrev id="cross_ServerlessWorkflows_javascript_topic.titleabbrev">Use &SFN; to invoke &LAM; functions</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_JavaScript.xml"></xi:include>
+        </section>
+        <section id="cross_LambdaScheduledEvents_javascript_topic" role="topic">
+            <info>
+                <title id="cross_LambdaScheduledEvents_javascript_topic.title">Use scheduled events to invoke a &LAM; function</title>
+                <titleabbrev id="cross_LambdaScheduledEvents_javascript_topic.titleabbrev">Use scheduled events to invoke a &LAM; function</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_LambdaScheduledEvents_JavaScript.xml"></xi:include>
+        </section>
+    </section>
+</section>

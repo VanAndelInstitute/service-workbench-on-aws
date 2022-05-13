@@ -1,0 +1,9 @@
+    limit := flag.Int64("l", 100, "The maximum number of events to retrieve")
+    logGroupName := flag.String("g", "", "The name of the log group")
+    logStreamName := flag.String("s", "", "The name of the log stream")
+    flag.Parse()
+
+    if *logGroupName == "" || *logStreamName == "" {
+        fmt.Println("You must supply a log group name (-g LOG-GROUP) and log stream name (-s LOG-STREAM)")
+        return
+    }

@@ -1,0 +1,7 @@
+    result, err := svc.AddPermission(permArgs)
+    if err != nil {
+        fmt.Println("Cannot configure function for notifications")
+        os.Exit(0)
+    }
+
+    fmt.Println(result)

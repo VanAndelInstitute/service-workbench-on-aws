@@ -1,0 +1,24 @@
+<programlisting>
+    public static void putRecord(DynamoDbEnhancedClient enhancedClient){
+
+        try {
+            //Create a DynamoDbTable object
+            DynamoDbTable<Record> mappedTable = enhancedClient.table("Record", TABLE_SCHEMA);
+
+            //Populate the Table
+            Record record = new Record()
+                    .setId("id-value")
+                    .setSort("sort-value")
+                    .setAttribute("one")
+                    .setAttribute2("two")
+                    .setAttribute3("three");
+
+            mappedTable.putItem(record);
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("done");
+    }
+</programlisting>

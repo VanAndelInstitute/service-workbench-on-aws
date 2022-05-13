@@ -1,0 +1,6 @@
+<programlisting>
+        // Creates a default client with credentials and regions loaded from the environment
+        final DynamoDbAsyncClient asyncClient = DynamoDbAsyncClient.create();
+
+        ListTablesRequest listTablesRequest = ListTablesRequest.builder().limit(3).build();
+</programlisting>

@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun deletePinEncpoint(appIdVal: String?, endpointIdVal: String?) {
+
+        val deleteEndpointRequest = DeleteEndpointRequest {
+                applicationId =  appIdVal
+                endpointId = endpointIdVal
+        }
+
+       PinpointClient { region = "us-west-2" }.use { pinpoint ->
+            val result = pinpoint.deleteEndpoint(deleteEndpointRequest)
+            val id = result.endpointResponse?.id
+            println("The deleted endpoint is  $id")
+        }
+ }
+</programlisting>

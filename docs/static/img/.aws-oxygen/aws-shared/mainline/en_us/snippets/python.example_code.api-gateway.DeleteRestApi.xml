@@ -1,0 +1,13 @@
+<programlisting>
+    def delete_rest_api(self):
+        """
+        Deletes a REST API, including all of its resources and configuration.
+        """
+        try:
+            self.apig_client.delete_rest_api(restApiId=self.api_id)
+            logger.info("Deleted REST API %s.", self.api_id)
+            self.api_id = None
+        except ClientError:
+            logger.exception("Couldn't delete REST API %s.", self.api_id)
+            raise
+</programlisting>

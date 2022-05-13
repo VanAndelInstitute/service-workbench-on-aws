@@ -1,0 +1,9 @@
+<programlisting>
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := kms.New(sess)
+
+    blob := []byte(*data)
+</programlisting>

@@ -1,0 +1,37 @@
+
+require 'vendor/autoload.php';
+
+use Aws\CognitoIdentity\CognitoIdentityClient;
+use Aws\Exception\AwsException;
+
+
+/**
+ * Creates a new Identity Pool for your AWS account.
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+
+ 
+$identityClient = new CognitoIdentityClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2014-06-30'
+]);
+
+$identityPoolName = "PHP_SDK_test_identity_pool";
+
+try {
+    $result = $identityClient->createIdentityPool([
+        'AllowUnauthenticatedIdentities' => false, 
+        'IdentityPoolName' => $identityPoolName, 
+    ]);
+    echo $result["IdentityPoolId"] . "\n";
+    echo $result["IdentityPoolName"] ."\n";
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+    error_log($e->getMessage());
+}
+

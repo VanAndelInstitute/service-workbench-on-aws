@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Successfully updated '" + *movie + "' (" + *year + ") rating to " + *rating)
+</programlisting>

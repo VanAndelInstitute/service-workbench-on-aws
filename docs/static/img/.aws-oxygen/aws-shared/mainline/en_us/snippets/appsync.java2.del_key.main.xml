@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteKey(AppSyncClient appSyncClient, String keyId, String apiId) {
+
+        try {
+            DeleteApiKeyRequest apiKeyRequest = DeleteApiKeyRequest.builder()
+                    .apiId(apiId)
+                    .id(keyId)
+                    .build();
+
+            appSyncClient.deleteApiKey(apiKeyRequest);
+            System.out.println("The API key was deleted.");
+
+        } catch (AppSyncException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,3 @@
+    for _, p := range result.Projects {
+        fmt.Println(*p)
+    }

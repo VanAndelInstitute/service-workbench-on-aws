@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun deleteRedshiftCluster(clusterId: String?) {
+
+    val request = DeleteClusterRequest {
+            clusterIdentifier = clusterId
+            skipFinalClusterSnapshot = true
+    }
+
+    RedshiftClient { region = "us-west-2" }.use { redshiftClient ->
+        val response = redshiftClient.deleteCluster(request)
+        println("The status is ${response.cluster?.clusterStatus}")
+    }
+}
+</programlisting>

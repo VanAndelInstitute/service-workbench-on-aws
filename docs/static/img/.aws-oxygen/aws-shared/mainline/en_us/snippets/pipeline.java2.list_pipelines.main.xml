@@ -1,0 +1,18 @@
+<programlisting>
+    public static void getAllPipelines(CodePipelineClient pipelineClient) {
+
+        try {
+
+            ListPipelinesResponse response = pipelineClient.listPipelines();
+            List<PipelineSummary> pipelines =  response.pipelines();
+
+            for (PipelineSummary pipeline: pipelines) {
+                System.out.println("The name of the pipeline is "+pipeline.name());
+            }
+
+        } catch (CodePipelineException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

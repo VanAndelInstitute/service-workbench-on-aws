@@ -1,0 +1,29 @@
+<programlisting>
+def usage_demo():
+    """Shows how to use the role functions."""
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    print('-'*88)
+    print("Welcome to the AWS Identity and Account Management role demo.")
+    print('-'*88)
+    print("Roles let you define sets of permissions and can be assumed by "
+          "other entities, like users and services.")
+    print("The first 10 roles currently in your account are:")
+    roles = list_roles(10)
+    print(f"The inline policies for role {roles[0].name} are:")
+    list_policies(roles[0].name)
+    role = create_role(
+        'demo-iam-role',
+        ['lambda.amazonaws.com', 'batchoperations.s3.amazonaws.com'])
+    print(f"Created role {role.name}, with trust policy:")
+    pprint.pprint(role.assume_role_policy_document)
+    policy_arn = 'arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess'
+    attach_policy(role.name, policy_arn)
+    print(f"Attached policy {policy_arn} to {role.name}.")
+    print(f"Policies attached to role {role.name} are:")
+    list_attached_policies(role.name)
+    detach_policy(role.name, policy_arn)
+    print(f"Detached policy {policy_arn} from {role.name}.")
+    delete_role(role.name)
+    print(f"Deleted {role.name}.")
+    print("Thanks for watching!")
+</programlisting>

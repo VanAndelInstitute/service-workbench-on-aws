@@ -1,0 +1,21 @@
+<programlisting>
+    @staticmethod
+    def describe_models(lookoutvision_client, project_name):
+        """
+        Gets information about all models in a Lookout for Vision project.
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        :param project_name: The name of the project that you want to use.
+        """
+        try:
+            response = lookoutvision_client.list_models(ProjectName=project_name)
+            print("Project: " + project_name)
+            for model in response["Models"]:
+                Models.describe_model(
+                    lookoutvision_client, project_name, model["ModelVersion"])
+                print()
+            print("Done...")
+        except ClientError:
+            logger.exception("Couldn't list models.")
+            raise
+</programlisting>

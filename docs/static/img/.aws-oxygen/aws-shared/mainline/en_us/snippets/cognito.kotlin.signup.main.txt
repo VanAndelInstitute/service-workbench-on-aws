@@ -1,0 +1,42 @@
+suspend fun signUp(clientIdVal: String, secretKey: String, userName: String, passwordVal: String, email: String) {
+
+       val attributeType =  AttributeType {
+            this.name = "email"
+            this.value = email
+        }
+
+        val attrs = mutableListOf<AttributeType>()
+        attrs.add(attributeType)
+        val secretVal = calculateSecretHash(clientIdVal, secretKey, userName)
+
+       val request = SignUpRequest {
+          userAttributes= attrs
+          username = userName
+          clientId = clientIdVal
+          password = passwordVal
+          secretHash=secretVal
+       }
+       CognitoIdentityProviderClient { region = "us-east-1" }.use { identityProviderClient ->
+            identityProviderClient.signUp(request)
+            println("User has been signed up")
+        }
+    }
+
+    fun calculateSecretHash(userPoolClientId: String, userPoolClientSecret: String, userName: String): String {
+        val macSha256Algorithm = "HmacSHA256"
+        val signingKey = SecretKeySpec(
+            userPoolClientSecret.toByteArray(StandardCharsets.UTF_8),
+            macSha256Algorithm
+        )
+        try {
+            val mac = Mac.getInstance(macSha256Algorithm)
+            mac.init(signingKey)
+            mac.update(userName.toByteArray(StandardCharsets.UTF_8))
+            val rawHmac = mac.doFinal(userPoolClientId.toByteArray(StandardCharsets.UTF_8))
+            return Base64.getEncoder().encodeToString(rawHmac)
+
+        }  catch(e: UnsupportedEncodingException){
+            println(e.message)
+        }
+        return ""
+   }

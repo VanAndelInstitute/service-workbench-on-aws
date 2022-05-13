@@ -1,0 +1,18 @@
+    public static void updateIntance(RdsClient rdsClient, String dbInstanceIdentifier, String masterUserPassword) {
+
+        try {
+            // For a demo - modify the DB instance by modifying the master password
+            ModifyDbInstanceRequest modifyDbInstanceRequest = ModifyDbInstanceRequest.builder()
+                    .dbInstanceIdentifier(dbInstanceIdentifier)
+                    .publiclyAccessible(true)
+                    .masterUserPassword(masterUserPassword)
+                    .build();
+
+            ModifyDbInstanceResponse instanceResponse = rdsClient.modifyDBInstance(modifyDbInstanceRequest);
+            System.out.print("The ARN of the modified database is: " +instanceResponse.dbInstance().dbInstanceArn());
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }

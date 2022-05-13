@@ -1,0 +1,11 @@
+    svc := cloudwatchevents.New(sess)
+
+    _, err := svc.PutTargets(&cloudwatchevents.PutTargetsInput{
+        Rule: rule,
+        Targets: []*cloudwatchevents.Target{
+            &cloudwatchevents.Target{
+                Arn: lambdaARN,
+                Id:  targetID,
+            },
+        },
+    })

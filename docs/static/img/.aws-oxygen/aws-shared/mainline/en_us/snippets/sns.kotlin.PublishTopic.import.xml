@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.sns.SnsClient
+import aws.sdk.kotlin.services.sns.model.PublishRequest
+import kotlin.system.exitProcess
+</programlisting>

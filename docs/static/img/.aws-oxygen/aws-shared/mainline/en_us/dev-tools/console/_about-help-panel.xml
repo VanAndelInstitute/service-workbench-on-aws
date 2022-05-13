@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE para PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">                 %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">     %phrases-shared;
+  <!ENTITY % _devtools-common-entities SYSTEM "../entities/_devtools-common.ent">    %_devtools-common-entities;
+ ]>
+
+<block><para>The &DTconsole; includes helpful information in a collapsible panel that you can open
+    from the information icon (<inlinemediaobject>
+        <imageobject>
+            <imagedata fileref="../codecommit/images/codecommit-info-icon.png" format="PNG"/>
+        </imageobject>
+    </inlinemediaobject>) or any <guilabel>Info</guilabel> link on the page.  You can close this
+    panel at any time.</para>
+<mediaobject>
+    <imageobject>
+        <imagedata fileref="../codecommit/images/codecommit-guidance-open.png" format="PNG" width="100%" scalefit="1"
+            contentdepth="100%"/>
+    </imageobject>
+    <textobject>
+        <phrase>Viewing additional guidance in the console</phrase>
+    </textobject>
+</mediaobject></block>
+
+

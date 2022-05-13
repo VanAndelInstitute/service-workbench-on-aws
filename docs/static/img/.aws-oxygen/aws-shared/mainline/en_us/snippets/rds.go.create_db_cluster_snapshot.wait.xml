@@ -1,0 +1,5 @@
+<programlisting>
+    err = svc.WaitUntilDBSnapshotAvailable(&rds.DescribeDBSnapshotsInput{
+        DBInstanceIdentifier: clusterID,
+    })
+</programlisting>

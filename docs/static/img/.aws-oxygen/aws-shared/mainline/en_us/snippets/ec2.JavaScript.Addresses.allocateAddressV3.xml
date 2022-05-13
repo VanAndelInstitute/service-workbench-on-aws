@@ -1,0 +1,37 @@
+<programlisting>
+// Import required AWS SDK clients and commands for Node.js
+import {
+  AllocateAddressCommand,
+  AssociateAddressCommand,
+} from "@aws-sdk/client-ec2";
+import { ec2Client } from "./libs/ec2Client";
+
+// Set the parameters
+const paramsAllocateAddress = { Domain: "vpc" };
+
+const run = async () => {
+  try {
+    const data = await ec2Client.send(
+      new AllocateAddressCommand(paramsAllocateAddress)
+    );
+    console.log("Address allocated:", data.AllocationId);
+    return data;
+    var paramsAssociateAddress = {
+      AllocationId: data.AllocationId,
+      InstanceId: "INSTANCE_ID", //INSTANCE_ID
+    };
+  } catch (err) {
+    console.log("Address Not Allocated", err);
+  }
+  try {
+    const results = await ec2Client.send(
+      new AssociateAddressCommand(paramsAssociateAddress)
+    );
+    console.log("Address associated:", results.AssociationId);
+    return results;
+  } catch (err) {
+    console.log("Address Not Associated", err);
+  }
+};
+run();
+</programlisting>

@@ -1,0 +1,2 @@
+//Getting the URL to an object
+$url = $s3Client->getObjectUrl('my-bucket', 'my-key');

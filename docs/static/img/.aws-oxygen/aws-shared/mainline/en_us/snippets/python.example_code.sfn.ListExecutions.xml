@@ -1,0 +1,26 @@
+<programlisting>
+    def list_runs(self, run_status=None):
+        """
+        Lists the runs for the state machine.
+
+        :param run_status: When specified, only lists runs that have the specified
+                           status. Otherwise, all runs are listed.
+        :return: The list of runs.
+        """
+        if self.state_machine_arn is None:
+            raise ValueError
+        try:
+            kwargs = {'stateMachineArn': self.state_machine_arn}
+            if run_status is not None:
+                kwargs['statusFilter'] = run_status
+            response = self.stepfunctions_client.list_executions(**kwargs)
+            runs = response['executions']
+            logger.info(
+                "Got %s runs for state machine %s.", len(runs), self.state_machine_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't get runs for state machine %s.", self.state_machine_name)
+            raise
+        else:
+            return runs
+</programlisting>

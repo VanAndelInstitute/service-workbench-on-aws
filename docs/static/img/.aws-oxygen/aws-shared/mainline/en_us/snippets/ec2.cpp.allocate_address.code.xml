@@ -1,0 +1,32 @@
+<programlisting>
+    Aws::EC2::EC2Client ec2;
+
+    Aws::EC2::Model::AllocateAddressRequest request;
+    request.SetDomain(Aws::EC2::Model::DomainType::vpc);
+
+    auto outcome = ec2.AllocateAddress(request);
+    if (!outcome.IsSuccess())
+    {
+        std::cout << "Failed to allocate elastic ip address:" <<
+            outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    Aws::String allocation_id = outcome.GetResult().GetAllocationId();
+
+    Aws::EC2::Model::AssociateAddressRequest associate_request;
+    associate_request.SetInstanceId(instance_id);
+    associate_request.SetAllocationId(allocation_id);
+
+    auto associate_outcome = ec2.AssociateAddress(associate_request);
+    if (!associate_outcome.IsSuccess())
+    {
+        std::cout << "Failed to associate elastic ip address" << allocation_id
+            << " with instance " << instance_id << ":" <<
+            associate_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    std::cout << "Successfully associated elastic ip address " << allocation_id
+        << " with instance " << instance_id << std::endl;
+</programlisting>

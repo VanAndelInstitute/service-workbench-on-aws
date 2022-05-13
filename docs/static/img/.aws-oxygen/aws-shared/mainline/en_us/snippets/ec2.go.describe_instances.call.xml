@@ -1,0 +1,4 @@
+<programlisting>
+    svc := ec2.New(sess)
+    result, err := svc.DescribeInstances(nil)
+</programlisting>

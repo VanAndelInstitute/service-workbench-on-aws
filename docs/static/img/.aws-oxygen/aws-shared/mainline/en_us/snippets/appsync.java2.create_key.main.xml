@@ -1,0 +1,19 @@
+<programlisting>
+    public static String createKey(AppSyncClient appSyncClient, String apiId) {
+
+        try {
+            CreateApiKeyRequest apiKeyRequest = CreateApiKeyRequest.builder()
+                .apiId(apiId)
+                .description("Created using the AWS SDK for Java")
+                .build();
+
+         CreateApiKeyResponse response = appSyncClient.createApiKey(apiKeyRequest);
+         return response.apiKey().id();
+
+        } catch (AppSyncException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

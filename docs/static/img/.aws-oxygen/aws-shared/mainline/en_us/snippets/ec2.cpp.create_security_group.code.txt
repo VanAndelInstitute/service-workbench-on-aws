@@ -1,0 +1,18 @@
+    Aws::EC2::EC2Client ec2;
+    Aws::EC2::Model::CreateSecurityGroupRequest request;
+
+    request.SetGroupName(group_name);
+    request.SetDescription(description);
+    request.SetVpcId(vpc_id);
+
+    auto outcome = ec2.CreateSecurityGroup(request);
+
+    if (!outcome.IsSuccess())
+    {
+        std::cout << "Failed to create security group:" <<
+            outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    std::cout << "Successfully created security group named " << group_name <<
+        std::endl;

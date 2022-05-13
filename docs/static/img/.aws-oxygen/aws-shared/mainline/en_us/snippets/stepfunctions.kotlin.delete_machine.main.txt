@@ -1,0 +1,10 @@
+suspend fun deleteMachine(stateMachineArnVal: String) {
+        val deleteStateMachineRequest = DeleteStateMachineRequest {
+            stateMachineArn = stateMachineArnVal
+        }
+
+        SfnClient { region = "us-east-1" }.use { sfnClient ->
+            sfnClient.deleteStateMachine(deleteStateMachineRequest)
+            println("$stateMachineArnVal was successfully deleted.")
+        }
+ }

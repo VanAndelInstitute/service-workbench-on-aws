@@ -1,0 +1,26 @@
+<programlisting>
+    def get_rest_api_id(self, api_name):
+        """
+        Gets the ID of a REST API from its name by searching the list of REST APIs
+        for the current account. Because names need not be unique, this returns only
+        the first API with the specified name.
+
+        :param api_name: The name of the API to look up.
+        :return: The ID of the specified API.
+        """
+        try:
+            rest_api = None
+            paginator = self.apig_client.get_paginator('get_rest_apis')
+            for page in paginator.paginate():
+                rest_api = next(
+                    (item for item in page['items'] if item['name'] == api_name), None)
+                if rest_api is not None:
+                    break
+            self.api_id = rest_api['id']
+            logger.info("Found ID %s for API %s.", rest_api['id'], api_name)
+        except ClientError:
+            logger.exception("Couldn't find ID for API %s.", api_name)
+            raise
+        else:
+            return rest_api['id']
+</programlisting>

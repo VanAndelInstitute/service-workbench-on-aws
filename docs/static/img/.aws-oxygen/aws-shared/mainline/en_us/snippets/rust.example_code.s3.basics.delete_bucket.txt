@@ -1,0 +1,5 @@
+pub async fn delete_bucket(client: &Client, bucket_name: &str) -> Result<(), Error> {
+    client.delete_bucket().bucket(bucket_name).send().await?;
+    println!("bucket deleted");
+    Ok(())
+}

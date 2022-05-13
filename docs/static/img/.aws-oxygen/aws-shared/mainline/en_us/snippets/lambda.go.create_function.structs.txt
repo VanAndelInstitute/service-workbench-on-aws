@@ -1,0 +1,14 @@
+    createCode := &lambda.FunctionCode{
+        //      S3Bucket:        bucket,
+        //      S3Key:           zipFile,
+        //      S3ObjectVersion: aws.String("1"),
+        ZipFile: contents,
+    }
+
+    createArgs := &lambda.CreateFunctionInput{
+        Code:         createCode,
+        FunctionName: function,
+        Handler:      handler,
+        Role:         role,
+        Runtime:      runtime,
+    }

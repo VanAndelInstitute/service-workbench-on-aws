@@ -1,0 +1,1 @@
+    fmt.Println("Uploaded to archive with ID " + *result.ArchiveId)

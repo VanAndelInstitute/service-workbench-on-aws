@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+
+    
+<section id="EMR_Hive_Commands"  role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Use these examples to understand Hive commands for &EMR; and &DDBlong; integration.</para>
+        </abstract>
+    </sectioninfo>
+        <title id="EMR_Hive_Commands.title">Hive Command Examples for Exporting, Importing, and Querying Data in &DDB;</title>
+        <titleabbrev>Hive Command Examples for Exporting, Importing, and Querying Data</titleabbrev>
+        <para>The following examples use Hive commands to perform operations such as exporting data
+        to &S3; or HDFS, importing data to &DDB;, joining tables, querying tables, and more. </para>
+        <para>Operations on a Hive table reference data stored in &DDB;. Hive commands are subject
+        to the &DDB; table's provisioned throughput settings, and the data retrieved includes the
+        data written to the &DDB; table at the time the Hive operation request is processed by
+        &DDB;. If the data retrieval process takes a long time, some data returned by the Hive
+        command may have been updated in &DDB; since the Hive command began. </para>
+        <para>Hive commands <code>DROP TABLE</code> and <code>CREATE TABLE</code> only act on the
+        local tables in Hive and do not create or drop tables in &DDB;. If your Hive query
+        references a table in &DDB;, that table must already exist before you run the query. For
+        more information on creating and deleting tables in &DDB;, go to <ulink
+            url="http://&domain;/amazondynamodb/latest/developerguide/WorkingWithTables.html"
+            >Working with Tables in &DDB;</ulink>. </para>
+        <note>
+            <para>
+                When you map a Hive table to a location in &S3;, do not map it to the root path of the bucket, s3://mybucket, as this 
+                may cause errors when Hive writes the data to &S3;. Instead map the table to a subpath of the bucket, 
+                s3://mybucket/mypath.
+            </para>
+        </note>
+        
+        <section id="EMR_Hive_Commands_exporting">
+            <title id="EMR_Hive_Commands_exporting.title">Exporting Data from &DDB;</title>
+            <para>
+                You can use Hive to export data from &DDB;. 
+            </para>
+
+        
+        <procedure>
+            <title>To export a &DDB; table to an &S3; bucket</title>
+            <step>
+                <para>
+                    Create a Hive table that references data stored in &DDB;. Then you can call the INSERT OVERWRITE command to write the 
+                    data to an external directory. In the following example, 
+                    <replaceable>s3://bucketname/path/subpath/</replaceable> is a valid 
+                    path in &S3;. Adjust the 
+                    columns and datatypes in the CREATE command to match the values in your &DDB;.
+                    You can use this to create an archive of your &DDB; data in &S3;. 
+                </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");                   
+                    
+INSERT OVERWRITE DIRECTORY '<replaceable>s3://bucketname/path/subpath/</replaceable>' SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                    
+                </programlisting>
+            </step>
+        </procedure>
+
+        <procedure>
+            <title>To export a &DDB; table to an &S3; bucket using formatting</title>
+            <step>
+                <para>
+                    Create an external table that references a location in &S3;. This is shown below as s3_export. 
+                    During the CREATE call, specify row formatting for the table. Then, when you use INSERT OVERWRITE to 
+                    export data from &DDB; to s3_export, the data is written out in the specified format. In the following example, 
+                    the data is written out as comma-separated values (CSV).
+                </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");                      
+                    
+CREATE EXTERNAL TABLE <replaceable>s3_export</replaceable>(<replaceable>a_col string, b_col bigint, c_col array&lt;string&gt;</replaceable>)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>';
+                    
+INSERT OVERWRITE TABLE <replaceable>s3_export</replaceable> SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                    
+                </programlisting>
+            </step>
+        </procedure>  
+            
+        <procedure>
+            <title>To export a &DDB; table to an &S3; bucket without specifying a column mapping</title>
+            <step>
+                <para> Create a Hive table that references data stored in &DDB;. This is similar to
+                    the preceding example, except that you are not specifying a column mapping. The
+                    table must have exactly one column of type <code>map&lt;string,
+                        string&gt;</code>. If you then create an <code>EXTERNAL</code> table in &S3;
+                    you can call the <code>INSERT OVERWRITE</code> command to write the data from
+                    &DDB; to &S3;. You can use this to create an archive of your &DDB; data in &S3;.
+                    Because there is no column mapping, you cannot query tables that are exported
+                    this way. Exporting data without specifying a column mapping is available in
+                    Hive 0.8.1.5 or later, which is supported on &EMR; AMI
+                        2.2.<emphasis>x</emphasis> and later. </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (item map&lt;string,string&gt;)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>");  
+    
+CREATE EXTERNAL TABLE s3TableName (item map&lt;string, string&gt;)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>'; 
+                
+INSERT OVERWRITE TABLE <replaceable>s3TableName</replaceable> SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                    
+            </programlisting>
+            </step>
+        </procedure>      
+        
+        <procedure>
+            <title>To export a &DDB; table to an &S3; bucket using data compression</title>
+            <step>
+                <para>
+                    Hive provides several compression codecs you can set during your Hive session. 
+                    Doing so causes the exported data to be compressed in the specified format. The following example 
+                    compresses the exported files using the Lempel-Ziv-Oberhumer (LZO) algorithm.
+                </para>
+                <programlisting format="linespecific">
+SET hive.exec.compress.output=true;
+SET io.seqfile.compression.type=BLOCK;
+SET mapred.output.compression.codec = com.hadoop.compression.lzo.LzopCodec;                    
+                    
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");                    
+                    
+CREATE EXTERNAL TABLE <replaceable>lzo_compression_table</replaceable> (line STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>';
+                    
+INSERT OVERWRITE TABLE <replaceable>lzo_compression_table</replaceable> SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                    
+                </programlisting>
+                
+                <para>
+                    The available compression codecs are:
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                org.apache.hadoop.io.compress.GzipCodec
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                org.apache.hadoop.io.compress.DefaultCodec
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                com.hadoop.compression.lzo.LzoCodec
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                com.hadoop.compression.lzo.LzopCodec
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                org.apache.hadoop.io.compress.BZip2Codec
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                org.apache.hadoop.io.compress.SnappyCodec
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                    
+                </para>
+            </step>
+        </procedure> 
+        
+        <procedure>
+            <title>To export a &DDB; table to HDFS</title>
+            <step>
+                <para>
+                    Use the following Hive command, where <replaceable>hdfs:///directoryName</replaceable> is a valid HDFS path and 
+                    <replaceable>hiveTableName</replaceable> is a table in Hive that references &DDB;. 
+                    This export operation is faster than exporting a &DDB; table 
+                    to &S3; because Hive 0.7.1.1 uses HDFS as an intermediate step when exporting data to &S3;. The following 
+                    example also shows how to set <code>dynamodb.throughput.read.percent</code> to 1.0 in order to increase the read request rate.  
+                </para>
+                
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>"); 
+                    
+SET dynamodb.throughput.read.percent=1.0;                    
+                    
+INSERT OVERWRITE DIRECTORY '<replaceable>hdfs:///directoryName</replaceable>' SELECT * FROM <replaceable>hiveTableName</replaceable>;
+                </programlisting>
+                <para>
+                    You can also export data to HDFS using formatting and compression as shown above for the export to &S3;. 
+                    To do so, simply replace the &S3; directory in the examples above with an HDFS directory.
+                </para>
+            </step>
+        </procedure>
+            
+            <procedure id="EMR_Hive_non-printable-utf8">
+                <title id="EMR_Hive_non-printable-utf8.title">To read non-printable UTF-8 character data in Hive</title>
+                <step>
+                <para>You can read and write non-printable UTF-8 character data with Hive by using the <code>STORED AS SEQUENCEFILE</code> clause when you create the table. A 
+                    SequenceFile is Hadoop binary file format; you need to use Hadoop to read this file. The following example shows how to export data from &DDB; into &S3;. 
+                    You can use this functionality to handle non-printable UTF-8 encoded characters.
+                </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");                      
+                    
+CREATE EXTERNAL TABLE <replaceable>s3_export</replaceable>(<replaceable>a_col string, b_col bigint, c_col array&lt;string&gt;</replaceable>)
+STORED AS SEQUENCEFILE
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>';
+                    
+INSERT OVERWRITE TABLE <replaceable>s3_export</replaceable> SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                    
+                </programlisting>
+                </step>
+            </procedure>
+            
+        </section>
+        
+        <section id="EMR_Hive_Commands_importing">
+            <title id="EMR_Hive_Commands_importing.title">Importing Data to &DDB;</title> 
+            <para> When you write data to &DDB; using Hive you should ensure that the number of
+            write capacity units is greater than the number of mappers in the &cluster;. For
+            example, &cluster;s that run on m1.xlarge EC2 instances produce 8 mappers per instance.
+            In the case of a &cluster; that has 10 instances, that would mean a total of 80 mappers.
+            If your write capacity units are not greater than the number of mappers in the
+            &cluster;, the Hive write operation may consume all of the write throughput, or attempt
+            to consume more throughput than is provisioned.
+            <!-- For information about the number of mappers produced by each 
+                EC2 instance type, see 
+                <ulink url="&url-emr-dev;TaskConfiguration_AMI2.html">Task Configuration (AMI 2.0)</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>. -->For
+            more information about the number of mappers produced by each EC2 instance type, go to <!-- <ulink url="&url-emr-dev;TaskConfiguration_AMI2.html">Task Configuration</ulink> -->
+            <ulink url="&url-emr-dev;emr-hadoop-config.html">Hadoop Configuration Reference</ulink>
+            in the <emphasis>&EMR; Developer Guide</emphasis>. There, you will find a "Task
+            Configuration" section for each of the supported configurations. </para>
+            <para>
+                The number of mappers in Hadoop are controlled by the input splits. If there are too few splits, your write command might not 
+                be able to consume all the write throughput available.
+            </para>
+            <para>
+                If an item with the same key exists in the 
+                target &DDB; table, it will be overwritten. If no item with the key exists in the target &DDB; table, the item is inserted. 
+            </para>
+
+        
+        <procedure>
+            <title>To import a table from &S3; to &DDB;</title>
+            <step>
+                <para>
+                    You can use &EMR; (&EMR;) and Hive to write data from &S3; to &DDB;. 
+                </para>
+                
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>s3_import</replaceable>(<replaceable>a_col string, b_col bigint, c_col array&lt;string&gt;</replaceable>)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>';                    
+                    
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");  
+                    
+INSERT OVERWRITE TABLE '<replaceable>hiveTableName</replaceable>' SELECT * FROM <replaceable>s3_import</replaceable>;
+                </programlisting>          
+                
+            </step>
+        </procedure>
+            
+            <procedure>
+                <title>To import a table from an &S3; bucket to &DDB; without specifying a column mapping</title>
+                <step>
+                    <para>
+                        Create an <code>EXTERNAL</code> table that references data stored in &S3; that was previously exported from &DDB;. Before importing, ensure that the table exists in &DDB; and that it has the same key schema as the previously exported &DDB; table. In addition, the table must have exactly one column of type <code>map&lt;string, string&gt;</code>. If you then create a Hive table that is linked to &DDB;, you can call the <code>INSERT OVERWRITE</code> command to write the data from &S3; to &DDB;. Because there is no column mapping, you cannot query tables that are imported this way. Importing data without specifying a column mapping is available in Hive 0.8.1.5 or later, which is supported on &EMR; AMI 2.2.3 and later.
+                    </para>
+                    <programlisting format="linespecific">
+CREATE EXTERNAL TABLE s3TableName (item map&lt;string, string&gt;)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>'; 
+                        
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (item map&lt;string,string&gt;)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>");  
+                 
+INSERT OVERWRITE TABLE <replaceable>hiveTableName</replaceable> SELECT * 
+FROM <replaceable>s3TableName</replaceable>;                    
+            </programlisting>
+                </step>
+            </procedure>      
+            
+            <procedure>
+                <title>To import a table from HDFS to &DDB;</title>
+                <step>
+                    <para>
+                        You can use &EMR; and Hive to write data from HDFS to &DDB;. 
+                    </para>
+                    
+                    <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hdfs_import</replaceable>(<replaceable>a_col string, b_col bigint, c_col array&lt;string&gt;</replaceable>)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+LOCATION '<replaceable>hdfs:///directoryName</replaceable>';                    
+                    
+CREATE EXTERNAL TABLE <replaceable>hiveTableName</replaceable> (<replaceable>col1 string, col2 bigint, col3 array&lt;string&gt;</replaceable>)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>dynamodbtable1</replaceable>", 
+"dynamodb.column.mapping" = "<replaceable>col1:name,col2:year,col3:holidays</replaceable>");  
+                    
+INSERT OVERWRITE TABLE '<replaceable>hiveTableName</replaceable>' SELECT * FROM <replaceable>hdfs_import</replaceable>;
+                </programlisting>          
+                    
+                </step>
+            </procedure>
+            
+        </section>
+        
+        <section id="EMR_Hive_Commands_querying">
+            <title id="EMR_Hive_Commands_querying.title">Querying Data in &DDB;</title> 
+            <para>
+                The following examples show the various ways you can use &EMR; to query data stored in &DDB;.
+            </para>
+
+        
+        
+        <procedure>
+            <title>To find the largest value for a mapped column (<code>max</code>)</title>
+            <step>
+                <para>
+                    Use Hive commands like the following. In the first command, the CREATE statement creates a Hive table 
+                    that references data stored in &DDB;. The SELECT statement then uses that table to query data stored in &DDB;. 
+                    The following example finds the largest order placed by a given customer.
+                </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hive_purchases</replaceable>(<replaceable>customerId bigint, total_cost double, items_purchased array&lt;String&gt;</replaceable>) 
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>Purchases</replaceable>",
+"dynamodb.column.mapping" = "<replaceable>customerId:CustomerId,total_cost:Cost,items_purchased:Items</replaceable>");
+
+SELECT max(total_cost) from hive_purchases where customerId = 717;
+                </programlisting>
+            </step>
+        </procedure>
+        
+        <procedure>
+            <title>To aggregate data using the <code>GROUP BY</code> clause</title>
+            <step>
+                <para>
+                    You can use the <code>GROUP BY</code> clause to collect data across multiple records. 
+                    This is often used with an aggregate function such as sum, count, min, or max. The following example 
+                    returns a list of the largest orders from customers who have placed more than three orders.
+                </para>
+                <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hive_purchases</replaceable>(<replaceable>customerId bigint, total_cost double, items_purchased array&lt;String&gt;</replaceable>) 
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>Purchases</replaceable>",
+"dynamodb.column.mapping" = "<replaceable>customerId:CustomerId,total_cost:Cost,items_purchased:Items</replaceable>");
+
+SELECT customerId, max(total_cost) from hive_purchases GROUP BY customerId HAVING count(*) > 3;
+                </programlisting>
+            </step>
+        </procedure>
+         
+         <procedure>
+             <title>To join two &DDB; tables</title>
+             <step>
+                 <para>
+                     The following example maps two Hive tables to data stored in &DDB;.  It then calls a join across those two tables. 
+                     The join is computed on the &cluster; and returned. The join does not take place in &DDB;. 
+                     This example returns a list of customers and their purchases 
+                     for customers that have placed more than two orders.
+                 </para>
+                 <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hive_purchases</replaceable>(<replaceable>customerId bigint, total_cost double, items_purchased array&lt;String&gt;</replaceable>) 
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>Purchases</replaceable>",
+"dynamodb.column.mapping" = "<replaceable>customerId:CustomerId,total_cost:Cost,items_purchased:Items</replaceable>");
+
+CREATE EXTERNAL TABLE <replaceable>hive_customers</replaceable>(<replaceable>customerId bigint, customerName string, customerAddress array&lt;String&gt;</replaceable>) 
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>Customers</replaceable>",
+"dynamodb.column.mapping" = "<replaceable>customerId:CustomerId,customerName:Name,customerAddress:Address</replaceable>");
+
+Select c.customerId, c.customerName, count(*) as count from hive_customers c 
+JOIN hive_purchases p ON c.customerId=p.customerId 
+GROUP BY c.customerId, c.customerName HAVING count > 2;
+                 </programlisting>
+             </step>
+         </procedure>
+        
+        
+       <procedure>
+           <title>To join two tables from different sources</title>
+           <step>
+               <para>
+                   In the following example, Customer_S3 is a Hive table that loads a CSV file stored in &S3; and 
+                   hive_purchases is a table that references data in &DDB;. The following example joins together customer data stored as a 
+                   CSV file in &S3; with order data stored in &DDB; to return a set of data that represents orders placed by customers who have  
+                   "Miller" in their name.
+               </para>
+               <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hive_purchases</replaceable>(<replaceable>customerId bigint, total_cost double, items_purchased array&lt;String&gt;</replaceable>) 
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "<replaceable>Purchases</replaceable>",
+"dynamodb.column.mapping" = "<replaceable>customerId:CustomerId,total_cost:Cost,items_purchased:Items</replaceable>");
+
+CREATE EXTERNAL TABLE <replaceable>Customer_S3</replaceable>(customerId bigint, customerName string, customerAddress array&lt;String&gt;)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+LOCATION '<replaceable>s3://bucketname/path/subpath/</replaceable>';
+
+Select c.customerId, c.customerName, c.customerAddress from 
+Customer_S3 c 
+JOIN hive_purchases p 
+ON c.customerid=p.customerid 
+where c.customerName like '%Miller%';
+               </programlisting>
+           </step>
+       </procedure>
+        
+
+        <note>
+            <para>
+                In the preceding examples, the CREATE TABLE statements were included in each example for clarity and completeness. 
+                When running multiple queries or export operations against a given Hive table, you only need to create the table one time, 
+                at the beginning of the Hive session.
+            </para>
+        </note>
+        </section>
+
+    </section>

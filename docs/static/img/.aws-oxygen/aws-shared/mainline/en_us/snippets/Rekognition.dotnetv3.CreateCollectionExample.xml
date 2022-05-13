@@ -1,0 +1,19 @@
+<programlisting>
+        public static async Task Main()
+        {
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            string collectionId = "MyCollection";
+            Console.WriteLine("Creating collection: " + collectionId);
+
+            var createCollectionRequest = new CreateCollectionRequest
+            {
+                CollectionId = collectionId,
+            };
+
+            CreateCollectionResponse createCollectionResponse = await rekognitionClient.CreateCollectionAsync(createCollectionRequest);
+            Console.WriteLine($"CollectionArn : {createCollectionResponse.CollectionArn}");
+            Console.WriteLine($"Status code : {createCollectionResponse.StatusCode}");
+        }
+
+</programlisting>

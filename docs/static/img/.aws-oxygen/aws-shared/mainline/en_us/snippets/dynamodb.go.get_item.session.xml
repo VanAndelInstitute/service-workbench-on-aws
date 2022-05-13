@@ -1,0 +1,8 @@
+<programlisting>
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    // Create DynamoDB client
+    svc := dynamodb.New(sess)
+</programlisting>

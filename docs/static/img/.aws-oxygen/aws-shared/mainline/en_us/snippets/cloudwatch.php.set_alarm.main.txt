@@ -1,0 +1,47 @@
+function setAlarmState($cloudWatchClient, $cloudWatchRegion, $alarmName, 
+    $stateValue, $stateReason)
+{
+    try {
+        $result = $cloudWatchClient->setAlarmState([
+            'AlarmName' => $alarmName,
+            'StateValue' => $stateValue,
+            'StateReason' => $stateReason
+        ]);
+
+        if (isset($result['@metadata']['effectiveUri']))
+        {
+            if ($result['@metadata']['effectiveUri'] == 
+                'https://monitoring.' . $cloudWatchRegion . '.amazonaws.com')
+            {
+                return 'Successfully changed state of specified alarm.';
+            } else {
+                return 'Could not change state of specified alarm.';
+            }
+        } else {
+            return 'Could not change state of specified alarm.';
+        }
+    } catch (AwsException $e) {
+        return 'Error: ' . $e->getAwsErrorMessage();
+    }
+}
+
+function setTheAlarmState()
+{
+    $alarmName = 'my-ec2-resources';
+    $stateValue = 'OK';
+    $stateReason = 'AWS SDK for PHP example code set the state of the alarm ' . 
+        $alarmName . ' to ' . $stateValue;
+
+    $cloudWatchRegion = 'us-east-1';
+    $cloudWatchClient = new CloudWatchClient([
+        'profile' => 'default',
+        'region' => $cloudWatchRegion,
+        'version' => '2010-08-01'
+    ]);
+
+    echo setAlarmState($cloudWatchClient, $cloudWatchRegion, 
+        $alarmName, $stateValue, $stateReason);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// setTheAlarmState();

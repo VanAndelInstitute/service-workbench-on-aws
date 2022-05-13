@@ -1,0 +1,32 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.KeyManagementService;
+    using Amazon.KeyManagementService.Model;
+
+    public class ListKeys
+    {
+        public static async Task Main()
+        {
+            var client = new AmazonKeyManagementServiceClient();
+            var request = new ListKeysRequest();
+            var response = new ListKeysResponse();
+
+            do
+            {
+                response = await client.ListKeysAsync(request);
+
+                response.Keys.ForEach(key =>
+                {
+                    Console.WriteLine($"ID: {key.KeyId}, {key.KeyArn}");
+                });
+
+                // Set the Marker property when response.Truncated is true
+                // in order to get the next keys.
+                request.Marker = response.NextMarker;
+            }
+            while (response.Truncated);
+        }
+    }
+
+</programlisting>

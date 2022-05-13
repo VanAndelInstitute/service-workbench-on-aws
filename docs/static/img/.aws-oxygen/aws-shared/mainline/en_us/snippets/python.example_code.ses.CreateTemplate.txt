@@ -1,0 +1,22 @@
+    def create_template(self, name, subject, text, html):
+        """
+        Creates an email template.
+
+        :param name: The name of the template.
+        :param subject: The subject of the email.
+        :param text: The plain text version of the email.
+        :param html: The HTML version of the email.
+        """
+        try:
+            template = {
+                'TemplateName': name,
+                'SubjectPart': subject,
+                'TextPart': text,
+                'HtmlPart': html}
+            self.ses_client.create_template(Template=template)
+            logger.info("Created template %s.", name)
+            self.template = template
+            self._extract_tags(subject, text, html)
+        except ClientError:
+            logger.exception("Couldn't create template %s.", name)
+            raise

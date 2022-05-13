@@ -1,0 +1,5 @@
+<programlisting>
+    for _, m := range result.ServerCertificateMetadataList {
+        metadata = append(metadata, m)
+    }
+</programlisting>

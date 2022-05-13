@@ -1,0 +1,19 @@
+<programlisting>
+    public static void removeTag(SnsClient snsClient, String topicArn, String tagKey) {
+
+        try {
+
+            UntagResourceRequest resourceRequest = UntagResourceRequest.builder()
+                    .resourceArn(topicArn)
+                    .tagKeys(tagKey)
+                    .build();
+
+            snsClient.untagResource(resourceRequest);
+            System.out.println(tagKey +" was deleted from "+topicArn);
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

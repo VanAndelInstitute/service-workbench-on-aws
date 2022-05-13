@@ -1,0 +1,22 @@
+--------------------------
+transactionId: 14GND73BD1S57OEBM5O1RDLGU65HN51V9JK
+statusMessage: The transaction was successful and the payment instrument was charged.
+transactionDate: 1254916066
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+callerReference: CallerReference14
+notificationType: TransactionStatus
+transactionAmount: USD 1.00
+operation: WRITE_OFF_DEBT
+transactionStatus: SUCCESS
+signature: viN57tez98wxhzMF7catc26ag4tDiOnA+PBk023J1fIHw5eua4G0t3XGqOOyC0NBqm7zVdtFST7s
+9rwPxgaRU4spj2yLd8PX4YH+sknZJAx+RCo1wQa7Yr5R3s9gbbfP//qk5ZDAjF40ygUJmmEMV0o4
+gdYOJAp15v5MBFJT1zexluxY9EL/iMYNvJ4n+xyAQvjZvyI5cvW3XCbQ2VGGkOAkodb5+S+rw8My
+TE3nCbZKwlEK68VUCP8HRVDssu9lLcYPJNUChZS71Sj97h0S1AyxRCnb5Enunqa9B2SjvNz1cjna
+L/tKgNyCArM4EaXQ+Qx8+Bal4CR2c/14dAHeuw==
+paymentMethod: ABT
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: MyWish
+statusCode: Success
+--------------------------
+

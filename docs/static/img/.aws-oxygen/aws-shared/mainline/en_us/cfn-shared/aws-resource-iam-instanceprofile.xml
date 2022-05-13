@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::CFNRESOURCENAME -->
+<section id="aws-resource-iam-instanceprofile" role="topic">
+   <title id="aws-resource-iam-instanceprofile.title">AWS::IAM::InstanceProfile</title>
+
+   <para>Creates an &IAMlong; (&IAM;) Instance Profile that can be used with &IAM; Roles for EC2 Instances.</para>
+
+   <para>&iam-role-more-info;</para>
+
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>
+Type: AWS::IAM::InstanceProfile
+Properties: 
+  <link linkend="cfn-iam-instanceprofile-path">Path</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-iam-instanceprofile-roles">Roles</link>: [ <replaceable>IAM Roles</replaceable> ]    </programlisting>
+	</section>
+	
+	<section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+      "<link linkend="cfn-iam-instanceprofile-path">Path</link>": <replaceable>String</replaceable>,
+      "<link linkend="cfn-iam-instanceprofile-roles">Roles</link>": [ <replaceable>IAM Roles</replaceable> ]
+   }
+}      </programlisting>
+   </section>
+
+   <section>
+      <title>Properties</title>
+      <variablelist>
+         <varlistentry id="cfn-iam-instanceprofile-path">
+            <term>Path</term>
+            <listitem>
+               <para>The path associated with this IAM instance profile. For information about IAM paths, see <ulink
+                     url="http://&domain;/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_FriendlyNames"
+                     >Friendly Names and Paths</ulink> in the <citetitle>AWS Identity and Access Management User
+                     Guide</citetitle>.</para>
+               <simpara><emphasis>Required</emphasis>: Yes</simpara>
+               <simpara><emphasis>Type</emphasis>: String</simpara>
+               <simpara>&update-replacement;</simpara>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-instanceprofile-roles">
+            <term>Roles</term>
+            <listitem>
+               <para>The roles associated with this IAM instance profile.</para>
+               <simpara><emphasis>Required</emphasis>: Yes</simpara>
+               <simpara><emphasis>Type</emphasis>: List of references to <type>AWS::IAM::Role</type>s. Currently, a
+                  maximum of one role can be assigned to an instance profile.</simpara>
+               <simpara>&update-no-interrupt;</simpara>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Values</title>
+      <section condition="json">
+         <title>Ref</title>
+         <para>&ref-returns-name; For example:</para>
+         <programlisting>{ "Ref": "<replaceable>MyProfile</replaceable>" }</programlisting>
+         <para>For the IAM::InstanceProfile with the logical ID "MyProfile", <function>Ref</function> will return the
+         resource name.</para>
+         <para>&ref-more-info;</para>
+      </section>
+   	
+	   	<section condition="yaml">
+	   		<title>Ref</title>
+	   		<para>&ref-returns-name; For example:</para>
+	   		<programlisting>Ref: <replaceable>MyProfile</replaceable></programlisting>
+	   		<para>For the IAM::InstanceProfile with the logical ID MyProfile, <function>Ref</function> will return the
+	   			resource name.</para>
+	   		<para>&ref-more-info;</para>
+	   	</section>
+
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>Arn</term>
+               <listitem>
+                  <para>Returns the Amazon Resource Name (ARN) for the instance profile. For example:</para>
+                  <programlisting>{"Fn::GetAtt" : ["MyProfile", "Arn"] }</programlisting>
+                  <para>This will return a value such as
+                  <code>“arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ”</code>.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>&getatt-more-info;</para>
+      </section>
+   </section>
+
+  <!-- <section condition="json">
+      <title>Template Examples</title>
+      <!-\- Example 1: IAM Roles With Embedded Policy And Instance Profiles -\->
+      <xi:include href="template_examples/iam-role-embedded.xml"/>
+   </section>-->
+
+</section>
+

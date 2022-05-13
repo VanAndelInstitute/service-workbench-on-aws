@@ -1,0 +1,11 @@
+<programlisting>
+import logging
+import pprint
+import sys
+import time
+import boto3
+from botocore.exceptions import ClientError
+
+logger = logging.getLogger(__name__)
+iam = boto3.resource('iam')
+</programlisting>

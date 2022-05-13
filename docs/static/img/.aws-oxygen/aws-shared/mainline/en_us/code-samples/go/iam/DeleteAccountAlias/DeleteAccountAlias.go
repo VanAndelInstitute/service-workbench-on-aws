@@ -1,0 +1,51 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/iam/iamiface"
+)
+
+// RemoveAccountAlias removes an alias for your IAM account
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     alias is the alias for the account
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to DeleteAccountAlias
+func RemoveAccountAlias(svc iamiface.IAMAPI, alias *string) error {
+    _, err := svc.DeleteAccountAlias(&iam.DeleteAccountAliasInput{
+        AccountAlias: alias,
+    })
+
+    return err
+}
+
+func main() {
+    alias := flag.String("a", "", "The account alias")
+    flag.Parse()
+
+    if *alias == "" {
+        fmt.Println("You must supply an account alias (-a ALIAS)")
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := iam.New(sess)
+
+    err := RemoveAccountAlias(svc, alias)
+    if err != nil {
+        fmt.Println("Got an error deleting an account alias")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Printf("Deleted account alias " + *alias)
+}

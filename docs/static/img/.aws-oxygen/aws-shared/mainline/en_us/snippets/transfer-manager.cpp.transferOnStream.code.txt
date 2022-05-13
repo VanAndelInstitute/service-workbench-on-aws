@@ -1,0 +1,39 @@
+        auto s3_client = Aws::MakeShared<Aws::S3::S3Client>("S3Client");
+        auto executor = Aws::MakeShared<Aws::Utils::Threading::PooledThreadExecutor>("executor", 25);
+        Aws::Transfer::TransferManagerConfiguration transfer_config(executor.get());
+        transfer_config.s3Client = s3_client;
+
+        auto transfer_manager = Aws::Transfer::TransferManager::Create(transfer_config);
+
+        auto uploadHandle = transfer_manager->UploadFile(LOCAL_FILE, BUCKET, KEY, "text/plain", Aws::Map<Aws::String, Aws::String>());
+        uploadHandle->WaitUntilFinished();
+        bool success = uploadHandle->GetStatus() == Transfer::TransferStatus::COMPLETED; 
+      
+        if (!success)
+        {
+            auto err = uploadHandle->GetLastError();           
+            std::cout << "File upload failed:  "<< err.GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "File upload finished." << std::endl;
+
+            // Verify that the upload retrieved the expected amount of data.
+            assert(uploadHandle->GetBytesTotalSize() == uploadHandle->GetBytesTransferred());
+            g_file_size = uploadHandle->GetBytesTotalSize();
+
+            // Create buffer to hold data received by the data stream. 
+            Aws::Utils::Array<unsigned char> buffer(BUFFER_SIZE);
+            auto downloadHandle = transfer_manager->DownloadFile(BUCKET,
+                KEY,
+                [&]() { //Define a lambda expression for the callback method parameter to stream back the data.
+                    return Aws::New<MyUnderlyingStream>("TestTag", Aws::New<Stream::PreallocatedStreamBuf>("TestTag", buffer.GetUnderlyingData(), BUFFER_SIZE));
+                });
+            downloadHandle->WaitUntilFinished();// Block calling thread until download is complete.
+            auto downStat = downloadHandle->GetStatus();
+            if (downStat != Transfer::TransferStatus::COMPLETED)
+            {
+                auto err = downloadHandle->GetLastError();
+                std::cout << "File download failed:  " << err.GetMessage() << std::endl;
+            }
+            std::cout << "File download to memory finished."  << std::endl;

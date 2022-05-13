@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+  <!-- 
+    Coral documentation model schema for ZonBook authoring.  
+
+    Requires that the documentation model package builds use the AWSDocModelGen (this) build
+      package and that Coral2JSON and AWSAPiGen be used for the tool chain.
+    
+    This supports the Next Gen Reef build system.
+  -->
+
+  <!--
+    Additional Zonbook tags TBI once buyoff has been obtained from the SDK builds:
+    
+    BLOCK:   tip, caution, warning, table (with subtags)
+    INLINE:  guilabel, literal, replaceable, link, olink
+    
+  -->
+
+  <xs:element name="definition">
+    <xs:annotation>
+      <xs:documentation>CORAL: Root element for a Coral model file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="xml"/>
+          <xs:element ref="xmlnamespace"/>
+        </xs:choice>
+        <xs:element ref="documentation" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="assembly" type="notemptystringtype" use="required"/>
+      <xs:attribute name="version" type="versiontype" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="xml">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="namespace"/>
+      </xs:sequence>
+      <xs:attribute name="target" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="xmlnamespace">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="namespace"/>
+      </xs:sequence>
+      <xs:attribute name="target" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="namespace">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- BLOCK elements -->
+
+  <xs:element name="documentation">
+    <xs:annotation>
+      <xs:documentation>CORAL: Base documentation element for a coral shape. Cannot be applied to a reference.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fullname" minOccurs="0"/>
+        <xs:element ref="abstract" minOccurs="0"/>
+        <xs:element ref="constraints" minOccurs="0"/>
+        <xs:element ref="expand" minOccurs="0"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="simpara"/>
+          <xs:element ref="para"/>
+          <xs:element ref="itemizedlist"/>
+          <xs:element ref="orderedlist"/>
+          <xs:element ref="variablelist"/>
+          <xs:element ref="note"/>
+          <xs:element ref="important"/>
+          <xs:element ref="examples"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="target" type="targettype" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="abstract">
+    <xs:annotation>
+      <xs:documentation>A summary used by the search indexer.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="simpara"/>
+        <xs:element ref="para"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="constraints">
+    <xs:annotation>
+      <xs:documentation>Constraint overrides for WebAPI documentation ONLY.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="length" minOccurs="0"/>
+        <xs:element ref="range" minOccurs="0"/>
+        <xs:element ref="pattern" minOccurs="0"/>
+        <xs:element ref="enum" minOccurs="0"/>
+      </xs:all>
+      <xs:attributeGroup ref="webonly"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="expand">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="yesnotype">
+          <xs:attributeGroup ref="webonly"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="itemizedlist">
+    <xs:annotation>
+      <xs:documentation>A list in which each entry is marked with a bullet or other dingbat.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title" minOccurs="0"/>
+        <xs:element ref="listitem" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="orderedlist">
+    <xs:annotation>
+      <xs:documentation>A list in which each entry is marked with a sequentially incremented label.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title" minOccurs="0"/>
+        <xs:element ref="listitem" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="variablelist">
+    <xs:annotation>
+      <xs:documentation>A list in which each entry is composed of a set of one or more terms and an associated description.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="varlistentry" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="varlistentry">
+    <xs:annotation>
+      <xs:documentation>A wrapper for a set of terms and the associated description in a variable list.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="term"/>
+        <xs:element ref="listitem"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="listitem">
+    <xs:annotation>
+      <xs:documentation>A wrapper for the elements of a list item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="simpara"/>
+        <xs:element ref="para"/>
+        <xs:element ref="itemizedlist"/>
+        <xs:element ref="orderedlist"/>
+        <xs:element ref="variablelist"/>
+        <xs:element ref="note"/>
+        <xs:element ref="important"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="note">
+    <xs:annotation>
+      <xs:documentation>A message set off from the text.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="simpara"/>
+        <xs:element ref="para"/>
+        <xs:element ref="itemizedlist"/>
+        <xs:element ref="orderedlist"/>
+        <xs:element ref="variablelist"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="important">
+    <xs:annotation>
+      <xs:documentation>An admonition set off from the text.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="simpara"/>
+        <xs:element ref="para"/>
+        <xs:element ref="itemizedlist"/>
+        <xs:element ref="orderedlist"/>
+        <xs:element ref="variablelist"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="examples">
+    <xs:annotation>
+      <xs:documentation>A wrapper for an API example or set of examples.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="simpara"/>
+          <xs:element ref="para"/>
+          <xs:element ref="itemizedlist"/>
+          <xs:element ref="orderedlist"/>
+          <xs:element ref="variablelist"/>
+          <xs:element ref="note"/>
+          <xs:element ref="important"/>
+        </xs:choice>
+        <xs:element ref="example" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="example">
+    <xs:annotation>
+      <xs:documentation>An API example in ZonBook/Reef format (not DocBook).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title" minOccurs="0"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="simpara"/>
+          <xs:element ref="para"/>
+          <xs:element ref="itemizedlist"/>
+          <xs:element ref="orderedlist"/>
+          <xs:element ref="variablelist"/>
+          <xs:element ref="note"/>
+          <xs:element ref="important"/>
+        </xs:choice>
+        <xs:element ref="programlisting" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="length">
+    <xs:complexType>
+        <xs:attribute name="min" type="xs:integer"/>
+        <xs:attribute name="max" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="range">
+    <xs:complexType>
+        <xs:attribute name="min" type="xs:decimal"/>
+        <xs:attribute name="max" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="pattern">
+    <xs:complexType>
+        <xs:attribute name="regex" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="enum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="enumvalue" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="shared">
+    <xs:annotation>
+      <xs:documentation>Reference to a service or entity definition. Only references to services and entity definitions in the same file are allowed.</xs:documentation>
+    </xs:annotation>    
+    <xs:complexType mixed="false">
+      <xs:attribute name="id" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the identifier to a service or shared-text within the same file.</xs:documentation>
+        </xs:annotation>        
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- INLINE/MIXED CONTENT elements -->
+  
+  <xs:element name="fullname">
+    <xs:annotation>
+      <xs:documentation>Display name for the service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <xs:element name="title">
+    <xs:annotation>
+      <xs:documentation>The text of the title of a section of a document or of a formal block-level element.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="term">
+    <xs:annotation>
+      <xs:documentation>The word or phrase being defined or described in a variable list.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="programlisting">
+    <xs:annotation>
+      <xs:documentation>A literal listing of all or part of a program.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="code"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+      <xs:attribute name="role">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="request"/>
+            <xs:enumeration value="response"/>
+            <xs:enumeration value="nocopy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="language"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="phrase">
+    <xs:annotation>
+      <xs:documentation>A span of text that designated for either WebApi or SDK builds.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="simpara">
+    <xs:annotation>
+      <xs:documentation>Deprecated. A paragraph that contains only text and inline markup (no block elements).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="para">
+    <xs:annotation>
+      <xs:documentation>A paragraph that contains only text and inline markup (no block elements).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="code">
+    <xs:annotation>
+      <xs:documentation>An inline code fragment.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+      <xs:attribute name="role">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="nocopy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="language">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="nocopy"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="emphasis">
+    <xs:annotation>
+      <xs:documentation>Emphasized text (italics/bold/underline).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="emphasis"/>
+        <xs:element ref="ulink"/>
+        <xs:element ref="xref"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+      <xs:attribute name="role">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="bold"/>
+            <xs:enumeration value="underline"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ulink">
+    <xs:annotation>
+      <xs:documentation>A link to content that's external to this API Reference document build.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="emphasis"/>
+        <xs:element ref="shared"/>
+        <xs:element ref="phrase"/>
+      </xs:choice>
+      <xs:attributeGroup ref="profiling"/>
+      <xs:attribute name="type" type="domain" use="optional"/>
+      <xs:attribute name="url" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="xref">
+    <xs:annotation>
+      <xs:documentation>A cross reference to another part of this document.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="profiling"/>
+      <xs:attribute name="linkend" use="required" type="targettype">
+        <xs:annotation>
+          <xs:documentation>Specifies the ID to link to. To link to content included in the Reef build, you should specify the target you want to link to within the model (like UpdateFunctionCodeRequest$Publish).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="notemptystringtype">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="versiontype">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:pattern value="[0-9\.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="targettype">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:pattern value="([\w\-\._]+#)?[\w\-\._]+($[\w\-\._]+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="hreftype">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="9"/>
+      <xs:pattern value="(https?|mailto)://.+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="yesnotype">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="no"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="false"/>
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:attributeGroup name="webonly">
+    <xs:attribute name="api" use="required">
+      <xs:annotation>
+        <xs:documentation>Profiling attribute that allows content to be specific to the WebApi only.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="web">
+            <xs:annotation>
+              <xs:documentation>Specifies that the content is for the Web API documenation only (for example links to pages that only exist in the Next Gen Reef documentation and not in the SDKs).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute ref="region" use="optional"/>
+  </xs:attributeGroup>
+  
+  <xs:attributeGroup name="profiling">
+    <xs:attribute ref="api" use="optional"/>
+    <xs:attribute ref="region" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attribute name="api">
+    <xs:annotation>
+      <xs:documentation>Profiling attribute that allows content to be specific to the WebApi or SDK builds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="web">
+          <xs:annotation>
+            <xs:documentation>Specifies that the content is for the Web API documenation only (for example links to pages that only exist in the Next Gen Reef documentation and not in the SDKs).</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="sdk">
+          <xs:annotation>
+            <xs:documentation>Specifies that the content is for the SDK builds only.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  
+  <xs:attribute name="region">
+    <xs:annotation>
+      <xs:documentation>Profiling attribute that allows WebAPI content to be specific to a deployment region. Requires @api="web" (not allowed for SDK content).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="BJS">
+              <xs:annotation>
+                <xs:documentation>Specifies that the content only applies to the BJS region.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DCA">
+              <xs:annotation>
+                <xs:documentation>Specifies that the content only applies to the DCA region.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="IAD">
+              <xs:annotation>
+                <xs:documentation>Specifies that the content only applies to the IAD region (integ and public websites).</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="LCK">
+              <xs:annotation>
+                <xs:documentation>Specifies that the content only applies to the LCK region.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SEA">
+              <xs:annotation>
+                <xs:documentation>Specifies that the content only applies to the SEA region (alpha website).</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}([,;][A-Z]{3})*"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:simpleType name="domain">
+    <xs:annotation>
+      <xs:documentation>Region attribute that allows ulinks to be automatically formatted for the AWS deployment regions. Ulinks without a @type will be output verbatum.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="retail">
+        <xs:annotation>
+          <xs:documentation>Adds the retail domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="marketing">
+        <xs:annotation>
+          <xs:documentation>Adds the marketing domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="documentation">
+        <xs:annotation>
+          <xs:documentation>Adds the documentation domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="console">
+        <xs:annotation>
+          <xs:documentation>Adds the console URL associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="portal">
+        <xs:annotation>
+          <xs:documentation>Adds the portal domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="api">
+        <xs:annotation>
+          <xs:documentation>Adds the API domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="forum">
+        <xs:annotation>
+          <xs:documentation>Adds the forum domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="blog">
+        <xs:annotation>
+          <xs:documentation>Adds the blog domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="status">
+        <xs:annotation>
+          <xs:documentation>Adds the status domain associated with the region it is being built on in front of the content in the url attribute. For the SDK builds, it adds the domain used on the public website.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="string-with-profiling">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="profiling"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+</xs:schema>

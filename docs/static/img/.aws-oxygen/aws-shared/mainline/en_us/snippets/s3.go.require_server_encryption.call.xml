@@ -1,0 +1,6 @@
+<programlisting>
+    _, err = svc.PutBucketPolicy(&s3.PutBucketPolicyInput{
+        Bucket: bucket,
+        Policy: aws.String(string(policy)),
+    })
+</programlisting>

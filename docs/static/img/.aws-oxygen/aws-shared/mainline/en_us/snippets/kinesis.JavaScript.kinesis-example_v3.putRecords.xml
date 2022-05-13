@@ -1,0 +1,25 @@
+<programlisting>
+
+// Helper function to upload data to Amazon Kinesis.
+const uploadData = async () => {
+  try {
+    const data = await kinesisClient.send(new PutRecordsCommand({
+      Records: recordData,
+      StreamName: 'STREAM_NAME' // For example, 'my-stream-kinesis'.
+    }));
+    console.log('data', data);
+    console.log("Kinesis updated", data);
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+// Run uploadData every second if data exists.
+setInterval(function() {
+  if (!recordData.length) {
+    return;
+  }
+  uploadData();
+  // clear record data
+  recordData = [];
+}, 1000);
+</programlisting>

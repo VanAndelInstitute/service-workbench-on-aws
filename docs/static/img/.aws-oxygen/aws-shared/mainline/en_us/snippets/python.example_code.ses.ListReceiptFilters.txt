@@ -1,0 +1,15 @@
+    def list_receipt_filters(self):
+        """
+        Gets the list of receipt filters for the current account.
+
+        :return: The list of receipt filters.
+        """
+        try:
+            response = self.ses_client.list_receipt_filters()
+            filters = response['Filters']
+            logger.info("Got %s receipt filters.", len(filters))
+        except ClientError:
+            logger.exception("Couldn't get receipt filters.")
+            raise
+        else:
+            return filters

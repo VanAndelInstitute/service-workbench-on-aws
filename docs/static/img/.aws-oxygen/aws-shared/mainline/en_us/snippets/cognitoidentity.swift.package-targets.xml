@@ -1,0 +1,29 @@
+<programlisting>
+    targets: [
+        // A library target containing the demo's classes
+        .target(
+            name: "CognitoIdentityHandler",
+            dependencies: [
+                .product(name: "AWSCognitoIdentity", package: "AWSSwiftSDK"),
+            ],
+            path: "./Sources/CognitoIdentityHandler"
+        ),
+        // The target of the tests
+        .testTarget(
+            name: "CognitoIdentityHandlerTests",
+            dependencies: [
+                "FindOrCreateIdentityPool",
+                .product(name: "AWSCognitoIdentity", package: "AWSSwiftSDK"),
+            ],
+            path: "./Tests/CognitoIdentityHandlerTests"
+        ),
+        // The target of the main executable program
+        .executableTarget(
+            name: "FindOrCreateIdentityPool",
+            dependencies: [
+                "CognitoIdentityHandler"
+            ],
+            path: "./Sources/FindOrCreateIdentityPool"
+        ),
+    ]
+</programlisting>

@@ -1,0 +1,14 @@
+<!-- To Use this shared package in your docs:
+ In your doc package Config file, add AWSElementalDocsShared = 1.0; to the build-tools.
+ In the XML files where you want to use the entities, add the following lines to the DOCTYPE declaration:
+    <!ENTITY % phrases-elemental-shared SYSTEM "file://AWSShared/elemental-shared/phrases-shared.ent">
+    %phrases-elemental-shared;
+ To include an entire XML file from this package, use an XML entry such as this:
+    <xi:include href="file://AWSShared/elemental-shared/<filename>.xml"/>
+--> 
+
+ <!ENTITY % general SYSTEM "file://AWSShared/elemental-shared/phrases-shared-general.ent"> %general;
+ <!ENTITY % drm SYSTEM "file://AWSShared/elemental-shared/phrases-shared-drm.ent"> %drm;
+ <!ENTITY % ground-comm SYSTEM "file://AWSShared/elemental-shared/phrases-shared-ground-comm.ent"> %ground-comm; 
+ <!ENTITY % dolby-atmos SYSTEM "file://AWSShared/elemental-shared/phrases-shared-vod.ent"> %dolby-atmos;
+ <!ENTITY % vod SYSTEM "file://AWSShared/elemental-shared/phrases-shared-vod.ent"> %vod; 

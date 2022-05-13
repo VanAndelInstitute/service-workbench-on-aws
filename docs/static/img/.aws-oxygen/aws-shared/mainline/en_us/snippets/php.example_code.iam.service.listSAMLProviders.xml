@@ -1,0 +1,6 @@
+<programlisting>
+    public function listSAMLProviders()
+    {
+        return $this->iamClient->listSAMLProviders();
+    }
+</programlisting>

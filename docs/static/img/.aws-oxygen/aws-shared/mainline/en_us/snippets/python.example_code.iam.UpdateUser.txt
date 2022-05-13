@@ -1,0 +1,16 @@
+def update_user(user_name, new_user_name):
+    """
+    Updates a user's name.
+
+    :param user_name: The current name of the user to update.
+    :param new_user_name: The new name to assign to the user.
+    :return: The updated user.
+    """
+    try:
+        user = iam.User(user_name)
+        user.update(NewUserName=new_user_name)
+        logger.info("Renamed %s to %s.", user_name, new_user_name)
+    except ClientError:
+        logger.exception("Couldn't update name for user %s.", user_name)
+        raise
+    return user

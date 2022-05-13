@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Message Handle: " + *msgResult.Messages[0].ReceiptHandle)
+</programlisting>

@@ -1,0 +1,9 @@
+    svc := sqs.New(sess)
+
+    result, err := svc.CreateQueue(&sqs.CreateQueueInput{
+        QueueName: queue,
+        Attributes: map[string]*string{
+            "DelaySeconds":           aws.String("60"),
+            "MessageRetentionPeriod": aws.String("86400"),
+        },
+    })

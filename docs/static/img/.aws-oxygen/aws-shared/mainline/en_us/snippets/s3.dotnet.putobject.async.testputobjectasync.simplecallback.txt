@@ -1,0 +1,1 @@
+            asyncResult = client.BeginPutObject(request, SimpleCallback, null);

@@ -1,0 +1,4 @@
+    policy := map[string]string{
+        "deadLetterTargetArn": *dlQueueARN,
+        "maxReceiveCount":     "10",
+    }

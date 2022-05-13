@@ -1,0 +1,10 @@
+<programlisting>
+    policyName := flag.String("p", "", "The name of the policy")
+    roleName := flag.String("r", "", "The name of the role")
+    flag.Parse()
+
+    if *policyName == "" || *roleName == "" {
+        fmt.Println("You must supply a policy name (-p POLICY) and role name (-r ROLE)")
+        return
+    }
+</programlisting>

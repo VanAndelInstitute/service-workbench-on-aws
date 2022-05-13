@@ -1,0 +1,25 @@
+--------------------------
+transactionId: 14GKD9GE66FAA63E6O6B2JDPZKN53LZ7F22
+statusMessage: The requested amount was reserved successfully against the given payment instrument.
+transactionDate: 1254815482
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference05
+transactionAmount: USD 1.00
+transactionStatus: RESERVED
+operation: RESERVE
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: RIVZQHF+NmGUEbZNXijRcSwmeBTcYg/GCZD/xeUpLLXMwDNrM1D0+ewFLiUqJvdbQueUilBkJPoB
+5j+ZYvvrXfldEofaMZ85pz2pA/DyUicWR4e/DgcZrk/B7FO6LL9ki6aE0qPzpRR/nzRcLiu1lH2a
+zUPnMVf3dT+SfDhaKyKIfX40QYL6U3m3NTaGYSUbBwzZczg9qTpu4zZ2kCK3uidg7P78sXQEnDhm
+8kDAJC4obYFVlZi/Bd8UalxIYf2ko8SkhQ4vbsipjNg++HJ7KlJAa41GTVCrJfeX0Y4r7ToONEaQ
+iu/zn8X+q/jPqgGZN+Z2KNls6XVw4Waw3eXbug==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: Reserve
+statusCode: Success
+--------------------------

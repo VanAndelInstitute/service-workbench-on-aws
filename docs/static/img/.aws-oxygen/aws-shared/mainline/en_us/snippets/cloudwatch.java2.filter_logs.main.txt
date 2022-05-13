@@ -1,0 +1,20 @@
+    public static void filterCWLogEvents(CloudWatchLogsClient cloudWatchLogsClient, String logGroupName, Long startTime, Long endTime) {
+
+        try {
+            FilterLogEventsRequest filterLogEventsRequest = FilterLogEventsRequest.builder()
+                    .logGroupName(logGroupName)
+                    .startTime(startTime)
+                    .endTime(endTime)
+                    .build();
+
+            int logLimit = cloudWatchLogsClient.filterLogEvents(filterLogEventsRequest).events().size();
+            for (int c = 0; c < logLimit; c++) {
+                System.out.println(cloudWatchLogsClient.filterLogEvents(filterLogEventsRequest).events().get(c).message());
+            }
+
+            System.out.println("Successfully got CloudWatch log events!");
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

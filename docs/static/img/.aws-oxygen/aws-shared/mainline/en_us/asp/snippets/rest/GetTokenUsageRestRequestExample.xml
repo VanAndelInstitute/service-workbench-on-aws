@@ -1,0 +1,9 @@
+https://fps.amazonaws.com/?
+Action=GetTokenUsage
+&accessKey=AKIAIOSFODNN7EXAMPLE
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2008-08-06T13%3A00%3A01Z
+&TokenId=254656Example83987
+&Signature=[URL-encoded signature value]
+&Version=2008-09-17

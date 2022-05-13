@@ -1,0 +1,8 @@
+    roleARN := flag.String("r", "", "The Amazon Resource Name (ARN) of the role to assume")
+    sessionName := flag.String("s", "", "A unique identifier for the session")
+
+    if *roleARN == "" || *sessionName == "" {
+        fmt.Println("You must supply a role ARN and session name")
+        fmt.Println("-r ROLE-ARN -S SESSION-NAME")
+        return
+    }

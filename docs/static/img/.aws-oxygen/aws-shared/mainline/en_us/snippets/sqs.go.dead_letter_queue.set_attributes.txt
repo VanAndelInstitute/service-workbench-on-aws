@@ -1,0 +1,6 @@
+    _, err = svc.SetQueueAttributes(&sqs.SetQueueAttributesInput{
+        QueueUrl: queueURL,
+        Attributes: map[string]*string{
+            sqs.QueueAttributeNameRedrivePolicy: aws.String(string(b)),
+        },
+    })

@@ -1,0 +1,9 @@
+<programlisting>
+    bucket := flag.String("b", "", "The name of the bucket")
+    key := flag.String("k", "TestFile.txt", "The name of the object (key)")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply the name of the bucket (-b BUCKET)")
+    }
+</programlisting>

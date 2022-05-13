@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun deleteMyCollection(collectionIdVal: String) {
+
+    val request = DeleteCollectionRequest {
+        collectionId = collectionIdVal
+    }
+
+    RekognitionClient { region = "us-east-1" }.use { rekClient ->
+        val response = rekClient.deleteCollection(request)
+        println("The collectionId status is ${response.statusCode.toString()}")
+    }
+}
+</programlisting>

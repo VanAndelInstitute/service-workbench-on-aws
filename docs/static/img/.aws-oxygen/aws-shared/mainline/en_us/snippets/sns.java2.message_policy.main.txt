@@ -1,0 +1,36 @@
+    public static void usePolicy(SnsClient snsClient,  String subscriptionArn) {
+
+        try {
+            SNSMessageFilterPolicy fp = new SNSMessageFilterPolicy();
+
+            // Add a filter policy attribute with a single value
+            fp.addAttribute("store", "example_corp");
+            fp.addAttribute("event", "order_placed");
+
+            // Add a prefix attribute
+            fp.addAttributePrefix("customer_interests", "bas");
+
+            // Add an anything-but attribute
+            fp.addAttributeAnythingBut("customer_interests", "baseball");
+
+            // Add a filter policy attribute with a list of values
+            ArrayList<String> attributeValues = new ArrayList<>();
+            attributeValues.add("rugby");
+            attributeValues.add("soccer");
+            attributeValues.add("hockey");
+            fp.addAttribute("customer_interests", attributeValues);
+
+            // Add a numeric attribute
+            fp.addAttribute("price_usd", "=", 0);
+
+            // Add a numeric attribute with a range
+            fp.addAttributeRange("price_usd", ">", 0, "<=", 100);
+
+            // Apply the filter policy attributes to an Amazon SNS subscription
+            fp.apply(snsClient, subscriptionArn);
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

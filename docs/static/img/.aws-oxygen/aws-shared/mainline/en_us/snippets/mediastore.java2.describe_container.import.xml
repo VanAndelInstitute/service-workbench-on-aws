@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.mediastore.MediaStoreClient;
+import software.amazon.awssdk.services.mediastore.model.DescribeContainerRequest;
+import software.amazon.awssdk.services.mediastore.model.DescribeContainerResponse;
+import software.amazon.awssdk.services.mediastore.model.MediaStoreException;
+</programlisting>

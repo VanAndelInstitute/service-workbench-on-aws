@@ -1,0 +1,9 @@
+$listAllBucketsPolicyDocument = "{
+                \"Version\": \"2012-10-17\",
+                \"Statement\": [{
+                    \"Effect\": \"Allow\",
+                    \"Action\": \"s3:ListAllMyBuckets\",
+                    \"Resource\": \"arn:aws:s3:::*\"}]
+}";
+$listAllBucketsPolicy = $service->createPolicy("iam_demo_policy_$uuid", $listAllBucketsPolicyDocument);
+echo "Created policy: {$listAllBucketsPolicy['PolicyName']}\n";

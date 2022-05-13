@@ -1,0 +1,83 @@
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+   This file is licensed under the Apache License, Version 2.0 (the "License").
+   You may not use this file except in compliance with the License. A copy of
+   the License is located at
+
+    http://aws.amazon.com/apache2.0/
+
+   This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations under the License.
+*/
+package main
+
+import (
+    "flag"
+    "fmt"
+    "net/url"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// CopyItem copies an item from one bucket to another
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     sourceBucket is the name of the source bucket
+//     otherBucket is the name of the bucket to which the item is copied
+//     item is the name of the bucket object to copy
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to CopyObject or WaitUntilObjectExists
+func CopyItem(sess *session.Session, sourceBucket *string, targetBucket *string, item *string) error {
+    svc := s3.New(sess)
+    source := *sourceBucket + "/" + *item
+
+    // Copy the item
+    _, err := svc.CopyObject(&s3.CopyObjectInput{
+        Bucket:     targetBucket,
+        CopySource: aws.String(url.PathEscape(source)),
+        Key:        item,
+    })
+    if err != nil {
+        return err
+    }
+
+    err = svc.WaitUntilObjectExists(&s3.HeadObjectInput{
+        Bucket: targetBucket,
+        Key:    item,
+    })
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    sourceBucket := flag.String("f", "", "The bucket containing the object to copy")
+    targetBucket := flag.String("t", "", "The bucket to which the object is copied")
+    item := flag.String("i", "", "The object to copy")
+    flag.Parse()
+
+    if *sourceBucket == "" || *targetBucket == "" || *item == "" {
+        fmt.Println("You must supply the bucket to copy from (-f BUCKET), to (-t BUCKET), and item to copy (-i ITEM")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    err := CopyItem(sess, sourceBucket, targetBucket, item)
+    if err != nil {
+        fmt.Println("Got an error copying item:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Copied " + *item + " from " + *sourceBucket + " to " + *targetBucket)
+}

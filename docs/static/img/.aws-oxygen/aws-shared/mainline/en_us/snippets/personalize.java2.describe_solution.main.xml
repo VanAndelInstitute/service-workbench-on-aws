@@ -1,0 +1,17 @@
+<programlisting>
+   public static void describeSpecificSolution(PersonalizeClient personalizeClient, String solutionArn) {
+
+     try {
+        DescribeSolutionRequest solutionRequest = DescribeSolutionRequest.builder()
+                .solutionArn(solutionArn)
+                .build();
+
+        DescribeSolutionResponse response = personalizeClient.describeSolution(solutionRequest);
+        System.out.println("The Solution name is "+response.solution().name());
+
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

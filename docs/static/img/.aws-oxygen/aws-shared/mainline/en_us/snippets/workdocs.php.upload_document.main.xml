@@ -1,0 +1,65 @@
+<programlisting>
+$client = new Aws\WorkDocs\WorkDocsClient([
+    'profile' => 'default',
+    'version' => '2016-05-01',
+    'region' => 'us-east-2'
+]);
+
+$folder = 'folderid';
+$pathtoFile = '';
+$file = 'filename.txt';
+
+$authTokenFilePath = 'token.txt';
+
+try {
+    $fileToUpload = $pathtoFile . $file;
+    $file = fopen($authTokenFilePath, 'r');
+    $authToken = fread($file, filesize($file));
+    fclose($authTokenFilePath);
+
+    print("Create Document\n");
+    $result = $client->initiateDocumentVersionUpload([
+        'AuthenticationToken' => $authToken,
+        'ParentFolderId' => $folder,
+        'Name' => $file,
+    ]);
+    var_dump($result);
+    $documentID = $result['Metadata']['Id'];
+    $documentVersionID = $result['Metadata']['LatestVersionMetadata']['Id'];
+    $uploadurl = $result['UploadMetadata']['UploadUrl'];
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+try {
+    print("Upload Document\n");
+    $body = fopen($fileToUpload, 'r');
+
+    $guzzle = new httpClient();
+    $upload = $guzzle->put($uploadurl, [
+        'body' => $body
+    ]);
+
+    var_dump($upload);
+
+} catch (ClientException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+try {
+    print("Update Document Version\n");
+    $updateResult = $client->updateDocumentVersion([
+        'AuthenticationToken' => $authToken,
+        'DocumentId' => $documentID,
+        'VersionId' => $documentVersionID,
+        'VersionStatus' => 'ACTIVE',
+    ]);
+
+    var_dump($updateResult);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+
+
+</programlisting>

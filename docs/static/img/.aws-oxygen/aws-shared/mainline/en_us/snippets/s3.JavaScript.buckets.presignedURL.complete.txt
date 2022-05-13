@@ -1,0 +1,17 @@
+const AWS = require('aws-sdk');
+// Set the AWS region
+const region = "REGION"; // REGION
+AWS.config.update(region);
+// Create S3 service object
+const s3 = new AWS.S3();
+// Set the parameters
+const myBucket = "BUCKET_NAME"; //BUCKET_NAME
+const myKey = "FILE_NAME"; // FILE_NAME
+const signedUrlExpireSeconds = 60*5; //EXPIRATION
+
+const presignedURL = s3.getSignedUrl('putObject', {
+    Bucket: myBucket,
+    Key: myKey,
+    Expires: signedUrlExpireSeconds
+})
+console.log(presignedURL)

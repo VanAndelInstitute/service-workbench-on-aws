@@ -1,0 +1,48 @@
+<!DOCTYPE procedure PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<procedure>
+    <title>To authenticate Docker to an &ECR; registry with <command>get-login</command></title>
+    <note>
+        <para>The <command>get-login</command> command is available in the &CLI; starting with
+            version &ecr-min-awscli-version;; however, we recommend version 1.11.91 or later for
+            recent versions of Docker (17.06 or later). You can check your &CLI; version with the
+                <command>aws --version</command> command.</para>
+    </note>
+    <step>
+        <para>Run the <command>aws ecr get-login</command> command. The example below is for the
+            default registry associated with the account making the request. To access other account
+            registries, use the <code>--registry-ids &example_account_id;</code> option. For more
+            information, see <ulink url="&url-cli-ref;ecr/get-login.html">get-login</ulink> in the
+                <emphasis>&guide-cli-ref;</emphasis>.</para>
+        <programlisting><userinput>aws ecr get-login --region <replaceable>region</replaceable> --no-include-email</userinput></programlisting>
+        <para>Output:</para>
+        <screen>
+docker login -u AWS -p <replaceable>password</replaceable> https://&example_account_id;.dkr.ecr.us-east-1.amazonaws.com</screen>
+        <important>
+            <para>If you receive an <code>Unknown options: --no-include-email</code> error, install the latest version
+    of the &CLI;. For more information, see <ulink url="&url-cli-ug;installing.html">Installing the &CLIlong;</ulink> in
+    the <emphasis>&guide-cli-ug;</emphasis>.</para>
+        </important>
+        <para>The resulting output is a <command>docker login</command> command that you use to
+            authenticate your Docker client to your &ECR; registry.</para>
+    </step>
+    <step>
+        <para>Copy and paste the <command>docker login</command> command into a terminal to
+            authenticate your Docker CLI to the registry. This command provides an authorization
+            token that is valid for the specified registry for 12 hours. </para>
+        <note>
+            <para>If you are using Windows PowerShell, copying and pasting long strings like this
+                does not work. Use the following command instead.</para>
+            <programlisting><userinput>Invoke-Expression -Command (aws ecr get-login --no-include-email)</userinput></programlisting>
+        </note>
+    </step>
+</procedure>

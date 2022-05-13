@@ -1,0 +1,25 @@
+    def discover_input_schema(self, stream_arn, role_arn):
+        """
+        Discovers a schema that maps data in a stream to a format that is usable by
+        an application's runtime environment. The stream must be active and have
+        enough data moving through it for the service to sample. The returned schema
+        can be used when you add the stream as an input to the application or you can
+        write your own schema.
+
+        :param stream_arn: The ARN of the stream to map.
+        :param role_arn: A role that lets Kinesis Data Analytics read from the stream.
+        :return: The discovered schema of the data in the input stream.
+        """
+        try:
+            response = self.analytics_client.discover_input_schema(
+                ResourceARN=stream_arn,
+                ServiceExecutionRole=role_arn,
+                InputStartingPositionConfiguration={'InputStartingPosition': 'NOW'})
+            schema = response['InputSchema']
+            logger.info("Discovered input schema for stream %s.", stream_arn)
+        except ClientError:
+            logger.exception(
+                "Couldn't discover input schema for stream %s.", stream_arn)
+            raise
+        else:
+            return schema

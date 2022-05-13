@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+   
+<section id="EMR_Interactive_Hive" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Follow these steps to set up a Hive table and run Hive commands when you integrate &EMR; with &DDBlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="EMR_Interactive_Hive.title">Step 4: Set Up a Hive Table to Run Hive Commands</title>
+    <titleabbrev>Step 4: Set Up a Hive Table to Run Hive Commands</titleabbrev>
+    <para>Apache Hive is a data warehouse application you can use to query data contained in &EMR; 
+        &cluster;s using a SQL-like language. Because we launched the
+        &cluster; as a Hive application, &EMR; installs Hive on the EC2 instances it
+        launches to process the &cluster;. For more information about Hive, go to <ulink
+            url="http://hive.apache.org/">http://hive.apache.org/</ulink>.</para>
+    <para>If you've followed the previous instructions to set up a &cluster; and use SSH to connect to the master
+        node, you are ready to use Hive interactively.</para>
+
+    <procedure id="EMR_Interactive_Hive_session">
+        <title id="EMR_Interactive_Hive_session.title">To run Hive commands interactively</title>
+        <step>
+            <para>At the command prompt for the current master node, type <code>hive</code>.</para>
+            <para>You should see a hive prompt: <code>hive&gt;</code></para>
+        </step>
+        <step>
+            <para> Enter a Hive command that maps a table in the Hive application to the data in
+                &DDB;. This table acts as a reference to the data stored in Amazon
+                DynamoDB; the data is not stored locally in Hive and any queries using this table
+                run against the live data in &DDB;, consuming the table’s read or write
+                capacity every time a command is run. If you expect to run multiple Hive commands
+                against the same dataset, consider exporting it first. </para>
+
+            <para> The following shows the syntax for mapping a Hive table to a &DDB;
+                table. </para>
+
+            <programlisting format="linespecific">
+CREATE EXTERNAL TABLE <replaceable>hive_tablename</replaceable> (<replaceable>hive_column1_name</replaceable> <replaceable>column1_datatype</replaceable>, <replaceable>hive_column2_name</replaceable> <replaceable>column2_datatype</replaceable>...)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = <replaceable>"dynamodb_tablename"</replaceable>, 
+"dynamodb.column.mapping" = "<replaceable>hive_column1_name</replaceable>:<replaceable>dynamodb_attribute1_name</replaceable>,<replaceable>hive_column2_name</replaceable>:<replaceable>dynamodb_attribute2_name</replaceable>...");
+                </programlisting>
+
+            <para> When you create a table in Hive from &DDB;, you must create it as an
+                external table using the keyword <code>EXTERNAL</code>. The difference between
+                external and internal tables is that the data in internal tables is deleted when an
+                internal table is dropped. This is not the desired behavior when connected to Amazon
+                DynamoDB, and thus only external tables are supported. </para>
+
+            <para> For example, the following Hive command creates a table named <emphasis>hivetable1</emphasis> in
+                Hive that references the &DDB; table named <emphasis>dynamodbtable1</emphasis>. The &DDB; 
+                table <emphasis>dynamodbtable1</emphasis> has a hash-and-range primary key schema. The hash
+                key element is <parameter>name</parameter> (string type), the range key element is <parameter>year</parameter> (numeric type),
+                and each item has an attribute value for <parameter>holidays</parameter> (string set type). </para>
+
+            <programlisting format="linespecific">
+CREATE EXTERNAL TABLE hivetable1 (col1 string, col2 bigint, col3 array&lt;string&gt;)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' 
+TBLPROPERTIES ("dynamodb.table.name" = "dynamodbtable1", 
+"dynamodb.column.mapping" = "col1:name,col2:year,col3:holidays"); 
+                </programlisting>
+
+            <para> Line 1 uses the HiveQL <code>CREATE EXTERNAL TABLE</code> statement. For
+                <emphasis>hivetable1</emphasis>, you need to establish a column for each attribute name-value pair in
+                the &DDB; table, and provide the data type. These values <emphasis>are
+                    not</emphasis> case-sensitive, and you can give the columns any name (except
+                reserved words). </para>
+            <para> Line 2 uses the <code>STORED BY</code> statement. The value of <code>STORED
+                    BY</code> is the name of the class that handles the connection between Hive and
+                &DDB;. It should be set to
+                    <code>'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'</code>. </para>
+            <para> Line 3 uses the <code>TBLPROPERTIES</code> statement to associate "hivetable1"
+                with the correct table and schema in &DDB;. Provide
+                    <code>TBLPROPERTIES</code> with values for the
+                    <parameter>dynamodb.table.name</parameter> parameter and
+                    <parameter>dynamodb.column.mapping</parameter> parameter. These values
+                    <emphasis>are</emphasis> case-sensitive.</para>
+            <note>
+                <para> All &DDB; attribute names for the table must have corresponding
+                    columns in the Hive table. Otherwise, the Hive table won't contain the
+                    name-value pair from &DDB;. If you do not map the &DDB;
+                    primary key attributes, Hive generates an error. If you do not map a non-primary
+                    key attribute, no error is generated, but you won't see the data in the Hive
+                    table. If the data types do not match, the value is null. </para>
+            </note>
+
+        </step>
+    </procedure>
+    <para>Then you can start running Hive operations on <emphasis>hivetable1</emphasis>. Queries run against
+        <emphasis>hivetable1</emphasis> are internally run against the &DDB; table <emphasis>dynamodbtable1</emphasis> of your
+        &DDB; account, consuming read or write units with each execution.</para>
+
+    <para>When you run Hive queries against a &DDB; table, you need to ensure that you
+        have provisioned a sufficient amount of read capacity units.</para>
+    <para>For example, suppose that you have provisioned 100 units of read capacity for your
+        DynamoDB table. This will let you perform 100 reads, or 409,600 bytes, per second. If that
+        table contains 20GB of data (21,474,836,480 bytes), and your Hive query performs a full
+        table scan, you can estimate how long the query will take to run:</para>
+    <para>
+        <emphasis> 21,474,836,480 / 409,600 = 52,429 seconds = 14.56 hours </emphasis>
+    </para>
+    <para>The only way to decrease the time required would be to adjust the read capacity units on
+        the source DynamoDB table. Adding more &EMR; nodes will not help.</para>
+    <para>In the Hive output, the completion percentage is updated when one or more mapper processes
+        are finished. For a large DynamoDB table with a low provisioned read capacity setting, the
+        completion percentage output might not be updated for a long time; in the case above, the
+        job will appear to be 0% complete for several hours. For more detailed status on your job's
+        progress, go to the &EMR; console; you will be able to view the individual mapper task
+        status, and statistics for data reads.</para>
+    <para>You can also log on to Hadoop interface on the master node and see the Hadoop statistics.
+        This will show you the individual map task status and some data read statistics. For more
+        information, see the following topics:</para>
+    <itemizedlist>
+        <listitem>
+            <para><ulink url="&url-emr-dev;emr-web-interfaces.html"
+                    >Web Interfaces Hosted on the Master Node</ulink></para>
+        </listitem>
+        <listitem>
+            <para><ulink url="&url-emr-dev;UsingtheHadoopUserInterface.html"
+                    >View the Hadoop Web Interfaces</ulink></para>
+        </listitem>
+    </itemizedlist>
+
+    <para>For more information about sample HiveQL statements to perform tasks such as exporting or importing data from &DDB; and joining tables, see <ulink url="&url-emr-dev;EMR_Hive_Commands.html">Hive Command Examples for Exporting, Importing, and Querying Data in Amazon DynamoDB</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.</para>
+    
+    <para>You can also create a file that contains a series of commands, launch a &cluster;, and reference
+        that file to perform the operations. For more information, see 
+        <ulink url="&url-emr-dev;UsingEMR_Hive.html#interactiveandbatch">Interactive and Batch Modes</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.
+    </para> 
+    <procedure id="EMR_Hive_Cancel"><title id="EMR_Hive_Cancel.title">To cancel a Hive request</title>
+        <para>When you execute a Hive query, the initial response from the server includes
+            the command to cancel the request. To cancel the request at
+            any time in the process, use the <guilabel>Kill Command</guilabel> from the server
+            response.</para>
+        <step><para>Enter <code>Ctrl+C</code> to exit the command line client.</para></step>
+        <step>
+            <para>
+                At the shell prompt, enter the <guilabel>Kill Command</guilabel> from the initial server response to your request.
+            </para>
+            <para>
+                Alternatively, you can run the following command from the command line of the master node to kill the Hadoop job, where 
+                <replaceable>job-id</replaceable> is the identifier of the Hadoop job and can be retrieved from the Hadoop user interface. 
+                For more information about the Hadoop user interface, see 
+                <ulink url="&url-emr-dev;UsingtheHadoopUserInterface.html">How to Use the Hadoop User Interface</ulink> in the <emphasis>&EMR; Developer Guide</emphasis>.
+            </para>
+            <programlisting format="linespecific">
+hadoop job -kill <replaceable>job-id</replaceable>
+                </programlisting>
+        </step>
+    </procedure>
+
+    <section id="EMR_Hive_Properties">
+        <title id="EMR_Hive_Properties.title">Data Types for Hive and &DDB;</title>
+        <para>The following table shows the available Hive data types and how they map to the
+            corresponding &DDB; data types. </para>
+        <informaltable>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1" colwidth="1*"/>
+                <colspec colnum="2" colname="col2" colwidth="2*"/>
+
+                <thead>
+                    <row>
+                        <entry>Hive type</entry>
+                        <entry>&DDB; type</entry>
+
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>string</entry>
+                        <entry><para>string (S)</para></entry>
+
+                    </row>
+                    <row>
+                        <entry>bigint or double</entry>
+                        <entry><para>number (N)</para></entry>
+
+                    </row>
+                    <row>
+                        <entry>binary</entry>
+                        <entry><para>binary (B)</para></entry>
+
+                    </row>
+                    <row>
+                        <entry>array</entry>
+                        <entry><para>number set (NS), string set (SS), or binary set
+                            (BS)</para></entry>
+
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        <para>The bigint type in Hive is the same as the Java long type, and the Hive double type is
+            the same as the Java double type in terms of precision. This means that if you have
+            numeric data stored in &DDB; that has precision higher than is available in the Hive
+            datatypes, using Hive to export, import, or reference the &DDB; data could lead to a
+            loss in precision or a failure of the Hive query. </para>
+        <para> Exports of the binary type from &DDB; to Amazon Simple Storage Service
+            (&S3;) or HDFS are stored as a Base64-encoded string. If you are importing data
+            from &S3; or HDFS into the &DDB; binary type, it should be encoded as a
+            Base64 string. </para>
+
+    </section>
+    <section id="EMR_Hive_Options">
+        <title id="EMR_Hive_Options.title">Hive Options</title>
+        <para> You can set the following Hive options to manage the transfer of data out of Amazon
+            DynamoDB. These options only persist for the current Hive session. If you close the Hive
+            command prompt and reopen it later on the &cluster;, these settings will have returned to
+            the default values. </para>
+
+        <informaltable>
+            <tgroup cols="2">
+                <colspec colnum="1" colname="col1" colwidth="1.5*"/>
+                <colspec colnum="2" colname="col2" colwidth="2*"/>
+
+                <thead>
+                    <row>
+                        <entry>Hive Options</entry>
+                        <entry>Description</entry>
+
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry><parameter>dynamodb.throughput.read.percent</parameter></entry>
+                        <entry>
+                            <para> Set the rate of read operations to keep your &DDB;
+                                provisioned throughput rate in the allocated range for your table.
+                                The value is between <code>0.1</code> and <code>1.5</code>,
+                                inclusively. </para>
+                            <para> The value of 0.5 is the default read rate, which means that Hive
+                                will attempt to consume half of the read provisioned throughout
+                                resources in the table. Increasing this value above 0.5 increases
+                                the read request rate. Decreasing it below 0.5 decreases the read
+                                request rate. This read rate is approximate. The actual read rate
+                                will depend on factors such as whether there is a uniform
+                                distribution of keys in &DDB;. </para>
+                            <para> If you find your provisioned throughput is frequently exceeded by
+                                the Hive operation, or if live read traffic is being throttled too
+                                much, then reduce this value below <code>0.5</code>. If you have
+                                enough capacity and want a faster Hive operation, set this value
+                                above <code>0.5</code>. You can also oversubscribe by setting it up
+                                to 1.5 if you believe there are unused input/output operations
+                                available. </para>
+                        </entry>
+
+                    </row>
+                    <row>
+                        <entry><parameter>dynamodb.throughput.write.percent</parameter></entry>
+                        <entry>
+                            <para> Set the rate of write operations to keep your &DDB;
+                                provisioned throughput rate in the allocated range for your table.
+                                The value is between <code>0.1</code> and <code>1.5</code>,
+                                inclusively. </para>
+                            <para> The value of 0.5 is the default write rate, which means that Hive
+                                will attempt to consume half of the write provisioned throughout
+                                resources in the table. Increasing this value above 0.5 increases
+                                the write request rate. Decreasing it below 0.5 decreases the write
+                                request rate. This write rate is approximate. The actual write rate
+                                will depend on factors such as whether there is a uniform
+                                distribution of keys in &DDB; </para>
+                            <para> If you find your provisioned throughput is frequently exceeded by
+                                the Hive operation, or if live write traffic is being throttled too
+                                much, then reduce this value below <code>0.5</code>. If you have
+                                enough capacity and want a faster Hive operation, set this value
+                                above <code>0.5</code>. You can also oversubscribe by setting it up
+                                to 1.5 if you believe there are unused input/output operations
+                                available or this is the initial data upload to the table and there
+                                is no live traffic yet. </para>
+                        </entry>
+
+                    </row>
+                    <row revision="release">
+                        <entry><parameter>dynamodb.endpoint</parameter></entry>
+                        <entry><para>Specify the endpoint in case you have tables in different
+                            regions. For more information about the available &DDB; endpoints, see <ulink url="http://&domain;/general/latest/gr/rande.html#ddb_region">Regions and Endpoints</ulink>.</para>
+                        </entry>
+                    </row>
+                    <row revision="release-bjs">
+                        <entry><parameter>dynamodb.endpoint</parameter></entry>
+                        <entry><para>Specify the endpoint for the service.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry><parameter>dynamodb.max.map.tasks</parameter></entry>
+                        <entry>
+                            <para> Specify the maximum number of map tasks when reading data from
+                                &DDB;. This value must be equal to or greater than 1.
+                            </para>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry><parameter>dynamodb.retry.duration</parameter></entry>
+                        <entry>
+                            <para> Specify the number of minutes to use as the timeout duration for
+                                retrying Hive commands. This value must be an integer equal to or
+                                greater than 0. The default timeout duration is two minutes. </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+
+        <para> These options are set using the <code>SET</code> command as shown in the following
+            example. </para>
+
+        <programlisting format="linespecific">
+SET dynamodb.throughput.read.percent=1.0; 
+
+INSERT OVERWRITE TABLE <replaceable>s3_export</replaceable> SELECT * 
+FROM <replaceable>hiveTableName</replaceable>;                         
+            
+        </programlisting>
+
+        <para> If you are using the AWS SDK for Java, you can use the -e option of Hive to pass in
+            the command directly, as shown in the last line of the following example. </para>
+        <programlisting revision="release">
+steps.add(new StepConfig()
+.withName("Run Hive Script")
+.withHadoopJarStep(new HadoopJarStepConfig()
+.withJar("s3://us-west-2.elasticmapreduce/libs/script-runner/script-runner.jar")
+.withArgs("s3://us-west-2.elasticmapreduce/libs/hive/hive-script",
+"--base-path","s3://us-west-2.elasticmapreduce/libs/hive/","--run-hive-script",
+"--args","-e","SET dynamodb.throughput.read.percent=1.0;"))); 
+        </programlisting>
+        <programlisting revision="release-bjs">
+steps.add(new StepConfig()
+.withName("Run Hive Script")
+.withHadoopJarStep(new HadoopJarStepConfig()
+.withJar("s3://cn-north-1.elasticmapreduce/libs/script-runner/script-runner.jar")
+.withArgs("s3://cn-north-1.elasticmapreduce/libs/hive/hive-script",
+"--base-path","s3://cn-north-1.elasticmapreduce/libs/hive/","--run-hive-script",
+"--args","-e","SET dynamodb.throughput.read.percent=1.0;"))); 
+        </programlisting>
+        
+
+    </section>
+
+
+</section>

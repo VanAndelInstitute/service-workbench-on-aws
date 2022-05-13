@@ -1,0 +1,5 @@
+<programlisting>
+    svc := cloudwatch.New(sess)
+
+    resp, err := svc.DescribeAlarms(nil)
+</programlisting>

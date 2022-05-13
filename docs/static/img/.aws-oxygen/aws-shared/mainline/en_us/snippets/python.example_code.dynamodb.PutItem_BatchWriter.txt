@@ -1,0 +1,22 @@
+def fill_table(table, table_data):
+    """
+    Fills an Amazon DynamoDB table with the specified data, using the Boto3
+    Table.batch_writer() function to put the items in the table.
+    Inside the context manager, Table.batch_writer builds a list of
+    requests. On exiting the context manager, Table.batch_writer starts sending
+    batches of write requests to Amazon DynamoDB and automatically
+    handles chunking, buffering, and retrying.
+
+    :param table: The table to fill.
+    :param table_data: The data to put in the table. Each item must contain at least
+                       the keys required by the schema that was specified when the
+                       table was created.
+    """
+    try:
+        with table.batch_writer() as writer:
+            for item in table_data:
+                writer.put_item(Item=item)
+        logger.info("Loaded data into table %s.", table.name)
+    except ClientError:
+        logger.exception("Couldn't load data into table %s.", table.name)
+        raise

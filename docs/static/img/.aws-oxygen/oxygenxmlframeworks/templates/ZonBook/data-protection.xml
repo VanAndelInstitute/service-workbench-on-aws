@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?template version="1.2-Oxygen" service="//Security//" type="data-protection"  origin="oxygen" value="csctemplate-awsdocs-DataProtection-1.2-oxygen"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;     
+    <!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+    <!ENTITY SERVICENAME 'SERVICE SHORTNAME'>
+]>
+<!--Replace the values for the SERVICENAME entities at the top of this file with your service names (short and long). Then paste these entities into your already-existing local entities file.-->
+  
+<section role="topic" id="data-protection">
+  <info>
+    <title id="data-protection.title">Data protection in &SERVICENAMElong;</title>
+    <titleabbrev>Data protection</titleabbrev>
+    <abstract>
+      <para>Learn how the &AWS; shared responsibility model applies to data protection in
+        &SERVICENAME;.</para>
+    </abstract>
+  </info>
+  &aws_security_data-protection;
+  <para/>
+
+  <!-- TODO: Work with your product team to complete these sections -->
+  <section id="data-encryption">
+    <info>
+      <title id="data-encryption.title">Data encryption</title>
+    </info>
+    <para>TBD</para>
+    
+    <section id="encryption-rest">
+      <info>
+        <title id="encryption-rest.title">Encryption at rest</title>
+      </info>
+      <para>TBD</para>
+    </section>
+    
+    <section id="encryption-transit">
+      <info>
+        <title id="encryption-transit.title">Encryption in transit</title>
+      </info>
+      <para>TBD</para>
+    </section>
+    
+    <section id="key-management">
+      <info>
+        <title id="key-management.title">Key management</title>
+      </info>
+      <para>TBD</para>
+    </section>
+  </section>
+  
+  <section id="inter-network-traffic-privacy">
+    <info>
+      <title id="inter-network-traffic-privacy.title">Inter-network traffic privacy</title>
+    </info>
+    <para>TBD</para>
+  </section>
+
+</section>

@@ -1,0 +1,31 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.Glacier;
+    using Amazon.Glacier.Model;
+
+    public class DescribeVault
+    {
+        public static async Task Main(string[] args)
+        {
+            string vaultName = "example-vault";
+            var client = new AmazonGlacierClient();
+            var request = new DescribeVaultRequest
+            {
+                AccountId = "-",
+                VaultName = vaultName,
+            };
+
+            var response = await client.DescribeVaultAsync(request);
+
+            // Display the information about the vault.
+            Console.WriteLine($"{response.VaultName}\tARN: {response.VaultARN}");
+            Console.WriteLine($"Created on: {response.CreationDate}\tNumber of Archives: {response.NumberOfArchives}\tSize (in bytes): {response.SizeInBytes}");
+            if (response.LastInventoryDate != DateTime.MinValue)
+            {
+                Console.WriteLine($"Last inventory: {response.LastInventoryDate}");
+            }
+        }
+    }
+
+</programlisting>

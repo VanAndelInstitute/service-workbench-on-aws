@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="ReturnValuesMarketplaceFee" role="topic">
+    <title id="ReturnValuesMarketplaceFee.title">Additional Return Values for Marketplace Fee Requests</title>
+    <informaltable>
+        <?dbhtml table-width="100%" ?>
+        <?dbfo table-width="95%" ?>
+        <tgroup cols="2">
+            <colspec colname="col1" colnum="1" colwidth="2.2*"/>
+            <colspec colname="col2" colnum="2" colwidth="3.81*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Parameter </para>
+                    </entry>
+                    <entry>
+                        <para>Description</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para><parameter>recipientEmail</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The email address of the recipient</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>refundTokenID</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Refund tokenID for the recipient.</para>
+                        <simpara>This value is not used with Amazon Simple Pay</simpara>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>tokenID</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The tokenID for the recipient.</para>
+                        <simpara>This value is not used with Amazon Simple Pay</simpara>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+</section>

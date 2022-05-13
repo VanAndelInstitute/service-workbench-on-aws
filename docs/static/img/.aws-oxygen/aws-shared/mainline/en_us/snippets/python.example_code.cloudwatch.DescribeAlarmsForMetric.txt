@@ -1,0 +1,12 @@
+    def get_metric_alarms(self, metric_namespace, metric_name):
+        """
+        Gets the alarms that are currently watching the specified metric.
+
+        :param metric_namespace: The namespace of the metric.
+        :param metric_name: The name of the metric.
+        :returns: An iterator that yields the alarms.
+        """
+        metric = self.cloudwatch_resource.Metric(metric_namespace, metric_name)
+        alarm_iter = metric.alarms.all()
+        logger.info("Got alarms for metric %s.%s.", metric_namespace, metric_name)
+        return alarm_iter

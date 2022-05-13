@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<section id="java_code_examples" role="topic">
+    <info>
+        <title id="java_code_examples.title">&Java; 1.x code examples</title>
+        <titleabbrev id="java_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Javalong; 1.x with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Javalong; 1.x with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="java_code_examples_categorized" role="topic">
+        <info>
+            <title id="java_code_examples_categorized.title">Single-service actions and scenarios using &Java; 1.x</title>
+            <titleabbrev id="java_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Java; 1.x with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Javalong; 1.x with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="java_sns_code_examples" role="topic">
+            <info>
+                <title id="java_sns_code_examples.title">&SNS; examples using &Java; 1.x</title>
+                <titleabbrev id="java_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Javalong; 1.x with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Javalong; 1.x with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_SetSubscriptionAttributesRedrivePolicy_java_topic">
+                        <info>
+                            <title id="sns_SetSubscriptionAttributesRedrivePolicy_java_topic.title">Set a dead-letter queue for a subscription</title>
+                            <titleabbrev id="sns_SetSubscriptionAttributesRedrivePolicy_java_topic.titleabbrev">Set a dead-letter queue for a subscription</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to set an &SQS; queue as a dead-letter queue for an &SNS; subscription.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_SetSubscriptionAttributesRedrivePolicy_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CreatePlatformEndpoint_java_topic">
+                        <info>
+                            <title id="sns_CreatePlatformEndpoint_java_topic.title">Create a platform endpoint for push notifications</title>
+                            <titleabbrev id="sns_CreatePlatformEndpoint_java_topic.titleabbrev">Create a platform endpoint for push notifications</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a platform endpoint for &SNS; push notifications.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreatePlatformEndpoint_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishFifoTopic_java_topic">
+                        <info>
+                            <title id="sns_PublishFifoTopic_java_topic.title">Create and publish to a FIFO topic</title>
+                            <titleabbrev id="sns_PublishFifoTopic_java_topic.titleabbrev">Create and publish to a FIFO topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create and publish to a FIFO &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishFifoTopic_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_UsageSmsTopic_java_topic">
+                        <info>
+                            <title id="sns_UsageSmsTopic_java_topic.title">Publish SMS messages to a topic</title>
+                            <titleabbrev id="sns_UsageSmsTopic_java_topic.titleabbrev">Publish SMS messages to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create an &SNS; topic.</para></listitem>
+                            <listitem><para>Subscribe phone numbers to the topic.</para></listitem>
+                            <listitem><para>Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_UsageSmsTopic_Java.xml"></xi:include>
+                    </section>
+                    <section id="sns_PublishLargeMessage_java_topic">
+                        <info>
+                            <title id="sns_PublishLargeMessage_java_topic.title">Publish a large message</title>
+                            <titleabbrev id="sns_PublishLargeMessage_java_topic.titleabbrev">Publish a large message</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish a large message to &SNS; using &S3; to store the message payload.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_PublishLargeMessage_Java.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,24 @@
+<programlisting>
+    def update_template(self, name, subject, text, html):
+        """
+        Updates a previously created email template.
+
+        :param name: The name of the template.
+        :param subject: The subject of the email.
+        :param text: The plain text version of the email.
+        :param html: The HTML version of the email.
+        """
+        try:
+            template = {
+                'TemplateName': name,
+                'SubjectPart': subject,
+                'TextPart': text,
+                'HtmlPart': html}
+            self.ses_client.update_template(Template=template)
+            logger.info("Updated template %s.", name)
+            self.template = template
+            self._extract_tags(subject, text, html)
+        except ClientError:
+            logger.exception("Couldn't update template %s.", name)
+            raise
+</programlisting>

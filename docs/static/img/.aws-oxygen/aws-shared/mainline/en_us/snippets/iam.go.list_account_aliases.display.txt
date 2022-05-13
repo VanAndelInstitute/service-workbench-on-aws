@@ -1,0 +1,3 @@
+    for i, alias := range result.AccountAliases {
+        fmt.Printf("Alias %d: %s\n", i, *alias)
+    }

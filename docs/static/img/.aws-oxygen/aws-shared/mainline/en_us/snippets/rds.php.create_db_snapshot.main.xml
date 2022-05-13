@@ -1,0 +1,23 @@
+<programlisting>
+//Create a RDSClient
+$rdsClient = new Aws\Rds\RdsClient([
+    'profile' => 'default',
+    'version' => '2014-10-31',
+    'region' => 'us-east-2'
+]);
+
+$dbIdentifier = '<<{{db-identifier}}>>';
+$snapshotName = '<<{{backup_2018_12_25}}>>';
+
+try {
+    $result = $rdsClient->createDBSnapshot([
+        'DBInstanceIdentifier' => $dbIdentifier,
+        'DBSnapshotIdentifier' => $snapshotName,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+} 
+</programlisting>

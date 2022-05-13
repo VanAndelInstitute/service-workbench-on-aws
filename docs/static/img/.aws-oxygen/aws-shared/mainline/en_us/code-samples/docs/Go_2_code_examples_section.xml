@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<section id="go_code_examples" role="topic">
+    <info>
+        <title id="go_code_examples.title">&Go; V2 code examples</title>
+        <titleabbrev id="go_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Golong; V2 with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Golong; V2 with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="go_code_examples_categorized" role="topic">
+        <info>
+            <title id="go_code_examples_categorized.title">Single-service actions and scenarios using &Go; V2</title>
+            <titleabbrev id="go_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Go; V2 with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Golong; V2 with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="go_dynamodb_code_examples" role="topic">
+            <info>
+                <title id="go_dynamodb_code_examples.title">&DDB; examples using &Go; V2</title>
+                <titleabbrev id="go_dynamodb_code_examples.titleabbrev">&DDB;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &DDB;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &DDB;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &DDB; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &DDB; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_CreateTable_go_topic">
+                        <info>
+                            <title id="dynamodb_CreateTable_go_topic.title">Create a table</title>
+                            <titleabbrev id="dynamodb_CreateTable_go_topic.titleabbrev">Create a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_CreateTable_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteTable_go_topic">
+                        <info>
+                            <title id="dynamodb_DeleteTable_go_topic.title">Delete a table</title>
+                            <titleabbrev id="dynamodb_DeleteTable_go_topic.titleabbrev">Delete a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteTable_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DeleteItem_go_topic">
+                        <info>
+                            <title id="dynamodb_DeleteItem_go_topic.title">Delete an item from a table</title>
+                            <titleabbrev id="dynamodb_DeleteItem_go_topic.titleabbrev">Delete an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DeleteItem_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_GetItem_go_topic">
+                        <info>
+                            <title id="dynamodb_GetItem_go_topic.title">Get an item from a table</title>
+                            <titleabbrev id="dynamodb_GetItem_go_topic.titleabbrev">Get an item from a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an item from a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_GetItem_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_DescribeTable_go_topic">
+                        <info>
+                            <title id="dynamodb_DescribeTable_go_topic.title">Get information about a table</title>
+                            <titleabbrev id="dynamodb_DescribeTable_go_topic.titleabbrev">Get information about a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_DescribeTable_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_ListTables_go_topic">
+                        <info>
+                            <title id="dynamodb_ListTables_go_topic.title">List tables</title>
+                            <titleabbrev id="dynamodb_ListTables_go_topic.titleabbrev">List tables</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &DDB; tables.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_ListTables_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_PutItem_go_topic">
+                        <info>
+                            <title id="dynamodb_PutItem_go_topic.title">Put an item in a table</title>
+                            <titleabbrev id="dynamodb_PutItem_go_topic.titleabbrev">Put an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to put an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_PutItem_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Query_go_topic">
+                        <info>
+                            <title id="dynamodb_Query_go_topic.title">Query a table</title>
+                            <titleabbrev id="dynamodb_Query_go_topic.titleabbrev">Query a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to query a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Query_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_Scan_go_topic">
+                        <info>
+                            <title id="dynamodb_Scan_go_topic.title">Scan a table</title>
+                            <titleabbrev id="dynamodb_Scan_go_topic.titleabbrev">Scan a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to scan a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scan_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_UpdateItem_go_topic">
+                        <info>
+                            <title id="dynamodb_UpdateItem_go_topic.title">Update an item in a table</title>
+                            <titleabbrev id="dynamodb_UpdateItem_go_topic.titleabbrev">Update an item in a table</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an item in a &DDB; table.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_UpdateItem_Go.xml"></xi:include>
+                    </section>
+                    <section id="dynamodb_BatchWriteItem_go_topic">
+                        <info>
+                            <title id="dynamodb_BatchWriteItem_go_topic.title">Write a batch of items</title>
+                            <titleabbrev id="dynamodb_BatchWriteItem_go_topic.titleabbrev">Write a batch of items</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to write a batch of &DDB; items.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_BatchWriteItem_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="dynamodb_Scenario_GettingStartedMovies_go_topic">
+                        <info>
+                            <title id="dynamodb_Scenario_GettingStartedMovies_go_topic.title">Get started using tables, items, and queries</title>
+                            <titleabbrev id="dynamodb_Scenario_GettingStartedMovies_go_topic.titleabbrev">Get started using tables, items, and queries</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a table that can hold movie data.</para></listitem>
+                            <listitem><para>Put, get, and update a single movie in the table.</para></listitem>
+                            <listitem><para>Write movie data to the table from a sample JSON file.</para></listitem>
+                            <listitem><para>Query for movies that were released in a given year.</para></listitem>
+                            <listitem><para>Scan for movies that were released in a range of years.</para></listitem>
+                            <listitem><para>Delete a movie from the table.</para></listitem>
+                            <listitem><para>Delete the table.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/dynamodb_Scenario_GettingStartedMovies_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="go_iam_code_examples" role="topic">
+            <info>
+                <title id="go_iam_code_examples.title">&IAM; examples using &Go; V2</title>
+                <titleabbrev id="go_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_go_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_go_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_go_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_AttachUserPolicy_go_topic">
+                        <info>
+                            <title id="iam_AttachUserPolicy_go_topic.title">Attach a policy to a user</title>
+                            <titleabbrev id="iam_AttachUserPolicy_go_topic.titleabbrev">Attach a policy to a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachUserPolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_go_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_go_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_go_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_go_topic">
+                        <info>
+                            <title id="iam_CreateRole_go_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_go_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateServiceLinkedRole_go_topic">
+                        <info>
+                            <title id="iam_CreateServiceLinkedRole_go_topic.title">Create a service-linked role</title>
+                            <titleabbrev id="iam_CreateServiceLinkedRole_go_topic.titleabbrev">Create a service-linked role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; service-linked role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateServiceLinkedRole_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_go_topic">
+                        <info>
+                            <title id="iam_CreateUser_go_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_go_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_go_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_go_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_go_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccountAlias_go_topic">
+                        <info>
+                            <title id="iam_CreateAccountAlias_go_topic.title">Create an alias for an account</title>
+                            <titleabbrev id="iam_CreateAccountAlias_go_topic.titleabbrev">Create an alias for an account</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for an &IAM; account.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccountAlias_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_go_topic">
+                        <info>
+                            <title id="iam_DeleteUser_go_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_go_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_go_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_go_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_go_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachUserPolicy_go_topic">
+                        <info>
+                            <title id="iam_DetachUserPolicy_go_topic.title">Detach a policy from a user</title>
+                            <titleabbrev id="iam_DetachUserPolicy_go_topic.titleabbrev">Detach a policy from a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachUserPolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_go_topic">
+                        <info>
+                            <title id="iam_GetPolicy_go_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_go_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_go_topic">
+                        <info>
+                            <title id="iam_GetRole_go_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_go_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccessKeyLastUsed_go_topic">
+                        <info>
+                            <title id="iam_GetAccessKeyLastUsed_go_topic.title">Get data about the last use of an access key</title>
+                            <titleabbrev id="iam_GetAccessKeyLastUsed_go_topic.titleabbrev">Get data about the last use of an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get data about the last use of an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccessKeyLastUsed_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_go_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_go_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_go_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_go_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_go_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_go_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccessKeys_go_topic">
+                        <info>
+                            <title id="iam_ListAccessKeys_go_topic.title">List a user's access keys</title>
+                            <titleabbrev id="iam_ListAccessKeys_go_topic.titleabbrev">List a user's access keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list a user's &IAM; access keys.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccessKeys_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAccountAliases_go_topic">
+                        <info>
+                            <title id="iam_ListAccountAliases_go_topic.title">List account aliases</title>
+                            <titleabbrev id="iam_ListAccountAliases_go_topic.titleabbrev">List account aliases</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; account aliases.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAccountAliases_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_go_topic">
+                        <info>
+                            <title id="iam_ListGroups_go_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_go_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRolePolicies_go_topic">
+                        <info>
+                            <title id="iam_ListRolePolicies_go_topic.title">List inline policies for a role</title>
+                            <titleabbrev id="iam_ListRolePolicies_go_topic.titleabbrev">List inline policies for a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list inline policies for an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_go_topic">
+                        <info>
+                            <title id="iam_ListPolicies_go_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_go_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_go_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_go_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_go_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_go_topic">
+                        <info>
+                            <title id="iam_ListRoles_go_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_go_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_go_topic">
+                        <info>
+                            <title id="iam_ListUsers_go_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_go_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateUser_go_topic">
+                        <info>
+                            <title id="iam_UpdateUser_go_topic.title">Update a user</title>
+                            <titleabbrev id="iam_UpdateUser_go_topic.titleabbrev">Update a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateUser_Go.xml"></xi:include>
+                    </section>
+                    <section id="iam_UpdateAccessKey_go_topic">
+                        <info>
+                            <title id="iam_UpdateAccessKey_go_topic.title">Update an access key</title>
+                            <titleabbrev id="iam_UpdateAccessKey_go_topic.titleabbrev">Update an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to update an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_UpdateAccessKey_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_go_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_go_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_go_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="go_kms_code_examples" role="topic">
+            <info>
+                <title id="go_kms_code_examples.title">&KMS; examples using &Go; V2</title>
+                <titleabbrev id="go_kms_code_examples.titleabbrev">&KMS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &KMS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &KMS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &KMS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &KMS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kms_CreateKey_go_topic">
+                        <info>
+                            <title id="kms_CreateKey_go_topic.title">Create a key</title>
+                            <titleabbrev id="kms_CreateKey_go_topic.titleabbrev">Create a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &kms-key-long;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateKey_Go.xml"></xi:include>
+                    </section>
+                    <section id="kms_Decrypt_go_topic">
+                        <info>
+                            <title id="kms_Decrypt_go_topic.title">Decrypt ciphertext</title>
+                            <titleabbrev id="kms_Decrypt_go_topic.titleabbrev">Decrypt ciphertext</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to decrypt ciphertext that was encrypted by a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Decrypt_Go.xml"></xi:include>
+                    </section>
+                    <section id="kms_Encrypt_go_topic">
+                        <info>
+                            <title id="kms_Encrypt_go_topic.title">Encrypt text using a key</title>
+                            <titleabbrev id="kms_Encrypt_go_topic.titleabbrev">Encrypt text using a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to encrypt text using a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_Encrypt_Go.xml"></xi:include>
+                    </section>
+                    <section id="kms_ReEncrypt_go_topic">
+                        <info>
+                            <title id="kms_ReEncrypt_go_topic.title">Recencrypt ciphertext from one key to another</title>
+                            <titleabbrev id="kms_ReEncrypt_go_topic.titleabbrev">Recencrypt ciphertext from one key to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to reencrypt ciphertext from one &kms-key; to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ReEncrypt_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="go_s3_code_examples" role="topic">
+            <info>
+                <title id="go_s3_code_examples.title">&S3; examples using &Go; V2</title>
+                <titleabbrev id="go_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_CopyObject_go_topic">
+                        <info>
+                            <title id="s3_CopyObject_go_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_go_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_go_topic">
+                        <info>
+                            <title id="s3_CreateBucket_go_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_go_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_go_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_go_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_go_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObject_go_topic">
+                        <info>
+                            <title id="s3_DeleteObject_go_topic.title">Delete an object</title>
+                            <titleabbrev id="s3_DeleteObject_go_topic.titleabbrev">Delete an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObject_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetBucketAcl_go_topic">
+                        <info>
+                            <title id="s3_GetBucketAcl_go_topic.title">Get the ACL of a bucket</title>
+                            <titleabbrev id="s3_GetBucketAcl_go_topic.titleabbrev">Get the ACL of a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetBucketAcl_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObjectAcl_go_topic">
+                        <info>
+                            <title id="s3_GetObjectAcl_go_topic.title">Get the ACL of an object</title>
+                            <titleabbrev id="s3_GetObjectAcl_go_topic.titleabbrev">Get the ACL of an object</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the access control list (ACL) of an &S3; object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObjectAcl_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListBuckets_go_topic">
+                        <info>
+                            <title id="s3_ListBuckets_go_topic.title">List buckets</title>
+                            <titleabbrev id="s3_ListBuckets_go_topic.titleabbrev">List buckets</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &S3; buckets.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListBuckets_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_go_topic">
+                        <info>
+                            <title id="s3_ListObjects_go_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_go_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_go_topic">
+                        <info>
+                            <title id="s3_PutObject_go_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_go_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_PresignedUrl_go_topic">
+                        <info>
+                            <title id="s3_Scenario_PresignedUrl_go_topic.title">Create a presigned URL</title>
+                            <titleabbrev id="s3_Scenario_PresignedUrl_go_topic.titleabbrev">Create a presigned URL</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a presigned URL for &S3; and upload an object.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_PresignedUrl_Go.xml"></xi:include>
+                    </section>
+                    <section id="s3_Scenario_GettingStarted_go_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_go_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_go_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="go_sns_code_examples" role="topic">
+            <info>
+                <title id="go_sns_code_examples.title">&SNS; examples using &Go; V2</title>
+                <titleabbrev id="go_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CreateTopic_go_topic">
+                        <info>
+                            <title id="sns_CreateTopic_go_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_go_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_Go.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_go_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_go_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_go_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Go.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_go_topic">
+                        <info>
+                            <title id="sns_ListTopics_go_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_go_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_Go.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_go_topic">
+                        <info>
+                            <title id="sns_Publish_go_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_go_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_Go.xml"></xi:include>
+                    </section>
+                    <section id="sns_Subscribe_go_topic">
+                        <info>
+                            <title id="sns_Subscribe_go_topic.title">Subscribe an email address to a topic</title>
+                            <titleabbrev id="sns_Subscribe_go_topic.titleabbrev">Subscribe an email address to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to subscribe an email address to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Subscribe_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="go_sqs_code_examples" role="topic">
+            <info>
+                <title id="go_sqs_code_examples.title">&SQS; examples using &Go; V2</title>
+                <titleabbrev id="go_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Golong; V2 with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Golong; V2 with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_ChangeMessageVisibility_go_topic">
+                        <info>
+                            <title id="sqs_ChangeMessageVisibility_go_topic.title">Change message timeout visibility</title>
+                            <titleabbrev id="sqs_ChangeMessageVisibility_go_topic.titleabbrev">Change message timeout visibility</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to change an &SQS; message timeout visibility.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ChangeMessageVisibility_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_CreateQueue_go_topic">
+                        <info>
+                            <title id="sqs_CreateQueue_go_topic.title">Create a queue</title>
+                            <titleabbrev id="sqs_CreateQueue_go_topic.titleabbrev">Create a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_CreateQueue_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteMessage_go_topic">
+                        <info>
+                            <title id="sqs_DeleteMessage_go_topic.title">Delete a message from a queue</title>
+                            <titleabbrev id="sqs_DeleteMessage_go_topic.titleabbrev">Delete a message from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a message from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteMessage_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteQueue_go_topic">
+                        <info>
+                            <title id="sqs_DeleteQueue_go_topic.title">Delete a queue</title>
+                            <titleabbrev id="sqs_DeleteQueue_go_topic.titleabbrev">Delete a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteQueue_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_GetQueueUrl_go_topic">
+                        <info>
+                            <title id="sqs_GetQueueUrl_go_topic.title">Get the URL of a queue</title>
+                            <titleabbrev id="sqs_GetQueueUrl_go_topic.titleabbrev">Get the URL of a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the URL of an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_GetQueueUrl_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ListQueues_go_topic">
+                        <info>
+                            <title id="sqs_ListQueues_go_topic.title">List queues</title>
+                            <titleabbrev id="sqs_ListQueues_go_topic.titleabbrev">List queues</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SQS; queues.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ListQueues_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_go_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_go_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_go_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_Go.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_go_topic">
+                        <info>
+                            <title id="sqs_SendMessage_go_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_go_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_Go.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,42 @@
+<form 
+     action="https://authorize.payments.amazon.com/pba/paypipeline" 
+     method="POST">
+     <input type="hidden" name="immediateReturn"
+         value="1" >
+     <input type="hidden" name="collectShippingAddress"
+         value="1" >
+     <input type="hidden" name="accessKey"
+         value="YourAccessKeyId" >
+     <input type="hidden" name="referenceId"
+        value="MyTransaction-001" >
+     <input type="hidden" name="recipientEmail"
+         value="email domain.com" >
+     <input type="hidden" name="amount"
+         value="USD 10" >
+     <input type="hidden" name="variableMarketplaceFee"
+         value="4" >
+     <input type="hidden" name="signature"
+         value="dXZgCQ8fLsPjNkbHswghORXd34tTVZWEjyetpzYG1ok=" >
+     <input type="hidden" name="fixedMarketplaceFee"
+         value="USD 0.20" >
+     <input type="hidden" name="description"
+         value="Pay for Purple Vase (Walter store)" >
+     <input type="hidden" name="ipnUrl"
+         value="http://yourwebsite.com/instantpaymentnotification" >
+     <input type="hidden" name="returnUrl"
+         value="http://yourwebsite.com/success" >
+     <input type="hidden" name="processImmediate"
+         value="1" >
+     <input type="hidden" name="cobrandingStyle"
+         value="logo" >
+     <input type="hidden" name="abandonUrl"
+         value="http://yourwebsite.com/cancel" >
+     <input type="image"
+         src=
+   "https://authorize.payments.amazon.com/pba/images/SMPayNowWithAmazon.png"
+         border="0">
+     <input type="hidden" name="signatureVersion"
+         value="2" >
+     <input type="hidden" name="signatureMethod"
+         value="HmacSHA256" >
+</form>

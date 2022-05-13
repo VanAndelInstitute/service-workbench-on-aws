@@ -1,0 +1,58 @@
+    suspend fun sendEmail(
+        msgSubject: String?,
+        appId: String?,
+        senderAddress: String?,
+        toAddress: String) {
+
+        // The body of the email for recipients whose email clients support HTML content.
+        val htmlBody = ("<h1>Amazon Pinpoint test (AWS SDK for Kotlin)</h1>"
+                + "<p>This email was sent through the <a href='https://aws.amazon.com/pinpoint/'>"
+                + "Amazon Pinpoint</a> Email API")
+
+        // The character encoding to use for the subject line and the message body.
+        val charsetVal = "UTF-8"
+
+        val addressMap = mutableMapOf<String, AddressConfiguration>()
+        val configuration = AddressConfiguration {
+                channelType = ChannelType.Email
+            }
+
+        addressMap[toAddress] = configuration
+        val emailPart = SimpleEmailPart {
+                data=htmlBody
+                charset=charsetVal
+        }
+
+        val subjectPartOb = SimpleEmailPart {
+              data = msgSubject
+              charset = charsetVal
+        }
+
+        val simpleEmailOb = SimpleEmail {
+            htmlPart = emailPart
+            subject = subjectPartOb
+        }
+
+        val emailMessageOb = EmailMessage {
+            body = htmlBody
+            fromAddress = senderAddress
+            simpleEmail = simpleEmailOb
+        }
+
+        val directMessageConfigurationOb = DirectMessageConfiguration {
+            emailMessage = emailMessageOb
+        }
+
+        val messageRequestOb = MessageRequest {
+            addresses = addressMap
+            messageConfiguration = directMessageConfigurationOb
+        }
+
+        PinpointClient { region = "us-west-2" }.use { pinpoint ->
+           pinpoint.sendMessages(SendMessagesRequest{
+               applicationId = appId
+               messageRequest = messageRequestOb
+           })
+           println("The email message was successfully sent")
+        }
+   }

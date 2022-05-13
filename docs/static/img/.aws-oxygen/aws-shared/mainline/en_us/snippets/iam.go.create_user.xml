@@ -1,0 +1,49 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/iam/iamiface"
+)
+
+// MakeUser VERBs an Amazon/AWS SERVICE RESOURCE
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     userName is the name of the user
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to CreateUser
+func MakeUser(svc iamiface.IAMAPI, userName *string) error {
+    _, err := svc.CreateUser(&iam.CreateUserInput{
+        UserName: userName,
+    })
+    return err
+}
+
+func main() {
+    userName := flag.String("u", "", "The name of the user")
+    flag.Parse()
+
+    if *userName == "" {
+        fmt.Println("You must supply a user name (-u USERNAME)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := iam.New(sess)
+
+    err := MakeUser(svc, userName)
+    if err != nil {
+        fmt.Println("Got an error creating user " + *userName)
+    }
+
+    fmt.Println("Created user " + *userName)
+}
+</programlisting>

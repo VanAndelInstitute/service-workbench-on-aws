@@ -1,0 +1,16 @@
+<programlisting>
+import aws.sdk.kotlin.services.kendra.KendraClient
+import aws.sdk.kotlin.services.kendra.model.DescribeIndexRequest
+import aws.sdk.kotlin.services.kendra.model.CreateDataSourceRequest
+import aws.sdk.kotlin.services.kendra.model.DataSourceType
+import aws.sdk.kotlin.services.kendra.model.DataSourceConfiguration
+import aws.sdk.kotlin.services.kendra.model.S3DataSourceConfiguration
+import aws.sdk.kotlin.services.kendra.model.DescribeDataSourceRequest
+import aws.sdk.kotlin.services.kendra.model.StartDataSourceSyncJobRequest
+import aws.sdk.kotlin.services.kendra.model.DataSourceStatus
+import aws.sdk.kotlin.services.kendra.model.CreateIndexRequest
+import aws.sdk.kotlin.services.kendra.model.IndexStatus
+import kotlinx.coroutines.delay
+import java.util.concurrent.TimeUnit
+import kotlin.system.exitProcess
+</programlisting>

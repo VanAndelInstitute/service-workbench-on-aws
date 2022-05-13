@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0" service="monitoring-chapter" value="csctemplate-awsdocs-MonitoringChapter-1.0-oxygen"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+ %xinclude;
+
+ <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+ %phrases-shared;
+ <!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+ <!ENTITY SERVICENAME 'SERVICE SHORTNAME'>
+
+ <!-- WRITER INSTRUCTIONS: Replace the text in the following entities with your service information. You can find
+ namespace information here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html -->
+ ]>
+<chapter id="monitoring-overview" role="topic">
+ <info>
+  <title id="monitoring-overview.title">Monitoring &SERVICENAME;</title>
+  <titleabbrev>Monitoring &SERVICENAME;</titleabbrev>
+  <abstract>
+   <para>Monitor &SERVICENAME; to maintain reliability, availability, and performance.</para>
+  </abstract>
+ </info>
+ <!-- WRITER INSTRUCTIONS: Use this file as the top-level monitoring node for your service. Edit
+        the entities at the top of this file to make them appropriate for use with your service, or replace the entities within the text with your service's actual entities. 
+FEEL FREE to modify any of this template as you wish, especially to intersperse information specific to your service.  This template is here to HELP you get going and not be 
+stuck on a blank page, not to impose limitations on how you write this section.-->
+ <para>Monitoring is an important part of maintaining the reliability, availability, and performance of
+  &SERVICENAME; and your other &AWS; solutions. &AWS; provides the following monitoring tools to
+  watch &SERVICENAME;, report when something is wrong, and take automatic actions when
+  appropriate:</para>
+ <!-- WRITER INSTRUCTIONS: Add or remove items from this list as appropriate. -->
+ <itemizedlist>
+  <listitem>
+   <para><emphasis>&CWlong;</emphasis> monitors your &AWS; resources and the applications you run on &AWS; in real
+    time. You can collect and track metrics, create customized dashboards, and set alarms that notify you or take
+    actions when a specified metric reaches a threshold that you specify. For example, you can have &CW; track CPU usage
+    or other metrics of your &EC2; instances and automatically launch new instances when needed. For more information,
+    see the &link-cw-user;.</para>
+  </listitem>
+    <listitem>
+   <para><emphasis>&CWLlong;</emphasis> enables you to monitor, store, and access your log files from &EC2; instances,
+    &CT;, and other sources. &CWL; can monitor information in the log files and notify you when certain thresholds are
+    met. You can also archive your log data in highly durable storage. For more information, see the
+    &link-cwl-user;.</para>
+  </listitem>
+  <listitem>
+   <para><emphasis>&CTlong;</emphasis> captures API calls and related events made by or on behalf of your &AWS-account;
+    and delivers the log files to an &S3; bucket that you specify. You can identify which users and accounts called
+    &AWS;, the source IP address from which the calls were made, and when the calls occurred. For more information, see
+    the &link-ct-user;.</para>
+   
+  </listitem>
+ </itemizedlist>
+ 
+  <para><emphasis>&EVlong;</emphasis> is a serverless event bus service that makes it easy to connect your 
+   applications with data from a variety of sources. &EV; delivers a stream of real-time data from your 
+   own applications, Software-as-a-Service (SaaS) applications, and &AWS; services and routes that
+   data to targets such as &LAM;. This enables you to monitor events that happen in services, and build
+  event-driven architectures. For more information, see the &link-ev-user;.</para>
+  
+ 
+ <section id="monitoring-cloudwatch" role="topic">
+  <info>
+   <title id="monitoring-cloudwatch.title">Monitoring &SERVICENAME; with &CWlong;</title>
+   <titleabbrev>Monitoring with &CW;</titleabbrev>
+  </info>
+  <para>You can monitor &SERVICENAME; using &CW;, which collects raw data and processes it
+   into readable, near real-time metrics. These statistics are kept for 15 months, so that you can access historical
+   information and gain a better perspective on how your web application or service is performing. You can also set
+   alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For
+   more information, see the &link-cw-user;.</para>
+  <!-- WRITER INSTRUCTIONS: The following paragraph is just a suggestion. Feel free to omit it
+        if there are no particular metrics or situations you want to point your customers to.-->
+  <para>For &SERVICENAME;, you might want to watch for <replaceable>XXX</replaceable>, and
+   also watch <replaceable>XXX</replaceable> and <replaceable>Take Automatic Action</replaceable> when <replaceable>This
+    Happens</replaceable>.</para>
+  <para>The &SERVICENAME; service reports the following metrics 
+   in the <code>AWS/MyServiceName</code> namespace.</para>
+  <!-- WRITER INSTRUCTIONS: List your metrics and dimensions in tables here.  Do not put them in the AWSCloudWatchMetricsShared
+  package, that package has been deprecated.  Be sure to mention the name of the metrics namespace where your service's metrics 
+  will be stored.  When your new metrics section is published, contact the CloudWatch writer so that they
+  can add a link to your metrics section from a centralized page in the CloudWatch User Guide
+  
+  These example tables include 1 entry each from actual tables to help you get started. You may not have "Valid Statistic" entries for
+  some of your metrics, but it is good to check with your service team, as some possible CloudWatch statistics
+  might not be useful for a particular metric.-->
+  <table>
+   <tgroup cols="2">
+    <colspec colname="c1" colnum="1" colwidth="1*"/>
+    <colspec colname="c2" colnum="2" colwidth="3*"/>
+    <thead>
+     <row>
+      <entry>Metric</entry>
+      <entry>Description</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>
+       <para><code>IncomingBytes</code></para>
+      </entry>
+      <entry>
+       <para>The volume of log events in uncompressed bytes uploaded to &CWL;.
+        When used with the <code>LogGroupName</code> dimension, this is the
+        volume of log events in uncompressed bytes uploaded to the log
+        group.</para>
+       <para>Valid Dimensions: LogGroupName</para>
+       <para>Valid Statistic: Sum</para>
+       <para>Units: Bytes</para>
+      </entry>
+     </row>
+    
+    </tbody>
+   </tgroup>
+  </table>
+  <para>The following dimensions are supported for the &SERVICENAME; metrics.</para>
+  <table>
+   <tgroup cols="2">
+    <colspec colname="c1" colnum="1" colwidth="1.5*"/>
+    <colspec colname="c2" colnum="2" colwidth="3*"/>
+    <thead>
+     <row>
+      <entry>
+       Dimension
+      </entry>
+      <entry>
+       Description
+      </entry>
+     </row>
+    </thead>
+    <tbody>
+     
+     <row>
+      <entry>
+       <code>DestinationType</code>
+      </entry>
+      <entry>
+       <para>The subscription destination for the &CWL; data, which can be
+        &LAMlong;, &AKSlong;, or &AKFlong;.</para>
+      </entry>
+     </row>
+         </tbody>
+   </tgroup>
+  </table>
+ </section>
+ <!-- -->
+</chapter>

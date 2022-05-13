@@ -1,0 +1,12 @@
+<programlisting>
+        Region region = Region.US_EAST_1;
+        KinesisAsyncClient client = KinesisAsyncClient.builder()
+        .region(region)
+        .build();
+
+        SubscribeToShardRequest request = SubscribeToShardRequest.builder()
+                .consumerARN(CONSUMER_ARN)
+                .shardId("arn:aws:kinesis:us-east-1:111122223333:stream/StockTradeStream")
+                .startingPosition(s -> s.type(ShardIteratorType.LATEST)).build();
+
+</programlisting>

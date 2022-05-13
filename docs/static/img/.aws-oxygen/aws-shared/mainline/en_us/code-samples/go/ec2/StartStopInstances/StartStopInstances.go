@@ -1,0 +1,112 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/awserr"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/ec2"
+    "github.com/aws/aws-sdk-go/service/ec2/ec2iface"
+)
+
+// StartInstance starts an Amazon EC2 instance.
+// Inputs:
+//     svc is an Amazon EC2 service client
+//     instanceID is the ID of the instance
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to StartInstances
+func StartInstance(svc ec2iface.EC2API, instanceID *string) error {
+    input := &ec2.StartInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.StartInstances(input)
+    awsErr, ok := err.(awserr.Error)
+
+    if ok && awsErr.Code() == "DryRunOperation" {
+        // Set DryRun to be false to enable starting the instances
+        input.DryRun = aws.Bool(false)
+        _, err = svc.StartInstances(input)
+        if err != nil {
+            return err
+        }
+
+        return nil
+    }
+
+    return err
+}
+
+// StopInstance stops an Amazon EC2 instance.
+// Inputs:
+//     svc is an Amazon EC2 service client
+//     instance ID is the ID of the instance
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to StopInstances
+func StopInstance(svc ec2iface.EC2API, instanceID *string) error {
+    input := &ec2.StopInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.StopInstances(input)
+    awsErr, ok := err.(awserr.Error)
+    if ok && awsErr.Code() == "DryRunOperation" {
+        input.DryRun = aws.Bool(false)
+        _, err = svc.StopInstances(input)
+        if err != nil {
+            return err
+        }
+
+        return nil
+    }
+
+    return err
+}
+
+func main() {
+    instanceID := flag.String("i", "", "The ID of the instance to start or stop")
+    state := flag.String("s", "", "The state to put the instance in: START or STOP")
+    flag.Parse()
+
+    if (*state != "START" && *state != "STOP") || *instanceID == "" {
+        fmt.Println("You must supply a START or STOP state and an instance ID")
+        fmt.Println("(-s START | STOP -i INSTANCE-ID")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := ec2.New(sess)
+
+    if *state == "START" {
+        err := StartInstance(svc, instanceID)
+        if err != nil {
+            fmt.Println("Got an error starting instance")
+            fmt.Println(err)
+            return
+        }
+
+        fmt.Println("Started instance with ID " + *instanceID)
+    } else if *state == "STOP" {
+        err := StopInstance(svc, instanceID)
+        if err != nil {
+            fmt.Println("Got an error stopping the instance")
+            fmt.Println(err)
+            return
+        }
+
+        fmt.Println("Stopped instance with ID " + *instanceID)
+    }
+}

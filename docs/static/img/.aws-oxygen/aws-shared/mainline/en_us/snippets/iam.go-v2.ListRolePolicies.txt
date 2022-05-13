@@ -1,0 +1,14 @@
+
+	// ListRolePolicies
+
+	rolePoliciesList, err := service.ListRolePolicies(context.Background(), &iam.ListRolePoliciesInput{
+		RoleName: aws.String(ExampleRoleName),
+	})
+
+	if err != nil {
+		panic("Couldn't list policies for role: " + err.Error())
+	}
+
+	for _, rolePolicy := range rolePoliciesList.PolicyNames {
+		fmt.Printf("Policy ARN: %v", rolePolicy)
+	}

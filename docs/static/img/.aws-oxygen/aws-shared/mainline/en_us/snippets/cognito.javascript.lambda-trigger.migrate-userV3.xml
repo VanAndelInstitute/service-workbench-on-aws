@@ -1,0 +1,44 @@
+<programlisting>
+exports.handler = async (event, context) => {
+  let user;
+
+  if (event.triggerSource == "UserMigration_Authentication") {
+    // Authenticate the user with your existing user directory service
+    try {
+      user = authenticateUser(event.userName, event.request.password);
+      if (user) {
+        event.response.userAttributes = {
+          email: user.emailAddress,
+          email_verified: "true",
+        };
+        event.response.finalUserStatus = "CONFIRMED";
+        event.response.messageAction = "SUPPRESS";
+        context.succeed(event);
+      }
+    } catch (err) {
+      // Return error to Amazon Cognito
+      console.log("Bad password", err);
+    }
+  } else if (event.triggerSource == "UserMigration_ForgotPassword") {
+    try {
+      // Look up the user in your existing user directory service
+      user = lookupUser(event.userName);
+      if (user) {
+        event.response.userAttributes = {
+          email: user.emailAddress,
+          // Required to enable password-reset code to be sent to user
+          email_verified: "true",
+        };
+        event.response.messageAction = "SUPPRESS";
+        context.succeed(event);
+      }
+    } catch (err) {
+      // Return error to Amazon Cognito
+      console.log("Bad password", err);
+    }
+  } else {
+    // Return error to Amazon Cognito
+    callback("Bad triggerSource " + event.triggerSource);
+  }
+};
+</programlisting>

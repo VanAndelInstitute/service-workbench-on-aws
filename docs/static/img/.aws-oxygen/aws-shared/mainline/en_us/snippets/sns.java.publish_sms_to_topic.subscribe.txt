@@ -1,0 +1,8 @@
+public static void subscribeToTopic(AmazonSNSClient snsClient, String topicArn,
+        String protocol, String endpoint) {
+    SubscribeRequest subscribe = new SubscribeRequest(topicArn, protocol, endpoint);
+    SubscribeResult subscribeResult = snsClient.subscribe(subscribe);
+    System.out.println("Subscribe request: " +
+        snsClient.getCachedResponseMetadata(subscribe));
+    System.out.println("Subscribe result: " + subscribeResult);
+}

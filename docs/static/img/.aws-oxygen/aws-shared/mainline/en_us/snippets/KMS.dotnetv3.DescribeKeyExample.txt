@@ -1,0 +1,26 @@
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.KeyManagementService;
+    using Amazon.KeyManagementService.Model;
+
+    public class DescribeKey
+    {
+        public static async Task Main()
+        {
+            var keyId = "7c9eccc2-38cb-4c4f-9db3-766ee8dd3ad4";
+            var request = new DescribeKeyRequest
+            {
+                KeyId = keyId,
+            };
+
+            var client = new AmazonKeyManagementServiceClient();
+
+            var response = await client.DescribeKeyAsync(request);
+            var metadata = response.KeyMetadata;
+
+            Console.WriteLine($"{metadata.KeyId} created on: {metadata.CreationDate}");
+            Console.WriteLine($"State: {metadata.KeyState}");
+            Console.WriteLine($"{metadata.Description}");
+        }
+    }
+

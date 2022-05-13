@@ -1,0 +1,26 @@
+<programlisting>
+
+        /// <summary>
+        /// Create a new IAM role which we can attach to a user.
+        /// </summary>
+        /// <param name="client">The initialized IAM client object.</param>
+        /// <param name="roleName">The name of the IAM role to create.</param>
+        /// <param name="rolePermissions">The permissions which the role will have.</param>
+        /// <returns>A Role object representing the newly created role.</returns>
+        public static async Task<Role> CreateRoleAsync(
+            AmazonIdentityManagementServiceClient client,
+            string roleName,
+            string rolePermissions)
+        {
+            var request = new CreateRoleRequest
+            {
+                RoleName = roleName,
+                AssumeRolePolicyDocument = rolePermissions,
+            };
+
+            var response = await client.CreateRoleAsync(request);
+
+            return response.Role;
+        }
+
+</programlisting>

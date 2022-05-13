@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0" service="//cloudformation//" value="csctemplate-awsdocs-cloudformation-1.0-oxygen"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY SERVICE "SERVICE-SHORT-NAME">
+  <!ENTITY SERVICElong "SERVICE-LONG-NAME">
+  <!ENTITY resources 'YOUR-RESOURCE-PLURAL' >
+  <!ENTITY link-cfn-resource-reference '<ulink type="documentation" url="AWSCloudFormation/latest/UserGuide/aws-resource-SERVICE-RESOURCETYPE.html">YOUR-SERVICE-NAME resource type reference</ulink>' >
+]>
+
+<!-- 
+ 
+This template is for services that integrate with CloudFormation (CFN). For information about integrating your service with CloudFormation, see     https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/CloudFormation_integration
+ 
+Template instructions: 
+
+     0. Save this template to your user guide package as cloudformation-yourservicename.xml.
+        If you choose to insert this topic beneath an existing chapter or section in your documentation, make sure         to change the preceding "chapter" tag to "section".
+     
+     1. Replace the values for the entities at the top of this file with your service names (short and long),              resource type (plural), and link to your service's top-node landing page in the CFN Resource and property          types reference                                                                                                    (example: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AccessAnalyzer.html). 
+        Then paste these entities into your already-existing entities file.
+     
+     2. Review the content in comments. If it applies to your service, remove the comment markers and revise the           content so it's appropriate for your service. 
+     
+-->
+
+<chapter role="topic" id="creating-resources-with-cloudformation">
+ <info>
+  <title id="creating-resources-with-cloudformation.title">Creating &SERVICElong; resources with
+   &CFNlong;</title>
+  <titleabbrev>&CFNLong; resources</titleabbrev>
+  <abstract>
+   <para>Learn about how to create resources for &SERVICElong; using an &CFNlong; template.</para>
+  </abstract>
+ </info>
+ <para>&SERVICElong; is integrated with &CFNlong;, a service that helps you to model and set up your
+  &AWS; resources so that you can spend less time creating and managing your resources and
+  infrastructure. You create a template that describes all the &AWS; resources that you want (such as
+  &resources;), and &CFN; provisions and configures those resources for
+  you. </para>
+ <para>When you use &CFN;, you can reuse your template to set up your &SERVICE; resources
+  consistently and repeatedly. Describe your resources once, and then provision the same
+  resources over and over in multiple &AWS-accounts; and Regions. </para>
+ <section id="working-with-templates">
+  <info>
+   <title id="working-with-templates.title">&SERVICE; and &CFN; templates</title>
+  </info>
+  <para>To provision and configure resources for &SERVICE; and related services, you must
+   understand <ulink type="documentation"
+    url="AWSCloudFormation/latest/UserGuide/template-guide.html">&CFN; templates</ulink>. Templates
+   are formatted text files in JSON or YAML. These templates describe the resources that you want to
+   provision in your &CFN; stacks. If you're unfamiliar with JSON or YAML, you can use &CFN;
+   Designer to help you get started with &CFN; templates. For more information, see <ulink
+    type="documentation"
+    url="AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html">What is &CFN;
+    Designer?</ulink> in the <emphasis>&guide-cfn-user;</emphasis>.</para>
+  <para>&SERVICE; supports creating &resources;
+   <!-- and list any additional resources for your service, if your service has multiple resource types supported in 
+  CloudFormation -->
+   in &CFN;. For more information, including examples of JSON and YAML templates for
+   &resources;, see the &link-cfn-resource-reference; in the
+   <emphasis>&guide-cfn-user;</emphasis>.</para>
+  <!-- You can also create templates that
+   create related resources, such as <replaceable>related-resource-1</replaceable> and <replaceable>related-resource-2</replaceable>. -->
+ </section>
+ <!-- Bonus points: Add another section that covers a particularly interesting use case for your service and CloudFormation, including example templates. -->
+ <section id="learn-more-cloudformation">
+  <info>
+   <title id="learn-more-cloudformation.title">Learn more about &CFN;</title>
+  </info>
+  <para>To learn more about &CFN;, see the following resources:</para>
+  <itemizedlist>
+   <listitem>
+    <para><ulink url="cloudformation/" type="marketing">&CFNLong;</ulink></para>
+   </listitem>
+   <listitem>
+    <para><ulink type="documentation" url="AWSCloudFormation/latest/UserGuide/Welcome.html"
+      >&CFNLong; User Guide</ulink></para>
+   </listitem>
+   <listitem>
+    <para><ulink type="documentation" url="AWSCloudFormation/latest/APIReference/Welcome.html">&CFN; API Reference</ulink></para>
+   </listitem>
+   <listitem>
+    <para><ulink type="documentation"
+      url="cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">&CFNLong; Command
+      Line Interface User Guide</ulink></para>
+   </listitem>
+  </itemizedlist>
+ </section>
+</chapter>
+
+<?oxy_options track_changes="on"?>

@@ -1,0 +1,28 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.Glacier;
+    using Amazon.Glacier.Model;
+
+    public class CreateVault
+    {
+        static async Task Main(string[] args)
+        {
+            string vaultName = "example-vault";
+            var client = new AmazonGlacierClient();
+            var request = new CreateVaultRequest
+            {
+                // Setting the AccountId to "-" means that
+                // the account associated with the default
+                // client will be used.
+                AccountId = "-",
+                VaultName = vaultName,
+            };
+
+            var response = await client.CreateVaultAsync(request);
+
+            Console.WriteLine($"Created {vaultName} at: {response.Location}");
+        }
+    }
+
+</programlisting>

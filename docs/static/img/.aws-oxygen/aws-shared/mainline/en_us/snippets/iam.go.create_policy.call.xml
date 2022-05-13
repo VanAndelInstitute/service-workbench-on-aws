@@ -1,0 +1,6 @@
+<programlisting>
+    _, err = svc.CreatePolicy(&iam.CreatePolicyInput{
+        PolicyDocument: aws.String(string(b)),
+        PolicyName:     policyName,
+    })
+</programlisting>

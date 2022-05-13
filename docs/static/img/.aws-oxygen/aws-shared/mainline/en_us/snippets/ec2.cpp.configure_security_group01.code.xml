@@ -1,0 +1,5 @@
+<programlisting>
+    Aws::EC2::Model::AuthorizeSecurityGroupIngressRequest authorize_request;
+
+    authorize_request.SetGroupName(group_name);
+</programlisting>

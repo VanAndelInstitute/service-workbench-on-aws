@@ -1,0 +1,61 @@
+<programlisting>
+require 'aws-sdk-cloudwatch'
+
+# Adds a datapoint to a metric in Amazon CloudWatch.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client]
+#   An initialized CloudWatch client.
+# @param metric_namespace [String] The namespace of the metric to add the
+#   datapoint to.
+# @param metric_name [String] The name of the metric to add the datapoint to.
+# @param dimension_name [String] The name of the dimension to add the
+#   datapoint to.
+# @param dimension_value [String] The value of the dimension to add the
+#   datapoint to.
+# @param metric_value [Float] The value of the datapoint.
+# @param metric_unit [String] The unit of measurement for the datapoint.
+# @return [Boolean]
+# @example
+#   exit 1 unless datapoint_added_to_metric?(
+#     Aws::CloudWatch::Client.new(region: 'us-east-1'),
+#     'SITE/TRAFFIC',
+#     'UniqueVisitors',
+#     'SiteName',
+#     'example.com',
+#     5_885.0,
+#     'Count'
+#   )
+def datapoint_added_to_metric?(
+  cloudwatch_client,
+  metric_namespace,
+  metric_name,
+  dimension_name,
+  dimension_value,
+  metric_value,
+  metric_unit
+)
+  cloudwatch_client.put_metric_data(
+    namespace: metric_namespace,
+    metric_data: [
+      {
+        metric_name: metric_name,
+        dimensions: [
+          {
+            name: dimension_name,
+            value: dimension_value
+          }
+        ],
+        value: metric_value,
+        unit: metric_unit
+      }
+    ]
+  )
+  puts "Added data about '#{metric_name}' to namespace " \
+    "'#{metric_namespace}'."
+  return true
+rescue StandardError => e
+  puts "Error adding data about '#{metric_name}' to namespace " \
+    "'#{metric_namespace}': #{e.message}"
+  return false
+end
+</programlisting>

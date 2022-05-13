@@ -1,0 +1,12 @@
+    if *vpcIDPtr == "" {
+        // Get a list of VPCs so we can associate the group with the first VPC.
+        result, err := svc.DescribeVpcs(nil)
+        if err != nil {
+            exitErrorf("Unable to describe VPCs, %v", err)
+        }
+        if len(result.Vpcs) == 0 {
+            exitErrorf("No VPCs found to associate security group with.")
+        }
+
+        *vpcIDPtr = aws.StringValue(result.Vpcs[0].VpcId)
+    }

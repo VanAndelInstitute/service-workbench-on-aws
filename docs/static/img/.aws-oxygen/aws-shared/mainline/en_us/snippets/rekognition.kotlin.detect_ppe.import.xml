@@ -1,0 +1,11 @@
+<programlisting>
+import aws.sdk.kotlin.services.rekognition.RekognitionClient
+import aws.sdk.kotlin.services.rekognition.model.ProtectiveEquipmentSummarizationAttributes
+import aws.sdk.kotlin.services.rekognition.model.ProtectiveEquipmentType
+import aws.sdk.kotlin.services.rekognition.model.Image
+import aws.sdk.kotlin.services.rekognition.model.DetectProtectiveEquipmentRequest
+import aws.sdk.kotlin.services.rekognition.model.ProtectiveEquipmentBodyPart
+import aws.sdk.kotlin.services.rekognition.model.EquipmentDetection
+import java.io.File
+import kotlin.system.exitProcess
+</programlisting>

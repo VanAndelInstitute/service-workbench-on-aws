@@ -1,0 +1,15 @@
+    params := s3.PutBucketCorsInput{
+        Bucket: bucketPtr,
+        CORSConfiguration: &s3.CORSConfiguration{
+            CORSRules: []*s3.CORSRule{&rule},
+        },
+    }
+
+    _, err := svc.PutBucketCors(&params)
+    if err != nil {
+        // Print the error message
+        exitErrorf("Unable to set Bucket %q's CORS, %v", *bucketPtr, err)
+    }
+
+    // Print the updated CORS config for the bucket
+    fmt.Printf("Updated bucket %q CORS for %v\n", *bucketPtr, methods)

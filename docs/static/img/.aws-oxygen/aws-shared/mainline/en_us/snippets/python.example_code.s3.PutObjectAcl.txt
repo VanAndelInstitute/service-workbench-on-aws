@@ -1,0 +1,29 @@
+    def put_acl(self, email):
+        """
+        Applies an ACL to the object that grants read access to an AWS user identified
+        by email address.
+
+        :param email: The email address of the user to grant access.
+        """
+        try:
+            acl = self.object.Acl()
+            # Putting an ACL overwrites the existing ACL, so append new grants
+            # if you want to preserve existing grants.
+            grants = acl.grants if acl.grants else []
+            grants.append({
+                'Grantee': {
+                    'Type': 'AmazonCustomerByEmail',
+                    'EmailAddress': email
+                },
+                'Permission': 'READ'
+            })
+            acl.put(
+                AccessControlPolicy={
+                    'Grants': grants,
+                    'Owner': acl.owner
+                }
+            )
+            logger.info("Granted read access to %s.", email)
+        except ClientError:
+            logger.exception("Couldn't add ACL to object '%s'.", self.object.key)
+            raise

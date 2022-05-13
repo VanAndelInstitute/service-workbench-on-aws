@@ -1,0 +1,29 @@
+<programlisting>
+// Path to your PHP autoload.  If you are using a phar installation, this is the
+// path to your aws.phar file.
+require 'vendor/autoload.php';
+
+use Aws\ElasticTranscoder\ElasticTranscoderClient;
+use Aws\Exception\AwsException;
+
+/**
+ * List Elastic Transcoder Pipelines.
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+// Create the client for Elastic Transcoder.
+$transcoder_client = new ElasticTranscoderClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2012-09-25',
+]);
+
+try {
+    $result = $transcoder_client -> listPipelines([]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}
+</programlisting>

@@ -1,0 +1,17 @@
+<programlisting>
+    def list_templates(self):
+        """
+        Gets a list of all email templates for the current account.
+
+        :return: The list of retrieved email templates.
+        """
+        try:
+            response = self.ses_client.list_templates()
+            templates = response['TemplatesMetadata']
+            logger.info("Got %s templates.", len(templates))
+        except ClientError:
+            logger.exception("Couldn't get templates.")
+            raise
+        else:
+            return templates
+</programlisting>

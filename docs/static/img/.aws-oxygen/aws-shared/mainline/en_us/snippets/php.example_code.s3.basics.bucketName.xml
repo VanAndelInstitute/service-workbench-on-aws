@@ -1,0 +1,3 @@
+<programlisting>
+$bucket_name = "doc-example-bucket-" . uniqid();
+</programlisting>

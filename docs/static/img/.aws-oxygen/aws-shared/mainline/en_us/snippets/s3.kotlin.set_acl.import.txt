@@ -1,0 +1,9 @@
+import aws.sdk.kotlin.services.s3.S3Client
+import aws.sdk.kotlin.services.s3.model.Grant
+import aws.sdk.kotlin.services.s3.model.Grantee
+import aws.sdk.kotlin.services.s3.model.Type
+import aws.sdk.kotlin.services.s3.model.Permission
+import aws.sdk.kotlin.services.s3.model.Owner
+import aws.sdk.kotlin.services.s3.model.AccessControlPolicy
+import aws.sdk.kotlin.services.s3.model.PutBucketAclRequest
+import kotlin.system.exitProcess

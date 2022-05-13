@@ -1,0 +1,16 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+/*
+    Foldable elements
+*/
+shared-content,
+service, 
+shared-text,
+documentation{
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: longname,shortname;
+}
+
+:root,
+oxy|reference{
+    -oxy-foldable:false;
+}

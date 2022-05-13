@@ -1,0 +1,46 @@
+<form action="https://authorize.payments.amazon.com/pba/paypipeline"
+    method="POST">
+    <input 
+        type="image" 
+        src=
+"https://authorize.payments.amazon.com/pba/images/GSDonationWithLogo.png"
+        border="0">
+    <input 
+        type="hidden" name="immediateReturn" value="1" >
+    <input 
+        type="hidden" name="collectShippingAddress" value="1" >
+    <input 
+        type="hidden" name="accessKey" value="YourAccessKeyId" >
+    <input 
+        type="hidden" name="minimumDonationAmount" value="USD 50" >
+    <input 
+        type="hidden" name="referenceId" value="MyTransaction-001" >
+    <input 
+        type="text" name="amount" size="8" value="50" >
+    <input 
+        type="hidden" name="isDonationWidget" value="1" >
+    <input 
+        type="hidden" name="fixedMarketplaceFee" value="" >
+    <input 
+        type="hidden" name="description" value="City Mission" >
+    <input 
+        type="hidden" name="ipnUrl" 
+        value="http://yourwebsite.com/instantpaymentnotification" >
+    <input 
+        type="hidden" name="returnUrl" 
+        value="http://yourwebsite.com/success" >
+    <input 
+        type="hidden" name="processImmediate" value="1" >
+    <input 
+        type="hidden" name="cobrandingStyle" value="logo" >
+    <input 
+        type="hidden" name="abandonUrl" 
+        value="http://yourwebsite.com/abandon">
+    <input 
+        type="hidden" name="signature" 
+        value="JL9k2iY4H2IQ0A+2zvFi31zLnPmOFEfMwzpLYG0Rao8=" >
+    <input 
+        type="hidden" name="signatureVersion" value="2" >
+    <input 
+        type="hidden" name="signatureMethod" value="HmacSHA256" >
+</form>

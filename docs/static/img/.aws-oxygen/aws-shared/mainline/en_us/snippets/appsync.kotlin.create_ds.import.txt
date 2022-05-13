@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.appsync.AppSyncClient
+import aws.sdk.kotlin.services.appsync.model.CreateDataSourceRequest
+import aws.sdk.kotlin.services.appsync.model.DataSourceType
+import aws.sdk.kotlin.services.appsync.model.DynamodbDataSourceConfig
+import kotlin.system.exitProcess

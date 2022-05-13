@@ -1,0 +1,23 @@
+suspend fun createSagemakerModel(
+        dataUrl: String,
+        imageVal: String,
+        modelNameVal: String,
+        executionRoleArnVal: String) {
+
+           val containerDefinition = ContainerDefinition {
+              modelDataUrl = dataUrl
+              image = imageVal
+              mode = ContainerMode.SingleModel
+            }
+
+           val request = CreateModelRequest {
+              modelName = modelNameVal
+              executionRoleArn = executionRoleArnVal
+              primaryContainer = containerDefinition
+           }
+
+           SageMakerClient { region = "us-west-2" }.use { sageMakerClient ->
+             val response = sageMakerClient.createModel(request)
+             println("The ARN of the model is ${response.modelArn}")
+           }
+  }

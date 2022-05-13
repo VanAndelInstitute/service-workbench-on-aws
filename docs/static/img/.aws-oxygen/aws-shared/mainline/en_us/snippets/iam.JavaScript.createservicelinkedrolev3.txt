@@ -1,0 +1,19 @@
+// Import required AWS SDK clients and commands for Node.js.
+import { iamClient } from "./libs/iamClient.js";
+import { CreateServiceLinkedRoleCommand } from "@aws-sdk/client-iam";
+// Set the parameters.
+const params = {
+  AWSServiceName: "AWS_SERVICE_NAME" /* required */,
+};
+
+const run = async () => {
+  try {
+    const data = await iamClient.send(
+      new CreateServiceLinkedRoleCommand(params)
+    );
+    console.log("Success", data);
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();

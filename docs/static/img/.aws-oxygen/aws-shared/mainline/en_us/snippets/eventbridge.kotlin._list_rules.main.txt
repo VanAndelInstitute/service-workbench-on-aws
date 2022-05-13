@@ -1,0 +1,15 @@
+suspend  fun listAllRules() {
+
+          val request = ListRulesRequest {
+              eventBusName = "default"
+              limit = 10
+          }
+
+          EventBridgeClient { region = "us-west-2" }.use { eventBrClient ->
+            val response = eventBrClient.listRules(request)
+            response.rules?.forEach { rule ->
+                println("The rule name is ${rule.name}")
+                println("The rule ARN is ${rule.arn}")
+            }
+          }
+ }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::IAM::Role -->
+<section id="aws-resource-iam-role" role="topic">
+   <title id="aws-resource-iam-role.title">AWS::IAM::Role</title>
+
+   <para>Creates an &IAMlong; (&IAM;) role for EC2 Instances. An IAM role can be used to enable applications running on
+      an Amazon EC2 instance to securely access your AWS resources.</para>
+
+   <para>&iam-role-more-info;</para>
+
+   <section>
+      <title>Syntax</title>
+      <programlisting condition="json">
+{
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+      "<link linkend="cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</link>": { <replaceable>JSON</replaceable> },
+      "<link linkend="cfn-iam-role-path">Path</link>": <replaceable>String</replaceable>,
+      "<link linkend="cfn-iam-role-policies">Policies</link>": [ <replaceable>IAM policy, ...</replaceable> ]
+   }
+   }     </programlisting>
+   	
+   	<programlisting condition="yaml">
+Type: AWS::IAM::Role
+Properties:
+    <link linkend="cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</link>: { <replaceable>JSON</replaceable> }
+    <link linkend="cfn-iam-role-path">Path</link>: <replaceable>String</replaceable>
+    <link linkend="cfn-iam-role-policies">Policies</link>: [ <replaceable>IAM policy, ...</replaceable> ]
+    </programlisting>
+   </section>
+
+   <section>
+      <title>Properties</title>
+      <variablelist>
+         <varlistentry id="cfn-iam-role-assumerolepolicydocument">
+            <term>AssumeRolePolicyDocument</term>
+            <listitem>
+               <para>The IAM assume role policy pocument associated with this role.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: A JSON policy document.</para>
+               <para>&update-no-interrupt;</para>
+               <note>
+                  <para>There can be only one assume role policy document associated with a role, and currently the only
+                     policy supported allows an EC2 instance to assume the role. For an example of the allowed policy
+                     document, see <link linkend="cfn-iam-role-templateexamples">Template Examples</link>.</para>
+               </note>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-role-path">
+            <term>Path</term>
+            <listitem>
+               <para>The path associated with this role. For information about IAM paths, see <ulink
+                     url="http://&domain;/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_FriendlyNames"
+                     >Friendly Names and Paths</ulink> in the <citetitle>AWS Identity and Access Management User
+                     Guide</citetitle>.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: String</para>
+               <para>&update-replacement;</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry id="cfn-iam-role-policies">
+            <term>Policies</term>
+            <listitem>
+               <para>A list of embedded policies to associate with this role. Policies can also be specified externally.
+                  For sample templates that demonstrates both embedded and external policies, see <link
+                     linkend="cfn-iam-role-templateexamples">Template Examples</link>.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: A list of IAM policies.</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+
+      <section id="cfn-iam-role-policynotes">
+         <title>Notes on policies for IAM roles</title>
+         <para>For general information about IAM policies and policy documents, see <ulink
+               url="http://&domain;/IAM/latest/UserGuide/AccessPolicyLanguage_HowToWritePolicies.html"
+               >How to Write a Policy</ulink> in the <citetitle>AWS Identity and Access Management User
+               Guide</citetitle>.</para>
+      </section>
+   </section>
+
+   <section>
+      <title>Return Values</title>
+
+      <section>
+         <title>Ref</title>
+         <para>&ref-returns-name; For example:</para>
+         <programlisting>{ "Ref": "<replaceable>RootRole</replaceable>" }</programlisting>
+         <para>For the IAM::Role with the logical ID "RootRole", <function>Ref</function> will return the resource
+            name.</para>
+         <para>&ref-more-info;</para>
+      </section>
+
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>Arn</term>
+               <listitem>
+                  <para>Returns the Amazon Resource Name (ARN) for the instance profile. For example:</para>
+                  <programlisting>{"Fn::GetAtt" : ["MyRole", "Arn"] }</programlisting>
+                  <para>This will return a value such as <code>“arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF”</code>.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>&getatt-more-info;</para>
+      </section>
+   </section>
+
+  <!-- <section id="cfn-iam-role-templateexamples">
+      <title>Template Examples</title>
+      <!-\- Example 1: IAM Roles With Embedded Policy And Instance Profiles -\->
+      <xi:include href="template_examples/iam-role-embedded.xml"/>
+
+      <!-\- Example 2: IAM Roles With External Policy And Instance Profiles -\->
+      <xi:include href="template_examples/iam-role-external.xml"/>
+   </section>-->
+
+   <!--<section>
+      <title>See Also</title>
+      <itemizedlist>
+         <listitem>
+            <para><link linkend="quickref-iam" endterm="quickref-iam.title"/></para>
+         </listitem>
+         <listitem>
+            <para><link linkend="aws-resource-iam-instanceprofile" endterm="aws-resource-iam-instanceprofile.title"/></para>
+         </listitem>
+      </itemizedlist>
+   </section>-->
+</section>

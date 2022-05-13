@@ -1,0 +1,30 @@
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.comprehendmedical.AWSComprehendMedical;
+import com.amazonaws.services.comprehendmedical.AWSComprehendMedicalClient;
+import com.amazonaws.services.comprehendmedical.model.DetectEntitiesRequest;
+import com.amazonaws.services.comprehendmedical.model.DetectEntitiesResult;
+ 
+public class SampleAPICall {
+ 
+    public static void main() {
+ 
+        AWSCredentialsProvider credentials
+                = new AWSStaticCredentialsProvider(new BasicAWSCredentials("YOUR AWS ACCESS KEY", "YOUR AWS SECRET"));
+ 
+        AWSComprehendMedical client = AWSComprehendMedicalClient.builder()
+                                                                .withCredentials(credentials)
+                                                                .withRegion("YOUR REGION")
+                                                                .build();
+ 
+ 
+        DetectEntitiesRequest request = new DetectEntitiesRequest();
+        request.setText("cerealx 84 mg daily");
+ 
+        DetectEntitiesResult result = client.detectEntities(request);
+        result.getEntities().forEach(System.out::println);
+    }
+}

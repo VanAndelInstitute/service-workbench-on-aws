@@ -1,0 +1,14 @@
+pub async fn detach_user_policy(
+    client: &iamClient,
+    user_name: &str,
+    policy_arn: &str,
+) -> Result<(), iamError> {
+    client
+        .detach_user_policy()
+        .user_name(user_name)
+        .policy_arn(policy_arn)
+        .send()
+        .await?;
+
+    Ok(())
+}

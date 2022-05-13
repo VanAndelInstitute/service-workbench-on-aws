@@ -1,0 +1,27 @@
+// Create an S3Client
+$s3Client = new S3Client([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2006-03-01'
+]);
+
+
+// Customizing a multipart upload
+$source = '/path/to/large/file.zip';
+$uploader = new MultipartUploader($s3Client, $source, [
+    'bucket' => 'your-bucket',
+    'key' => 'my-file.zip',
+    'before_initiate' => function (\Aws\Command $command) {
+        // $command is a CreateMultipartUpload operation
+        $command['CacheControl'] = 'max-age=3600';
+    },
+    'before_upload' => function (\Aws\Command $command) {
+        // $command is an UploadPart operation
+        $command['RequestPayer'] = 'requester';
+    },
+    'before_complete' => function (\Aws\Command $command) {
+        // $command is a CompleteMultipartUpload operation
+        $command['RequestPayer'] = 'requester';
+    },
+]);
+ 

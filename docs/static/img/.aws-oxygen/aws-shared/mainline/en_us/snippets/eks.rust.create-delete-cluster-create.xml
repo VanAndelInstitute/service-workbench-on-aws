@@ -1,0 +1,23 @@
+<programlisting>
+async fn make_cluster(
+    client: &aws_sdk_eks::Client,
+    name: &str,
+    arn: &str,
+    subnet_ids: Vec<String>,
+) -> Result<(), aws_sdk_eks::Error> {
+    let cluster = client
+        .create_cluster()
+        .name(name)
+        .role_arn(arn)
+        .resources_vpc_config(
+            VpcConfigRequest::builder()
+                .set_subnet_ids(Some(subnet_ids))
+                .build(),
+        )
+        .send()
+        .await?;
+    println!("cluster created: {:?}", cluster);
+
+    Ok(())
+}
+</programlisting>

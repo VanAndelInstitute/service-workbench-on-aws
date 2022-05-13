@@ -1,0 +1,6 @@
+    fmt.Println("Key Pairs:")
+    for _, pair := range result.KeyPairs {
+        fmt.Println("  Name:        " + *pair.KeyName)
+        fmt.Println("  Fingerprint: " + *pair.KeyFingerprint)
+        fmt.Println("")
+    }

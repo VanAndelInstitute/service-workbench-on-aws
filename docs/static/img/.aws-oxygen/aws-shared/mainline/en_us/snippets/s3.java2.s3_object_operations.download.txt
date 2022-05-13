@@ -1,0 +1,6 @@
+        GetObjectRequest getObjectRequest = GetObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        s3.getObject(getObjectRequest);

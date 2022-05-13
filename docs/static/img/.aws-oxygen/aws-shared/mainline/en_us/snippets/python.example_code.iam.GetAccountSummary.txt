@@ -1,0 +1,14 @@
+def get_summary():
+    """
+    Gets a summary of account usage.
+
+    :return: The summary of account usage.
+    """
+    try:
+        summary = iam.AccountSummary()
+        logger.debug(summary.summary_map)
+    except ClientError:
+        logger.exception("Couldn't get a summary for your account.")
+        raise
+    else:
+        return summary.summary_map

@@ -1,0 +1,18 @@
+<programlisting>
+    public static void getEndpoint(MediaConvertClient mc) {
+
+        try {
+            DescribeEndpointsResponse res = mc
+                    .describeEndpoints(DescribeEndpointsRequest.builder().maxResults(20).build());
+
+            Iterator<Endpoint> endpoints = res.endpoints().iterator();
+            while (endpoints.hasNext()) {
+                System.out.println(endpoints.next().url());
+            }
+
+        } catch (MediaConvertException e) {
+            System.out.println(e.toString());
+            System.exit(0);
+        }
+    }
+</programlisting>

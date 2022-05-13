@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println(*result.KeyMetadata.KeyId)
+</programlisting>

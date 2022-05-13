@@ -1,0 +1,12 @@
+suspend fun describeMyCluster(clusterIdVal: String?) {
+
+     val request = DescribeClusterRequest {
+         clusterId = clusterIdVal
+     }
+
+     EmrClient { region = "us-west-2" }.use { emrClient ->
+        val response = emrClient.describeCluster(request)
+        println("The name of the cluster is ${response.cluster?.name}")
+
+     }
+}

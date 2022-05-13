@@ -1,0 +1,8 @@
+<programlisting>
+    client := http.Client{Transport: tr}
+
+    sess := session.Must(session.NewSession(&aws.Config{
+        Region:     region,
+        HTTPClient: &client,
+    }))
+</programlisting>

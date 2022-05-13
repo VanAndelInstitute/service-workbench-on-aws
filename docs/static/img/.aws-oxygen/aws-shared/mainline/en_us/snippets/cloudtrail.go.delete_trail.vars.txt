@@ -1,0 +1,8 @@
+    trailNamePtr := flag.String("n", "", "The name of the trail to delete")
+
+    flag.Parse()
+
+    if *trailNamePtr == "" {
+        fmt.Println("You must supply a trail name")
+        return
+    }

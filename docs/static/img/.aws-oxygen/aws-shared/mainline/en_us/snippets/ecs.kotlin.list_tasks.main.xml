@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun getAllTasks( clusterArn: String, taskId: String) {
+
+    val request = DescribeTasksRequest {
+        cluster = clusterArn
+        tasks = listOf(taskId)
+    }
+
+    EcsClient { region = "us-east-1" }.use { ecsClient ->
+        val response = ecsClient.describeTasks(request)
+        response.tasks?.forEach { task ->
+            println("The task ARN is " + task.taskDefinitionArn)
+        }
+    }
+}
+</programlisting>

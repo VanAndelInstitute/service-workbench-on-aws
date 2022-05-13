@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?template version="1.0" service="//ram//" value="csctemplate-awsdocs-ram-1.0-oxygen" ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared; 
+<!ENTITY RESOURCE "*RESOURCE*">
+<!ENTITY RESOURCES "*RESOURCES*">
+<!ENTITY SERVICE "*SERVICE*">
+<!ENTITY SERVICELong "*SERVICE LONG NAME*">
+]>
+
+<!--GUIDELINES
+1. See the RAM Onboarding Wiki https://w.amazon.com/bin/view/AWSDocs/RAM-onboarding/
+2. Enter your resource name and service name in the entities above and copy the entities to your local entities file for your package.
+3. Read the comments carefully. Feel free to remove comments after you have addressed them.
+4. "owner" = the account that owns the resource and shares it. "consumer" = the account with which the resource is shared.
+5. Add in any additional sections that might be specific to your service.
+6. After you have completed your topic, do a text search for "TBD" to ensure that you haven't missed anything.
+7. For examples, see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservation-sharing.html AND https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html-->
+
+<section id="sharing" role="topic" >
+	<info>
+		<title id="sharing.title">Working with shared &RESOURCES;</title>
+		<abstract>
+			<para>Working with shared &RESOURCES;.</para>
+		</abstract>
+	</info>
+	<!-- Provide a brief overview of what sharing means for your resource. It should explain sharing from the owner's and consumers' perspectives.-->
+	<!--Do not update this content. This applies to all shareable resources.-->
+	<para>&SERVICELong; integrates with &RAMlong; (&RAM;) to enable resource sharing. &RAM; is a service 
+		that enables you to share some &SERVICE; resources with other &AWS-accounts; or through &AOlong;. 
+		With &RAM;, you share resources that you own by creating a <emphasis>resource share</emphasis>. 
+		A resource share specifies the resources to share, and the consumers with whom to share them. 
+		Consumers can include:</para>
+	<!--If any of these don't apply to your service or resource, remove them.-->
+	<itemizedlist>
+		<listitem>
+			<para>Specific &AWS-accounts; inside or outside of its organization in &AOlong;</para>
+		</listitem>
+		<listitem>
+			<para>An organizational unit inside its organization in &AOlong;</para>
+		</listitem>
+		<listitem>
+			<para>Its entire organization in &AOlong;</para>
+		</listitem>
+	</itemizedlist>
+	<para>For more information about &RAM;, see the <emphasis>&link-ram-ug;</emphasis>.</para>
+	
+	<para>This topic explains how to share resources that you own, and how to use resources that are shared 
+		with you.</para>
+	<para role="topiclist-abbrev">Contents</para>
+	
+	<!--PREREQUISITES-->
+	<section id="sharing-prereqs">
+		<info>
+			<title id="sharing-prereq.titles">Prerequisites for sharing &RESOURCES;</title>
+		</info>
+		<!-- List any prerequisites for sharing your resource. Add/edit/remove as necessary.-->
+		<itemizedlist>
+			<listitem>
+				<para>TBD</para>
+			</listitem>
+			<listitem>
+				<para>To share a &RESOURCE;, you must own it in your &AWS-account;. This means that 
+					the resource must be allocated or provisioned in your account. You cannot share a 
+					&RESOURCE; that has been shared with you.</para>
+			</listitem>
+			<listitem>
+				<para>To share a &RESOURCE; with your organization or an organizational unit in &AOlong;, you 
+					must enable sharing with &AOlong;. For more information, see <ulink type="documentation" 
+						url="ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs">
+						Enable Sharing with &AOlong;</ulink> in the <emphasis>&guide-ram-ug;</emphasis>.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+	
+	<!--WORKING ACROSS AZs-->
+	<!--If your resource is zonal (launched into a specific AZ), then do not change this section. If your resource is global (can be used across all Regions), remove this section.-->
+	<section id="sharing-azs">
+		<info>
+			<title id="sharing-azs.title">Sharing across Availability Zones</title>
+		</info>
+		<para>To ensure that resources are distributed across the Availability Zones for a Region, we independently map 
+			Availability Zones to names for each account. This could lead to Availability Zone naming differences
+			across accounts. For example, the Availability Zone <code>us-east-1a</code> for your &AWS-account; 
+			might not have the same location as <code>us-east-1a</code> for another &AWS-account;.</para>			
+		
+		<para>To identify the location of your &RESOURCE; relative to your accounts, you must use the
+			<emphasis>Availability Zone ID</emphasis> (AZ ID). The AZ ID is a unique and consistent identifier for an 
+			Availability Zone across all &AWS-accounts;. For example, <code>use1-az1</code> is an AZ ID for the 
+			<code>us-east-1</code> Region and it is the same location in every &AWS-account;.</para>
+		
+		<para>For more information about viewing the AZ IDs for the Availability Zones in your account, see <ulink 
+			type="documentation" url="ram/latest/userguide/working-with-az-ids.html">AZ IDs for your &AWS; 
+			resources</ulink> in the <emphasis>&guide-ram-ug;</emphasis>.</para>
+	</section>
+	
+	<!--SHARING-->
+	<section id="sharing-share">
+		<info>
+			<title id="sharing-share.title">Sharing a &RESOURCE;</title>
+		</info>
+		<!--Explain what happens (for the owner and consumer) when you share your resource. -->
+		<para>TBD <!--When you share an ABC that you own with other AWS accounts, you enable them to do XYZ.--></para>
+		
+		
+		<!--Read the following paragrah carefully to ensure that it is true for your resource and console. If it's not, edit\remove as needed.-->
+		<para>To share a &RESOURCE;, you must add it to a resource share. A resource share is an &RAM; resource 
+			that lets you share your resources across &AWS-accounts;. A resource share specifies the resources to 
+			share, and the consumers with whom they are shared. When you share a &RESOURCE; using the 
+			&SERVICE; console, you add it to an existing resource share. To add the &RESOURCE; to a new resource 
+			share, you must first create the resource share using the <ulink url="&url-console-domain;ram">&RAM; 
+				console</ulink>.</para>
+		
+		<!--The following paragraph is true for all resources that support sharing within AWS Orgs. -->
+		<para>If you are part of an organization in &AOlong; and sharing within your organization is enabled, 
+			consumers in your organization are automatically granted access to the shared &RESOURCE;. Otherwise, 
+			consumers receive an invitation to join the resource share and are granted access to the shared 
+			&RESOURCE; after accepting the invitation.</para>
+		
+		<para>You can share a &RESOURCE; that you own using the &SERVICE; console, &RAM; console, or the 
+			&CLI;.</para>			
+		<!--Add your console prcedure here-->
+		<procedure>
+			<title>To share a &RESOURCE; that you own using the &SERVICE; console</title>
+			<step>
+				<para>TBD</para>
+			</step>
+		</procedure>
+		
+		<!--Leave as is.-->
+		<formalpara>
+			<title>To share a &RESOURCE; that you own using the &RAM; console</title>
+			<para>See <ulink url="&url-ram-ug;working-with-sharing.html#working-with-sharing-create"
+					>Creating a Resource Share</ulink> in the <emphasis
+					>&guide-ram-ug;</emphasis>.</para>
+		</formalpara>
+		<!--Leave as is.-->
+		<formalpara>
+			<title>To share a &RESOURCE; that you own using the &CLI;</title>
+			<para>Use the <ulink url="&url-cli-ref;ram/create-resource-share.html">create-resource-share</ulink> 
+				command.</para>
+		</formalpara>			
+	</section>	
+	
+	<!--UNSHARING-->
+	<section id="sharing-unshare">
+		<info>
+			<title id="sharing-unshare.title">Unsharing a shared &RESOURCE;</title>
+		</info>
+		<!--Explain what happens (for the owner and cosumers) when your resource is unshared.-->
+		<para>TBD</para>
+		
+		<!--Leave as is.-->
+		<para>To unshare a shared &RESOURCE; that you own, you must remove it from the resource share. You can do this using the &SERVICE; 
+			console, &RAM; console, or the &CLI;.</para>			
+		
+		<!--Add your console procedure here-->
+		<procedure>
+			<title>To unshare a shared &RESOURCE; that you own using the &SERVICE; console</title>
+			<step>
+				<para>TBD</para>
+			</step>
+		</procedure>
+		
+		<!--Leave as is.-->
+		<formalpara>
+			<title>To unshare a shared &RESOURCE; that you own using the &RAM; console</title>
+			<para>See <ulink url="&url-ram-ug;working-with-sharing.html#working-with-sharing-update"
+					>Updating a Resource Share</ulink> in the <emphasis role="italic"
+					>&guide-ram-ug;</emphasis>.</para>
+		</formalpara>
+		
+		<!--Leave as is.-->
+		<formalpara>
+			<title>To unshare a shared &RESOURCE; that you own using the &CLI;</title>
+			<para>Use the <ulink url="&url-cli-ref;ram/disassociate-resource-share.html">disassociate-resource-share</ulink> command.</para>
+		</formalpara>
+	</section>
+	
+	<!--IDENTIFYING-->
+	<section id="sharing-identify">
+		<info>
+			<title id="sharing-identify.title">Identifying a shared &RESOURCE;</title>
+		</info>
+		<para>Owners and consumers can identify shared &RESOURCES; using the &SERVICE; console and &CLI;.</para>
+		
+		<!--Add your console prcedure here-->
+		<procedure>
+			<title>To identify a shared &RESOURCE; using the &SERVICE; console</title>
+			<step>
+				<para>TBD</para>
+			</step>
+		</procedure>
+		
+		<!--Add your resource's describe CLI command here. Your CLI params might vary. Add\edit\remove as needed.-->
+		<formalpara>
+			<title>To identify a shared &RESOURCE; using the &CLI;</title>
+			<para>Use the <ulink url="TBD">TBD</ulink> command. The command returns the &RESOURCES; that 
+				you own and &RESOURCES; that are shared with you. <code>OwnerId</code> shows the &AWS; 
+				account ID of the &RESOURCE; owner.</para>
+		</formalpara>
+	</section>
+	
+	<!--PERMISSIONS-->
+	<section id="sharing-perms">
+		<info>
+			<title id="sharing-perms.title">Responsibilities and permissions for shared &RESOURCES;</title>
+		</info>
+		<section id="perms-owner">
+			<info>
+				<title id="perms-owner.title">Permissions for owners</title>
+			</info>
+			<!--Explain what owners are responsible for and what they can and cannot do with shared resources.-->
+			<para>TBD</para>
+		</section>
+		<section id="perms-consumer">
+			<info>
+				<title id="perms-consumer.title">Permissions for consumers</title>
+			</info>
+			<!--Explain what consumers are responsible for and what they can and cannot do with shared resources.-->
+			<para>TBD</para>
+		</section>
+	</section>
+	
+	<!--BILLING -->
+	<!--Optional but recommended. If you omit this section, keep an eye on the number of customer tickets you get about it.-->
+	<section id="sharing-billing">
+		<info>
+			<title id="sharing-billing.title">Billing and metering</title>
+		</info>
+		<!--Discuss how a your resource is billed when shared. Explain which costs are for the owner and which costs are for the consumers.-->
+		<para>TBD</para>
+	</section>
+	
+	<!--LIMITS -->
+	<!--Optional but recommended. If you omit this section, keep an eye on the number of customer tickets you get about it.-->
+	<section id="sharing-quotas">
+		<info>
+			<title id="sharing-quotas.title">Instance quotas</title>
+		</info>
+		<!--Explain how shared resources count towards the owner's and consumers' resource quotas.-->
+		<para>TBD</para>
+	</section>
+</section>

@@ -1,0 +1,10 @@
+<programlisting>
+
+import software.amazon.awssdk.core.async.AsyncRequestBody;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3AsyncClient;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectResponse;
+import java.nio.file.Paths;
+import java.util.concurrent.CompletableFuture;
+</programlisting>

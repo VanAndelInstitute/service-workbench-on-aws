@@ -1,0 +1,24 @@
+<programlisting>
+    public static void listAllForeCasts(ForecastClient forecast) {
+
+     try {
+            ListForecastsRequest request = ListForecastsRequest.builder()
+                .maxResults(10)
+                .build();
+
+            ListForecastsResponse response = forecast.listForecasts(request);
+            List<ForecastSummary> forecasts = response.forecasts();
+            Iterator<ForecastSummary> forecastIterator = forecasts.iterator();
+
+            while(forecastIterator.hasNext()) {
+
+                ForecastSummary forecastSummary = forecastIterator.next();
+                System.out.println("The name of the forecast is " +forecastSummary.forecastName()) ;
+            }
+
+     } catch (ForecastException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

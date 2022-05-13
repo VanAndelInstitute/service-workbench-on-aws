@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The bucket to upload to")
+    key := flag.String("k", "", "The object to upload")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET) and key (-k KEY)")
+        return
+    }

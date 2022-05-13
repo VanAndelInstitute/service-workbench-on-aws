@@ -1,0 +1,23 @@
+<programlisting>
+    public static String getMergeValues(CodeCommitClient codeCommitClient,
+                                        String repoName,
+                                        String destinationReference,
+                                        String sourceReference) {
+
+        try {
+            GetMergeOptionsRequest optionsRequest = GetMergeOptionsRequest.builder()
+                .repositoryName(repoName)
+                .destinationCommitSpecifier(destinationReference)
+                .sourceCommitSpecifier(sourceReference)
+                .build();
+
+            GetMergeOptionsResponse response = codeCommitClient.getMergeOptions(optionsRequest) ;
+            return response.baseCommitId();
+
+        } catch ( CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

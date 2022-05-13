@@ -1,0 +1,16 @@
+<programlisting>
+def terminate_cluster(cluster_id, emr_client):
+    """
+    Terminates a cluster. This terminates all instances in the cluster and cannot
+    be undone. Any data not saved elsewhere, such as in an Amazon S3 bucket, is lost.
+
+    :param cluster_id: The ID of the cluster to terminate.
+    :param emr_client: The Boto3 EMR client object.
+    """
+    try:
+        emr_client.terminate_job_flows(JobFlowIds=[cluster_id])
+        logger.info("Terminated cluster %s.", cluster_id)
+    except ClientError:
+        logger.exception("Couldn't terminate cluster %s.", cluster_id)
+        raise
+</programlisting>

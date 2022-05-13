@@ -1,0 +1,11 @@
+<programlisting>
+    sourceBucket := flag.String("f", "", "The bucket containing the object to copy")
+    targetBucket := flag.String("t", "", "The bucket to which the object is copied")
+    item := flag.String("i", "", "The object to copy")
+    flag.Parse()
+
+    if *sourceBucket == "" || *targetBucket == "" || *item == "" {
+        fmt.Println("You must supply the bucket to copy from (-f BUCKET), to (-t BUCKET), and item to copy (-i ITEM")
+        return
+    }
+</programlisting>

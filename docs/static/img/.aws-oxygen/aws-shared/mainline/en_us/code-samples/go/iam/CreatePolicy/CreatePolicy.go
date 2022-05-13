@@ -1,0 +1,97 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "encoding/json"
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/iam/iamiface"
+)
+
+// StatementEntry will dictate what this policy allows or doesn't allow.
+type StatementEntry struct {
+    Effect   string
+    Action   []string
+    Resource string
+}
+
+// PolicyDocument is our definition of our policies to be uploaded to IAM.
+type PolicyDocument struct {
+    Version   string
+    Statement []StatementEntry
+}
+
+// MakePolicy creates an IAM policy
+// Inputs:
+//     svc is an IAM service client
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to json.Marshall or CreatePolicy
+func MakePolicy(svc iamiface.IAMAPI, policyName *string) error {
+    // Builds our policy document for IAM.
+    policy := PolicyDocument{
+        Version: "2012-10-17",
+        Statement: []StatementEntry{
+            StatementEntry{
+                Effect: "Allow",
+                Action: []string{
+                    "logs:CreateLogGroup", // Allow for creating log groups
+                },
+                Resource: "RESOURCE ARN FOR logs:*",
+            },
+            StatementEntry{
+                Effect: "Allow",
+                // Allows for DeleteItem, GetItem, PutItem, Scan, and UpdateItem
+                Action: []string{
+                    "dynamodb:DeleteItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:Scan",
+                    "dynamodb:UpdateItem",
+                },
+                Resource: "RESOURCE ARN FOR dynamodb:*",
+            },
+        },
+    }
+
+    b, err := json.Marshal(&policy)
+    if err != nil {
+        return err
+    }
+
+    _, err = svc.CreatePolicy(&iam.CreatePolicyInput{
+        PolicyDocument: aws.String(string(b)),
+        PolicyName:     policyName,
+    })
+    return err
+}
+
+func main() {
+    policyName := flag.String("n", "", "The name of the policy")
+    flag.Parse()
+
+    if *policyName == "" {
+        fmt.Println("You must supply the name of the policy (-n POLICY)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := iam.New(sess)
+
+    err := MakePolicy(svc, policyName)
+    if err != nil {
+        fmt.Println("Got an error creating the policy:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Created policy " + *policyName)
+}

@@ -1,0 +1,59 @@
+    // Create a table with a Sort key.
+    public static void createTable(DynamoDbClient ddb, String tableName) {
+
+        DynamoDbWaiter dbWaiter = ddb.waiter();
+        ArrayList<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
+
+        // Define attributes.
+        attributeDefinitions.add(AttributeDefinition.builder()
+                .attributeName("year")
+                .attributeType("N")
+                .build());
+
+        attributeDefinitions.add(AttributeDefinition.builder()
+                .attributeName("title")
+                .attributeType("S")
+                .build());
+
+        ArrayList<KeySchemaElement> tableKey = new ArrayList<KeySchemaElement>();
+        KeySchemaElement key = KeySchemaElement.builder()
+                .attributeName("year")
+                .keyType(KeyType.HASH)
+                .build();
+
+        KeySchemaElement key2 = KeySchemaElement.builder()
+                .attributeName("title")
+                .keyType(KeyType.RANGE) // Sort
+                .build();
+
+        // Add KeySchemaElement objects to the list.
+        tableKey.add(key);
+        tableKey.add(key2);
+
+        CreateTableRequest request = CreateTableRequest.builder()
+                .keySchema(tableKey)
+                .provisionedThroughput(ProvisionedThroughput.builder()
+                        .readCapacityUnits(new Long(10))
+                        .writeCapacityUnits(new Long(10))
+                        .build())
+                .attributeDefinitions(attributeDefinitions)
+                .tableName(tableName)
+                .build();
+
+        try {
+            CreateTableResponse response = ddb.createTable(request);
+            DescribeTableRequest tableRequest = DescribeTableRequest.builder()
+                    .tableName(tableName)
+                    .build();
+
+            // Wait until the Amazon DynamoDB table is created.
+            WaiterResponse<DescribeTableResponse> waiterResponse = dbWaiter.waitUntilTableExists(tableRequest);
+            waiterResponse.matched().response().ifPresent(System.out::println);
+            String newTable = response.tableDescription().tableName();
+            System.out.println("The " +newTable + " was successfully created.");
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

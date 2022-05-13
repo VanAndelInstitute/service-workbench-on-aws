@@ -1,0 +1,1 @@
+        $iamClient = new IamClient(['region' => 'us-west-2', 'version' => 'latest', 'profile' => 'default']);

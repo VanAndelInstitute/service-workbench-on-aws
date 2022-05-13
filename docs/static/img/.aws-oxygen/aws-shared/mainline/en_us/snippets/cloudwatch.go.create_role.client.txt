@@ -1,0 +1,1 @@
+    svc := iam.New(sess)

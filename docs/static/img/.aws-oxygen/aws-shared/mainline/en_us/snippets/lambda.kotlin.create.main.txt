@@ -1,0 +1,27 @@
+suspend fun createNewFunction (
+         myFunctionName: String,
+        s3BucketName: String,
+        myS3Key: String,
+        myHandler: String,
+        myRole: String
+    ): String? {
+
+        val functionCode = FunctionCode {
+                s3Bucket = s3BucketName
+                s3Key = myS3Key
+            }
+
+        val request = CreateFunctionRequest {
+            functionName = myFunctionName
+            code = functionCode
+            description = "Created by the Lambda Kotlin API"
+            handler = myHandler
+            role = myRole
+            runtime = Runtime.Java8
+        }
+
+        LambdaClient { region = "us-west-2" }.use { awsLambda ->
+            val functionResponse = awsLambda.createFunction(request)
+            return functionResponse.functionArn
+        }
+    }

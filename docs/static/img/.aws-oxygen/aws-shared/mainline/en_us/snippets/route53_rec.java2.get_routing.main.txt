@@ -1,0 +1,17 @@
+    public static GetRoutingControlStateResponse getRoutingControlState(List<ClusterEndpoint> clusterEndpoints,
+                                                                        String routingControlArn) {
+        for (ClusterEndpoint clusterEndpoint : clusterEndpoints) {
+            try {
+                System.out.println(clusterEndpoint);
+                Route53RecoveryClusterClient client = Route53RecoveryClusterClient.builder()
+                        .endpointOverride(URI.create(clusterEndpoint.endpoint()))
+                        .region(Region.of(clusterEndpoint.region())).build();
+                return client.getRoutingControlState(
+                        GetRoutingControlStateRequest.builder()
+                                .routingControlArn(routingControlArn).build());
+            } catch (Exception exception) {
+                System.out.println(exception);
+            }
+        }
+        return null;
+    }

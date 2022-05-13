@@ -1,0 +1,11 @@
+<programlisting>
+async fn remove_cluster(
+    client: &aws_sdk_eks::Client,
+    name: &str,
+) -> Result<(), aws_sdk_eks::Error> {
+    let cluster_deleted = client.delete_cluster().name(name).send().await?;
+    println!("cluster deleted: {:?}", cluster_deleted);
+
+    Ok(())
+}
+</programlisting>

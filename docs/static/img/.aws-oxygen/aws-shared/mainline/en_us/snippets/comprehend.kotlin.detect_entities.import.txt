@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.comprehend.ComprehendClient
+import aws.sdk.kotlin.services.comprehend.model.DetectEntitiesRequest
+import aws.sdk.kotlin.services.comprehend.model.LanguageCode

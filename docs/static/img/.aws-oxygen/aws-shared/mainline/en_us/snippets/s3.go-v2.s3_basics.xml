@@ -1,0 +1,22 @@
+<programlisting>
+
+	// This bucket name is 100% unique.
+	// Remember that bucket names must be globally unique among all buckets.
+
+	myBucketName := "mybucket-" + (xid.New().String())
+	fmt.Printf("Bucket name: %v\n", myBucketName)
+
+	cfg, err := config.LoadDefaultConfig(context.TODO())
+
+	if err != nil {
+		panic("Failed to load configuration")
+	}
+
+	s3client := s3.NewFromConfig(cfg)
+
+	MakeBucket(*s3client, myBucketName)
+	BucketOps(*s3client, myBucketName)
+	AccountBucketOps(*s3client, myBucketName)
+	BucketDelOps(*s3client, myBucketName)
+
+</programlisting>

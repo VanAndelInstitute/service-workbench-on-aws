@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code examples show how to:</para>
+    <itemizedlist>
+        <listitem><para>Create a user who has no permissions.</para></listitem>
+        <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+        <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+        <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+        <listitem><para>Delete the policy, role, and user.</para></listitem>
+    </itemizedlist>
+</block>

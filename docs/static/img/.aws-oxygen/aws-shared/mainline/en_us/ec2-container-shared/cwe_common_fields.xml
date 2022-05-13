@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE procedure PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+%phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+%phrases-shared-ecs-ecr;
+]>
+<variablelist>
+    <varlistentry id="cfn-apigateway-resource-parentid">
+        <term><code>ParentId</code></term>
+        <listitem>
+            <para>To create a child resource, specify the ID of the parent resource. For resources
+                without a parent, specify the RestApi root resource ID, such as <code>{
+                    "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }</code>.</para>
+            <para>&required-yes;</para>
+            <para>&type-string;</para>
+            <para>&update-replacement;</para>
+        </listitem>
+    </varlistentry>
+</variablelist>

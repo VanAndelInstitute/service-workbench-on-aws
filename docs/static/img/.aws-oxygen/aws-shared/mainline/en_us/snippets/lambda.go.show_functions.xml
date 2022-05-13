@@ -1,0 +1,46 @@
+<programlisting>
+package main
+
+import (
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/lambda"
+    "github.com/aws/aws-sdk-go/service/lambda/lambdaiface"
+)
+
+// GetFunctions retrieves a list of AWS Lambda functions
+// Inputs:
+//     svc is a Lambda service client
+// Output:
+//     If success, the list of functions and nil
+//     Otherwise, nil and an error from the call to ListFunctions
+func GetFunctions(svc lambdaiface.LambdaAPI) (*lambda.ListFunctionsOutput, error) {
+    result, err := svc.ListFunctions(nil)
+    return result, err
+}
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := lambda.New(sess)
+
+    result, err := GetFunctions(svc)
+    if err != nil {
+        fmt.Println("Got an error listing functions:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Functions:")
+
+    for _, f := range result.Functions {
+        fmt.Println("Name:        " + aws.StringValue(f.FunctionName))
+        fmt.Println("Description: " + aws.StringValue(f.Description))
+        fmt.Println("")
+    }
+}
+</programlisting>

@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.redshift.RedshiftClient
+import aws.sdk.kotlin.services.redshift.model.DeleteClusterRequest
+import kotlin.system.exitProcess

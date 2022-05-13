@@ -1,0 +1,3 @@
+    result, err := svc.GetServerCertificate(&iam.GetServerCertificateInput{
+        ServerCertificateName: certName,
+    })

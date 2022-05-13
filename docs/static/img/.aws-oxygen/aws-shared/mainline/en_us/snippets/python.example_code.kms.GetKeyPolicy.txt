@@ -1,0 +1,21 @@
+    def get_policy(self, key_id):
+        """
+        Gets the policy of a key.
+
+        :param key_id: The ARN or ID of the key to query.
+        :return: The key policy as a dict.
+        """
+        if key_id != '':
+            try:
+                response = self.kms_client.get_key_policy(
+                    KeyId=key_id, PolicyName='default')
+                policy = json.loads(response['Policy'])
+            except ClientError as err:
+                logger.error(
+                    "Couldn't get policy for key %s. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                pprint(policy)
+                return policy
+        else:
+            print("Skipping get policy demo.")

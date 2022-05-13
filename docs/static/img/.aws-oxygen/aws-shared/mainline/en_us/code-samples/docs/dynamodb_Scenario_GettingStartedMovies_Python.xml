@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Create a class that encapsulates a &DDB; table.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.Movies.imports.txt"/>
+<xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.Movies.class_full.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create a helper function to download and extract the sample JSON file.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.get_sample_movie_data.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Run an interactive scenario to create the table and perform actions on it.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.Scenario_GettingStartedMovies.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>This scenario uses the following helper class to ask questions at a command prompt.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.dynamodb.helper.Question.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-python3-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/BatchWriteItem">BatchWriteItem</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/CreateTable">CreateTable</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/DeleteItem">DeleteItem</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/DeleteTable">DeleteTable</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/DescribeTable">DescribeTable</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/GetItem">GetItem</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/PutItem">PutItem</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/Query">Query</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/Scan">Scan</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/dynamodb-2012-08-10/UpdateItem">UpdateItem</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

@@ -1,0 +1,5 @@
+import aws.sdk.kotlin.services.s3.S3Client
+import aws.sdk.kotlin.services.s3.model.ObjectIdentifier
+import aws.sdk.kotlin.services.s3.model.Delete
+import aws.sdk.kotlin.services.s3.model.DeleteObjectsRequest
+import kotlin.system.exitProcess

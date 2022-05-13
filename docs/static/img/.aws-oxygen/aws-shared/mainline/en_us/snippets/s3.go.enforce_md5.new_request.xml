@@ -1,0 +1,4 @@
+<programlisting>
+    req, err := http.NewRequest("PUT", url, strings.NewReader(""))
+    req.Header.Set("Content-MD5", md5s)
+</programlisting>

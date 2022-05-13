@@ -1,0 +1,7 @@
+<programlisting>
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+
+	svc := ssm.New(sess)
+</programlisting>

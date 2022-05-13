@@ -1,0 +1,18 @@
+<programlisting>
+    input := new(workdocs.DescribeUsersInput)
+    input.OrganizationId = orgPtr
+    input.Query = userPtr
+
+    result, err := svc.DescribeUsers(input)
+    if err != nil {
+        fmt.Println("Error getting user info", err)
+        return
+    }
+
+    var folderID = ""
+
+    if *result.TotalNumberOfUsers == 1 {
+        for _, user := range result.Users {
+            folderID = *user.RootFolderId
+        }
+</programlisting>

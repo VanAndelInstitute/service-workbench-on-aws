@@ -1,0 +1,17 @@
+    public static void deleteSpecificService(EcsClient ecsClient, String clusterName, String serviceArn) {
+
+        try {
+
+            DeleteServiceRequest serviceRequest = DeleteServiceRequest.builder()
+                .cluster(clusterName)
+                .service(serviceArn)
+                .build()  ;
+
+            ecsClient.deleteService(serviceRequest);
+            System.out.println("The Service was successfully deleted");
+
+        } catch (EcsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

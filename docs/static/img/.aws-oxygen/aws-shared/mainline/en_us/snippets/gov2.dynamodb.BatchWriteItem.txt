@@ -1,0 +1,41 @@
+
+// AddMovieBatch adds a slice of movies to the DynamoDB table. The function sends
+// batches of 25 movies to DynamoDB until all movies are added or it reaches the
+// specified maximum.
+func (basics TableBasics) AddMovieBatch(movies []Movie, maxMovies int) (int, error) {
+	var err error
+	var item map[string]types.AttributeValue
+	written := 0
+	batchSize := 25 // DynamoDB allows a maximum batch size of 25 items.
+	start := 0
+	end := start + batchSize
+	for start < maxMovies && start < len(movies) {
+		var writeReqs []types.WriteRequest
+		if end > len(movies) {
+			end = len(movies)
+		}
+		for _, movie := range movies[start:end] {
+			item, err = attributevalue.MarshalMap(movie)
+			if err != nil {
+				log.Printf("Couldn't marshal movie %v for batch writing. Here's why: %v\n", movie.Title, err)
+			} else {
+				writeReqs = append(
+					writeReqs,
+					types.WriteRequest{PutRequest: &types.PutRequest{Item: item}},
+				)
+			}
+		}
+		_, err = basics.DynamoDbClient.BatchWriteItem(context.TODO(), &dynamodb.BatchWriteItemInput{
+			RequestItems: map[string][]types.WriteRequest{basics.TableName: writeReqs}})
+		if err != nil {
+			log.Printf("Couldn't add a batch of movies to %v. Here's why: %v\n", basics.TableName, err)
+		} else {
+			written += len(writeReqs)
+		}
+		start = end
+		end += batchSize
+	}
+
+	return written, err
+}
+

@@ -1,0 +1,24 @@
+<programlisting>
+        PollForDecisionTaskRequest task_request =
+            new PollForDecisionTaskRequest()
+                .withDomain(HelloTypes.DOMAIN)
+                .withTaskList(new TaskList().withName(HelloTypes.TASKLIST));
+
+        while (true) {
+            System.out.println(
+                    "Polling for a decision task from the tasklist '" +
+                    HelloTypes.TASKLIST + "' in the domain '" +
+                    HelloTypes.DOMAIN + "'.");
+
+            DecisionTask task = swf.pollForDecisionTask(task_request);
+
+            String taskToken = task.getTaskToken();
+            if (taskToken != null) {
+                try {
+                    executeDecisionTask(taskToken, task.getEvents());
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+        }
+</programlisting>

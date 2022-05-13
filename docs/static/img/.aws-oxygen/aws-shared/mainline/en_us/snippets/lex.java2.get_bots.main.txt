@@ -1,0 +1,14 @@
+    public static void getAllBots(LexModelBuildingClient lexClient) {
+        try {
+            GetBotsResponse response = lexClient.getBots();
+            List<BotMetadata> bots = response.bots();
+            for (BotMetadata bot: bots) {
+                System.out.println("The bot name is : "+bot.name());
+                System.out.println("The bot version is : "+bot.version());
+             }
+
+        } catch (LexModelBuildingException e) {
+        System.out.println(e.getLocalizedMessage());
+        System.exit(1);
+    }
+  }

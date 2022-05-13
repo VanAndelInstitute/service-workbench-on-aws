@@ -1,0 +1,16 @@
+    Aws::IAM::Model::GetUserRequest get_request;
+    get_request.SetUserName(user_name);
+
+    auto get_outcome = iam.GetUser(get_request);
+    if (get_outcome.IsSuccess())
+    {
+        std::cout << "IAM user " << user_name << " already exists" << std::endl;
+        return;
+    }
+    else if (get_outcome.GetError().GetErrorType() !=
+        Aws::IAM::IAMErrors::NO_SUCH_ENTITY)
+    {
+        std::cout << "Error checking existence of IAM user " << user_name << ":"
+            << get_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }

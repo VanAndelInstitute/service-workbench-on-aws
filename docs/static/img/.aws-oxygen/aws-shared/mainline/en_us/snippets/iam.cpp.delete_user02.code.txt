@@ -1,0 +1,10 @@
+    Aws::IAM::Model::DeleteUserRequest request;
+    request.SetUserName(user_name);
+    auto outcome = iam.DeleteUser(request);
+    if (!outcome.IsSuccess())
+    {
+        std::cout << "Error deleting IAM user " << user_name << ": " <<
+            outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+    std::cout << "Successfully deleted IAM user " << user_name << std::endl;

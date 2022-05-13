@@ -1,0 +1,38 @@
+            IpRange ipRange = IpRange.builder()
+                .cidrIp("0.0.0.0/0").build();
+
+            IpPermission ipPerm = IpPermission.builder()
+                .ipProtocol("tcp")
+                .toPort(80)
+                .fromPort(80)
+                .ipRanges(ipRange)
+                .build();
+
+            IpPermission ipPerm2 = IpPermission.builder()
+                .ipProtocol("tcp")
+                .toPort(22)
+                .fromPort(22)
+                .ipRanges(ipRange)
+                .build();
+
+            AuthorizeSecurityGroupIngressRequest authRequest =
+                AuthorizeSecurityGroupIngressRequest.builder()
+                        .groupName(groupName)
+                        .ipPermissions(ipPerm, ipPerm2)
+                        .build();
+
+            AuthorizeSecurityGroupIngressResponse authResponse =
+            ec2.authorizeSecurityGroupIngress(authRequest);
+
+            System.out.printf(
+                "Successfully added ingress policy to Security Group %s",
+                groupName);
+
+            return resp.groupId();
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

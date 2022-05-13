@@ -1,0 +1,10 @@
+<programlisting>
+async fn delete_stack(client: &Client, name: &str) -> Result<(), Error> {
+    client.delete_stack().stack_name(name).send().await?;
+
+    println!("Stack deleted");
+    println!();
+
+    Ok(())
+}
+</programlisting>

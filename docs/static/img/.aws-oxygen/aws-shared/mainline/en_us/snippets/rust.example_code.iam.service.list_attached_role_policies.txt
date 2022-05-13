@@ -1,0 +1,18 @@
+pub async fn list_attached_role_policies(
+    client: &iamClient,
+    role_name: String,
+    path_prefix: Option<String>,
+    marker: Option<String>,
+    max_items: Option<i32>,
+) -> Result<ListAttachedRolePoliciesOutput, SdkError<ListAttachedRolePoliciesError>> {
+    let response = client
+        .list_attached_role_policies()
+        .role_name(role_name)
+        .set_path_prefix(path_prefix)
+        .set_marker(marker)
+        .set_max_items(max_items)
+        .send()
+        .await?;
+
+    Ok(response)
+}

@@ -1,0 +1,9 @@
+https://fps.sandbox.amazonaws.com?
+Action=GetPrepaidBalance
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&PrepaidInstrumentId=573IEMDCGRZHJ4P1D7BC3GMNBFPQU1VLNT7R4CT7A7DJIX96LKZNKSXUGPIGTTI8
+&Signature=5NVm1DjMZ8SllhFxfwkewKRmF%2FXb3iUPiAWT4AqksJg%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A26%3A29.171Z
+&Version=2008-09-17

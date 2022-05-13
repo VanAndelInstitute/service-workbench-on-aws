@@ -1,0 +1,20 @@
+<programlisting>
+// Load the SDK for JavaScript
+import { CreateVaultCommand } from "@aws-sdk/client-glacier";
+import { glacierClient } from "./libs/glacierClient.js";
+
+// Set the parameters
+const vaultname = "VAULT_NAME"; // VAULT_NAME
+const params = { vaultName: vaultname };
+
+const run = async () => {
+  try {
+    const data = await glacierClient.send(new CreateVaultCommand(params));
+    console.log("Success, vault created!");
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error");
+  }
+};
+run();
+</programlisting>

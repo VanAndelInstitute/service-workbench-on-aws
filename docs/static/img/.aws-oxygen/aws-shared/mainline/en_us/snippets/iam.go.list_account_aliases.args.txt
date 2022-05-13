@@ -1,0 +1,6 @@
+    maxItems := flag.Int64("m", 10, "Maximum number of aliases to list")
+    flag.Parse()
+
+    if *maxItems < int64(0) {
+        *maxItems = int64(10)
+    }

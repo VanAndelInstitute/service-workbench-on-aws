@@ -1,0 +1,11 @@
+suspend fun stopSpecificCrawler(crawlerName: String) {
+
+    val request = StopCrawlerRequest {
+        name = crawlerName
+    }
+
+    GlueClient { region = "us-west-2" }.use { glueClient ->
+        glueClient.stopCrawler(request)
+        println("$crawlerName was stopped")
+    }
+}

@@ -1,0 +1,16 @@
+            asyncResult = client.BeginPutObject(request, null, null);
+            while (!asyncResult.IsCompleted)
+            {
+                //
+                // Do some work here
+                //
+            }
+            try
+            {
+                response = client.EndPutObject(asyncResult);
+            }
+            catch (AmazonS3Exception s3Exception)
+            {
+                Console.WriteLine("Caught exception calling EndPutObject:");
+                Console.WriteLine(s3Exception);
+            }

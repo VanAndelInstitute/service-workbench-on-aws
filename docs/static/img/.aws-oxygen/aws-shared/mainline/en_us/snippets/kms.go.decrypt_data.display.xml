@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println(string(result.Plaintext))
+</programlisting>

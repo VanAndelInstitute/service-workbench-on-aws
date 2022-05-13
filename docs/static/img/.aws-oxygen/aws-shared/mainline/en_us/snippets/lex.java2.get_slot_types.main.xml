@@ -1,0 +1,19 @@
+<programlisting>
+    public static void getSlotsInfo(LexModelBuildingClient lexClient) {
+
+        try {
+
+            GetSlotTypesResponse slotTypesResponse = lexClient.getSlotTypes();
+            List<SlotTypeMetadata> slots = slotTypesResponse.slotTypes();
+            for (SlotTypeMetadata slot: slots) {
+                System.out.println("Slot name is "+slot.name());
+                System.out.println("Slot description is "+slot.description());
+                System.out.println("Slot version is "+slot.version());
+            }
+
+        } catch (LexModelBuildingException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

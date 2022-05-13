@@ -1,0 +1,17 @@
+    def describe_config_rule(self, rule_name):
+        """
+        Gets data for the specified rule.
+
+        :param rule_name: The name of the rule to retrieve.
+        :return: The rule data.
+        """
+        try:
+            response = self.config_client.describe_config_rules(
+                ConfigRuleNames=[rule_name])
+            rule = response['ConfigRules']
+            logger.info("Got data for rule %s.", rule_name)
+        except ClientError:
+            logger.exception("Couldn't get data for rule %s.", rule_name)
+            raise
+        else:
+            return rule

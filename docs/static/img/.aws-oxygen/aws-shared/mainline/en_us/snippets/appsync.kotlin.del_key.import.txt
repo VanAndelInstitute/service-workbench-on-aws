@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.appsync.AppSyncClient
+import aws.sdk.kotlin.services.appsync.model.DeleteApiKeyRequest
+import kotlin.system.exitProcess

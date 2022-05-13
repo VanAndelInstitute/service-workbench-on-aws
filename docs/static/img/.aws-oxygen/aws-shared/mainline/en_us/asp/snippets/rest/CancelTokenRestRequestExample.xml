@@ -1,0 +1,10 @@
+https://fps.sandbox.amazonaws.com?
+Action=CancelToken
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&ReasonText=MyWish
+&Signature=IZD9O%2FWGqhkzO%2FdLTQ7Tn8KUAmtZXqIEg6gypwkGeWQ%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T08%3A46%3A37.156Z
+&TokenId=D739IT9TMC4FK9KB56PDKJWAQGXDZ3B8X3SJNGVH3UEF5GQ7XAQZMEIL4OGEZKGX
+&Version=2008-09-17

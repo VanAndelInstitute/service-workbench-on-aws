@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The bucket from which the object is deleted")
+    item := flag.String("i", "", "The object to delete")
+    flag.Parse()
+
+    if *bucket == "" || *item == "" {
+        fmt.Println("You must supply the bucket (-b BUCKET), and item to delete (-i ITEM")
+        return
+    }

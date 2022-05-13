@@ -1,0 +1,18 @@
+<programlisting>
+    public static void createNewGroup(XRayClient xRayClient, String groupName) {
+
+        try {
+            CreateGroupRequest groupRequest = CreateGroupRequest.builder()
+                    .filterExpression("fault = true AND http.url CONTAINS \"example/game\" AND responsetime >= 5")
+                    .groupName(groupName)
+                    .build();
+
+            CreateGroupResponse groupResponse = xRayClient.createGroup(groupRequest);
+            System.out.println("The Group ARN is "+groupResponse.group().groupARN());
+
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

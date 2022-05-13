@@ -1,0 +1,27 @@
+<programlisting>
+def list_jobs(job_filter, transcribe_client):
+    """
+    Lists summaries of the transcription jobs for the current AWS account.
+
+    :param job_filter: The list of returned jobs must contain this string in their
+                       names.
+    :param transcribe_client: The Boto3 Transcribe client.
+    :return: The list of retrieved transcription job summaries.
+    """
+    try:
+        response = transcribe_client.list_transcription_jobs(
+            JobNameContains=job_filter)
+        jobs = response['TranscriptionJobSummaries']
+        next_token = response.get('NextToken')
+        while next_token is not None:
+            response = transcribe_client.list_transcription_jobs(
+                JobNameContains=job_filter, NextToken=next_token)
+            jobs += response['TranscriptionJobSummaries']
+            next_token = response.get('NextToken')
+        logger.info("Got %s jobs with filter %s.", len(jobs), job_filter)
+    except ClientError:
+        logger.exception("Couldn't get jobs with filter %s.", job_filter)
+        raise
+    else:
+        return jobs
+</programlisting>

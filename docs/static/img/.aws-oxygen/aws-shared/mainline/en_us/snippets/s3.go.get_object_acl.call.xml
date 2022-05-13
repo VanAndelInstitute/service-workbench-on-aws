@@ -1,0 +1,8 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    result, err := svc.GetObjectAcl(&s3.GetObjectAclInput{
+        Bucket: bucket,
+        Key:    key,
+    })
+</programlisting>

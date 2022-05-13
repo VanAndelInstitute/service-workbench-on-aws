@@ -1,0 +1,17 @@
+<programlisting>
+    def generate_data_key(self, key_id):
+        """
+        Generates a symmetric data key that can be used for client-side encryption.
+        """
+        answer = input(
+            f"Do you want to generate a symmetric data key from key {key_id} (y/n)? ")
+        if answer.lower() == 'y':
+            try:
+                data_key = self.kms_client.generate_data_key(KeyId=key_id, KeySpec='AES_256')
+            except ClientError as err:
+                logger.error(
+                    "Couldn't generate a data key for key %s. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                pprint(data_key)
+</programlisting>

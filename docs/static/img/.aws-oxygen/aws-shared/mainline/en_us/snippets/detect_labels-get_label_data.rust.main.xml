@@ -1,0 +1,40 @@
+<programlisting>
+async fn get_label_data(
+    rekog_client: &aws_sdk_rekognition::Client,
+    bucket: &str,
+    key: &str,
+) -> Vec<Litem> {
+    let s3_obj = aws_sdk_rekognition::model::S3Object::builder()
+        .bucket(bucket)
+        .name(key)
+        .build();
+
+    let s3_img = aws_sdk_rekognition::model::Image::builder()
+        .s3_object(s3_obj)
+        .build();
+
+    let resp = rekog_client.detect_labels().image(s3_img).send().await;
+
+    let labels = resp.unwrap().labels.unwrap_or_default();
+
+    // Create vector of Labels.
+    let mut label_vec: Vec<Litem> = vec![];
+
+    for label in labels {
+        let name = label.name.as_deref().unwrap_or_default();
+        let confidence = label.confidence.unwrap();
+
+        let label = Litem {
+            name: name.to_string(),
+            confidence,
+        };
+        label_vec.push(label);
+    }
+
+    // Sort label items by confidence.
+    label_vec.sort_by(|b, a| a.confidence.partial_cmp(&b.confidence).unwrap());
+
+    // Return the first three items.
+    label_vec[0..3].to_vec()
+}
+</programlisting>

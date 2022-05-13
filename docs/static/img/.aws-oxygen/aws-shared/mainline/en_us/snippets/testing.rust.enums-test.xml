@@ -1,0 +1,26 @@
+<programlisting>
+    #[cfg(test)]
+    fn test_list_objects(
+        pages: &[Vec<s3::model::Object>],
+        continuation_token: Option<String>,
+    ) -> Result<ListObjectsResult, Box<dyn Error + Send + Sync + 'static>> {
+        use std::str::FromStr;
+        let index = continuation_token
+            .map(|t| usize::from_str(&t).expect("valid token"))
+            .unwrap_or_default();
+        if pages.is_empty() {
+            Ok(ListObjectsResult {
+                objects: Vec::new(),
+                continuation_token: None,
+                has_more: false,
+            })
+        } else {
+            Ok(ListObjectsResult {
+                objects: pages[index].clone(),
+                continuation_token: Some(format!("{}", index + 1)),
+                has_more: index + 1 < pages.len(),
+            })
+        }
+    }
+}
+</programlisting>

@@ -1,0 +1,26 @@
+<programlisting>
+pub async fn delete_access_key(
+    client: &iamClient,
+    user: &User,
+    key: &AccessKey,
+) -> Result<(), iamError> {
+    loop {
+        match client
+            .delete_access_key()
+            .user_name(user.user_name.as_ref().unwrap())
+            .access_key_id(key.access_key_id.as_ref().unwrap())
+            .send()
+            .await
+        {
+            Ok(_) => {
+                break;
+            }
+            Err(e) => {
+                println!("Can't delete the access key: {:?}", e);
+                sleep(Duration::from_secs(2)).await;
+            }
+        }
+    }
+    Ok(())
+}
+</programlisting>

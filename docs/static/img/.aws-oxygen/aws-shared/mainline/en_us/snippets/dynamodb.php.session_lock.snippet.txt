@@ -1,0 +1,4 @@
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions',
+    'locking' => true,
+]);

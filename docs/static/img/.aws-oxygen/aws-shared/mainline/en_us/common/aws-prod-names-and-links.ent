@@ -1,0 +1,83 @@
+<!ENTITY fps_product "Amazon Flexible Payments Service">
+<!ENTITY fps_product_short "Amazon FPS">
+
+<!ENTITY fps_mobile_product_long 'Amazon Device Authorization API'>
+<!ENTITY fps_mobile_product_short 'Device Authorization API'>
+<!ENTITY mfps_product "Amazon Flexible Payments Service for Mobile Devices"><!-- may be temporary, maybe not -->
+<!ENTITY mfps_product_short "Amazon Mobile FPS"><!-- may be temporary, maybe not -->
+<!ENTITY mfps_gsg_short 'Amazon Mobile Payments Service Getting Started Guide' >
+
+<!ENTITY fps_digital_product_long '&fps_product_short; Open Payment Authorization API'>
+<!ENTITY fps_digital_product_short '&fps_product_short; Open Payment Authorization' >
+<!ENTITY fps_digital_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSDigitalGuide/"><citetitle>Amazon Flexible Payments Service Open Authorization Quick Start Developer Guide</citetitle></ulink>' >
+<!ENTITY fps_digital_quickstart_long '<citetitle>&fps_product_short; Open Authorization Quick Start</citetitle>' >
+<!ENTITY fps_digital_quickstart_short '<citetitle>Open Authorization Quick Start</citetitle>' >
+
+<!ENTITY fps_acct_long "Amazon Flexible Payments Service Account Management Quick Start Developer Guide">
+<!ENTITY fps_acct_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSAccountManagementGuide/"><citetitle>Amazon Flexible Payments Service Account Management Quick Start Developer Guide</citetitle></ulink>'>
+<!ENTITY am 'Amazon FPS Account Management Quick Start'>
+<!ENTITY am_long 'Amazon FPS Account Management Quick Start Developer Guide'>
+<!ENTITY am_short 'Account Management Quick Start'>
+<!ENTITY am_link 'http://&domain;/AmazonFPS/&apiversion;/FPSAccountManagementGuide/'>
+
+<!ENTITY fps_adv_long "Amazon Flexible Payments Service Advanced Quick Start Developer Guide">
+<!ENTITY fps_adv_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSAdvancedGuide/"><citetitle>Amazon Flexible Payments Service Advanced Quick Start Developer Guide</citetitle></ulink>'>
+<!ENTITY adv 'Amazon FPS Advanced Quick Start'>
+<!ENTITY adv_long 'Amazon FPS Advanced Quick Start Developer Guide'>
+<!ENTITY adv_short 'Advanced Quick Start'>
+<!ENTITY adv_link 'http://&domain;/AmazonFPS/&apiversion;/FPSAdvancedGuide/'>
+
+<!ENTITY fps_agg_long "Amazon Flexible Payments Service Aggregated Payments Quick Start Developer Guide">
+<!ENTITY fps_agg_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSAdvancedGuide/"><citetitle>Amazon Flexible Payments Service Aggregated Payments Quick Start Developer Guide</citetitle></ulink>'>
+<!ENTITY ag 'Amazon FPS Aggregated Payments Quick Start'>
+<!ENTITY ag_long 'Amazon FPS Aggregated Payments Quick Start Developer Guide'>
+<!ENTITY ag_short 'Aggregated Payments Quick Start'>
+<!ENTITY ag_link 'http://&domain;/AmazonFPS/&apiversion;/FPSAggregatedGuide/'>
+
+<!ENTITY fps_api_long "Amazon Flexible Payments Service API Reference">
+<!ENTITY fps_api_short "API Reference">
+<!ENTITY fps_api_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSAPIReference/"><citetitle>Amazon Flexible Payments Service API Reference</citetitle></ulink>'>
+
+<!ENTITY fps_basic_long "Amazon Flexible Payments Service Basic Quick Start Developer Guide">
+<!ENTITY basic_long 'Amazon FPS Basic Quick Start Developer Guide'>
+<!ENTITY fps_basic_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSBasicGuide/"><citetitle>Amazon Flexible Payments Service Basic Quick Start Developer Guide</citetitle></ulink>'>
+<!ENTITY basic 'Amazon FPS Basic Quick Start'>
+<!ENTITY basic_short 'Basic Quick Start'>
+<!ENTITY basic_link 'http://&domain;/AmazonFPS/&apiversion;/FPSBasicGuide/'>
+
+<!ENTITY fps_gsg_long "Amazon Flexible Payments Service Getting Started Guide">
+<!ENTITY fps_gsg_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSGettingStartedGuide/"><citetitle>Amazon Flexible Payments Service Getting Started Guide</citetitle></ulink>'>
+<!ENTITY fps_gsg_short 'Amazon Flexible Payments Service Getting Started Guide' >
+<!ENTITY gsg_long 'Amazon Flexible Payments Service Getting Started Guide'>
+<!ENTITY gsg_short 'FPS Getting Started'>
+<!ENTITY gsg_link 'http://&domain;/AmazonFPS/latest/FPSGettingStartedGuide/'>
+<!ENTITY gsg_link 'http://&domain;/AmazonFPS/&apiversion;/FPSGettingStartedGuide/'>
+
+<!ENTITY fps_mkt_long "Amazon Flexible Payments Service Marketplace Quick Start Developer Guide">
+<!ENTITY fps_mkt_link '<ulink url="http://&domain;/AmazonFPS/latest/FPSMarketplaceGuide/"><citetitle>Amazon Flexible Payments Service Marketplace Quick Start Developer Guide</citetitle></ulink>'>
+<!ENTITY mp 'Amazon FPS Marketplace Quick Start'>
+<!ENTITY mp_long 'Amazon FPS Marketplace Quick Start Developer Guide'>
+<!ENTITY mp_short 'Marketplace Quick Start'>
+<!ENTITY mp_link 'http://&domain;/AmazonFPS/&apiversion;/FPSMarketplaceGuide/'>
+
+<!ENTITY ampmts "Amazon Payments">
+<!ENTITY ipn_long "Instant Payment Notification" >
+<!ENTITY ipn_short "IPN" >
+
+<!ENTITY asp_product "Amazon Simple Pay" >
+<!ENTITY asp_gsg_long 'Amazon Simple Pay Getting Started Guide'>
+<!ENTITY adv_guide_long 'Amazon Simple Pay Advanced User Guide'>
+<!ENTITY adv_guide_link '<ulink url="http://&domain;/AmazonSimplePay/latest/ASPAdvancedUserGuide"><citetitle>Amazon Simple Pay Advanced User Guide</citetitle></ulink>'>
+<!ENTITY asp_adv_guide_link '<ulink url="http://&domain;/AmazonSimplePay/latest/ASPAdvancedUserGuide"><citetitle>Amazon Simple Pay Advanced User Guide</citetitle></ulink>'>
+<!ENTITY gsg_guide_link '<ulink url="http://&domain;/AmazonSimplePay/latest/ASPGettingStartedGuide/"><citetitle>Amazon Simple Pay Getting Started Guide</citetitle></ulink>'>
+
+<!ENTITY fps-wsdl-latest 'https://fps.amazonaws.com/doc/2010-08-28/AmazonFPS.wsdl'>
+<!ENTITY fps-schema-latest 'https://fps.amazonaws.com/doc/2010-08-28/AmazonFPS.xsd'>
+
+<!ENTITY fps-wsdl-20080917 'https://fps.amazonaws.com/doc/2008-09-17/AmazonFPS.wsdl'>
+<!ENTITY fps-schema-20080917 'https://fps.amazonaws.com/doc/2008-09-17/AmazonFPS.xsd'>
+
+<!ENTITY fps-wsdl 'https://fps.amazonaws.com/doc/2008-09-17/AmazonFPS.wsdl'>
+<!ENTITY wsdl 'https://fps.amazonaws.com/doc/2008-09-17/AmazonFPS.wsdl'>
+<!ENTITY schema 'https://fps.amazonaws.com/doc/2008-09-17/AmazonFPS.xsd'>
+<!ENTITY schemagraphic 'http://&domain;/AmazonFPS/latest/SchemaDocs/fps-schema.html'>

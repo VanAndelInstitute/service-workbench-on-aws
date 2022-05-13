@@ -1,0 +1,35 @@
+    def create_bucket_for_copy(self, bucket_name):
+        """
+        Creates a bucket that can receive copies of emails from Amazon SES. This
+        includes adding a policy to the bucket that grants Amazon SES permission
+        to put objects in the bucket.
+
+        :param bucket_name: The name of the bucket to create.
+        :return: The newly created bucket.
+        """
+        allow_ses_put_policy = {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "AllowSESPut",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "ses.amazonaws.com"},
+                "Action": "s3:PutObject",
+                "Resource": f"arn:aws:s3:::{bucket_name}/*"}]}
+        bucket = None
+        try:
+            bucket = self.s3_resource.create_bucket(
+                Bucket=bucket_name,
+                CreateBucketConfiguration={
+                    'LocationConstraint':
+                        self.s3_resource.meta.client.meta.region_name})
+            bucket.wait_until_exists()
+            bucket.Policy().put(Policy=json.dumps(allow_ses_put_policy))
+            logger.info("Created bucket %s to receive copies of emails.", bucket_name)
+        except ClientError:
+            logger.exception("Couldn't create bucket to receive copies of emails.")
+            if bucket is not None:
+                bucket.delete()
+            raise
+        else:
+            return bucket

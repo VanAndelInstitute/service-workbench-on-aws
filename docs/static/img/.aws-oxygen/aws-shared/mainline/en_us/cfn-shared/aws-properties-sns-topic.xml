@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<section id="aws-properties-sns-topic" role="topic">
+   <title id="aws-properties-sns-topic.title">AWS::SNS::Topic</title>
+   <para>The AWS::SNS::Topic type creates an &SNS; topic.</para>
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "DisplayName" : <replaceable>String</replaceable>,
+   "Subscription" : [ <replaceable>SNS Subscription, ...</replaceable> ]
+}     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>
+DisplayName: <replaceable>String</replaceable>
+Subscription: [ <replaceable>SNS Subscription, ...</replaceable> ]     </programlisting>
+	</section>
+
+   <section>
+      <title>Properties</title>
+      <variablelist>
+         <varlistentry id="cfn-sns-topic-displayname">
+            <term>DisplayName</term>
+            <listitem>
+               <para>A developer-defined string that can be used to identify this SNS topic.</para>
+               <para>&required-no;</para>
+               <para>&type-string;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-sns-topic-properties">
+            <term>Subscription</term>
+            <listitem>
+               <para>The SNS subscriptions (endpoints) for this topic.</para>
+               <para>&required-yes;</para>
+               <para>&typedecl; List of <link linkend="aws-properties-sns-subscription">SNS Subscriptions</link></para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Values</title>
+      <section>
+         <title>Ref</title>
+         <para>&ref-returns-name;</para>
+         <para>&ref-more-info;</para>
+      </section>
+   </section>
+
+   <section condition="json">
+      <title>Examples</title>
+      <para>An example of an SNS topic subscribed to by two SQS queues:</para>
+      <programlisting>
+"MySNSTopic" : {
+   "Type" : "AWS::SNS::Topic",
+   "Properties" : {
+      "Subscription" : [
+         { "Endpoint" : { "Fn::GetAtt" : [ "MyQueue1", "Arn" ] }, "Protocol" : "sqs" },
+         { "Endpoint" : { "Fn::GetAtt" : [ "MyQueue2", "Arn" ] }, "Protocol" : "sqs" }
+      ]
+   }
+   }     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Examples</title>
+		<para>An example of an SNS topic which sends email when an alarm fires.</para>
+	   	<programlisting>
+MySNSTopic: 
+  Type: AWS::SNS::Topic
+  Properties: 
+    Subscription:
+      - Endpoint: 
+          AlarmEmail: nobody@amazon.com
+          Protocol: email
+	   	</programlisting>
+	</section>
+
+   <!--<section>
+      <title>See Also</title>
+      <itemizedlist>
+         <listitem>
+            <para><ulink url="http://&domain;/sns/latest/gsg/SendMessageToHttp.cloudformation.html"
+                  >Using an AWS CloudFormation Template to Set Up a Topic and an HTTP Endpoint</ulink> in the
+               <citetitle>Amazon Simple Notification Service Getting Started Guide</citetitle></para>
+         </listitem>
+      </itemizedlist>
+   </section>-->
+</section>

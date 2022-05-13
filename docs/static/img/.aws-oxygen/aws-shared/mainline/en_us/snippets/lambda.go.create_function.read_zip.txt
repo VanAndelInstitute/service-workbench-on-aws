@@ -1,0 +1,1 @@
+    contents, err := ioutil.ReadFile(*zipFile + ".zip")

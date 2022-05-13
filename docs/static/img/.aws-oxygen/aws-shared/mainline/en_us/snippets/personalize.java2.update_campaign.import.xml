@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalize.PersonalizeClient;
+import software.amazon.awssdk.services.personalize.model.Campaign;
+import software.amazon.awssdk.services.personalize.model.PersonalizeException;
+import software.amazon.awssdk.services.personalize.model.UpdateCampaignRequest;
+import software.amazon.awssdk.services.personalize.model.DescribeCampaignRequest;
+import software.amazon.awssdk.services.personalize.model.DescribeCampaignResponse;
+</programlisting>

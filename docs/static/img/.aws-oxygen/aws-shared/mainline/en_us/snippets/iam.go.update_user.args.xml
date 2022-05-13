@@ -1,0 +1,10 @@
+<programlisting>
+    userName := flag.String("u", "", "The name of the user")
+    newName := flag.String("n", "", "The new name of the user")
+    flag.Parse()
+
+    if *userName == "" || *newName == "" {
+        fmt.Println("You must supply a user name and new name (-u USERNAME -n NEW-NAME)")
+        return
+    }
+</programlisting>

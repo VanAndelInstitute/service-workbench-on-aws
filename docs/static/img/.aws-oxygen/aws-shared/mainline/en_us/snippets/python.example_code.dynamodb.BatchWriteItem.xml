@@ -1,0 +1,24 @@
+<programlisting>
+    def write_batch(self, movies):
+        """
+        Fills an Amazon DynamoDB table with the specified data, using the Boto3
+        Table.batch_writer() function to put the items in the table.
+        Inside the context manager, Table.batch_writer builds a list of
+        requests. On exiting the context manager, Table.batch_writer starts sending
+        batches of write requests to Amazon DynamoDB and automatically
+        handles chunking, buffering, and retrying.
+
+        :param movies: The data to put in the table. Each item must contain at least
+                       the keys required by the schema that was specified when the
+                       table was created.
+        """
+        try:
+            with self.table.batch_writer() as writer:
+                for movie in movies:
+                    writer.put_item(Item=movie)
+        except ClientError as err:
+            logger.error(
+                "Couldn't load data into table %s. Here's why: %s: %s", self.table.name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+</programlisting>

@@ -1,0 +1,16 @@
+<programlisting>
+    fmt.Println("Event messages for stream " + *logStreamName + " in log group  " + *logGroupName)
+
+    gotToken := ""
+    nextToken := ""
+
+    for _, event := range resp.Events {
+        gotToken = nextToken
+        nextToken = *resp.NextForwardToken
+
+        if gotToken == nextToken {
+            break
+        }
+
+        fmt.Println("  ", *event.Message)
+</programlisting>

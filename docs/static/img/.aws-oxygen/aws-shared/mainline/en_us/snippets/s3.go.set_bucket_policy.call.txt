@@ -1,0 +1,28 @@
+    svc := s3.New(sess)
+
+    readOnlyAnonUserPolicy := map[string]interface{}{
+        "Version": "2012-10-17",
+        "Statement": []map[string]interface{}{
+            {
+                "Sid":       "AddPerm",
+                "Effect":    "Allow",
+                "Principal": "*",
+                "Action": []string{
+                    "s3:GetObject",
+                },
+                "Resource": []string{
+                    "arn:aws:s3:::" + *bucket + "/*",
+                },
+            },
+        },
+    }
+
+    policy, err := json.Marshal(readOnlyAnonUserPolicy)
+    if err != nil {
+        return err
+    }
+
+    _, err = svc.PutBucketPolicy(&s3.PutBucketPolicyInput{
+        Bucket: bucket,
+        Policy: aws.String(string(policy)),
+    })

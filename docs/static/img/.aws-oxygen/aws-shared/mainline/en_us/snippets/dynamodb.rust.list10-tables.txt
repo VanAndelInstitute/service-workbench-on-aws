@@ -1,0 +1,16 @@
+async fn list_tables(client: &aws_sdk_dynamodb::Client) -> Result<(), aws_sdk_dynamodb::Error> {
+    let resp = client.list_tables().limit(10).send().await?;
+
+    println!("Tables:");
+
+    let names = resp.table_names().unwrap_or_default();
+
+    for name in names {
+        println!("  {}", name);
+    }
+
+    println!();
+    println!("Found {} tables", names.len());
+
+    Ok(())
+}

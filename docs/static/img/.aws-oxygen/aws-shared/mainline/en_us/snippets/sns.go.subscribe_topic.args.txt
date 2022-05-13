@@ -1,0 +1,10 @@
+    email := flag.String("e", "", "The email address of the user subscribing to the topic")
+    topicARN := flag.String("t", "", "The ARN of the topic to which the user subscribes")
+
+    flag.Parse()
+
+    if *email == "" || *topicARN == "" {
+        fmt.Println("You must supply an email address and topic ARN")
+        fmt.Println("-e EMAIL -t TOPIC-ARN")
+        return
+    }

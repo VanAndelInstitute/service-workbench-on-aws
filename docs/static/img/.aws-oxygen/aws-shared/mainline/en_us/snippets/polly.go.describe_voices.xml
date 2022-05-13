@@ -1,0 +1,46 @@
+<programlisting>
+package main
+
+import (
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/polly"
+    "github.com/aws/aws-sdk-go/service/polly/pollyiface"
+)
+
+// GetVoices retrieves a list of the voices for US English.
+// Inputs:
+//     svc is an Amazon Polly service client
+// Output:
+//     If success, the list of voices and nil
+//     Otherwise, nil and an error from the call to DescribeVoices
+func GetVoices(svc pollyiface.PollyAPI) (*polly.DescribeVoicesOutput, error) {
+    resp, err := svc.DescribeVoices(&polly.DescribeVoicesInput{
+        LanguageCode: aws.String("en-US"),
+    })
+    return resp, err
+}
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := polly.New(sess)
+    
+    resp, err := GetVoices(svc)
+    if err != nil {
+        fmt.Println("Got error calling DescribeVoices:")
+        fmt.Print(err.Error())
+        return
+    }
+
+    for _, v := range resp.Voices {
+        fmt.Println("Name:   " + *v.Name)
+        fmt.Println("Gender: " + *v.Gender)
+        fmt.Println("")
+    }
+}
+</programlisting>

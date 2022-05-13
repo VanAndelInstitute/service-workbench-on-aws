@@ -1,0 +1,14 @@
+suspend fun createKey(keyDesc: String?): String? {
+
+    val request = CreateKeyRequest {
+        description = keyDesc
+        customerMasterKeySpec = CustomerMasterKeySpec.SymmetricDefault
+        keyUsage = KeyUsageType.fromValue("ENCRYPT_DECRYPT")
+    }
+
+    KmsClient { region = "us-west-2" }.use { kmsClient ->
+              val result = kmsClient.createKey(request)
+              println("Created a customer key with id "+result.keyMetadata?.arn)
+              return result.keyMetadata?.keyId
+    }
+ }

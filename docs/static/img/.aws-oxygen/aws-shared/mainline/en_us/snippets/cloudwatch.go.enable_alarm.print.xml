@@ -1,0 +1,3 @@
+<programlisting>
+    fmt.Println("Enabled alarm " + *alarmName + " for EC2 instance " + *instanceName)
+</programlisting>

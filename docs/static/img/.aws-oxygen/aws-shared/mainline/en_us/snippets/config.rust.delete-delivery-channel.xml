@@ -1,0 +1,13 @@
+<programlisting>
+async fn delete_channel(client: &Client, channel: &str) -> Result<(), Error> {
+    client
+        .delete_delivery_channel()
+        .delivery_channel_name(channel)
+        .send()
+        .await?;
+
+    println!("Done");
+
+    Ok(())
+}
+</programlisting>

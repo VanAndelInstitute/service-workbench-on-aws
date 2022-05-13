@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.kms.KmsClient
+import aws.sdk.kotlin.services.kms.model.CreateKeyRequest
+import aws.sdk.kotlin.services.kms.model.CustomerMasterKeySpec
+import aws.sdk.kotlin.services.kms.model.KeyUsageType
+</programlisting>

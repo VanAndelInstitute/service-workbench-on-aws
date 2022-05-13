@@ -1,0 +1,40 @@
+<form 
+  action="https://authorize.payments.amazon.com/cobranded-ui/actions/start"
+  method="get">
+  <input 
+    type="hidden" name="signature" 
+    value="8UVrm+bK/O8I92e6RKlWKg76els=" >
+  <input 
+    type="hidden" name="accessKey" 
+    value="AKIAIOSFODNN7EXAMPLE" >
+  <input 
+    type="hidden" name="callerReference" 
+    value="983fab72-6695-4b53-a69f-5bf5fb47c25e" >
+  <input 
+    type="hidden" name="collectEmailAddress" 
+    value="true" >
+  <input 
+    type="hidden" name="maxFixedFee" 
+    value="0.2" >
+  <input 
+    type="hidden" name="maxVariableFee" 
+    value="4.00" >
+  <input 
+    type="hidden" name="pipelineName" 
+    value="Recipient" >
+  <input 
+    type="hidden" name="recipientPaysFee" 
+    value="true" >
+  <input 
+    type="hidden" name="returnURL" 
+    value="http://yourwebsite.com/returnurl" >
+  <input 
+    type="hidden" name="signatureVersion"
+    value="2" >
+  <input type="hidden" name="signatureMethod"
+    value="HmacSHA256" >
+  <input type="image" 
+    src=
+ "http://g-ecx.images-amazon.com/images/G/01/asp/MarketPlaceFeeWithLogo.gif"
+    border="0">
+</form>

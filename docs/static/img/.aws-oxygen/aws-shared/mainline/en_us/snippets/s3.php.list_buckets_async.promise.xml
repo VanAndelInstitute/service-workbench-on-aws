@@ -1,0 +1,11 @@
+<programlisting>
+$promise = $s3Client->listBucketsAsync();
+$promise
+    ->then(function ($result) {
+        echo 'Got a result: ' . var_export($result, true);
+    })
+    ->otherwise(function ($reason) {
+        echo 'Encountered an error: ' . $reason->getMessage();
+    });
+}
+</programlisting>

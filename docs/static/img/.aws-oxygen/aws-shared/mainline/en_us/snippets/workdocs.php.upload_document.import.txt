@@ -1,0 +1,8 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Exception\AwsException;
+use Aws\WorkDocs\WorkDocsClient;
+use GuzzleHttp\Client as httpClient;
+use GuzzleHttp\Exception\ClientException;
+

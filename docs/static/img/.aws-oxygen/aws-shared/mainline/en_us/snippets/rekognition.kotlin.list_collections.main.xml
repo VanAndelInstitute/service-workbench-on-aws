@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun listAllCollections() {
+
+        val request = ListCollectionsRequest {
+            maxResults = 10
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val response = rekClient.listCollections(request)
+          response.collectionIds?.forEach { resultId ->
+            println(resultId)
+          }
+        }
+}
+</programlisting>

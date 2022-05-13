@@ -1,0 +1,36 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    MESSAGE123
+   </wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    http://www.w3.org/2005/08/addressing/anonymous
+   </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    GetTotalPrepaidLiability:Response
+   </wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    urn:uuid:16d69143-2542-4b8f-8642-8d96d8a3a8fb
+   </wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <GetTotalPrepaidLiabilityResponse 
+   xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <GetTotalPrepaidLiabilityResult>
+       <OutstandingPrepaidLiability>
+         <OutstandingBalance>
+           <CurrencyCode>USD</CurrencyCode>
+           <Value>50.000000</Value>
+         </OutstandingBalance>
+         <PendingInBalance>
+           <CurrencyCode>USD</CurrencyCode>
+           <Value>0.000000</Value>
+         </PendingInBalance>
+       </OutstandingPrepaidLiability>
+     </GetTotalPrepaidLiabilityResult>
+     <ResponseMetadata>
+       <RequestId>16d69143-2542-4b8f-8642-8d96d8a3a8fb:0</RequestId>
+     </ResponseMetadata>
+   </GetTotalPrepaidLiabilityResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

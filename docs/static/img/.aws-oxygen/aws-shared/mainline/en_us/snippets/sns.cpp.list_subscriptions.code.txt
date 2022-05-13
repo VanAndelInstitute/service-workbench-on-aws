@@ -1,0 +1,25 @@
+  Aws::SDKOptions options;
+  Aws::InitAPI(options);
+  {
+    Aws::SNS::SNSClient sns;
+
+    Aws::SNS::Model::ListSubscriptionsRequest ls_req;
+
+    auto ls_out = sns.ListSubscriptions(ls_req);
+
+    if (ls_out.IsSuccess())
+    {
+        std::cout << "Subscriptions list:" << std::endl;
+        for (auto const& subscription : ls_out.GetResult().GetSubscriptions())
+        {
+            std::cout << "  * " << subscription.GetSubscriptionArn() << std::endl;
+        }
+    }
+    else
+    {
+      std::cout << "Error listing subscriptions " << ls_out.GetError().GetMessage() <<
+        std::endl;
+    }
+  }
+
+  Aws::ShutdownAPI(options);

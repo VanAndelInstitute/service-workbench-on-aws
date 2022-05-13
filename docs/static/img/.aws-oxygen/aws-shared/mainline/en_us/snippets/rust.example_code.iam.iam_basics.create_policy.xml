@@ -1,0 +1,12 @@
+<programlisting>
+    let list_all_buckets_policy = iam_service::create_policy(
+        &client,
+        &format!("{}{}", "iam_demo_policy_", uuid),
+        &list_all_buckets_policy_document,
+    )
+    .await?;
+    println!(
+        "Created policy: {}",
+        list_all_buckets_policy.policy_name.as_ref().unwrap()
+    );
+</programlisting>

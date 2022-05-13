@@ -1,0 +1,14 @@
+	owner := *result.Owner.DisplayName
+	ownerID := *result.Owner.ID
+	grants := result.Grants
+
+	var newGrantee = s3.Grantee{
+		EmailAddress: address,
+		Type:         aws.String("AmazonCustomerByEmail"),
+	}
+	var newGrant = s3.Grant{
+		Grantee:    &newGrantee,
+		Permission: permission,
+	}
+
+	grants = append(grants, &newGrant)

@@ -1,0 +1,10 @@
+	_, err = svc.PutBucketAcl(&s3.PutBucketAclInput{
+		Bucket: bucket,
+		AccessControlPolicy: &s3.AccessControlPolicy{
+			Grants: grants,
+			Owner: &s3.Owner{
+				DisplayName: &owner,
+				ID:          &ownerID,
+			},
+		},
+	})

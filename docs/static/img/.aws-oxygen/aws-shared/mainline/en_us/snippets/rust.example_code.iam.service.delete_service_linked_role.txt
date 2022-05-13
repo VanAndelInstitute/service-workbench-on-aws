@@ -1,0 +1,12 @@
+pub async fn delete_service_linked_role(
+    client: &iamClient,
+    role_name: &str,
+) -> Result<(), iamError> {
+    client
+        .delete_service_linked_role()
+        .role_name(role_name)
+        .send()
+        .await?;
+
+    Ok(())
+}

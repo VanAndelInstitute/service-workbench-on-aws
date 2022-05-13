@@ -1,0 +1,22 @@
+<programlisting>
+suspend fun listBucketObjects(bucketName: String) {
+
+        val request = ListObjectsRequest {
+            bucket = bucketName
+        }
+
+        S3Client { region = "us-east-1" }.use { s3 ->
+
+                val response = s3.listObjects(request)
+                response.contents?.forEach { myObject ->
+                    println("The name of the key is ${myObject.key}")
+                    println("The object is ${calKb(myObject.size)} KBs")
+                    println("The owner is ${myObject.owner}")
+                }
+            }
+       }
+
+    private fun calKb(intValue: Long): Long {
+        return intValue / 1024
+   }
+</programlisting>

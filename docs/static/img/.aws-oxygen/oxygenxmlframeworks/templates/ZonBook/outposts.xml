@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?template version="1.0" service="//AWS Outposts//" value="csctemplate-awsdocs-SecurityHub-1.0-oxygen"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">              %xinclude;
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">  %phrases-shared;     
+
+<!ENTITY SERVICElong 'YOUR-LONG-SERVICE-NAME'>  
+<!ENTITY SERVICE 'YOUR-SERVICE-NAME'>  
+<!ENTITY outpost-resource 'YOUR-RESOURCE-NAME'>   
+<!ENTITY outpost-console-para '<para>Open the &SERVICE; console at CONSOLE-LINK.</para>'>
+]>
+
+<!-- This template is for services that integrate with AWS Outposts. For more information about using this template, see: https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/outposts/ -->
+
+<!-- For the preceding SERVICElong, SERVICE, outpost-resource, and outpost-console-para entities, cut and paste these entities into your service entities file. Make sure to update the values for each entity with your service names (short and long), the name of the resource that will run on Outposts, and the console link for your service. For more information, see: https://w.amazon.com/bin/view/AWSDocs/new-service/create-service-entities/ -->
+
+<!-- If you choose to insert this topic beneath an existing chapter or section in your documentation, make sure to change the preceding "chapter" tag to "section". -->
+
+<chapter role="topic" id="using-outposts">
+    <info>
+        <title id="using-outposts.title">&SERVICElong; on &OUTlong;</title>
+        <abstract>
+            <para>You can use &SERVICE; with &OUTlong;.</para>
+        </abstract>
+    </info>
+
+    <para>&OUTlong; enables native &AWS; services, infrastructure, and operating models in on-premises facilities. In &OUT; environments, you can use the same &AWS; APIs, tools, and infrastructure that you use in the &AWS-Cloud;.</para>
+    <remark>In one or two sentences, state what you can do with this service on &OUT;, and why you want to use the service with &OUT;. For example:
+        <para>You can create an &EBS; volume and attach it to an &EC2; instance in &OUT;. &EBS; on &OUT; is ideal for low-latency workloads that need to be run in close proximity to on-premises data and applications.</para></remark>
+    <para>For more information about &OUT;, see the <ulink type="documentation" url="outposts/latest/userguide/what-is-outposts.html"><emphasis>&OUTlong; User Guide</emphasis></ulink>.</para>
+    
+    <section id="outposts-considerations">
+        <info>
+            <title id="outposts-considerations.title">Considerations</title>
+        </info>
+        <remark>The following networking considerations apply to working with &OUT; in most cross-service scenarios. Ask your service team to confirm whether any additional considerations or limitations apply, then add them as list items to the following itemized list. (Refer to the list of questions for your service team on the wiki here:  https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/outposts/#HTodocumentOutpostsintegrationwithyourservice)
+            Considerations can include the following: 
+            What happens to the service resources if network connectivity between your Outpost and its &AWS; Region is lost? 
+            How can you recover resources that might get lost if there are connectivity issues? 
+            Are there only certain types of resources that are supported for your service on &OUT;? 
+            Are there security configurations that limit user access to your service resources on &OUT;? 
+            Are there Availability Zone and Region differences or interactions that increase latency? 
+            Are there services closely related to yours that are not available on &OUT;? For example, with &ECS;, you can run your tasks and services on a serverless infrastructure that is managed by &FARGATElong;. Although &ECS; is available on &OUT;, &FARGATElong; is not. </remark>
+        <para>The following are considerations for using &SERVICE; on &OUT;:</para>
+        <itemizedlist>
+            <listitem><para>If network connectivity between your Outpost and its &AWS; Region is lost, the &outpost-resource; continues to run. However, you can't modify your &outpost-resource; until connectivity is restored.</para></listitem>
+            <listitem><para>We recommend that you provide reliable, highly available, and low-latency connectivity between your Outpost and its &AWS; Region.</para></listitem>
+        </itemizedlist>
+    </section>
+    
+    <section id="outposts-prerequisites">
+        <info>
+            <title id="outposts-prerequisites.title">Prerequisites</title>
+        </info>
+        <remark>The following prerequisites apply to working with &OUT; in most cross-service scenarios. Add any additional prerequisites to the list. Consider any service-specific technical prerequisites, required permissions, and considerations for &AWS-Regions;, Availability Zones, and/or subnets. For example:
+            <para>You must create an Outpost subnet and launch an &EC2; instance in it for the &EBS; volume to attach to. The Outpost and subnet should be in the same &AWS; Region. For more information, see <ulink type="documentation" url="outposts/latest/userguide/launch-instance.html">Launch an instance</ulink> in the <emphasis>&OUTlong; User Guide</emphasis>.</para></remark>  
+        <para>The following are prerequisites for using &SERVICE; on &OUT;:</para>
+        <itemizedlist>
+            <listitem><para>You must have installed and configured an Outpost in your on-premises data center.</para></listitem>
+            <listitem><para>You must have a reliable network connection between your Outpost and its &AWS; Region.</para></listitem>
+        </itemizedlist>
+    </section>
+    
+    <remark>If you have no best practices, comment out the following section.</remark>
+    <section id="outposts-best-practices">
+        <info>
+            <title id="outposts-best-practices.title">Best practices</title>
+        </info>
+        <remark>Include any best practices for working with your service on &OUT; here. 
+            For example:
+            <para>Before you create an RDS on an &OUT; DB instance, you can create a DB subnet group that includes one subnet that is associated with your Outpost. When you create an RDS on an &OUT; DB instance, specify this DB subnet group.</para></remark>
+    </section>
+    
+    <section id="outposts-create-resource">
+        <info>
+            <title id="outposts-create-resource.title">Create a &outpost-resource; on &OUT;</title>
+        </info>
+        <remark>Replace the steps in the following procedure with the steps for creating your service resource on &OUT;. Include examples if applicable.</remark>
+        <procedure><title>To create a &outpost-resource; on &OUT;</title>
+            <step>&outpost-console-para;</step>
+            <step><para><replaceable>Step 2</replaceable></para></step>
+            <step><para><replaceable>Step 3</replaceable></para></step>
+            <step><para><replaceable>Step 4</replaceable></para></step>
+        </procedure>
+    </section>
+</chapter>

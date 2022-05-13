@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="subscriptionIPN" condition="asp">
+     <title id="subscriptionIPN.title">IPN Response Elements for Subscriptions</title>
+     <para>The following IPN response elements are returned for successful creation of subscriptions.</para>
+     <informaltable id="IPNSubscriptionElements">
+          <tgroup cols="2">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colnum="1" colwidth="1.69*"/>
+               <colspec colname="c2" colnum="2" colwidth="2.51*"/>
+               <thead>
+                    <row>
+                         <entry>Name</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry>
+                              <para><parameter>addressLine1</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address (first line). This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>addressLine2</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address (second line). This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>addressName</parameter></para>
+                         </entry>
+                         <entry>
+                              <para> Sender's name. This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>buyerEmail</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's email address.</para>
+                              <note>
+                                   <para>The <parameter>buyerEmail</parameter> element is not returned for transactions where the recipient is not the caller (i.e., marketplace transactions).</para>
+                              </note>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>buyerName</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's name.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>city</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address - city. This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>country</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address - country. This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>noOfPromotionTransactions</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Number of transactions for this promotion. This element is only returned if there was a trial period with a special promotional rate.</para>
+                              <simpara>Type: Integer</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>paymentMethod</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The payment method used by the sender. </para>
+                              <simpara condition="fps"
+                                        >For more information, see the IPN values in <xref
+                                        endterm="PaymentMethod.title" linkend="PaymentMethod"
+                                   />.</simpara>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>paymentReason</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Reason for payment.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>phoneNumber</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's telephone number. This element is returned only if the <parameter>collectShippingAddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>promotionAmount</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Amount charged for this promotion. This element is only returned if there was a trial period with a special promotional rate.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>recipientEmail</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Recipient's email address.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>recipientName</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Recipient's name.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>recurringFrequency</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Tells how often the subscription fee will be charged.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>referenceId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>If you specified a referenceId in the button creation form, Amazon Payments returns the referenceId to you.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>signature</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>The encoded string the caller uses to verify the IPN. Amazon Payments calculates the signature using the elements in the returnURL. The merchant must have manually signed the request. For more information, see <link
+                                        linkend="IPNContents"
+                                        >Handling the Receipt of IPN Notifications</link>. We recommend that you always verify the signature using the method in <link
+                                        linkend="VerifyingtheIPNSignature"
+                                        >How to Verify the IPN Signature</link>. </para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>startValidityDate</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Date the subscription begins. This is expressed as the timestamp value from the epoch in seconds.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>state</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's address - state. This element is returned only if the <parameter>collectshippingaddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>status</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>For a successful creation, the status code returned is <parameter>SubscriptionSuccessful</parameter>.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>subscriptionId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A unique value identifying the subscription that is generated by Amazon Payments.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>subsciptionPeriod</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Total time period to charge for the subscription.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionAmount</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Specifies the amount payable in this transaction; for example, USD 10.00. This element is not being returned in the current version.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>transactionSerialNumber</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>For Subscriptions, a unique value identifying the subscription that is generated by Amazon Payments. This element is returned only for subscription transactions.</para>
+                              <simpara>Type: Integer<!-- TODO : CONDITION POSSIBLE FOR THIS ROW? --></simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>zip</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Sender's zip code. This element is returned only if the <parameter>collectshippingaddress</parameter> parameter was passed as <code>true</code> in the Amazon Simple Pay HTML form.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+     <para>The following IPN response elements are returned for successful cancellation of subscriptions.</para>
+     <informaltable id="IPNSubscriptionCanceled">
+          <tgroup cols="2">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+               <colspec colname="c2" colnum="2" colwidth="3.65*"/>
+               <thead>
+                    <row>
+                         <entry>Name</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry>
+                              <para><parameter>subscriptionId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A unique value identifying the subscription that is generated by Amazon Payments.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>status</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>For a successful cancellation, the status code sent is <parameter>SubscriptionCanceled</parameter>.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>statusReason</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>Reason for this status.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+     <para>The following IPN elements are returned for successful completion of subscriptions.</para>
+     <informaltable id="IPNSubscriptionCompleted">
+          <tgroup cols="2">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+               <colspec colname="c2" colnum="2" colwidth="2.68*"/>
+               <thead>
+                    <row>
+                         <entry>Name</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry>
+                              <para><parameter>subscriptionId</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A unique value identifying the subscription that is generated by Amazon Payments.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>status</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>For a successful completion, the status code sent is <parameter>SubscriptionCompleted</parameter>.</para>
+                              <simpara>Type: String</simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+</section>

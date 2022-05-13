@@ -1,0 +1,10 @@
+            GetQueueUrlResponse getQueueUrlResponse =
+                sqsClient.getQueueUrl(GetQueueUrlRequest.builder().queueName(queueName).build());
+            String queueUrl = getQueueUrlResponse.queueUrl();
+            return queueUrl;
+
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";

@@ -1,0 +1,20 @@
+<SOAP-ENV:Envelope>
+  <SOAP-ENV:Body wsu:Id="body" xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <ns2:WriteOffDebt xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+      <ns2:CreditInstrumentId>
+        J79851HA56JBX434EJG9SGMYUZDPJPYZAR5BXCF4G59MGUBUMHX5XJ9EJKCZIXN4
+      </ns2:CreditInstrumentId>
+      <ns2:AdjustmentAmount>
+        <ns2:CurrencyCode>USD</ns2:CurrencyCode>
+        <ns2:Value>50</ns2:Value>
+      </ns2:AdjustmentAmount>
+      <ns2:CallerReference>
+        ReferenceString????c5ie12290575241881
+      </ns2:CallerReference>
+      <ns2:CallerDescription>
+        DescriptionString-????75gZ12290575241881
+      </ns2:CallerDescription>
+    </ns2:WriteOffDebt>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

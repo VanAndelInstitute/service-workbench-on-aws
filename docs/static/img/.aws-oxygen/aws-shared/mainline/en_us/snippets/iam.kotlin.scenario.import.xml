@@ -1,0 +1,23 @@
+<programlisting>
+import aws.sdk.kotlin.runtime.auth.credentials.StaticCredentialsProvider
+import aws.sdk.kotlin.services.iam.IamClient
+import aws.sdk.kotlin.services.iam.model.AttachRolePolicyRequest
+import aws.sdk.kotlin.services.iam.model.AttachedPolicy
+import aws.sdk.kotlin.services.iam.model.CreatePolicyRequest
+import aws.sdk.kotlin.services.iam.model.CreateRoleRequest
+import aws.sdk.kotlin.services.iam.model.CreateUserRequest
+import aws.sdk.kotlin.services.iam.model.DeletePolicyRequest
+import aws.sdk.kotlin.services.iam.model.DeleteRoleRequest
+import aws.sdk.kotlin.services.iam.model.DeleteUserRequest
+import aws.sdk.kotlin.services.iam.model.DetachRolePolicyRequest
+import aws.sdk.kotlin.services.iam.model.ListAttachedRolePoliciesRequest
+import aws.sdk.kotlin.services.s3.S3Client
+import aws.sdk.kotlin.services.s3.model.ListObjectsRequest
+import aws.sdk.kotlin.services.sts.StsClient
+import aws.sdk.kotlin.services.sts.model.AssumeRoleRequest
+import kotlinx.coroutines.delay
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
+import java.io.FileReader
+import kotlin.system.exitProcess
+</programlisting>

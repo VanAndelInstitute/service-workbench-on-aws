@@ -1,0 +1,9 @@
+<programlisting>
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.EndpointBatchItem
+import aws.sdk.kotlin.services.pinpoint.model.EndpointUser
+import aws.sdk.kotlin.services.pinpoint.model.ChannelType
+import aws.sdk.kotlin.services.pinpoint.model.EndpointBatchRequest
+import aws.sdk.kotlin.services.pinpoint.model.UpdateEndpointsBatchRequest
+import kotlin.system.exitProcess
+</programlisting>

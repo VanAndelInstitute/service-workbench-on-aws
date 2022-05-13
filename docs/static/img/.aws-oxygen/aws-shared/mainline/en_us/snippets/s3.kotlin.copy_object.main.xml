@@ -1,0 +1,24 @@
+<programlisting>
+ suspend fun copyBucketObject(
+                         fromBucket: String,
+                         objectKey: String,
+                         toBucket: String) {
+
+        var encodedUrl=""
+        try {
+            encodedUrl = URLEncoder.encode("$fromBucket/$objectKey", StandardCharsets.UTF_8.toString())
+
+        } catch (e: UnsupportedEncodingException) {
+            println("URL could not be encoded: " + e.message)
+        }
+
+        val request = CopyObjectRequest {
+            copySource = encodedUrl
+            bucket = toBucket
+            key= objectKey
+        }
+        S3Client { region = "us-east-1" }.use { s3 ->
+           s3.copyObject(request)
+        }
+  }
+</programlisting>

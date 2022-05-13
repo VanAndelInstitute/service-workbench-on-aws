@@ -1,0 +1,18 @@
+def get_queues(prefix=None):
+    """
+    Gets a list of SQS queues. When a prefix is specified, only queues with names
+    that start with the prefix are returned.
+
+    :param prefix: The prefix used to restrict the list of returned queues.
+    :return: A list of Queue objects.
+    """
+    if prefix:
+        queue_iter = sqs.queues.filter(QueueNamePrefix=prefix)
+    else:
+        queue_iter = sqs.queues.all()
+    queues = list(queue_iter)
+    if queues:
+        logger.info("Got queues: %s", ', '.join([q.url for q in queues]))
+    else:
+        logger.warning("No queues found.")
+    return queues

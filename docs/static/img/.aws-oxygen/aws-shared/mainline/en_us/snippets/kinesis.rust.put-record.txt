@@ -1,0 +1,15 @@
+async fn add_record(client: &Client, stream: &str, key: &str, data: &str) -> Result<(), Error> {
+    let blob = Blob::new(data);
+
+    client
+        .put_record()
+        .data(blob)
+        .partition_key(key)
+        .stream_name(stream)
+        .send()
+        .await?;
+
+    println!("Put data into stream.");
+
+    Ok(())
+}

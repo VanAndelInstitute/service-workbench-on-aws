@@ -1,0 +1,21 @@
+  # Deletes a user. If the user has inline policies or access keys, they are deleted
+  # before the user is deleted.
+  #
+  # @param user [Aws::IAM::User] The user to delete.
+  def delete_user(user)
+    user.policies.each do |policy|
+      name = policy.name
+      policy.delete
+      puts("Deleted user policy #{name}.")
+    end
+    user.access_keys.each do |key|
+      key.delete
+      puts("Deleted access key for user #{user.name}.")
+    end
+    name = user.name
+    user.delete
+    puts("Deleted user #{name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't detach policies and delete user #{user.name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+  end

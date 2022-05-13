@@ -1,0 +1,27 @@
+<programlisting>
+  Aws::SDKOptions options;
+  Aws::InitAPI(options);
+  {
+    Aws::SNS::SNSClient sns;
+
+    Aws::SNS::Model::ListTopicsRequest lt_req;
+
+    auto lt_out = sns.ListTopics(lt_req);
+
+    if (lt_out.IsSuccess())
+    {
+      std::cout << "Topics list:" << std::endl;
+      for (auto const &topic : lt_out.GetResult().GetTopics())
+      {
+        std::cout << "  * " << topic.GetTopicArn() << std::endl;
+      }
+    }
+    else
+    {
+      std::cout << "Error listing topics " << lt_out.GetError().GetMessage() <<
+        std::endl;
+    }
+  }
+
+  Aws::ShutdownAPI(options);
+</programlisting>

@@ -1,0 +1,19 @@
+    def list_grants(self, key_id):
+        """
+        Lists grants for a key.
+
+        :param key_id: The ARN or ID of the key to query.
+        :return: The grants for the key.
+        """
+        answer = input(f"Ready to list grants on key {key_id} (y/n)? ")
+        if answer.lower() == 'y':
+            try:
+                grants = self.kms_client.list_grants(KeyId=key_id)['Grants']
+            except ClientError as err:
+                logger.error(
+                    "Couldn't list grants for key %s. Here's why: %s",
+                    key_id, err.response['Error']['Message'])
+            else:
+                print(f"Grants for key {key_id}:")
+                pprint(grants)
+                return grants

@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun descCluster(clusterArn: String) {
+
+    val request = DescribeClustersRequest {
+        clusters = listOf(clusterArn)
+    }
+
+    EcsClient {region = "us-east-1" }.use { ecsClient ->
+        val response = ecsClient.describeClusters(request)
+        response.clusters?.forEach { cluster ->
+            println("The cluster name is ${cluster.clusterName}.")
+        }
+    }
+}
+</programlisting>

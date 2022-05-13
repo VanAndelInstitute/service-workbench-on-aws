@@ -1,0 +1,11 @@
+<programlisting>
+    bucket := flag.String("b", "", "The bucket in which the object is stored")
+    key := flag.String("k", "", "The key of the object")
+    address := flag.String("a", "", "The email address")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" || *address == "" {
+        fmt.Println("You must supply a bucket (-b BUCKET), key (-k KEY), and email address (-a ADDRESS)")
+        return
+    }
+</programlisting>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<chapter id="Sig2Migration">
+    <title id="Sig2Migration.title">Appendix: Moving your Application to Signature Version 2</title>
+    <para>Amazon deprecated Signature version 1 on &SIG2RELEASE;, and as of &SIG1EXPIRIATION;. You must migrate your applications that use signature version 1 to signature version 2. 
+        This section details how to migrate to signature version 2 for <glossterm>inbound requests</glossterm> and <glossterm>outbound responses</glossterm>.</para>
+    <para>Amazon provides code samples to assist you in migrating your signature version 1 code to signature version 2.
+        The samples are packaged in five programming languages (C#, Java, Perl, PHP, and Ruby), they are available from
+        the <ulink url="http://developer.amazonwebservices.com/connect/kbcategory.jspa?categoryID=191">Amazon Web Services developer community</ulink>, 
+        under the &fps_product; category. 
+    </para>
+    <!--***********
+        Comment out table for now - the zip file links weren't working 
+    <informaltable>
+        <?dbhtml table-width="100%" ?>
+        <?dbfo table-width="95%" ?>
+        <tgroup cols="2">
+            <colspec colname="col1" colnum="1"/>
+            <colspec colname="col2" colnum="2"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Language</para>
+                    </entry>
+                    <entry>
+                        <para>File</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para>C#</para>
+                    </entry>
+                    <entry>
+                        <para><ulink url="http://sigv2-migrationsample-01oct2009.s3.amazonaws.com/SigV2_MigrationSampleCode_CS.zip">SigV2_MigrationSampleCode_CS.zip</ulink></para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Java</para>
+                    </entry>
+                    <entry>
+                        <para><ulink url="http://sigv2-migrationsample-01oct2009.s3.amazonaws.com/SigV2_MigrationSampleCode_Java.zip">SigV2_MigrationSampleCode_Java.zip</ulink></para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Perl</para>
+                    </entry>
+                    <entry>
+                        <para><ulink url="http://sigv2-migrationsample-01oct2009.s3.amazonaws.com/SigV2_MigrationSampleCode_Perl.zip">SigV2_MigrationSampleCode_Perl.zip</ulink></para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>PHP</para>
+                    </entry>
+                    <entry>
+                        <para><ulink url="http://sigv2-migrationsample-01oct2009.s3.amazonaws.com/SigV2_MigrationSampleCode_PHP.zip">SigV2_MigrationSampleCode_PHP.zip</ulink></para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Ruby</para>
+                    </entry>
+                    <entry>
+                        <para><ulink url="http://sigv2-migrationsample-01oct2009.s3.amazonaws.com/SigV2_MigrationSampleCode_Ruby.zip">SigV2_MigrationSampleCode_Ruby.zip</ulink></para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    ***********-->
+    <para>The following sections describe the high-level process for migrating your signature version 1 signing code.</para>
+    <para condition="asp">For information on using &asp_product; sample code, see <link linkend="APPNDX_SampleCode" endterm="APPNDX_SampleCode.title"/></para>
+    <section id="Sig2Migration-inbound">
+        <title id="Sig2Migration-inbound.title">Migrating Inbound Requests to Signature Version 2</title>
+        <para>If you are currently signing your buttons using a signature calculated using signature version 1, you need to make the following changes:</para>
+        <itemizedlist>
+            <listitem><para>Modify the way you assemble your signature. For more information, see <link condition="asp" linkend="Sig2CreateSignature" endterm="Sig2CreateSignature.title"/><link condition="fps" linkend="APPNDX_GeneratingaSignature" endterm="APPNDX_GeneratingaSignature.title"/> and <link linkend="Sig1VsSig2Diffs" endterm="Sig1VsSig2Diffs.title"/>.</para></listitem>
+            <listitem><para>Include the value <code>2</code> for the required <parameter>SignatureVersion</parameter> parameter in your button forms and FPS actions.</para></listitem>
+            <listitem><para>Determine your preferred signing algorithm (either the preferred <code>HmacSHA256</code>, or <code>HmacSHA1</code>), and set the <parameter>SignatureMethod</parameter> parameter to the corresponding value in your button forms and FPS actions.</para></listitem>
+            <listitem><para>Check that your encryption method supports your chosen algorithm, and rewrite it if necessary.</para></listitem>
+        </itemizedlist>
+        <para>After you change your code, validate it in the Amazon FPS sandbox. You can check your signature code using the samples listed in this guide. For more information, see <link condition="asp" linkend="APPNDX_SampleCode" endterm="APPNDX_SampleCode.title"/><link condition="fps" linkend="APPNDX_GeneratingaSignature" endterm="APPNDX_GeneratingaSignature.title"/>.</para>
+    </section>    
+    <section id="Sig2Migration-outbound">
+        <title id="Sig2Migration-outbound.title">Migrating Outbound Notifications to Signature Version 2</title>
+        <para>If you are currently validating return URL and IPN notifications using signature version 1:</para>
+        <para>Adjust the way you build the signature to comply with signature version 2. For more information, see <link condition="asp" linkend="Sig2CreateSignature" endterm="Sig2CreateSignature.title"/><link condition="fps" linkend="APPNDX_GeneratingaSignature" endterm="APPNDX_GeneratingaSignature.title"/> and <link linkend="Sig1VsSig2Diffs" endterm="Sig1VsSig2Diffs.title"/>.</para>
+        <itemizedlist>
+            <listitem><para>Enable signature version 2 in your account settings. For more information, see <link condition="fps-gsg"  linkend="gsSetupAWSDevAccount" endterm="gsSetupAWSDevAccount.title"/><ulink condition="fps-acc;fps-adv;fps-agg;fps-bas;fps-mkt" url="&gsg_link;">&gsg_long;</ulink><link condition="asp" linkend="DefaultConfiguration" endterm="DefaultConfiguration.title"/>.</para></listitem>
+            <listitem><para>Replace your core validation code with a call to the FPS action, <link linkend="VerifySignatureAPI" endterm="VerifySignatureAPI.title"/>.</para></listitem>
+        </itemizedlist>  
+        &SIG2CLIENTVALIDREVOKE;        
+    </section>
+    <xi:include href="file://AWSShared/common/Sig1VsSig2Diffs.xml"/>
+</chapter>

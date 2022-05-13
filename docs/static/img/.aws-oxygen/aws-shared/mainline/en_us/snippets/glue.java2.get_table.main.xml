@@ -1,0 +1,27 @@
+<programlisting>
+    public static void getGlueTable(GlueClient glueClient, String dbName, String tableName ) {
+
+        try {
+            GetTableRequest tableRequest = GetTableRequest.builder()
+                .databaseName(dbName)
+                .name(tableName)
+                .build();
+
+            GetTableResponse tableResponse = glueClient.getTable(tableRequest);
+            Instant createDate = tableResponse.table().createTime();
+
+            // Convert the Instant to readable date
+            DateTimeFormatter formatter =
+                    DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
+                            .withLocale( Locale.US)
+                            .withZone( ZoneId.systemDefault() );
+
+            formatter.format( createDate );
+            System.out.println("The create date of the table is " + createDate );
+
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,24 @@
+        public static async Task Main()
+        {
+            string celebId = "nnnnnnnn";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var celebrityInfoRequest = new GetCelebrityInfoRequest
+            {
+                Id = celebId,
+            };
+
+            Console.WriteLine($"Getting information for celebrity: {celebId}");
+
+            var celebrityInfoResponse = await rekognitionClient.GetCelebrityInfoAsync(celebrityInfoRequest);
+
+            // Display celebrity information.
+            Console.WriteLine($"celebrity name: {celebrityInfoResponse.Name}");
+            Console.WriteLine("Further information (if available):");
+            celebrityInfoResponse.Urls.ForEach(url =>
+            {
+                Console.WriteLine(url);
+            });
+        }
+

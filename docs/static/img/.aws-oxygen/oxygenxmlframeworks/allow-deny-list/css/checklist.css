@@ -1,0 +1,154 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+/* DOCTYPE */
+oxy|doctype {
+    font-family:monospace;
+    display:block;
+    color:blue;
+    background-color:transparent;
+    white-space:pre;
+    font-size:smaller;
+    margin: 1em 1em 1em 0;
+    border: 1px dashed #aaa;
+    padding: 4px;
+}
+
+checklist {
+    display: block;
+    font-size: 1rem;
+}
+
+checklist:before {
+    content: "Checklist: Root element for a ZonBook checklist file.";
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    background-color: inherit;
+    border-bottom: 1px dashed black;
+}
+
+description {
+    display: block;
+    margin: 0 1.5rem;
+    padding: .25rem 0;
+}
+
+description:before {
+    content: "Description:";
+    font-size: 1rem;
+    font-weight:bold;
+    background-color: inherit;
+
+}
+
+checklist description:before {
+    content: "Checklist Description: ";
+    font-size: 1.2rem;
+}
+
+checks description:before {
+    content: "Checks Description: ";
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+check description:before {
+    content: "Check Description: ";
+    font-size: 1rem;
+}
+
+exclusions description:before {
+     content: "Exclusions Description: ";
+    font-size: 1rem;
+}
+
+exclusion description:before {
+    content: "Exclusion Description: ";
+    font-size: 1rem;
+}
+
+exclusions,
+checks {
+    display: block;
+    border-style: solid;
+    border-width: 2px;
+    margin: 1.5rem;
+}
+
+exclusions:before,
+checks:before {
+    display: block;
+    padding: 1rem;
+    font-size: normal;
+    font-weight: 400;
+}
+
+checks {
+    border-color: #000000;
+}
+
+checks:before {
+    content: "CHECKS: Denylist checks container. May contain any number of check elements.";
+    background-color: #000000;
+    color: #ffffff;
+}
+
+
+exclusions {
+    border-color: #228B22;
+}
+
+exclusions:before {
+    content: "EXCLUSIONS: Allowlist exclusions container. May contain any number of exclusion elements.";
+    background-color: #228B22;
+    color: #ffffff;
+}
+
+check, exclusion {
+    margin: 1.5rem;
+}
+
+check:before,
+exclusion:before {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: .5rem 1rem;
+    width: 100%;
+}
+
+
+check:before {
+    content: "Check: Term used to deny. May either be a regular expression or a string literal.";
+    background-color: #4f4f4f;
+    color: #ffffff;
+}
+
+check description,
+exclusion description {
+    margin: 1.5rem 1rem;
+}
+
+exclusion:before {
+    content: "Exclusion: Term used to allow. Must always be a string literal.";
+    background-color: #3CA43C;
+    color: #ffffff;
+}
+
+
+literal,
+pattern {
+    display: block;
+    margin: 0 1rem;
+}
+
+literal:before,
+pattern:before {
+    font-weight: 700;
+    background-color: inherit;
+    font-size: 1rem;
+    content: "String literal: ";
+}
+
+pattern:before {
+    content: "Regex pattern: ";
+}

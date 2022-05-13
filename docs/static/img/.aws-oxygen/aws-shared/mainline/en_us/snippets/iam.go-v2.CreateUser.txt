@@ -1,0 +1,13 @@
+	// CreateUser
+
+	fmt.Println("➡️ Create user " + ExampleUserName)
+
+	createUserResult, err := service.CreateUser(context.Background(), &iam.CreateUserInput{
+		UserName: aws.String(ExampleUserName),
+	})
+
+	if err != nil {
+		panic("Couldn't create user: " + err.Error())
+	}
+
+	fmt.Printf("Created user %s\n", *createUserResult.User.Arn)

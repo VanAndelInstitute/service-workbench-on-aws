@@ -1,0 +1,24 @@
+<programlisting>
+ 
+$identityClient = new CognitoIdentityClient([
+    'profile' => 'default',
+    'region' => 'us-east-2',
+    'version' => '2014-06-30'
+]);
+
+try {
+    $result = $identityClient->listIdentityPools([
+        'MaxResults' => 20,
+    ]);
+    foreach ($result['IdentityPools'] as $identityPool) {
+        echo "IdentityPoolId - " . $identityPool["IdentityPoolId"] ;  
+        echo " , IdentityPoolName - " . $identityPool["IdentityPoolName"] ."\n";
+    }
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+    error_log($e->getMessage());
+}
+
+</programlisting>

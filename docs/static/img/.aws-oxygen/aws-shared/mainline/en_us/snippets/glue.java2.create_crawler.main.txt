@@ -1,0 +1,37 @@
+    public static void createGlueCrawler(GlueClient glueClient,
+                                         String iam,
+                                         String s3Path,
+                                         String cron,
+                                         String dbName,
+                                         String crawlerName) {
+
+      try {
+            S3Target s3Target = S3Target.builder()
+                .path(s3Path)
+                .build();
+
+            // Add the S3Target to a list
+            List<S3Target> targetList = new ArrayList<S3Target>();
+            targetList.add(s3Target);
+
+            CrawlerTargets targets = CrawlerTargets.builder()
+                .s3Targets(targetList)
+                .build();
+
+            CreateCrawlerRequest crawlerRequest = CreateCrawlerRequest.builder()
+                .databaseName(dbName)
+                .name(crawlerName)
+                .description("Created by the AWS Glue Java API")
+                .targets(targets)
+                .role(iam)
+                .schedule(cron)
+                .build();
+
+            glueClient.createCrawler(crawlerRequest);
+            System.out.println(crawlerName +" was successfully created");
+
+      } catch (GlueException e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+      }
+   }

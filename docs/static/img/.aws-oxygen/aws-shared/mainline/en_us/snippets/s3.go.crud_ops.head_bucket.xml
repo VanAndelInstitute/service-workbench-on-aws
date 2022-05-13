@@ -1,0 +1,5 @@
+<programlisting>
+    _, err := svc.HeadBucket(&s3.HeadBucketInput{
+        Bucket: bucket,
+    })
+</programlisting>

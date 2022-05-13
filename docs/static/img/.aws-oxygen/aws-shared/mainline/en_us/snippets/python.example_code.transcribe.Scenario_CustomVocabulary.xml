@@ -1,0 +1,113 @@
+<programlisting>
+def usage_demo():
+    """Shows how to use the Amazon Transcribe service."""
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+    s3_resource = boto3.resource('s3')
+    transcribe_client = boto3.client('transcribe')
+
+    print('-'*88)
+    print("Welcome to the Amazon Transcribe demo!")
+    print('-'*88)
+
+    bucket_name = f'jabber-bucket-{time.time_ns()}'
+    print(f"Creating bucket {bucket_name}.")
+    bucket = s3_resource.create_bucket(
+        Bucket=bucket_name,
+        CreateBucketConfiguration={
+            'LocationConstraint': transcribe_client.meta.region_name})
+    media_file_name = '.media/Jabberwocky.mp3'
+    media_object_key = 'Jabberwocky.mp3'
+    print(f"Uploading media file {media_file_name}.")
+    bucket.upload_file(media_file_name, media_object_key)
+    media_uri = f's3://{bucket.name}/{media_object_key}'
+
+    job_name_simple = f'Jabber-{time.time_ns()}'
+    print(f"Starting transcription job {job_name_simple}.")
+    start_job(
+        job_name_simple, f's3://{bucket_name}/{media_object_key}', 'mp3', 'en-US',
+        transcribe_client)
+    transcribe_waiter = TranscribeCompleteWaiter(transcribe_client)
+    transcribe_waiter.wait(job_name_simple)
+    job_simple = get_job(job_name_simple, transcribe_client)
+    transcript_simple = requests.get(
+        job_simple['Transcript']['TranscriptFileUri']).json()
+    print(f"Transcript for job {transcript_simple['jobName']}:")
+    print(transcript_simple['results']['transcripts'][0]['transcript'])
+
+    print('-'*88)
+    print("Creating a custom vocabulary that lists the nonsense words to try to "
+          "improve the transcription.")
+    vocabulary_name = f'Jabber-vocabulary-{time.time_ns()}'
+    create_vocabulary(
+        vocabulary_name, 'en-US', transcribe_client,
+        phrases=[
+            'brillig', 'slithy', 'borogoves', 'mome', 'raths', 'Jub-Jub', 'frumious',
+            'manxome', 'Tumtum', 'uffish', 'whiffling', 'tulgey', 'thou', 'frabjous',
+            'callooh', 'callay', 'chortled'],
+        )
+    vocabulary_ready_waiter = VocabularyReadyWaiter(transcribe_client)
+    vocabulary_ready_waiter.wait(vocabulary_name)
+
+    job_name_vocabulary_list = f'Jabber-vocabulary-list-{time.time_ns()}'
+    print(f"Starting transcription job {job_name_vocabulary_list}.")
+    start_job(
+        job_name_vocabulary_list, media_uri, 'mp3', 'en-US', transcribe_client,
+        vocabulary_name)
+    transcribe_waiter.wait(job_name_vocabulary_list)
+    job_vocabulary_list = get_job(job_name_vocabulary_list, transcribe_client)
+    transcript_vocabulary_list = requests.get(
+        job_vocabulary_list['Transcript']['TranscriptFileUri']).json()
+    print(f"Transcript for job {transcript_vocabulary_list['jobName']}:")
+    print(transcript_vocabulary_list['results']['transcripts'][0]['transcript'])
+
+    print('-'*88)
+    print("Updating the custom vocabulary with table data that provides additional "
+          "pronunciation hints.")
+    table_vocab_file = 'jabber-vocabulary-table.txt'
+    bucket.upload_file(table_vocab_file, table_vocab_file)
+    update_vocabulary(
+        vocabulary_name, 'en-US', transcribe_client,
+        table_uri=f's3://{bucket.name}/{table_vocab_file}')
+    vocabulary_ready_waiter.wait(vocabulary_name)
+
+    job_name_vocab_table = f'Jabber-vocab-table-{time.time_ns()}'
+    print(f"Starting transcription job {job_name_vocab_table}.")
+    start_job(
+        job_name_vocab_table, media_uri, 'mp3', 'en-US', transcribe_client,
+        vocabulary_name=vocabulary_name)
+    transcribe_waiter.wait(job_name_vocab_table)
+    job_vocab_table = get_job(job_name_vocab_table, transcribe_client)
+    transcript_vocab_table = requests.get(
+        job_vocab_table['Transcript']['TranscriptFileUri']).json()
+    print(f"Transcript for job {transcript_vocab_table['jobName']}:")
+    print(transcript_vocab_table['results']['transcripts'][0]['transcript'])
+
+    print('-'*88)
+    print("Getting data for jobs and vocabularies.")
+    jabber_jobs = list_jobs('Jabber', transcribe_client)
+    print(f"Found {len(jabber_jobs)} jobs:")
+    for job_sum in jabber_jobs:
+        job = get_job(job_sum['TranscriptionJobName'], transcribe_client)
+        print(f"\t{job['TranscriptionJobName']}, {job['Media']['MediaFileUri']}, "
+              f"{job['Settings'].get('VocabularyName')}")
+
+    jabber_vocabs = list_vocabularies('Jabber', transcribe_client)
+    print(f"Found {len(jabber_vocabs)} vocabularies:")
+    for vocab_sum in jabber_vocabs:
+        vocab = get_vocabulary(vocab_sum['VocabularyName'], transcribe_client)
+        vocab_content = requests.get(vocab['DownloadUri']).text
+        print(f"\t{vocab['VocabularyName']} contents:")
+        print(vocab_content)
+
+    print('-'*88)
+    print("Deleting demo jobs.")
+    for job_name in [job_name_simple, job_name_vocabulary_list, job_name_vocab_table]:
+        delete_job(job_name, transcribe_client)
+    print("Deleting demo vocabulary.")
+    delete_vocabulary(vocabulary_name, transcribe_client)
+    print("Deleting demo bucket.")
+    bucket.objects.delete()
+    bucket.delete()
+    print("Thanks for watching!")
+</programlisting>

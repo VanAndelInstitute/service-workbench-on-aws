@@ -1,0 +1,15 @@
+https://fps.sandbox.amazonaws.com/?Action=VerifySignature&UrlEndPoint=h
+ttp%3A%2F%2Fexample.com%3A8080%2Fipn.jsp&HttpParameters=expiry
+%3D08%252F2015%26signature%3DynDukZ9%252FG77uSJVb5YM0cadwHVwYKPMKO
+O3PNvgADbv6VtymgBxeOWEhED6KGHsGSvSJnMWDN%252FZl639AkRe9Ry%252F7zmn9CmiM
+%252FZkp1XtshERGTqi2YL10GwQpaH17MQqOX3u1cW4LlyFoLy4celUFBPq1WM2ZJnaNZRJ
+IEY%252FvpeVnCVK8VIPdY3HMxPAkNi5zeF2BbqH%252BL2vAWef6vfHkNcJPlOuOl6jP4E
+%252B58F24ni%252B9ek%252FQH18O4kw%252FUJ7ZfKwjCCI13%252BcFybpofcKqddq8C
+uUJj5Ii7Pdw1fje7ktzHeeNhF0r9siWcYmd4JaxTP3NmLJdHFRq2T%252FgsF3vK9m3gw%2
+53D%253D%26signatureVersion%3D2%26signatureMethod%3DRSA-SHA1%26certific
+ateUrl%3Dhttps%253A%252F%252Ffps.sandbox.amazonaws.com%252Fcerts%252F09
+0909%252FPKICert.pem%26tokenID%3DA5BB3HUNAZFJ5CRXIPH72LIODZUNAUZIVP7UB7
+4QNFQDSQ9MN4HPIKISQZWPLJXF%26status%3DSC%26callerReference%3DcallerRefe
+renceMultiUse1&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Timestamp=2010-02-26
+T19%3A48%3A05.000Z&Version=2008-09-17&SignatureVersion=2&SignatureMetho
+d=HmacSHA256&Signature=fKRGL42K7nduDA47g6bJCyUyF5ZvkBotXE5jVcgyHvE%3D

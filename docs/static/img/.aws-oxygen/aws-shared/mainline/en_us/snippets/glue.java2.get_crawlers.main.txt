@@ -1,0 +1,19 @@
+    public static void getAllCrawlers(GlueClient glueClient){
+
+        try {
+            GetCrawlersRequest crawlersRequest = GetCrawlersRequest.builder()
+                .maxResults(10)
+                .build();
+
+            GetCrawlersResponse response = glueClient.getCrawlers(crawlersRequest);
+            List<Crawler> crawlers = response.crawlers();
+
+            for (Crawler crawler: crawlers) {
+                System.out.println("The crawler name is : "+crawler.name());
+            }
+
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

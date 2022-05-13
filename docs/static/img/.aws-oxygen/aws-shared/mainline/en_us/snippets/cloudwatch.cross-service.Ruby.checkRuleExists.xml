@@ -1,0 +1,21 @@
+<programlisting>
+# Checks whether the specified Amazon EventBridge rule exists among
+# those provided to this function.
+# This is a helper function that is called by the rule_exists? function.
+#
+# @param rules [Array] An array of Aws::CloudWatchEvents::Types::Rule objects.
+# @param rule_arn [String] The name of the rule to find.
+# @return [Boolean] true if the name of the rule was found; otherwise, false.
+# @example
+#   cloudwatchevents_client = Aws::CloudWatch::Client.new(region: 'us-east-1')
+#   response = cloudwatchevents_client.list_rules
+#   if rule_found?(response.rules, 'aws-doc-sdk-examples-ec2-state-change')
+#     puts 'Rule found.'
+#   end
+def rule_found?(rules, rule_name)
+  rules.each do |rule|
+    return true if rule.name == rule_name
+  end
+  return false
+end
+</programlisting>

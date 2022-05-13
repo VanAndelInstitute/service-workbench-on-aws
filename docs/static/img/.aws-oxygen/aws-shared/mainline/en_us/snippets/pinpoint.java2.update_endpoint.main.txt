@@ -1,0 +1,47 @@
+    public static void updatePinpointEndpoint(PinpointClient pinpoint,String applicationId, String endPointId) {
+
+        try{
+            List<String> wangXiList = new ArrayList<String>();
+            wangXiList.add("cooking");
+            wangXiList.add("running");
+            wangXiList.add("swimming");
+
+            Map myMapWang = new HashMap<String, List>();
+            myMapWang.put("interests", wangXiList);
+
+            List<String> myNameWang = new ArrayList<String>();
+            myNameWang.add("Wang ");
+            myNameWang.add("Xiulan");
+
+            Map wangName = new HashMap<String, List>();
+            wangName.put("name",myNameWang );
+
+            EndpointUser wangMajor = EndpointUser.builder()
+                .userId("example_user_10")
+                .userAttributes(wangName)
+                .build();
+
+            // Create an EndpointBatchItem object for Mary Major.
+            EndpointRequest wangXiulanEndpoint = EndpointRequest.builder()
+                .channelType(ChannelType.EMAIL)
+                .address("wang_xiulan@example.com")
+                .attributes(myMapWang)
+                .user(wangMajor)
+                .build();
+
+            // Adds multiple endpoint definitions to a single request object.
+            UpdateEndpointRequest endpointList = UpdateEndpointRequest.builder()
+               .applicationId(applicationId)
+                .endpointRequest(wangXiulanEndpoint)
+                .endpointId(endPointId)
+                .build();
+
+            UpdateEndpointResponse result = pinpoint.updateEndpoint(endpointList);
+
+            System.out.format("Update endpoint result: %s\n", result.messageBody().message());
+
+    } catch (PinpointException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+ }

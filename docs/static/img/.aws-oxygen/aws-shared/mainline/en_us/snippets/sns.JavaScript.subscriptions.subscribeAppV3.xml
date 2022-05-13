@@ -1,0 +1,23 @@
+<programlisting>
+// Import required AWS SDK clients and commands for Node.js
+import {SubscribeCommand } from "@aws-sdk/client-sns";
+import {snsClient } from "./libs/snsClient.js";
+
+// Set the parameters
+const params = {
+  Protocol: "application" /* required */,
+  TopicArn: "TOPIC_ARN", //TOPIC_ARN
+  Endpoint: "MOBILE_ENDPOINT_ARN", // MOBILE_ENDPOINT_ARN
+};
+
+const run = async () => {
+  try {
+    const data = await snsClient.send(new SubscribeCommand(params));
+    console.log("Success.",  data);
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error", err.stack);
+  }
+};
+run();
+</programlisting>

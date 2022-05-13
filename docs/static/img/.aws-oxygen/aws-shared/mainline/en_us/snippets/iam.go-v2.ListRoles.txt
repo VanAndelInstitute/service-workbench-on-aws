@@ -1,0 +1,21 @@
+	// ListRoles
+
+	roles, err := service.ListRoles(context.Background(), &iam.ListRolesInput{})
+
+	if err != nil {
+		panic("Could not list roles: " + err.Error())
+	}
+
+	fmt.Println("☑️ list roles")
+	for _, idxRole := range roles.Roles {
+
+		fmt.Printf("%s\t%s\t%s\t",
+			*idxRole.RoleId,
+			*idxRole.RoleName,
+			*idxRole.Arn)
+		if idxRole.Description != nil {
+			fmt.Print(*idxRole.Description)
+		}
+		fmt.Print("\n")
+	}
+

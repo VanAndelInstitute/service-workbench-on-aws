@@ -1,0 +1,15 @@
+pub async fn list_users(
+    client: &iamClient,
+    path_prefix: Option<String>,
+    marker: Option<String>,
+    max_items: Option<i32>,
+) -> Result<ListUsersOutput, SdkError<ListUsersError>> {
+    let response = client
+        .list_users()
+        .set_path_prefix(path_prefix)
+        .set_marker(marker)
+        .set_max_items(max_items)
+        .send()
+        .await?;
+    Ok(response)
+}

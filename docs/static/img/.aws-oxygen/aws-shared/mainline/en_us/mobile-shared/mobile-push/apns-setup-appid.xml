@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section role="topic" id="apns-setup-appid">
+	<sectioninfo>
+		<abstract>
+			<para>Create an app ID the Apple Developer portal.</para>
+		</abstract>
+	</sectioninfo>
+	<title id="apns-setup-appid.title">Step 1: Create an App ID</title>
+	<para>Create an app ID to identify your app in the Apple Developer portal. You need this ID when
+		you create an SSL certificate for sending push notifications, when you create an iOS
+		distribution certificate, and when you create a provisioning profile.</para>
+	<para>If you already have an ID assigned to your app, you can skip this step. You can use an
+		existing app ID provided it doesn't contain a wildcard character ("*").
+		<!--Need to verify this.--></para>
+	<procedure>
+		<title>To assign an App ID to your app</title>
+		<step>
+			<para>Sign in to your Apple Developer account at <ulink
+					url="https://developer.apple.com/membercenter/index.action"
+					>https://developer.apple.com/membercenter/index.action</ulink>.</para>
+		</step>
+		<step>
+			<para>Choose <guilabel>Certificates, Identifiers &amp; Profiles</guilabel>.</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert04.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Certificates, identifiers, and profiles.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>In the <guilabel>Identifiers</guilabel> section, choose <guilabel>App
+					IDs</guilabel>.</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert05.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Identifiers section.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>In the <guilabel>iOS App IDs</guilabel> pane, choose the <guilabel>Add</guilabel>
+				button (+).</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert06.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Add button.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>In the <guilabel>Registering an App ID</guilabel> pane, for <guilabel>Name</guilabel>, type
+				a custom name for your app ID that makes it easy to recognize later.</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert07.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Registering an app ID.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>Choose the default selection for an App ID Prefix.</para>
+		</step>
+		<step>
+			<para>For <guilabel>App ID Suffix</guilabel>, select <guilabel>Explicit App ID</guilabel>, and
+				type a bundle ID for your app. If you already have an app, use the bundle ID
+				assigned to it. You can find this ID in the app project in Xcode on your Mac.
+				Otherwise, take note of the bundle ID because you will assign it to your app in
+				Xcode
+				later.<!--This ID you enter should match the Bundle Identifier in your app's Info.plist. --></para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert08.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>App ID Suffix.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>Under <guilabel>App Services</guilabel> select <guilabel>Push
+					Notifications</guilabel>.</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert09.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>App services.</phrase>
+				</textobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>Choose <guilabel>Continue</guilabel>. In the <guilabel>Confirm your App ID</guilabel> pane,
+				check that all values were entered correctly. The identifier should match your app
+				ID and bundle ID.</para>
+		</step>
+		<step>
+			<para>Choose <guilabel>Register</guilabel> to register the new app ID.</para>
+		</step>
+	</procedure>
+</section>

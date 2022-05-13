@@ -1,0 +1,17 @@
+<programlisting>
+    public static void listFunctions(LambdaClient awsLambda) {
+
+        try {
+            ListFunctionsResponse functionResult = awsLambda.listFunctions();
+            List<FunctionConfiguration> list = functionResult.functions();
+
+            for (FunctionConfiguration config: list) {
+                System.out.println("The function name is "+config.functionName());
+            }
+
+        } catch(LambdaException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

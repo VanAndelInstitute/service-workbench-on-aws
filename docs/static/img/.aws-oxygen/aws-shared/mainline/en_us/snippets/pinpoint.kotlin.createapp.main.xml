@@ -1,0 +1,15 @@
+<programlisting>
+ suspend fun createApplication(applicationName: String?):String? {
+
+            val createApplicationRequestOb = CreateApplicationRequest{
+                name = applicationName
+            }
+
+            PinpointClient { region = "us-west-2" }.use { pinpoint ->
+             val result = pinpoint.createApp(CreateAppRequest {
+                createApplicationRequest = createApplicationRequestOb
+             })
+             return result.applicationResponse?.id
+        }
+    }
+</programlisting>

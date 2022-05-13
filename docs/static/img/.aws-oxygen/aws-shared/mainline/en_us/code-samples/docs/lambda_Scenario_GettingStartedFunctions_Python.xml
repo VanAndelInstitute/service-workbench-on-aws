@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Python3;</term>
+        <listitem>
+            <block>
+                <para>Define a &LAM; handler that increments a number.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.lambda.handler.increment.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Define a second &LAM; handler that performs arithmetic operations.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.lambda.handler.arithmetic.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create functions that wrap &LAM; actions.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.python.LambdaWrapper.full.txt"/>
+</programlisting>
+            </block>
+            <block>
+                <para>Create a function that runs the scenario.</para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="python"><xi:include parse="text" href="file://AWSShared/snippets/python.example_code.lambda.Scenario_GettingStartedFunctions.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-python3-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/CreateFunction">CreateFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/DeleteFunction">DeleteFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/GetFunction">GetFunction</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/Invoke">Invoke</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/ListFunctions">ListFunctions</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/UpdateFunctionCode">UpdateFunctionCode</ulink></para></listitem>
+                        <listitem><para><ulink type="documentation" url="goto/boto3/lambda-2015-03-31/UpdateFunctionConfiguration">UpdateFunctionConfiguration</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

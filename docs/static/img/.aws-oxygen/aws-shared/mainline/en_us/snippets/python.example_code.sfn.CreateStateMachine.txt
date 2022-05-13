@@ -1,0 +1,24 @@
+    def create(self, name, definition, role_arn):
+        """
+        Creates a new state machine.
+
+        :param name: The name of the new state machine.
+        :param definition: A dict that contains all of the state and flow control
+                           information. The dict is translated to JSON before it is
+                           uploaded.
+        :param role_arn: A role that grants Step Functions permission to access any
+                         AWS services that are specified in the definition.
+        :return: The Amazon Resource Name (ARN) of the new state machine.
+        """
+        try:
+            response = self.stepfunctions_client.create_state_machine(
+                name=name, definition=json.dumps(definition), roleArn=role_arn)
+            self.state_machine_name = name
+            self.state_machine_arn = response['stateMachineArn']
+            logger.info(
+                "Created state machine %s. ARN is %s.", name, self.state_machine_arn)
+        except ClientError:
+            logger.exception("Couldn't create state machine %s.", name)
+            raise
+        else:
+            return self.state_machine_arn

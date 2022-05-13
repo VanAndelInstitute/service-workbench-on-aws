@@ -1,0 +1,7 @@
+<programlisting>
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.services.s3.transfer.Copy;
+import com.amazonaws.services.s3.transfer.TransferManager;
+import com.amazonaws.services.s3.transfer.TransferManagerBuilder;
+</programlisting>

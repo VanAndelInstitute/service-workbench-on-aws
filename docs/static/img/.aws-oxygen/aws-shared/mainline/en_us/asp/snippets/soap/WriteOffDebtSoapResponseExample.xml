@@ -1,0 +1,26 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      MESSAGE123
+    </wsa:RelatesTo>
+    <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      http://www.w3.org/2005/08/addressing/anonymous</wsa:To>
+    <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      WriteOffDebt:Response
+    </wsa:Action>
+    <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      urn:uuid:1370e898-8d81-45f0-9b74-20a9682ba531
+    </wsa:MessageID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+  <WriteOffDebtResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+    <WriteOffDebtResult>
+      <TransactionId>13OKOJZJ25NM479TDVU4LREENBT72A3PIUR</TransactionId>
+      <TransactionStatus>Success</TransactionStatus>
+    </WriteOffDebtResult>
+    <ResponseMetadata>
+      <RequestId>1370e898-8d81-45f0-9b74-20a9682ba531:0</RequestId>
+    </ResponseMetadata>
+  </WriteOffDebtResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

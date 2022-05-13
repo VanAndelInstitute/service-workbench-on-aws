@@ -1,0 +1,56 @@
+<programlisting>
+    public static void stopAthenaQuery(AthenaClient athenaClient, String sampleQueryExecutionId){
+
+       try {
+            StopQueryExecutionRequest stopQueryExecutionRequest = StopQueryExecutionRequest.builder()
+                    .queryExecutionId(sampleQueryExecutionId)
+                    .build();
+
+            athenaClient.stopQueryExecution(stopQueryExecutionRequest);
+
+            // Ensure that the query was stopped
+            GetQueryExecutionRequest getQueryExecutionRequest = GetQueryExecutionRequest.builder()
+                    .queryExecutionId(sampleQueryExecutionId)
+                    .build();
+
+            GetQueryExecutionResponse getQueryExecutionResponse = athenaClient.getQueryExecution(getQueryExecutionRequest);
+            if (getQueryExecutionResponse.queryExecution()
+                .status()
+                .state()
+                .equals(QueryExecutionState.CANCELLED)) {
+
+                System.out.println("The Amazon Athena query has been cancelled!");
+            }
+
+         } catch (AthenaException e) {
+            e.printStackTrace();
+            System.exit(1);
+         }
+    }
+
+    // Submits an example query and returns a query execution Id value
+    public static String submitAthenaQuery(AthenaClient athenaClient) {
+
+        try {
+            QueryExecutionContext queryExecutionContext = QueryExecutionContext.builder()
+                .database(ExampleConstants.ATHENA_DEFAULT_DATABASE).build();
+
+            ResultConfiguration resultConfiguration = ResultConfiguration.builder()
+                .outputLocation(ExampleConstants.ATHENA_OUTPUT_BUCKET).build();
+
+            StartQueryExecutionRequest startQueryExecutionRequest = StartQueryExecutionRequest.builder()
+                .queryExecutionContext(queryExecutionContext)
+                .queryString(ExampleConstants.ATHENA_SAMPLE_QUERY)
+                .resultConfiguration(resultConfiguration).build();
+
+            StartQueryExecutionResponse startQueryExecutionResponse = athenaClient.startQueryExecution(startQueryExecutionRequest);
+            return startQueryExecutionResponse.queryExecutionId();
+
+        } catch (AthenaException e) {
+            e.printStackTrace();
+         System.exit(1);
+        }
+        return null;
+
+    }
+</programlisting>

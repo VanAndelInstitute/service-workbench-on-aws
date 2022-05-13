@@ -1,0 +1,21 @@
+//
+const getVideo = async () => {
+  try {
+    const listVideoParams = {
+      Bucket: BUCKET
+    };
+    const data = await s3Client.send(new ListObjectsCommand(listVideoParams));
+    console.log("Success - video deleted", data);
+    const videoName = data.Contents[0].Key;
+    document.getElementById("videoname").innerHTML = videoName;
+    const videoDate = data.Contents[0].LastModified;
+    document.getElementById("videodate").innerHTML = videoDate;
+    const videoOwner = data.Contents[0].Owner;
+    document.getElementById("videoowner").innerHTML = videoOwner;
+    const videoSize = data.Contents[0].Size;
+    document.getElementById("videosize").innerHTML = videoSize;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+window.getVideo = getVideo;

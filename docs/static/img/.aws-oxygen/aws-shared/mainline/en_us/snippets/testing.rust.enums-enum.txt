@@ -1,0 +1,9 @@
+pub enum ListObjects {
+    Real(s3::Client),
+    #[cfg(test)]
+    Test {
+        expected_bucket: String,
+        expected_prefix: String,
+        pages: Vec<Vec<s3::model::Object>>,
+    },
+}

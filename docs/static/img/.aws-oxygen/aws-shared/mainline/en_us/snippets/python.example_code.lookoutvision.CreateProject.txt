@@ -1,0 +1,19 @@
+    @staticmethod
+    def create_project(lookoutvision_client, project_name):
+        """
+        Creates a new Lookout for Vision project.
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        :param  project_name: The name for the new project.
+        :return project_arn: The ARN of the new project.
+        """
+        try:
+            logger.info("Creating project: %s", project_name)
+            response = lookoutvision_client.create_project(ProjectName=project_name)
+            project_arn = response["ProjectMetadata"]["ProjectArn"]
+            logger.info("project ARN: %s", project_arn)
+        except ClientError:
+            logger.exception("Couldn't create project %s.", project_name)
+            raise
+        else:
+            return project_arn

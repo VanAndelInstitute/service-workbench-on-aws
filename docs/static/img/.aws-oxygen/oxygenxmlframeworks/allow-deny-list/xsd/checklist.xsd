@@ -1,0 +1,226 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  
+  <xs:element name="checklist">
+    <xs:annotation>
+      <xs:documentation>Root element for a ZonBook checklist file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="checks" minOccurs="0"/>
+        <xs:element ref="exclusions" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="checks">
+    <xs:annotation>
+      <xs:documentation>Denylist checks container.  May contain any number of check elements</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="check" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="check">
+    <xs:annotation>
+      <xs:documentation>Individual checklist check.  May either be a java-compatible regular expression, or a string literal</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:choice>
+          <xs:element ref="pattern"/>
+          <xs:element ref="literal"/>
+        </xs:choice>
+        <xs:element ref="elements" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="attributes" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="caseinsensitive" use="optional"/>
+      <xs:attribute ref="ignorecode" use="optional"/>
+      <xs:attribute ref="localonly" use="optional"/>
+      <xs:attribute ref="region" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="description">
+    <xs:annotation>
+      <xs:documentation>Use this to comment on any checklist regex or literal. Also use to add top-level comments to the file.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="pattern">
+    <xs:annotation>
+      <xs:documentation>Java-compatible regular expression.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="nonzerostring">
+          <xs:attribute ref="exclusionsallowed" use="optional"/>                
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="literal">
+    <xs:annotation>
+      <xs:documentation>String literal.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="nonzerostring"/>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:simpleType name="nonzerostring">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="namestring">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z_][A-Za-z0-9_\.\-]*|\@all\@|\@none\@"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="exclusions">
+    <xs:annotation>
+      <xs:documentation>Allowlist exclusions container.  May contain any number of exclusion elements</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="exclusion" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="exclusion">
+    <xs:annotation>
+      <xs:documentation>Individual allowlist exclusion.  Must always be a string literal</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="literal"/>
+        <xs:element ref="elements" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="attributes" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="localonly" use="optional"/>
+      <xs:attribute ref="region" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="elements">
+    <xs:annotation>
+      <xs:documentation>Element Container. May contain many elements. If not specified, all elements will be processed by the checklist. Otherwise, the checklist processing will be limited to the element and attribute tags specified.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:assert test="if (element[text()='@all@']) then (count(element) = 1) else true()"/>
+      <xs:assert test="if (element[text()='@none@']) then (count(element) = 1) else true()"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="attributes">
+    <xs:annotation>
+      <xs:documentation>Attribute Container. May contain many attribute. If not specified, no attribute values will be processed by the checklist. Otherwise, the checklist processing will be limited to the attributes specified.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:assert test="if (attribute[text()='@all@']) then (count(element) = 1) else true()"/>
+      <xs:assert test="if (attribute[text()='@none@']) then (count(element) = 1) else true()"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="element">
+    <xs:annotation>
+      <xs:documentation>Name of the element to apply the check or exclusion to.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="namestring"/>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="attribute">
+    <xs:annotation>
+      <xs:documentation>Name of the attribute to apply the check or exclusion to.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="namestring"/>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:attribute name="region">
+    <xs:annotation>
+      <xs:documentation>Semicolon delimited list of valid or invalid regions</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[A-Z]{3}(;[A-Z]{3})*|\-[A-Z]{3}(;\-[A-Z]{3})*"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="caseinsensitive">
+    <xs:annotation>
+      <xs:documentation>Set to 'true' to make the pattern/literal check case insensitive</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="ignorecode">
+    <xs:annotation>
+      <xs:documentation>Set to 'true' to make the pattern/literal check ignore the contents of programlisting blocks</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  
+  <xs:attribute name="exclusionsallowed">
+    <xs:annotation>
+      <xs:documentation>Set to 'true' to allow exclusions to be processed for this pattern.  Set to 'restricted' to allow exclusions only from this checklist package.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+        <xs:enumeration value="restricted"/>
+      </xs:restriction>
+    </xs:simpleType>    
+  </xs:attribute>
+  
+  <xs:attribute name="localonly">
+    <xs:annotation>
+      <xs:documentation>Set to 'true' to limit the pattern to local desktop builds only</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+      </xs:restriction>
+    </xs:simpleType>    
+  </xs:attribute>
+  
+</xs:schema>

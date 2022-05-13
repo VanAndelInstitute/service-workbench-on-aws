@@ -1,0 +1,8 @@
+    result, err := svc.CreateKey(&kms.CreateKeyInput{
+        Tags: []*kms.Tag{
+            {
+                TagKey:   key,
+                TagValue: value,
+            },
+        },
+    })

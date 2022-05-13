@@ -1,0 +1,13 @@
+    @staticmethod
+    def stop_notifications(notification):
+        """
+        Stops notifications to the configured Amazon SNS topic.
+
+        :param notification: The notification configuration to remove.
+        """
+        try:
+            notification.delete()
+            logger.info("Notifications stopped.")
+        except ClientError:
+            logger.exception("Couldn't stop notifications.")
+            raise

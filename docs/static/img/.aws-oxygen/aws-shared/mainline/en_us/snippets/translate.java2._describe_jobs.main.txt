@@ -1,0 +1,18 @@
+    public static void describeTextTranslationJob(TranslateClient translateClient, String id) {
+
+      try {
+
+        DescribeTextTranslationJobRequest textTranslationJobRequest = DescribeTextTranslationJobRequest.builder()
+                .jobId(id)
+                 .build();
+
+        DescribeTextTranslationJobResponse jobResponse = translateClient.describeTextTranslationJob(textTranslationJobRequest);
+        System.out.println("The job status is "+jobResponse.textTranslationJobProperties().jobStatus());
+        System.out.println("The source language is "+jobResponse.textTranslationJobProperties().sourceLanguageCode());
+        System.out.println("The target language is "+jobResponse.textTranslationJobProperties().targetLanguageCodes());
+
+      } catch (TranslateException e) {
+          System.err.println(e.getMessage());
+          System.exit(1);
+      }
+    }

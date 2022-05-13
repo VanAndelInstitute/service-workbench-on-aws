@@ -1,0 +1,11 @@
+suspend fun deleteIAMAccountAlias(alias: String) {
+
+    val request = DeleteAccountAliasRequest {
+        accountAlias =alias
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+        iamClient.deleteAccountAlias(request)
+        println("Successfully deleted account alias $alias")
+    }
+}

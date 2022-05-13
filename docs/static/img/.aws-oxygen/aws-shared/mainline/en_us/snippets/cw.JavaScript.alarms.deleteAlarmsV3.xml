@@ -1,0 +1,23 @@
+<programlisting>
+
+// Import required AWS SDK clients and commands for Node.js
+import { DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch";
+import { cwClient } from "./libs/cloudWatchClient.js";
+
+// Set the parameters
+export const params = { AlarmNames: "ALARM_NAME" }; // e.g., "Web_Server_CPU_Utilization"
+
+export const run = async () => {
+  try {
+    const data = await cwClient.send(new DeleteAlarmsCommand(params));
+    console.log("Success, alarm deleted; requestID:", data);
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+
+// Uncomment this line to run execution within this file.
+// run();
+
+</programlisting>

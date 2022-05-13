@@ -1,0 +1,77 @@
+
+// Upload recordings to Amazon S3 bucket
+window.upload = async function (blob, userName) {
+  // Set the parameters for the recording recording.
+  const Key = `${userName}/test-object-${Math.ceil(Math.random() * 10 ** 10)}`;
+
+  // Create a presigned URL to upload the transcription to the Amazon S3 bucket when it is ready.
+  try {
+    // Create an Amazon S3RequestPresigner object.
+    const signer = new S3RequestPresigner({ ...s3Client.config });
+    // Create the request.
+    const request = await createRequest(
+      s3Client,
+      new PutObjectCommand({ Key, Bucket: params.Bucket })
+    );
+    // Define the duration until expiration of the presigned URL.
+    const expiration = new Date(Date.now() + 60 * 60 * 1000);
+    // Create and format the presigned URL.
+    let signedUrl;
+    signedUrl = formatUrl(await signer.presign(request, expiration));
+    console.log(`\nPutting "${Key}"`);
+  } catch (err) {
+    console.log("Error creating presigned URL", err);
+  }
+  try {
+    // Upload the object to the Amazon S3 bucket using a presigned URL.
+    response = await fetch(signedUrl, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/octet-stream",
+      },
+      body: blob,
+    });
+    // Create the transcription job name. In this case, it's the current date and time.
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    const time =
+      today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+    const jobName = date + "-time-" + time;
+
+    // Call the "createTranscriptionJob()" function.
+    createTranscriptionJob(
+      "s3://" + params.Bucket + "/" + Key,
+      jobName,
+      params.Bucket,
+      Key
+    );
+  } catch (err) {
+    console.log("Error uploading object", err);
+  }
+};
+
+// Create the AWS Transcribe transcription job.
+const createTranscriptionJob = async (recording, jobName, bucket, key) => {
+  // Set the parameters for transcriptions job
+  const params = {
+    TranscriptionJobName: jobName + "-job",
+    LanguageCode: "en-US", // For example, 'en-US',
+    OutputBucketName: bucket,
+    OutputKey: key,
+    Media: {
+      MediaFileUri: recording, // For example, "https://transcribe-demo.s3-REGION.amazonaws.com/hello_world.wav"
+    },
+  };
+  try {
+    // Start the transcription job.
+    const data = await client.send(new StartTranscriptionJobCommand(params));
+    console.log("Success - transcription submitted", data);
+  } catch (err) {
+    console.log("Error", err);
+  }
+};

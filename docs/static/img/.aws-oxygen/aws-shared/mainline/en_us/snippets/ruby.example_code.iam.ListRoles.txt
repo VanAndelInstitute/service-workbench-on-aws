@@ -1,0 +1,17 @@
+  # Lists up to a specified number of roles for the account.
+  #
+  # @param count [Integer] The maximum number of roles to list.
+  # @return [Array] The names of the listed roles.
+  def list_roles(count)
+    role_names = []
+    @iam_resource.roles.limit(count).each_with_index do |role, index|
+      puts("\t#{index + 1}: #{role.name}")
+      role_names.append(role.name)
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't list roles for the account. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    role_names
+  end

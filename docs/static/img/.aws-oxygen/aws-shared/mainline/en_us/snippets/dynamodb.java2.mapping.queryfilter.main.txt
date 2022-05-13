@@ -1,0 +1,37 @@
+    public static void queryTableFilter(DynamoDbEnhancedClient enhancedClient) {
+
+        try{
+            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+
+            AttributeValue att = AttributeValue.builder()
+                    .s("sblue@noserver.com")
+                    .build();
+
+            Map<String, AttributeValue> expressionValues = new HashMap<>();
+            expressionValues.put(":value", att);
+
+            Expression expression = Expression.builder()
+                    .expression("email = :value")
+                    .expressionValues(expressionValues)
+                    .build();
+
+            // Create a QueryConditional object that is used in the query operation.
+            QueryConditional queryConditional = QueryConditional
+                    .keyEqualTo(Key.builder().partitionValue("id103")
+                            .build());
+
+            // Get items in the Customer table and write out the ID value.
+            Iterator<Customer> results = mappedTable.query(r -> r.queryConditional(queryConditional).filterExpression(expression)).items().iterator();
+
+            while (results.hasNext()) {
+
+                Customer rec = results.next();
+                System.out.println("The record id is "+rec.getId());
+            }
+
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }

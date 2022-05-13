@@ -1,0 +1,3 @@
+<programlisting>
+    tracing_subscriber::fmt::init();
+</programlisting>

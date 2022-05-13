@@ -1,0 +1,27 @@
+<programlisting>
+    def update(self, definition, role_arn=None):
+        """
+        Updates an existing state machine. Any runs currently operating do not update
+        until they are stopped.
+
+        :param definition: A dict that contains all of the state and flow control
+                           information for the state machine. This completely replaces
+                           the existing definition.
+        :param role_arn: A role that grants Step Functions permission to access any
+                         AWS services that are specified in the definition.
+        """
+        if self.state_machine_arn is None:
+            raise ValueError
+        try:
+            kwargs = {
+                'stateMachineArn': self.state_machine_arn,
+                'definition': json.dumps(definition)}
+            if role_arn is not None:
+                kwargs['roleArn'] = role_arn
+            self.stepfunctions_client.update_state_machine(**kwargs)
+            logger.info("Updated state machine %s.", self.state_machine_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't update state machine %s.", self.state_machine_name)
+            raise
+</programlisting>

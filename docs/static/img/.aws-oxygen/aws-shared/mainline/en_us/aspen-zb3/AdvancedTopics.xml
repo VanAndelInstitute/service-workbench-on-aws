@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+
+<?pagebreak?>
+<section id="AccessPolicyLanguage_AdvancedTopics" role="topic">
+	<title id="AccessPolicyLanguage_AdvancedTopics.title">Advanced Topics</title>
+
+	<para role="topiclist"/>
+	<para>This section covers advanced ways to use &servicename;. The majority of AWS developers will use
+		&servicename; for basic access control, and won't need to understand these topics. The technical
+		documentation for the AWS service (e.g., Amazon SQS) covers the most common ways that you will use
+		&servicename;.</para>
+
+	<?pagebreak?>
+	<section id="AccessPolicyLanguage_Capabilities" role="topic">
+		<title id="AccessPolicyLanguage_Capabilities.title">Distributed Capabilities</title>
+
+		<highlights>
+			<para>TOC</para>
+		</highlights>
+
+
+		<para>A <firstterm>&dc;</firstterm> is a policy that the requester gets from the resource owner
+			and includes directly in the request (so that the policy comes in to AWS at request time). This
+			section describes why you might use a distributed capabilities, how they work, and the digital
+			signature required in each &dc;. </para>
+
+		<section id="AccessPolicyLanguage_DistribCapabilities">
+			<title id="AccessPolicyLanguage_DistribCapabilities.title">How Distributed Capabilities Work</title>
+			<para>A common use case for a &dc; is if you (as the resource owner) want to give someone
+				permission to the resource for only a brief amount of time.</para>
+			<para>You might be familiar with <firstterm>pre-signed URLs</firstterm>, which some AWS services
+				use to let resource owners give someone temporary access to a particular private resource
+				without needing to update the resource's ACL. With a pre-signed URL, the resource owner
+				creates the request URL (usually with a short expiration time) and signs it as usual. Then the
+				resource owner gives the URL to the requester to submit to AWS. To AWS, a pre-signed URL
+				request looks like it comes from the resource owner. There's no way AWS can identify who
+				actually submitted the request. The person doesn't even have to be signed up with AWS.</para>
+			<para>A &dc; is similar to a pre-signed URL in that it lets you give someone else access to
+				your private resource without having to change any policies that already control that
+				resource's access. The main difference is that you can write the &dc; so that AWS can
+				identify the requester.</para>
+			<para>The following figure and table describe how a &dc; works.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Bearer_Grants.gif" format="GIF" scale="65"/>
+					</imageobject>
+					<textobject>
+						<phrase>How a &dc; works</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<table>
+				<title>Process for Using a Distributed Capability</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colname="col1" colwidth="0.3*"/>
+					<colspec colnum="2" colname="col2" colwidth="4*"/>
+
+
+					<tbody>
+
+						<row>
+							<entry>
+								<simpara>1</simpara>
+							</entry>
+							<entry>
+								<simpara>A situation arises where you want to give special access to a
+									resource. You write an XML policy for that situation.</simpara>
+								<simpara>The policy structure and syntax is no different than normal
+									&servicename; policies. JSON policies are not allowed for a &dc;.</simpara>
+
+
+							</entry>
+						</row>
+						<row>
+							<entry>
+								<simpara>2</simpara>
+							</entry>
+							<entry>
+								<simpara>You sign the policy so that AWS can verify that you created it.</simpara>
+								<simpara>For information about signing a &dc;, see <xref
+										linkend="DigitalSignature" endterm="DigitalSignature.title"
+								/>.</simpara>
+							</entry>
+						</row>
+						<row>
+							<entry>
+								<simpara>3</simpara>
+							</entry>
+							<entry>
+								<simpara>You give the signed policy to the person you want to grant access to
+									(the <emphasis>requester</emphasis>).</simpara>
+								<simpara>You give the person the entire signed policy document.</simpara>
+							</entry>
+						</row>
+						<row>
+							<entry>
+								<simpara>4</simpara>
+							</entry>
+							<entry>
+								<simpara>The requester creates an AWS service request to use your resource and
+									includes your signed policy in the body of the request.</simpara>
+							</entry>
+						</row>
+						<row>
+							<entry>
+								<simpara>5</simpara>
+							</entry>
+							<entry>
+								<simpara>The AWS service includes your &dc; in the list of applicable
+									policies, and evalutes them to determine if the request should be allowed
+									or denied.</simpara>
+								<simpara>The enforcement point evaluates the policy as it normally does. For
+									more information, see <xref linkend="OverallFlow"
+										endterm="OverallFlow.title"/> and <xref linkend="EvaluationLogic"
+										endterm="EvaluationLogic.title"/>).</simpara>
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+
+
+			<para>For example, let's say you own an Amazon SQS queue, and you want to give John access to use
+				it for an hour. You write a policy with (among other things) the principal set to John's AWS
+				account ID, and expiration time of one hour. You sign that policy and give it to John. For the
+				next hour, John can send requests to SQS and use your queue. In each request, he includes the
+				policy. SQS only accepts authenticated requests, so he signs the requests to SQS as normal.
+				AWS authenticates him each time and confirms his identity matches the principal you specified
+				in the policy. When AWS logs information about the request, John is listed as the requester
+				(and not you). You, however, are still billed for John's requests and queue usage, because you
+				own the resource.</para>
+			<para>If the AWS service doesn't require requests to be authenticated, you could set the principal
+				to "anyone" (using a wildcard). You could then give John the signed policy, and he could make
+				authenticated or unauthenticated requests to the service with your policy and use your
+				resource. AWS would allow John's request (even without authentication information that
+				identifies him) simply because you (the resource owner) signed the policy that gave anyone
+				permission to use the resource. Note that in this situation, John could also give copies of
+				this policy out to all his friends, and they could also use your resource (and you would pay
+				for their requests and usage, because you own the resource). </para>
+			<para>You could also write the policy so it restricts access not based on principal, but on other
+				information that identifies the requester. For example, if you knew John's IP address, you
+				could set the principal to "anyone" in the grant, but specify a condition that requires the IP
+				address be equal to John's. Then John could send a request to the service (authenticated or
+				not, depending on what the service supports), and use your resource. If John gave the policy
+				to his friends, they couldn't use it to get access to your resource.</para>
+			<para>You can't use a bearer grant to override another applicable policy that would return a hard
+				deny (for information about hard denies, see <xref linkend="Define_HardDeny"
+					endterm="Define_HardDeny.title"/>). For example, let's say you have an existing policy
+				that returns "deny" for all requests that come from Antarctica. You can't write a bearer grant
+				that would override that deny and allow access for one particular person from Antarctica. You
+				could, however, have a policy that returns "allow" if the request <emphasis>isn't</emphasis>
+				from Antarctica. Anyone from Antarctica who sends a request would receive a soft deny (see
+					<xref linkend="Define_SoftDeny" endterm="Define_SoftDeny.title"/>). You could then give a
+				particular person in Antarctica a bearer grant that allows access based on the person's AWS
+				account ID or IP address (for example). That person would then have access to your resource
+				according to the conditions in the bearer grant.</para>
+		</section>
+		<section id="AccessPolicyLanguage_DigitalSignature">
+			<title id="AccessPolicyLanguage_DigitalSignature.title">The Digital Signature</title>
+			<para>Every &dc; policy you create must include a digital signature so that AWS can verify
+				that you created the policy. This section gives information about how to create that signature
+				and include it in the policy.</para>
+			<important>
+				<simpara>The &servicename; supports digital signatures only for XML policies, not JSON
+					policies. If you want to use a &dc;, the policy must be in XML format.</simpara>
+			</important>
+
+			<section id="AccessPolicyLanguage_CredsYouNeed">
+				<title id="AccessPolicyLanguage_CredsYouNeed.title">Credentials You Need</title>
+				<para>To create the digital signature as AWS requires, you must use have an X.509 certificate
+					and corresponding private key. You must associate the X.509 certificate with your AWS
+					account. You can either have AWS generate the certificate for you (which automatically
+					associates the certificate with your AWS account), or you can upload an existing
+					certificate you already own to the AWS site.</para>
+				<tip>
+					<simpara>If you're already using SOAP and WS-Security with an AWS service, then you
+						already have what you need and can skip this section.</simpara>
+				</tip>
+				<para>For more information about X.509 certificates, go to <ulink
+						url="http://www.webopedia.com/TERM/X/X_509.html"
+						>http://www.webopedia.com/TERM/X/X_509.html</ulink>.</para>
+
+				<procedure>
+					<title>To have AWS generate a new X.509 certificate for you</title>
+					<step>
+						<para>Go to the Amazon Web Services web site at <ulink url="http://aws.amazon.com"
+								>http://aws.amazon.com</ulink>.</para>
+					</step>
+					<step>
+						<para>Point to <guilabel>Your Account</guilabel> to display a list of options.</para>
+					</step>
+					<step>
+						<para>Click <guilabel>Access Identifiers</guilabel> and log in to your AWS
+						account.</para>
+					</step>
+					<step>
+						<para>On the <guilabel>Access Identifiers</guilabel> page, click <guilabel>X.509
+								Certificates</guilabel>.</para>
+
+					</step>
+					<step>
+						<para>Click <guilabel>Create New</guilabel>.</para>
+						<simpara>You're prompted to confirm creation of the certificate.</simpara>
+					</step>
+					<step>
+						<para>Click <guilabel>Yes</guilabel> to proceed.</para>
+						<simpara>Your X.509 certificate is generated.</simpara>
+					</step>
+					<step>
+						<para>Click <guilabel>Download Private Key File</guilabel> and securely store the file
+							in a proper location on your system for future use.</para>
+						<important>
+							<simpara>You can download the private key only once. If you misplace or lose the
+								private key, you must generate a new one.</simpara>
+						</important>
+
+					</step>
+					<step>
+						<para>Click <guilabel>Download X.509 Certificate</guilabel> and save the certificate
+							to the same location as the private key.</para>
+					</step>
+
+				</procedure>
+
+
+				<para>If you already have an X.509 certificate that you'd like to use, you need to upload it
+					to AWS. Note that you upload only the X.509 certificate and not the corresponding private
+					key. </para>
+				<procedure>
+					<title>To upload your own X.509 certificate</title>
+					<step>
+						<para>Go to the Amazon Web Services web site at <ulink url="http://aws.amazon.com"
+								>http://aws.amazon.com</ulink>.</para>
+					</step>
+					<step>
+						<para>Point to <guilabel>Your Account</guilabel> to display a list of options.</para>
+					</step>
+					<step>
+						<para>Click <guilabel>Access Identifiers</guilabel> and log in to your AWS
+						account.</para>
+					</step>
+					<step>
+						<para>On the <guilabel>Access Identifiers</guilabel> page, click <guilabel>X.509
+								Certificates</guilabel>.</para>
+					</step>
+					<step>
+						<para>Click <guilabel>Upload.</guilabel></para>
+					</step>
+					<step>
+						<para>Follow the instructions on the subsequent pages to upload your
+						certificate.</para>
+					</step>
+				</procedure>
+			</section>
+
+			<section id="AccessPolicyLanguage_SigLoc">
+				<title id="AccessPolicyLanguage_SigLoc.title">Signature Location</title>
+				<para>You put all information related to the digital signature in a <code>Signature</code>
+					child element inside the <code>Policy</code> root element.</para>
+				<programlisting>&lt;Policy>
+   &lt;Version>
+   &lt;Id>
+   &lt;Statement>
+   &lt;Signature>
+&lt;/Policy></programlisting>
+			</section>
+			<section id="AccessPolicyLanguage_SigElements">
+				<title id="AccessPolicyLanguage_SigElements.title">Contents of the Signature Element</title>
+				<para>The contents of the <code>Signature</code> element follow the W3C standard for XML
+					digital signatures (for information, go to <ulink url="http://www.w3.org/TR/xmldsig-core"
+						>http://www.w3.org/TR/xmldsig-core</ulink>). Following is an example policy that
+					includes a digital signature as required.</para>
+				<programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;Policy xmlns="http://aws.amazon.com/aspen/2008-10-17" xmlns:AWS="http://aws.amazon.com/aspen/2008-10-17/aws">
+   &lt;Version>2008-10-17&lt;/Version>
+   &lt;Id>acc54c90-805a-4e05-9aad-b6f1b40c4fcc&lt;/Id>
+   &lt;Statement>
+      &lt;Sid>1&lt;/Sid>
+      &lt;Effect>Allow&lt;/Effect>
+      &lt;Principal>
+         &lt;AWS>1234-5678-9012&lt;/AWS>
+      &lt;/Principal>
+      &lt;Action>Read&lt;/Action>
+      &lt;Resource>/foo&lt;/Resource>
+      &lt;Condition>
+         &lt;DateLessThan>
+           &lt;AWS:CurrentTime>2009-12-05T11:33:33.569-0800&lt;/AWS:CurrentTime>
+        &lt;/DateLessThan>
+      &lt;/Condition>
+   &lt;/Statement>
+   &lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      &lt;SignedInfo>
+         &lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+         &lt;SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+         &lt;Reference URI="">
+            &lt;Transforms>
+               &lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+            &lt;/Transforms>
+            &lt;DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            &lt;DigestValue>bN+smnxw2eUziSHn0/0lS7Example=&lt;/DigestValue>
+         &lt;/Reference>
+      &lt;/SignedInfo>
+      &lt;SignatureValue>PlfcHZm2...&lt;/SignatureValue>
+      &lt;KeyInfo>
+         &lt;X509Data>
+            &lt;X509SubjectName>CN=APLBuildTest,OU=AWS,O=Amazon.com,L=Seattle,C=US&lt;/X509SubjectName>
+            &lt;X509Certificate>MIICKDCCA...&lt;/X509Certificate>
+         &lt;/X509Data>
+      &lt;/KeyInfo>
+   &lt;/Signature>
+&lt;/Policy></programlisting>
+				<para>Following are requirements for the signature:</para>
+				<itemizedlist>
+					<listitem>
+						<para>The <code>CanonicalizationMethod</code> algorithm must be <ulink
+								url="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+								>http://www.w3.org/TR/2001/REC-xml-c14n-20010315</ulink>.</para>
+					</listitem>
+					<listitem>
+						<para>The <code>SignatureMethod</code> algorithm must be <ulink
+								url="http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+								>http://www.w3.org/2000/09/xmldsig#rsa-sha1</ulink>.</para>
+					</listitem>
+					<listitem>
+						<para>You must sign the entire XML document (using the private key associated with
+							your X.509 certificate). Therefore, only one <code>Reference</code> is allowed,
+							and the URI must be the empty string (to indicate the entire XML document was
+							signed).</para>
+					</listitem>
+					<listitem>
+						<para>The <code>DigestMethod</code> algorithm must be <ulink
+								url="http://www.w3.org/2000/09/xmldsig#sha1"
+								>http://www.w3.org/2000/09/xmldsig#sha1</ulink>.</para>
+					</listitem>
+					<listitem>
+						<para>A <code>KeyInfo</code> element must be present and contain only one child
+							element: <code>X509Data</code>.</para>
+					</listitem>
+					<listitem>
+						<para>The <code>X509Data</code> element must have an <code>X509Certificate</code>
+							child element, which must contain your base64 encoded X.509 certificate.</para>
+					</listitem>
+					<listitem>
+						<para>The <code>X509Data</code> element must also have an <code>X509SubjectName</code>
+							child element, whose information must correspond to the certificate included in
+								<code>X509Certificate</code>.</para>
+					</listitem>
+				</itemizedlist>
+
+			</section>
+
+		</section>
+	</section>
+
+
+	<?pagebreak?>
+	<section id="AccessPolicyLanguage_Including" role="topic">
+		<title id="AccessPolicyLanguage_Including.title">Inclusion</title>
+
+		<para>At the time a request is evaluated, the following information must be available to the
+			evaluation code: </para>
+		<itemizedlist>
+			<listitem>
+				<para>Effect</para>
+			</listitem>
+			<listitem>
+				<para>Principal</para>
+			</listitem>
+			<listitem>
+				<para>Action</para>
+			</listitem>
+			<listitem>
+				<para>Resource</para>
+			</listitem>
+			<listitem>
+				<para>Any conditions</para>
+			</listitem>
+		</itemizedlist>
+		<para><emphasis>Inclusion</emphasis> is the process of bringing together all that information from
+			different locations (instead of having it all in a single statement). You might find it useful to
+			specify just the resource and conditions in one statement that you upload to AWS. For example, you
+			could create a statement (that we'll call <emphasis>statement A</emphasis>) that includes only
+			common conditional logic that applies to everyone who might want access to your resource:</para>
+		<itemizedlist>
+			<listitem>
+				<para>Effect: Allow</para>
+			</listitem>
+			<listitem>
+				<para>Resource: The resource of interest</para>
+			</listitem>
+			<listitem>
+				<para>Condition: Whitelist of acceptable IP addresses</para>
+			</listitem>
+		</itemizedlist>
+		<para>Then, you could create individual policies, one for each person who might request access to the
+			resource. For example, you might create short-lived policies that come in with the request (as a
+			distributed capability; for more information, see <xref linkend="Capabilities"
+				endterm="Capabilities.title"/>). Each policy would have an incomplete statement (we'll call
+				<emphasis>statement B</emphasis>) that includes:</para>
+		<itemizedlist>
+			<listitem>
+				<para>Principal: AWS account IDs of the people in the group</para>
+			</listitem>
+			<listitem>
+				<para>Action: Any allowed actions for the group</para>
+			</listitem>
+			<listitem>
+				<para>Condition: Other conditions that are required for the group's access</para>
+			</listitem>
+			<listitem>
+				<para>Include: The statement ID for statement A</para>
+			</listitem>
+		</itemizedlist>
+		<para>Statement A and statement B are both incomplete; individually, each doesn't contain all the
+			required information needed at evaluation time. However, the Include element in statement B tells
+			the evaluation code to <emphasis>include</emphasis> statement A so that all required elements
+			(principal, action, resource, and relevant conditions) are available. </para>
+		<para>The use of inclusion lets you (as the resource owner) make changes to the common conditional
+			logic in statement A (your IP whitelist) without having to touch all of the different individual
+			policies you've created (each with a statement B). You can think of statement A as a template (or
+			base policy) that includes broad functionality. The different instances of statement B you issue
+			provide more specific or temporal restrictions beyond those in statement A.</para>
+		<para>Statement A and statement B could have conflicting information. For example: they could both
+			have an effect, principal, action, resource, and conditions. If there's a conflict, the values in
+			the <emphasis>including statement</emphasis> (statement B) override those in the
+				<emphasis>included</emphasis> statement (statement A). The evaluation code ANDs the conditions
+			from the different statements, as if they were in the same statement.</para>
+		<para>An including statement (statement B) can include more than one statement. However, any included
+			statements (statement A) cannot include another statement.</para>
+		<procedure>
+			<title>To include a statement</title>
+			<step>
+				<para>Add an Include element to the statement.</para>
+				<simpara>The value is the statement ID of the statement to include. If the included statement
+					is inside the policy document that holds the including statement, then you only need to
+					specify the statement ID (Sid). If the included statement is in a different policy
+					document, you specify both the policy ID and the statement ID, in format
+						<code>policyID#sid</code>.</simpara>
+			</step>
+		</procedure>
+		<para>In the following JSON example, the policy includes a statement that resides inside the policy
+			document with Id &ex_policyid_2;, and that has a statement ID (sid) of 5.</para>
+		<programlisting>{   
+  "Version":"&apiversion;",
+  "Id":"&ex_policyid;",
+  "Statement" : [
+  {
+     "Sid":"1",         
+     "Principal" : {
+       "AWS": "&ex_principal_1;"
+     },
+     "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",
+     "Condition" : {
+        "IpAddress" : {
+           "AWS:SourceIP":"10.52.176.0/24"
+         }
+      },
+      "Include":"&ex_policyid_2;#5"
+   }]
+}</programlisting>
+
+
+
+		<section role="languagefilter">
+			<title>JSON</title>
+			<para>You can use a single-valued string or an array of strings. This example shows an array with
+				two statements being included.</para>
+			<programlisting>"Include": ["&ex_policyid;#1","&ex_policyid;#2"]</programlisting>
+
+		</section>
+		<section role="languagefilter">
+			<title>XML</title>
+			<para>You can have multiple Include elements in a statement.</para>
+			<programlisting>&lt;Include>&ex_policyid;#1&lt;/Include></programlisting>
+		</section>
+	</section>
+
+
+
+
+
+	<?pagebreak?>
+	<section id="AccessPolicyLanguage_Delegation" role="topic">
+		<title id="AccessPolicyLanguage_Delegation.title">Delegation</title>
+		<para><firstterm>Delegation</firstterm> is when you (as the resource owner) give someone else
+			authority to write a policy for the resource. Delegation is useful for enterprise or large
+			distributed cases.</para>
+		<para>For example, let's say you have a company that uses Amazon SQS to queue up some type of work
+			(for example, conversion of video files from one type to another). You could have a relationship
+			with a reseller that finds business for you (e.g., finds people who want to pay for your service
+			and thus want to put work into your queue). It's a hassle for you to be involved in granting
+			access to each person who wants to put work into your queue. So, you delegate authority to the
+			reseller to write policies that allow the end users to upload their work. </para>
+
+		<procedure>
+			<title>To delegate authority</title>
+			<step>
+				<para>Create a policy with:</para>
+				<itemizedlist>
+					<listitem>
+						<para>Effect=Delegate</para>
+					</listitem>
+					<listitem>
+						<para>Principal=AWS account ID of the person you want to delegate authority to</para>
+					</listitem>
+				</itemizedlist>
+			</step>
+			<step>
+				<para>Add any other statement elements you want to add (e.g., resource, action, conditions) to
+					specify limitations on what kind of access the delegate can grant.</para>
+			</step>
+			<step>
+				<para>Use the AWS service's API (e.g., the Amazon SQS API) to upload the policy to AWS.</para>
+			</step>
+		</procedure>
+
+		<para>For example, Mark owns resource /foo. Mark writes a policy that delegates authority to Nate to
+			write policies for /foo and uploads the policy to AWS. At any time, Nate could then write a policy
+			to give Brad access to /foo.</para>
+		<para>Mark can make his policy (we'll call it the <emphasis>delegate policy</emphasis>) as restrictive
+			as he wants. For example, he could set the following:</para>
+		<itemizedlist>
+			<listitem>
+				<para>Effect=Delegate</para>
+			</listitem>
+			<listitem>
+				<para>Principal=Nate's AWS account ID</para>
+			</listitem>
+			<listitem>
+				<para>Action=Read</para>
+			</listitem>
+			<listitem>
+				<para>Resource=/foo</para>
+			</listitem>
+			<listitem>
+				<para>Condition: StartDate=January 1, 2009 and EndDate=January 31, 2009</para>
+			</listitem>
+			<listitem>
+				<para>Condition: SourceIP=192.168.172.138/32</para>
+			</listitem>
+		</itemizedlist>
+		<para>This means that when Nate writes his own policy to grant Brad access to /foo, Brad can read from
+			/foo only during the month of January, and his request must come from IP address 192.168.172.138.</para>
+		<para>Nate could create a <emphasis>more</emphasis> restrictive policy for Brad. For example, he could
+			add an additional condition to the policy he writes for Brad that says that Brad can access /foo
+			only on January 15, 2009. Brad's request would have to match the more restrictive conditions Nate
+			imposes for the request to be accepted.</para>
+		<para>It's possible Nate isn't aware of the restrictions Mark has specified, so he might create a less
+			restrictive policy. For example, he could specify a start date of January 1, 2009 and end date of
+			December 31, 2009. However, it ultimately doesn't matter if Nate's policy is less restrictive. At
+			evaluation time, the request must first satisfy the constraints Mark specified in his delegate
+			policy. If it doesn't, the request is rejected. If it does, then the request is next evaluated to
+			see if it meets Nate's constraints. Therefore the more restrictive policy (whether it be Mark's or
+			Nate's) always controls the outcome.</para>
+		<para>You can delegate authority to write policies about a particular resource to as many people as
+			you want, but those people can't delegate that authority to anyone else. </para>
+
+
+	</section>
+
+
+
+
+
+</section>

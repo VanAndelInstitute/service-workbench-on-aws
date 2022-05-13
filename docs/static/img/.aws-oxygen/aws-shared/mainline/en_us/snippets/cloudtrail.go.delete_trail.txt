@@ -1,0 +1,11 @@
+func DeleteTrail(sess *session.Session, trailName string) error {
+    svc := cloudtrail.New(sess)
+
+    input := &cloudtrail.DeleteTrailInput{
+        Name: aws.String(trailName),
+    }
+
+    _, err := svc.DeleteTrail(input)
+
+    return err
+}

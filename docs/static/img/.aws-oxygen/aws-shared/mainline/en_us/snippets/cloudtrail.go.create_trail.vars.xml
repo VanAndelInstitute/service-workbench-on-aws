@@ -1,0 +1,12 @@
+<programlisting>
+    trailNamePtr := flag.String("n", "", "The name of the trail")
+    bucketNamePtr := flag.String("b", "", "the name of the bucket to which the trails are uploaded")
+    addPolicyPtr := flag.Bool("p", false, "Whether to add the CloudTrail policy to the bucket")
+
+    flag.Parse()
+
+    if *trailNamePtr == "" || *bucketNamePtr == "" {
+        fmt.Println("You must supply a trail name and bucket name.")
+        return
+    }
+</programlisting>

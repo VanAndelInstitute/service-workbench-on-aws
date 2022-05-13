@@ -1,0 +1,25 @@
+<programlisting>
+        File f = new File(file_path);
+        TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
+        try {
+            Upload u = xfer_mgr.upload(bucket_name, key_name, f);
+            // print an empty progress bar...
+            printProgressBar(0.0);
+            u.addProgressListener(new ProgressListener() {
+                public void progressChanged(ProgressEvent e) {
+                    double pct = e.getBytesTransferred() * 100.0 / e.getBytes();
+                    eraseProgressBar();
+                    printProgressBar(pct);
+                }
+            });
+            // block with Transfer.waitForCompletion()
+            XferMgrProgress.waitForCompletion(u);
+            // print the final state of the transfer.
+            TransferState xfer_state = u.getState();
+            System.out.println(": " + xfer_state);
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            System.exit(1);
+        }
+        xfer_mgr.shutdownNow();
+</programlisting>

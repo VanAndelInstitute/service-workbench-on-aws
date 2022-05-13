@@ -1,0 +1,13 @@
+<programlisting>
+
+import {
+  GetQueueUrlCommand,
+  SendMessageCommand,
+  ReceiveMessageCommand,
+  PurgeQueueCommand,
+} from "@aws-sdk/client-sqs";
+import { sqsClient } from "./libs/sqsClient.js";
+
+const QueueName = "SQS_QUEUE_NAME"; // The Amazon SQS queue name, which must end in .fifo for this example.
+
+</programlisting>

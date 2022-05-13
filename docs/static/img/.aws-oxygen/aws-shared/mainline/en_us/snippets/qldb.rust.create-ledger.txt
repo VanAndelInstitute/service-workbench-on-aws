@@ -1,0 +1,12 @@
+async fn make_ledger(client: &Client, ledger: &str) -> Result<(), Error> {
+    let result = client
+        .create_ledger()
+        .name(ledger)
+        .permissions_mode(PermissionsMode::AllowAll)
+        .send()
+        .await?;
+
+    println!("ARN: {}", result.arn().unwrap());
+
+    Ok(())
+}

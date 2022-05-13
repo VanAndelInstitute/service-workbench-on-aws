@@ -1,0 +1,16 @@
+suspend fun describeSpecificCampaign(campaignArnVal: String?) {
+
+
+    val request = DescribeCampaignRequest {
+        campaignArn = campaignArnVal
+    }
+    PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+
+            val response = personalizeClient.describeCampaign(request)
+            val myCampaign = response.campaign
+            if (myCampaign != null) {
+                println("The campaign name is ${myCampaign.name}")
+                println("The campaign status is ${myCampaign.status}")
+            }
+        }
+   }

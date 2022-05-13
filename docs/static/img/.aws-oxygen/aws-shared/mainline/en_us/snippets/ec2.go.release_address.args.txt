@@ -1,0 +1,7 @@
+	allocationID := flag.String("a", "", "The ID of an allocated address")
+	flag.Parse()
+
+	if *allocationID == "" {
+		fmt.Println("You must supply the ID of an allocated address (-a ALLOCATION-ID)")
+		return
+	}

@@ -1,0 +1,17 @@
+    def prepare_job(self, bucket_name, document_name, document_bytes):
+        """
+        Prepares a document image for an asynchronous detection job by uploading
+        the image bytes to an Amazon S3 bucket. Amazon Textract must have permission
+        to read from the bucket to process the image.
+
+        :param bucket_name: The name of the Amazon S3 bucket.
+        :param document_name: The name of the image stored in Amazon S3.
+        :param document_bytes: The image as byte data.
+        """
+        try:
+            bucket = self.s3_resource.Bucket(bucket_name)
+            bucket.upload_fileobj(document_bytes, document_name)
+            logger.info("Uploaded %s to %s.", document_name, bucket_name)
+        except ClientError:
+            logger.exception("Couldn't upload %s to %s.", document_name, bucket_name)
+            raise

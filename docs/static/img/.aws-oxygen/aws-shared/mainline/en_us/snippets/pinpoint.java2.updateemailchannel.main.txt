@@ -1,0 +1,13 @@
+    public static void main(String[] args) {
+
+        //TODO: Provide ApplicationId/ProjectId
+        String appId = "";
+        PinpointClient pinpoint = PinpointClient.builder()
+                .region(Region.US_EAST_1)
+                .build();
+
+        EmailChannelResponse getResponse = getEmailChannel(pinpoint, appId);
+
+        System.out.println("Response : " + getResponse);
+        pinpoint.close();
+    }

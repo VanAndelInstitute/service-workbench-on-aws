@@ -1,0 +1,13 @@
+<programlisting>
+    bucket := flag.String("b", "", "The name of the bucket")
+    object := flag.String("o", "", "The name of the bucket object")
+    show := flag.Bool("s", false, "Whether to show the object as a string")
+    timeout := flag.Bool("t", false, "Whether to get the object within a 20 second timeout or use the default custom HTTP client")
+    flag.Parse()
+
+    if *bucket == "" || *object == "" {
+        fmt.Println("You must supply the name of the bucket and object")
+        fmt.Println("Usage: go run customHttpClient -b BUCKET -o OBJECT [-s] [-t]")
+        return
+    }
+</programlisting>

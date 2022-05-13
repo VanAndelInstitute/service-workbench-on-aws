@@ -1,0 +1,8 @@
+    dependencies: [
+        // Dependencies declare other packages that this package depends on.
+        .package(
+            name: "AWSSwiftSDK",
+            url: "https://github.com/awslabs/aws-sdk-swift",
+            from: "0.2.0"
+        )
+    ],

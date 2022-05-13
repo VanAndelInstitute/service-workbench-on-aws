@@ -1,0 +1,12 @@
+<programlisting>
+class KinesisStream:
+    """Encapsulates a Kinesis stream."""
+    def __init__(self, kinesis_client):
+        """
+        :param kinesis_client: A Boto3 Kinesis client.
+        """
+        self.kinesis_client = kinesis_client
+        self.name = None
+        self.details = None
+        self.stream_exists_waiter = kinesis_client.get_waiter('stream_exists')
+</programlisting>

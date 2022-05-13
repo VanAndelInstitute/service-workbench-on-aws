@@ -1,0 +1,53 @@
+<!ENTITY fargate-quota-ondemand '<row>
+                            <entry>
+                                <para>Fargate On-Demand resource count</para>
+                            </entry>
+                            <entry>
+                                <para>The maximum number of &ECS; tasks and &EKS; pods running
+                                    concurrently on &FARGATE; in this account in the current
+                                    Region.</para>
+                            </entry>
+                            <entry>
+                                <para>500</para>
+                            </entry>
+                            <entry>Yes</entry>
+                        </row>' >
+<!ENTITY fargate-quota-spot '<row>
+                            <entry>
+                                <para>Fargate Spot resource count</para>
+                            </entry>
+                            <entry>
+                                <para>The maximum number of &ECS; tasks running concurrently on
+                                    Fargate Spot in this account in the current Region.</para>
+                            </entry>
+                            <entry>
+                                <para>500</para>
+                            </entry>
+                            <entry>Yes</entry>
+                        </row>'>
+<!ENTITY fargate-usage-metrics-alarm '<procedure>
+            <title>To create an alarm based on your &FARGATE; usage quotas (&console;)</title>
+            <step>&SQconsole_switch;</step>
+            <step>
+                <para>In the navigation pane, choose <guilabel>&AWS; services</guilabel>.</para>
+            </step>
+            <step>
+                <para>From the <guilabel>&AWS; services</guilabel> list, search for and select
+                        <guilabel>&FARGATElong;</guilabel>.</para>
+            </step>
+            <step>
+                <para>In the <guilabel>Service quotas</guilabel> list, select the &FARGATE; usage
+                    quota you want to create an alarm for.</para>
+            </step>
+            <step>
+                <para>In the &CWElong; alarms section, choose <guilabel>Create</guilabel>.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Alarm threshold</guilabel>, choose the percentage of your
+                    applied quota value that you want to set as the alarm value.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Alarm name</guilabel>, enter a name for the alarm and then
+                    choose <guilabel>Create</guilabel>.</para>
+            </step>
+        </procedure>'>

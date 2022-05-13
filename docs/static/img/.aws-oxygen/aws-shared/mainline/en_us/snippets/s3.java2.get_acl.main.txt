@@ -1,0 +1,23 @@
+    public static String getBucketACL(S3Client s3, String objectKey,String bucketName) {
+
+        try {
+            GetObjectAclRequest aclReq = GetObjectAclRequest.builder()
+                .bucket(bucketName)
+                .key(objectKey)
+                .build();
+
+            GetObjectAclResponse aclRes = s3.getObjectAcl(aclReq);
+            List<Grant> grants = aclRes.grants();
+            String grantee = "";
+            for (Grant grant : grants) {
+                System.out.format("  %s: %s\n", grant.grantee().id(),
+                        grant.permission());
+                grantee = grant.grantee().id();
+            }
+            return grantee;
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }

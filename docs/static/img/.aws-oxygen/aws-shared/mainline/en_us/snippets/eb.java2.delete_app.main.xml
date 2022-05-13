@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteApp(ElasticBeanstalkClient beanstalkClient, String appName) {
+
+        try {
+            DeleteApplicationRequest applicationRequest = DeleteApplicationRequest.builder()
+                    .applicationName(appName)
+                    .terminateEnvByForce(true)
+                    .build();
+
+            beanstalkClient.deleteApplication(applicationRequest);
+            System.out.println("The Elastic Beanstalk application was successfully deleted!");
+
+        } catch (ElasticBeanstalkException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

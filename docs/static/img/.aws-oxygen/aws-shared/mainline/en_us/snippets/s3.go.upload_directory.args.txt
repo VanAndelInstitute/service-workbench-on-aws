@@ -1,0 +1,8 @@
+    bucket := flag.String("b", "", "The name of the bucket")
+    directory := flag.String("d", "", "The directory to upload")
+    flag.Parse()
+
+    if *bucket == "" || *directory == "" {
+        fmt.Println("You must supply the bucket name (-b BUCKET) and directory path (-d DIRECTORY)")
+        return
+    }

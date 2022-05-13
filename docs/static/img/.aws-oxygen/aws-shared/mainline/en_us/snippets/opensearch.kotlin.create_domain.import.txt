@@ -1,0 +1,8 @@
+import aws.sdk.kotlin.services.opensearch.OpenSearchClient
+import aws.sdk.kotlin.services.opensearch.model.ClusterConfig
+import aws.sdk.kotlin.services.opensearch.model.OpenSearchPartitionInstanceType
+import aws.sdk.kotlin.services.opensearch.model.EbsOptions
+import aws.sdk.kotlin.services.opensearch.model.VolumeType
+import aws.sdk.kotlin.services.opensearch.model.NodeToNodeEncryptionOptions
+import aws.sdk.kotlin.services.opensearch.model.CreateDomainRequest
+import kotlin.system.exitProcess

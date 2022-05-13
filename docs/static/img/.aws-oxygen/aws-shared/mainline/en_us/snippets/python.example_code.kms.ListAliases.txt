@@ -1,0 +1,24 @@
+    def list_aliases(self):
+        """
+        Lists aliases for the current account.
+        """
+        answer = input("\nLet's list your key aliases. Ready (y/n)? ")
+        if answer.lower() == 'y':
+            try:
+                page_size = 10
+
+                alias_paginator = self.kms_client.get_paginator('list_aliases')
+                for alias_page in alias_paginator.paginate(PaginationConfig={'PageSize': 10}):
+                    print(f"Here are {page_size} aliases:")
+                    pprint(alias_page['Aliases'])
+                    if alias_page['Truncated']:
+                        answer = input(
+                            f"Do you want to see the next {page_size} aliases (y/n)? ")
+                        if answer.lower() != 'y':
+                            break
+                    else:
+                        print("That's all your aliases!")
+            except ClientError as err:
+                logging.error(
+                    "Couldn't list your aliases. Here's why: %s",
+                    err.response['Error']['Message'])

@@ -1,0 +1,22 @@
+<programlisting>
+def update_key(user_name, key_id, activate):
+    """
+    Updates the status of a key.
+
+    :param user_name: The user that owns the key.
+    :param key_id: The ID of the key to update.
+    :param activate: When True, the key is activated. Otherwise, the key is deactivated.
+    """
+
+    try:
+        key = iam.User(user_name).AccessKey(key_id)
+        if activate:
+            key.activate()
+        else:
+            key.deactivate()
+        logger.info("%s key %s.", 'Activated' if activate else 'Deactivated', key_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't %s key %s.", 'Activate' if activate else 'Deactivate', key_id)
+        raise
+</programlisting>

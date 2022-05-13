@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+%phrases-shared;           
+]>
+
+<chapter id="web-app-hosting-where-to-go">
+	<chapterinfo>
+		<abstract><para>Learn about some helpful AWS resources.</para></abstract>
+	</chapterinfo>
+	<title id="web-app-hosting-where-to-go.title">Related Resources</title>
+	
+	<para>The following table lists some of the AWS resources that you'll find useful as you work with AWS.</para>
+	
+	<informaltable>
+		<tgroup cols="2">
+			<colspec colnum="1" colname="col1" colwidth="1.0*"/>
+			<colspec colnum="2" colname="col2" colwidth="1.46*"/>
+			
+			<thead>
+				<row>
+					<entry>Resource</entry>
+					<entry>Description</entry>
+				</row>
+			</thead>
+			
+			<tbody>
+				<row>
+					<entry><para><ulink url="http://&awsdomain;/products/">AWS Products &amp; Services</ulink></para></entry>
+					<entry>
+						<para>Information about the products and services that AWS offers.</para> 
+					</entry>
+				</row>
+
+				<row>
+					<entry><para><ulink url="http://&awsdomain;/documentation/">AWS Documentation</ulink></para></entry>
+					<entry>
+						<para>Official documentation for each AWS product, including service introductions, service
+					        features, and API reference.</para> 
+					</entry>
+				</row>
+				
+				<row>
+					<entry>
+						<para><ulink url="&url-forum;">AWS Discussion Forums</ulink></para>
+					</entry>
+					<entry>
+						<para>Community-based forums for discussing technical questions about Amazon Web Services. </para>
+					</entry>
+				</row>
+
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/contact-us/">Contact Us</ulink></para>
+					</entry>
+					<entry>
+						<para>A central contact point for account questions such as billing, events, and abuse. 
+							For technical questions, use the forums.</para>
+					</entry>
+				</row>
+
+				<row>
+                	<entry>
+                		<para><ulink url="&url-aws-support-center;">AWS Support Center</ulink></para>
+                	</entry>
+                	<entry>
+                		<para>The hub for creating and managing your AWS Support cases. Also includes links to
+                		    other helpful resources, such as forums, technical FAQs, service health status,
+                		    and &AWS-TA-long;.</para>
+                	</entry>
+                </row>
+				<row>
+					<entry>
+						<para><ulink url="&url-premium;">AWS Support</ulink></para>
+					</entry>
+					<entry>
+						<para>The home page for AWS Support, a one-on-one, fast-response support channel 
+							to help you build and run applications in the cloud.</para>
+					</entry>
+				</row>
+				
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/architecture/">AWS Architecture Center</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides the necessary guidance and best practices to build highly scalable and reliable
+						    applications in the AWS cloud. These resources help you understand the AWS
+						    platform, its services and features. They also provide architectural
+						    guidance for design and implementation of systems that run on the AWS
+						    infrastructure.</para> 
+					</entry>
+				</row>
+
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/security/">AWS Security Center</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides information about security features and resources.</para>
+					</entry>
+				</row>
+				
+				
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/economics/">AWS Economics Center</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides access to information, tools, and resources to compare the costs of Amazon
+							Web Services with IT infrastructure alternatives. </para>
+					</entry>
+				</row>
+				
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/whitepapers/">AWS Technical Whitepapers</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides technical whitepapers that cover topics such as
+							architecture, security, and economics. These whitepapers have been
+							written by the Amazon team, customers, and solution providers. </para>
+					</entry>
+				</row>
+				
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/blogs/aws/">AWS Blogs</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides blog posts that cover new services and updates to existing services.</para>
+					</entry>
+				</row>
+				
+				<row>
+					<entry>
+						<para><ulink url="http://&awsdomain;/podcasts/aws-podcast/">AWS Podcast</ulink></para>
+					</entry>
+					<entry>
+						<para>Provides podcasts that cover new services, existing services, and tips.</para>
+					</entry>
+				</row>
+				
+			</tbody>
+		</tgroup>
+	</informaltable>
+	
+</chapter>

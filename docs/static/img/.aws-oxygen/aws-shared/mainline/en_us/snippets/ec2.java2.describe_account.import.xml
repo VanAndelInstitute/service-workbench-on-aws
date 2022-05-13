@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ec2.Ec2Client;
+import software.amazon.awssdk.services.ec2.model.AccountAttribute;
+import software.amazon.awssdk.services.ec2.model.AccountAttributeValue;
+import software.amazon.awssdk.services.ec2.model.DescribeAccountAttributesResponse;
+import software.amazon.awssdk.services.ec2.model.Ec2Exception;
+import java.util.List;
+import java.util.ListIterator;
+</programlisting>

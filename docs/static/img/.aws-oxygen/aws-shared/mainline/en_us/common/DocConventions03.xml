@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+]>
+
+<chapter id="docconventions">
+	<info>
+		<abstract>
+			<para>Lists the common typographical conventions for AWS technical publications.</para>
+		</abstract>
+	    <title id="docconventions.title">Document Conventions</title>
+    </info>
+
+	<para>The following are the common typographical conventions for AWS technical publications.</para>
+
+    <variablelist role="termdef">
+    	<varlistentry>
+    		<term>Inline code (for example, commands, operations, parameters, constants, XML elements, and
+				regular expressions)</term>
+    		<listitem>
+    			<para>Formatting: Text in a monospace font</para>
+    			<para>Example: <code>java -version</code></para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Example blocks (for example, sample code and scripts)</term>
+    		<listitem>
+    		    <para>Formatting: Text in a monospace font inside a shaded block</para>
+    		    <para>Example:</para>
+    			<programlisting># ls -l /var/www/html/index.html
+-rw-rw-r--  1 root root 1872 Jun 21 09:33 /var/www/html/index.html
+# date
+Wed Jun 21 09:33:42 EDT 2006</programlisting>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Mutually exclusive options</term>
+    		<listitem>
+    		    <para>Formatting: Text separated by vertical bars</para>
+    		    <para>Example: <code>(start | stride | edge)</code></para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Optional parameters</term>
+    		<listitem>
+    		    <para>Formatting: Text enclosed in square brackets</para>
+    		    <para>Example: <code>[-n, -quiet]</code></para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Definitions</term>
+    		<listitem>
+    		    <para>Formatting: Text in italics</para>
+    		    <para>Example: <emphasis>Amazon Machine Image</emphasis> (AMI)</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Technical publications</term>
+    		<listitem>
+    		    <para>Formatting: Text in italics</para>
+    		    <para>Example: <emphasis>&guide-s3-dev;</emphasis></para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Elements in the user interface</term>
+    		<listitem>
+    		    <para>Formatting: Text in bold</para>
+    		    <para>Example: Choose <guilabel>File</guilabel>, <guilabel>Properties</guilabel>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>User input (text that a user types)</term>
+    		<listitem>
+    		    <para>Formatting: Text in a monospace font</para>
+    		    <para>Example: For the name, type <userinput>my-new-resource</userinput>.</para>
+    		</listitem>
+    	</varlistentry>
+    	<varlistentry>
+    		<term>Placeholder text for a required value</term>
+    		<listitem>
+    		    <para>Formatting: Text in red italics</para>
+    		    <para>Example:</para>
+    			<programlisting>aws ec2 register-image --image-location &example-s3-bucket;/image.manifest.xml</programlisting>
+    		</listitem>
+    	</varlistentry>
+    </variablelist>
+
+</chapter>

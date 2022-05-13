@@ -1,0 +1,16 @@
+// Create a PollyClient
+$client = new Aws\Polly\PollyClient([
+    'profile' => 'default',
+    'version' => '2016-06-10',
+    'region' => 'us-east-2'
+]);
+
+
+try {
+    $result = $client->listLexicons([]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}

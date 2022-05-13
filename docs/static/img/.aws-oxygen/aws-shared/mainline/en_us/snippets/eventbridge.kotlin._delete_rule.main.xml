@@ -1,0 +1,20 @@
+<programlisting>
+suspend fun deleteEBRule(ruleName: String) {
+
+        val request =  DisableRuleRequest {
+            name = ruleName
+            eventBusName = "default"
+        }
+
+        EventBridgeClient { region = "us-west-2" }.use { eventBrClient ->
+            eventBrClient.disableRule(request)
+            val ruleRequest = DeleteRuleRequest {
+                name = ruleName
+                eventBusName = "default"
+            }
+
+            eventBrClient.deleteRule(ruleRequest)
+            println("Rule $ruleName was successfully deleted!")
+        }
+}
+</programlisting>

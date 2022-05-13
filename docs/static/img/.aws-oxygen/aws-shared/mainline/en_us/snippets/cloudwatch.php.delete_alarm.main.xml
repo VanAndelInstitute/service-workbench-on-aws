@@ -1,0 +1,33 @@
+<programlisting>
+function deleteAlarms($cloudWatchClient, $alarmNames)
+{
+    try {
+        $result = $cloudWatchClient->deleteAlarms([
+            'AlarmNames' => $alarmNames
+        ]);
+
+        return 'The specified alarms at the following effective URI have ' . 
+            'been deleted or do not currently exist: ' . 
+            $result['@metadata']['effectiveUri'];
+
+    } catch (AwsException $e) {
+        return 'Error: ' . $e->getAwsErrorMessage();
+    }
+}
+
+function deleteTheAlarms()
+{
+    $alarmNames = array('my-alarm');
+    
+    $cloudWatchClient = new CloudWatchClient([
+        'profile' => 'default',
+        'region' => 'us-east-1',
+        'version' => '2010-08-01'
+    ]);
+
+    echo deleteAlarms($cloudWatchClient, $alarmNames);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// deleteTheAlarms();
+</programlisting>

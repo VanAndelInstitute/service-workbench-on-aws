@@ -1,0 +1,47 @@
+function signCookie($cloudFrontClient, $resourceKey, $expires, 
+    $privateKey, $keyPairId)
+{
+    try {
+        $result = $cloudFrontClient->getSignedCookie([
+            'url' => $resourceKey,
+            'expires' => $expires, 
+            'private_key' => $privateKey,
+            'key_pair_id' => $keyPairId
+        ]);
+
+        return $result;
+
+    } catch (AwsException $e) {
+        return [ 'Error' => $e->getAwsErrorMessage() ];
+    }
+}
+
+function signACookie()
+{
+    $resourceKey = 'https://d13l49jEXAMPLE.cloudfront.net/my-file.txt';
+    $expires = time() + 300; // 5 minutes (5 * 60 seconds) from now.
+    $privateKey = dirname(__DIR__) . '/cloudfront/my-private-key.pem';
+    $keyPairId = 'AAPKAJIKZATYYYEXAMPLE';
+
+    $cloudFrontClient = new CloudFrontClient([
+        'profile' => 'default',
+        'version' => '2014-11-06',
+        'region' => 'us-east-1'
+    ]);
+
+    $result = signCookie($cloudFrontClient, $resourceKey, $expires, 
+        $privateKey, $keyPairId);
+
+    /* If successful, returns something like:
+    CloudFront-Expires = 1589926678
+    CloudFront-Signature = Lv1DyC2q...2HPXaQ__
+    CloudFront-Key-Pair-Id = AAPKAJIKZATYYYEXAMPLE
+    */
+    foreach($result as $key => $value)
+    {
+        echo $key . ' = ' . $value . "\n";
+    }
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// signACookie();

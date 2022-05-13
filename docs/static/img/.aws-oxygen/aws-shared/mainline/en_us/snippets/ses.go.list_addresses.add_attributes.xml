@@ -1,0 +1,7 @@
+<programlisting>
+        for _, va := range verified.VerificationAttributes {
+            if *va.VerificationStatus == "Success" {
+                addresses = append(addresses, *email)
+            }
+        }
+</programlisting>

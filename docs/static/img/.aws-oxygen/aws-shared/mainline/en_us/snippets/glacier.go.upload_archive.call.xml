@@ -1,0 +1,9 @@
+<programlisting>
+    fileBytes := bytes.NewReader(buffer)
+
+    result, err := svc.UploadArchive(&glacier.UploadArchiveInput{
+        AccountId: aws.String("-"), // use current account
+        VaultName: vaultName,
+        Body:      fileBytes,
+    })
+</programlisting>

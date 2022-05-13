@@ -1,0 +1,24 @@
+    public static void getSpecificDatabase(GlueClient glueClient, String databaseName) {
+
+      try {
+            GetDatabaseRequest databasesRequest = GetDatabaseRequest.builder()
+                .name(databaseName)
+                .build();
+
+            GetDatabaseResponse response = glueClient.getDatabase(databasesRequest);
+            Instant createDate = response.database().createTime();
+
+            // Convert the Instant to readable date
+            DateTimeFormatter formatter =
+                    DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
+                            .withLocale( Locale.US)
+                            .withZone( ZoneId.systemDefault() );
+
+            formatter.format( createDate );
+            System.out.println("The create date of the database is " + createDate );
+
+          } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,23 @@
+<programlisting>
+        // Use subscriber
+        publisher.subscribe(new Subscriber<String>() {
+            private Subscription subscription;
+
+            @Override
+            public void onSubscribe(Subscription s) {
+                subscription = s;
+                subscription.request(1);
+            }
+
+            @Override
+            public void onNext(String tableName) {
+                System.out.println(tableName);
+                subscription.request(1);
+            }
+
+            @Override
+            public void onError(Throwable t) { }
+
+            @Override
+            public void onComplete() { }
+</programlisting>

@@ -1,0 +1,6 @@
+<programlisting>
+new s3.Bucket(this, 'MyFirstBucket', {
+  versioned: true,
+  encryption: s3.BucketEncryption.KMS_MANAGED
+});
+</programlisting>

@@ -1,0 +1,20 @@
+class SesTemplate:
+    """Encapsulates Amazon SES template functions."""
+    def __init__(self, ses_client):
+        """
+        :param ses_client: A Boto3 Amazon SES client.
+        """
+        self.ses_client = ses_client
+        self.template = None
+        self.template_tags = set()
+
+    def _extract_tags(self, subject, text, html):
+        """
+        Extracts tags from a template as a set of unique values.
+
+        :param subject: The subject of the email.
+        :param text: The text version of the email.
+        :param html: The html version of the email.
+        """
+        self.template_tags = set(re.findall(TEMPLATE_REGEX, subject + text + html))
+        logger.info("Extracted template tags: %s", self.template_tags)

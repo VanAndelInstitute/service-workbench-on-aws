@@ -1,0 +1,9 @@
+<programlisting>
+#include <aws/core/Aws.h>
+#include <aws/s3/S3Client.h>
+#include <aws/s3/model/IndexDocument.h>
+#include <aws/s3/model/ErrorDocument.h>
+#include <aws/s3/model/WebsiteConfiguration.h>
+#include <aws/s3/model/PutBucketWebsiteRequest.h>
+#include <awsdoc/s3/s3_examples.h>
+</programlisting>

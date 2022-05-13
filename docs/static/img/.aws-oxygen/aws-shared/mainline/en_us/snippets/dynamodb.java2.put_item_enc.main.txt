@@ -1,0 +1,52 @@
+   public static void putItemInTable(DynamoDbClient ddb,
+                                      KmsClient kmsClient,
+                                      String tableName,
+                                      String key,
+                                      String keyVal,
+                                      String albumTitle,
+                                      String albumTitleValue,
+                                      String awards,
+                                      String awardVal,
+                                      String songTitle,
+                                      String songTitleVal,
+                                      String keyId ){
+
+        HashMap<String,AttributeValue> itemValues = new HashMap<String,AttributeValue>();
+
+        // Encrypt the albumTitleValue before writing it to the table.
+        SdkBytes myBytes = SdkBytes.fromUtf8String(albumTitleValue);
+
+        EncryptRequest encryptRequest = EncryptRequest.builder()
+                .keyId(keyId)
+                .plaintext(myBytes)
+                .build();
+
+        EncryptResponse response = kmsClient.encrypt(encryptRequest);
+
+        // Get the encrypted data.
+        SdkBytes encryptedData = response.ciphertextBlob();
+
+        // Add content to the table.
+        itemValues.put(key, AttributeValue.builder().s(keyVal).build());
+        itemValues.put(songTitle, AttributeValue.builder().s(songTitleVal).build());
+        itemValues.put(albumTitle, AttributeValue.builder().bs(encryptedData).build());
+        itemValues.put(awards, AttributeValue.builder().s(awardVal).build());
+
+        PutItemRequest request = PutItemRequest.builder()
+                .tableName(tableName)
+                .item(itemValues)
+                .build();
+
+        try {
+            ddb.putItem(request);
+            System.out.println(tableName +" was successfully updated");
+
+        } catch (ResourceNotFoundException e) {
+            System.err.format("Error: The Amazon DynamoDB table \"%s\" can't be found.\n", tableName);
+            System.err.println("Be sure that it exists and that you've typed its name correctly!");
+            System.exit(1);
+        } catch (DynamoDbException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

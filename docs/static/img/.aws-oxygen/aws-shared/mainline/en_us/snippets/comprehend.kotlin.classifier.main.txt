@@ -1,0 +1,18 @@
+suspend fun createDocumentClassifier(dataAccessRoleArnVal: String, s3UriVal: String, documentClassifierNameVal: String) {
+
+    val config = DocumentClassifierInputDataConfig {
+        s3Uri = s3UriVal
+    }
+    val request = CreateDocumentClassifierRequest {
+        documentClassifierName = documentClassifierNameVal
+        dataAccessRoleArn = dataAccessRoleArnVal
+        languageCode = LanguageCode.fromValue("en")
+        inputDataConfig = config
+    }
+
+    ComprehendClient { region = "us-east-1" }.use { comClient ->
+      val resp = comClient.createDocumentClassifier(request)
+      val documentClassifierArn = resp.documentClassifierArn
+      println("Document Classifier ARN is $documentClassifierArn")
+     }
+  }

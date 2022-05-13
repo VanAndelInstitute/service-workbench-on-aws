@@ -1,0 +1,10 @@
+<programlisting>
+    recipient := flag.String("r", "", "The email address of the recipient")
+    flag.Parse()
+
+    if *recipient == "" {
+        fmt.Println("You must supply an email address for the recipient")
+        fmt.Println("-r RECIPIENT")
+        return
+    }
+</programlisting>

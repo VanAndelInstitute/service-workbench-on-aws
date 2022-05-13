@@ -1,0 +1,12 @@
+try {
+    $folder = "copied-folder";
+    $s3client->copyObject([
+        'Bucket' => $bucket_name,
+        'CopySource' => "$bucket_name/$file_name",
+        'Key' => "$folder/$file_name-copy",
+    ]);
+    echo "Copied $file_name to $folder/$file_name-copy.\n";
+} catch (Exception $exception) {
+    echo "Failed to copy $file_name with error: " . $exception->getMessage();
+    exit("Please fix error with object copying before continuing.");
+}

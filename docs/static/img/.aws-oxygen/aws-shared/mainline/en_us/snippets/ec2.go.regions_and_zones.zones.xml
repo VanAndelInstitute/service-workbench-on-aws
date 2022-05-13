@@ -1,0 +1,3 @@
+<programlisting>
+    resultAvalZones, err := svc.DescribeAvailabilityZones(nil)
+</programlisting>

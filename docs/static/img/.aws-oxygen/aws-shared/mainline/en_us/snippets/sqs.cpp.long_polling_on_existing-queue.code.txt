@@ -1,0 +1,20 @@
+        Aws::SQS::SQSClient sqs;
+
+        Aws::SQS::Model::SetQueueAttributesRequest request;
+        request.SetQueueUrl(queue_url);
+        request.AddAttributes(
+            Aws::SQS::Model::QueueAttributeName::ReceiveMessageWaitTimeSeconds,
+            poll_time);
+
+        auto outcome = sqs.SetQueueAttributes(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "Successfully updated long polling time for queue " <<
+                queue_url << " to " << poll_time << std::endl;
+        }
+        else
+        {
+            std::cout << "Error updating long polling time for queue " <<
+                queue_url << ": " << outcome.GetError().GetMessage() <<
+                std::endl;
+        }

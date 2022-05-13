@@ -1,0 +1,12 @@
+suspend fun getSlotsInfo() {
+
+    LexModelBuildingClient { region = "us-west-2" }.use { lexClient ->
+
+        val response = lexClient.getSlotTypes(GetSlotTypesRequest{ })
+        response.slotTypes?.forEach { slot ->
+              println("Slot name is ${slot.name}.")
+              println("Slot description is ${slot.description}.")
+              println("Slot version is ${slot.version}.")
+       }
+    }
+}

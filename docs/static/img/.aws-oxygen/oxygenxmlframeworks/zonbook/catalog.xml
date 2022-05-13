@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+
+  <!-- This catalog file is for use with Oxygen XML Editor -->
+
+  <public publicId="-//AWS//DTD ZonBook XML 4.0//EN" uri="file:dtd/docbookx.dtd"/>
+  <public publicId="-//OASIS//DTD DocBook XML V4.5//EN" uri="file:dtd/docbookx.dtd"/>
+
+  <rewriteURI uriStartString="file://zonbook/" rewritePrefix="file:dtd/"/>
+  <rewriteURI uriStartString="file://zonbook-xml/" rewritePrefix="file:dtd/"/>
+
+  <rewriteSystem systemIdStartString="file://AWSShared/" rewritePrefix="file:../../aws-shared/mainline/en_us/"/>
+  <rewriteSystem systemIdStartString="file://AWSSharedLoc/" rewritePrefix="file:../../aws-shared/mainline/en_us/"/>
+
+  <!-- This works around a bug in Oxygen where included files in a programlisting are not found in Author mode. -->
+  <rewriteSystem systemIdStartString="file:////AWSShared/" rewritePrefix="file:../../aws-shared/mainline/en_us/"/>
+
+  <!-- ...................................................................... -->
+  <!-- DocBook modules ...................................................... -->
+
+  <public publicId="-//AWS//ELEMENTS ZonBook V4.5//EN"
+          uri="file:dtd/zonbook.mod"/>
+
+  <public publicId="-//OASIS//DTD DocBook CALS Table Model V4.5//EN"
+          uri="file:dtd/calstblx.dtd"/>
+
+  <public publicId="-//OASIS//ELEMENTS DocBook XML HTML Tables V4.5//EN"
+          uri="file:dtd/htmltblx.mod"/>
+
+  <public publicId="-//OASIS//ENTITIES DocBook Notations V4.5//EN" uri="file:dtd/dbnotnx.mod"/>
+
+  <public publicId="-//OASIS//ENTITIES DocBook Character Entities V4.5//EN"
+          uri="file:dtd/dbcentx.mod"/>
+
+  <!-- ...................................................................... -->
+  <!-- ISO entity sets ...................................................... -->
+
+  <public publicId="ISO 8879:1986//ENTITIES Diacritical Marks//EN//XML"
+          uri="file:dtd/ent/isodia.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN//XML"
+          uri="file:dtd/ent/isonum.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Publishing//EN//XML" uri="file:dtd/ent/isopub.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES General Technical//EN//XML"
+          uri="file:dtd/ent/isotech.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Latin 1//EN//XML" uri="file:dtd/ent/isolat1.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Latin 2//EN//XML" uri="file:dtd/ent/isolat2.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Greek Letters//EN//XML" uri="file:dtd/ent/isogrk1.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Monotoniko Greek//EN//XML"
+          uri="file:dtd/ent/isogrk2.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Greek Symbols//EN//XML" uri="file:dtd/ent/isogrk3.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Alternative Greek Symbols//EN//XML"
+          uri="file:dtd/ent/isogrk4.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN//XML"
+          uri="file:dtd/ent/isoamsa.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN//XML"
+          uri="file:dtd/ent/isoamsb.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Delimiters//EN//XML"
+          uri="file:dtd/ent/isoamsc.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Negated Relations//EN//XML"
+          uri="file:dtd/ent/isoamsn.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Ordinary//EN//XML"
+          uri="file:dtd/ent/isoamso.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Relations//EN//XML"
+          uri="file:dtd/ent/isoamsr.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Box and Line Drawing//EN//XML"
+          uri="file:dtd/ent/isobox.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Russian Cyrillic//EN//XML"
+          uri="file:dtd/ent/isocyr1.ent"/>
+
+  <public publicId="ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN//XML"
+          uri="file:dtd/ent/isocyr2.ent"/>
+
+  <!-- End of catalog data for DocBook XML V4.5 ............................. -->
+  <!-- ...................................................................... -->
+
+  <rewriteSystem systemIdStartString="http://www.oasis-open.org/docbook/xml/4.5/"
+                 rewritePrefix="file:dtd/"/>
+  <rewriteSystem systemIdStartString="http://docbook.org/xml/4.5/" rewritePrefix="file:dtd/"/>
+  <rewriteSystem systemIdStartString="http://www.docbook.org/xml/4.5/" rewritePrefix="file:dtd/"/>
+
+</catalog>

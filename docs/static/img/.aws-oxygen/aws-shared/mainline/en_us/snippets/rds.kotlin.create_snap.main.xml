@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun createSnapshot(dbInstanceIdentifierVal: String?, dbSnapshotIdentifierVal: String?) {
+
+    val snapshotRequest = CreateDbSnapshotRequest {
+        dbInstanceIdentifier = dbInstanceIdentifierVal
+        dbSnapshotIdentifier = dbSnapshotIdentifierVal
+    }
+
+    RdsClient { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.createDbSnapshot(snapshotRequest)
+        print("The Snapshot id is ${response.dbSnapshot?.dbiResourceId}")
+    }
+}
+</programlisting>

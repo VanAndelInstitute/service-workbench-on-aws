@@ -1,0 +1,13 @@
+<programlisting>
+    def delete(self):
+        """
+        Delete the bucket. The bucket must be empty or an error is raised.
+        """
+        try:
+            self.bucket.delete()
+            self.bucket.wait_until_not_exists()
+            logger.info("Bucket %s successfully deleted.", self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't delete bucket %s.", self.bucket.name)
+            raise
+</programlisting>

@@ -1,0 +1,25 @@
+    public static void putSubFilters(CloudWatchLogsClient cwl,
+                                     String filter,
+                                     String pattern,
+                                     String logGroup,
+                                     String functionArn) {
+
+        try {
+            PutSubscriptionFilterRequest request =
+                    PutSubscriptionFilterRequest.builder()
+                            .filterName(filter)
+                            .filterPattern(pattern)
+                            .logGroupName(logGroup)
+                            .destinationArn(functionArn)
+                            .build();
+
+            cwl.putSubscriptionFilter(request);
+            System.out.printf(
+                    "Successfully created CloudWatch logs subscription filter %s",
+                    filter);
+
+        } catch (CloudWatchLogsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

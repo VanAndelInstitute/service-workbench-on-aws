@@ -1,0 +1,10 @@
+<programlisting>
+import aws.sdk.kotlin.services.forecast.ForecastClient
+import aws.sdk.kotlin.services.forecast.model.Schema
+import aws.sdk.kotlin.services.forecast.model.SchemaAttribute
+import aws.sdk.kotlin.services.forecast.model.CreateDatasetRequest
+import aws.sdk.kotlin.services.forecast.model.Domain
+import aws.sdk.kotlin.services.forecast.model.AttributeType
+import aws.sdk.kotlin.services.forecast.model.DatasetType
+import kotlin.system.exitProcess
+</programlisting>

@@ -1,0 +1,18 @@
+    def add_rest_resource(self, parent_id, resource_path):
+        """
+        Adds a resource to a REST API.
+
+        :param parent_id: The ID of the parent resource.
+        :param resource_path: The path of the new resource, relative to the parent.
+        :return: The ID of the new resource.
+        """
+        try:
+            result = self.apig_client.create_resource(
+                restApiId=self.api_id, parentId=parent_id, pathPart=resource_path)
+            resource_id = result['id']
+            logger.info("Created resource %s.", resource_path)
+        except ClientError:
+            logger.exception("Couldn't create resource %s.", resource_path)
+            raise
+        else:
+            return resource_id

@@ -1,0 +1,11 @@
+<programlisting>
+    defer file.Close()
+
+    fileInfo, _ := file.Stat()
+    var size int64 = fileInfo.Size()
+
+    buffer := make([]byte, size)
+
+    // read file content to buffer
+    _, err = file.Read(buffer)
+</programlisting>

@@ -1,0 +1,23 @@
+<programlisting>
+async fn save_bucket(
+    client: &aws_sdk_s3::Client,
+    body: aws_sdk_s3::types::ByteStream,
+    bucket: &str,
+    content_type: &str,
+    key: &str,
+) -> Result<(), aws_sdk_s3::Error> {
+    client
+        .put_object()
+        .body(body)
+        .bucket(bucket)
+        .content_type(content_type)
+        .key(key)
+        .send()
+        .await?;
+
+    println!("Added file to bucket.");
+    println!();
+
+    Ok(())
+}
+</programlisting>

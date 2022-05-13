@@ -1,0 +1,59 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/cloudformation"
+    "github.com/aws/aws-sdk-go/service/cloudformation/cloudformationiface"
+)
+
+// RemoveStack deletes an AWS CloudFormation stack
+// Inputs:
+//     svc is an AWS CloudFormation service client
+//     stackName is the name of the new stack
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to DeleteStack
+func RemoveStack(svc cloudformationiface.CloudFormationAPI, stackName *string) error {
+    _, err := svc.DeleteStack(&cloudformation.DeleteStackInput{
+        StackName: stackName,
+    })
+
+    return err
+}
+
+func main() {
+    stackName := flag.String("n", "", "The name of the stack to create or delete")
+    flag.Parse()
+
+    if *stackName == "" {
+        fmt.Println("You must supply a stack name (-s STACK-NAME)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := cloudformation.New(sess)
+
+    err := RemoveStack(svc, stackName)
+    if err != nil {
+        fmt.Println("Got an error deleting stack " + *stackName)
+        return
+    }
+
+    err = svc.WaitUntilStackDeleteComplete(&cloudformation.DescribeStacksInput{
+        StackName: stackName,
+    })
+    if err != nil {
+        fmt.Println("Got an error waiting for stack to be deleted")
+        return
+    }
+
+    fmt.Println("Deleted stack " + *stackName)
+}
+</programlisting>

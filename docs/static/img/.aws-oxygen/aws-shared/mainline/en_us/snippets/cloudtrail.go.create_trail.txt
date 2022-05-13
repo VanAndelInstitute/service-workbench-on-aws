@@ -1,0 +1,15 @@
+func CreateTrail(sess *session.Session, trailName string, bucketName string) error {
+    svc := cloudtrail.New(sess)
+
+    ctInput := &cloudtrail.CreateTrailInput{
+        Name:         aws.String(trailName),
+        S3BucketName: aws.String(bucketName),
+    }
+
+    _, err := svc.CreateTrail(ctInput)
+    if err != nil {
+        return err
+    }
+
+    return nil
+}

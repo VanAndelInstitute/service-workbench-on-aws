@@ -1,0 +1,6 @@
+<programlisting>
+require 'vendor/autoload.php';
+
+use Aws\ElasticTranscoder\ElasticTranscoderClient;
+use Aws\Exception\AwsException;
+</programlisting>

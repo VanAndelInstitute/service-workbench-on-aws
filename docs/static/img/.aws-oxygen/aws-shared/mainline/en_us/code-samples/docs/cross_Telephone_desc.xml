@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code example shows how to:</para>
+    <itemizedlist>
+        <listitem><para>Use &POLlong; to synthesize a plain text (UTF-8) input file to an audio file.</para></listitem>
+        <listitem><para>Upload the audio file to an &S3long; (&S3;) bucket.</para></listitem>
+        <listitem><para>Use &TSClong; to convert the audio file to text.</para></listitem>
+        <listitem><para>Display the text.</para></listitem>
+    </itemizedlist>
+</block>

@@ -1,0 +1,2 @@
+// So we can refer to the S3 package as s3 for the rest of the example.
+use aws_sdk_s3 as s3;

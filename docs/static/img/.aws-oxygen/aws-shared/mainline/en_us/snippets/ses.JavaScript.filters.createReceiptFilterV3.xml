@@ -1,0 +1,26 @@
+<programlisting>
+// Import required AWS SDK clients and commands for Node.js
+import { CreateReceiptFilterCommand } from "@aws-sdk/client-ses";
+import { sesClient } from "./libs/sesClient.js";
+// Set the parameters
+const params = {
+  Filter: {
+    IpFilter: {
+      Cidr: "IP_ADDRESS_OR_RANGE", // (in code; either a single IP address (10.0.0.1) or an IP address range in CIDR notation (10.0.0.1/24)),
+      Policy: "POLICY", // 'ALLOW' or 'BLOCK' email traffic from the filtered addressesOptions.
+    },
+    Name: "NAME" // NAME (the filter name)
+  },
+};
+
+const run = async () => {
+  try {
+    const data = await sesClient.send(new CreateReceiptFilterCommand(params));
+    console.log("Success", data);
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error", err.stack);
+  }
+};
+run();
+</programlisting>

@@ -1,0 +1,15 @@
+<programlisting>
+using System;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+
+var client = new AmazonIdentityManagementServiceClient();
+
+var response = await client.ListSAMLProvidersAsync(new ListSAMLProvidersRequest());
+
+response.SAMLProviderList.ForEach(samlProvider =>
+{
+    Console.WriteLine($"{samlProvider.Arn} created on: {samlProvider.CreateDate}");
+});
+
+</programlisting>

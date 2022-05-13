@@ -1,0 +1,11 @@
+    Aws::IAM::Model::CreateUserRequest create_request;
+    create_request.SetUserName(user_name);
+
+    auto create_outcome = iam.CreateUser(create_request);
+    if (!create_outcome.IsSuccess())
+    {
+        std::cout << "Error creating IAM user " << user_name << ":" <<
+            create_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+    std::cout << "Successfully created IAM user " << user_name << std::endl;

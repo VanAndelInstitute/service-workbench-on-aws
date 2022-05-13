@@ -1,0 +1,106 @@
+def setup(iam_resource):
+    """
+    Creates a new user with no permissions.
+    Creates a new virtual MFA device.
+    Displays the QR code to seed the device.
+    Asks for two codes from the MFA device.
+    Registers the MFA device for the user.
+    Creates an access key pair for the user.
+    Creates a role with a policy that lets the user assume the role and requires MFA.
+    Creates a policy that allows listing Amazon S3 buckets.
+    Attaches the policy to the role.
+    Creates an inline policy for the user that lets the user assume the role.
+
+    For demonstration purposes, the user is created in the same account as the role,
+    but in practice the user would likely be from another account.
+
+    Any MFA device that can scan a QR code will work with this demonstration.
+    Common choices are mobile apps like LastPass Authenticator,
+    Microsoft Authenticator, or Google Authenticator.
+
+    :param iam_resource: A Boto3 AWS Identity and Access Management (IAM) resource
+                         that has permissions to create users, roles, and policies
+                         in the account.
+    :return: The newly created user, user key, virtual MFA device, and role.
+    """
+    user = iam_resource.create_user(UserName=unique_name('user'))
+    print(f"Created user {user.name}.")
+
+    virtual_mfa_device = iam_resource.create_virtual_mfa_device(
+        VirtualMFADeviceName=unique_name('mfa'))
+    print(f"Created virtual MFA device {virtual_mfa_device.serial_number}")
+
+    print(f"Showing the QR code for the device. Scan this in the MFA app of your "
+          f"choice.")
+    with open('qr.png', 'wb') as qr_file:
+        qr_file.write(virtual_mfa_device.qr_code_png)
+    webbrowser.open(qr_file.name)
+
+    print(f"Enter two consecutive code from your MFA device.")
+    mfa_code_1 = input("Enter the first code: ")
+    mfa_code_2 = input("Enter the second code: ")
+    user.enable_mfa(
+        SerialNumber=virtual_mfa_device.serial_number,
+        AuthenticationCode1=mfa_code_1,
+        AuthenticationCode2=mfa_code_2)
+    os.remove(qr_file.name)
+    print(f"MFA device is registered with the user.")
+
+    user_key = user.create_access_key_pair()
+    print(f"Created access key pair for user.")
+
+    print(f"Wait for user to be ready.", end='')
+    progress_bar(10)
+
+    role = iam_resource.create_role(
+        RoleName=unique_name('role'),
+        AssumeRolePolicyDocument=json.dumps({
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Principal': {'AWS': user.arn},
+                    'Action': 'sts:AssumeRole',
+                    'Condition': {'Bool': {'aws:MultiFactorAuthPresent': True}}
+                }
+            ]
+        })
+    )
+    print(f"Created role {role.name} that requires MFA.")
+
+    policy = iam_resource.create_policy(
+        PolicyName=unique_name('policy'),
+        PolicyDocument=json.dumps({
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Action': 's3:ListAllMyBuckets',
+                    'Resource': 'arn:aws:s3:::*'
+                }
+            ]
+        })
+    )
+    role.attach_policy(PolicyArn=policy.arn)
+    print(f"Created policy {policy.policy_name} and attached it to the role.")
+
+    user.create_policy(
+        PolicyName=unique_name('user-policy'),
+        PolicyDocument=json.dumps({
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Action': 'sts:AssumeRole',
+                    'Resource': role.arn
+                }
+            ]
+        })
+    )
+    print(f"Created an inline policy for {user.name} that lets the user assume "
+          f"the role.")
+
+    print("Give AWS time to propagate these new resources and connections.", end='')
+    progress_bar(10)
+
+    return user, user_key, virtual_mfa_device, role

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?template version="1.0-Oxygen" service="//Security//" type="compliance-validation" origin="oxygen" value="csctemplate-awsdocs-compliance-1.0-oxygen"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;     
+    <!ENTITY SERVICENAMElong '&AWS; SERVICE LEGAL NAME'>
+<!ENTITY SERVICENAME 'SERVICE SHORTNAME'>
+]>
+
+<!--TODO: REPLACE SERVICE NAME ENTITIES WITH REAL SERVICE NAME-->
+<!--The text in this template has been approved by the security and compliance team, therefore we highly recommend that you use this text as-is. However, if you have good reason to alter the wording for your specific service, you can.--> 
+<!--The marketing sites vary considerably for BJS, DCA, and LCK. Verify any new links -->
+<!--SEA/IAD: https://aws.amazon.com/ -->
+<!--BJS: http://www.amazonaws.cn/ -->
+<!--DCA: http://aws-mktg-site-hz-mvp-prod.amazon.com/ -->
+<!--LCK. https://aws-lck-live.aka.amazon.com/ -->
+
+<section id="SERVICENAME-compliance" role="topic">
+    <info><title id="SERVICENAME-compliance.title">Compliance Validation for &SERVICENAMElong;</title>
+        <titleabbrev>Compliance Validation</titleabbrev>
+        <abstract>
+            <para>Learn what &AWS; services are in scope of a specific compliance program.</para>
+        </abstract>
+    </info>
+    <para>Third-party auditors assess the security and compliance of &SERVICENAMElong; as part of
+        multiple &AWS; compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and
+        others.</para> 
+    <!-- TODO: Change the above paragraph to only include programs that are applicable to your service (see https://aws.amazon.com/compliance/services-in-scope/ to find out). If not any, state that: Service name is not in scope of any AWS compliance programs. Your compliance responsibility when using service name …. “  (List out any compliance best practices for that service. If you have no best practices, just omit that last sentence.) -->
+    <!-- Some compliance information is on marketing sites in IAD, DCA, and LCK. Set BJS to use the global site -->
+    
+    &ComplianceResources;
+    
+ 
+    
+</section>

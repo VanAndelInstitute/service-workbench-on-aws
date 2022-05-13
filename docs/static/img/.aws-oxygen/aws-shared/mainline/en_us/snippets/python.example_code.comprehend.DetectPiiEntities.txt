@@ -1,0 +1,19 @@
+    def detect_pii(self, text, language_code):
+        """
+        Detects personally identifiable information (PII) in a document. PII can be
+        things like names, account numbers, or addresses.
+
+        :param text: The document to inspect.
+        :param language_code: The language of the document.
+        :return: The list of PII entities along with their confidence scores.
+        """
+        try:
+            response = self.comprehend_client.detect_pii_entities(
+                Text=text, LanguageCode=language_code)
+            entities = response['Entities']
+            logger.info("Detected %s PII entities.", len(entities))
+        except ClientError:
+            logger.exception("Couldn't detect PII entities.")
+            raise
+        else:
+            return entities

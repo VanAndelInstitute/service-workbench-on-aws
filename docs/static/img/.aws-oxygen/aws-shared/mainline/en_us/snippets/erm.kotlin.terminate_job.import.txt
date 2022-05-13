@@ -1,0 +1,4 @@
+import aws.sdk.kotlin.services.emr.EmrClient
+import aws.sdk.kotlin.services.emr.model.TerminateJobFlowsRequest
+import kotlin.system.exitProcess
+

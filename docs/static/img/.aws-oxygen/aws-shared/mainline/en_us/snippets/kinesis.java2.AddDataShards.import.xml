@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.kinesis.KinesisClient;
+import software.amazon.awssdk.services.kinesis.model.KinesisException;
+import software.amazon.awssdk.services.kinesis.model.UpdateShardCountRequest;
+import software.amazon.awssdk.services.kinesis.model.UpdateShardCountResponse;
+</programlisting>

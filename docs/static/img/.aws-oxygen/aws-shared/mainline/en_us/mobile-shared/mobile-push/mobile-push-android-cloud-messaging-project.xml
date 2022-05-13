@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-cloud-messaging-project" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to create an Android push messaging-enabled project.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-cloud-messaging-project.title">Step 1: Create a Firebase
+        Project</title>
+    <para>To send push notifications to Android apps, you must have a project that is enabled with
+        an Android push notification service. The push notification services for Android are
+        &FCMlong; (&FCM;) and its predecessor, &GCMlong; (&GCM;).</para>
+    <para>If you are new to push messaging on Android, you must create a Firebase project, as this
+        topic describes. However, if you have an existing push messaging-enabled Google Cloud
+        Platform project, you can skip this step and use that project instead.</para>
+    <procedure>
+        <title>To create a Firebase project</title>
+        <step>
+            <para>Go to the Firebase console at <ulink url="https://console.firebase.google.com/"
+                    >https://console.firebase.google.com/</ulink>. If you are not signed in to
+                Google, the link will take you to a sign-in page. After you sign in, you will see
+                the Firebase console.</para>
+        </step>
+        <step>
+            <para>Choose <guilabel>Create New Project</guilabel>.</para>
+            <?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+            <mediaobject>
+                <imageobject>
+                    <imagedata
+                        fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-fcm-new-project.png"
+                        format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+                </imageobject>
+                <textobject>
+                    <phrase><?oxy_insert_end?>Create New Project
+                        button.<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?></phrase>
+                </textobject>
+            </mediaobject>
+            <?oxy_insert_end?>
+        </step>
+        <step>
+            <para>Type a project name, and then choose <guilabel>Create Project</guilabel>.</para>
+            <para>Firebase projects support push messaging by default.</para>
+        </step>
+    </procedure>
+</section>

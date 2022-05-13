@@ -1,0 +1,10 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    _, err := svc.PutBucketCors(&s3.PutBucketCorsInput{
+        Bucket: bucket,
+        CORSConfiguration: &s3.CORSConfiguration{
+            CORSRules: []*s3.CORSRule{&rule},
+        },
+    })
+</programlisting>

@@ -1,0 +1,16 @@
+    public static void getSpecificTemplate(CloudFormationClient cfClient, String stackName) {
+
+      try {
+          GetTemplateRequest typeRequest = GetTemplateRequest.builder()
+                .stackName(stackName)
+                .build();
+
+          GetTemplateResponse response = cfClient.getTemplate(typeRequest) ;
+          String body = response.templateBody();
+          System.out.println(body);
+
+      } catch (  CloudFormationException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }

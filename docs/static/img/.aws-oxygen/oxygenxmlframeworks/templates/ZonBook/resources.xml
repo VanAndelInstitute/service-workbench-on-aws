@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="resources" role="topic">
+ <info>
+  <title id="resources.title">ServiceNameEntity Resources</title>
+  <titleabbrev>Resources</titleabbrev>
+  <abstract>
+   <para>Insert chapter abstract text here.</para>
+   <!--<remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>.</remark>-->
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold">ServiceNameEntity</emphasis>
+   with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/Resources.html">Resources</ulink>. Remove this
+   remark before using this template code in your doc package. Save the file as <emphasis role="bold"
+    >resources.xml</emphasis>.</remark>
+ <para>The following table lists related resources that you'll find useful as you work with this service.</para>
+ <table>
+  <tgroup cols="2">
+   <colspec colname="resource" colnum="1"/>
+   <colspec colname="description" colnum="2"/>
+   <thead>
+    <row>
+     <entry>Resource</entry>
+     <entry>Description</entry>
+    </row>
+   </thead>
+   <tbody>
+    <row>
+     <entry>Resource Link</entry>
+     <entry>Description</entry>
+    </row>
+    <row>
+     <entry>Resource Link</entry>
+     <entry>Description</entry>
+    </row>
+   </tbody>
+  </tgroup>
+ </table>
+</chapter>

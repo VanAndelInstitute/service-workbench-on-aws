@@ -1,0 +1,36 @@
+<programlisting>
+
+        /// <summary>
+        /// This method creates a new IAM user.
+        /// </summary>
+        /// <param name="client">The IAM client object.</param>
+        /// <param name="request">The user creation request.</param>
+        /// <returns>The object returned by the call to CreateUserAsync.</returns>
+        public static async Task<User> CreateNewUserAsync(AmazonIdentityManagementServiceClient client, CreateUserRequest request)
+        {
+            CreateUserResponse response = null;
+            try
+            {
+                response = await client.CreateUserAsync(request);
+
+                // Show the information about the user from the response.
+                Console.WriteLine("\n--------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine($"New user: {response.User.UserName} ARN = {response.User.Arn}.");
+                Console.WriteLine($"{response.User.UserName} has {response.User.PermissionsBoundary}.");
+            }
+            catch (EntityAlreadyExistsException ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+
+            if (response is not null)
+            {
+                return response.User;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+</programlisting>

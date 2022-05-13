@@ -1,0 +1,18 @@
+    def delete_faces(self, face_ids):
+        """
+        Deletes faces from the collection.
+
+        :param face_ids: The list of IDs of faces to delete.
+        :return: The list of IDs of faces that were deleted.
+        """
+        try:
+            response = self.rekognition_client.delete_faces(
+                CollectionId=self.collection_id, FaceIds=face_ids)
+            deleted_ids = response['DeletedFaces']
+            logger.info(
+                "Deleted %s faces from %s.", len(deleted_ids), self.collection_id)
+        except ClientError:
+            logger.exception("Couldn't delete faces from %s.", self.collection_id)
+            raise
+        else:
+            return deleted_ids

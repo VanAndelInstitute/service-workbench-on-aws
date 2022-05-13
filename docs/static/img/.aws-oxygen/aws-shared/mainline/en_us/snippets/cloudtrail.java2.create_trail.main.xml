@@ -1,0 +1,19 @@
+<programlisting>
+    public static void createNewTrail(CloudTrailClient cloudTrailClient, String trailName, String s3BucketName) {
+
+        try {
+            CreateTrailRequest trailRequest = CreateTrailRequest.builder()
+                .name(trailName)
+                .s3BucketName(s3BucketName)
+                .isMultiRegionTrail(true)
+                .build();
+
+            CreateTrailResponse trailResponse = cloudTrailClient.createTrail(trailRequest);
+            System.out.println("The Trail ARN is "+trailResponse.trailARN());
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

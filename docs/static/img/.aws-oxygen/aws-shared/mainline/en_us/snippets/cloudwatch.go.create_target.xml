@@ -1,0 +1,68 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/cloudwatchevents"
+)
+
+// CreateTarget creates a target that is the resource that is invoked when the rule is triggered
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     rule is the name of the rule
+//     lambdaARN is the ARN of the Lambda function that is invoked
+//     targetID is the identifier for the target
+// Output:
+//     If successful, a PutTargetsOutput and nil
+//     Otherwise, nil and the error from a call to PutTargets
+//
+func CreateTarget(sess *session.Session, rule *string, lambdaARN *string, targetID *string) error {
+    // Create the service client
+    svc := cloudwatchevents.New(sess)
+
+    _, err := svc.PutTargets(&cloudwatchevents.PutTargetsInput{
+        Rule: rule,
+        Targets: []*cloudwatchevents.Target{
+            &cloudwatchevents.Target{
+                Arn: lambdaARN,
+                Id:  targetID,
+            },
+        },
+    })
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    rule := flag.String("r", "", "The name of the rule")
+    lambdaARN := flag.String("l", "", "The ARN of the Lambda function that is invoked")
+    targetID := flag.String("t", "", "The identifier for the target")
+    flag.Parse()
+
+    if *rule == "" || *lambdaARN == "" || *targetID == "" {
+        fmt.Println("You must supply a rule name (-r RULE), Lambda ARN (-l LAMBDA) and target ID (-t TARGET)")
+        return
+    }
+
+    // Initialize a session that the SDK uses to load
+    // credentials from the shared credentials file (~/.aws/credentials)
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    err := CreateTarget(sess, rule, lambdaARN, targetID)
+    if err != nil {
+        fmt.Println("Got an error creating a target:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Target " + *targetID + " created")
+}
+</programlisting>

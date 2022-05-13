@@ -1,0 +1,19 @@
+<programlisting>
+    public static void updateSpecificHealthCheck( Route53Client route53Client, String id ){
+
+        try {
+            UpdateHealthCheckRequest checkRequest = UpdateHealthCheckRequest.builder()
+                    .healthCheckId(id)
+                    .disabled(true)
+                    .build();
+
+            // Update the Health Check
+            UpdateHealthCheckResponse healthResponse = route53Client.updateHealthCheck(checkRequest);
+            System.out.println("The health check with id "+ healthResponse.healthCheck().id() +" was updated!");
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

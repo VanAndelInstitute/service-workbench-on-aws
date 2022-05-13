@@ -1,0 +1,7 @@
+<programlisting>
+#include <aws/core/Aws.h>
+#include <aws/core/client/DefaultRetryStrategy.h>
+#include <aws/sqs/SQSClient.h>
+#include <aws/sqs/model/DeleteQueueRequest.h>
+#include <iostream>
+</programlisting>

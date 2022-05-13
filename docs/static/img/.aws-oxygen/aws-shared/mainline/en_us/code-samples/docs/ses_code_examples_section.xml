@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<section id="service_code_examples_ses" role="topic">
+    <info>
+        <title id="service_code_examples_ses.title">Code examples for &SES; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples_ses.titleabbrev">&SES; examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &SES; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &SES; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_ses_actions" role="topic">
+        <info>
+            <title id="service_code_examples_ses_actions.title">Actions for &SES; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_ses_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SES; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &SES;
+            actions with &AWS; SDKs. These excerpts call the &SES; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&SES; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_ses_CreateReceiptFilter_section" role="topic">
+            <info>
+                <title id="example_ses_CreateReceiptFilter_section.title">Create an &SES; receipt filter using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_CreateReceiptFilter_section.titleabbrev">Create a receipt filter</titleabbrev>
+                <abstract>
+                    <para>Create an &SES; receipt filter using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptFilter_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptFilter_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_CreateReceiptRule_section" role="topic">
+            <info>
+                <title id="example_ses_CreateReceiptRule_section.title">Create an &SES; receipt rule using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_CreateReceiptRule_section.titleabbrev">Create a receipt rule</titleabbrev>
+                <abstract>
+                    <para>Create an &SES; receipt rule using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptRule_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptRule_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_CreateReceiptRuleSet_section" role="topic">
+            <info>
+                <title id="example_ses_CreateReceiptRuleSet_section.title">Create an &SES; receipt rule set using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_CreateReceiptRuleSet_section.titleabbrev">Create a receipt rule set</titleabbrev>
+                <abstract>
+                    <para>Create an &SES; receipt rule set using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptRuleSet_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateReceiptRuleSet_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_CreateTemplate_section" role="topic">
+            <info>
+                <title id="example_ses_CreateTemplate_section.title">Create an &SES; email template using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_CreateTemplate_section.titleabbrev">Create an email template</titleabbrev>
+                <abstract>
+                    <para>Create an &SES; email template using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateTemplate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_CreateTemplate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DeleteReceiptFilter_section" role="topic">
+            <info>
+                <title id="example_ses_DeleteReceiptFilter_section.title">Delete an &SES; receipt filter using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DeleteReceiptFilter_section.titleabbrev">Delete a receipt filter</titleabbrev>
+                <abstract>
+                    <para>Delete an &SES; receipt filter using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptFilter_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptFilter_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DeleteReceiptRule_section" role="topic">
+            <info>
+                <title id="example_ses_DeleteReceiptRule_section.title">Delete an &SES; receipt rule using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DeleteReceiptRule_section.titleabbrev">Delete a receipt rule</titleabbrev>
+                <abstract>
+                    <para>Delete an &SES; receipt rule using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptRule_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptRule_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DeleteReceiptRuleSet_section" role="topic">
+            <info>
+                <title id="example_ses_DeleteReceiptRuleSet_section.title">Delete an &SES; rule set using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DeleteReceiptRuleSet_section.titleabbrev">Delete a rule set</titleabbrev>
+                <abstract>
+                    <para>Delete an &SES; rule set using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptRuleSet_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteReceiptRuleSet_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DeleteTemplate_section" role="topic">
+            <info>
+                <title id="example_ses_DeleteTemplate_section.title">Delete an &SES; email template using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DeleteTemplate_section.titleabbrev">Delete an email template</titleabbrev>
+                <abstract>
+                    <para>Delete an &SES; email template using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteTemplate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteTemplate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DeleteIdentity_section" role="topic">
+            <info>
+                <title id="example_ses_DeleteIdentity_section.title">Delete an &SES; identity using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DeleteIdentity_section.titleabbrev">Delete an identity</titleabbrev>
+                <abstract>
+                    <para>Delete an &SES; identity using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteIdentity_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DeleteIdentity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_DescribeReceiptRuleSet_section" role="topic">
+            <info>
+                <title id="example_ses_DescribeReceiptRuleSet_section.title">Describe an &SES; receipt rule set using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_DescribeReceiptRuleSet_section.titleabbrev">Describe a receipt rule set</titleabbrev>
+                <abstract>
+                    <para>Describe an &SES; receipt rule set using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DescribeReceiptRuleSet_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_DescribeReceiptRuleSet_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_GetTemplate_section" role="topic">
+            <info>
+                <title id="example_ses_GetTemplate_section.title">Get an existing &SES; email template using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_GetTemplate_section.titleabbrev">Get an existing email template</titleabbrev>
+                <abstract>
+                    <para>Get an existing &SES; email template using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_GetTemplate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_GetTemplate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_GetIdentityVerificationAttributes_section" role="topic">
+            <info>
+                <title id="example_ses_GetIdentityVerificationAttributes_section.title">Get the status of an &SES; identity using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_GetIdentityVerificationAttributes_section.titleabbrev">Get the status of an identity</titleabbrev>
+                <abstract>
+                    <para>Get the status of an &SES; identity using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_GetIdentityVerificationAttributes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_GetIdentityVerificationAttributes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_ListTemplates_section" role="topic">
+            <info>
+                <title id="example_ses_ListTemplates_section.title">List &SES; email templates using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_ListTemplates_section.titleabbrev">List email templates</titleabbrev>
+                <abstract>
+                    <para>List &SES; email templates using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListTemplates_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListTemplates_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_ListIdentities_section" role="topic">
+            <info>
+                <title id="example_ses_ListIdentities_section.title">List &SES; identities using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_ListIdentities_section.titleabbrev">List identities</titleabbrev>
+                <abstract>
+                    <para>List &SES; identities using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListIdentities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListIdentities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_ListReceiptFilters_section" role="topic">
+            <info>
+                <title id="example_ses_ListReceiptFilters_section.title">List &SES; receipt filters using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_ListReceiptFilters_section.titleabbrev">List receipt filters</titleabbrev>
+                <abstract>
+                    <para>List &SES; receipt filters using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListReceiptFilters_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_ListReceiptFilters_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_SendEmail_section" role="topic">
+            <info>
+                <title id="example_ses_SendEmail_section.title">Send email with &SES; using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_SendEmail_section.titleabbrev">Send email</titleabbrev>
+                <abstract>
+                    <para>Send email with &SES; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_SendEmail_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_SendEmail_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_SendTemplatedEmail_section" role="topic">
+            <info>
+                <title id="example_ses_SendTemplatedEmail_section.title">Send templated email with &SES; using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_SendTemplatedEmail_section.titleabbrev">Send templated email</titleabbrev>
+                <abstract>
+                    <para>Send templated email with &SES; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_SendTemplatedEmail_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_SendTemplatedEmail_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_UpdateTemplate_section" role="topic">
+            <info>
+                <title id="example_ses_UpdateTemplate_section.title">Update an &SES; email template using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_UpdateTemplate_section.titleabbrev">Update an email template</titleabbrev>
+                <abstract>
+                    <para>Update an &SES; email template using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_UpdateTemplate_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_UpdateTemplate_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_VerifyDomainIdentity_section" role="topic">
+            <info>
+                <title id="example_ses_VerifyDomainIdentity_section.title">Verify a domain identity with &SES; using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_VerifyDomainIdentity_section.titleabbrev">Verify a domain identity</titleabbrev>
+                <abstract>
+                    <para>Verify a domain identity with &SES; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_VerifyDomainIdentity_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_VerifyDomainIdentity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_VerifyEmailIdentity_section" role="topic">
+            <info>
+                <title id="example_ses_VerifyEmailIdentity_section.title">Verify an email identity with &SES;  using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_VerifyEmailIdentity_section.titleabbrev">Verify an email identity</titleabbrev>
+                <abstract>
+                    <para>Verify an email identity with &SES;  using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_VerifyEmailIdentity_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_VerifyEmailIdentity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_ses_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_ses_scenarios.title">Scenarios for &SES; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_ses_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SES; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &SES;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &SES;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_ses_Scenario_ReplicateIdentities_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_ReplicateIdentities_section.title">Copy &SES; email and domain identities from one &AWS; Region to another using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_Scenario_ReplicateIdentities_section.titleabbrev">Copy email and domain identities from one &AWS; Region to another</titleabbrev>
+                <abstract>
+                    <para>Copy &SES; email and domain identities from one &AWS; Region to another using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_ReplicateIdentities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_ReplicateIdentities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_Scenario_ReceiptRulesFilters_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_ReceiptRulesFilters_section.title">Create and manage rules and filters for &SES;  using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_Scenario_ReceiptRulesFilters_section.titleabbrev">Create and manage rules and filters</titleabbrev>
+                <abstract>
+                    <para>Create and manage rules and filters for &SES;  using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_ReceiptRulesFilters_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_ReceiptRulesFilters_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_Scenario_Templates_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_Templates_section.title">Create and manage &SES; templates using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_Scenario_Templates_section.titleabbrev">Create and manage templates</titleabbrev>
+                <abstract>
+                    <para>Create and manage &SES; templates using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_Templates_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_Templates_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_Scenario_GenerateSmtpCredentials_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_GenerateSmtpCredentials_section.title">Generate credentials to connect to an &SES; SMTP endpoint</title>
+                <titleabbrev id="example_ses_Scenario_GenerateSmtpCredentials_section.titleabbrev">Generate credentials to connect to an SMTP endpoint</titleabbrev>
+                <abstract>
+                    <para>Generate credentials to connect to an &SES; SMTP endpoint</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_GenerateSmtpCredentials_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_GenerateSmtpCredentials_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_Scenario_SendEmail_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_SendEmail_section.title">Verify an email identity and send messages with &SES;  using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_Scenario_SendEmail_section.titleabbrev">Verify an email identity and send messages</titleabbrev>
+                <abstract>
+                    <para>Verify an email identity and send messages with &SES;  using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_SendEmail_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_SendEmail_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_ses_Scenario_EmailIdentity_section" role="topic">
+            <info>
+                <title id="example_ses_Scenario_EmailIdentity_section.title">Verify and manage &SES; identities using an &AWS; SDK</title>
+                <titleabbrev id="example_ses_Scenario_EmailIdentity_section.titleabbrev">Verify and manage identities</titleabbrev>
+                <abstract>
+                    <para>Verify and manage &SES; identities using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_EmailIdentity_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/ses_Scenario_EmailIdentity_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_ses_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_ses_cross-service_examples.title">Cross-service examples for &SES; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_ses_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &SES; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &SES;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_TranscriptionStreamingApp_section" role="topic">
+            <info>
+                <title id="example_cross_TranscriptionStreamingApp_section.title">Build an &TSC; streaming app</title>
+                <titleabbrev id="example_cross_TranscriptionStreamingApp_section.titleabbrev">Build an &TSC; streaming app</titleabbrev>
+                <abstract>
+                    <para>Build an &TSC; streaming app</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionStreamingApp_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_TranscriptionStreamingApp_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_DynamoDBDataTracker_section" role="topic">
+            <info>
+                <title id="example_cross_DynamoDBDataTracker_section.title">Create a dynamic web application to track &DDB; data</title>
+                <titleabbrev id="example_cross_DynamoDBDataTracker_section.titleabbrev">Create a web application to track &DDB; data</titleabbrev>
+                <abstract>
+                    <para>Create a dynamic web application to track &DDB; data</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RDSDataTracker_section" role="topic">
+            <info>
+                <title id="example_cross_RDSDataTracker_section.title">Create an &RDSlong; item tracker</title>
+                <titleabbrev id="example_cross_RDSDataTracker_section.titleabbrev">Create a web application to track &RDS; data</titleabbrev>
+                <abstract>
+                    <para>Create an &RDSlong; item tracker</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RDSDataTracker_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RDSDataTracker_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionPhotoAnalyzerPPE_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzerPPE_section.title">Detect PPE in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzerPPE_section.titleabbrev">Detect PPE in images</titleabbrev>
+                <abstract>
+                    <para>Detect PPE in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionPhotoAnalyzer_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzer_section.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzer_section.titleabbrev">Detect objects in images</titleabbrev>
+                <abstract>
+                    <para>Detect objects in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionVideoDetection_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionVideoDetection_section.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionVideoDetection_section.titleabbrev">Detect people and objects in a video</titleabbrev>
+                <abstract>
+                    <para>Detect people and objects in a video with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_ses_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_ServerlessWorkflows_section" role="topic">
+            <info>
+                <title id="example_cross_ServerlessWorkflows_section.title">Use &SFN; to invoke &LAM; functions</title>
+                <titleabbrev id="example_cross_ServerlessWorkflows_section.titleabbrev">Use &SFN; to invoke &LAM; functions</titleabbrev>
+                <abstract>
+                    <para>Use &SFN; to invoke &LAM; functions</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_ServerlessWorkflows_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</section>

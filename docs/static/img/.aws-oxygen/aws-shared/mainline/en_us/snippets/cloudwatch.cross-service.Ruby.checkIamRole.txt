@@ -1,0 +1,35 @@
+# Checks whether the specified role exists among those available to the
+# caller in AWS Identity and Access Management (IAM).
+#
+# @param iam_client [Aws::IAM::Client] An initialized IAM client.
+# @param role_arn [String] The ARN of the role to find.
+# @return [Boolean] true if the role ARN was found; otherwise, false.
+# @example
+#   exit 1 unless role_exists?(
+#     Aws::IAM::Client.new(region: 'us-east-1'),
+#     'arn:aws:iam::111111111111:role/aws-doc-sdk-examples-ec2-state-change'
+#   )
+def role_exists?(iam_client, role_arn)
+  puts "Searching for role with ARN '#{role_arn}'..."
+  response = iam_client.list_roles
+  if response.roles.count.positive?
+    if role_found?(response.roles, role_arn)
+      puts 'Role found.'
+      return true
+    end
+    while response.next_page? do
+      response = response.next_page
+      if response.roles.count.positive?
+        if role_found?(response.roles, role_arn)
+          puts 'Role found.'
+          return true
+        end
+      end
+    end
+  end
+  puts 'Role not found.'
+  return false
+rescue StandardError => e
+  puts "Role not found: #{e.message}"
+  return false
+end

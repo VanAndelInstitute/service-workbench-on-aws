@@ -1,0 +1,48 @@
+<programlisting>
+
+// Load table parameters.
+$(function() {
+  $('#myTable').DataTable( {
+    scrollY:        "500px",
+    scrollX:        true,
+    scrollCollapse: true,
+    paging:         true,
+    columnDefs: [
+      { width: 200, targets: 0 }
+    ],
+    fixedColumns: true
+  } );
+} );
+
+// Load images from Amazon S3 bucket to the table.
+const loadTable = async () => {
+  window.alert = function() {};
+  try {
+    const listVideoParams = {
+      Bucket: BUCKET_IMAGES
+    };
+    const data = await s3Client.send(new ListObjectsCommand(listVideoParams));
+    console.log("Success", data);
+    for (let i = 0; i < data.Contents.length; i++) {
+      console.log('checking')
+      var t = $('#myTable').DataTable();
+      t.row.add([
+        data.Contents[i].Key,
+        data.Contents[i].Owner,
+        data.Contents[i].LastModified,
+        data.Contents[i].Size
+      ]).draw(false);
+    };
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+loadTable();
+
+// Refresh page to populate the table with the latest images.
+const getImages = async () => {
+  window.location.reload();
+};
+window.getImages = getImages;
+
+</programlisting>

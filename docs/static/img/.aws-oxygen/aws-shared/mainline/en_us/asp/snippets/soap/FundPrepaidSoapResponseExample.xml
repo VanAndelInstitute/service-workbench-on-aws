@@ -1,0 +1,26 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		MESSAGE123</wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		http://www.w3.org/2005/08/addressing/anonymous
+   </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		FundPrepaid:Response
+   </wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		urn:uuid:dd5439cf-ee48-4531-9736-0176e847b823
+   </wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <FundPrepaidResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <FundPrepaidResult>
+       <TransactionId>13OKLJO453E6VCQ6NDHD8CG9RUG2DZLZC3E</TransactionId>
+       <TransactionStatus>Pending</TransactionStatus>
+     </FundPrepaidResult>
+     <ResponseMetadata>
+       <RequestId>dd5439cf-ee48-4531-9736-0176e847b823:0</RequestId>
+     </ResponseMetadata>
+   </FundPrepaidResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

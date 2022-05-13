@@ -1,0 +1,8 @@
+<programlisting>
+const { GlacierClient } = require("@aws-sdk/client-glacier");
+// Set the AWS Region.
+const REGION = "REGION";
+//Set the Redshift Service Object
+const glacierClient = new GlacierClient({ region: REGION });
+export { glacierClient };
+</programlisting>

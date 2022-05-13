@@ -1,0 +1,30 @@
+<programlisting>
+    public static void listRedShiftEvents(RedshiftClient redshiftClient, String clusterId, String eventSourceType) {
+
+        try {
+            long oneWeeksAgoMilli = (new Date()).getTime() - (7L*24L*60L*60L*1000L);
+            Date oneWeekAgo = new Date();
+            oneWeekAgo.setTime(oneWeeksAgoMilli);
+
+            DescribeEventsRequest describeEventsRequest = DescribeEventsRequest.builder()
+                    .sourceIdentifier(clusterId)
+                    .sourceType(eventSourceType)
+                    .startTime(oneWeekAgo.toInstant())
+                    .maxRecords(20)
+                    .build() ;
+
+            DescribeEventsResponse eventsResponse = redshiftClient.describeEvents(describeEventsRequest);
+
+            List<Event> events = eventsResponse.events();
+            for (Event event: events) {
+                System.out.println("Source type: "+event.sourceTypeAsString());
+                System.out.println("Event message: "+event.message());
+            }
+
+        } catch (RedshiftException e) {
+
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+   }
+</programlisting>

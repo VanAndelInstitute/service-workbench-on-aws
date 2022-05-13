@@ -1,0 +1,3 @@
+    builds, err := svc.BatchGetBuilds(&codebuild.BatchGetBuildsInput{
+        Ids: names.Ids,
+    })

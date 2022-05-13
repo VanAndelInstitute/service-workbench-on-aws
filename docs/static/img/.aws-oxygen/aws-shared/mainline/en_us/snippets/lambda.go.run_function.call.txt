@@ -1,0 +1,4 @@
+    result, err := svc.Invoke(&lambda.InvokeInput{
+        FunctionName: function,
+        Payload:      payload,
+    })

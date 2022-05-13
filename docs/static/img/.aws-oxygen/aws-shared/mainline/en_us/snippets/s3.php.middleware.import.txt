@@ -1,0 +1,3 @@
+use Aws\CommandInterface;
+use Aws\Middleware;
+use Psr\Http\Message\RequestInterface;

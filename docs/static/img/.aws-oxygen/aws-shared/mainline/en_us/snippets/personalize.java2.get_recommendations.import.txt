@@ -1,0 +1,7 @@
+import software.amazon.awssdk.awscore.exception.AwsServiceException;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.personalizeruntime.PersonalizeRuntimeClient;
+import software.amazon.awssdk.services.personalizeruntime.model.GetRecommendationsRequest;
+import software.amazon.awssdk.services.personalizeruntime.model.GetRecommendationsResponse;
+import software.amazon.awssdk.services.personalizeruntime.model.PredictedItem;
+import java.util.List;

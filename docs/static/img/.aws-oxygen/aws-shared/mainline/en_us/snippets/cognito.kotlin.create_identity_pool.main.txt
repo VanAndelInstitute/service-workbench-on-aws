@@ -1,0 +1,13 @@
+suspend fun createIdPool(identityPoolName: String?): String? {
+
+        val request = CreateIdentityPoolRequest{
+            this.allowUnauthenticatedIdentities = false
+            this.identityPoolName = identityPoolName
+        }
+
+        CognitoIdentityClient { region = "us-east-1" }.use { cognitoIdentityClient ->
+
+           val response = cognitoIdentityClient.createIdentityPool(request)
+           return response.identityPoolId
+        }
+  }

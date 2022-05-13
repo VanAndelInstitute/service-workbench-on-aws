@@ -1,0 +1,16 @@
+<programlisting>
+def delete_key_pair(key_name, key_file_name):
+    """
+    Deletes a key pair and the specified private key file.
+
+    :param key_name: The name of the key pair to delete.
+    :param key_file_name: The local file name of the private key file.
+    """
+    try:
+        ec2.KeyPair(key_name).delete()
+        os.remove(key_file_name)
+        logger.info("Deleted key %s and private key file %s.", key_name, key_file_name)
+    except ClientError:
+        logger.exception("Couldn't delete key %s.", key_name)
+        raise
+</programlisting>

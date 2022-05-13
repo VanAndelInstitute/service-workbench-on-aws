@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Card Slots</title>
+
+</head>
+
+<body>
+    <button type="button" onclick="createtable()">Create a table!</button>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

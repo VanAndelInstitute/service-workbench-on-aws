@@ -1,0 +1,35 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.IdentityManagement;
+    using Amazon.IdentityManagement.Model;
+
+    public class DeleteAccessKey
+    {
+        /// <summary>
+        /// Initializes an IAM Client Object and then deletes the IAM AccessKey.
+        /// </summary>
+        public static async Task Main()
+        {
+            string accessKeyId = "ACCESS_KEY_ID";
+            string userName = "DocExampleUser";
+            var client = new AmazonIdentityManagementServiceClient();
+
+            var response = await client.DeleteAccessKeyAsync(new DeleteAccessKeyRequest
+            {
+                AccessKeyId = accessKeyId,
+                UserName = userName,
+            });
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine("Policy successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("Could not delete policy.");
+            }
+        }
+    }
+
+</programlisting>

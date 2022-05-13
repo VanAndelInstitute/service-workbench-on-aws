@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun updateIAMUser(curName: String?, newName: String?) {
+
+    val request = UpdateUserRequest {
+        userName = curName
+        newUserName = newName
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+        iamClient.updateUser(request)
+        println("Successfully updated user to $newName")
+    }
+}
+</programlisting>

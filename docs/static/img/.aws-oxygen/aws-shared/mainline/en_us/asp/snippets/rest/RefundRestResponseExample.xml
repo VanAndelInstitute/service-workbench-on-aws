@@ -1,0 +1,9 @@
+<RefundResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <RefundResult>
+    <TransactionId>14GK6F2QU755ODS27SGHEURLKPG72Z54KMF</TransactionId>
+    <TransactionStatus>Pending</TransactionStatus>
+  </RefundResult>
+  <ResponseMetadata>
+    <RequestId>1a146b9a-b37b-4f5f-bda6-012a5b9e45c3:0</RequestId>
+  </ResponseMetadata>
+</RefundResponse>

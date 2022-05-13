@@ -1,0 +1,6 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ses.SesClient;
+import software.amazon.awssdk.services.ses.model.ListIdentitiesResponse;
+import software.amazon.awssdk.services.ses.model.SesException;
+import java.io.IOException;
+import java.util.List;

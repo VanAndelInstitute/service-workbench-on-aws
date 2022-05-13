@@ -1,0 +1,23 @@
+<programlisting>
+    def verify_domain_identity(self, domain_name):
+        """
+        Starts verification of a domain identity. To complete verification, you must
+        create a TXT record with a specific format through your DNS provider.
+
+        For more information, see *Verifying a domain with Amazon SES* in the
+        Amazon SES documentation:
+            https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html
+
+        :param domain_name: The name of the domain to verify.
+        :return: The token to include in the TXT record with your DNS provider.
+        """
+        try:
+            response = self.ses_client.verify_domain_identity(Domain=domain_name)
+            token = response['VerificationToken']
+            logger.info("Got domain verification token for %s.", domain_name)
+        except ClientError:
+            logger.exception("Couldn't verify domain %s.", domain_name)
+            raise
+        else:
+            return token
+</programlisting>

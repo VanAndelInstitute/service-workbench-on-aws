@@ -1,0 +1,17 @@
+        /* Cancels a spot instance request
+         * Takes two args:
+         *   AmazonEC2Client ec2Client is the EC2 client through which the spot instance is cancelled
+         *   string spotRequestId is the ID of the spot instance
+         *
+         * See https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/EC2/MEC2CancelSpotInstanceRequestsCancelSpotInstanceRequestsRequest.html
+         */
+        private static void CancelSpotRequest(
+            AmazonEC2Client ec2Client,
+            string spotRequestId)
+        {
+            var cancelRequest = new CancelSpotInstanceRequestsRequest();
+
+            cancelRequest.SpotInstanceRequestIds.Add(spotRequestId);
+
+            ec2Client.CancelSpotInstanceRequestsAsync(cancelRequest);
+        }

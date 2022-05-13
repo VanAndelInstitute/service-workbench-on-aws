@@ -1,0 +1,27 @@
+function getBasePathMapping($apiGatewayClient, $basePath, $domainName)
+{
+    try {
+        $result = $apiGatewayClient->getBasePathMapping([
+            'basePath' => $basePath,
+            'domainName' => $domainName,
+        ]);
+        return 'The base path mapping\'s effective URI is: ' .
+            $result['@metadata']['effectiveUri'];
+    } catch (AwsException $e) {
+        return 'Error: ' . $e['message'];
+    }
+}
+
+function getsTheBasePathMapping()
+{
+    $apiGatewayClient = new ApiGatewayClient([
+        'profile' => 'default',
+        'region' => 'us-east-1',
+        'version' => '2015-07-09'
+    ]);
+
+    echo getBasePathMapping($apiGatewayClient, '(none)', 'example.com');
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// getsTheBasePathMapping();

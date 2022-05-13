@@ -1,0 +1,9 @@
+https://fps.amazonaws.com/?
+Action=Settle
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2008-08-06T13%3A00%3A01Z
+&TransactionId=254656Example83987
+&Version=2008-09-17
+&Signature=<URL-encoded signature value>

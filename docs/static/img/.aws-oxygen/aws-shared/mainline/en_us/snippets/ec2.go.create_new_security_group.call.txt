@@ -1,0 +1,5 @@
+    result, err := svc.CreateSecurityGroup(&ec2.CreateSecurityGroupInput{
+        GroupName:   name,
+        Description: description,
+        VpcId:       aws.String(vID),
+    })

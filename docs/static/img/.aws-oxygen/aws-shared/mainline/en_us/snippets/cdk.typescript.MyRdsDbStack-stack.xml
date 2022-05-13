@@ -1,0 +1,28 @@
+<programlisting>
+import * as core from "@aws-cdk/core";
+import * as ec2 from "@aws-cdk/aws-ec2";
+import * as rds from "@aws-cdk/aws-rds";
+
+export class MyRdsDbStack extends core.Stack {
+  constructor(scope: core.App, id: string, props?: core.StackProps) {
+    super(scope, id, props);
+
+    const vpc = new ec2.Vpc(this, "VPC");
+
+    new rds.DatabaseCluster(this, "MyRdsDb", {
+      defaultDatabaseName: "MyAuroraDatabase",
+      // credentials: rds.Credentials.fromGeneratedSecret('clusteradmin'), // Optional - will default to 'admin' username and generated password
+      engine: rds.DatabaseClusterEngine.AURORA,
+      instanceProps: {
+        instanceType: new ec2.InstanceType(
+          ec2.InstanceClass.BURSTABLE2
+        ),
+        vpc: vpc,
+        vpcSubnets: {
+          subnetType: ec2.SubnetType.PUBLIC
+        }
+      }
+    });
+  }
+}
+</programlisting>

@@ -1,0 +1,16 @@
+    public static void rebootInstance(RdsClient rdsClient, String dbInstanceIdentifier ) {
+
+        try {
+            // For a demo - modify the DB instance by modifying the master password
+            RebootDbInstanceRequest rebootDbInstanceRequest = RebootDbInstanceRequest.builder()
+                    .dbInstanceIdentifier(dbInstanceIdentifier)
+                    .build();
+
+            RebootDbInstanceResponse instanceResponse = rdsClient.rebootDBInstance(rebootDbInstanceRequest);
+            System.out.print("The database "+ instanceResponse.dbInstance().dbInstanceArn() +" was rebooted");
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+   }

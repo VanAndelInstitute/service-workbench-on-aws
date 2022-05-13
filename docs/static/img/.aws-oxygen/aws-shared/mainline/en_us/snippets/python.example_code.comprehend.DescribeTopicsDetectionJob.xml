@@ -1,0 +1,19 @@
+<programlisting>
+    def describe_job(self, job_id):
+        """
+        Gets metadata about a topic modeling job.
+
+        :param job_id: The ID of the job to look up.
+        :return: Metadata about the job.
+        """
+        try:
+            response = self.comprehend_client.describe_topics_detection_job(
+                JobId=job_id)
+            job = response['TopicsDetectionJobProperties']
+            logger.info("Got topic detection job %s.", job_id)
+        except ClientError:
+            logger.exception("Couldn't get topic detection job %s.", job_id)
+            raise
+        else:
+            return job
+</programlisting>

@@ -1,0 +1,29 @@
+func usersGroupsHaveAdmin(svc *iam.IAM, user *iam.UserDetail, admin string) (bool, error) {
+    input := &iam.ListGroupsForUserInput{UserName: user.UserName}
+    result, err := svc.ListGroupsForUser(input)
+    if err != nil {
+        return false, err
+    }
+
+    for _, group := range result.Groups {
+        groupPolicyHasAdmin, err := groupPolicyHasAdmin(svc, group, admin)
+        if err != nil {
+            return false, err
+        }
+
+        if groupPolicyHasAdmin {
+            return true, nil
+        }
+
+        attachedGroupPolicyHasAdmin, err := attachedGroupPolicyHasAdmin(svc, group, admin)
+        if err != nil {
+            return false, err
+        }
+
+        if attachedGroupPolicyHasAdmin {
+            return true, nil
+        }
+    }
+
+    return false, nil
+}

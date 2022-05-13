@@ -1,0 +1,8 @@
+    svc := s3.New(sess)
+
+    req, _ := svc.PutObjectRequest(&s3.PutObjectInput{
+        Bucket: bucket,
+        Key:    key,
+        Body:   strings.NewReader(*content),
+    })
+    str, err := req.Presign(15 * time.Minute)

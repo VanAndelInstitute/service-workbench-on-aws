@@ -1,0 +1,9 @@
+<programlisting>
+    keyID := flag.String("k", "", "The ID of the access key")
+    flag.Parse()
+
+    if *keyID == "" {
+        fmt.Println("You must supply the ID of an access key (-k KEY-ID)")
+        return
+    }
+</programlisting>

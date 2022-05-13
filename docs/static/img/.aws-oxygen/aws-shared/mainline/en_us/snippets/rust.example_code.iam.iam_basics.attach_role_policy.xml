@@ -1,0 +1,9 @@
+<programlisting>
+    let attach_role_policy_result =
+        iam_service::attach_role_policy(&client, &assume_role_role, &list_all_buckets_policy)
+            .await?;
+    println!(
+        "Attached the policy to the role: {:?}",
+        attach_role_policy_result
+    );
+</programlisting>

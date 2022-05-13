@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun getGlueJobRun(jobNameVal: String?, runIdVal: String?) {
+
+    val request = GetJobRunRequest {
+        jobName = jobNameVal
+        runId = runIdVal
+    }
+
+    GlueClient { region = "us-east-1" }.use { glueClient ->
+          val runResponse = glueClient.getJobRun(request)
+          println("Job status is ${runResponse.jobRun?.toString()}")
+    }
+}
+</programlisting>

@@ -1,0 +1,5 @@
+    let user = iam_service::create_user(&client, &format!("{}{}", "iam_demo_user_", uuid)).await?;
+    println!(
+        "Created the user with the name: {}",
+        user.user_name.as_ref().unwrap()
+    );

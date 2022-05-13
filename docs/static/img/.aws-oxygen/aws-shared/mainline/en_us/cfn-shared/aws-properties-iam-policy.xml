@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<section id="aws-properties-iam-policy" role="topic">
+   <title id="aws-properties-iam-policy.title">AWS::IAM::Policy</title>
+
+   <para>The <type>AWS::IAM::Policy</type> type applies an Identity and Access Management (IAM) policy to users or
+      groups. For more information about IAM policies, see <ulink
+      url="http://&domain;/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Policies</ulink>
+      in the <citetitle>AWS Identity and Access Management User Guide</citetitle>.</para>
+
+   <para condition="json">This type supports updates. For more information about updating stacks, see <xref
+      linkend="using-cfn-updating-stacks" endterm="using-cfn-updating-stacks.title"/>.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+      "<link linkend="cfn-iam-policy-groups">Groups</link>" : [ <replaceable>String, ...</replaceable> ],
+      "<link linkend="cfn-iam-policy-policydocument">PolicyDocument</link>" : <replaceable>JSON</replaceable>,
+      "<link linkend="cfn-iam-policy-policyname">PolicyName</link>" : <replaceable>String</replaceable>,
+      "<link linkend="cfn-iam-policy-roles">Roles</link>" : [ <replaceable>String, ...</replaceable>
+      "<link linkend="cfn-iam-policy-users">Users</link>" : [ <replaceable>String, ...</replaceable> ],
+   }
+}     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>Type: AWS::IAM::Policy
+Properties: 
+  <link linkend="cfn-iam-policy-groups">Groups</link>: [ <replaceable>String, ...</replaceable> ]
+  <link linkend="cfn-iam-policy-policydocument">PolicyDocument</link>: <replaceable>JSON</replaceable>
+  <link linkend="cfn-iam-policy-policyname">PolicyName</link>: <replaceable>String</replaceable>
+  <link linkend="cfn-iam-policy-roles">Roles</link>: [ <replaceable>String, ...</replaceable>
+  <link linkend="cfn-iam-policy-users">Users</link>: [ <replaceable>String, ...</replaceable> ]</programlisting>
+	</section>
+
+   <section id="aws-properties-iam-policy-prop">
+      <title id="aws-properties-iam-policy-prop.title">Properties</title>
+
+      <variablelist>
+         <varlistentry id="cfn-iam-policy-groups">
+            <term>Groups</term>
+            <listitem>
+               <para>The names (ARNs) of groups to which you want to add the policy.</para>
+               <para>&required-conditional;</para>
+               <para>&type-stringlist;</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-iam-policy-policydocument">
+            <term>PolicyDocument</term>
+            <listitem>
+               <para>A policy document that contains permissions to add to the specified users or groups.</para>
+               <para>&required-yes;</para>
+               <para>&type-json;</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-iam-policy-policyname">
+            <term>PolicyName</term>
+            <listitem>
+               <para>The name of the policy.</para>
+               <para>&required-yes;</para>
+               <para>&type-string;</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-iam-policy-roles">
+            <term>Roles</term>
+            <listitem>
+               <para>The names (ARNs) of <link linkend="aws-resource-iam-role">AWS::IAM::Role</link>s to attach to this
+                  policy.</para>
+               <para>&required-no;</para>
+               <para>&type-stringlist;</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-iam-policy-users">
+            <term>Users</term>
+            <listitem>
+               <para>The names of users for whom you want to add the policy.</para>
+               <para>&required-conditional;</para>
+               <para>&type-stringlist;</para>
+               <para>&update-no-interrupt;</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Values</title>
+      <section>
+         <title>Ref</title>
+         <para>&ref-returns-name;</para>
+         <para>&ref-more-info;</para>
+      </section>
+   </section>
+
+   <section>
+      <title>Examples</title>
+
+      <section condition="json">
+         <title>IAM Policy with policy group</title>
+         <programlisting language="json">
+{
+   "Type" : "AWS::IAM::Policy",
+   "Properties" : {
+      "PolicyName" : "CFNUsers",
+      "PolicyDocument" : {
+         "Statement": [ {
+         "Effect"   : "Allow",
+         "Action"   : [
+            "cloudformation:Describe*",
+            "cloudformation:List*",
+            "cloudformation:Get*"
+         ],
+         "Resource" : "*"
+         } ]
+      },
+      "Groups" : [ { "Ref" : "CFNUserGroup" } ]
+   }
+}        </programlisting>
+         <para>This snippet is from <ulink
+               url="https://s3.amazonaws.com/cloudformation-templates-us-east-1/IAM_Users_Groups_and_Policies.template"
+               >IAM_Users_Groups_and_Policies.template</ulink></para>
+      </section>
+   	
+   	<section condition="yaml">
+   		<title>IAM Policy with policy group</title>
+   		<programlisting>
+Type: AWS::IAM::Policy
+Properties: 
+  PolicyName: CFNUsers
+  PolicyDocument: 
+    Statement:
+      - Effect: Allow
+        Action:
+          "cloudformation:Describe*"
+          "cloudformation:List*"
+          "cloudformation:Get*"
+        Resource: "*"
+  Groups: 
+    Ref: CFNUserGroup
+       </programlisting>
+   	</section>
+   	
+      <section condition="json">
+         <title>IAM Policy with specified role</title>
+         <programlisting language="json">
+{
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+      "PolicyName": "root",
+      "PolicyDocument": {
+         "Statement": [
+            { "Effect": "Allow", "Action": "*", "Resource": "*" }
+         ]
+      },
+      "Roles": [ { "Ref": "RootRole" } ]
+   }
+}        </programlisting>
+         <para>This snippet is from <ulink
+               url="https://s3.amazonaws.com/cloudformation-templates-us-east-1/auto_scaling_with_instance_profile.template"
+               >auto_scaling_with_instance_profile.template</ulink>.</para>
+      </section>
+   	
+   	<section condition="yaml">
+   		<title>IAM Policy with specified role</title>
+   		<programlisting>Type: AWS::IAM::Policy
+Properties: 
+  PolicyName: root
+  PolicyDocument: 
+    Statement: 
+      - Effect: Allow
+        Action: "*"
+        Resource: "*"
+  Roles: 
+    Ref: RootRole       </programlisting>
+   	</section>
+
+      <para revision="cfn">To view more <type>AWS::IAM::Policy</type> snippets, see <link linkend="scenario-iam-policy"
+            endterm="scenario-iam-policy.title"/>.</para>
+   </section>
+
+</section>

@@ -1,0 +1,7 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.pinpoint.PinpointClient;
+import software.amazon.awssdk.services.pinpoint.model.GetSegmentsRequest;
+import software.amazon.awssdk.services.pinpoint.model.GetSegmentsResponse;
+import software.amazon.awssdk.services.pinpoint.model.PinpointException;
+import software.amazon.awssdk.services.pinpoint.model.SegmentResponse;
+import java.util.List;

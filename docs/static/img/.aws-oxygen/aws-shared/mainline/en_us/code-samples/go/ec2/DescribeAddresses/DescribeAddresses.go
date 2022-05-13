@@ -1,0 +1,55 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+package main
+
+import (
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/ec2"
+)
+
+// GetAddresses gets the Elastic IP addresses for the account's VPC
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+// Output:
+//     If success, the list of addresses and nil
+//     Otherwise, nil and an error from the call to DescribeAddresses
+func GetAddresses(sess *session.Session) (*ec2.DescribeAddressesOutput, error) {
+    svc := ec2.New(sess)
+
+    result, err := svc.DescribeAddresses(&ec2.DescribeAddressesInput{
+        Filters: []*ec2.Filter{
+            {
+                Name:   aws.String("domain"),
+                Values: aws.StringSlice([]string{"vpc"}),
+            },
+        },
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    result, err := GetAddresses(sess)
+    if err != nil {
+        fmt.Println("Got an error retrieving the Elastic IP addresses")
+        return
+    }
+
+    for _, addr := range result.Addresses {
+        fmt.Println("IP address:   ", *addr.PublicIp)
+        fmt.Println("Allocation ID:", *addr.AllocationId)
+        if addr.InstanceId != nil {
+            fmt.Println("Instance ID:  ", *addr.InstanceId)
+        }
+    }
+}

@@ -1,0 +1,5 @@
+
+require 'vendor/autoload.php';
+
+use Aws\CloudWatch\CloudWatchClient; 
+use Aws\Exception\AwsException;

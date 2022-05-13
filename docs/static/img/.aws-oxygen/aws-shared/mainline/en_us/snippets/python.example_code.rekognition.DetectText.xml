@@ -1,0 +1,17 @@
+<programlisting>
+    def detect_text(self):
+        """
+        Detects text in the image.
+
+        :return The list of text elements found in the image.
+        """
+        try:
+            response = self.rekognition_client.detect_text(Image=self.image)
+            texts = [RekognitionText(text) for text in response['TextDetections']]
+            logger.info("Found %s texts in %s.", len(texts), self.image_name)
+        except ClientError:
+            logger.exception("Couldn't detect text in %s.", self.image_name)
+            raise
+        else:
+            return texts
+</programlisting>

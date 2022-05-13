@@ -1,0 +1,19 @@
+<programlisting>
+    public static String createApp(ElasticBeanstalkClient beanstalkClient, String appName) {
+
+        try {
+            CreateApplicationRequest applicationRequest = CreateApplicationRequest.builder()
+                .description("An AWS Elastic Beanstalk app created using the AWS Java API")
+                .applicationName(appName)
+                .build();
+
+            CreateApplicationResponse applicationResponse =  beanstalkClient.createApplication(applicationRequest);
+            return applicationResponse.application().applicationArn();
+
+        } catch (ElasticBeanstalkException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

@@ -1,0 +1,2 @@
+import aws.sdk.kotlin.services.translate.TranslateClient
+import aws.sdk.kotlin.services.translate.model.ListTextTranslationJobsRequest

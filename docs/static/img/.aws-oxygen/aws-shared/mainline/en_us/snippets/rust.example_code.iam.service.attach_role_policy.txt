@@ -1,0 +1,12 @@
+pub async fn attach_role_policy(
+    client: &iamClient,
+    role: &Role,
+    policy: &Policy,
+) -> Result<AttachRolePolicyOutput, SdkError<AttachRolePolicyError>> {
+    client
+        .attach_role_policy()
+        .role_name(role.role_name.as_ref().unwrap())
+        .policy_arn(policy.arn.as_ref().unwrap())
+        .send()
+        .await
+}

@@ -1,0 +1,39 @@
+async fn list_tables(client: &Client) -> Result<(), Error> {
+    let mut resp = client.list_tables().limit(10).send().await?;
+    let names = resp.table_names.unwrap_or_default();
+    let len = names.len();
+
+    let mut num_tables = len;
+
+    println!("Tables:");
+
+    for name in names {
+        println!("  {}", name);
+    }
+
+    while resp.last_evaluated_table_name != None {
+        println!("-- more --");
+        resp = client
+            .list_tables()
+            .limit(10)
+            .exclusive_start_table_name(
+                resp.last_evaluated_table_name
+                    .as_deref()
+                    .unwrap_or_default(),
+            )
+            .send()
+            .await?;
+
+        let names = resp.table_names.unwrap_or_default();
+        num_tables += names.len();
+
+        for name in names {
+            println!("  {}", name);
+        }
+    }
+
+    println!();
+    println!("Found {} tables", num_tables);
+
+    Ok(())
+}

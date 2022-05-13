@@ -1,0 +1,9 @@
+<programlisting>
+import aws.sdk.kotlin.services.translate.TranslateClient
+import aws.sdk.kotlin.services.translate.model.DescribeTextTranslationJobRequest
+import aws.sdk.kotlin.services.translate.model.InputDataConfig
+import aws.sdk.kotlin.services.translate.model.OutputDataConfig
+import aws.sdk.kotlin.services.translate.model.StartTextTranslationJobRequest
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess
+</programlisting>

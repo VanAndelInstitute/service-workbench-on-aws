@@ -1,0 +1,8 @@
+<programlisting>
+require './vendor/autoload.php';
+
+use Aws\Credentials\CredentialProvider;
+use Aws\Signature\SignatureV4;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+</programlisting>

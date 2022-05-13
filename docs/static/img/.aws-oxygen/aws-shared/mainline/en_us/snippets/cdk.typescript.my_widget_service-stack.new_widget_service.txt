@@ -1,0 +1,1 @@
+    new widget_service.WidgetService(this, 'Widgets');

@@ -1,0 +1,6 @@
+#include <aws/core/Aws.h>
+#include <aws/core/utils/Outcome.h> 
+#include <aws/dynamodb/DynamoDBClient.h>
+#include <aws/dynamodb/model/UpdateItemRequest.h>
+#include <aws/dynamodb/model/UpdateItemResult.h>
+#include <iostream>

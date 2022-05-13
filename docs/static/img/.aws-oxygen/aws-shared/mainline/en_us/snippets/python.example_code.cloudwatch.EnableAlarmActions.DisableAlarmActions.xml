@@ -1,0 +1,26 @@
+<programlisting>
+    def enable_alarm_actions(self, alarm_name, enable):
+        """
+        Enables or disables actions on the specified alarm. Alarm actions can be
+        used to send notifications or automate responses when an alarm enters a
+        particular state.
+
+        :param alarm_name: The name of the alarm.
+        :param enable: When True, actions are enabled for the alarm. Otherwise, they
+                       disabled.
+        """
+        try:
+            alarm = self.cloudwatch_resource.Alarm(alarm_name)
+            if enable:
+                alarm.enable_actions()
+            else:
+                alarm.disable_actions()
+            logger.info(
+                "%s actions for alarm %s.", "Enabled" if enable else "Disabled",
+                alarm_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't %s actions alarm %s.", "enable" if enable else "disable",
+                alarm_name)
+            raise
+</programlisting>

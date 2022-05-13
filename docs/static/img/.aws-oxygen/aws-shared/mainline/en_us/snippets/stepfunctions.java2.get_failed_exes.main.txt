@@ -1,0 +1,20 @@
+    public static void getFailedExes(SfnClient sfnClient, String stateMachineARN) {
+
+        try {
+            ListExecutionsRequest executionsRequest = ListExecutionsRequest.builder()
+                    .maxResults(10)
+                    .stateMachineArn(stateMachineARN)
+                   // .statusFilter(ExecutionStatus.FAILED)
+                    .build();
+
+            ListExecutionsResponse response = sfnClient.listExecutions(executionsRequest);
+            List<ExecutionListItem> items = response.executions();
+            for (ExecutionListItem item: items) {
+                System.out.println("The Amazon Resource Name (ARN) of the failed execution is "+item.executionArn());
+            }
+
+        } catch (SfnException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

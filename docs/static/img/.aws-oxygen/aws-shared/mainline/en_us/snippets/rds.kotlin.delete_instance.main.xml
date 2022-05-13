@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun deleteDatabaseInstance(dbInstanceIdentifierVal: String?) {
+
+        val deleteDbInstanceRequest = DeleteDbInstanceRequest {
+            dbInstanceIdentifier = dbInstanceIdentifierVal
+            deleteAutomatedBackups = true
+            skipFinalSnapshot = true
+        }
+
+        RdsClient { region = "us-west-2" }.use { rdsClient ->
+          val response = rdsClient.deleteDbInstance(deleteDbInstanceRequest)
+          print("The status of the database is ${response.dbInstance?.dbInstanceStatus}")
+       }
+}
+</programlisting>

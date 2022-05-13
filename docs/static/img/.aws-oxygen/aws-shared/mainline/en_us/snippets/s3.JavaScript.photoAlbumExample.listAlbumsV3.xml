@@ -1,0 +1,64 @@
+<programlisting>
+
+// A utility function to create HTML
+function getHtml(template) {
+  return template.join("\n");
+}
+// Make getHTML function available to the browser
+window.getHTML = getHtml;
+
+// List the photo albums that exist in the bucket
+const listAlbums = async () => {
+  try {
+    const data = await s3.send(
+        new ListObjectsCommand({ Delimiter: "/", Bucket: albumBucketName })
+    );
+
+    if (data.CommonPrefixes === undefined) {
+      const htmlTemplate = [
+        "<p>You don't have any albums. You need to create an album.</p>",
+        "<button onclick=\"createAlbum(prompt('Enter album name:'))\">",
+        "Create new album",
+        "</button>",
+      ];
+      document.getElementById("app").innerHTML = htmlTemplate;
+    } else {
+      var albums = data.CommonPrefixes.map(function (commonPrefix) {
+        var prefix = commonPrefix.Prefix;
+        var albumName = decodeURIComponent(prefix.replace("/", ""));
+        return getHtml([
+          "<li>",
+          "<span onclick=\"deleteAlbum('" + albumName + "')\">X</span>",
+          "<span onclick=\"viewAlbum('" + albumName + "')\">",
+          albumName,
+          "</span>",
+          "</li>",
+        ]);
+      });
+      var message = albums.length
+          ? getHtml([
+            "<p>Click an album name to view it.</p>",
+            "<p>Click the X to delete the album.</p>",
+          ])
+          : "<p>You do not have any albums. You need to create an album.";
+      const htmlTemplate = [
+        "<h2>Albums</h2>",
+        message,
+        "<ul>",
+        getHtml(albums),
+        "</ul>",
+        "<button onclick=\"createAlbum(prompt('Enter Album Name:'))\">",
+        "Create new Album",
+        "</button>",
+      ];
+      document.getElementById("app").innerHTML = getHtml(htmlTemplate);
+    }
+  } catch (err) {
+    return alert("There was an error listing your albums: " + err.message);
+  }
+};
+
+// Make listAlbums function available to the browser
+window.listAlbums = listAlbums;
+
+</programlisting>

@@ -1,0 +1,16 @@
+<programlisting>
+    public static void deleteStream(KinesisClient kinesisClient, String streamName) {
+
+           try {
+                DeleteStreamRequest delStream = DeleteStreamRequest.builder()
+                        .streamName(streamName)
+                        .build();
+
+                kinesisClient.deleteStream(delStream);
+
+            } catch (KinesisException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

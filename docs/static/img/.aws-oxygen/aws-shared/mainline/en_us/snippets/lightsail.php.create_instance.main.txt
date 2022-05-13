@@ -1,0 +1,34 @@
+$client = new Aws\Lightsail\LightsailClient([
+    'profile' => 'default',
+    'version' => '2016-11-28',
+    'region' => 'us-east-2'
+]);
+
+$availabilityZone = 'us-east-2a';
+$blueprintId = 'amazon_linux_2018_03_0_2';
+$bundleId = 'nano_2_0';
+$instanceName = 'AWS_SDK_PHP-Amazon_Linux';
+
+
+try {
+    $result = $client->createInstances([
+        'availabilityZone' => $availabilityZone,
+        'blueprintId' => $blueprintId,
+        'bundleId' => $bundleId,
+        'instanceNames' => [$instanceName],
+        'tags' => [
+            [
+                'key' => 'SDK',
+                'value' => 'Made with AWS SDK for PHP',
+            ],
+            [
+                'key' => 'Type',
+                'value' => 'Amazon Linux',
+            ]
+        ],
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}

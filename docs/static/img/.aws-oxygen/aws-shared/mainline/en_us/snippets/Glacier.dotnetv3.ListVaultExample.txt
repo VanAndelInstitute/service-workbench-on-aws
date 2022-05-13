@@ -1,0 +1,25 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Amazon.Glacier;
+    using Amazon.Glacier.Model;
+
+    public class ListVaults
+    {
+        public static async Task Main(string[] args)
+        {
+            var client = new AmazonGlacierClient();
+            var request = new ListVaultsRequest
+            {
+                AccountId = "-",
+                Limit = 5,
+            };
+
+            var response = await client.ListVaultsAsync(request);
+
+            List<DescribeVaultOutput> vaultList = response.VaultList;
+
+            vaultList.ForEach(v => { Console.WriteLine($"{v.VaultName} ARN: {v.VaultARN}");  });
+        }
+    }
+

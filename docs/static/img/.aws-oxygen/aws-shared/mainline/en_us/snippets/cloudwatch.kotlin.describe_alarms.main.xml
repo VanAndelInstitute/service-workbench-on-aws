@@ -1,0 +1,11 @@
+<programlisting>
+suspend fun desCWAlarms() {
+
+    CloudWatchClient { region = "us-east-1" }.use { cwClient ->
+           val response = cwClient.describeAlarms(DescribeAlarmsRequest {})
+           response.metricAlarms?.forEach { alarm ->
+               println("Retrieved alarm ${alarm.alarmName}")
+           }
+    }
+ }
+</programlisting>

@@ -1,0 +1,65 @@
+<programlisting>
+# Creates a role in AWS Identity and Access Management (IAM).
+# This role is used by a rule in Amazon EventBridge to allow
+# that rule to operate within the caller's account.
+# This role is designed to be used specifically by this code example.
+#
+# @param iam_client [Aws::IAM::Client] An initialized IAM client.
+# @param role_name [String] The name of the role to create.
+# @return [String] The ARN of the role that was created.
+# @example
+#   puts create_role(
+#     Aws::IAM::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-ec2-state-change'
+#   )
+def create_role(iam_client, role_name)
+  puts "Creating the role named '#{role_name}'..."
+  response = iam_client.create_role(
+    assume_role_policy_document: {
+      'Version': '2012-10-17',
+      'Statement': [
+        {
+          'Sid': '',
+          'Effect': 'Allow',
+          'Principal': {
+            'Service': 'events.amazonaws.com'
+          },
+          'Action': 'sts:AssumeRole'
+        }
+      ]
+    }.to_json,
+    path: '/',
+    role_name: role_name
+  )
+  puts "Role created with ARN '#{response.role.arn}'."
+  puts 'Adding access policy to role...'
+  iam_client.put_role_policy(
+    policy_document: {
+      'Version': '2012-10-17',
+      'Statement': [
+        {
+          'Sid': 'CloudWatchEventsFullAccess',
+          'Effect': 'Allow',
+          'Resource': '*',
+          'Action': 'events:*'
+        },
+        {
+          'Sid': 'IAMPassRoleForCloudWatchEvents',
+          'Effect': 'Allow',
+          'Resource': 'arn:aws:iam::*:role/AWS_Events_Invoke_Targets',
+          'Action': 'iam:PassRole'
+        }
+      ]
+    }.to_json,
+    policy_name: 'CloudWatchEventsPolicy',
+    role_name: role_name
+  )
+  puts 'Access policy added to role.'
+  return response.role.arn
+rescue StandardError => e
+  puts "Error creating role or adding policy to it: #{e.message}"
+  puts 'If the role was created, you must add the access policy ' \
+    'to the role yourself, or delete the role yourself and try again.'
+  return 'Error'
+end
+</programlisting>

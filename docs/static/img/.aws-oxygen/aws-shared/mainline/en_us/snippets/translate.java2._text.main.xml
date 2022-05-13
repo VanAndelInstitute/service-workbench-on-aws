@@ -1,0 +1,19 @@
+<programlisting>
+    public static void textTranslate(TranslateClient translateClient) {
+
+        try {
+            TranslateTextRequest textRequest = TranslateTextRequest.builder()
+                .sourceLanguageCode("en")
+                .targetLanguageCode("fr")
+                .text("Its a sunny day today")
+                .build();
+
+            TranslateTextResponse textResponse = translateClient.translateText(textRequest);
+            System.out.println(textResponse.translatedText());
+
+        } catch (TranslateException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

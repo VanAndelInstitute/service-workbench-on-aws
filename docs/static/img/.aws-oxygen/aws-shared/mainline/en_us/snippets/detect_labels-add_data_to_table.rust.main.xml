@@ -1,0 +1,50 @@
+<programlisting>
+async fn add_data_to_table(
+    verbose: bool,
+    client: &aws_sdk_dynamodb::Client,
+    table: &str,
+    filename: &str,
+    edata: Edata,
+    labels: Vec<Litem>,
+) {
+    if verbose {
+        println!("Added ")
+    }
+    let filename_string = AttributeValue::S(filename.to_string());
+    let height_string = AttributeValue::S(edata.height);
+    let created_string = AttributeValue::S(edata.created);
+    let width_string = AttributeValue::S(edata.width);
+    let label1_label = AttributeValue::S(labels[0].name.to_string());
+    let label1_value = AttributeValue::S(labels[0].confidence.to_string());
+    let label2_label = AttributeValue::S(labels[1].name.to_string());
+    let label2_value = AttributeValue::S(labels[1].confidence.to_string());
+    let label3_label = AttributeValue::S(labels[2].name.to_string());
+    let label3_value = AttributeValue::S(labels[2].confidence.to_string());
+
+    match client
+        .put_item()
+        .table_name(table)
+        .item("filename", filename_string) // Table key.
+        .item("height", height_string)
+        .item("width", width_string)
+        .item("created", created_string)
+        .item("Label1", label1_label)
+        .item("Value1", label1_value)
+        .item("Label2", label2_label)
+        .item("Value2", label2_value)
+        .item("Label3", label3_label)
+        .item("Value3", label3_value)
+        .send()
+        .await
+    {
+        Err(e) => {
+            println!("Got an error adding data to table:");
+            println!("{}", e);
+            process::exit(1);
+        }
+        Ok(_) => {
+            println!("Added info to table.");
+        }
+    }
+}
+</programlisting>

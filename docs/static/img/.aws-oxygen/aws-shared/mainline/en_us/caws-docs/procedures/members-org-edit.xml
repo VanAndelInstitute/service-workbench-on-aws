@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+<procedure>
+  <info>
+    <title>To edit an organization member profile</title>
+  </info>
+  <step>&CAWS-console-signin;</step>
+  <step>
+    <para>On the overview page for your organization, choose <guilabel>Settings</guilabel>.</para>
+  </step>
+  <step>
+    <para>Choose the <guilabel>Members</guilabel> tab.</para>
+  </step>
+  <step>
+    <para>Choose the box next to the profile you want to update, and then choose <guilabel>Action >
+        Edit profile</guilabel>.</para>
+  </step>
+  <step>
+    <para>Choose or enter the details you want to update, and then choose
+      <guilabel>Done</guilabel>.</para>
+  </step>
+</procedure>

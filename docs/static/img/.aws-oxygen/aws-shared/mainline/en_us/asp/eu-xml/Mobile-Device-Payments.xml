@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="Mobile-Device-Payments">
+    <title id="Mobile-Device-Payments.title">Accepting Payments from Mobile Devices</title>
+    <para>&fps_product_short; provides a seamless integration with web sites optimized for mobile devices. No special &fps_product_short; coding is 
+    required. The software detects the client browser HTTP_USER_AGENT and routes the request along the appropriate CBUI pipeline. A separate pipeline is 
+    optimized for the mobile device experience.</para>
+    <note><para>For optimal security, your mobile application should make use of a full browser instance (not a browser embedded within an 
+    application). It should display the browser address bar to enable customers to confirm the URL.</para></note>
+    <para>The user CBUI experience is managed for you. You handle all &fps_product_short; requests, return URLs, and IPN notifications regardless 
+    of which client browser the customer is using.</para>
+ <para condition="fps-acc;fps-adv;fps-agg;fps-bas;fps-dig;fps-mkt;asp-adv"><phrase condition="fps">&fps_product_short;</phrase><phrase condition="asp">&asp_product;</phrase> makes it easy to test your mobile client experience. For more information, see 
+     <link endterm="pgSandboxSimulatingMobileEnvironment.title" linkend="pgSandboxSimulatingMobileEnvironment"/>.</para>
+</section>

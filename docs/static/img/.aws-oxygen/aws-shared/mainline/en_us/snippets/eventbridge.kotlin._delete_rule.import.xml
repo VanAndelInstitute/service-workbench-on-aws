@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.eventbridge.EventBridgeClient
+import aws.sdk.kotlin.services.eventbridge.model.DeleteRuleRequest
+import aws.sdk.kotlin.services.eventbridge.model.DisableRuleRequest
+import kotlin.system.exitProcess
+</programlisting>

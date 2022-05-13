@@ -1,0 +1,23 @@
+    public static void listAllDashboards(QuickSightClient qsClient, String account) {
+
+        try {
+
+             ListDashboardsRequest dashboardsRequest = ListDashboardsRequest.builder()
+                .awsAccountId(account)
+                .maxResults(20)
+                .build();
+
+             ListDashboardsResponse res  = qsClient.listDashboards(dashboardsRequest);
+             List<DashboardSummary> dashboards = res.dashboardSummaryList();
+
+             for (DashboardSummary dashboard: dashboards) {
+                System.out.println("Dashboard name: "+dashboard.name());
+                System.out.println("Dashboard ARN: "+dashboard.arn());
+                System.out.println("Dashboard Id: "+dashboard.dashboardId());
+             }
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

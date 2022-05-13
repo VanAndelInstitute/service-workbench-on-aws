@@ -1,0 +1,10 @@
+<programlisting>
+    certName := flag.String("c", "", "The name of the certificate")
+    newName := flag.String("n", "", "The new name of the certificate")
+    flag.Parse()
+
+    if *certName == "" {
+        fmt.Println("You must supply the original and new names of a certificate (-c CERT-NAME -n NEW-NAME)")
+        return
+    }
+</programlisting>

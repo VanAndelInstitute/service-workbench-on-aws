@@ -1,0 +1,43 @@
+<programlisting>
+    def request_validation(
+            self, domain, alternate_domains, method, validation_domains=None):
+        """
+        Starts a validation request that results in a new certificate being issued
+        by ACM. DNS validation requires that you add CNAME records to your DNS
+        provider. Email validation sends email to a list of email addresses that
+        are associated with the domain.
+
+        For more information, see _Issuing and managing certificates_ in the ACM
+        user guide.
+            https://docs.aws.amazon.com/acm/latest/userguide/gs.html
+
+        :param domain: The primary domain to associate with the certificate.
+        :param alternate_domains: Subject Alternate Names (SANs) for the certificate.
+        :param method: The validation method, either DNS or EMAIL.
+        :param validation_domains: Alternate domains to use for email validation, when
+                                   the email domain differs from the primary domain of
+                                   the certificate.
+        :return: The ARN of the requested certificate.
+        """
+        try:
+            kwargs = {
+                'DomainName': domain,
+                'ValidationMethod': method,
+                'SubjectAlternativeNames': alternate_domains}
+            if validation_domains is not None:
+                kwargs['DomainValidationOptions'] = [{
+                    'DomainName': key,
+                    'ValidationDomain': value
+                } for key, value in validation_domains.items()]
+            response = self.acm_client.request_certificate(**kwargs)
+            certificate_arn = response['CertificateArn']
+            logger.info(
+                "Requested %s validation for domain %s. Certificate ARN is %s.",
+                method, domain, certificate_arn)
+        except ClientError:
+            logger.exception(
+                "Request for %s validation of domain %s failed.", method, domain)
+            raise
+        else:
+            return certificate_arn
+</programlisting>

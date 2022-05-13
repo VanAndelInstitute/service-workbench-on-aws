@@ -1,0 +1,9 @@
+func attachedUserPolicyHasAdmin(user *iam.UserDetail, admin string) bool {
+    for _, policy := range user.AttachedManagedPolicies {
+        if *policy.PolicyName == admin {
+            return true
+        }
+    }
+
+    return false
+}

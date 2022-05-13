@@ -1,0 +1,38 @@
+<programlisting>
+
+// Add a photo to an album
+const addPhoto = async (albumName) => {
+  const files = document.getElementById("photoupload").files;
+  try {
+    const albumPhotosKey = encodeURIComponent(albumName) + "/";
+    const data = await s3.send(
+        new ListObjectsCommand({
+          Prefix: albumPhotosKey,
+          Bucket: albumBucketName
+        })
+    );
+    const file = files[0];
+    const fileName = file.name;
+    const photoKey = albumPhotosKey + fileName;
+    const uploadParams = {
+      Bucket: albumBucketName,
+      Key: photoKey,
+      Body: file
+    };
+    try {
+      const data = await s3.send(new PutObjectCommand(uploadParams));
+      alert("Successfully uploaded photo.");
+      viewAlbum(albumName);
+    } catch (err) {
+      return alert("There was an error uploading your photo: ", err.message);
+    }
+  } catch (err) {
+    if (!files.length) {
+      return alert("Choose a file to upload first.");
+    }
+  }
+};
+// Make addPhoto function available to the browser
+window.addPhoto = addPhoto;
+
+</programlisting>

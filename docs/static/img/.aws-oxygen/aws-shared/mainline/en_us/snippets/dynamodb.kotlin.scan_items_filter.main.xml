@@ -1,0 +1,69 @@
+<programlisting>
+suspend fun scanItemsUsingFilter(tableNameVal: String) {
+
+        val myMap = HashMap<String, String>()
+        myMap.put("#archive2", "archive")
+
+        val myExMap = HashMap<String, AttributeValue>()
+        myExMap.put(":val", AttributeValue.S("Open"))
+
+       val request = ScanRequest {
+           this.expressionAttributeNames = myMap
+           this.expressionAttributeValues = myExMap
+           tableName = tableNameVal
+           filterExpression = "#archive2 = :val"
+       }
+
+        DynamoDbClient { region = "us-east-1" }.use { ddb ->
+          val response = ddb.scan(request)
+          println("#######################################")
+          response.items?.forEach { item ->
+            item.keys.forEach { key ->
+
+                when (key) {
+                    "date" -> {
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                    }
+                    "status" -> {
+
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                    }
+                    "username" -> {
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                    }
+                    "archive" -> {
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                    }
+
+                    "description" -> {
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                }
+                    "id" -> {
+                        val myVal = splitMyString(item[key].toString())
+                        println(myVal)
+                    }
+                   else -> {
+                       val myVal = splitMyString(item[key].toString())
+                       println(myVal)
+                       println("#######################################")
+                    }
+                }
+            }
+        }
+    }
+}
+
+fun splitMyString(str:String):String{
+
+    val del1 = "="
+    val del2 = ")"
+    val parts = str.split(del1, del2)
+    val myVal = parts[1]
+    return myVal
+}
+</programlisting>

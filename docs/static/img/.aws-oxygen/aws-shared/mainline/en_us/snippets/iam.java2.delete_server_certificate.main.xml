@@ -1,0 +1,19 @@
+<programlisting>
+    public static void deleteCert(IamClient iam,String certName ) {
+
+        try {
+            DeleteServerCertificateRequest request =
+                DeleteServerCertificateRequest.builder()
+                        .serverCertificateName(certName)
+                        .build();
+
+            iam.deleteServerCertificate(request);
+            System.out.println("Successfully deleted server certificate " +
+                    certName);
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

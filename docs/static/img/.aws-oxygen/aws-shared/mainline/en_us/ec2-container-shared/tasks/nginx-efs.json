@@ -1,0 +1,33 @@
+{
+    "containerDefinitions": [
+        {
+            "memory": 128,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "mountPoints": [
+                {
+                    "containerPath": "/usr/share/nginx/html",
+                    "sourceVolume": "efs-html"
+                }
+            ],
+            "name": "nginx",
+            "image": "nginx"
+        }
+    ],
+    "volumes": [
+        {
+            "name": "efs-html",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-1234",
+                "rootDirectory": "/path/to/my/data"
+            }
+        }
+    ],
+    "family": "nginx-efs"
+}

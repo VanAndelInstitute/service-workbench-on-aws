@@ -1,0 +1,17 @@
+async fn list_items(client: &Client, table: &str) -> Result<(), Error> {
+    let items: Result<Vec<_>, _> = client
+        .scan()
+        .table_name(table)
+        .into_paginator()
+        .items()
+        .send()
+        .collect()
+        .await;
+
+    println!("Items in table:");
+    for item in items? {
+        println!("   {:?}", item);
+    }
+
+    Ok(())
+}

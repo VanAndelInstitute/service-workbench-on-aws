@@ -1,0 +1,8 @@
+        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+        try {
+            s3.deleteBucketWebsiteConfiguration(bucket_name);
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            System.out.println("Failed to delete website configuration!");
+            System.exit(1);
+        }

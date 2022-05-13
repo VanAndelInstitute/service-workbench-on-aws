@@ -1,0 +1,18 @@
+    @staticmethod
+    def get_notification(vault):
+        """
+        Gets the currently notification configuration for a vault.
+
+        :param vault: The vault to query.
+        :return: The notification configuration for the specified vault.
+        """
+        try:
+            notification = vault.Notification()
+            logger.info(
+                "Vault %s notifies %s on %s events.", vault.name,
+                notification.sns_topic, notification.events)
+        except ClientError:
+            logger.exception("Couldn't get notification data for %s.", vault.name)
+            raise
+        else:
+            return notification

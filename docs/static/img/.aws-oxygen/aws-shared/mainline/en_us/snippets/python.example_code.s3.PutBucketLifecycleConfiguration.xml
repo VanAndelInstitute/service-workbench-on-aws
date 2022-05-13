@@ -1,0 +1,20 @@
+<programlisting>
+    def put_lifecycle_configuration(self, lifecycle_rules):
+        """
+        Apply a lifecycle configuration to the bucket. The lifecycle configuration can
+        be used to archive or delete the objects in the bucket according to specified
+        parameters, such as a number of days.
+
+        :param lifecycle_rules: The lifecycle rules to apply.
+        """
+        try:
+            self.bucket.LifecycleConfiguration().put(
+                LifecycleConfiguration={'Rules': lifecycle_rules})
+            logger.info(
+                "Put lifecycle rules %s for bucket '%s'.", lifecycle_rules,
+                self.bucket.name)
+        except ClientError:
+            logger.exception(
+                "Couldn't put lifecycle rules for bucket '%s'.", self.bucket.name)
+            raise
+</programlisting>

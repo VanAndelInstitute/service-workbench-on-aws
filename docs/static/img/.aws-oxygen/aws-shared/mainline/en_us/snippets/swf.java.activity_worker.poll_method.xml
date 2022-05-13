@@ -1,0 +1,13 @@
+<programlisting>
+            System.out.println("Polling for an activity task from the tasklist '"
+                    + HelloTypes.TASKLIST + "' in the domain '" +
+                    HelloTypes.DOMAIN + "'.");
+
+            ActivityTask task = swf.pollForActivityTask(
+                new PollForActivityTaskRequest()
+                    .withDomain(HelloTypes.DOMAIN)
+                    .withTaskList(
+                        new TaskList().withName(HelloTypes.TASKLIST)));
+
+            String task_token = task.getTaskToken();
+</programlisting>

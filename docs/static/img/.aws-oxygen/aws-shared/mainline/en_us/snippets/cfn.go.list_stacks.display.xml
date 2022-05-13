@@ -1,0 +1,5 @@
+<programlisting>
+    for _, s := range resp.StackSummaries {
+        fmt.Println(*s.StackName + ", Status: " + *s.StackStatus)
+    }
+</programlisting>

@@ -1,0 +1,13 @@
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.UpdateEndpointRequest
+import aws.sdk.kotlin.services.pinpoint.model.GetEndpointRequest
+import aws.sdk.kotlin.services.pinpoint.model.EndpointRequest
+import aws.sdk.kotlin.services.pinpoint.model.EndpointDemographic
+import aws.sdk.kotlin.services.pinpoint.model.EndpointLocation
+import aws.sdk.kotlin.services.pinpoint.model.ChannelType
+import aws.sdk.kotlin.services.pinpoint.model.EndpointUser
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.UUID
+import java.util.Date
+import kotlin.system.exitProcess

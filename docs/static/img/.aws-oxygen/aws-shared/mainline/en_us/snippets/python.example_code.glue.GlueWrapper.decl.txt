@@ -1,0 +1,7 @@
+class GlueWrapper:
+    """Encapsulates AWS Glue actions."""
+    def __init__(self, glue_client):
+        """
+        :param glue_client: A Boto3 Glue client.
+        """
+        self.glue_client = glue_client

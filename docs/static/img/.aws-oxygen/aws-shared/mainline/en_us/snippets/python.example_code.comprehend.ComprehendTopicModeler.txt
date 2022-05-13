@@ -1,0 +1,7 @@
+class ComprehendTopicModeler:
+    """Encapsulates a Comprehend topic modeler."""
+    def __init__(self, comprehend_client):
+        """
+        :param comprehend_client: A Boto3 Comprehend client.
+        """
+        self.comprehend_client = comprehend_client

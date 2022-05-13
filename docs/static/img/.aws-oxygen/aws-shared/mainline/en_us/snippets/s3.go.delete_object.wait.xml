@@ -1,0 +1,6 @@
+<programlisting>
+    err = svc.WaitUntilObjectNotExists(&s3.HeadObjectInput{
+        Bucket: bucket,
+        Key:    item,
+    })
+</programlisting>

@@ -1,0 +1,10 @@
+class AcmCertificate:
+    """
+    Encapsulates ACM functions.
+    """
+    def __init__(self, acm_client):
+        """
+        :param acm_client: A Boto3 ACM client.
+        """
+        self.acm_client = acm_client
+

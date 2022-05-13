@@ -1,0 +1,21 @@
+<programlisting>
+    public static void describeEC2Keys( Ec2Client ec2){
+
+        try {
+            DescribeKeyPairsResponse response = ec2.describeKeyPairs();
+
+            for(KeyPairInfo keyPair : response.keyPairs()) {
+                System.out.printf(
+                    "Found key pair with name %s " +
+                            "and fingerprint %s",
+                    keyPair.keyName(),
+                    keyPair.keyFingerprint());
+             }
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+         }
+
+    }
+</programlisting>

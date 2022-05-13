@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun createPersonalizeSolution(datasetGroupArnVal: String?, solutionName: String?, recipeArnVal: String?): String? {
+
+    val request = CreateSolutionRequest {
+        name = solutionName
+        datasetGroupArn = datasetGroupArnVal
+        recipeArn = recipeArnVal
+    }
+
+    PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+        val solutionResponse = personalizeClient.createSolution(request)
+        return solutionResponse.solutionArn
+    }
+}
+</programlisting>

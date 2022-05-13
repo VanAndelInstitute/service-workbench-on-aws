@@ -1,0 +1,24 @@
+     public static SdkBytes encryptData(KmsClient kmsClient, String keyId) {
+
+         try {
+             SdkBytes myBytes = SdkBytes.fromByteArray(new byte[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0});
+
+             EncryptRequest encryptRequest = EncryptRequest.builder()
+                     .keyId(keyId)
+                     .plaintext(myBytes)
+                     .build();
+
+             EncryptResponse response = kmsClient.encrypt(encryptRequest);
+             String algorithm = response.encryptionAlgorithm().toString();
+             System.out.println("The encryption algorithm is " + algorithm);
+
+             // Get the encrypted data.
+             SdkBytes encryptedData = response.ciphertextBlob();
+             return encryptedData;
+
+         } catch (KmsException e) {
+             System.err.println(e.getMessage());
+             System.exit(1);
+         }
+         return null;
+     }

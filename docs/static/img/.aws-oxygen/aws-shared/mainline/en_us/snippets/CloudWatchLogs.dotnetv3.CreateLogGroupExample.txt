@@ -1,0 +1,27 @@
+        public static async Task Main()
+        {
+            // This client object will be associated with the same AWS Region
+            // as the default user on this system. If you need to use a
+            // different AWS Region, pass it as a parameter to the client
+            // constructor.
+            var client = new AmazonCloudWatchLogsClient();
+
+            string logGroupName = "cloudwatchlogs-example-loggroup";
+
+            var request = new CreateLogGroupRequest
+            {
+                LogGroupName = logGroupName,
+            };
+
+            var response = await client.CreateLogGroupAsync(request);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine($"Successfully create log group with ID: {logGroupName}.");
+            }
+            else
+            {
+                Console.WriteLine("Could not create log group.");
+            }
+        }
+

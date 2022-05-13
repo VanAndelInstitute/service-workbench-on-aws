@@ -1,0 +1,26 @@
+<programlisting>
+    public static void importMigrTask(MigrationHubClient migrationClient,  String migrationTask, String progressStream) {
+
+    try {
+
+        CreateProgressUpdateStreamRequest progressUpdateStreamRequest = CreateProgressUpdateStreamRequest.builder()
+                .progressUpdateStreamName(progressStream)
+                .dryRun(false)
+                .build();
+
+       migrationClient.createProgressUpdateStream(progressUpdateStreamRequest);
+
+       ImportMigrationTaskRequest migrationTaskRequest = ImportMigrationTaskRequest.builder()
+                .migrationTaskName(migrationTask)
+                .progressUpdateStream(progressStream)
+                .dryRun(false)
+                .build();
+
+        migrationClient.importMigrationTask(migrationTaskRequest);
+
+    } catch(MigrationHubException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

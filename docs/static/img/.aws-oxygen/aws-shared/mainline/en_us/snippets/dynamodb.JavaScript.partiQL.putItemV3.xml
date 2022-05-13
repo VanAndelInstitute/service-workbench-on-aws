@@ -1,0 +1,25 @@
+<programlisting>
+
+// Import required AWS SDK clients and commands for Node.js.
+import { ExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
+import { ddbDocClient } from "../libs/ddbDocClient.js";
+
+const tableName = process.argv[2];
+const movieYear1 = process.argv[3];
+const movieTitle1 = process.argv[4];
+
+export const run = async (tableName, movieTitle1, movieYear1) => {
+  const params = {
+    Statement: "INSERT INTO " + tableName + "  value  {'title':?, 'year':?}",
+    Parameters: [{ S: movieTitle1 }, { N: movieYear1 }],
+  };
+  try {
+    const data = await ddbDocClient.send(new ExecuteStatementCommand(params));
+    console.log("Success. Item added.");
+    return "Run successfully"; // For unit tests.
+  } catch (err) {
+    console.error(err);
+  }
+};
+run(tableName, movieTitle1, movieYear1);
+</programlisting>

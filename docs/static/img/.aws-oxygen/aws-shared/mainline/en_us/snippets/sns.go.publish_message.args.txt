@@ -1,0 +1,10 @@
+	msg := flag.String("m", "", "The message to send to the subscribed users of the topic")
+	topicARN := flag.String("t", "", "The ARN of the topic to which the user subscribes")
+
+	flag.Parse()
+
+	if *msg == "" || *topicARN == "" {
+		fmt.Println("You must supply a message and topic ARN")
+		fmt.Println("-m MESSAGE -t TOPIC-ARN")
+		return
+	}

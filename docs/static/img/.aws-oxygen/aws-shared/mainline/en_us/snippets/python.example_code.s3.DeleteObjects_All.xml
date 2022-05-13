@@ -1,0 +1,15 @@
+<programlisting>
+    @staticmethod
+    def empty_bucket(bucket):
+        """
+        Remove all objects from a bucket.
+
+        :param bucket: The bucket to empty.
+        """
+        try:
+            bucket.objects.delete()
+            logger.info("Emptied bucket '%s'.", bucket.name)
+        except ClientError:
+            logger.exception("Couldn't empty bucket '%s'.", bucket.name)
+            raise
+</programlisting>

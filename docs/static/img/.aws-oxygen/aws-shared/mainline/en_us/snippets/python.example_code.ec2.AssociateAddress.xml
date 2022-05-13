@@ -1,0 +1,24 @@
+<programlisting>
+def associate_elastic_ip(allocation_id, instance_id):
+    """
+    Associates an Elastic IP address with an instance. When this association is
+    created, the Elastic IP's public IP address is immediately used as the public
+    IP address of the associated instance.
+
+    :param allocation_id: The allocation ID assigned to the Elastic IP when it was
+                          created.
+    :param instance_id: The ID of the instance to associate with the Elastic IP.
+    :return: The Elastic IP object.
+    """
+    try:
+        elastic_ip = ec2.VpcAddress(allocation_id)
+        elastic_ip.associate(InstanceId=instance_id)
+        logger.info("Associated Elastic IP %s with instance %s, got association ID %s",
+                    elastic_ip.public_ip, instance_id, elastic_ip.association_id)
+    except ClientError:
+        logger.exception(
+            "Couldn't associate Elastic IP %s with instance %s.",
+            allocation_id, instance_id)
+        raise
+    return elastic_ip
+</programlisting>

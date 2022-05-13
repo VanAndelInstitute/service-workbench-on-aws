@@ -1,0 +1,7 @@
+<programlisting>
+    _, err := svc.UpdateAccessKey(&iam.UpdateAccessKeyInput{
+        AccessKeyId: keyID,
+        Status:      aws.String(iam.StatusTypeActive),
+        UserName:    userName,
+    })
+</programlisting>

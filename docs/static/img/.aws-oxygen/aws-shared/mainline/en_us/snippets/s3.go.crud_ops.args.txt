@@ -1,0 +1,7 @@
+    bucket := flag.String("b", "", "The name of the S3 bucket")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply an S3 bucket name (-b BUCKET)")
+        return
+    }

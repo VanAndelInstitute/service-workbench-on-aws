@@ -1,0 +1,20 @@
+<programlisting>
+$command = $s3Client->getCommand('ListObjects');
+$list = $command->getHandlerList();
+
+// Create a middleware that just dumps the command and request that is
+// about to be sent
+$middleware = Middleware::tap(
+    function (CommandInterface $command, RequestInterface $request) {
+        var_dump($command->toArray());
+        var_dump($request);
+    }
+);
+
+// Append the middleware to the "sign" step of the handler list. The sign
+// step is the last step before transferring an HTTP request.
+$list->append('sign', $middleware);
+
+// Now transfer the command and see the var_dump data
+$s3Client->execute($command);
+</programlisting>

@@ -1,0 +1,8 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sns.SnsClient;
+import software.amazon.awssdk.services.sns.model.SetSmsAttributesRequest;
+import software.amazon.awssdk.services.sns.model.SetSmsAttributesResponse;
+import software.amazon.awssdk.services.sns.model.SnsException;
+import java.util.HashMap;
+</programlisting>

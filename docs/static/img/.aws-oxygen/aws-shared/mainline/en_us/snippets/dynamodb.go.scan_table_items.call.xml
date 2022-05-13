@@ -1,0 +1,13 @@
+<programlisting>
+    svc := dynamodb.New(sess)
+
+    params := &dynamodb.ScanInput{
+        ExpressionAttributeNames:  expr.Names(),
+        ExpressionAttributeValues: expr.Values(),
+        FilterExpression:          expr.Filter(),
+        ProjectionExpression:      expr.Projection(),
+        TableName:                 table,
+    }
+
+    result, err := svc.Scan(params)
+</programlisting>

@@ -1,0 +1,1 @@
+    fmt.Println("Role ARN: " + *result.Role.Arn)

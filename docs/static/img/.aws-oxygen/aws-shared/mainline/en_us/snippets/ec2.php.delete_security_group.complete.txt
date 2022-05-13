@@ -1,0 +1,26 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Ec2\Ec2Client;
+/**
+ * Delete a Security Group
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+ 
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+$securityGroupId = 'my-security-group-id';
+
+$result = $ec2Client->deleteSecurityGroup(array(
+    'GroupId' => $securityGroupId
+));
+
+var_dump($result);
+ 
+ 

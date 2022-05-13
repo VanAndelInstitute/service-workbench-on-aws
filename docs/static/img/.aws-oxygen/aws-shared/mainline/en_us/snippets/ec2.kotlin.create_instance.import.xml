@@ -1,0 +1,8 @@
+<programlisting>
+import aws.sdk.kotlin.services.ec2.Ec2Client
+import aws.sdk.kotlin.services.ec2.model.RunInstancesRequest
+import aws.sdk.kotlin.services.ec2.model.InstanceType
+import aws.sdk.kotlin.services.ec2.model.Tag
+import aws.sdk.kotlin.services.ec2.model.CreateTagsRequest
+import kotlin.system.exitProcess
+</programlisting>

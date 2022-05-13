@@ -1,0 +1,17 @@
+<programlisting>
+    svc := s3.New(sess)
+
+    // Encrypt with KMS by default
+    defEnc := &s3.ServerSideEncryptionByDefault{
+        KMSMasterKeyID: kmsKeyID,
+        SSEAlgorithm:   aws.String(s3.ServerSideEncryptionAwsKms),
+    }
+    rule := &s3.ServerSideEncryptionRule{ApplyServerSideEncryptionByDefault: defEnc}
+    rules := []*s3.ServerSideEncryptionRule{rule}
+    serverConfig := &s3.ServerSideEncryptionConfiguration{Rules: rules}
+
+    _, err := svc.PutBucketEncryption(&s3.PutBucketEncryptionInput{
+        Bucket:                            bucket,
+        ServerSideEncryptionConfiguration: serverConfig,
+    })
+</programlisting>

@@ -1,0 +1,12 @@
+<programlisting>
+        SubscribeToShardResponseHandler responseHandler = SubscribeToShardResponseHandler
+            .builder()
+            .onError(t -> System.err.println("Error during stream - " + t.getMessage()))
+            .onEventStream(p -> Flowable.fromPublisher(p)
+                                        .ofType(SubscribeToShardEvent.class)
+                                        .flatMapIterable(SubscribeToShardEvent::records)
+                                        .limit(1000)
+                                        .buffer(25)
+                                        .subscribe(e -> System.out.println("Record batch = " + e)))
+            .build();
+</programlisting>

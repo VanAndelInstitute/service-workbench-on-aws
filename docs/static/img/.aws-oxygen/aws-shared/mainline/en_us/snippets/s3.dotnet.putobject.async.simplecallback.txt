@@ -1,0 +1,6 @@
+        public static void SimpleCallback(IAsyncResult asyncResult)
+        {
+            Console.WriteLine("Finished PutObject operation with simple callback.");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("asyncResult.IsCompleted: {0}\n\n", asyncResult.IsCompleted.ToString());
+        }

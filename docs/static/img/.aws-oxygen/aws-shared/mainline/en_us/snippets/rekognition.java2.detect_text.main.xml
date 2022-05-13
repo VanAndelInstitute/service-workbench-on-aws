@@ -1,0 +1,36 @@
+<programlisting>
+    public static void detectTextLabels(RekognitionClient rekClient, String sourceImage) {
+
+        try {
+
+            InputStream sourceStream = new FileInputStream(sourceImage);
+            SdkBytes sourceBytes = SdkBytes.fromInputStream(sourceStream);
+
+            // Create an Image object for the source image
+            Image souImage = Image.builder()
+                    .bytes(sourceBytes)
+                    .build();
+
+            DetectTextRequest textRequest = DetectTextRequest.builder()
+                    .image(souImage)
+                   .build();
+
+            DetectTextResponse textResponse = rekClient.detectText(textRequest);
+            List<TextDetection> textCollection = textResponse.textDetections();
+
+            System.out.println("Detected lines and words");
+            for (TextDetection text: textCollection) {
+                System.out.println("Detected: " + text.detectedText());
+                System.out.println("Confidence: " + text.confidence().toString());
+                System.out.println("Id : " + text.id());
+                System.out.println("Parent Id: " + text.parentId());
+                System.out.println("Type: " + text.type());
+                System.out.println();
+            }
+
+           } catch (RekognitionException | FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

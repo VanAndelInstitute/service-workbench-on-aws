@@ -1,0 +1,7 @@
+    content, err := ioutil.ReadFile(*templateFile)
+    if err != nil {
+        return
+    }
+
+    // Convert []byte to string
+    templateBody := string(content)

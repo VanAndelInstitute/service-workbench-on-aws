@@ -1,0 +1,17 @@
+        System.out.println("Copying s3 object: " + from_key);
+        System.out.println("      from bucket: " + from_bucket);
+        System.out.println("     to s3 object: " + to_key);
+        System.out.println("        in bucket: " + to_bucket);
+
+        TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
+        try {
+            Copy xfer = xfer_mgr.copy(from_bucket, from_key, to_bucket, to_key);
+            // loop with Transfer.isDone()
+            XferMgrProgress.showTransferProgress(xfer);
+            // or block with Transfer.waitForCompletion()
+            XferMgrProgress.waitForCompletion(xfer);
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            System.exit(1);
+        }
+        xfer_mgr.shutdownNow();

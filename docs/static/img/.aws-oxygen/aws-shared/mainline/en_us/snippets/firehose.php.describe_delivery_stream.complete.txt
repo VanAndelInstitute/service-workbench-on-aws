@@ -1,0 +1,34 @@
+
+require 'vendor/autoload.php';
+
+use Aws\Firehose\FirehoseClient; 
+use Aws\Exception\AwsException;
+
+/**
+ * Get information about an existing Amazon Kinesis Firehose Delivery Stream.
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+
+//Create a KinesisClient 
+$firehoseClient = new Aws\Firehose\FirehoseClient([
+    'profile' => 'default',
+    'version' => '2015-08-04',
+    'region' => 'us-east-2'
+]);
+
+$name = "my_stream_name";
+
+try {
+    $result = $firehoseClient->describeDeliveryStream([
+        'DeliveryStreamName' => $name,
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 

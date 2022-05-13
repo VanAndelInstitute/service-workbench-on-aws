@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+]>
+<!-- zexi 0.2.0 -->
+<tablist>
+    <tablistentry>
+        <tabname>.NET</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_.NET.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>C++</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_C++.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Go</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Go.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Java</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Java.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>JavaScript</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_JavaScript.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Kotlin</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Kotlin.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>PHP</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_PHP.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Python</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Python.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+    <tablistentry>
+        <tabname>Ruby</tabname>
+        <tabcontent>
+            <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_Ruby.xml"></xi:include>
+        </tabcontent>
+    </tablistentry>
+</tablist>

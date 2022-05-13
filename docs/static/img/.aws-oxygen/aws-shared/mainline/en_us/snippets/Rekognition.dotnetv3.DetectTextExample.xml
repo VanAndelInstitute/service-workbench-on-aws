@@ -1,0 +1,40 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string photo = "Dad_photographer.jpg"; // "input.jpg";
+            string bucket = "igsmiths3photos"; // "bucket";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var detectTextRequest = new DetectTextRequest()
+            {
+                Image = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = photo,
+                        Bucket = bucket,
+                    },
+                },
+            };
+
+            try
+            {
+                DetectTextResponse detectTextResponse = await rekognitionClient.DetectTextAsync(detectTextRequest);
+                Console.WriteLine($"Detected lines and words for {photo}");
+                detectTextResponse.TextDetections.ForEach(text =>
+                {
+                    Console.WriteLine($"Detected: {text.DetectedText}");
+                    Console.WriteLine($"Confidence: {text.Confidence}");
+                    Console.WriteLine($"Id : {text.Id}");
+                    Console.WriteLine($"Parent Id: {text.ParentId}");
+                    Console.WriteLine($"Type: {text.Type}");
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+</programlisting>

@@ -1,0 +1,14 @@
+    public static void createStream(KinesisClient kinesisClient, String streamName) {
+
+        try {
+            CreateStreamRequest streamReq = CreateStreamRequest.builder()
+                    .streamName(streamName)
+                    .shardCount(1)
+                    .build();
+
+            kinesisClient.createStream(streamReq);
+        } catch (KinesisException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+     }

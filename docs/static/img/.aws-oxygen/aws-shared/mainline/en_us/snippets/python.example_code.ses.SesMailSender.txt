@@ -1,0 +1,7 @@
+class SesMailSender:
+    """Encapsulates functions to send emails with Amazon SES."""
+    def __init__(self, ses_client):
+        """
+        :param ses_client: A Boto3 Amazon SES client.
+        """
+        self.ses_client = ses_client

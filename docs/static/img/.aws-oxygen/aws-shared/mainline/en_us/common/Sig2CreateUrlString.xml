@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="Sig2CreateUrlString" role="topic">
+    <title id="Sig2CreateUrlString.title">How to Form the Concatenated URL</title>
+    &SIG2NOTE; 
+    <procedure>
+        <title>To Form the Concatenated URL</title>
+        <step>
+            <para>Using your button form method and action properties, create a string similar to the following:</para>
+            <programlisting>POST\nhttps://authorize.payments.amazon.com/pba/paypipeline\naction=pay&amp;</programlisting>
+            <simpara>The '\n' characters are embedded newlines.</simpara>
+        </step>
+        <step>
+            <para>Sort your form parameters, ignoring case (natural byte ordering). </para>
+        </step>
+        <step>
+            <para>Concatenate the data parameters you just sorted so that there are no spaces between one parameter and the next using these rules:. <itemizedlist>
+                <listitem>
+                    <para>Spaces within a parameter (such as within the description text) are allowed. </para>
+                </listitem>
+                <listitem>
+                    <para>Separate the name-value pairs with an ampersand ( &amp; ) (ASCII code 38). </para>
+                </listitem>
+                <listitem>
+                    <para>Separate the encoded parameter names from their encoded values with the equals sign ( = ) (ASCII character 61), even if the parameter value is empty.</para>
+                </listitem>
+            </itemizedlist></para>
+        </step>
+        <step>
+            <para>Combine the string you created in step 1 with the string you created in step 3.</para>
+        </step>
+        <step>
+            <para>Assemble the URL encoded string, keeping in mind the following rules:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Do not URL encode any of the unreserved characters that RFC 3986 defines.</para>
+                    <simpara>These unreserved characters are A-Z, a-z, 0-9, hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ ).</simpara>
+                </listitem>
+                <listitem>
+                    <para>Percent encode all other characters with %XY, where X and Y are hex characters 0-9 and uppercase A-F.</para>
+                </listitem>
+                <listitem>
+                    <para>Percent encode extended UTF-8 characters in the form %XY%ZA.... </para>
+                </listitem>
+                <listitem>
+                    <para>Percent encode the space character as %20 (and not +, as common encoding schemes do).</para>
+                </listitem>
+            </itemizedlist>
+            <note>
+                <para>Currently all AWS service parameter names use unreserved characters, so you don't need to encode them. However, you might want to include code to handle parameter names that use reserved characters, for possible future use.</para>
+            </note>
+        </step>
+    </procedure>
+    <para>You should end up with something similar to this (line breaks are inserted here for documentation purposes):</para>
+    <programlisting condition="asp" width="79" ><xi:include parse="text" href="file://AWSShared/asp/eu-xml/ASPConcatenatedURLExample.xml"/></programlisting> 
+    <para>Your concatenated URL will of course be different. For example, this example includes the <parameter>amazonPaymentsAccountId</parameter> parameter, which is not required if you are signing the button yourself.</para>
+    <para>For information on the high-level process for creating a button, see <xref endterm="CreatingButtonsDynamically.title" linkend="CreatingButtonsDynamically"/> .</para>
+</section>

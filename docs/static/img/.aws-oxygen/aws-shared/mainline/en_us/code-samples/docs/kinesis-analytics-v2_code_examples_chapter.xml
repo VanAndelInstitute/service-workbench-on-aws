@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &AKA; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &AKA; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &AKA; with an &AWS; software development kit (SDK).
+        </para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &AKA; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &AKA; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &AKA;
+            actions with &AWS; SDKs. These excerpts call the &AKA; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&AKA; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_kinesis-analytics-v2_AddApplicationInput_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_AddApplicationInput_section.title">Add an input stream to a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_AddApplicationInput_section.titleabbrev">Add an input stream to an application</titleabbrev>
+                <abstract>
+                    <para>Add an input stream to a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_AddApplicationInput_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_AddApplicationInput_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_AddApplicationOutput_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_AddApplicationOutput_section.title">Add an output stream to a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_AddApplicationOutput_section.titleabbrev">Add an output stream to an application</titleabbrev>
+                <abstract>
+                    <para>Add an output stream to a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_AddApplicationOutput_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_AddApplicationOutput_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_CreateApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_CreateApplication_section.title">Create a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_CreateApplication_section.titleabbrev">Create an application</titleabbrev>
+                <abstract>
+                    <para>Create a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_CreateApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_CreateApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DeleteApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DeleteApplication_section.title">Delete a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DeleteApplication_section.titleabbrev">Delete an application</titleabbrev>
+                <abstract>
+                    <para>Delete a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DeleteApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DeleteApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DescribeApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DescribeApplication_section.title">Describe a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DescribeApplication_section.titleabbrev">Describe an application</titleabbrev>
+                <abstract>
+                    <para>Describe a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DescribeApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DescribeApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DescribeApplicationSnapshot_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DescribeApplicationSnapshot_section.title">Describe a &AKA; application snapshot using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DescribeApplicationSnapshot_section.titleabbrev">Describe an application snapshot</titleabbrev>
+                <abstract>
+                    <para>Describe a &AKA; application snapshot using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DescribeApplicationSnapshot_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DescribeApplicationSnapshot_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DiscoverInputSchema_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DiscoverInputSchema_section.title">Discover a data format for a &AKA; stream using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DiscoverInputSchema_section.titleabbrev">Discover a data format for a stream</titleabbrev>
+                <abstract>
+                    <para>Discover a data format for a &AKA; stream using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DiscoverInputSchema_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DiscoverInputSchema_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_StartApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_StartApplication_section.title">Start a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_StartApplication_section.titleabbrev">Start an application</titleabbrev>
+                <abstract>
+                    <para>Start a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_StartApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_StartApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_StopApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_StopApplication_section.title">Stop a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_StopApplication_section.titleabbrev">Stop an application</titleabbrev>
+                <abstract>
+                    <para>Stop a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_StopApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_StopApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_UpdateApplication_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_UpdateApplication_section.title">Update a &AKA; application using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_UpdateApplication_section.titleabbrev">Update an application</titleabbrev>
+                <abstract>
+                    <para>Update a &AKA; application using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_UpdateApplication_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_UpdateApplication_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_data_generator" role="topic">
+        <info>
+            <title id="service_code_examples_data_generator.title">Data generator for &AKA; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_data_generator.titleabbrev">Data generator</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &AKA; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to use &AKA; with &AWS; SDKs.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_kinesis-analytics-v2_DataGenerator_Referrer_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_Referrer_section.title">Generate a &AK; stream with a referrer using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_Referrer_section.titleabbrev">Generate a stream with a referrer</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with a referrer using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Referrer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-transforming-strings-substring.html">Example: Extracting a portion of a stream</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Referrer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_AnomalyEx_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_AnomalyEx_section.title">Generate a &AK; stream with blood pressure anomalies using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_AnomalyEx_section.titleabbrev">Generate a stream with blood pressure anomalies</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with blood pressure anomalies using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_AnomalyEx_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/app-anomaly-detection-with-explanation.html">Example: Detecting data anomalies and getting an explanation</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_AnomalyEx_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_ColumnLog_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_ColumnLog_section.title">Generate a &AK; stream with data in columns using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_ColumnLog_section.titleabbrev">Generate a stream with data in columns</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with data in columns using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_ColumnLog_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-transforming-strings-variablecolumnlogparse.html">Example: Split strings into multiple fields</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_ColumnLog_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_Anomaly_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_Anomaly_section.title">Generate a &AK; stream with heart rate anomalies using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_Anomaly_section.titleabbrev">Generate a stream with heart rate anomalies</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with heart rate anomalies using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Anomaly_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/app-anomaly-detection.html">Example: Detecting data anomalies on a stream</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Anomaly_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_Hotspots_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_Hotspots_section.title">Generate a &AK; stream with hotspots using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_Hotspots_section.titleabbrev">Generate a stream with hotspots</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with hotspots using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Hotspots_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/app-hotspots-detection.html">Example: Detecting hotspot on a stream</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Hotspots_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_RegexLog_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_RegexLog_section.title">Generate a &AK; stream with log entries using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_RegexLog_section.titleabbrev">Generate a stream with log entries</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with log entries using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_RegexLog_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-transforming-strings-regexlogparse.html">Example: Parsing log strings based on regular expressions</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_RegexLog_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_Stagger_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_Stagger_section.title">Generate a &AK; stream with stagger data using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_Stagger_section.titleabbrev">Generate a stream with stagger data</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with stagger data using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Stagger_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-window-stagger.html">Example: Stagger window</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_Stagger_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_StockTicker_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_StockTicker_section.title">Generate a &AK; stream with stock ticker data using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_StockTicker_section.titleabbrev">Generate a stream with stock ticker data</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with stock ticker data using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_StockTicker_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-window.html">Examples: Windows and aggregation</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_StockTicker_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_TwoRecordTypes_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_TwoRecordTypes_section.title">Generate a &AK; stream with two data types using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_TwoRecordTypes_section.titleabbrev">Generate a stream with two data types</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with two data types using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_TwoRecordTypes_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/app-tworecordtypes.html">Example: Transforming multiple data types</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_TwoRecordTypes_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_kinesis-analytics-v2_DataGenerator_WebLog_section" role="topic">
+            <info>
+                <title id="example_kinesis-analytics-v2_DataGenerator_WebLog_section.title">Generate a &AK; stream with web log data using an &AWS; SDK</title>
+                <titleabbrev id="example_kinesis-analytics-v2_DataGenerator_WebLog_section.titleabbrev">Generate a stream with web log data</titleabbrev>
+                <abstract>
+                    <para>Generate a &AK; stream with web log data using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_WebLog_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="kinesisanalytics/latest/dev/examples-transforming-strings-w3clogparse.html">Example: Parsing web logs</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/kinesis-analytics-v2_DataGenerator_WebLog_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

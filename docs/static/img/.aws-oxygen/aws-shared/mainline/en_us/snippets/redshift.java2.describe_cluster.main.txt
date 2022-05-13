@@ -1,0 +1,17 @@
+    public static void describeRedshiftClusters(RedshiftClient redshiftClient) {
+
+       try {
+        DescribeClustersResponse clusterResponse = redshiftClient.describeClusters();
+        List<Cluster> clusterList = clusterResponse.clusters();
+
+        for (Cluster cluster: clusterList) {
+            System.out.println("Cluster database name is: "+cluster.dbName());
+            System.out.println("Cluster status is: "+cluster.clusterStatus());
+        }
+
+       } catch (RedshiftException e) {
+
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+   }

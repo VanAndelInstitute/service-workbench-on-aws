@@ -1,0 +1,20 @@
+<programlisting>
+        Aws::IAM::IAMClient iam;
+
+        Aws::IAM::Model::UpdateUserRequest request;
+        request.SetUserName(old_name);
+        request.SetNewUserName(new_name);
+
+        auto outcome = iam.UpdateUser(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "IAM user " << old_name <<
+                " successfully updated with new user name " << new_name <<
+                std::endl;
+        }
+        else
+        {
+            std::cout << "Error updating user name for IAM user " << old_name <<
+                ":" << outcome.GetError().GetMessage() << std::endl;
+        }
+</programlisting>

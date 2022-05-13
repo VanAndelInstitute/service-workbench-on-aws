@@ -1,0 +1,36 @@
+<programlisting>
+
+require 'vendor/autoload.php';
+
+use Aws\Iam\IamClient; 
+use Aws\Exception\AwsException;
+
+/**
+ * Delete a policy version
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+ 
+//Create an IAM Client
+$client = new IamClient([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2010-05-08'
+]);
+
+try {
+    $result = $client->deletePolicyVersion(array(
+        // PolicyArn is required
+        'PolicyArn' => 'string',
+        // VersionId is required
+        'VersionId' => 'string',
+    ));
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    error_log($e->getMessage());
+}
+ 
+ 
+</programlisting>

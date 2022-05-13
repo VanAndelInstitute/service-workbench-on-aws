@@ -1,0 +1,5 @@
+    class ClientState
+    {
+        public AmazonS3Client Client { get; set; }
+        public DateTime Start { get; set; }
+    }

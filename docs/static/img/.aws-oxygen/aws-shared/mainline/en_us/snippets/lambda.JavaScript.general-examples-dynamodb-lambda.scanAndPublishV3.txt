@@ -1,0 +1,56 @@
+"use strict";
+const { ScanCommand } = require("@aws-sdk/client-dynamodb");
+const { PublishCommand } = require("@aws-sdk/client-sns");
+const {snsClient} = require ( "./libs/snsClient" );
+const {dynamoClient} = require ( "./libs/dynamoClient" );
+
+const REGION = "REGION"; //e.g. "us-east-1"
+
+// Get today's date.
+const today = new Date();
+const dd = String(today.getDate()).padStart(2, "0");
+const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+const yyyy = today.getFullYear();
+const date = yyyy + "-" + mm + "-" + dd;
+
+// Set the parameters for the ScanCommand method.
+const params = {
+  // Specify which items in the results are returned.
+  FilterExpression: "startDate = :topic",
+  // Define the expression attribute value, which are substitutes for the values you want to compare.
+  ExpressionAttributeValues: {
+    ":topic": { S: date },
+  },
+  // Set the projection expression, which are the attributes that you want.
+  ProjectionExpression: "firstName, phone",
+  TableName: "Employees",
+};
+// Helper function to send message using Amazon SNS.
+exports.handler = async (event, context, callback) => {
+  // Helper function to send message using Amazon SNS.
+  async function sendText(textParams) {
+    try {
+      const data = await snsclient.send(new PublishCommand(textParams));
+      console.log("Message sent");
+    } catch (err) {
+      console.log("Error, message not sent ", err);
+    }
+  }
+  try {
+    // Scan the table to identify employees with work anniversary today.
+    const data = await dynamoClient.send(new ScanCommand(params));
+    data.Items.forEach(function (element, index, array) {
+      const textParams = {
+        PhoneNumber: element.phone.N,
+        Message:
+            "Hi " +
+            element.firstName.S +
+            "; congratulations on your work anniversary!",
+      };
+      // Send message using Amazon SNS.
+      sendText(textParams);
+    });
+  } catch (err) {
+    console.log("Error, could not scan table ", err);
+  }
+};

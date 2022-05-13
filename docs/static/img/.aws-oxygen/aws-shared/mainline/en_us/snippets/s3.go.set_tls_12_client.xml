@@ -1,0 +1,7 @@
+<programlisting>
+    svc := s3.New(sess)
+    _, err := svc.HeadObject(&s3.HeadObjectInput{
+        Bucket: bucket,
+        Key:    item,
+    })
+</programlisting>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"  
+[
+<!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+%phrases-shared;   
+<!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+%xinclude;
+]>
+
+
+    
+<section id="EMR_SetUp_KeyPair"  role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Follow these steps to create a key pair when you integrate &EMR; with &DDBlong;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="EMR_SetUp_KeyPair.title">Step 1: Create a Key Pair</title>
+    <titleabbrev>Step 1: Create a Key Pair</titleabbrev>
+    <para>
+        To run Hive interactively to manage data in &DDB;, you will need a key pair to connect to the 
+        &EC2; instances launched by &EMR; (&EMR;). You will use this key pair to connect to the master node of the 
+        &EMR; job flow to run a HiveQL script (a language similar to SQL).
+    </para>
+    
+    
+    <procedure><title>To generate a key pair</title>
+        <step>
+            <para>Sign in to the &console; and open the &EC2; console at 
+                <ulink url="&url-console-domain;ec2/">&url-console-domain;ec2/</ulink>.</para>
+        </step>
+        <step>
+            <para>In the upper right hand corner of the console, select a Region from the
+                    <guilabel>Region</guilabel> drop-down menu. This should be the same region that
+                your &DDB; database is in.</para>
+        </step>
+        <step>
+            <para>Click <guilabel>Key Pairs</guilabel> in the Navigation pane. </para>
+            <para>The console displays a list of key pairs associated with your account.</para>
+        </step>						
+        
+        <step>
+            <para>Click <guilabel>Create Key Pair</guilabel>. </para>
+        </step>	
+        <step>
+            <para>Enter a name for the key pair, such as <code>mykeypair</code>, for the new key pair in the <guilabel>Key Pair
+                Name</guilabel> field and click <guilabel>Create</guilabel>. </para>
+            
+        </step>							
+        <step>
+            <para>Download the private key file.  The file name will end with <code>.pem</code>,
+                (such as <code>mykeypair.pem</code>). Keep this private key file in a safe place.
+                You will need it to access any instances that you launch with this key pair. </para>
+            
+            <important><para>If you lose the key pair, you cannot connect to your &EC2; instances.</para></important>
+            <para>
+                For more information about key pairs, see 
+                <ulink url="http://&domain;/AWSEC2/latest/UserGuide/ec2-key-pairs.html">&EC2long; Key Pairs</ulink>
+                in the <emphasis>&guide-ec2-user;</emphasis>.
+            </para>           
+        </step>
+        
+    </procedure>
+</section>   

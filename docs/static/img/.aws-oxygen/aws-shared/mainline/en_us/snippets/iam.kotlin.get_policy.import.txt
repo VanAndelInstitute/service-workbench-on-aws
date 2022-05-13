@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.iam.IamClient
+import aws.sdk.kotlin.services.iam.model.GetPolicyRequest
+import kotlin.system.exitProcess

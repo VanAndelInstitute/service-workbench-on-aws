@@ -1,0 +1,21 @@
+// Load the SDK for JavaScript
+import { UploadArchiveCommand } from "@aws-sdk/client-glacier";
+import { glacierClient } from "./libs/glacierClient.js";
+
+// Set the parameters
+const vaultname = "VAULT_NAME"; // VAULT_NAME
+
+// Create a new service object and buffer
+const buffer = new Buffer.alloc(2.5 * 1024 * 1024); // 2.5MB buffer
+const params = { vaultName: vaultname, body: buffer };
+
+const run = async () => {
+  try {
+    const data = await glacierClient.send(new UploadArchiveCommand(params));
+    console.log("Archive ID", data.archiveId);
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error uploading archive!", err);
+  }
+};
+run();

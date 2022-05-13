@@ -1,0 +1,18 @@
+def allocate_elastic_ip():
+    """
+    Allocates an Elastic IP address that can be associated with an instance. By using
+    an Elastic IP address, you can keep the public IP address constant even when you
+    change the associated instance.
+
+    :return: The newly created Elastic IP object. By default, the address is not
+             associated with any instance.
+    """
+    try:
+        response = ec2.meta.client.allocate_address(Domain='vpc')
+        elastic_ip = ec2.VpcAddress(response['AllocationId'])
+        logger.info("Allocated Elastic IP %s.", elastic_ip.public_ip)
+    except ClientError:
+        logger.exception("Couldn't allocate Elastic IP.")
+        raise
+    else:
+        return elastic_ip

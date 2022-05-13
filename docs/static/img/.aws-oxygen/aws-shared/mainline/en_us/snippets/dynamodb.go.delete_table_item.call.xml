@@ -1,0 +1,15 @@
+<programlisting>
+    input := &dynamodb.DeleteItemInput{
+        Key: map[string]*dynamodb.AttributeValue{
+            "Year": {
+                N: year,
+            },
+            "Title": {
+                S: movie,
+            },
+        },
+        TableName: table,
+    }
+
+    _, err := svc.DeleteItem(input)
+</programlisting>

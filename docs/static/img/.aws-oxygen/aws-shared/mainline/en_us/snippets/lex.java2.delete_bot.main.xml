@@ -1,0 +1,17 @@
+<programlisting>
+    public static void deleteSpecificBot( LexModelBuildingClient lexClient, String botName) {
+
+        try {
+            DeleteBotRequest botRequest = DeleteBotRequest.builder()
+                    .name(botName)
+                    .build();
+
+            lexClient.deleteBot(botRequest);
+            System.out.println(botName +" was deleted!");
+
+        } catch (LexModelBuildingException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

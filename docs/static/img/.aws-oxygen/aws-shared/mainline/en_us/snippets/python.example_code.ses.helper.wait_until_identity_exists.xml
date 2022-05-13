@@ -1,0 +1,16 @@
+<programlisting>
+    def wait_until_identity_exists(self, identity):
+        """
+        Waits until an identity exists. The waiter polls Amazon SES until the
+        identity has been successfully verified or until it exceeds its maximum time.
+
+        :param identity: The identity to wait for.
+        """
+        try:
+            waiter = self.ses_client.get_waiter('identity_exists')
+            logger.info("Waiting until %s exists.", identity)
+            waiter.wait(Identities=[identity])
+        except WaiterError:
+            logger.error("Waiting for identity %s failed or timed out.", identity)
+            raise
+</programlisting>

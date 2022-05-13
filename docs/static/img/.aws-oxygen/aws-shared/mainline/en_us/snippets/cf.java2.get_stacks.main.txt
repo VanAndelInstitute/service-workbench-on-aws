@@ -1,0 +1,16 @@
+    public static void describeAllStacks(CloudFormationClient cfClient) {
+
+        try {
+            DescribeStacksResponse stacksResponse = cfClient.describeStacks();
+            List<Stack> stacks = stacksResponse.stacks();
+
+            for (Stack stack : stacks) {
+                System.out.println("The stack description is " + stack.description());
+                System.out.println("The stack Id is " + stack.stackId());
+                }
+
+        } catch (CloudFormationException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

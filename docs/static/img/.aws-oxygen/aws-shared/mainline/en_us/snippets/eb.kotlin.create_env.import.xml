@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.elasticbeanstalk.ElasticBeanstalkClient
+import aws.sdk.kotlin.services.elasticbeanstalk.model.ConfigurationOptionSetting
+import aws.sdk.kotlin.services.elasticbeanstalk.model.CreateEnvironmentRequest
+import kotlin.system.exitProcess
+</programlisting>

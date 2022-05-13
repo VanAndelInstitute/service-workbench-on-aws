@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- AWS::SQS::Queue -->
+<section id="aws-properties-sqs-queues" role="topic">
+   <title id="aws-properties-sqs-queues.title">AWS::SQS::Queue</title>
+
+   <para condition="json">The <type>AWS::SQS::Queue</type> type creates an &SQS; queue. </para>
+   <para condition="yaml">The <type>AWS::SQS::Queue</type> type creates an &SQS; queue. For an example of an SQS queue and a CloudWatch alarm, go to 
+		<ulink url="http://http://&domain;/elasticbeanstalk/latest/dg/customize-containers-format-resources-example-sqs.html">Example: Add an SQS Queue
+			and a CloudWatch Alarm on Queue Depth</ulink>.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+      "<link linkend="aws-sqs-queue-visibilitytimeout">VisibilityTimeout</link>": <replaceable>Integer</replaceable>
+   }
+}     </programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting>Type: AWS::SQS::Queue
+Properties:
+  <link linkend="aws-sqs-queue-visibilitytimeout">VisibilityTimeout</link>": <replaceable>Integer</replaceable>     </programlisting>
+	</section>
+
+   <section id="aws-properties-sqs-queues-prop">
+      <title id="aws-properties-sqs-queues-prop.title">Properties</title>
+
+      <variablelist>
+         <varlistentry id="aws-sqs-queue-visibilitytimeout">
+            <term>VisibilityTimeout</term>
+            <listitem>
+               <para>The length of time during which the queue will be unavailable once a message is delivered from the
+                  queue. This blocks other components from receiving the same message and gives the initial component
+                  time to process and delete the message from the queue.</para>
+               <para>Values must be from 0 to 43200 seconds (12 hours). If no value is specified, the default value of
+                  30 seconds will be used.</para>
+               <para>For more information about SQS Queue visibility timeouts, see <ulink
+                     url="http://&domain;/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html"
+                     >Visibility Timeout</ulink> in the <citetitle>Amazon Simple Queue Service Developer
+                     Guide</citetitle>.</para>
+               <para><emphasis>Required</emphasis>: No</para>
+               <para><emphasis>Type</emphasis>: Integer</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section id="aws-properties-sqs-queues-ref">
+      <title id="aws-properties-sqs-queues-ref.title">Return Values</title>
+      <section>
+         <title>Ref</title>
+         <para><emphasis>Returns</emphasis>: The queue URL. For example:
+            <code>https://sqs.us-east-1.amazonaws.com/803981987763/aa4-MyQueue-Z5NOSZO2PZE9</code>.</para>
+         <para>&ref-more-info;</para>
+      </section>
+
+      <section>
+         <title>Fn::GetAtt</title>
+         <para>&getatt-returns-various;</para>
+         <variablelist>
+            <varlistentry>
+               <term>Arn</term>
+               <listitem>
+                  <para>Returns the Amazon Resource Name (ARN) of the queue. For example:
+                     <code>arn:aws:sqs:us-east-1:123456789012:mystack-myqueue-15PG5C2FC1CW8</code></para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>QueueName</term>
+               <listitem>
+                  <para>Returns the queue name. For example:</para>
+                  <para>mystack-myqueue-1VF9BKQH5BJVI</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+   
+  
+   <section condition="json">
+      <title>Examples</title>
+      <section>
+         <title>SQS Queue with Cloudwatch Alarms</title>
+         <programlisting>{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+ 
+  "Description" : "AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample template showing how to create an SQS queue with AWS CloudWatch alarms on queue depth. **WARNING** This template creates an Amazon SQS Queue and one or more Amazon CloudWatch alarms. You will be billed for the AWS resources used if you create a stack from this template.",
+ 
+  "Parameters" : {
+    "AlarmEMail": {
+      "Description": "EMail address to notify if there are any operational issues",
+      "Type": "String",
+      "AllowedPattern": "([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)",
+      "ConstraintDescription": "must be a valid email address."
+    }
+  },
+ 
+  "Resources" : {
+    "MyQueue" : {
+      "Type" : "AWS::SQS::Queue",
+      "Properties" : {
+      }
+    },
+
+    "AlarmTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "Subscription": [{
+          "Endpoint": { "Ref": "AlarmEMail" },
+          "Protocol": "email"
+        }]
+      }
+    },
+
+    "QueueDepthAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmDescription": "Alarm if queue depth grows beyond 10 messages",
+        "Namespace": "AWS/SQS",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Dimensions": [{
+          "Name": "QueueName",
+          "Value" : { "Fn::GetAtt" : ["MyQueue", "QueueName"] }
+        }],
+        "Statistic": "Sum",
+        "Period": "300",
+        "EvaluationPeriods": "1",
+        "Threshold": "10",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "AlarmActions": [{ "Ref": "AlarmTopic" }],
+        "InsufficientDataActions": [{ "Ref": "AlarmTopic" }]
+      }
+    }
+  },
+
+  "Outputs" : {
+    "QueueURL" : {
+      "Description" : "URL of newly created SQS Queue",
+      "Value" : { "Ref" : "MyQueue" }
+    },
+    "QueueARN" : {
+      "Description" : "ARN of newly created SQS Queue",
+      "Value" : { "Fn::GetAtt" : ["MyQueue", "Arn"]}
+    },
+    "QueueName" : {
+      "Description" : "Name newly created SQS Queue",
+      "Value" : { "Fn::GetAtt" : ["MyQueue", "QueueName"]}
+    }
+  }
+}</programlisting>
+      	
+      </section>
+   </section>
+	
+   <section>
+      <title>See Also</title>
+      <itemizedlist>
+         <listitem>
+            <para><ulink
+                  url="http://&domain;/AWSSimpleQueueService/latest/APIReference/Query_QueryCreateQueue.html"
+                  >CreateQueue</ulink>, in the <citetitle>Amazon Web Services Amazon Simple Queue Service API
+                  Reference</citetitle></para>
+         </listitem>
+         <listitem>
+            <para><ulink
+                  url="http://&domain;/AWSSimpleQueueService/latest/SQSDeveloperGuide/Welcome.html"
+                  >What is Amazon Simple Queue Service?</ulink>, in the <citetitle>Amazon Simple Queue Service Developer
+                  Guide</citetitle>.</para>
+         </listitem>
+      </itemizedlist>
+   </section>
+</section>

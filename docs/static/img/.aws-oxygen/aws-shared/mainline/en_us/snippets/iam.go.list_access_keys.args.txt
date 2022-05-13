@@ -1,0 +1,12 @@
+    maxItems := flag.Int64("m", 10, "The maximum number of access keys to show")
+    userName := flag.String("u", "", "The name of the user")
+    flag.Parse()
+
+    if *userName == "" {
+        fmt.Println("You must supply the name of a user (-u USER)")
+        return
+    }
+
+    if *maxItems < int64(0) {
+        *maxItems = int64(10)
+    }

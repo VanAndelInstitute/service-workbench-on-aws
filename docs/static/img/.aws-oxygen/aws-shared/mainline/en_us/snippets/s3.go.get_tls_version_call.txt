@@ -1,0 +1,4 @@
+    s3Client := s3.New(sess)
+    if tr, ok := s3Client.Config.HTTPClient.Transport.(*http.Transport); ok {
+        fmt.Println("Client uses " + GetTLSVersion(tr))
+    }

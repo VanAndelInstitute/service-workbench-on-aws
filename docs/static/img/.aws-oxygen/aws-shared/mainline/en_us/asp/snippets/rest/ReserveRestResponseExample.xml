@@ -1,0 +1,9 @@
+<ReserveResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+  <ReserveResult>
+    <TransactionId>14GKD9GE66FAA63E6O6B2JDPZKN53LZ7F22</TransactionId>
+    <TransactionStatus>Pending</TransactionStatus>
+  </ReserveResult>
+  <ResponseMetadata>
+    <RequestId>d13273fc-fca8-4963-8fbc-66d03e66055f:0</RequestId>
+  </ResponseMetadata>
+</ReserveResponse>

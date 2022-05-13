@@ -1,0 +1,27 @@
+--------------------------
+[TODO: UPDATE WITH ACTUAL]
+
+transactionId: 14GKI1SKSR1V6DO1RCCB32RBR6KLODMGQUD
+statusMessage: The transaction was explicitly cancelled by the caller.
+transactionDate: 1254820475
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference08
+transactionAmount: USD 1.00
+transactionStatus: CANCELLED
+operation: RESERVE
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: jWDbBxtEhw2rQEyMeEXcpWCgoZvm8rjLEnmg38oYoPPR7NbMGgmMA9/5CDjt9Q/FMktKMbARXnZF
+YTzHj3YOKiAM3vxI0zT1oTiSdBx1KBRFzK7mauxxlQv5BYxjFX+R5cl+keCaT2nQyrp3agdrIIp5
+MZ5Oy9dBuYMwMFWXoZZor90EidD23hBdZSOOzQRUdzKaKJsF14RQVrKcf5pDCs1HaB6LBKbATaNT
+RSxxrviIXy9JcWRQhJwzcc1H6cFOJDpNFSJ03b0Z94eL/XNu9BU7bT4KRWb+OHF0Pn53yf4zyBT9
+jTD+94WeujCxwE2rF0j5+brmXp/+Sn/RccDG7w==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: Reserve
+statusCode: Cancelled
+--------------------------

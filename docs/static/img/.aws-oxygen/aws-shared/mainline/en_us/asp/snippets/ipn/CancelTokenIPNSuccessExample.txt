@@ -1,0 +1,18 @@
+--------------------------
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+customerEmail: test-caller@amazon.com
+tokenId: D739ATGTM94QK9NBU6P4KDWACGXDZ8BVX3TJHGVP3XEFMGE7XVQTMEIL4OGFZMGP
+callerReference: CallerReference19
+notificationType: TokenCancellation
+signature: flxZtuxk3jb0Ww4g4duMjx1s8EQnIC7kPHqKKu0t4trp1/8ZU6ohtm9V1xB1mdxDnJ37lpyfL7rp
+wE5tiKjJ8agm1OzPjp9rwEVOEMcdscopTVhh9AG2HTNGyWyyaRlIPlXiV3mpPyMrttLiOkrYB8ak
+YZ9fMbXUB9gKzMVzNhh58auyD/weMV/WIX3DDSJslsp0kg6frHv5F5CYrprwv4S+cXQxXdgJlRC3
+UJO8bH68bwlFnyyzPz4+TnbB5xMDatpwkBOFCWO5+tmwlwJHyAUa7z6XJgwj27YIIjFSJolWLKwK
+iZHqPNYNjKHE190sQMQBLHcnkZeexig6wYHK5w==
+tokenType: SingleUse
+dateInstalled: Oct 8, 2009
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+customerName: Test Business
+--------------------------
+

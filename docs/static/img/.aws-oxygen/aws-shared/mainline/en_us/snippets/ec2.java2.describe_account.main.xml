@@ -1,0 +1,25 @@
+<programlisting>
+     public static void describeEC2Account(Ec2Client ec2) {
+
+        try{
+            DescribeAccountAttributesResponse accountResults = ec2.describeAccountAttributes();
+            List<AccountAttribute> accountList = accountResults.accountAttributes();
+
+            for (ListIterator iter = accountList.listIterator(); iter.hasNext(); ) {
+
+                AccountAttribute attribute = (AccountAttribute) iter.next();
+                System.out.print("\n The name of the attribute is "+attribute.attributeName());
+                List<AccountAttributeValue> values = attribute.attributeValues();
+
+                for (ListIterator iterVals = values.listIterator(); iterVals.hasNext(); ) {
+                    AccountAttributeValue myValue = (AccountAttributeValue) iterVals.next();
+                    System.out.print("\n The value of the attribute is "+myValue.attributeValue());
+                }
+            }
+
+        } catch (Ec2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

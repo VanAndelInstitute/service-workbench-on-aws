@@ -1,0 +1,35 @@
+<programlisting>
+    public static void putMetricAlarm(CloudWatchClient cw, String alarmName, String instanceId) {
+
+        try {
+            Dimension dimension = Dimension.builder()
+                .name("InstanceId")
+                .value(instanceId).build();
+
+            PutMetricAlarmRequest request = PutMetricAlarmRequest.builder()
+                .alarmName(alarmName)
+                .comparisonOperator(
+                        ComparisonOperator.GREATER_THAN_THRESHOLD)
+                .evaluationPeriods(1)
+                .metricName("CPUUtilization")
+                .namespace("AWS/EC2")
+                .period(60)
+                .statistic(Statistic.AVERAGE)
+                .threshold(70.0)
+                .actionsEnabled(false)
+                .alarmDescription(
+                        "Alarm when server CPU utilization exceeds 70%")
+                .unit(StandardUnit.SECONDS)
+                .dimensions(dimension)
+                .build();
+
+            cw.putMetricAlarm(request);
+            System.out.printf(
+                    "Successfully created alarm with name %s", alarmName);
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

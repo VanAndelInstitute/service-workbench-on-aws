@@ -1,0 +1,14 @@
+<programlisting>
+    def remove(self, certificate_arn):
+        """
+        Removes a certificate.
+
+        :param certificate_arn: The ARN of the certificate to remove.
+        """
+        try:
+            self.acm_client.delete_certificate(CertificateArn=certificate_arn)
+            logger.info("Removed certificate %s.", certificate_arn)
+        except ClientError:
+            logger.exception("Couldn't remove certificate %s.", certificate_arn)
+            raise
+</programlisting>

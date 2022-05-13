@@ -1,0 +1,14 @@
+<programlisting>
+
+// DeleteMovie removes a movie from the DynamoDB table.
+func (basics TableBasics) DeleteMovie(movie Movie) error {
+	_, err := basics.DynamoDbClient.DeleteItem(context.TODO(), &dynamodb.DeleteItemInput{
+		TableName: aws.String(basics.TableName), Key: movie.GetKey(),
+	})
+	if err != nil {
+		log.Printf("Couldn't delete %v from the table. Here's why: %v\n", movie.Title, err)
+	}
+	return err
+}
+
+</programlisting>

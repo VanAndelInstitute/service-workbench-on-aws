@@ -1,0 +1,12 @@
+<SOAP-ENV:Envelope>
+ <SOAP-ENV:Body wsu:Id="body" 
+  xmlns:wsu=
+    "http://docs.oasis-open.org/wss/2004/01/&#x200b;oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <ns2:GetRecipientVerificationStatus 
+   	xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+      <ns2:RecipientTokenId>
+      	M2ABVSN2BH3KRUV9261D59HI2C2TBZDURKFB9MCU88BTHS876ZATXRIHEFZBBKIM
+      </ns2:RecipientTokenId>
+   </ns2:GetRecipientVerificationStatus>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

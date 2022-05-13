@@ -1,0 +1,128 @@
+<programlisting>
+# Runs the DynamoDB getting started demo.
+#
+# @param movies [Movies] A wrapper class initialized with a DynamoDB resource.
+# @param table_name [String] The name to give the movie table.
+# @param movie_file_name [String] The name of a file that contains movie data in JSON
+#                                 format. This data is loaded into the movie table
+#                                 as part of the demo.
+def run_scenario(movies, table_name, movie_file_name)
+  puts("-" * 88)
+  puts("Welcome to the DynamoDB getting started demo.")
+  puts("-" * 88)
+
+  movies_exists = movies.exists?(table_name)
+  unless movies_exists
+    puts("\nCreating table #{table_name}...")
+    movies.create_table(table_name)
+    puts("\nCreated table #{movies.table.name}.")
+  end
+
+  my_movie = {}
+  my_movie[:title] = Question.ask("Enter the title of a movie to add to the table: ")
+  my_movie[:year] = Question.ask("What year was it released? ", method(:is_int))
+  my_movie[:rating] = Question.ask(
+    "On a scale of 1 - 10, how do you rate it? ", method(:is_float), in_range(1, 10)
+  )
+  my_movie[:plot] = Question.ask("Summarize the plot for me: ")
+
+  movies.add_movie(**my_movie)
+  puts("\nAdded '#{my_movie[:title]}' to '#{movies.table.name}'.")
+  puts("-" * 88)
+
+  puts("Let's update your movie. You rated it #{my_movie[:rating]}.")
+  my_movie[:rating] = Question.ask("What new rating would you give it? ",
+    method(:is_float), in_range(1, 10))
+  puts("You summarized the plot as '#{my_movie[:plot]}'.")
+  my_movie[:plot] = Question.ask("What would you say now? ")
+  updated = movies.update_movie(**my_movie)
+  puts("Updated '#{my_movie[:title]}' with new attributes:")
+  pp(updated)
+  puts("-" * 88)
+
+  unless movies_exists
+    movie_data = get_sample_movie_data(movie_file_name)
+    puts("Reading data from '#{movie_file_name}' into your table.")
+    movies.write_batch(movie_data)
+    puts("Wrote #{movie_data.length} movies into #{movies.table.name}.")
+    puts("-" * 88)
+  end
+
+  title = "The Lord of the Rings: The Fellowship of the Ring"
+  if Question.ask("Let's move on. Do you want to get info about '#{title}'? (y/n) ",
+         method(:is_yesno))
+    movie = movies.get_movie(title, 2001)
+    puts("\nHere's what I found:")
+    pp(movie)
+    puts("-" * 88)
+  end
+
+  ask_for_year = true
+  puts("Let's get a list of movies released in a given year.")
+  while ask_for_year
+    release_year = Question.ask(
+      "Enter a year between 1972 and 2018: ", method(:is_int), in_range(1972, 2018))
+    releases = movies.query_movies(release_year)
+    if !releases.empty?
+      puts("There were #{releases.length} movies released in #{release_year}:")
+      releases.each do |release|
+        puts("\t#{release["title"]}")
+        ask_for_year = false
+      end
+    else
+      puts("I don't know about any movies released in #{release_year}!")
+      ask_for_year = Question.ask("Try another year? (y/n) ", method(:is_yesno))
+      puts("-" * 88)
+    end
+  end
+
+  years = {}
+  years[:start] = Question.ask(
+    "Let's scan for movies released in a range of years. Enter a year: ",
+    method(:is_int), in_range(1972, 2018))
+  years[:end] = Question.ask(
+    "Now enter another year: ", method(:is_int), in_range(1972, 2018))
+  releases = movies.scan_movies(years)
+  if !releases.empty?
+    puts("Found #{releases.length} movies.")
+    count = Question.ask(
+      "How many do you want to see? ", method(:is_int), in_range(1, releases.length))
+    puts("Here are your #{count} movies:")
+    releases.take(count).each do |release|
+      puts("\t#{release["title"]}")
+    end
+  else
+    puts("I don't know about any movies released between #{years[:start]} "\
+         "and #{years[:end]}.")
+  puts("-" * 88)
+  end
+
+  puts("Let's remove your movie from the table.")
+  if Question.ask(
+    "Do you want to remove '#{my_movie[:title]}'? (y/n) ", method(:is_yesno))
+    movies.delete_movie(my_movie[:title], my_movie[:year])
+    puts("Removed '#{my_movie[:title]}' from the table.")
+    puts("-" * 88)
+  end
+
+  if Question.ask("Delete the table? (y/n) ", method(:is_yesno))
+    movies.delete_table
+    puts("Deleted #{table_name}.")
+  else
+    puts("Don't forget to delete the table when you're done or you might incur "\
+      "charges on your account.")
+  end
+
+  puts("\nThanks for watching!")
+  puts("-" * 88)
+rescue Aws::Errors::ServiceError
+  puts("Something went wrong with the demo.")
+rescue Errno::ENOENT
+  true
+end
+
+run_scenario(
+  Movies.new(Aws::DynamoDB::Resource.new),
+"doc-example-table-movies", "moviedata.json",
+  ) if $PROGRAM_NAME == __FILE__
+</programlisting>

@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudtrail.CloudTrailClient;
+import software.amazon.awssdk.services.cloudtrail.model.CloudTrailException;
+import software.amazon.awssdk.services.cloudtrail.model.EventSelector;
+import software.amazon.awssdk.services.cloudtrail.model.GetEventSelectorsRequest;
+import software.amazon.awssdk.services.cloudtrail.model.GetEventSelectorsResponse;
+import java.util.List;
+</programlisting>

@@ -1,0 +1,12 @@
+<SOAP-ENV:Envelope>
+  <SOAP-ENV:Body 
+    wsu:id="body" xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <ns2:Cancel xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+        <ns2:TokenId>
+         B1HA64FUMCEB43QAJBTP3TVMJZGFLAX2DJJ3ZPAFHH1VNPGR74I83ZZI4HJ5NGEK
+        </ns2:TokenId>
+        <ns2:ReasonText>Buyer closed the transaction.</ns2:ReasonText>
+    </ns2:Cancel>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

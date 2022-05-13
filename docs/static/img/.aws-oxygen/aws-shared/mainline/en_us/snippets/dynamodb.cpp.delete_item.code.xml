@@ -1,0 +1,37 @@
+<programlisting>
+    Aws::SDKOptions options;
+
+    Aws::InitAPI(options);
+    {
+        const Aws::String table = (argv[1]);
+        const Aws::String name = (argv[2]);
+        const Aws::String region = "us-east-1";
+
+        Aws::Client::ClientConfiguration clientConfig;
+        if (!region.empty())
+            clientConfig.region = region;
+        Aws::DynamoDB::DynamoDBClient dynamoClient(clientConfig);
+
+        std::cout << "Deleting item \"" << name <<
+            "\" from table " << table << std::endl;
+
+        Aws::DynamoDB::Model::DeleteItemRequest req;
+
+        Aws::DynamoDB::Model::AttributeValue hashKey;
+        hashKey.SetS(name);
+        req.AddKey("id", hashKey);
+        req.SetTableName(table);
+
+        const Aws::DynamoDB::Model::DeleteItemOutcome& result = dynamoClient.DeleteItem(req);
+        if (result.IsSuccess())
+        {
+            std::cout << "Item \"" << name << "\" deleted!\n";
+        }
+        else
+        {
+            std::cout << "Failed to delete item: " << result.GetError().GetMessage();
+        }
+    }
+    Aws::ShutdownAPI(options);
+    return 0;
+</programlisting>

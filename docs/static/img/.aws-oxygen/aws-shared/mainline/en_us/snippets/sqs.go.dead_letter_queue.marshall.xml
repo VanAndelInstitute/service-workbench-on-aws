@@ -1,0 +1,3 @@
+<programlisting>
+    b, err := json.Marshal(policy)
+</programlisting>

@@ -1,0 +1,21 @@
+<programlisting>
+  # Deletes a role. If the role has policies attached, they are detached and
+  # deleted before the role is deleted.
+  #
+  # @param role [Aws::IAM::Role] The role to delete.
+  def delete_role(role)
+    role.attached_policies.each do |policy|
+      name = policy.policy_name
+      policy.detach_role(role_name: role.name)
+      policy.delete
+      puts("Deleted policy #{name}.")
+    end
+    name = role.name
+    role.delete
+    puts("Deleted role #{name}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't detach policies and delete role #{role.name}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  end
+</programlisting>

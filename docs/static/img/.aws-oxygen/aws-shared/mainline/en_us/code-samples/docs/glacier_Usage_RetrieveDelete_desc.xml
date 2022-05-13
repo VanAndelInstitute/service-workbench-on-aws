@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<block>
+    <para>The following code example shows how to:</para>
+    <itemizedlist>
+        <listitem><para>List jobs for an &GLlong; vault and get job status.</para></listitem>
+        <listitem><para>Get the output of a completed archive retrieval job.</para></listitem>
+        <listitem><para>Delete an archive.</para></listitem>
+        <listitem><para>Delete a vault.</para></listitem>
+    </itemizedlist>
+</block>

@@ -1,0 +1,8 @@
+<programlisting>
+import * as core from '@aws-cdk/core';
+
+import { MyEcsConstructStack } from '../lib/my_ecs_construct-stack';
+
+const app = new core.App();
+new MyEcsConstructStack(app, 'MyEcsConstruct');
+</programlisting>

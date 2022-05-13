@@ -1,0 +1,50 @@
+    public static void sendSMSMessage(PinpointClient pinpoint, String message, String appId, String originationNumber, String destinationNumber) {
+
+    try {
+
+        Map<String, AddressConfiguration> addressMap =
+                new HashMap<String, AddressConfiguration>();
+
+        AddressConfiguration addConfig = AddressConfiguration.builder()
+                .channelType(ChannelType.SMS)
+                .build();
+
+        addressMap.put(destinationNumber, addConfig);
+
+        SMSMessage smsMessage = SMSMessage.builder()
+                .body(message)
+                .messageType(messageType)
+                .originationNumber(originationNumber)
+                .senderId(senderId)
+                .keyword(registeredKeyword)
+                .build();
+
+        // Create a DirectMessageConfiguration object
+        DirectMessageConfiguration direct = DirectMessageConfiguration.builder()
+                .smsMessage(smsMessage)
+                .build();
+
+        MessageRequest msgReq = MessageRequest.builder()
+                .addresses(addressMap)
+                .messageConfiguration(direct)
+                .build();
+
+        // create a  SendMessagesRequest object
+        SendMessagesRequest request = SendMessagesRequest.builder()
+                .applicationId(appId)
+                .messageRequest(msgReq)
+                .build();
+
+        SendMessagesResponse response= pinpoint.sendMessages(request);
+
+        MessageResponse msg1 = response.messageResponse();
+        Map map1 = msg1.result();
+
+        //Write out the result of sendMessage
+        map1.forEach((k, v) -> System.out.println((k + ":" + v)));
+
+    } catch (PinpointException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }

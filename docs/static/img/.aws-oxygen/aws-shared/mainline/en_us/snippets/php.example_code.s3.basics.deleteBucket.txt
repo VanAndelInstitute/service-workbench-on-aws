@@ -1,0 +1,9 @@
+try {
+    $s3client->deleteBucket([
+        'Bucket' => $bucket_name,
+    ]);
+    echo "Deleted bucket $bucket_name.\n";
+} catch (Exception $exception) {
+    echo "Failed to delete $bucket_name with error: " . $exception->getMessage();
+    exit("Please fix error with bucket deletion before continuing.");
+}

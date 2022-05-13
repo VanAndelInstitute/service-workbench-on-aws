@@ -1,0 +1,14 @@
+GET\n
+fps.payments.amazon.com\n
+Action=WriteOffDebt
+&AdjustmentAmount.CurrencyCode=USD
+&AdjustmentAmount.Value=1
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=MyWish
+&CallerReference=CallerReference14
+&CreditInstrumentId=553IBMFCG7Z8J4D1H7BB3HMNPFQQUPVUNT8RHCT1AXDJNXE6LJZ4KSKU2PI1TTIG
+&Signature=5hNBxQ3ozBLj3auHDFMg3Mf41w3C0GIf%2F3r6VCoJP%2B0%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A47%3A30.296Z
+&Version=2008-09-17

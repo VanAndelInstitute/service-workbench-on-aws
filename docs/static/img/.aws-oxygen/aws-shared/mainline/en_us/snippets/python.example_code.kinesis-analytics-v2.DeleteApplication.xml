@@ -1,0 +1,13 @@
+<programlisting>
+    def delete(self):
+        """
+        Deletes an application.
+        """
+        try:
+            self.analytics_client.delete_application(
+                ApplicationName=self.name, CreateTimestamp=self.create_timestamp)
+            logger.info("Deleted application %s.", self.name)
+        except ClientError:
+            logger.exception("Couldn't delete application %s.", self.name)
+            raise
+</programlisting>

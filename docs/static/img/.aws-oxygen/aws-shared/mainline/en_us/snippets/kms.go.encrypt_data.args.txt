@@ -1,0 +1,9 @@
+    keyID := flag.String("k", "", "The ID of a KMS key")
+    text := flag.String("t", "", "The text to encrypt")
+    flag.Parse()
+
+    if *keyID == "" || *text == "" {
+        fmt.Println("You must supply the ID of a KMS key and some text")
+        fmt.Println("-k KEY-ID -t \"text\"")
+        return
+    }

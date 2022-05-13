@@ -1,0 +1,14 @@
+<programlisting>
+def list_groups(count):
+    """
+    Lists the specified number of groups for the account.
+
+    :param count: The number of groups to list.
+    """
+    try:
+        for group in iam.groups.limit(count):
+            logger.info("Group: %s", group.name)
+    except ClientError:
+        logger.exception("Couldn't list groups for the account.")
+        raise
+</programlisting>

@@ -1,0 +1,22 @@
+    public static void setSelector(CloudTrailClient cloudTrailClientClient, String trailName) {
+
+        try {
+            EventSelector selector = EventSelector.builder()
+                .readWriteType("All")
+                .build();
+
+            List<EventSelector> selList = new ArrayList<>();
+            selList.add(selector);
+
+            PutEventSelectorsRequest selectorsRequest = PutEventSelectorsRequest.builder()
+                .trailName(trailName)
+                .eventSelectors(selList)
+                .build();
+
+            cloudTrailClientClient.putEventSelectors(selectorsRequest);
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+   }

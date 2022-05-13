@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun enableKey(keyIdVal: String?) {
+
+        val request = EnableKeyRequest {
+            keyId = keyIdVal
+        }
+
+        KmsClient { region = "us-west-2" }.use { kmsClient ->
+            kmsClient.enableKey(request)
+            println("$keyIdVal was successfully enabled.")
+
+        }
+}
+</programlisting>

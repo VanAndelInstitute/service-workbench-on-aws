@@ -1,0 +1,11 @@
+suspend fun getAccountAttributes() {
+
+    RdsClient { region = "us-west-2" }.use { rdsClient ->
+      val response = rdsClient.describeAccountAttributes(DescribeAccountAttributesRequest{})
+      response.accountQuotas?.forEach { quotas ->
+        val response = response.accountQuotas
+                println("Name is: ${quotas.accountQuotaName}")
+                println("Max value is ${quotas.max}")
+        }
+    }
+}

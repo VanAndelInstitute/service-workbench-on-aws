@@ -1,0 +1,24 @@
+    public static void listApps(MigrationHubClient migrationClient) {
+
+        try{
+
+        ListApplicationStatesRequest applicationStatesRequest = ListApplicationStatesRequest.builder()
+                .maxResults(10)
+                .build();
+
+        ListApplicationStatesResponse response = migrationClient.listApplicationStates(applicationStatesRequest);
+        List<ApplicationState> apps = response.applicationStateList();
+
+        Iterator<ApplicationState> appIterator = apps.iterator();
+
+        while(appIterator.hasNext()) {
+            ApplicationState appState = appIterator.next();
+            System.out.println("App Id is " +appState.applicationId());
+            System.out.println("The status is " +appState.applicationStatus().toString());
+        }
+
+        } catch(MigrationHubException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }

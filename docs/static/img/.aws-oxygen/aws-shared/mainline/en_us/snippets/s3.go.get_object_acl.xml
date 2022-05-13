@@ -1,0 +1,64 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// GetObjectACL gets the ACL for a bucket object
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     bucket is the name of the bucket
+//     key is the name of the object
+// Output:
+//     If success, the ACL of the object and nil
+//     Otherwise, nil and an error from the call to GetObjectAcl
+func GetObjectACL(sess *session.Session, bucket, key *string) (*s3.GetObjectAclOutput, error) {
+    svc := s3.New(sess)
+
+    result, err := svc.GetObjectAcl(&s3.GetObjectAclInput{
+        Bucket: bucket,
+        Key:    key,
+    })
+    if err != nil {
+        return nil, err
+    }
+    return result, nil
+}
+
+func main() {
+    bucket := flag.String("b", "", "The bucket containing the object")
+    key := flag.String("k", "", "The bucket object to get ACL from")
+    flag.Parse()
+
+    if *bucket == "" || *key == "" {
+        fmt.Println("You must supply a bucket (-b BUCKET) and item key (-k ITEM)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    result, err := GetObjectACL(sess, bucket, key)
+    if err != nil {
+        fmt.Println("Got an error getting ACL for " + *key)
+        return
+    }
+
+    fmt.Println("Owner:", *result.Owner.DisplayName)
+    fmt.Println("")
+    fmt.Println("Grants")
+
+    for _, g := range result.Grants {
+        fmt.Println("  Grantee:   ", *g.Grantee.DisplayName)
+        fmt.Println("  Type:      ", *g.Grantee.Type)
+        fmt.Println("  Permission:", *g.Permission)
+        fmt.Println("")
+    }
+}
+</programlisting>

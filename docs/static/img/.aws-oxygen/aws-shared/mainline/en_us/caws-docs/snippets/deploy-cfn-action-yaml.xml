@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+     <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+ <example>
+    <programlisting role="nocopy" language="yaml">    Actions:    
+      DeployCloudFormationStack: <replaceable>custom-name|leave-empty</replaceable>    
+        Identifier: aws-actions/cloudformation-deploy@v1
+          DependsOn: <replaceable>BuildAction</replaceable>
+          InputArtifacts:
+           - <replaceable>&CFNshort;Artifact</replaceable>
+        Configuration:
+          CodeAwsRoleARN: <replaceable>arn:aws:iam::123456789012:role/AdministrationRole</replaceable>
+          StackRoleARN: <replaceable>arn:aws:iam::123456789012:role/StackRole</replaceable>
+          StackName: <replaceable>MyStackName</replaceable>        
+          StackRegion: <replaceable>us-west-2</replaceable>
+          TemplatePath: <replaceable>Artifact|Bucket</replaceable>
+          RollbackConfiguration:
+            MonitorAlarmARNs: 
+              <replaceable>- arn:aws:cloudwatch::123456789012:alarm/MyMonitor
+              - arn:aws:cloudwatch::123456789012:alarm/MyOtherMonitor</replaceable>
+            MonitorTimeInMinutes: <replaceable>15</replaceable></programlisting>
+<itemizedlist>
+    <listitem>
+        <para><code>DeployCloudFormationStack</code>: Optional. Specifies a custom name for the
+            action. Replace <replaceable>custom-name|leave-empty</replaceable> with a name of your
+            choice, or leave it empty, to accept the default.</para>
+        <para>Default: <code>Deploy &CFNshort; stack</code>.</para>
+    </listitem>
+    <listitem>
+        <para><code>Identifier</code>: Required. Identifies the action. Do not change this
+            property.</para>
+        <para>Default: <code>aws-actions/cloudformation-deploy@v1</code>.</para>
+    </listitem>
+    <listitem>
+        <para>
+            <code>DependsOn</code>: Optional. Specifies a previous action that must run successfully
+            in order for the <guilabel>Deploy &CFNshort; stack</guilabel> action to run. Replace
+            <replaceable>BuildAction</replaceable> with the name of the previous action.</para>
+    </listitem>
+    <listitem>
+        <para><code>InputArtifacts</code>: Optional. Defines an artifact that contains your
+            &CFNshort; template. Replace <replaceable>&CFNshort;Artifact</replaceable> with the name
+            of that artifact. If your &CFNshort; template is not contained within an artifact, leave
+            the <code>InputArtifacts</code> section empty, or delete it.</para>
+        <note>
+            <para>For the beta release, you can only specify one input artifact.</para>
+        </note>
+        <note>
+            <para>Also specify the artifact in the <code>TemplatePath</code> property described
+                below.</para>
+        </note>
+    </listitem>
+    <listitem>
+        <para><code>Configuration</code>: Required. Defines the action's properties.</para>
+    </listitem>
+    <listitem>
+        <para><code>CodeAwsRoleARN</code>: Required. Specifies the ARN of the role used by &CAWS; to
+            access your &AWS; account. Replace
+                <replaceable>arn:aws:iam::123456789012:role/AdministrationRole</replaceable> with
+            the ARN of the administration role you created earlier. For details on this role, see
+                <xref linkend="deploy-cfn-action-create-admin-role"/>.</para>
+    </listitem>
+    <listitem>
+        <para><code>StackRoleARN</code>: Required. Specifies the ARN of the role used by &CFNshort;
+            to access and modify resources in your stack. Replace
+                <replaceable>arn:aws:iam::123456789012:role/StackRole</replaceable> with the ARN of
+            the stack role you created earlier. For details on this role, see <xref
+                linkend="deploy-cfn-action-create-stack-role"/>.</para>
+    </listitem>
+    <listitem>
+        <para><code>StackName</code>: Required. Specifies the name of your stack. Replace
+                <replaceable>MyStackName</replaceable> with a stack name of your choice.</para>
+    </listitem>
+    <listitem>
+        <para><code>StackRegion</code>: Required. Specifies the region into which the stack will be
+            deployed. Replace <replaceable>us-west-2</replaceable> with an &AWS; region of your
+            choice. For a list of region codes, see <ulink type="documentation"
+                url="general/latest/gr/rande.html#region-names-codes">Regional
+            endpoints</ulink>.</para>
+    </listitem>
+    <listitem>
+        <para><code>TemplatePath</code>: Required. Specifies the location of your &CFNshort;
+            template. You can specify one of two locations: an artifact, or an &S3; bucket. (A
+            source repository location is not supported.)</para>
+        <itemizedlist>
+            <listitem>
+                <para>If your template resides in an artifact, replace
+                        <replaceable>Artifact|Bucket</replaceable> with
+                        <replaceable>&CFNshort;Artifact::my-cfn-template.yml</replaceable> where
+                        <replaceable>&CFNshort;Artifact</replaceable> is replaced with the name of
+                    the artifact that contains your &CFNshort; template, and
+                        <replaceable>my-cfn-template.yml</replaceable> is replaced with the path and
+                    filename of the &CFNshort; template within the artifact. For example:</para>
+                <para>
+                    <code>My&CFNshort;Artifact::source/My&CFNshort;TemplateFile.yml</code></para>
+                <note>
+                    <para>Also add the artifact to the <code>InputArtifacts</code> section
+                        above.</para>
+                </note>
+            </listitem>
+            <listitem>
+                <para>If your template resides in an &S3; bucket, replace
+                        <replaceable>Artifact|Bucket</replaceable> with the template's
+                        <guilabel>Object URL</guilabel> value, which you can find in the &S3;
+                    console at &S3Console_link;. For example:</para>
+                <para><code>https://my-bucket.s3.region.amazonaws.com/filepath/my-cfn-template.yml</code></para>
+            </listitem>
+        </itemizedlist>
+    </listitem>
+    <listitem>
+        <para><code>RockbackConfiguration</code>: Optional. Defines rollback settings.</para>
+    </listitem>
+    <listitem>
+        <para><code>MonitorAlarmARNs</code>: Optional. Specifies the ARN of the &CWlong; alarm that
+            you want to use as a rollback trigger.</para>
+        <para>You can have a maximum of five rollback triggers.XXXGOTINFOFROMCFNDOCS</para>
+    </listitem>
+    <listitem>
+        <para><code>MonitorTimeInMinutes</code>: Optional. Specifies an amount of time between 0-180
+            minutes during which &CFNshort; monitors the alarm specified in
+                <code>MonitorAlarmARNs</code>. Monitoring begins immediately
+                <emphasis>after</emphasis> the stack is created or updated. If the specified alarm
+            occurs within the specified monitoring time, then the deployment fails, and is rolled
+            back.</para>
+        <para>Default: 0 (XXXXdisabled, meaning the specified alarms are always monitored
+            https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html)</para>
+    </listitem>
+</itemizedlist>
+ </example>

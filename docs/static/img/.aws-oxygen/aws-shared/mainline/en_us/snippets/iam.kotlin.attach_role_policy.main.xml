@@ -1,0 +1,41 @@
+<programlisting>
+suspend fun attachIAMRolePolicy(roleNameVal: String, policyArnVal: String) {
+
+    val request = ListAttachedRolePoliciesRequest {
+        roleName = roleNameVal
+    }
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+        val response = iamClient.listAttachedRolePolicies(request)
+        val attachedPolicies = response.attachedPolicies
+
+        // Ensure that the policy is not attached to this role.
+        val checkStatus: Int
+        if (attachedPolicies != null) {
+            checkStatus = checkList(attachedPolicies, policyArnVal)
+            if (checkStatus == -1)
+                return
+        }
+
+       val policyRequest = AttachRolePolicyRequest {
+            roleName = roleNameVal
+            policyArn = policyArnVal
+        }
+        iamClient.attachRolePolicy(policyRequest)
+        println("Successfully attached policy $policyArnVal to role $roleNameVal")
+      }
+}
+
+fun checkList(attachedPolicies:List<AttachedPolicy>, policyArnVal:String) :Int {
+
+    for (policy in attachedPolicies) {
+        val polArn = policy.policyArn.toString()
+
+        if (polArn.compareTo(policyArnVal) == 0) {
+            println("The policy is already attached to this role.")
+            return -1
+        }
+    }
+    return 0
+}
+</programlisting>

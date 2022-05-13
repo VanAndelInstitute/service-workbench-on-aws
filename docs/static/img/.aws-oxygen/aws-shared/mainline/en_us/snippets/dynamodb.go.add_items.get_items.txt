@@ -1,0 +1,31 @@
+    items, err := GetItems(jsonFile)
+    if err != nil {
+        fmt.Println("Got an error retrieving items:")
+        fmt.Println(err)
+        return
+    }
+
+    for _, item := range items {
+        av, err := dynamodbattribute.MarshalMap(item)
+        if err != nil {
+            fmt.Println("Got error marshalling map:")
+            fmt.Println(err)
+            return
+        }
+
+        err = AddTableItem(svc, av, table)
+        if err != nil {
+            fmt.Println("Got an error adding item to table:")
+            fmt.Println(err)
+            return
+        }
+
+        title, err := GetMovieName(av)
+        if err != nil {
+            fmt.Println("Got an error retrieving movie name:")
+            fmt.Println(err)
+            return
+        }
+
+        fmt.Println("Successfully added '" + title + " to table " + *table)
+    }

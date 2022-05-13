@@ -1,0 +1,26 @@
+<programlisting>
+    public static void getSpecificCrawler(GlueClient glueClient, String crawlerName) {
+
+      try {
+            GetCrawlerRequest crawlerRequest = GetCrawlerRequest.builder()
+                .name(crawlerName)
+                .build();
+
+            GetCrawlerResponse response = glueClient.getCrawler(crawlerRequest);
+            Instant createDate = response.crawler().creationTime();
+
+            // Convert the Instant to readable date
+            DateTimeFormatter formatter =
+                  DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
+                          .withLocale( Locale.US)
+                          .withZone( ZoneId.systemDefault() );
+
+            formatter.format( createDate );
+            System.out.println("The create date of the Crawler is " + createDate );
+
+      } catch (GlueException e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+      }
+   }
+</programlisting>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section role="topic" id="apns-setup">
+	<sectioninfo>
+		<abstract>
+			<para>Describes how to use the Apple Developer portal to obtain iOS and APNs credentials, which
+				you use to create an iOS project in &AMHlong;.</para>
+		</abstract>
+	</sectioninfo>
+	<title id="apns-setup.title">Setting Up iOS Push Notifications</title>
+	<para>Push notifications for iOS apps are sent using Apple Push Notification service (APNs). Before
+		you can send push notifications to iOS devices, you must create an app ID on the Apple
+		Developer portal, and you must create the required certificates.</para>
+	<para>This section describes how to use the Apple Developer portal to obtain iOS and APNs
+		credentials. These credentials enable you to create an iOS project in &AMHlong; and launch a
+		sample app that can receive push notifications.</para>
+	<para>You do not need an existing iOS app to complete the steps in this section. After you create
+		an iOS project in &AMH;, you can download and launch a working sample app. &AMH;
+		automatically provisions the &AWS; resources that your app requires.</para>
+	<para>After completing the steps in this section, you will have the following items in your Apple
+		Developer account:</para>
+	<itemizedlist>
+		<listitem>
+			<para>An app ID.</para>
+		</listitem>
+		<listitem>
+			<para>An SSL certificate, which authorizes you to send push notifications to your app
+				through APNs.</para>
+		</listitem>
+		<listitem>
+			<para>A registration for your test device, such as an iPhone, with your Apple Developer
+				account.</para>
+		</listitem>
+		<listitem>
+			<para>An iOS distribution certificate, which enables you to install your app on your
+				test device.</para>
+		</listitem>
+		<listitem>
+			<para>A provisioning profile, which allows your app to run on your test device.</para>
+		</listitem>
+	</itemizedlist>
+	<para>If you already have these items, you can skip this section.</para>
+	<para>Before you begin, you must have an account with the Apple Developer Program as an
+		individual or as part of an organization, and you must have agent or admin privileges in
+		that account.</para>
+	<para>The steps in this tutorial are based on the following versions of Mac OS software:</para>
+	<itemizedlist>
+		<listitem>
+			<para>OS X El Capitan version 10.11.6</para>
+		</listitem>
+		<listitem>
+			<para>Xcode version 8.1</para>
+		</listitem>
+	</itemizedlist>
+	<para role="topiclist"/>
+	<xi:include href="apns-setup-appid.xml"/>
+	<xi:include href="apns-setup-apnscert.xml"/>
+	<xi:include href="apns-setup-device.xml"/>
+	<xi:include href="apns-setup-ioscert.xml"/>
+	<xi:include href="apns-setup-provisioning-profile.xml"/>
+</section>
+<?oxy_options track_changes="on"?>

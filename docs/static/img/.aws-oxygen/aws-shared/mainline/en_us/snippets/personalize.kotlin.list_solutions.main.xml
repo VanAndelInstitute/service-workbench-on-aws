@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun listAllSolutions(datasetGroupArnValue: String?) {
+
+          val request = ListSolutionsRequest{
+              maxResults = 10
+              datasetGroupArn = datasetGroupArnValue
+          }
+          PersonalizeClient { region = "us-east-1" }.use { personalizeClient ->
+            val response = personalizeClient.listSolutions(request)
+            response.solutions?.forEach { solution ->
+                    println("The solution ARN is ${solution.solutionArn}")
+                    println("The solution name is ${solution.name}")
+            }
+         }
+ }
+</programlisting>

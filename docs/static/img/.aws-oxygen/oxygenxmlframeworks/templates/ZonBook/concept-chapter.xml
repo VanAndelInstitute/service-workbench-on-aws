@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="concept-chapter-servicename" role="topic">
+ <info>
+  <title id="concept-chapter-servicename.title">Concept Chapter</title>
+  <abstract>
+   <para>Insert your chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/ConceptWriting.html">Writing About
+   Concepts</ulink>. This is an example where the XML root element is a chapter (<code>!DOCTYPE chapter</code>). If you
+  want this XML file to be a section that you include in a chapter, change <code>!DOCTYPE chapter</code> to
+   <code>!DOCTYPE <replaceable>section</replaceable></code>, change <code>&lt;chapter role="topic"
+   id="concept-chapter-servicename"></code> to <code>&lt;section role="topic"
+    id="concept-<replaceable>section</replaceable>-servicename"></code>, change <code>&lt;chapterinfo></code> to
+    <code>&lt;<replaceable>sectioninfo</replaceable>></code>, and insert an <code>&lt;xi:include
+    href="<replaceable>sectionFilename.xml</replaceable>"/&gt;</code> tag in the chapter XML file where you want to
+  include the section. Remove this remark before using this template code in your doc package. Rename file to <emphasis
+   role="bold"><replaceable>keyword.xml</replaceable></emphasis>, where the file name keyword reflects the concepts
+  covered in this chapter.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="first-concept-chapter">
+  <info>
+   <title id="first-concept-chapter.title">First Concept (subsection)</title>
+  </info>
+  <para>This section appears as a subsection in the parent topic.</para>
+ </section>
+ <section id="second-concept-chapter">
+  <info>
+   <title id="second-concept-chapter.title">Second Concept (subsection)</title>
+  </info>
+  <para>This section appears as a subsection in the parent topic.</para>
+ </section>
+ <section id="third-concept-chapter" role="topic">
+  <info>
+   <title id="third-concept-chapter.title">Third Concept (separate topic)</title>
+   <abstract>
+    <para>Insert section abstract text here.</para>
+   </abstract>
+  </info>
+  <para>This section appears as a separate topic in the TOC, nested underneath the parent topic.</para>
+ </section>
+ <section id="fourth-concept-chapter" role="topic">
+  <info>
+   <title id="fourth-concept-chapter.title">Fourth Concept (separate topic)</title>
+   <abstract>
+    <para>Insert section abstract text here.</para>
+   </abstract>
+  </info>
+  <para>This section appears as a separate topic in the TOC, nested underneath the parent topic.</para>
+ </section>
+</chapter>

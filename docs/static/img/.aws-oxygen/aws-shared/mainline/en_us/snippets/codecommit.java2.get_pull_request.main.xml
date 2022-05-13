@@ -1,0 +1,19 @@
+<programlisting>
+    public static void getPR(CodeCommitClient codeCommitClient, String pullRequestId ) {
+
+        try {
+            GetPullRequestRequest pullRequestRequest = GetPullRequestRequest.builder()
+                    .pullRequestId(pullRequestId)
+                    .build();
+
+            GetPullRequestResponse pullResponse = codeCommitClient.getPullRequest(pullRequestRequest);
+            System.out.println("The title of the pull request is  "+pullResponse.pullRequest().title());
+            System.out.println("The pull request status is "+pullResponse.pullRequest().pullRequestStatus());
+            System.out.println("The pull request id is "+pullResponse.pullRequest().pullRequestId());
+
+        } catch (CodeCommitException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

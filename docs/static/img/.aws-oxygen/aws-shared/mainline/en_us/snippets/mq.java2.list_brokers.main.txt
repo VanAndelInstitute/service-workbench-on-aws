@@ -1,0 +1,14 @@
+    public static List<BrokerSummary> listBrokers(MqClient mqClient) {
+        List<BrokerSummary> brokerList = new ArrayList<>();
+        try {
+            ListBrokersResponse response = mqClient.listBrokers();
+            brokerList = response.brokerSummaries();
+
+            return brokerList;
+
+        } catch (MqException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return brokerList;
+    }

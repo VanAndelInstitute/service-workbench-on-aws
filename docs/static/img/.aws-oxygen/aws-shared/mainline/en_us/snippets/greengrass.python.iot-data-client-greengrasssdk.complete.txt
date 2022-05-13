@@ -1,0 +1,8 @@
+import greengrasssdk
+
+iot_client = greengrasssdk.client('iot-data')
+iot_client.publish(
+    topic='some/topic',
+    qos=0,
+    payload='Some payload'.encode()
+)

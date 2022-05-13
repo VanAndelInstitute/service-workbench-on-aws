@@ -1,0 +1,10 @@
+class PollyWrapper:
+    """Encapsulates Amazon Polly functions."""
+    def __init__(self, polly_client, s3_resource):
+        """
+        :param polly_client: A Boto3 Amazon Polly client.
+        :param s3_resource: A Boto3 Amazon Simple Storage Service (Amazon S3) resource.
+        """
+        self.polly_client = polly_client
+        self.s3_resource = s3_resource
+        self.voice_metadata = None

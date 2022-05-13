@@ -1,0 +1,15 @@
+try {
+    $result = $mediaConvertClient->createJob([
+        "Role" => "IAM_ROLE_ARN",
+        "Settings" => $jobSetting, //JobSettings structure
+        "Queue" => "JOB_QUEUE_ARN",
+        "UserMetadata" => [
+            "Customer" => "Amazon"
+        ],
+    ]);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+

@@ -1,0 +1,4 @@
+    result, err := svc.AssumeRole(&sts.AssumeRoleInput{
+        RoleArn:         roleARN,
+        RoleSessionName: sessionName,
+    })

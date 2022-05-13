@@ -1,0 +1,16 @@
+    public static void deleteSpecificDataSource(KendraClient kendra, String indexId, String dataSourceId) {
+
+        try {
+
+            DeleteDataSourceRequest dataSourceRequest = DeleteDataSourceRequest.builder()
+                    .id(dataSourceId)
+                    .indexId(indexId)
+                    .build();
+
+            kendra.deleteDataSource(dataSourceRequest);
+            System.out.println(dataSourceId +" was successfully deleted.");
+        } catch (KendraException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,29 @@
+POST /mps/v1/payauth HTTP/1.1
+User-Agent: sampleapp/1.0.1
+Content-Type: application/x-www-form-urlencoded
+X-Amz-DvcID: 352099001761481
+X-Amz-DvcMfr: Nokia
+Authorization: Basic dGVzdHVzZXJAYW1hem9uLmNvbTpwYXNzd29yZA==
+
+TokenType=MultiUse&
+CallerReference=o1247530464&
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&
+Timestamp=2009-07-01&
+ReturnURL=http%3A%2F%2Fwww.sampleapp.com%3A8080%2Fnotify%2Fmps&
+PaymentReason=the+payment+reason&
+ValidityStart=2009-07-10&
+ValidityEnd=2010-07-10&
+PerUseLimit.Value=0.99&
+PerUseLimit.CurrencyCode=USD&
+PerUseModifier=Maximum&
+GlobalLimit.Value=50.00&
+GlobalLimit.CurrencyCode=USD&
+AmountConstraint.Amount.Value=100.00&
+AmountConstraint.Amount.CurrencyCode=USD&
+AmountConstraint.Interval.Quantity=2&
+AmountConstraint.Interval.Unit=Hours&
+FrequencyConstraint.Count=12&
+FrequencyConstraint.Interval.Quantity=1&
+FrequencyConstraint.Interval.Unit=Month&
+SignatureVersion=1&
+Signature=3Pl%2F%2B9sUk7Yz0HG6gHf1%2FlHBz5o%3D

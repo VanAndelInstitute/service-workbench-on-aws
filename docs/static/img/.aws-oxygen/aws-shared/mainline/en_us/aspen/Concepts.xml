@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+
+<?pagebreak?>
+<section id="AccessPolicyLanguage_Concepts" role="topic">
+	<title id="AccessPolicyLanguage_Concepts.title">Overview</title>
+
+	<para role="topiclist"/>
+
+	<para>This section describes basic concepts you need to understand to use the &servicename;
+		to write policies. It also describes the general process for how access control works with
+		the &servicename;, and how policies are evaluated.</para>
+
+
+	<section id="AccessPolicyLanguage_WhenToUse" role="topic" audience="aspen_sqs">
+		<title id="AccessPolicyLanguage_WhenToUse.title">When to Use Access Control</title>
+		<para>You have a great deal of flexibility in how you grant or deny access to a resource.
+			However, the typical use cases are fairly simple: </para>
+		<itemizedlist>
+			<listitem>
+				<para>You want to grant another AWS account a particular type of access to your
+					queue (e.g., SendMessage). For more information, see <xref
+						linkend="AccessPolicyLanguage_UseCase1"
+						endterm="AccessPolicyLanguage_UseCase1.title"/>.</para>
+			</listitem>
+			<listitem>
+				<para>You want to grant another AWS account access to your queue for a specific
+					period of time. For more information, see <xref
+						linkend="AccessPolicyLanguage_UseCase2"
+						endterm="AccessPolicyLanguage_UseCase2.title"/>.</para>
+			</listitem>
+			<listitem>
+				<para>You want to grant another AWS account access to your queue only if the
+					requests come from your EC2 instances. For more information, see <xref
+						linkend="AccessPolicyLanguage_UseCase3"
+						endterm="AccessPolicyLanguage_UseCase3.title"/>.</para>
+			</listitem>
+			<listitem>
+				<para>You want to <emphasis>deny</emphasis> another AWS account access to your
+					queue. For more information, see <xref linkend="AccessPolicyLanguage_UseCase4"
+						endterm="AccessPolicyLanguage_UseCase4.title"/>.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+
+	<section id="AccessPolicyLanguage_WhenToUse_Sns" role="topic" audience="aspen_sns">
+		<title id="AccessPolicyLanguage_WhenToUse_Sns.title">When to Use Access Control</title>
+		<para>You have a great deal of flexibility in how you grant or deny access to a resource.
+			However, the typical use cases are fairly simple: </para>
+		<itemizedlist>
+			<listitem>
+				<para>You want to grant another AWS account a particular type of topic action (e.g.,
+					Publish). For more information, see <xref
+						linkend="AccessPolicyLanguage_UseCase1_Sns"
+						endterm="AccessPolicyLanguage_UseCase1_Sns.title"/>.</para>
+			</listitem>
+			<listitem>
+				<para>You want to limit subscriptions to your topic to only the HTTPS protocol. For
+					more information, see <xref linkend="AccessPolicyLanguage_UseCase2_Sns"
+						endterm="AccessPolicyLanguage_UseCase2_Sns.title"/>.</para>
+			</listitem>
+			<listitem>
+				<para>You want to allow Amazon SNS to publish messages to your Amazon SQS queue. For
+					more information, see <xref linkend="AccessPolicyLanguage_UseCase3_Sns"
+						endterm="AccessPolicyLanguage_UseCase3_Sns.title"/>.</para>
+			</listitem>
+		</itemizedlist>
+	</section>
+
+
+	<section id="AccessPolicyLanguage_KeyConcepts" role="topic">
+		<title id="AccessPolicyLanguage_KeyConcepts.title">Key Concepts</title>
+
+		<para>The following sections describe the concepts you need to understand to use the
+			&servicename;. They're presented in a logical order, with the first terms you need
+			to know at the top of the list.</para>
+
+		<section id="AccessPolicyLanguage_permission">
+			<title id="AccessPolicyLanguage_permission.title">Permission</title>
+			<para audience="aspen_sqs">A <emphasis>permission</emphasis> is the concept of allowing
+				or disallowing some kind of access to a particular resource. Permissions essentially
+				follow this form: "A is/isn't allowed to do B to C where D applies." For example,
+					<emphasis>Jane</emphasis> (A) has permission to <emphasis>receive
+					messages</emphasis> (B) from <emphasis>John's Amazon SQS queue</emphasis> (C),
+				as long as <emphasis>she asks to receive them before midnight on May 30,
+					2009</emphasis> (D). Whenever Jane sends a request to Amazon SQS to use John's
+				queue, the service checks to see if she has permission and if the request satisfies
+				the conditions John set forth in the permission.</para>
+			<para audience="aspen_sns">A <emphasis>permission</emphasis> is the concept of allowing
+				or disallowing some kind of access to a particular resource. Permissions essentially
+				follow this form: "A is/isn't allowed to do B to C where D applies." For example,
+					<emphasis>Jane</emphasis> (A) has permission to <emphasis>publish</emphasis> (B)
+				to <emphasis>TopicA</emphasis> (C) as long as <emphasis>she uses the HTTP
+					protocol</emphasis> (D). Whenever Jane publishes to TopicA, the service checks
+				to see if she has permission and if the request satisfies the conditions set forth
+				in the permission.</para>
+			<para audience="aspen_iam">A <emphasis>permission</emphasis> is the concept of allowing
+				or disallowing some kind of access to a particular resource or action. Permissions
+				essentially follow this form: "A is/isn't allowed to do B to C where D applies." For
+				example, <emphasis>Jane</emphasis> (A) has permission to <emphasis>receive
+					messages</emphasis> (B) from <emphasis>Amazon SQS queue named
+					queue12345</emphasis> (C), as long as <emphasis>she asks to receive them before
+					midnight on May 30, 2010</emphasis> (D). Whenever Jane sends a request to Amazon
+				SQS to use queue12345, the service checks to see if she has permission and if the
+				request satisfies the conditions set forth in the permission.</para>
+		</section>
+		<section id="AccessPolicyLanguage_Statement">
+			<title id="AccessPolicyLanguage_Statement.title">Statement</title>
+			<para>A <emphasis>statement</emphasis> is the formal description of a single permission,
+				written in the &servicename;. You always write a statement as part of a broader
+				container document known as a <emphasis>policy</emphasis> (see the next
+				concept).</para>
+		</section>
+		<section id="AccessPolicyLanguage_Policy">
+			<title id="AccessPolicyLanguage_Policy.title">Policy</title>
+			<para audience="aspen_sqs">A <emphasis>policy</emphasis> is a document (written in the
+				&servicename;) that acts as a container for one or more statements. For example,
+				a policy could have two statements in it: one that states that Jane can use John's
+				queue, and another that states that Bob cannot use John's queue. As shown in the
+				following figure, an equivalent scenario would be to have two policies, one
+				containing the statement that Jane can use John's queue, and another containing the
+				statement that Bob cannot use John's queue.</para>
+			<para audience="aspen_sns">A <emphasis>policy</emphasis> is a document (written in the
+				&servicename;) that acts as a container for one or more statements. For example,
+				a policy could have two statements in it: one that states that Jane can subscribe
+				using the email protocol, and another that states that Bob cannot publish to TopicA.
+				As shown in the following figure, an equivalent scenario would be to have two
+				policies, one that states that Jane can subscribe using the email protocol, and
+				another that states that Bob cannot publish to TopicA.</para>
+			<para audience="aspen_iam">A <emphasis>policy</emphasis> is a document (written in the
+				&servicename;) that acts as a container for one or more statements. For example,
+				a policy could have two statements in it: one that states that Jane can use the
+				Amazon SQS <function>SendMessage</function> action, and another that states that
+				Jane can use all the Amazon S3 actions. As shown in the following figure, an
+				equivalent scenario would be to have two policies, one containing the statement that
+				Jane can use <function>SendMessage</function>, and another containing the statement
+				that Jane can use all Amazon S3 actions.</para>
+			<informalfigure>
+
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Statement_and_Policy.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Policy diagram</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<para audience="aspen_sqs">The AWS service implementing access control (e.g., Amazon
+				SQS) uses the information in the statements (whether they're contained in a single
+				policy or multiple) to determine if someone requesting access to a resource should
+				be granted that access. We often use the term <emphasis>policy</emphasis>
+				interchangeably with <emphasis>statement</emphasis>, as they generally represent the
+				same concept (an entity that represents a permission). </para>
+			<para audience="aspen_iam">AWS uses the information in the statements (whether they're
+				contained in a single policy or multiple) to determine if someone requesting access
+				to a resource should be granted that access. We often use the term
+					<emphasis>policy</emphasis> interchangeably with <emphasis>statement</emphasis>,
+				as they generally represent the same concept (an entity that represents a
+				permission). </para>
+
+		</section>
+		<!-- The issuer seems to be irrelevant for IAM at this point.-->
+		<section audience="aspen_sqs;aspen_sns">
+			<title>Issuer</title>
+			<para>The <emphasis>issuer</emphasis> is the person who writes a policy to grant
+				permissions for a resource. The issuer (by definition) is always the resource owner.
+				AWS does not permit AWS service users to create policies for resources they don't
+				own. If John is the resource owner, AWS authenticates John's identity when he
+				submits the policy he's written to grant permissions for that resource.</para>
+
+			<!--<para os="prerelease">There is an exception to the preceding rule. The resource owner can
+				<firstterm>delegate</firstterm> authority to someone else to create policies for the
+				resource. This is an advanced topic for special situations (for more information, see <xref
+				linkend="Delegation" endterm="Delegation.title"/>).</para>-->
+		</section>
+		<section id="AccessPolicyLanguage_Principal">
+			<title id="AccessPolicyLanguage_Principal.title">Principal</title>
+			<para audience="aspen_sqs;aspen_sns">The <emphasis>principal</emphasis> is the person or
+				persons who receive the permission in the policy. The principal is A in the
+				statement "A has permission to do B to C where D applies." In a policy, you can set
+				the principal to "anyone" (i.e., you can specify a wildcard to represent all
+				people). You might do this, for example, if you don't want to restrict access based
+				on the actual identity of the requester, but instead on some other identifying
+				characteristic such as the requester's IP address.</para>
+
+			<para audience="aspen_iam">The <emphasis>principal</emphasis> is the person or persons
+				who receive the permission in the policy. The principal is A in the statement "A has
+				permission to do B to C where D applies." When you write a policy specifically to
+				grant permission to a user or group, you don't explicitly state that user or
+				group as the principal in the policy. Instead, you attach the policy to a user or
+				group, and the principal is therefore implied.</para>
+		</section>
+		<section id="AccessPolicyLanguage_Action">
+			<title id="AccessPolicyLanguage_Action.title">Action</title>
+			<para>The <emphasis>action</emphasis> is the activity the principal has permission to
+				perform. The action is B in the statement "A has permission to do B to C where D
+				applies." Typically, the action is just the operation in the request to AWS. <phrase
+					audience="aspen_sqs;aspen_iam">For example, Jane sends a request to Amazon SQS
+					with <parameter>Action</parameter><code>=ReceiveMessage</code>.</phrase><phrase
+					audience="aspen_sns">For example, Jane sends a request to Amazon SNS with
+						<parameter>Action</parameter><code>=Subscribe</code>.</phrase> You can
+				specify one or multiple actions in a policy.</para>
+			<para audience="aspen_iam">For the names of the actions you can specify in a policy, see
+					<xref linkend="Using_SpecificProducts" endterm="Using_SpecificProducts.title"
+				/>.</para>
+
+		</section>
+		<section id="AccessPolicyLanguage_Resource">
+			<title id="AccessPolicyLanguage_Resource.title">Resource</title>
+			<para audience="aspen_sqs;aspen_sns">The <emphasis>resource</emphasis> is the object the
+				principal is requesting access to. The resource is C in the statement "A has
+				permission to do B to C where D applies."</para>
+			<para audience="aspen_iam">The <emphasis>resource</emphasis> is the object the principal
+				is requesting access to. The resource is C in the statement "A has permission to do
+				B to C where D applies." You can specify one or more resources in a policy. For
+				information about to specify a resource in a policy, see <xref
+					linkend="Identifiers_ARNs" endterm="Identifiers_ARNs.title"/>.</para>
+		</section>
+		<section id="AccessPolicyLanguage_ConditionsKeys">
+			<title id="AccessPolicyLanguage_ConditionsKeys.title">Conditions and Keys</title>
+			<para>The <emphasis>conditions</emphasis> are any restrictions or details about the
+				permission. The condition is D in the statement "A has permission to do B to C where
+				D applies." The part of the policy that specifies the conditions can be the most
+				detailed and complex of all the parts. Typical conditions are related to:</para>
+			<itemizedlist>
+				<listitem>
+					<para>Date and time (e.g., the request must arrive before a specific day)</para>
+				</listitem>
+				<listitem>
+					<para>IP address (e.g., the requester's IP address must be part of a particular
+						CIDR range)</para>
+				</listitem>
+				<!--<listitem>
+					<para>General function of the service (e.g., the requester can receive only up to 10
+					messages from the queue)</para>
+					</listitem>-->
+			</itemizedlist>
+
+			<para>A <emphasis>key</emphasis> is the specific characteristic that is the basis for
+				access restriction. For example, the date and time of request.</para>
+			<para>You use both <emphasis>conditions</emphasis> and <emphasis>keys</emphasis>
+				together to express the restriction. The easiest way to understand how you actually
+				implement a restriction is with an example: If you want to restrict access to before
+				May 30, 2010, you use the condition called <code>DateLessThan</code>. You use the
+				key called <phrase audience="aspen_sqs">
+					<code>AWS:CurrentTime</code>
+				</phrase><phrase audience="aspen_iam;aspen_sns">
+					<code>aws:CurrentTime</code>
+				</phrase> and set it to the value <code>2010-05-30T00:00:00Z</code>. AWS defines the
+				conditions and keys you can use. The <phrase audience="aspen_sqs;aspen_sns">AWS
+					service itself (e.g., Amazon SQS or Amazon SNS)</phrase><phrase
+					audience="aspen_iam">AWS product of interest itself (e.g., Amazon
+					SimpleDB)</phrase> might also define service-specific keys. For more information
+				about conditions, see <xref linkend="Condition" endterm="Condition.title"/>. For
+				more information about the available keys, see <xref linkend="AvailableKeys"
+					endterm="AvailableKeys.title"/>. </para>
+		</section>
+
+		<section id="AccessPolicyLanguage_Requester">
+			<title id="AccessPolicyLanguage_Requester.title">Requester</title>
+			<para>The <emphasis>requester</emphasis> is the person who sends a request to an AWS
+				service and asks for access to a particular resource. The requester sends a request
+				to AWS that essentially says: "Will you allow me to do B to C where D
+				applies?"</para>
+		</section>
+		<!--
+			<section id="AccessPolicyLanguage_EndforcementPoint">
+			<title id="AccessPolicyLanguage_EndforcementPoint.title">Enforcement Point</title>
+			<para>The <firstterm>enforcement point</firstterm> is the code inside the AWS service that
+			evaluates whether an incoming request should be denied or allowed based on the applicable
+			policies. </para>
+			</section>-->
+		<section id="AccessPolicyLanguage_Evaluation">
+			<title id="AccessPolicyLanguage_Evaluation.title">Evaluation</title>
+			<para><emphasis>Evaluation</emphasis> is the process the AWS service uses to determine
+				if an incoming request should be denied or allowed based on the applicable policies.
+				For information about the evaluation logic, see <xref
+					linkend="AccessPolicyLanguage_EvaluationLogic"
+					endterm="AccessPolicyLanguage_EvaluationLogic.title"/>.</para>
+		</section>
+		<section id="AccessPolicyLanguage_Effect">
+			<title id="AccessPolicyLanguage_Effect.title">Effect</title>
+			<para>The <emphasis>effect</emphasis> is the result that you want a policy statement to
+				return at evaluation time. You specify this value when you write the statements in a
+				policy, and the possible values are <emphasis>deny</emphasis> and
+					<emphasis>allow</emphasis>.</para>
+
+			<para> For example, you could write a policy that has a statement that
+					<emphasis>denies</emphasis> all requests that come from Antarctica (effect=deny
+				given that the request uses an IP address allocated to Antarctica). Alternately, you
+				could write a policy that has a statement that <emphasis>allows</emphasis> all
+				requests that <emphasis>don't</emphasis> come from Antarctica (effect=allow, given
+				that the request doesn't come from Antarctica). Although the two statements sound
+				like they do the same thing, in the &servicename; logic, they are different. For
+				more information, see <xref linkend="AccessPolicyLanguage_EvaluationLogic"
+					endterm="AccessPolicyLanguage_EvaluationLogic.title"/>.</para>
+
+			<para>Although there are only two possible values you can specify for the effect (allow
+				or deny), there can be three different results at policy evaluation time:
+					<emphasis>default deny</emphasis>, <emphasis>allow</emphasis>, or
+					<emphasis>explicit deny</emphasis>. For more information, see the following
+				concepts and <xref linkend="AccessPolicyLanguage_EvaluationLogic"
+					endterm="AccessPolicyLanguage_EvaluationLogic.title"/>.</para>
+		</section>
+		<section id="Define_SoftDeny">
+			<title id="Define_SoftDeny.title">Default Deny</title>
+			<indexterm audience="aspen_iam">
+				<primary>default deny</primary>
+			</indexterm>
+			<para>A <emphasis>default deny</emphasis> is the default result from a policy in the
+				absence of an allow or explicit deny. <phrase audience="aspen_iam">For example, if a
+					user requests to use Amazon SQS, but the only policy that applies to the user
+					states that the user can use Amazon SimpleDB, then that policy results in a
+					default deny.</phrase></para>
+		</section>
+		<section id="AccessPolicyLanguage_Allow">
+			<title id="AccessPolicyLanguage_Allow.title">Allow</title>
+			<indexterm audience="aspen_iam">
+				<primary>allow</primary>
+			</indexterm>
+			<para>An <emphasis>allow</emphasis> results from a statement that has effect=allow,
+				assuming any stated conditions are met. Example: Allow requests if they are received
+				before 1:00 p.m. on April 30, 2010. An allow overrides all default denies, but never
+				an explicit deny.</para>
+		</section>
+		<section id="Define_HardDeny">
+			<title id="Define_HardDeny.title">Explicit Deny</title>
+			<indexterm audience="aspen_iam">
+				<primary>explicit deny</primary>
+			</indexterm>
+			<para>An <emphasis>explicit deny</emphasis> results from a statement that has
+				effect=deny, assuming any stated conditions are met. Example: Deny all requests if
+				they are from Antarctica. Any request that comes from Antarctica will always be
+				denied no matter what any other policies might allow.</para>
+		</section>
+
+
+	</section>
+
+	<section id="AccessPolicyLanguage_ArchitecturalOverview" role="topic">
+		<title id="AccessPolicyLanguage_ArchitecturalOverview.title">Architectural Overview</title>
+		<para>The following figure and table describe the main components that interact to provide
+			access control for your resources.</para>
+		<!-- #### There are two variations on this: one for the SQS appendix, and one for the IAMS DG. We're using profiling here ### -->
+		<!-- #### This one is for SQS #### -->
+		<informalfigure audience="aspen_sqs;aspen_sns">
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/AccessPolicyLanguage_Arch_Overview.gif" format="GIF"
+						scale="115"/>
+				</imageobject>
+				<textobject>
+					<phrase>Architectural Overview</phrase>
+				</textobject>
+			</mediaobject>
+		</informalfigure>
+		<informaltable audience="aspen_sqs;aspen_sns">
+
+			<tgroup cols="2">
+				<colspec colnum="1" colname="col1" colwidth="0.3*"/>
+				<colspec colnum="2" colname="col2" colwidth="4*"/>
+
+
+				<tbody>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/1.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>You, the resource owner.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/2.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Your resources (contained within the AWS service; e.g., SQS
+								queues).</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/3.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Your policies.</simpara>
+							<simpara>Typically you have one policy per resource, although you could
+								have multiple. The AWS service itself provides an API you use to
+								upload and manage your policies. For information about the content
+								of the policies, see <xref
+									linkend="AccessPolicyLanguage_HowToWritePolicies"
+									endterm="AccessPolicyLanguage_HowToWritePolicies.title"
+								/>.</simpara>
+
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/4.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Requesters and their incoming requests to the AWS
+								service.</simpara>
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/5.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>The &servicename; evaluation code.</simpara>
+							<simpara>This is the set of code within the AWS service that evaluates
+								incoming requests against the applicable policies and determines
+								whether the requester is allowed access to the resource. For
+								information about how the service makes the decision, see <xref
+									linkend="AccessPolicyLanguage_EvaluationLogic"
+									endterm="AccessPolicyLanguage_EvaluationLogic.title"
+								/>.</simpara>
+						</entry>
+
+					</row>
+
+
+				</tbody>
+			</tgroup>
+		</informaltable>
+		<para audience="aspen_sqs">For the typical process of how the components work together, see
+				<xref linkend="AccessPolicyLanguage_OverallFlow"
+				endterm="AccessPolicyLanguage_OverallFlow.title"/>.</para>
+
+		<!-- ##### The following figure and table are for the IAM DG #### -->
+		<informalfigure audience="aspen_iam">
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/AccessPolicyLanguage_IAM_Arch_Overview.gif"
+						format="GIF" scale="115"/>
+				</imageobject>
+				<textobject>
+					<phrase>Architectural Overview</phrase>
+				</textobject>
+			</mediaobject>
+		</informalfigure>
+		<informaltable audience="aspen_iam">
+
+			<tgroup cols="2">
+				<colspec colnum="1" colname="col1" colwidth="0.3*"/>
+				<colspec colnum="2" colname="col2" colwidth="4*"/>
+
+
+				<tbody>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/1.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Your user-based permissions (policies attached to users or
+								groups within the IAM system).</simpara>
+							<simpara>These are created by someone in your AWS account who has permission
+								to manage policies for your AWS account. In the diagram, each user or
+								group has a single policy attached to it, although in practice,
+								there could be multiple.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/2.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Your resource-based permissions (ACLs attached to your Amazon
+								S3 buckets and objects, policies attached to your Amazon SQS queues,
+								etc.).</simpara>
+							<simpara>These are created by someone in your AWS account who has permission
+								to manage ACLs, policies, etc., for the AWS resources in your
+								AWS account.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/3.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>Requesters and their incoming requests to AWS to use your
+								AWS account's resources. They might be from inside or outside your own
+								AWS account.</simpara>
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/4.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>The evaluation code.</simpara>
+							<simpara>This is the set of code that evaluates incoming requests
+								against the applicable user-based permissions and
+								resource-based permissions and determines whether the requester is
+								allowed access to the resource. For information about how AWS makes
+								the decision, see <xref
+									linkend="AccessPolicyLanguage_EvaluationLogic"
+									endterm="AccessPolicyLanguage_EvaluationLogic.title"
+								/>.</simpara>
+						</entry>
+
+					</row>
+
+
+				</tbody>
+			</tgroup>
+		</informaltable>
+
+	</section>
+
+
+	<?pagebreak?>
+	<!-- #### The following section is currently not xpointered into the IAM docs on purpose #### -->
+	<section id="AccessPolicyLanguage_OverallFlow" role="topic">
+		<title id="AccessPolicyLanguage_OverallFlow.title">Using the &servicename_uc;</title>
+		<para>The following figure and table describe the general process of how access control
+			works with the &servicename;. </para>
+
+		<informalfigure>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/AccessPolicyLanguage_Basic_Flow.gif" format="GIF"
+						scale="115"/>
+				</imageobject>
+				<textobject>
+					<phrase>Basic flow for access control with the &servicename;</phrase>
+				</textobject>
+			</mediaobject>
+		</informalfigure>
+		<table>
+			<title>Process for Using Access Control with the &servicename_uc;</title>
+			<tgroup cols="2">
+				<colspec colnum="1" colname="col1" colwidth="0.3*"/>
+				<colspec colnum="2" colname="col2" colwidth="4*"/>
+
+
+				<tbody>
+
+					<row>
+						<entry>
+							<simpara>1</simpara>
+						</entry>
+						<entry>
+							<simpara>You write a policy for your resource.</simpara>
+							<simpara>For example, you write a policy to specify permissions for your
+								Amazon <phrase audience="aspen_sqs">SQS queues</phrase><phrase
+									audience="aspen_sns">SNS topics</phrase>. For more information,
+								see <xref linkend="AccessPolicyLanguage_HowToWritePolicies"
+									endterm="AccessPolicyLanguage_HowToWritePolicies.title"
+								/>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>2</simpara>
+						</entry>
+						<entry>
+							<simpara>You upload your policy to AWS.</simpara>
+							<simpara>The AWS service itself provides an API you use to upload your
+								policies. <phrase audience="aspen_sqs">For example, you use the
+									Amazon SQS <function>SetQueueAttributes</function> action to
+									upload a policy for a particular Amazon SQS queue.</phrase>
+								<phrase audience="aspen_sns">For example, you use the Amazon SNS
+										<function>SetTopicAttributes</function> action to upload a
+									policy for a particular Amazon SNS topic.</phrase></simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>3</simpara>
+						</entry>
+						<entry>
+							<simpara>Someone sends a request to use your resource.</simpara>
+							<simpara audience="aspen_sqs">For example, a user sends a request to SQS
+								to use one of your queues. </simpara>
+							<simpara audience="aspen_sns">For example, a user sends a request to
+								Amazon SNS to use one of your topics. </simpara>
+
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>4</simpara>
+						</entry>
+						<entry>
+							<simpara>The AWS service determines which policies are applicable to the
+								request.</simpara>
+							<simpara audience="aspen_sqs">For example, SQS looks at all the
+								available SQS policies and determines which ones are applicable
+								(based on what the resource is, who the requester is,
+								etc.).</simpara>
+							<simpara audience="aspen_sns">For example, Amazon SNS looks at all the
+								available Amazon SNS policies and determines which ones are
+								applicable (based on what the resource is, who the requester is,
+								etc.).</simpara>
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							<simpara>5</simpara>
+						</entry>
+						<entry>
+							<simpara>The AWS service evaluates the policies.</simpara>
+							<simpara audience="aspen_sqs">For example, SQS evaluates the policies
+								and determines if the requester is allowed to use your queue or not.
+								For information about the decision logic, see <xref
+									linkend="AccessPolicyLanguage_EvaluationLogic"
+									endterm="AccessPolicyLanguage_EvaluationLogic.title"
+								/>.</simpara>
+							<simpara audience="aspen_sns">For example, Amazon SNS evaluates the
+								policies and determines if the requester is allowed to use your
+								topic or not. For information about the decision logic, see <xref
+									linkend="AccessPolicyLanguage_EvaluationLogic"
+									endterm="AccessPolicyLanguage_EvaluationLogic.title"
+								/>.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<simpara>6</simpara>
+						</entry>
+						<entry>
+							<simpara>The AWS service either denies the request or continues to
+								process it. </simpara>
+							<simpara>For example, based on the policy evaluation result, the service
+								either returns an "Access denied" error to the requester or
+								continues to process the request.</simpara>
+						</entry>
+					</row>
+
+				</tbody>
+			</tgroup>
+		</table>
+
+
+
+		<itemizedlist>
+			<title>Related Topics</title>
+			<listitem>
+				<simpara>
+					<xref linkend="AccessPolicyLanguage_ArchitecturalOverview"
+						endterm="AccessPolicyLanguage_ArchitecturalOverview.title"/>
+				</simpara>
+			</listitem>
+		</itemizedlist>
+	</section>
+
+
+
+	<?pagebreak?>
+	<section id="AccessPolicyLanguage_EvaluationLogic" role="topic">
+		<title id="AccessPolicyLanguage_EvaluationLogic.title">Evaluation Logic</title>
+		<para>The goal at evaluation time is to decide whether a given request <phrase
+				audience="aspen_sqs">from someone other than you (the resource owner)
+			</phrase>should be allowed or denied. The evaluation logic follows several basic
+			rules:</para>
+		<itemizedlist>
+			<listitem>
+				<para audience="aspen_sqs;aspen_sns">By default, all requests to use your resource
+					coming from anyone but you are denied</para>
+				<para audience="aspen_iam">By default, all requests receive a default deny, except
+					for requests that use the AWS account's root security credentials</para>
+			</listitem>
+			<listitem>
+				<para>An allow overrides any default denies</para>
+			</listitem>
+			<listitem>
+				<para>An explicit deny overrides any allows</para>
+			</listitem>
+			<listitem>
+				<para>The order in which the policies are evaluated is not important</para>
+			</listitem>
+
+		</itemizedlist>
+		<para audience="aspen_iam">The evaluation logic never results in a conflict. There is always
+			a true/false result that either allows or denies the requested access.</para>
+		<para>The following flow chart and discussion describe in more detail how the decision is
+			made.</para>
+		<informalfigure>
+
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/AccessPolicyLanguage_Evaluation_Flow.gif"
+						format="GIF" scale="115"/>
+				</imageobject>
+				<textobject>
+					<phrase>Evaluation flow chart</phrase>
+				</textobject>
+			</mediaobject>
+		</informalfigure>
+
+		<informaltable>
+
+			<tgroup cols="2">
+				<colspec colnum="1" colname="col1" colwidth="0.3*"/>
+				<colspec colnum="2" colname="col2" colwidth="4*"/>
+
+
+				<tbody>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/1.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>The decision starts with a default deny.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/2.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara> The enforcement code then evaluates <phrase
+									audience="aspen_sqs">all the policies </phrase>
+								<phrase audience="aspen_iam">all the applicable user-based policies
+									and resource-based policies/ACLs, etc. </phrase>that are
+								applicable to the request (based on the resource, principal, action,
+								and conditions). </simpara>
+							<simpara>The order in which the enforcement code evaluates the policies
+								is not important.</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/3.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara> In all those policies, the enforcement code looks for an
+								explicit deny instruction that would apply to the request.</simpara>
+							<simpara>If it finds even one, the enforcement code returns a decision
+								of "deny" and the process is finished (this is an explicit deny; for
+								more information, see <xref linkend="Define_HardDeny"
+									endterm="Define_HardDeny.title"/>).</simpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/4.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>If no explicit deny is found, the enforcement code looks for
+								any "allow" instructions that would apply to the request.</simpara>
+							<simpara>If it finds even one, the enforcement code returns a decision
+								of "allow" and the process is done (the service continues to process
+								the request). </simpara>
+						</entry>
+					</row>
+
+					<row>
+						<entry>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="http://&domain;/docs-common/images/callouts/5.png" format="PNG" align="center"/>
+								</imageobject>
+							</mediaobject>
+						</entry>
+						<entry>
+							<simpara>If no allow is found, then the final decision is "deny"
+								(because there was no explicit deny or allow, this is considered a
+									<firstterm>default deny</firstterm> (for more information, see
+									<xref linkend="Define_SoftDeny" endterm="Define_SoftDeny.title"
+								/>).</simpara>
+						</entry>
+					</row>
+
+
+				</tbody>
+			</tgroup>
+		</informaltable>
+
+
+
+		<para audience="aspen_iam">IAM policies you write address only users and groups within your AWS account, and
+			the policies provide a default deny for any requests from a different AWS account. A default deny can be
+			overriden by an allow, which means any allow permissions you've given to another
+			AWS account through another permissions system override the default deny. For example, if a different
+			AWS account sends a request to use one of your AWS account's Amazon S3 buckets, the IAM result is
+			a deny by default. But, if you've updated the bucket's ACL and given that AWS account permission
+			to use the bucket, then that AWS account can use the bucket. The IAM policies in this case won't
+			prevent it. </para>
+
+		<section audience="aspen_iam">
+			<title>Example of an Explicit Deny Overriding an Allow</title>
+			<para>This example illustrates how you might use an explicit deny to override a broad
+				policy that allows access to a wide set of resources. For example, let's say you
+				give a group access to use any Amazon SQS queues in your AWS account whose names begin
+				with the string <code>test</code>. </para>
+
+			<para>The following diagram represents that set of queues.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="images/AccessPolicyLanguage_Explicit_Deny_Override_1.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Set of queues whose names start with test</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+			<para>Let's say that you have a particular queue called test0 that you want to remove
+				the group's access to. </para>
+			<para>The following diagram represents that set of queues.</para>
+
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="images/AccessPolicyLanguage_Explicit_Deny_Override_2.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Set of queues whose names start with test, except for test0</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+
+			<para>You could add another policy to the group (or just add a statement to the existing
+				policy) that explicitly denies the group's access to just that queue. The group
+				would still have access to all other queues whose names begin with the string
+					<code>test</code>. The following diagram illustrates those two statements in the
+				policy.</para>
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata
+							fileref="images/AccessPolicyLanguage_Explicit_Deny_Override_3.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Example policy for explicit deny overriding allow</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+			<para>When someone in the group requests to use the queue test0, the explicit deny
+				overrides the allow, and the user is denied access to the queue.</para>
+		</section>
+
+		<section id="AccessPolicyLanguage_Interplay">
+			<title id="AccessPolicyLanguage_Interplay.title">The Interplay of Explicit and Default Denials</title>
+			<para audience="aspen_iam">A policy results in a default deny if it doesn't
+				directly apply to the request. For example, if a user requests to use Amazon SQS,
+				but the only policy that applies to the user states that the user can use Amazon
+				SimpleDB, then that policy results in a default deny. </para>
+			<para audience="aspen_sqs">A policy results in a default deny if it doesn't
+				directly apply to the request. For example, if a user requests to use Amazon SQS,
+				but the only policy that applies to the user states that the user can use Amazon
+				SimpleDB, then that policy results in a default deny. </para>
+			<para audience="aspen_sns">A policy results in a default deny if it doesn't directly
+				apply to the request. For example, if a user requests to use Amazon SNS, but the
+				policy on the topic doesn't refer to the user's AWS account at all, then that policy
+				results in a default deny.</para>
+			<para>A policy also results in a default deny if a condition in a statement isn't met.
+				If all conditions in the statement are met, then the policy results in either an
+				allow or an explicit deny, based on the value of the Effect element in the policy.
+				Policies don't specify what to do if a condition isn't met, and so the default
+				result in that case is a default deny.</para>
+			<para>For example, let's say you want to prevent requests coming in from Antarctica. You
+				write a policy (called Policy A1) that allows a request only if it doesn't come from
+				Antarctica. The following diagram illustrates the policy.</para>
+
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Allow_Override_1.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Policy allowing request if it's not from Antarctica</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+
+			<para>If someone sends a request from the U.S., the condition is met (the request is not
+				from Antarctica). Therefore, the request is allowed. But, if someone sends a request
+				from Antarctica, the condition isn't met, and the policy's result is therefore a
+				default deny. </para>
+			<para>You could turn the result into an explicit deny by rewriting the policy (named
+				Policy A2) as in the following diagram. Here, the policy explicitly denies a request
+				if it comes from Antarctica.</para>
+
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Allow_Override_2.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Policy denying request if it's from Antarctica</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+			<para>If someone sends a request from Antarctica, the condition is met, and the policy's
+				result is therefore an explicit deny.</para>
+
+
+			<para>The distinction between a default deny and an explicit deny is important because a
+				default deny can be overridden by an allow, but an explicit deny can't. For example,
+				let's say there's another policy that allows requests if they arrive on June 1,
+				2010. How does this policy affect the overall outcome when coupled with the policy
+				restricting access from Antarctica? We'll compare the overall outcome when coupling
+				the date-based policy (we'll call Policy B) with the preceding policies A1 and A2.
+				Scenario 1 couples Policy A1 with Policy B, and Scenario 2 couples Policy A2 with
+				Policy B. The following figure and discussion show the results when a request comes
+				in from Antarctica on June 1, 2010.</para>
+
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/AccessPolicyLanguage_Allow_Override.gif"
+							format="GIF" scale="115"/>
+					</imageobject>
+					<textobject>
+						<phrase>Override of default deny</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+			<para>In Scenario 1, Policy A1 returns a default deny, as described earlier in this
+				section. Policy B returns an allow because the policy (by definition) allows
+				requests that come in on June 1, 2010. The allow from Policy B overrides the default
+				deny from Policy A1, and the request is therefore allowed.</para>
+			<para>In Scenario 2, Policy B2 returns an explicit deny, as described earlier in this
+				section. Again, Policy B returns an allow. The explicit deny from Policy A2
+				overrides the allow from Policy B, and the request is therefore denied.</para>
+
+		</section>
+	</section>
+
+
+	<section id="AccessPolicyLanguage_UseCases" role="topic" audience="aspen_sqs">
+		<title id="AccessPolicyLanguage_UseCases.title">Basic Use Cases for Access Control</title>
+		<para>This section gives a few examples of typical use cases for access control.</para>
+
+		<section id="AccessPolicyLanguage_UseCase1">
+			<title id="AccessPolicyLanguage_UseCase1.title">Use Case 1</title>
+			<para>Let's say you have a set of queues in the Amazon SQS system. In the simplest case,
+				you want to allow one or more AWS accounts a particular type of access to a queue
+				(e.g., SendMessage, ReceiveMessage).</para>
+			<para>You can do this by simply using the Amazon SQS API action
+					<function>AddPermission</function>. It takes a few input parameters and
+				automatically creates a policy in the SQS system for that queue. For this use case,
+				you don't need to read this appendix or learn how to write a policy yourself,
+				because SQS can automatically create the policy for you.</para>
+			<para>The following example shows a policy that gives AWS account ID &ExampleAWSAccountNo1H;
+				permission to send and receive from a queue you own named queue2. In this example,
+				your AWS account ID is &ExampleAWSAccountNo2H;.</para>
+			<programlisting>{   
+   "Version":"&apiversion;",
+   "Id":"UseCase1",
+   "Statement" : [
+      {
+         "Sid":"1", 
+         "Effect":"Allow",           
+         "Principal" : {
+            "AWS": "&ExampleAWSAccountNo1;"
+         },
+         "Action":["sqs:SendMessage","sqs:ReceiveMessage"], 
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",   
+      }
+   ]
+}</programlisting>
+		</section>
+
+		<section id="AccessPolicyLanguage_UseCase2">
+			<title id="AccessPolicyLanguage_UseCase2.title">Use Case 2</title>
+			<para>In this use case, you want to allow one or more AWS accounts access to your queues
+					<emphasis>only for a specific time period</emphasis>.</para>
+			<para>You need to know how to write your own policy for the queue because the SQS
+					<function>AddPermission</function> action doesn't let you specify a time
+				restriction when granting someone access to your queue. In this case, you would
+				write your own policy and then upload it to the AWS system with the
+					<function>SetQueueAttributes</function> action. Effectively the action sets your
+				policy as an attribute of the queue.</para>
+			<para>The following example is the same as in use case 1, except it also includes a
+				condition that restricts access to before June 30, 2009, at noon (UTC).</para>
+			<programlisting>{   
+   "Version":"&apiversion;",
+   "Id":"UseCase2",
+   "Statement" : [
+      {
+         "Sid":"1", 
+         "Effect":"Allow",           
+         "Principal" : {
+            "AWS": "&ExampleAWSAccountNo1;"
+         },
+         "Action":["sqs:SendMessage","sqs:ReceiveMessage"], 
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",
+         "Condition" : {
+            "DateLessThan" : {
+               "AWS:CurrentTime":"2009-06-30T12:00Z"
+            }
+         }   
+      }
+   ]
+}</programlisting>
+		</section>
+
+		<section id="AccessPolicyLanguage_UseCase3">
+			<title id="AccessPolicyLanguage_UseCase3.title">Use Case 3</title>
+			<para>In this use case, you want to allow access to your queues <emphasis>only if the
+					requests come from your Amazon EC2 instances</emphasis>.</para>
+			<para>Again, you need to know how to write your own policy because the SQS
+					<function>AddPermission</function> action doesn't let you specify an IP address
+				restriction when granting access to your queue.</para>
+			<para>The following example builds on the example in use case 2, and also includes a
+				condition that restricts access to the IP address range 10.52.176.0/24. So in this
+				example, a request from AWS account 1234-5678-9012 to send or receive messages from
+				queue2 would be allowed only if it came in before noon on June 30, 2009,
+					<emphasis>and</emphasis> it came from the 10.52.176.0/24 address range.</para>
+			<programlisting>{   
+   "Version":"&apiversion;",
+   "Id":"UseCase3",
+   "Statement" : [
+      {
+         "Sid":"1", 
+         "Effect":"Allow",           
+         "Principal" : {
+            "AWS": "&ExampleAWSAccountNo1;"
+         },
+         "Action":["sqs:SendMessage","sqs:ReceiveMessage"], 
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",
+         "Condition" : {
+            "DateLessThan" : {
+               "AWS:CurrentTime":"2009-06-30T12:00Z"
+            },
+            "IpAddress" : {
+               "AWS:SourceIp":"10.52.176.0/24"
+            }
+         }   
+      }
+   ]
+}</programlisting>
+		</section>
+
+		<section id="AccessPolicyLanguage_UseCase4">
+			<title id="AccessPolicyLanguage_UseCase4.title">Use Case 4</title>
+			<para>In this use case, you want to specifically <emphasis>deny</emphasis> a certain AWS
+				account access to your queues.</para>
+			<para>Again, you need to know how to write your own policy because the SQS
+					<function>AddPermission</function> action doesn't let you
+					<emphasis>deny</emphasis> access to a queue; it only lets you
+					<emphasis>grant</emphasis> access.</para>
+			<para>The following example is the same as in the original use case (#1), except it
+					<emphasis>denies</emphasis> access to the specified AWS account.</para>
+			<programlisting>{ 
+   "Version":"&apiversion;",
+   "Id":"UseCase4",
+   "Statement" : [
+      {
+         "Sid":"1", 
+         "Effect":"Deny",           
+         "Principal" : {
+            "AWS": "&ExampleAWSAccountNo1;"
+         },
+         "Action":["sqs:SendMessage","sqs:ReceiveMessage"], 
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",   
+      }
+   ]
+}</programlisting>
+
+			<para>From these use cases, you can see that if you want to restrict access based on
+				special conditions or deny someone access entirely, you need to read this appendix
+				and learn how to write your own policies. You can also see that the policies
+				themselves are not that complex and the access policy language is
+				straightforward.</para>
+		</section>
+
+
+
+	</section>
+
+	<section id="AccessPolicyLanguage_UseCases_Sns" role="topic" audience="aspen_sns">
+		<title id="AccessPolicyLanguage_UseCases.title">Example Cases for Amazon SNS Access
+		Control</title>
+		<para role="topiclist" />
+		<para>This section gives a few examples of typical use cases for access control.</para>
+
+		<section id="AccessPolicyLanguage_UseCase1_Sns">
+			<title id="AccessPolicyLanguage_UseCase1_Sns.title">Allowing AWS account Access to a Topic</title>
+			<para>Let's say you have a topic in the Amazon SNS system. In the simplest case, you
+				want to allow one or more AWS accounts access to a specific topic action (e.g.,
+				Publish).</para>
+			<para>You can do this by using the Amazon SNS API action
+					<function>AddPermission</function>. It takes a topic, a list of AWS account IDs,
+				a list of actions, and a label, and automatically creates a new statement in the
+				topic's access control policy. In this case, you don't write a policy yourself,
+				because Amazon SNS automatically generates the new policy statement for you. You can
+				remove the policy statement later by calling <function>RemovePermission</function>
+				with its label.</para>
+			<para>For example, if you called <function>AddPermission</function> on the topic
+				arn:aws:sns:us-east-1:&ExampleAWSAccountNo2;:MyTopic, with AWS account ID &ExampleAWSAccountNo1H;, the
+					<function>Publish</function> action, and the label
+					<code>give-1234-publish</code>, Amazon SNS would generate and insert the
+				following access control policy statement:</para>
+			<programlisting>{
+    "Version":"&apiversion;",
+    "Id":"AWSAccountTopicAccess",
+    "Statement" : [
+        {
+            "Sid":"give-1234-publish",
+            "Effect":"Allow",           
+            "Principal" : {
+                "AWS": "&ExampleAWSAccountNo1;"
+             },
+            "Action":["sns:Publish"],
+            "Resource": "arn:aws:sns:us-east-1:&ExampleAWSAccountNo2;:MyTopic"
+        }
+    ]
+}</programlisting>
+			<para>Once this statement is added, the user with AWS account 1234-5678-9012 can publish
+				messages to the topic.</para>
+
+		</section>
+
+		<section id="AccessPolicyLanguage_UseCase2_Sns">
+			<title id="AccessPolicyLanguage_UseCase2_Sns.title">Limiting Subscriptions to HTTPS</title>
+			<para>In this use case, you want to allow subscriptions to your topic <emphasis>only by
+					HTTPS</emphasis>, for security.</para>
+			<para>You need to know how to write your own policy for the topic because the Amazon SNS
+					<function>AddPermission</function> action doesn't let you specify a protocol
+				restriction when granting someone access to your topic. In this case, you would
+				write your own policy, and then use the <function>SetTopicAttributes</function>
+				action to set the topic's <code>Policy</code> attribute to your new policy.</para>
+			<para>The following example of a full policy gives the AWS account ID 1234-5678-9012 the
+				ability to subscribe and receive notifications from a topic.</para>
+			<note>
+				<!--	Cheri says: This next note is confusing. I think what's important to tell people is that BOTH sns:Subscribe and sns:Receive are required in the policy if you want to give another account permission to subscribe to the topic (they can't just have permission to subscribe, they also need to have permission to receive). Once you explain that, then someone would realize that it's somewhat unintuitive that you have to have permission to do both. Then, you can explain why we've separated them out into separate actions. Our explanation is weak, however. We just say "so you can apply different conditions to the subscriber and the message recipient." What exactly does that mean and how would you do it and why? I don't know the answer...something that Bryant can explain?			-->
+				<para><function>Subscribe</function> and <function>Receive</function> are separate
+					actions in the policy. You can apply different conditions to the subscriber and
+					the message recipient.</para>
+			</note>
+			<programlisting>{   
+    "Version":"&apiversion;",
+    "Id":"SomePolicyId",
+    "Statement" : [
+        {
+            "Sid":"Statement1",
+            "Effect":"Allow",           
+            "Principal" : {
+                "AWS": "&ExampleAWSAccountNo1;"
+              },
+            "Action":["sns:Subscribe","sns:Receive"],
+            "Resource": "arn:aws:sns:us-east-1:&ExampleAWSAccountNo2;:MyTopic",
+            "Condition" : {
+                "StringEquals" : {
+                    "sns:Protocol":"https"
+                 }
+            }   
+        }
+    ]
+}</programlisting>
+		</section>
+
+		<section id="AccessPolicyLanguage_UseCase3_Sns">
+			<title id="AccessPolicyLanguage_UseCase3_Sns.title">Publishing to an SQS Queue</title>
+			<para>In this use case, you want to publish messages from your topic to your SQS queue.
+				Like Amazon SNS, SQS uses Amazon's access control policy language. To allow Amazon
+				SNS to send messages, you'll need to use the SQS action
+					<function>SetQueueAttributes</function> to set a policy on the queue.</para>
+			<para>Again, you'll need to know how to write your own policy because the SQS
+					<function>AddPermission</function> action doesn't create policy statements with
+				conditions.</para>
+			<para>Note that the example presented below is an SQS policy (controlling access to your
+				queue), not an Amazon SNS policy (controlling access to your topic). The actions are
+				SQS actions, and the resource is the Amazon Resource Name (ARN) of the queue. You
+				can determine the queue's ARN by retrieving the queue's <code>QueueArn</code>
+				attribute with the <function>GetQueueAttributes</function> action.</para>
+			<programlisting>{   
+    "Version":"&apiversion;",
+    "Id":"MyQueuePolicy",
+    "Statement" : [
+        {
+	        "Sid":"Allow-SNS-SendMessage",
+	        "Effect":"Allow",           
+	        "Principal" : {
+	            "AWS": "*"
+	         },
+	        "Action":["sqs:SendMessage"],
+	        "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:MyQueue",
+	        "Condition" : {
+	            "ArnEquals" : {
+		            "aws:SourceArn":"arn:aws:sns:us-east-1:&ExampleAWSAccountNo2;:MyTopic"
+                 }
+            }
+        }
+    ]
+}</programlisting>
+			<para>This policy uses the <code>aws:SourceArn</code> condition to restrict access to
+				the queue based on the source of the message being sent to the queue. You can use
+				this type of policy to allow Amazon SNS to send messages to your queue only if the
+				messages are coming from one of your own topics. In this case, you specify a
+				particular one of your topics, whose ARN is
+				arn:aws:sns:us-east-1:&ExampleAWSAccountNo2;:MyTopic.</para>
+			<para>The preceding policy is an example of the SQS policy you could write and add to a
+				specific queue. It would grant Amazon SNS and other AWS products access. Amazon SNS
+				gives a default policy to all newly created topics. The default policy gives all
+				other AWS products access to your topic. This default policy uses an
+					<code>aws:SourceArn</code> condition to ensure that AWS products access your
+				topic only on behalf of AWS resources you own.</para>
+		</section>
+		
+		<section id="AccessPolicyLanguage_UseCase4_Sns">
+			<title id="AccessPolicyLanguage_UseCase4_Sns.title">Allowing Any AWS Resource to Publish to a Topic</title>
+			
+			<para>In this case, you want to configure a topic's policy so that another AWS account's resource (e.g., S3 bucket, EC2 instance, or SQS queue) can publish to your topic. This example assumes that you write your own policy and then use the <function>SetTopicAttributes</function> action to set the topic's <code>Policy</code> attribute to your new policy.</para>
+			<para>In the following example statement, the topic owner in these policies is &ExampleAWSAccountNo1H; and the AWS resource owner is &ExampleAWSAccountNo2H;. The example gives the AWS account ID &ExampleAWSAccountNo2H; the ability to publish to My-Topic from any AWS resource owned by the account.</para>
+			
+<programlisting>{
+    "Version":"&apiversion;",
+    "Id":"MyAWSPolicy",
+    "Statement" : [
+        {
+            "Sid": "My-statement-id",
+            "Effect": "Allow",
+            "Principal" : { "AWS": "*" },
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:us-east-1:&ExampleAWSAccountNo1;:My-Topic",
+            "Condition": {
+               "StringEquals": {
+                  "AWS:SourceOwner":"&ExampleAWSAccountNo2;"
+                }
+            }
+        }
+    ]
+}</programlisting>
+		
+		</section>
+		
+		<section id="AccessPolicyLanguage_UseCase5_Sns">
+			<title id="AccessPolicyLanguage_UseCase5_Sns.title">Allowing an Amazon S3 Bucket to Publish to a Topic</title>
+			
+			<para>In this case, you want to configure a topic's policy so that another AWS account's Amazon S3 bucket can publish to your topic. This example assumes that you write your own policy and then use the <function>SetTopicAttributes</function> action to set the topic's <code>Policy</code> attribute to your new policy.</para>
+			<para>The following example statement uses the <code>ArnLike</code> condition to make sure the ARN of the resource making the request (the <code>AWS:SourceARN</code>) is an S3 ARN. You could use a similar condition to restrict the permission to a set of S3 buckets, or even to a specific bucket. In this example, the topic owner is &ExampleAWSAccountNo1H; and the S3 owner is &ExampleAWSAccountNo2H;. The example states that any S3 bucket owned by &ExampleAWSAccountNo2H; is allowed to publish to My-Topic.</para>
+			
+			<programlisting>{
+    "Version":"&apiversion;",
+    "Id":"MyAWSPolicy",
+    "Statement" : [
+        {
+            "Sid": "My-statement-id",
+            "Effect": "Allow",
+            "Principal" : { "AWS": "*" },
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:us-east-1:&ExampleAWSAccountNo1;:My-Topic",
+            "Condition": {
+                "StringEquals": { "AWS:SourceOwner":"&ExampleAWSAccountNo2;" } ,
+                "ArnLike": { "AWS:SourceArn": "arn:aws:s3:*:*:*" }
+            }
+        }
+    ]
+}</programlisting>
+			
+		</section>
+		
+	</section>
+
+</section>

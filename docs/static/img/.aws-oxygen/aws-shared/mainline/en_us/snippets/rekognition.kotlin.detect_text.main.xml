@@ -1,0 +1,23 @@
+<programlisting>
+suspend fun detectTextLabels(sourceImage: String?) {
+
+        val souImage = Image {
+            bytes = (File(sourceImage).readBytes())
+        }
+
+        val request = DetectTextRequest {
+            image = souImage
+        }
+
+        RekognitionClient { region = "us-east-1" }.use { rekClient ->
+          val response = rekClient.detectText(request)
+          response.textDetections?.forEach { text ->
+                 println("Detected: ${text.detectedText}")
+                println("Confidence: ${text.confidence}")
+                println("Id: ${text.id}")
+                println("Parent Id:  ${text.parentId}")
+                println("Type: ${text.type}")
+          }
+        }
+}
+</programlisting>

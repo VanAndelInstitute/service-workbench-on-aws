@@ -1,0 +1,20 @@
+// Import required AWS SDK clients and commands for Node.js
+import { DeleteClusterCommand } from "@aws-sdk/client-redshift";
+import { redshiftClient } from "./libs/redshiftClient.js";
+
+const params = {
+  ClusterIdentifier: "CLUSTER_NAME",
+  SkipFinalClusterSnapshot: false,
+  FinalClusterSnapshotIdentifier: "CLUSTER_SNAPSHOT_ID",
+};
+
+const run = async () => {
+  try {
+    const data = await redshiftClient.send(new DeleteClusterCommand(params));
+    console.log("Success, cluster deleted. ", data);
+    return data; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();

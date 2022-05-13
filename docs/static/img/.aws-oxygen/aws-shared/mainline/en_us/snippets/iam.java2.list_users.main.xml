@@ -1,0 +1,36 @@
+<programlisting>
+    public static void listAllUsers(IamClient iam ) {
+
+        try {
+
+             boolean done = false;
+             String newMarker = null;
+
+             while(!done) {
+                ListUsersResponse response;
+
+                if (newMarker == null) {
+                    ListUsersRequest request = ListUsersRequest.builder().build();
+                    response = iam.listUsers(request);
+                } else {
+                    ListUsersRequest request = ListUsersRequest.builder()
+                        .marker(newMarker).build();
+                    response = iam.listUsers(request);
+                }
+
+                for(User user : response.users()) {
+                 System.out.format("\n Retrieved user %s", user.userName());
+                }
+
+                if(!response.isTruncated()) {
+                  done = true;
+                } else {
+                    newMarker = response.marker();
+                }
+            }
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

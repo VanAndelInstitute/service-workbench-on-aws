@@ -1,0 +1,11 @@
+<SOAP-ENV:Body 
+  wsu:Id="body" 
+xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <ns2:GetDebtBalance xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+     <ns2:CreditInstrumentId>
+      J398G1HA5XJRX4843JGZSTMYEZVPJ7YEARXBPCFIGJ9M4UDUMXXGXJCEBKCGI9N6
+     </ns2:CreditInstrumentId>
+   </ns2:GetDebtBalance>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

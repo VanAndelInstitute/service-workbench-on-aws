@@ -1,0 +1,28 @@
+    public static void getLogTime(CloudTrailClient cloudTrailClientClient, String trailName) {
+
+        try {
+            GetTrailStatusRequest trailStatusRequest = GetTrailStatusRequest.builder()
+                    .name(trailName)
+                    .build();
+
+            GetTrailStatusResponse trailStatusResponse = cloudTrailClientClient.getTrailStatus(trailStatusRequest);
+            Instant lastestNotication = trailStatusResponse.startLoggingTime();
+
+            if (lastestNotication != null) {
+                // Convert the Instant to readable date.
+                DateTimeFormatter formatter =
+                        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+                                .withLocale(Locale.US)
+                                .withZone(ZoneId.systemDefault());
+
+                formatter.format(lastestNotication);
+                System.out.println("The date of the logging time is " + lastestNotication);
+            } else {
+                System.out.println("Logging time is not defined");
+            }
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

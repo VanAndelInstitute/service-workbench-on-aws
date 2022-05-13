@@ -1,0 +1,20 @@
+<programlisting>
+        Aws::SQS::Model::SetQueueAttributesRequest request;
+        request.SetQueueUrl(src_queue_url);
+        request.AddAttributes(
+            Aws::SQS::Model::QueueAttributeName::RedrivePolicy,
+            redrivePolicy);
+
+        auto outcome = sqs.SetQueueAttributes(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "Successfully set dead letter queue for queue  " <<
+                src_queue_url << " to " << queue_arn << std::endl;
+        }
+        else
+        {
+            std::cout << "Error setting dead letter queue for queue " <<
+                src_queue_url << ": " << outcome.GetError().GetMessage() <<
+                std::endl;
+        }
+</programlisting>

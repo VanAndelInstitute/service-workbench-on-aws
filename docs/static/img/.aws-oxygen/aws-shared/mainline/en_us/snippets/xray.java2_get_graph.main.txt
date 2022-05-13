@@ -1,0 +1,28 @@
+    public static void getGraph(XRayClient xRayClient, String groupName){
+
+        try{
+            // The Instant values have to be 6 hours apart.
+            LocalDateTime localDateTime = LocalDateTime.parse("2021-09-09T06:00:00");
+            Instant start = localDateTime.atZone(ZoneId.of("America/New_York")).toInstant();
+
+            LocalDateTime localDateTime2 = LocalDateTime.parse("2021-09-09T12:00:00");
+            Instant end = localDateTime2.atZone(ZoneId.of("America/New_York")).toInstant();
+
+            GetServiceGraphRequest getServiceGraphRequest = GetServiceGraphRequest.builder()
+                .groupName(groupName)
+                .startTime(start)
+                .endTime(end)
+                .build();
+
+            GetServiceGraphResponse graphResponse = xRayClient.getServiceGraph(getServiceGraphRequest);
+            List<Service> services = graphResponse.services();
+
+            for (Service service: services) {
+                System.out.println("The name of the service is  "+service.name());
+            }
+
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

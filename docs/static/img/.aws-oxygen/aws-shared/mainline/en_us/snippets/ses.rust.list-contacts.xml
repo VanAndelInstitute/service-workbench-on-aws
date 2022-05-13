@@ -1,0 +1,17 @@
+<programlisting>
+async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
+    let resp = client
+        .list_contacts()
+        .contact_list_name(list)
+        .send()
+        .await?;
+
+    println!("Contacts:");
+
+    for contact in resp.contacts().unwrap_or_default() {
+        println!("  {}", contact.email_address().unwrap_or_default());
+    }
+
+    Ok(())
+}
+</programlisting>

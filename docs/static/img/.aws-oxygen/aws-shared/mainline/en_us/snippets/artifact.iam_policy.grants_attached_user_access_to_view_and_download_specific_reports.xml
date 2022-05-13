@@ -1,0 +1,18 @@
+<programlisting>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "artifact:Get"
+            ],
+            "Resource": [
+                "arn:aws:artifact:::report-package/Certifications and Attestations/SOC/*",
+                "arn:aws:artifact:::report-package/Certifications and Attestations/PCI/*",
+                "arn:aws:artifact:::report-package/Certifications and Attestations/ISO/*"
+            ]
+        }
+    ]
+}
+</programlisting>

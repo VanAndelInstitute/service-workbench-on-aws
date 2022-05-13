@@ -1,0 +1,10 @@
+suspend  fun listAliases() {
+
+    IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+      val response = iamClient.listAccountAliases(ListAccountAliasesRequest{})
+        response.accountAliases?.forEach { alias ->
+            println("Retrieved account alias $alias")
+        }
+
+    }
+}

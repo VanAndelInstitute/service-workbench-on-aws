@@ -1,0 +1,19 @@
+    result, err := svc.ReceiveMessage(&sqs.ReceiveMessageInput{
+        QueueUrl: resultURL.QueueUrl,
+        AttributeNames: aws.StringSlice([]string{
+            "SentTimestamp",
+        }),
+        MaxNumberOfMessages: aws.Int64(1),
+        MessageAttributeNames: aws.StringSlice([]string{
+            "All",
+        }),
+        WaitTimeSeconds: timeoutPtr,
+    })
+    if err != nil {
+        exitErrorf("Unable to receive message from queue %q, %v.", *namePtr, err)
+    }
+
+    fmt.Printf("Received %d messages.\n", len(result.Messages))
+    if len(result.Messages) > 0 {
+        fmt.Println(result.Messages)
+    }

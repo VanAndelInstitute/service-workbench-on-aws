@@ -1,0 +1,11 @@
+        ListObjectsV2Request listReq = ListObjectsV2Request.builder()
+                .bucket(bucketName)
+                .maxKeys(1)
+                .build();
+
+        ListObjectsV2Iterable listRes = s3.listObjectsV2Paginator(listReq);
+        // Process response pages
+        listRes.stream()
+                .flatMap(r -> r.contents().stream())
+                .forEach(content -> System.out.println(" Key: " + content.key() + " size = " + content.size()));
+

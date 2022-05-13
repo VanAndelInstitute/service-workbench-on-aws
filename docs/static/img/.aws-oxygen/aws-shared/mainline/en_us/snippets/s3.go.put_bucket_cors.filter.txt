@@ -1,0 +1,13 @@
+func FilterMethods(methods []string) []string {
+    filtered := make([]string, 0, len(methods))
+    for _, m := range methods {
+        v := strings.ToUpper(m)
+        switch v {
+        case "POST", "GET", "PUT", "PATCH", "DELETE":
+            filtered = append(filtered, v)
+        }
+    }
+
+    return filtered
+}
+

@@ -1,0 +1,10 @@
+<programlisting>
+    keyID := flag.String("k", "", "The ID of the access key")
+    userName := flag.String("u", "", "The name of the user")
+    flag.Parse()
+
+    if *keyID == "" || *userName == "" {
+        fmt.Println("You must supply an access key ID and user name (-k KEY-ID -u USER-NAME)")
+        return
+    }
+</programlisting>

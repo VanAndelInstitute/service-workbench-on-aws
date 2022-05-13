@@ -1,0 +1,18 @@
+<programlisting>
+    public static void executePipeline(CodePipelineClient pipelineClient, String name) {
+
+        try {
+
+            StartPipelineExecutionRequest pipelineExecutionRequest = StartPipelineExecutionRequest.builder()
+                .name(name)
+                .build();
+
+            StartPipelineExecutionResponse response = pipelineClient.startPipelineExecution(pipelineExecutionRequest);
+            System.out.println("Piepline "+response.pipelineExecutionId() +" was successfully executed");
+
+        } catch (CodePipelineException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

@@ -1,0 +1,18 @@
+<programlisting>
+    public static String createPool(CognitoIdentityProviderClient cognitoClient, String userPoolName ) {
+
+        try {
+            CreateUserPoolResponse response = cognitoClient.createUserPool(
+                    CreateUserPoolRequest.builder()
+                            .poolName(userPoolName)
+                            .build()
+            );
+            return response.userPool().id();
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

@@ -1,0 +1,73 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+    "io/ioutil"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/cloudformation"
+    "github.com/aws/aws-sdk-go/service/cloudformation/cloudformationiface"
+)
+
+// MakeStack creates an AWS CloudFormation stack
+// Inputs:
+//     svc is an AWS CloudFormation service client
+//     stackName is the name of the new stack
+//     templateBody is the contents of the AWS CloudFormation template
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to CreateStack
+func MakeStack(svc cloudformationiface.CloudFormationAPI, stackName, templateBody *string) error {
+    _, err := svc.CreateStack(&cloudformation.CreateStackInput{
+        TemplateBody: templateBody,
+        StackName:    stackName,
+    })
+
+    return err
+}
+
+func main() {
+    stackName := flag.String("n", "", "The name of the stack to create or delete")
+    templateFile := flag.String("t", "", "The name of the file containing the CloudFormation template")
+    flag.Parse()
+
+    if *stackName == "" || *templateFile == "" {
+        fmt.Println("You must supply a stack name and template file name (-s STACK-NAME -t TEMPLATE-FILE)")
+        return
+    }
+
+    // Open file template
+    // Get entire file as a string
+    content, err := ioutil.ReadFile(*templateFile)
+    if err != nil {
+        return
+    }
+
+    // Convert []byte to string
+    templateBody := string(content)
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := cloudformation.New(sess)
+
+    err = MakeStack(svc, stackName, &templateBody)
+    if err != nil {
+        fmt.Println("Got an error creating stack " + *stackName + " using template from " + *templateFile)
+        return
+    }
+
+    err = svc.WaitUntilStackCreateComplete(&cloudformation.DescribeStacksInput{
+        StackName: stackName,
+    })
+    if err != nil {
+        fmt.Println("Got an error waiting for stack to be created")
+        return
+    }
+
+    fmt.Println("Created stack " + *stackName + " using template from " + *templateFile)
+}
+</programlisting>

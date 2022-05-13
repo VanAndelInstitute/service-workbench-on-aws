@@ -1,0 +1,24 @@
+<programlisting>
+    public static void putCWTargets(CloudWatchEventsClient cwe, String ruleName, String functionArn, String targetId ) {
+
+        try {
+            Target target = Target.builder()
+                .arn(functionArn)
+                .id(targetId)
+                .build();
+
+            PutTargetsRequest request = PutTargetsRequest.builder()
+                .targets(target)
+                .rule(ruleName)
+                .build();
+
+            PutTargetsResponse response = cwe.putTargets(request);
+            System.out.printf(
+                "Successfully created CloudWatch events target for rule %s",
+                ruleName);
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

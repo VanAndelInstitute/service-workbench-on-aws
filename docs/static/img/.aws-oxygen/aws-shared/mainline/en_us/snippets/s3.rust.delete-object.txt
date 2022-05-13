@@ -1,0 +1,12 @@
+async fn remove_object(client: &Client, bucket: &str, key: &str) -> Result<(), Error> {
+    client
+        .delete_object()
+        .bucket(bucket)
+        .key(key)
+        .send()
+        .await?;
+
+    println!("Object deleted.");
+
+    Ok(())
+}

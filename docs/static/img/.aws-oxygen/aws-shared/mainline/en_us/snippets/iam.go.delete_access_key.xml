@@ -1,0 +1,54 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/iam"
+    "github.com/aws/aws-sdk-go/service/iam/iamiface"
+)
+
+// RemoveAccessKey deletes an IAM access key
+// Inputs:
+//     svc is an IAM service client
+//     keyID is the ID of the access key
+//     userName is the name of a user
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to DeleteAccessKey
+func RemoveAccessKey(svc iamiface.IAMAPI, keyID, userName *string) error {
+    _, err := svc.DeleteAccessKey(&iam.DeleteAccessKeyInput{
+        AccessKeyId: keyID,
+        UserName:    userName,
+    })
+
+    return err
+}
+
+func main() {
+    keyID := flag.String("k", "", "The ID of the access key")
+    userName := flag.String("u", "", "The name of the user")
+    flag.Parse()
+
+    if *keyID == "" || *userName == "" {
+        fmt.Println("You must supply the key ID and user name (-k KEY-ID -u USER-NAME")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := iam.New(sess)
+
+    err := RemoveAccessKey(svc, keyID, userName)
+    if err != nil {
+        fmt.Println("Error", err)
+        return
+    }
+
+    fmt.Println("Deleted key with ID " + *keyID + " from user " + *userName)
+}
+</programlisting>

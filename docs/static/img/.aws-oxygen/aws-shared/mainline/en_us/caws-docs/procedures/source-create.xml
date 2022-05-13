@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+  <!ENTITY % caws-shared SYSTEM "file://AWSShared/caws-docs/entities/_caws-common.ent">
+   %caws-shared;
+ ]>
+
+
+  <procedure>
+   <info>
+    <title>To create a source repository</title>
+   </info>
+   <step>
+    &CAWS-console-signin;
+    <para>Navigate to the project where you want to create a repository.</para>
+   </step>
+   <step>
+    <para>In the side navigation menu, choose <guilabel>Code</guilabel>, and then choose <guilabel>Repositories</guilabel>.</para>
+   </step>
+   <step>
+    <para>Choose <guilabel>Create repository</guilabel>.</para>
+   </step>
+   <step>
+    <para>In <guilabel>Repository name</guilabel>, provide a name for the repository. Optionally add a description for the repository in <guilabel>Description</guilabel>
+    that will help other users in the project understand what the repository is used for. <!-- If you want to add this repository to a different project, choose it from the list
+    in <guilabel>Show repository in the following project(s)</guilabel>.  Add one or more administrators for the repository in <guilabel>better name here</guilabel>. --> 
+    We recommend adding a template readme markdown to the repository by selecting the <guilabel>Initialize with README file</guilabel>. This option will also create an initial commit
+    for the repository in a default branch named <guilabel>main</guilabel>. Optionally choose to add a .gitignore file for the type of code you plan to push. 
+     Choose <guilabel>Create repository</guilabel>.</para>
+   </step>
+  </procedure>
+ 
+
+

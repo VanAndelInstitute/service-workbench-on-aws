@@ -1,0 +1,6 @@
+<programlisting>
+    _, err := svc.CreateStack(&cloudformation.CreateStackInput{
+        TemplateBody: templateBody,
+        StackName:    stackName,
+    })
+</programlisting>

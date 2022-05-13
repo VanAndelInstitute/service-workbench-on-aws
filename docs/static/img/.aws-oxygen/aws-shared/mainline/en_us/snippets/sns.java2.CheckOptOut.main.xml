@@ -1,0 +1,19 @@
+<programlisting>
+        public static void checkPhone(SnsClient snsClient, String phoneNumber) {
+
+            try {
+            CheckIfPhoneNumberIsOptedOutRequest request = CheckIfPhoneNumberIsOptedOutRequest.builder()
+                .phoneNumber(phoneNumber)
+                .build();
+
+            CheckIfPhoneNumberIsOptedOutResponse result = snsClient.checkIfPhoneNumberIsOptedOut(request);
+
+            System.out.println(result.isOptedOut() + "Phone Number " + phoneNumber + " has Opted Out of receiving sns messages." +
+                "\n\nStatus was " + result.sdkHttpResponse().statusCode());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,22 @@
+<programlisting>
+    input := &dynamodb.UpdateItemInput{
+        ExpressionAttributeValues: map[string]*dynamodb.AttributeValue{
+            ":r": {
+                N: rating,
+            },
+        },
+        TableName: table,
+        Key: map[string]*dynamodb.AttributeValue{
+            "Year": {
+                N: year,
+            },
+            "Title": {
+                S: movie,
+            },
+        },
+        ReturnValues:     aws.String("UPDATED_NEW"),
+        UpdateExpression: aws.String("set Rating = :r"),
+    }
+
+    _, err := svc.UpdateItem(input)
+</programlisting>

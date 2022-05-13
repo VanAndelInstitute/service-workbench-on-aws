@@ -1,0 +1,25 @@
+    _, err := svc.SendEmail(&ses.SendEmailInput{
+        Destination: &ses.Destination{
+            CcAddresses: []*string{},
+            ToAddresses: []*string{
+                recipient,
+            },
+        },
+        Message: &ses.Message{
+            Body: &ses.Body{
+                Html: &ses.Content{
+                    Charset: aws.String(CharSet),
+                    Data:    aws.String(HTMLBody),
+                },
+                Text: &ses.Content{
+                    Charset: aws.String(CharSet),
+                    Data:    aws.String(TextBody),
+                },
+            },
+            Subject: &ses.Content{
+                Charset: aws.String(CharSet),
+                Data:    aws.String(Subject),
+            },
+        },
+        Source: sender,
+    })

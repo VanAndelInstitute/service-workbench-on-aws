@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+"file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % aws-prodnames SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %aws-prodnames;
+]
+>
+<section id="SubscriptionDetails">
+    <title id="SubscriptionDetails.title">SubscriptionDetails Type</title>
+    <para>
+        <informaltable>
+            <tgroup cols="3">
+                <colspec colname="C1" colwidth="1.23*"/>
+                <colspec colname="C2" colwidth="2.77*"/>
+                <colspec colname="C3" colwidth="1.0*"/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Description</entry>
+                        <entry>Type</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>SubscriptionId</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The ID of the subscription</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>Description</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The description provided when the subscription was created.</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Subscription Amount</parameter>
+                                <parameter revisionflag="html;htmlcond">SubscriptionAmount</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The monetary cost of the subscription</para>
+                        </entry>
+                        <entry>
+                            <para>Amount</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">NextTransaction Amount</parameter>
+                                <parameter revisionflag="html;htmlcond">NextTransactionAmount</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The next value to be charged to the subscription</para>
+                        </entry>
+                        <entry>
+                            <para>Amount</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Promotional Amount</parameter>
+                                <parameter revisionflag="html;htmlcond">PromotionalAmount</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The amount for the promotion</para>
+                        </entry>
+                        <entry>
+                            <para>Amount</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">NumberOfPromo tionalTransactions</parameter>
+                                <parameter revisionflag="html;htmlcond">NumberOfPromotionalTransactions</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>How many free editions</para>
+                        </entry>
+                        <entry>
+                            <para>Integer</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>StartDate</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>When the subscription begins</para>
+                        </entry>
+                        <entry>
+                            <para>Date</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>EndDate</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>When the subscription ends</para>
+                        </entry>
+                        <entry>
+                            <para>Date</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Subscription Period</parameter>
+                                <parameter revisionflag="html;htmlcond">SubscriptionPeriod</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>How long does the subscription last</para>
+                        </entry>
+                        <entry>
+                            <para>Duration</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">Subscription Frequency</parameter>
+                                <parameter revisionflag="html;htmlcond">SubscriptionFrequency</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>How often does the subscription happen</para>
+                        </entry>
+                        <entry>
+                            <para>Duration</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>OverrideIPNUrl</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Custom IPN target</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                        </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>SubscriptionStatus</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The status of the subscription</para>
+                        </entry>
+                        <entry>
+                            <para><xref linkend="SubscriptionStatusDataTypes" endterm="SubscriptionStatusDataTypes.title"/></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter revisionflag="pdf;pdfcond">NumberOfTrans actionsProcessed</parameter>
+                                <parameter revisionflag="html;htmlcond">NumberOfTransactionsProcessed</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>The number of transactions have already passed</para>
+                        </entry>
+                        <entry>
+                            <para>Integer</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>RecipientEmail</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Email contact for the subscriber</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>RecipientName</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Name of the subscriber</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>SenderEmail</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Email contact for the subscription buyer</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>SenderName</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Name of the subscription buyer</para>
+                        </entry>
+                        <entry>
+                            <para>String</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <parameter>NextTransactionDate</parameter>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>When will the next value be charged to the subscription</para>
+                        </entry>
+                        <entry>
+                            <para>Date</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </para>
+</section>

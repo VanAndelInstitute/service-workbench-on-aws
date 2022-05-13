@@ -1,0 +1,16 @@
+<programlisting>
+        TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
+
+        try {
+            MultipleFileDownload xfer = xfer_mgr.downloadDirectory(
+                    bucket_name, key_prefix, new File(dir_path));
+            // loop with Transfer.isDone()
+            XferMgrProgress.showTransferProgress(xfer);
+            // or block with Transfer.waitForCompletion()
+            XferMgrProgress.waitForCompletion(xfer);
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            System.exit(1);
+        }
+        xfer_mgr.shutdownNow();
+</programlisting>

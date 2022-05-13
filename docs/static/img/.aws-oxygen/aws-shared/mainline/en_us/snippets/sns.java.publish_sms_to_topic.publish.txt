@@ -1,0 +1,8 @@
+public static void sendSMSMessageToTopic(AmazonSNSClient snsClient, String topicArn,
+        String message, Map<String, MessageAttributeValue> smsAttributes) {
+    PublishResult result = snsClient.publish(new PublishRequest()
+        .withTopicArn(topicArn)
+        .withMessage(message)
+        .withMessageAttributes(smsAttributes));
+    System.out.println(result);
+}

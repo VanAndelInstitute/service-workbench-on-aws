@@ -1,0 +1,11 @@
+<programlisting>
+    public function detachRolePolicy($roleName, $policyArn)
+    {
+        return $this->customWaiter(function () use ($roleName, $policyArn) {
+            return $this->iamClient->detachRolePolicy([
+                'PolicyArn' => $policyArn,
+                'RoleName' => $roleName,
+            ]);
+        });
+    }
+</programlisting>

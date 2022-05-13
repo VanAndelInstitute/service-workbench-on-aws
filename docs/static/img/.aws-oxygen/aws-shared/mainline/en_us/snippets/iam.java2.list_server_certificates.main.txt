@@ -1,0 +1,38 @@
+    public static void listCertificates(IamClient iam) {
+
+        try {
+            boolean done = false;
+            String newMarker = null;
+
+            while(!done) {
+              ListServerCertificatesResponse response;
+
+            if (newMarker == null) {
+                ListServerCertificatesRequest request =
+                        ListServerCertificatesRequest.builder().build();
+                response = iam.listServerCertificates(request);
+            } else {
+                ListServerCertificatesRequest request =
+                        ListServerCertificatesRequest.builder()
+                                .marker(newMarker).build();
+                response = iam.listServerCertificates(request);
+            }
+
+            for(ServerCertificateMetadata metadata :
+                    response.serverCertificateMetadataList()) {
+                System.out.printf("Retrieved server certificate %s",
+                        metadata.serverCertificateName());
+            }
+
+            if(!response.isTruncated()) {
+                done = true;
+            } else {
+                newMarker = response.marker();
+            }
+        }
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,20 @@
+// Create an SDK class used to share configuration across clients.
+$sdk = new Aws\Sdk([
+    'region'   => 'us-west-2',
+    'version'  => 'latest'
+]);
+// Use an Aws\Sdk class to create the S3Client object.
+$s3Client = $sdk->createS3();
+//Listing all S3 Bucket
+$CompleteSynchronously = $s3Client->listBucketsAsync();
+// Block until the result is ready.
+$CompleteSynchronously = $CompleteSynchronously->wait();
+$promise = $s3Client->listBucketsAsync();
+$promise
+    ->then(function ($result) {
+        echo 'Got a result: ' . var_export($result, true);
+    })
+    ->otherwise(function ($reason) {
+        echo 'Encountered an error: ' . $reason->getMessage();
+    });
+}

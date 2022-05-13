@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- Fn::GetAtt -->
+<section id="intrinsic-function-reference-getatt" role="topic">
+   <title id="intrinsic-function-reference-getatt.title">Fn::GetAtt</title>
+
+   <para>The intrinsic function <function>Fn::GetAtt</function> returns the value of an attribute
+		from a resource in the configuration file.</para>
+
+   <section>
+      <title>Declaration</title>
+      <para>"Fn::GetAtt" : [ "<replaceable>logicalNameOfResource</replaceable>",
+            "<replaceable>attributeName</replaceable>" ]</para>
+   </section>
+
+   <section>
+      <title>Parameters</title>
+      <variablelist>
+         <varlistentry>
+            <term>logicalNameOfResource</term>
+            <listitem>
+               <para>The logical name of the resource that contains the attribute you want.</para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>attributeName</term>
+            <listitem>
+               <para>The name of the resource-specific attribute whose value you want. See the resource's reference page
+                  for details about the attributes available for that resource type.</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section id="intrinsic-function-reference-getatt-return">
+      <title>Return Value</title>
+      <para>The attribute value.</para>
+   </section>
+
+   <section id="intrinsic-function-reference-getatt-example">
+      <title>Example</title>
+      <para>This example returns a string containing the DNS name of the LoadBalancer with the logical name
+         <parameter>MyLB</parameter>.</para>
+      <programlisting format="linespecific">"Fn::GetAtt" : [ "MyLB" , "DNSName" ]</programlisting>
+   </section>
+
+   <section>
+      <title>See Also</title>
+      <para>For more information about the values returned by Fn::GetAtt for a particular resource, see the <emphasis
+            role="bold">Return Values</emphasis> section of the resource's reference page.</para>
+   </section>
+</section>

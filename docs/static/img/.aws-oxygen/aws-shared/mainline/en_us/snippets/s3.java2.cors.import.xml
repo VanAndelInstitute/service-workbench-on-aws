@@ -1,0 +1,13 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import java.util.ArrayList;
+import java.util.List;
+import software.amazon.awssdk.services.s3.model.GetBucketCorsRequest;
+import software.amazon.awssdk.services.s3.model.GetBucketCorsResponse;
+import software.amazon.awssdk.services.s3.model.DeleteBucketCorsRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.services.s3.model.CORSRule;
+import software.amazon.awssdk.services.s3.model.CORSConfiguration;
+import software.amazon.awssdk.services.s3.model.PutBucketCorsRequest;
+</programlisting>

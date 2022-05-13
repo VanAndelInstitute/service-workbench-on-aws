@@ -1,0 +1,45 @@
+// Import required AWS-SDK clients and commands for Node.js
+import { CreateJobCommand } from  "@aws-sdk/client-mediaconvert";
+import { emcClient } from  "./libs/emcClient.js";
+
+const params = {
+  Queue: "QUEUE_ARN", //QUEUE_ARN
+  JobTemplate: "TEMPLATE_NAME", //TEMPLATE_NAME
+  Role: "ROLE_ARN", //ROLE_ARN
+  Settings: {
+    Inputs: [
+      {
+        AudioSelectors: {
+          "Audio Selector 1": {
+            Offset: 0,
+            DefaultSelection: "NOT_DEFAULT",
+            ProgramSelection: 1,
+            SelectorType: "TRACK",
+            Tracks: [1],
+          },
+        },
+        VideoSelector: {
+          ColorSpace: "FOLLOW",
+        },
+        FilterEnable: "AUTO",
+        PsiControl: "USE_PSI",
+        FilterStrength: 0,
+        DeblockFilter: "DISABLED",
+        DenoiseFilter: "DISABLED",
+        TimecodeSource: "EMBEDDED",
+        FileInput: "INPUT_BUCKET_AND_FILENAME", //INPUT_BUCKET_AND_FILENAME, e.g., "s3://BUCKET_NAME/FILE_NAME"
+      },
+    ],
+  },
+};
+
+const run = async () => {
+  try {
+    const data = await emcClient.send(new CreateJobCommand(params));
+    console.log("Success! ", data);
+    return data;
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();

@@ -1,0 +1,46 @@
+<programlisting>
+type Event struct {
+    Details []struct {
+        Key   string `json:"Key"`
+        Value string `json:"Value"`
+    } `json:"Details"`
+    DetailType string `json:"DetailType"`
+    Source     string `json:"Source"`
+}
+
+var eventFile = "event.json"
+
+func getEventInfo() (Event, error) {
+    var e Event
+
+    content, err := ioutil.ReadFile(eventFile)
+    if err != nil {
+        return e, err
+    }
+
+    // Convert []byte to string
+    text := string(content)
+
+    // Marshall JSON string in text into global struct
+    err = json.Unmarshal([]byte(text), &e)
+    if err != nil {
+        return e, err
+    }
+
+    // Make sure we got the info we need
+    if e.DetailType == "" {
+        e.DetailType = "appRequestSubmitted"
+    }
+
+    if e.Source == "" {
+        e.Source = "com.mycompany.myapp"
+    }
+
+    if e.Details == nil {
+        d := []byte(`"{ "key1": "value1", "key2": "value2" }`)
+        e.DetailType = string(d[:])
+    }
+
+    return e, nil
+}
+</programlisting>

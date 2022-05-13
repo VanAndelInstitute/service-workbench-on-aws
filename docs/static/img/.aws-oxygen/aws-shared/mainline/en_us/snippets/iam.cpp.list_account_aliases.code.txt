@@ -1,0 +1,41 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::ListAccountAliasesRequest request;
+
+        bool done = false;
+        bool header = false;
+        while (!done)
+        {
+            auto outcome = iam.ListAccountAliases(request);
+            if (!outcome.IsSuccess())
+            {
+                std::cout << "Failed to list account aliases: " <<
+                    outcome.GetError().GetMessage() << std::endl;
+                break;
+            }
+
+            const auto &aliases = outcome.GetResult().GetAccountAliases();
+            if (!header)
+            {
+                if (aliases.size() == 0)
+                {
+                    std::cout << "Account has no aliases" << std::endl;
+                    break;
+                }
+                std::cout << std::left << std::setw(32) << "Alias" << std::endl;
+                header = true;
+            }
+
+            for (const auto &alias : aliases)
+            {
+                std::cout << std::left << std::setw(32) << alias << std::endl;
+            }
+
+            if (outcome.GetResult().GetIsTruncated())
+            {
+                request.SetMarker(outcome.GetResult().GetMarker());
+            }
+            else
+            {
+                done = true;
+            }
+        }

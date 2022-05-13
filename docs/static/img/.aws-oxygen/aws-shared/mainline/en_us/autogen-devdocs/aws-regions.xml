@@ -1,0 +1,347 @@
+
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % phrases-shared SYSTEM "file://AWSSharedLoc/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-autogen SYSTEM "file://AWSSharedLoc/autogen-devdocs/phrases-autogen.ent"> 
+    %phrases-autogen;           
+]>
+
+<section id="aws-regions">
+   <info>
+      <title id="aws-regions.title">&rande-autogen-regions;</title>
+   </info>
+    &rande-autogen-regions-intro;
+<para role="topiclist"/>
+   <section id="af-south-1" role="topic">
+      <info>
+         <title id="af-south-1.title">Africa (Cape Town)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-CPT;
+</section>
+   <!--Note: This section only appears if AKL feature is set or this region is marked as launched.-->
+   <section id="ap-southeast-6" role="topic" features="AKL">
+      <info>
+         <title id="ap-southeast-6.title">Asia Pacific (Auckland)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-AKL;
+</section>
+   <!--Note: This section only appears if BKK feature is set or this region is marked as launched.-->
+   <section id="ap-southeast-7" role="topic" features="BKK">
+      <info>
+         <title id="ap-southeast-7.title">Asia Pacific (Bangkok)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-BKK;
+</section>
+   <section id="ap-east-1" role="topic">
+      <info>
+         <title id="ap-east-1.title">Asia Pacific (Hong Kong)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-HKG;
+</section>
+   <!--Note: This section only appears if HYD feature is set or this region is marked as launched.-->
+   <section id="ap-south-2" role="topic" features="HYD">
+      <info>
+         <title id="ap-south-2.title">Asia Pacific (Hyderabad)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-HYD;
+</section>
+   <section id="ap-southeast-3" role="topic">
+      <info>
+         <title id="ap-southeast-3.title">Asia Pacific (Jakarta)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-CGK;
+</section>
+   <!--Note: This section only appears if KUL feature is set or this region is marked as launched.-->
+   <section id="ap-southeast-5" role="topic" features="KUL">
+      <info>
+         <title id="ap-southeast-5.title">Asia Pacific (Kuala Lumpur)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-KUL;
+</section>
+   <!--Note: This section only appears if MEL feature is set or this region is marked as launched.-->
+   <section id="ap-southeast-4" role="topic" features="MEL">
+      <info>
+         <title id="ap-southeast-4.title">Asia Pacific (Melbourne)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-MEL;
+</section>
+   <section id="ap-south-1" role="topic">
+      <info>
+         <title id="ap-south-1.title">Asia Pacific (Mumbai)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-BOM;
+</section>
+   <section id="ap-northeast-3" role="topic">
+      <info>
+         <title id="ap-northeast-3.title">Asia Pacific (Osaka)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-KIX;
+</section>
+   <section id="ap-northeast-2" role="topic">
+      <info>
+         <title id="ap-northeast-2.title">Asia Pacific (Seoul)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ICN;
+</section>
+   <section id="ap-southeast-1" role="topic">
+      <info>
+         <title id="ap-southeast-1.title">Asia Pacific (Singapore)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-SIN;
+</section>
+   <section id="ap-southeast-2" role="topic">
+      <info>
+         <title id="ap-southeast-2.title">Asia Pacific (Sydney)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-SYD;
+</section>
+   <!--Note: This section only appears if TPE feature is set or this region is marked as launched.-->
+   <section id="ap-east-2" role="topic" features="TPE">
+      <info>
+         <title id="ap-east-2.title">Asia Pacific (Taipei)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-TPE;
+</section>
+   <section id="ap-northeast-1" role="topic">
+      <info>
+         <title id="ap-northeast-1.title">Asia Pacific (Tokyo)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-NRT;
+</section>
+   <section id="us-gov-east-1" role="topic">
+      <info>
+         <title id="us-gov-east-1.title">AWS GovCloud (US-East)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-OSU;
+</section>
+   <section id="us-gov-west-1" role="topic">
+      <info>
+         <title id="us-gov-west-1.title">AWS GovCloud (US-West)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-PDT;
+</section>
+   <section id="ca-central-1" role="topic">
+      <info>
+         <title id="ca-central-1.title">Canada (Central)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-YUL;
+</section>
+   <!--Note: This section only appears if YYC feature is set or this region is marked as launched.-->
+   <section id="ca-west-1" role="topic" features="YYC">
+      <info>
+         <title id="ca-west-1.title">Canada West (Calgary)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-YYC;
+</section>
+   <section id="cn-north-1" role="topic">
+      <info>
+         <title id="cn-north-1.title">China (Beijing)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-BJS;
+</section>
+   <section id="cn-northwest-1" role="topic">
+      <info>
+         <title id="cn-northwest-1.title">China (Ningxia)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ZHY;
+</section>
+   <!--Note: This section only appears if NCL feature is set or this region is marked as launched.-->
+   <section id="eu-isoe-west-1" role="topic" region="NCL">
+      <info>
+         <title id="eu-isoe-west-1.title">EU ISOE West</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-NCL;
+</section>
+   <section id="eu-central-1" role="topic">
+      <info>
+         <title id="eu-central-1.title">Europe (Frankfurt)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-FRA;
+</section>
+   <section id="eu-west-1" role="topic">
+      <info>
+         <title id="eu-west-1.title">Europe (Ireland)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-DUB;
+</section>
+   <section id="eu-west-2" role="topic">
+      <info>
+         <title id="eu-west-2.title">Europe (London)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-LHR;
+</section>
+   <section id="eu-south-1" role="topic">
+      <info>
+         <title id="eu-south-1.title">Europe (Milan)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-MXP;
+</section>
+   <section id="eu-west-3" role="topic">
+      <info>
+         <title id="eu-west-3.title">Europe (Paris)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-CDG;
+</section>
+   <!--Note: This section only appears if ZAZ feature is set or this region is marked as launched.-->
+   <section id="eu-south-2" role="topic" features="ZAZ">
+      <info>
+         <title id="eu-south-2.title">Europe (Spain)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ZAZ;
+</section>
+   <section id="eu-north-1" role="topic">
+      <info>
+         <title id="eu-north-1.title">Europe (Stockholm)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ARN;
+</section>
+   <!--Note: This section only appears if ZRH feature is set or this region is marked as launched.-->
+   <section id="eu-central-2" role="topic" features="ZRH">
+      <info>
+         <title id="eu-central-2.title">Europe (Zurich)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ZRH;
+</section>
+   <!--Note: This section only appears if TLV feature is set or this region is marked as launched.-->
+   <section id="il-central-1" role="topic" features="TLV">
+      <info>
+         <title id="il-central-1.title">Israel (Tel Aviv)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-TLV;
+</section>
+   <!--Note: This section only appears if QRO feature is set or this region is marked as launched.-->
+   <section id="mx-central-1" role="topic" features="QRO">
+      <info>
+         <title id="mx-central-1.title">Mexico Central (Querétaro)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-QRO;
+</section>
+   <section id="me-south-1" role="topic">
+      <info>
+         <title id="me-south-1.title">Middle East (Bahrain)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-BAH;
+</section>
+   <!--Note: This section only appears if DXB feature is set or this region is marked as launched.-->
+   <section id="me-central-1" role="topic" features="DXB">
+      <info>
+         <title id="me-central-1.title">Middle East (UAE)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-DXB;
+</section>
+   <section id="sa-east-1" role="topic">
+      <info>
+         <title id="sa-east-1.title">South America (São Paulo)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-GRU;
+</section>
+   <section id="us-east-1" role="topic">
+      <info>
+         <title id="us-east-1.title">US East (N. Virginia)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-IAD;
+</section>
+   <section id="us-east-2" role="topic">
+      <info>
+         <title id="us-east-2.title">US East (Ohio)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-CMH;
+</section>
+   <section id="us-iso-east-1" role="topic" region="DCA">
+      <info>
+         <title id="us-iso-east-1.title">US ISO East</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-DCA;
+</section>
+   <section id="us-iso-west-1" role="topic" region="DCA">
+      <info>
+         <title id="us-iso-west-1.title">US ISO WEST</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-APA;
+</section>
+   <section id="us-isob-east-1" role="topic" region="LCK">
+      <info>
+         <title id="us-isob-east-1.title">US ISOB East (Ohio)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-LCK;
+</section>
+   <!--Note: This section only appears if FFZ feature is set or this region is marked as launched.-->
+   <section id="us-isob-west-1" role="topic" region="LCK">
+      <info>
+         <title id="us-isob-west-1.title">US ISOB West</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-FFZ;
+</section>
+   <!--Note: This section only appears if LTW feature is set or this region is marked as launched.-->
+   <section id="us-isof-east-1" role="topic" region="LTW">
+      <info>
+         <title id="us-isof-east-1.title">US ISOF EAST</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-LTW;
+</section>
+   <!--Note: This section only appears if ALE feature is set or this region is marked as launched.-->
+   <section id="us-isof-south-1" role="topic" region="ALE">
+      <info>
+         <title id="us-isof-south-1.title">US ISOF SOUTH</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-ALE;
+</section>
+   <section id="us-west-1" role="topic">
+      <info>
+         <title id="us-west-1.title">US West (N. California)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-SFO;
+</section>
+   <section id="us-west-2" role="topic">
+      <info>
+         <title id="us-west-2.title">US West (Oregon)</title>
+      </info>
+    &rande-autogen-region-intro;
+    &autogen-rande-region-PDX;
+</section>
+</section>

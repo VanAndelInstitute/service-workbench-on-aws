@@ -1,0 +1,11 @@
+HTTP/1.x 400
+Content-Type: application/xml
+Content-Length: 175
+X-Amz-RequestID: 123456
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+
+<Status>
+   <Code>InvalidValue</Code>
+   <Field>InstrumentId</Field>
+   <Reason>No such payment instrument exists</Reason>
+</Status>

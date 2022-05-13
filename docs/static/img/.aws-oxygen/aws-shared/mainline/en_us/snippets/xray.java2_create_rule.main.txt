@@ -1,0 +1,28 @@
+    public static void createRule(XRayClient xRayClient, String ruleName) {
+
+        try{
+
+        SamplingRule rule = SamplingRule.builder()
+                .ruleName(ruleName)
+                .priority(1)
+                .httpMethod("*")
+                .serviceType("*")
+                .serviceName("*")
+                .urlPath("*")
+                .version(1)
+                .host("*")
+                .resourceARN("*")
+                .build();
+
+            CreateSamplingRuleRequest ruleRequest = CreateSamplingRuleRequest.builder()
+                .samplingRule(rule)
+                .build();
+
+            CreateSamplingRuleResponse ruleResponse = xRayClient.createSamplingRule(ruleRequest);
+            System.out.println("The ARN of the new rule is "+ruleResponse.samplingRuleRecord().samplingRule().ruleARN());
+
+    } catch (XRayException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }

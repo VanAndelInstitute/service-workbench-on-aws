@@ -1,0 +1,46 @@
+<programlisting>
+    public static void transformJob(SageMakerClient sageMakerClient, String s3Uri, String s3OutputPath,  String modelName, String transformJobName) {
+
+        try{
+        TransformS3DataSource s3DataSource = TransformS3DataSource.builder()
+                .s3DataType("S3Prefix")
+                .s3Uri(s3Uri)
+                .build();
+
+        TransformDataSource dataSource = TransformDataSource.builder()
+                .s3DataSource(s3DataSource)
+                .build();
+
+        TransformInput input = TransformInput.builder()
+                .dataSource(dataSource)
+                .contentType("text/csv")
+                .splitType("Line")
+                .build();
+
+        TransformOutput output = TransformOutput.builder()
+                .s3OutputPath(s3OutputPath)
+                .build();
+
+        TransformResources resources = TransformResources.builder()
+                .instanceCount(1)
+                .instanceType("ml.m4.xlarge")
+                .build();
+
+        CreateTransformJobRequest jobRequest = CreateTransformJobRequest.builder()
+                .transformJobName(transformJobName)
+                .modelName(modelName)
+                .transformInput(input)
+                .transformOutput(output)
+                .transformResources(resources)
+                .build();
+
+        CreateTransformJobResponse jobResponse = sageMakerClient.createTransformJob(jobRequest) ;
+        System.out.println("Response "+jobResponse.transformJobArn());
+
+        } catch (SageMakerException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+
+</programlisting>

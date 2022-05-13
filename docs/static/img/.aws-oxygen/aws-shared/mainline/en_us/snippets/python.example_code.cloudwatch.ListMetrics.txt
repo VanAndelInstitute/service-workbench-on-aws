@@ -1,0 +1,23 @@
+    def list_metrics(self, namespace, name, recent=False):
+        """
+        Gets the metrics within a namespace that have the specified name.
+        If the metric has no dimensions, a single metric is returned.
+        Otherwise, metrics for all dimensions are returned.
+
+        :param namespace: The namespace of the metric.
+        :param name: The name of the metric.
+        :param recent: When True, only metrics that have been active in the last
+                       three hours are returned.
+        :return: An iterator that yields the retrieved metrics.
+        """
+        try:
+            kwargs = {'Namespace': namespace, 'MetricName': name}
+            if recent:
+                kwargs['RecentlyActive'] = 'PT3H'  # List past 3 hours only
+            metric_iter = self.cloudwatch_resource.metrics.filter(**kwargs)
+            logger.info("Got metrics for %s.%s.", namespace, name)
+        except ClientError:
+            logger.exception("Couldn't get metrics for %s.%s.", namespace, name)
+            raise
+        else:
+            return metric_iter

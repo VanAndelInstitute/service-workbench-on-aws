@@ -1,0 +1,16 @@
+        Aws::IAM::IAMClient iam;
+
+        Aws::IAM::Model::DeleteAccountAliasRequest request;
+        request.SetAccountAlias(alias_name);
+
+        const auto outcome = iam.DeleteAccountAlias(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error deleting account alias " << alias_name << ": "
+                << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted account alias " << alias_name <<
+                std::endl;
+        }

@@ -1,0 +1,124 @@
+<!-- ALL aws -->
+<!ENTITY sigversion2_procedure 
+'<procedure>
+<title>To create the signature</title>
+<step>
+<para>Create the canonicalized query string that you need
+later in this procedure:</para>
+<substeps>
+<step>
+<para>Sort the UTF-8 query string components by parameter name with 
+natural byte ordering.</para>
+<para>The parameters can come from the GET URI or from the POST body
+(when <code>Content-Type</code> is
+<code>application/x-www-form-urlencoded</code>).</para>
+</step>
+<step>
+<para>URL encode the parameter name and values according to the 
+following rules:</para>
+<itemizedlist>
+<listitem>
+<para>Do not URL encode any of the unreserved characters that
+RFC 3986 defines.</para>
+<para>These unreserved characters are A-Z, a-z, 0-9, hyphen ( - ),
+underscore ( _ ), period ( . ), and tilde ( ~ ). </para>
+</listitem>
+<listitem>
+<para>Percent encode all other characters with &#37;XY, where 
+X and Y are hex characters 0-9 and uppercase A-F.</para>
+</listitem>
+<listitem>
+<para>Percent encode extended UTF-8 characters in the form
+&#37;XY&#37;ZA.... </para>
+</listitem>
+<listitem>
+<para>Percent encode the space character as &#37;20 (and not +,
+as common encoding schemes do).</para>
+</listitem>
+</itemizedlist>
+<note>
+<para>Currently all &AWS; service parameter names use 
+unreserved characters, so you don&apos;t need to encode them. 
+However, you might want to include code to handle parameter names
+that use reserved characters, for possible future use.</para>
+</note>
+</step>
+<step>
+<para>Separate the encoded parameter names from their encoded 
+values with the equals sign ( = ) (ASCII character 61), even 
+if the parameter value is empty.</para>
+</step>
+<step>
+<para>Separate the name-value pairs with an ampersand
+( &amp; ) (ASCII code 38).</para>
+</step>
+</substeps>      
+</step>
+<step>
+<para>Create the string to sign according to the following
+pseudo-grammar (the <code>"\n"</code> represents an ASCII
+newline).</para>
+<programlisting>StringToSign = HTTPVerb + "\n" +
+ValueOfHostHeaderInLowercase + "\n" +
+HTTPRequestURI + "\n" +         
+CanonicalizedQueryString &lt;from the preceding step></programlisting>
+<para>The HTTPRequestURI component is the HTTP absolute path 
+component of the URI up to, but not including, the query string. If the
+HTTPRequestURI is empty, use a forward slash ( / ).</para>
+</step>
+<step>
+<para>Calculate an RFC 2104-compliant HMAC with the string you
+just created, your Secret Access Key as the key, and SHA256 or
+SHA1 as the hash algorithm.</para>
+<para>For more information, go to 
+<ulink url="http://www.ietf.org/rfc/rfc2104.txt">http://www.ietf.org/rfc/rfc2104.txt</ulink>.</para>
+</step>
+<step>
+<para>Convert the resulting value to base64.</para>      
+</step>
+<step>
+<para>Use the resulting value as the value of the
+<parameter>Signature</parameter> request parameter.</para>
+</step>
+</procedure>
+<important>
+<para>The final signature you send in the request must be 
+URL encoded as specified in RFC 3986 (for more information, go to
+<ulink url="http://www.ietf.org/rfc/rfc3986.txt" >http://www.ietf.org/rfc/rfc3986.txt</ulink>). 
+If your toolkit URL 
+encodes your final request, then it handles the required URL encoding
+of the signature. If your toolkit doesn&apos;t URL encode the final request,
+then make sure to URL encode the signature before you include it in the request. 
+Most importantly, make sure the signature is URL encoded
+<emphasis>only once</emphasis>. A common mistake is to URL encode it manually
+during signature formation, and then again when the toolkit URL encodes 
+the entire request.</para>
+</important>
+'>
+
+<!ENTITY sigversion2_caution '
+<warning>
+<para>If you are currently using signature version 1: Version 1
+is deprecated, and you should move to signature version 2 as soon as possible.
+For information about the deprecation schedule and the differences between 
+signature version 2 and version 1, go to 
+<ulink url="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1928">Making Secure Requests to Amazon Web Services</ulink>.</para>
+</warning>'
+>
+
+<!ENTITY lang_filter 
+"<para>In the HTML version of this document, you can hide the sections
+of this guide that don't apply to the programming language you are using. 
+There is a language selection menu in the upper-right corner of pages with
+language-specific text. Select your language to hide all others,
+or select All to show the examples in all available languages. </para>
+<mediaobject>
+<imageobject>
+<imagedata fileref='images/language-filter.gif' format='GIF' scale='65' />
+</imageobject>
+<textobject>
+<phrase>Turning on language filter</phrase>
+</textobject>
+</mediaobject>
+<para>Your selection applies to all of the pages in this guide.</para>">
+

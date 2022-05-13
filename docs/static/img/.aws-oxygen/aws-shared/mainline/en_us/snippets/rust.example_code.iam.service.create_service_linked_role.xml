@@ -1,0 +1,18 @@
+<programlisting>
+pub async fn create_service_linked_role(
+    client: &iamClient,
+    aws_service_name: String,
+    custom_suffix: Option<String>,
+    description: Option<String>,
+) -> Result<CreateServiceLinkedRoleOutput, SdkError<CreateServiceLinkedRoleError>> {
+    let response = client
+        .create_service_linked_role()
+        .aws_service_name(aws_service_name)
+        .set_custom_suffix(custom_suffix)
+        .set_description(description)
+        .send()
+        .await?;
+
+    Ok(response)
+}
+</programlisting>

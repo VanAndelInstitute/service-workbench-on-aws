@@ -1,0 +1,25 @@
+    def delete_underrated_movie(self, title, year, rating):
+        """
+        Deletes a movie only if it is rated below a specified value. By using a
+        condition expression in a delete operation, you can specify that an item is
+        deleted only when it meets certain criteria.
+
+        :param title: The title of the movie to delete.
+        :param year: The release year of the movie to delete.
+        :param rating: The rating threshold to check before deleting the movie.
+        """
+        try:
+            self.table.delete_item(
+                Key={'year': year, 'title': title},
+                ConditionExpression="info.rating <= :val",
+                ExpressionAttributeValues={":val": Decimal(str(rating))})
+        except ClientError as err:
+            if err.response['Error']['Code'] == "ConditionalCheckFailedException":
+                logger.warning(
+                    "Didn't delete %s because its rating is greater than %s.",
+                    title, rating)
+            else:
+                logger.error(
+                    "Couldn't delete movie %s. Here's why: %s: %s", title,
+                    err.response['Error']['Code'], err.response['Error']['Message'])
+            raise

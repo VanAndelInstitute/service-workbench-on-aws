@@ -1,0 +1,16 @@
+<programlisting>
+    def retire_grant(self, grant):
+        """
+        Retires a grant so that it can no longer be used.
+
+        :param grant: The grant to retire.
+        """
+        try:
+            self.kms_client.retire_grant(GrantToken=grant['GrantToken'])
+        except ClientError as err:
+            logger.error(
+                "Couldn't retire grant %s. Here's why: %s",
+                grant['GrantId'], err.response['Error']['Message'])
+        else:
+            print(f"Grant {grant['GrantId']} retired.")
+</programlisting>

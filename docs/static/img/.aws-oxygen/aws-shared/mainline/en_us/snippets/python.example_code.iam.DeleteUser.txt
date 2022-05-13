@@ -1,0 +1,13 @@
+def delete_user(user_name):
+    """
+    Deletes a user. Before a user can be deleted, all associated resources,
+    such as access keys and policies, must be deleted or detached.
+
+    :param user_name: The name of the user.
+    """
+    try:
+        iam.User(user_name).delete()
+        logger.info("Deleted user %s.", user_name)
+    except ClientError:
+        logger.exception("Couldn't delete user %s.", user_name)
+        raise

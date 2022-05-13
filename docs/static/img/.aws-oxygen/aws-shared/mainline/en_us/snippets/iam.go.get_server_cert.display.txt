@@ -1,0 +1,9 @@
+    metadata := result.ServerCertificate.ServerCertificateMetadata
+
+    fmt.Println("ARN:                  " + *metadata.Arn)
+    fmt.Println("Expiration:           " + (*metadata.Expiration).Format("2006-01-02 15:04:05 Monday"))
+    fmt.Println("Path:                 " + *metadata.Path)
+    fmt.Println("ServerCertificateId   " + *metadata.ServerCertificateId)
+    fmt.Println("ServerCertificateName " + *metadata.ServerCertificateName)
+    fmt.Println("UploadDate:           " + (*metadata.UploadDate).Format("2006-01-02 15:04:05 Monday"))
+    fmt.Println("")

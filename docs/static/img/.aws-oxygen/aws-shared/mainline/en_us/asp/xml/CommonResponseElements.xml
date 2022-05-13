@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="CommonResponseElements" role="topic">
+     <title id="CommonResponseElements.title">Common Response Elements<phrase condition="fps-mbl"> for &fps_product_short;</phrase></title>
+     <indexterm>
+          <primary>response elements, common</primary>
+     </indexterm>
+     <para>Each action in the &fps_product_short; API has its own set of response elements it uses. There are, however, a set of response elements that all actions use. The following table describes those common elements.</para>
+     <informaltable frame="all">
+          <tgroup cols="2" colsep="1">
+               <?dbhtml table-width="100%" ?>
+               <?dbfo table-width="95%" ?>
+               <colspec colname="c1" colwidth="1.24*"/>
+               <colspec colname="c2" colwidth="4.26*"/>
+               <thead>
+                    <row>
+                         <entry>Element</entry>
+                         <entry>Description</entry>
+                    </row>
+               </thead>
+               <tbody>
+                    <row>
+                         <entry>
+                              <para><code>ResponseMetadata</code></para>
+                         </entry>
+                         <entry>
+                              <para>Container element.</para>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><code>RequestId</code></para>
+                         </entry>
+                         <entry>
+                              <para>Amazon FPS returns a <parameter>RequestId</parameter> element for every API call accepted for processing. The request ID is a reference to your API request that Amazon FPS can use to troubleshoot any issues related to the request. We recommend you store the request ID value for future reference. Because responses and requests can return asynchronously, you can use the request ID to sync responses with requests. </para>
+                              <simpara>Type: String</simpara>
+							  <simpara>Max Size: 64 Bytes</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry>
+                              <para><parameter>signatureVersion</parameter></para>
+                         </entry>
+                         <entry>
+                              <para>A value that specifies the <parameter>Signature</parameter> format.</para>
+                              <simpara>Type: Integer</simpara>
+                              <simpara>Valid Values: 2</simpara>
+                         </entry>
+                    </row>
+                    <row>
+                         <entry><parameter>signatureMethod</parameter></entry>
+                         <entry>
+                              <para>A value that specifies the signing method.</para>
+                              <simpara>Type: String</simpara>
+                              <simpara>Valid Values: HmacSHA256 (preferred) and HmacSHA1. </simpara>
+                         </entry>
+                    </row>
+               </tbody>
+          </tgroup>
+     </informaltable>
+</section>

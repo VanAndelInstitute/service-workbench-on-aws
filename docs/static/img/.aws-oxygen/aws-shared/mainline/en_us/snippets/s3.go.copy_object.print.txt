@@ -1,0 +1,1 @@
+    fmt.Println("Copied " + *item + " from " + *sourceBucket + " to " + *targetBucket)

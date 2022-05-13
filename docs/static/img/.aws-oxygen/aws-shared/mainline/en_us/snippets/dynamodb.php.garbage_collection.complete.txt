@@ -1,0 +1,32 @@
+
+require 'vendor/autoload.php';
+
+use Aws\DynamoDb\SessionHandler;
+
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions'
+]);
+
+$sessionHandler->register();
+
+
+/**
+ * Automate the Garbage Collection of a DynamoDB Session.
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ *
+ *  To use the DynamoDB SessionHhandler, your configured credentials must have permission to use the DynamoDB table.
+ */
+
+
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions',
+    'batch_config' => [
+        'before' => function ($command) {
+            $command['@http']['delay'] = 5000;
+        }
+    ]
+]);
+
+$sessionHandler->garbageCollect();

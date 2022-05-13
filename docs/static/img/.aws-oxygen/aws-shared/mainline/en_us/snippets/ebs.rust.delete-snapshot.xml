@@ -1,0 +1,9 @@
+<programlisting>
+async fn delete_snapshot(client: &Client, id: &str) -> Result<(), Error> {
+    client.delete_snapshot().snapshot_id(id).send().await?;
+
+    println!("Deleted");
+
+    Ok(())
+}
+</programlisting>

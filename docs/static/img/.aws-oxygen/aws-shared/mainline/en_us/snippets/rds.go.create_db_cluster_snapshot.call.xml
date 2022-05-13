@@ -1,0 +1,12 @@
+<programlisting>
+    // Get the current date and time to uniquely identify snapshot
+    currentTime := time.Now()
+    t := currentTime.Format("2006-01-02 15:04:05")
+    // Replace space with underscore
+    t = strings.Replace(t, " ", "_", -1)
+
+    _, err := svc.CreateDBClusterSnapshot(&rds.CreateDBClusterSnapshotInput{
+        DBClusterIdentifier:         clusterID,
+        DBClusterSnapshotIdentifier: aws.String(*clusterID + t),
+    })
+</programlisting>

@@ -1,0 +1,4 @@
+import aws.sdk.kotlin.services.firehose.FirehoseClient
+import aws.sdk.kotlin.services.firehose.model.PutRecordRequest
+import aws.sdk.kotlin.services.firehose.model.Record
+import kotlin.system.exitProcess

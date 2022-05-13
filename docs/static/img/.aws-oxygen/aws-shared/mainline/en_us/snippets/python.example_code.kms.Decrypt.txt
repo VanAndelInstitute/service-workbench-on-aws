@@ -1,0 +1,20 @@
+    def decrypt(self, key_id, cipher_text):
+        """
+        Decrypts text previously encrypted with a key.
+
+        :param key_id: The ARN or ID of the key used to decrypt the data.
+        :param cipher_text: The encrypted text to decrypt.
+        """
+        answer = input("Ready to decrypt your ciphertext (y/n)? ")
+        if answer.lower() == 'y':
+            try:
+                text = self.kms_client.decrypt(
+                    KeyId=key_id, CiphertextBlob=cipher_text)['Plaintext']
+            except ClientError as err:
+                logger.error(
+                    "Couldn't decrypt your ciphertext. Here's why: %s",
+                    err.response['Error']['Message'])
+            else:
+                print(f"Your plaintext is {text.decode()}")
+        else:
+            print("Skipping decryption demo.")

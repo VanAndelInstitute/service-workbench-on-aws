@@ -1,0 +1,32 @@
+<programlisting>
+    public static void getAttributes(SqsClient sqsClient, String queueName) {
+
+        try {
+        GetQueueUrlResponse getQueueUrlResponse =
+                sqsClient.getQueueUrl(GetQueueUrlRequest.builder().queueName(queueName).build());
+
+        String queueUrl = getQueueUrlResponse.queueUrl();
+
+
+        // Specify the attributes to retrieve.
+        List<QueueAttributeName> atts = new ArrayList();
+        atts.add(QueueAttributeName.APPROXIMATE_NUMBER_OF_MESSAGES);
+
+        GetQueueAttributesRequest attributesRequest= GetQueueAttributesRequest.builder()
+                .queueUrl(queueUrl)
+                .attributeNames(atts)
+                .build();
+
+        GetQueueAttributesResponse response = sqsClient.getQueueAttributes(attributesRequest);
+
+        Map<String,String> queueAtts = response.attributesAsStrings();
+        for (Map.Entry<String,String> queueAtt : queueAtts.entrySet())
+                System.out.println("Key = " + queueAtt.getKey() +
+                        ", Value = " + queueAtt.getValue());
+
+    } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

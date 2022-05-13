@@ -1,0 +1,29 @@
+<programlisting>
+    public static String createIAMPolicy(IamClient iam, String policyName ) {
+
+        try {
+            // Create an IamWaiter object
+            IamWaiter iamWaiter = iam.waiter();
+
+            CreatePolicyRequest request = CreatePolicyRequest.builder()
+                .policyName(policyName)
+                .policyDocument(PolicyDocument).build();
+
+            CreatePolicyResponse response = iam.createPolicy(request);
+
+            // Wait until the policy is created
+            GetPolicyRequest polRequest = GetPolicyRequest.builder()
+                    .policyArn(response.policy().arn())
+                    .build();
+
+            WaiterResponse<GetPolicyResponse> waitUntilPolicyExists = iamWaiter.waitUntilPolicyExists(polRequest);
+            waitUntilPolicyExists.matched().response().ifPresent(System.out::println);
+            return response.policy().arn();
+
+         } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "" ;
+    }
+</programlisting>

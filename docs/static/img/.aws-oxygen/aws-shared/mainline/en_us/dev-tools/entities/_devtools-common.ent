@@ -1,0 +1,27 @@
+<!ENTITY ADT '&AWS; Developer Tools'>
+<!ENTITY ADTlong '&AWS; Developer Tools'>
+<!ENTITY DTconsole 'Developer Tools console'>
+<!ENTITY GEN_SERVICENAME "this &AWS; product or service">
+<!ENTITY GEN_SERVICENAMESENTENCECASE "This &AWS; product or service">
+<!ENTITY GEN_SERVICENAMETITLE "this &AWS; product or service">
+<!ENTITY GEN_CONSOLENAME "this console">
+<!ENTITY GEN_CONSOLENAMESENTENCECASE "This console">
+<!ENTITY GEN_CONSOLENAMETITLE "this console">
+<!ENTITY ACN "&ACS; Notifications">
+<!ENTITY ACNlong "&ACS; Notifications" >
+<!ENTITY CHAT '&CBTlong;' >
+<!ENTITY CHATURL 'https://console.aws.amazon.com/chatbot/' >
+<!ENTITY acn-console_link '<ulink url="&url-console-domain;codesuite/settings/notifications/">&url-console-domain;codesuite/settings/notifications</ulink>'>
+<!ENTITY acn-console_para '<para>Open the &ADT; console at &acn-console_link;.</para>'>
+<!ENTITY url-acn-ug '&url-doc-domain;codestar-notifications/latest/userguide/'>
+<!ENTITY devtools-common-keywords '
+          <keyword>&AWS;</keyword>
+          <keyword>Developer Tools</keyword>
+          <keyword>Developer Tools Console</keyword>
+          <keyword>Developer Tools Services</keyword>
+          <keyword>Developer Tools &AWS;</keyword>
+          <keyword>CI/CD</keyword>
+          <keyword>continuous integration</keyword>
+          <keyword>continuous delivery</keyword>
+          <keyword>DevOps</keyword>
+'>

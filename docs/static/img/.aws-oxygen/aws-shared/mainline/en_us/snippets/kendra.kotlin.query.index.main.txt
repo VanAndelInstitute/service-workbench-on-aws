@@ -1,0 +1,17 @@
+suspend fun querySpecificIndex(indexIdVal: String?, text: String?) {
+
+   val queryRequest = QueryRequest {
+       indexId = indexIdVal
+       queryResultTypeFilter = QueryResultType.Document
+       queryText = text
+   }
+
+    KendraClient { region = "us-east-1" }.use { kendra ->
+        val response = kendra.query(queryRequest)
+        response.resultItems?.forEach { item ->
+            println("The document title is ${item.documentTitle}")
+            println("Text:")
+            println(item.documentExcerpt?.text)
+        }
+    }
+}

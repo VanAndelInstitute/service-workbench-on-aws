@@ -1,0 +1,9 @@
+<programlisting>
+require 'aws-sdk-sns'
+require 'aws-sdk-iam'
+require 'aws-sdk-cloudwatchevents'
+require 'aws-sdk-ec2'
+require 'aws-sdk-cloudwatch'
+require 'aws-sdk-cloudwatchlogs'
+require 'securerandom'
+</programlisting>

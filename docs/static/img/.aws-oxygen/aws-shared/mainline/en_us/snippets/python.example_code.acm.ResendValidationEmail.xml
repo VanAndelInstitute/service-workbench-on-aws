@@ -1,0 +1,23 @@
+<programlisting>
+    def resend_validation_email(self, certificate_arn, domain, validation_domain):
+        """
+        Request that validation email is sent again, for a certificate that was
+        previously requested with email validation.
+
+        :param certificate_arn: The ARN of the certificate.
+        :param domain: The primary domain of the certificate.
+        :param validation_domain: Alternate domain to use for determining email
+                                  addresses to use for validation.
+        """
+        try:
+            self.acm_client.resend_validation_email(
+                CertificateArn=certificate_arn,
+                Domain=domain,
+                ValidationDomain=validation_domain)
+            logger.info(
+                "Validation email resent to validation domain %s.", validation_domain)
+        except ClientError:
+            logger.exception(
+                "Couldn't resend validation email to %s.", validation_domain)
+            raise
+</programlisting>

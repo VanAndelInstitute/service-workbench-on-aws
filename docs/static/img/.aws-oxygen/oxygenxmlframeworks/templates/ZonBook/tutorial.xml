@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="tutorial" role="topic">
+ <info>
+  <title id="tutorial.title">Tutorial</title>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/tutorials.html">Tutorials</ulink>. Tutorials
+  (sometimes called walkthroughs) present users with a series of related procedures, usually focused on a specific use
+  case or scenario. Remove this remark before using this template code in your doc package. Save the file as <emphasis
+   role="bold">tutorial.xml</emphasis>.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="tutorial-prerequisites">
+  <info>
+   <title id="tutorial-prerequisites.title">Prerequisites</title>
+  </info>
+  <para>List prerequisites here:</para>
+  <itemizedlist>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+  </itemizedlist>
+ </section>
+ <?oxy_comment_start author="ericn" timestamp="20160525T130425-0700" comment="Should these sections have role=topic? That will make each section of the tutorial its own page. Maybe we should leave a remark here that you can have the topic not create its own page by removing the role=topic attribute.
+
+Also, if they are not on their own page, writers can remove the abstract."?>
+ <section id="tutorial-step1" role="topic">
+  <info>
+   <title id="tutorial-step1.title">Step 1: </title>
+   <abstract>
+    <para>Insert section abstract text here.</para>
+   </abstract>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+  <section id="tutorial-step1.2">
+   <info>
+    <title id="tutorial-step1.2.title">Next Step</title>
+   </info>
+   <para>
+    <xref endterm="tutorial-step2.title" linkend="tutorial-step2"/>
+   </para>
+  </section>
+ </section>
+ <?oxy_comment_end?>
+ <section id="tutorial-step2" role="topic">
+  <info>
+   <title id="tutorial-step2.title">Step 2:</title>
+   <abstract>
+    <para>Insert abstract text here.</para>
+   </abstract>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+  <section id="tutorial-step2.1">
+   <info>
+    <title id="tutorial-step2.1.title">Next Step</title>
+   </info>
+   <para>
+    <xref endterm="tutorial-step3.title" linkend="tutorial-step3"/>
+   </para>
+  </section>
+ </section>
+ <section id="tutorial-step3" role="topic">
+  <info>
+   <title id="tutorial-step3.title">Step 3: </title>
+   <abstract>
+    <para>Insert abstract text here.</para>
+   </abstract>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+ </section>
+</chapter>

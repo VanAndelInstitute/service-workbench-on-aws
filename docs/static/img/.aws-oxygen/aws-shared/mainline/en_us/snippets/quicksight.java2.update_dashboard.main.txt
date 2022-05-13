@@ -1,0 +1,74 @@
+    public static void updateSpecificDashboard( QuickSightClient qsClient, String account,  String dashboardId, String dataSetArn, String analysisArn) {
+
+        try {
+
+            DataSetReference dataSetReference = DataSetReference.builder()
+                    .dataSetArn(dataSetArn)
+                    .dataSetPlaceholder("Dataset placeholder2")
+                    .build();
+
+            // Get a template ARN to use.
+            String arn = getTemplateARN(qsClient, account, dataSetArn, analysisArn);
+            DashboardSourceTemplate sourceTemplate = DashboardSourceTemplate.builder()
+                    .dataSetReferences(dataSetReference)
+                   .arn(arn)
+                    .build();
+
+            DashboardSourceEntity sourceEntity = DashboardSourceEntity.builder()
+                    .sourceTemplate(sourceTemplate)
+                    .build();
+
+            UpdateDashboardRequest dashboardRequest = UpdateDashboardRequest.builder()
+                    .awsAccountId(account)
+                    .dashboardId(dashboardId)
+                    .name("UpdateTest")
+                     .sourceEntity(sourceEntity)
+                    .themeArn("arn:aws:quicksight::aws:theme/MIDNIGHT")
+                    .build();
+
+            UpdateDashboardResponse response = qsClient.updateDashboard(dashboardRequest);
+            System.out.println("Dashboard " + response.dashboardId() + " has been updated");
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+
+    private static String getTemplateARN(QuickSightClient qsClient, String account, String dataset, String analysisArn) {
+
+        String arn = "";
+        try {
+            DataSetReference setReference = DataSetReference.builder()
+                    .dataSetArn(dataset)
+                    .dataSetPlaceholder("Dataset placeholder2")
+                    .build();
+
+            TemplateSourceAnalysis templateSourceAnalysis = TemplateSourceAnalysis.builder()
+                    .dataSetReferences(setReference)
+                    .arn(analysisArn)
+                    .build();
+
+            TemplateSourceEntity sourceEntity = TemplateSourceEntity.builder()
+                    .sourceAnalysis(templateSourceAnalysis)
+                    .build();
+
+            UUID uuid = UUID.randomUUID();
+            String templateGUID =uuid.toString();
+
+            CreateTemplateRequest createTemplateRequest = CreateTemplateRequest.builder()
+               .awsAccountId(account)
+               .name("NewTemplate")
+               .sourceEntity(sourceEntity)
+               .templateId(templateGUID) // Specify a GUID value
+               .build();
+
+            CreateTemplateResponse response = qsClient.createTemplate(createTemplateRequest);
+            arn = response.arn();
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return arn;
+    }

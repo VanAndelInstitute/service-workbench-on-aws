@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd" 
+ [
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="glossary">
+ <info>
+  <title id="glossary.title">&AWS; glossary</title>
+  <abstract><para>Lists the latest &AWS; terminology and usage.</para></abstract>
+ </info>
+ <para>For the latest &AWS; terminology, see the <ulink url="&url-aws-gen-gloss;">&AWS; glossary</ulink> in the <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+</chapter>

@@ -1,0 +1,1 @@
+    result, err := svc.GetSendStatistics(nil)

@@ -1,0 +1,23 @@
+<programlisting>
+    public static void startDataSource (KendraClient kendra, String indexId, String dataSourceId) {
+
+     try{
+        System.out.println("Synchronize the data source " +dataSourceId);
+        StartDataSourceSyncJobRequest startDataSourceSyncJobRequest = StartDataSourceSyncJobRequest
+                .builder()
+                .indexId(indexId)
+                .id(dataSourceId)
+                .build();
+
+        StartDataSourceSyncJobResponse startDataSourceSyncJobResponse = kendra.startDataSourceSyncJob(startDataSourceSyncJobRequest);
+        System.out.println("Waiting for the data source to sync with the index "+indexId + " for execution ID " +startDataSourceSyncJobResponse.executionId());
+
+    } catch (KendraException e) {
+          System.err.println(e.getMessage());
+          System.exit(1);
+    }
+
+    System.out.println("Index setup is complete");
+    }
+}
+</programlisting>

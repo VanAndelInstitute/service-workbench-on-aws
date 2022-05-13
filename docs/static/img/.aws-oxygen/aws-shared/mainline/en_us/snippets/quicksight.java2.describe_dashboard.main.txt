@@ -1,0 +1,17 @@
+    public static void describeSpecificDashboard(QuickSightClient qsClient, String account, String dashboardId) {
+
+        try {
+
+            DescribeDashboardRequest analysesRequest = DescribeDashboardRequest.builder()
+                    .awsAccountId(account)
+                    .dashboardId(dashboardId)
+                    .build();
+
+            DescribeDashboardResponse res  = qsClient.describeDashboard(analysesRequest);
+            System.out.println("The display name is " + res.dashboard().name());
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

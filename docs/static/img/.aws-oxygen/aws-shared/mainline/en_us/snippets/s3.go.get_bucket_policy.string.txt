@@ -1,0 +1,3 @@
+    out := bytes.Buffer{}
+    policyPtr := aws.StringValue(result.Policy)
+    err = json.Indent(&out, []byte(policyPtr), "", "  ")

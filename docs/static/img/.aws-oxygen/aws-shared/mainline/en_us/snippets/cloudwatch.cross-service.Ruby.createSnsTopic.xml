@@ -1,0 +1,34 @@
+<programlisting>
+# Creates a topic in Amazon SNS
+# and then subscribes an email address to receive notifications to that topic.
+#
+# @param sns_client [Aws::SNS::Client] An initialized Amazon SNS client.
+# @param topic_name [String] The name of the topic to create.
+# @param email_address [String] The email address of the recipient to notify.
+# @return [String] The ARN of the topic that was created.
+# @example
+#   puts create_topic(
+#     Aws::SNS::Client.new(region: 'us-east-1'),
+#     'aws-doc-sdk-examples-topic',
+#     'mary@example.com'
+#   )
+def create_topic(sns_client, topic_name, email_address)
+  puts "Creating the topic named '#{topic_name}'..."
+  topic_response = sns_client.create_topic(name: topic_name)
+  puts "Topic created with ARN '#{topic_response.topic_arn}'."
+  subscription_response = sns_client.subscribe(
+    topic_arn: topic_response.topic_arn,
+    protocol: 'email',
+    endpoint: email_address,
+    return_subscription_arn: true
+  )
+  puts 'Subscription created with ARN ' \
+    "'#{subscription_response.subscription_arn}'. Have the owner of the " \
+    "email address '#{email_address}' check their inbox in a few minutes " \
+    'and confirm the subscription to start receiving notification emails.'
+  return topic_response.topic_arn
+rescue StandardError => e
+  puts "Error creating or subscribing to topic: #{e.message}"
+  return 'Error'
+end
+</programlisting>

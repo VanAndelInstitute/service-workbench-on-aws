@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<chapter id="swift_code_examples" role="topic">
+    <info>
+        <title id="swift_code_examples.title">&Swift; code examples</title>
+        <titleabbrev id="swift_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &Swiftlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &Swiftlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="swift_code_examples_categorized" role="topic">
+        <info>
+            <title id="swift_code_examples_categorized.title">Single-service actions and scenarios using &Swift;</title>
+            <titleabbrev id="swift_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &Swift; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &Swiftlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="swift_cognito-identity_code_examples" role="topic">
+            <info>
+                <title id="swift_cognito-identity_code_examples.title">&COGID; examples using &Swift;</title>
+                <titleabbrev id="swift_cognito-identity_code_examples.titleabbrev">&COGID;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &Swiftlong; with &COGID;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &Swiftlong; with &COGID;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &COGID; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &COGID; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cognito-identity_CreateIdentityPool_swift_topic">
+                        <info>
+                            <title id="cognito-identity_CreateIdentityPool_swift_topic.title">Create an identity pool</title>
+                            <titleabbrev id="cognito-identity_CreateIdentityPool_swift_topic.titleabbrev">Create an identity pool</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to find the &COGID; with the given name, creating it if it's not found.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_CreateIdentityPool_Swift.xml"></xi:include>
+                    </section>
+                    <section id="cognito-identity_ListIdentityPools_swift_topic">
+                        <info>
+                            <title id="cognito-identity_ListIdentityPools_swift_topic.title">List identity pools</title>
+                            <titleabbrev id="cognito-identity_ListIdentityPools_swift_topic.titleabbrev">List identity pools</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get a list of &COGID; pools.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cognito-identity_ListIdentityPools_Swift.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+</chapter>

@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope>
+	<SOAP-ENV:Body 
+		wsu:Id="body" 
+		xmlns:wsu="http://docs.oasis-open.org/	wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		>
+		<ns2:GetTokenUsage 
+			xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/"
+			>
+			<ns2:TokenId>
+				23KMPG91JJBN37MI23IE4MXK7J8AC3JB7ESI5T1E3URQXA2TFXRK7XTRJZTDXLWK
+			</ns2:TokenId>
+		</ns2:GetTokenUsage>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

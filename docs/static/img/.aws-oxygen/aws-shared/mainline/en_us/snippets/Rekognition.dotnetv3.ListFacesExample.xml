@@ -1,0 +1,30 @@
+<programlisting>
+        public static async Task Main()
+        {
+            string collectionId = "MyCollection2";
+
+            var rekognitionClient = new AmazonRekognitionClient();
+
+            var listFacesResponse = new ListFacesResponse();
+            Console.WriteLine($"Faces in collection {collectionId}");
+
+            var listFacesRequest = new ListFacesRequest
+            {
+                CollectionId = collectionId,
+                MaxResults = 1,
+            };
+
+            do
+            {
+                listFacesResponse = await rekognitionClient.ListFacesAsync(listFacesRequest);
+                listFacesResponse.Faces.ForEach(face =>
+                {
+                    Console.WriteLine(face.FaceId);
+                });
+
+                listFacesRequest.NextToken = listFacesResponse.NextToken;
+            }
+            while (!string.IsNullOrEmpty(listFacesResponse.NextToken));
+        }
+
+</programlisting>

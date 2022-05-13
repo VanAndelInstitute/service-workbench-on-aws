@@ -1,0 +1,17 @@
+suspend fun getCelebrityInfo(idVal: String?) {
+
+    val request = GetCelebrityInfoRequest {
+        id = idVal
+    }
+
+    RekognitionClient { region = "us-east-1" }.use { rekClient ->
+        val response = rekClient.getCelebrityInfo(request)
+
+        // Display celebrity information.
+        println("The celebrity name is ${response.name}")
+        println("Further information (if available):")
+        response.urls?.forEach { url ->
+           println(url)
+        }
+    }
+ }

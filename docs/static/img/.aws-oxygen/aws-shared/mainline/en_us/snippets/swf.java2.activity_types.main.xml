@@ -1,0 +1,60 @@
+<programlisting>
+    public static void registerDomain(SwfClient swf, String domain) {
+        try {
+            System.out.println("** Registering the domain '" + domain + "'.");
+            swf.registerDomain(RegisterDomainRequest.builder()
+                    .name(domain)
+                    .workflowExecutionRetentionPeriodInDays("1").build());
+        } catch (DomainAlreadyExistsException e) {
+            System.out.println("** Domain already exists!");
+            System.exit(1);
+        }
+    }
+
+    public static void registerWorkflowType(SwfClient swf,
+                                            String domain,
+                                            String workflow,
+                                            String workflowVersion,
+                                            String taskList) {
+        try {
+            System.out.println("** Registering the workflow type '" + workflow +
+                    "-" + workflowVersion + "'.");
+            swf.registerWorkflowType(RegisterWorkflowTypeRequest.builder()
+                    .domain(domain)
+                    .name(workflow)
+                    .version(workflowVersion)
+                    .defaultChildPolicy(ChildPolicy.TERMINATE)
+                    .defaultTaskList(TaskList.builder().name(taskList).build())
+                    .defaultTaskStartToCloseTimeout("30")
+                    .build());
+        } catch (TypeAlreadyExistsException e) {
+            System.out.println("** Workflow type already exists!");
+            System.exit(1);
+        }
+    }
+
+    public static void registerActivityType(SwfClient swf,
+                                            String domain,
+                                            String activity,
+                                            String activityVersion,
+                                            String taskList) {
+        try {
+            System.out.println("** Registering the activity type '" + activity +
+                    "-" + activityVersion + "'.");
+            swf.registerActivityType(RegisterActivityTypeRequest.builder()
+                    .domain(domain)
+                    .name(activity)
+                    .version(activityVersion)
+                    .defaultTaskList(TaskList.builder().name(taskList).build())
+                    .defaultTaskScheduleToStartTimeout("30")
+                    .defaultTaskStartToCloseTimeout("600")
+                    .defaultTaskScheduleToCloseTimeout("630")
+                    .defaultTaskHeartbeatTimeout("10")
+                    .build());
+        } catch (TypeAlreadyExistsException e) {
+            System.out.println("** Activity type already exists!");
+            System.exit(1);
+        }
+    }
+}
+</programlisting>

@@ -1,0 +1,24 @@
+    def create_receipt_filter(self, filter_name, ip_address_or_range, allow):
+        """
+        Creates a filter that allows or blocks incoming mail from an IP address or
+        range.
+
+        :param filter_name: The name to give the filter.
+        :param ip_address_or_range: The IP address or range to block or allow.
+        :param allow: When True, incoming mail is allowed from the specified IP
+                      address or range; otherwise, it is blocked.
+        """
+        try:
+            policy = 'Allow' if allow else 'Block'
+            self.ses_client.create_receipt_filter(
+                Filter={
+                    'Name': filter_name,
+                    'IpFilter': {
+                        'Cidr': ip_address_or_range,
+                        'Policy': policy}})
+            logger.info(
+                "Created receipt filter %s to %s IP of %s.", filter_name, policy,
+                ip_address_or_range)
+        except ClientError:
+            logger.exception("Couldn't create receipt filter %s.", filter_name)
+            raise

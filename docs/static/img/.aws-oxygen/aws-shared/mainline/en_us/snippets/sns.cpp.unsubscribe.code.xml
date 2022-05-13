@@ -1,0 +1,25 @@
+<programlisting>
+  Aws::SDKOptions options;
+  Aws::InitAPI(options);
+  {
+    Aws::SNS::SNSClient sns;
+    Aws::String subscription_arn = argv[1];
+
+    Aws::SNS::Model::UnsubscribeRequest s_req;
+    s_req.SetSubscriptionArn(subscription_arn);
+
+    auto s_out = sns.Unsubscribe(s_req);
+
+    if (s_out.IsSuccess())
+    {
+      std::cout << "Unsubscribed successfully " << std::endl;
+    }
+    else
+    {
+      std::cout << "Error while unsubscribing " << s_out.GetError().GetMessage()
+        << std::endl;
+    }
+  }
+
+  Aws::ShutdownAPI(options);
+</programlisting>

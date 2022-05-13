@@ -1,0 +1,32 @@
+async fn query_item(client: &Client, item: Item) -> bool {
+    let value = &item.value;
+    let key = &item.key;
+    let user_av = AttributeValue::S(value.to_string());
+
+    match client
+        .query()
+        .table_name(item.table)
+        .key_condition_expression("#key = :value".to_string())
+        .expression_attribute_names("#key".to_string(), key.to_string())
+        .expression_attribute_values(":value".to_string(), user_av)
+        .select(Select::AllAttributes)
+        .send()
+        .await
+    {
+        Ok(resp) => {
+            if resp.count > 0 {
+                println!("Found a matching entry in the table:");
+                println!("{:?}", resp.items.unwrap_or_default().pop());
+                true
+            } else {
+                println!("Did not find a match.");
+                false
+            }
+        }
+        Err(e) => {
+            println!("Got an error querying table:");
+            println!("{}", e);
+            process::exit(1);
+        }
+    }
+}

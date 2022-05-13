@@ -1,0 +1,14 @@
+    suspend  fun getSelectors(trailNameVal: String) {
+
+        val request = GetEventSelectorsRequest {
+            trailName =trailNameVal
+        }
+
+        CloudTrailClient { region = "us-east-1" }.use { cloudTrail ->
+
+            val response = cloudTrail.getEventSelectors(request)
+            response.eventSelectors?.forEach { selector ->
+                println("The type is ${selector.readWriteType.toString()}")
+            }
+        }
+ }

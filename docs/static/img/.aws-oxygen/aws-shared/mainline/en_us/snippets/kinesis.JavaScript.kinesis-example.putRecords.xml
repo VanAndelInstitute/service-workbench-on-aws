@@ -1,0 +1,20 @@
+<programlisting>
+    // upload data to Amazon Kinesis every second if data exists
+    setInterval(function() {
+        if (!recordData.length) {
+            return;
+        }
+        // upload data to Amazon Kinesis
+        kinesis.putRecords({
+            Records: recordData,
+            StreamName: 'NAME_OF_STREAM'
+        }, function(err, data) {
+            if (err) {
+                console.error(err);
+            }
+        });
+        // clear record data
+        recordData = [];
+    }, 1000);
+});
+</programlisting>

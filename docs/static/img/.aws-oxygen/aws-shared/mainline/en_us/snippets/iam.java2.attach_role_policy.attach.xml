@@ -1,0 +1,10 @@
+<programlisting>
+            AttachRolePolicyRequest attachRequest =
+                AttachRolePolicyRequest.builder()
+                        .roleName(roleName)
+                        .policyArn(policyArn)
+                        .build();
+
+            iam.attachRolePolicy(attachRequest);
+
+</programlisting>

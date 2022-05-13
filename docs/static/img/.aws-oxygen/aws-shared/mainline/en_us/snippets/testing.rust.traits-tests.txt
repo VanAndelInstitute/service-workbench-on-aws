@@ -1,0 +1,48 @@
+#[tokio::test]
+async fn test_single_page() {
+    use s3::model::Object;
+
+    // Create a TestListObjects instance with just one page of two objects in it
+    let fake = TestListObjects {
+        expected_bucket: "some-bucket".into(),
+        expected_prefix: "some-prefix".into(),
+        pages: vec![[5, 2i64]
+            .iter()
+            .map(|size| Object::builder().size(*size).build())
+            .collect()],
+    };
+
+    // Run the code we want to test with it
+    let size = determine_prefix_file_size(&fake, "some-bucket", "some-prefix")
+        .await
+        .unwrap();
+
+    // Verify we got the correct total size back
+    assert_eq!(7, size);
+}
+
+#[tokio::test]
+async fn test_multiple_pages() {
+    use s3::model::Object;
+
+    // This time, we add a helper function for making pages
+    fn make_page(sizes: &[i64]) -> Vec<Object> {
+        sizes
+            .iter()
+            .map(|size| Object::builder().size(*size).build())
+            .collect()
+    }
+
+    // Create the TestListObjects instance with two pages of objects now
+    let fake = TestListObjects {
+        expected_bucket: "some-bucket".into(),
+        expected_prefix: "some-prefix".into(),
+        pages: vec![make_page(&[5, 2]), make_page(&[3, 9])],
+    };
+
+    // And now test and verify
+    let size = determine_prefix_file_size(&fake, "some-bucket", "some-prefix")
+        .await
+        .unwrap();
+    assert_eq!(19, size);
+}

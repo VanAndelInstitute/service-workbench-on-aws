@@ -1,0 +1,10 @@
+import aws.sdk.kotlin.services.athena.AthenaClient
+import aws.sdk.kotlin.services.athena.model.QueryExecutionContext
+import aws.sdk.kotlin.services.athena.model.ResultConfiguration
+import aws.sdk.kotlin.services.athena.model.StartQueryExecutionRequest
+import aws.sdk.kotlin.services.athena.model.GetQueryExecutionRequest
+import aws.sdk.kotlin.services.athena.model.QueryExecutionState
+import aws.sdk.kotlin.services.athena.model.GetQueryResultsRequest
+import aws.sdk.kotlin.services.athena.model.Row
+import kotlinx.coroutines.delay
+import kotlin.system.exitProcess

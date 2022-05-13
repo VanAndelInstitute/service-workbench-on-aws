@@ -1,0 +1,17 @@
+<programlisting>
+    def revoke_grant(self, key_id, grant):
+        """
+        Revokes a grant so that it can no longer be used.
+
+        :param key_id: The ARN or ID of the key associated with the grant.
+        :param grant: The grant to revoke.
+        """
+        try:
+            self.kms_client.revoke_grant(KeyId=key_id, GrantId=grant['GrantId'])
+        except ClientError as err:
+            logger.error(
+                "Couldn't revoke grant %s. Here's why: %s",
+                grant['GrantId'], err.response['Error']['Message'])
+        else:
+            print(f"Grant {grant['GrantId']} revoked.")
+</programlisting>

@@ -1,0 +1,7 @@
+            CreateSecurityGroupRequest createRequest = CreateSecurityGroupRequest.builder()
+                .groupName(groupName)
+                .description(groupDesc)
+                .vpcId(vpcId)
+                .build();
+
+            CreateSecurityGroupResponse resp= ec2.createSecurityGroup(createRequest);

@@ -1,0 +1,11 @@
+<programlisting>
+suspend  fun getAllPipelines() {
+
+    CodePipelineClient { region = "us-east-1" }.use { pipelineClient ->
+        val response = pipelineClient.listPipelines(ListPipelinesRequest {})
+        response.pipelines?.forEach { pipeline ->
+            println("The name of the pipeline is ${pipeline.name}")
+        }
+    }
+}
+</programlisting>

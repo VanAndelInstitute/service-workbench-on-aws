@@ -1,0 +1,16 @@
+<programlisting>
+
+    /**
+     * @param string $name
+     * @return array
+     * @throws AwsException
+     */
+    public function createUser(string $name): array
+    {
+        $result = $this->iamClient->createUser([
+            'UserName' => $name,
+        ]);
+
+        return $result['User'];
+    }
+</programlisting>

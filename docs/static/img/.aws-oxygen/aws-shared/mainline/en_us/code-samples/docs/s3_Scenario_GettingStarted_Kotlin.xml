@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.0 -->
+<variablelist role="termdef">
+    <varlistentry>
+        <term>&Kotlin;</term>
+        <listitem>
+            <note><para>This is prerelease documentation for a feature in preview release. It is subject to change.</para></note>
+            <block>
+                <para></para>
+                <!-- The following line break must be preserved and left-justified exactly as-is, to keep snippets looking good. -->
+                <programlisting language="kotlin"><xi:include parse="text" href="file://AWSShared/snippets/s3.kotlin.s3_operations.main.txt"/>
+</programlisting>
+            </block>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Find instructions and more code on <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples">GitHub</ulink>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>For API details, see the following topics in <emphasis>&guide-kotlin-api;</emphasis>.</para>
+                    <itemizedlist>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">CopyObject</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">CreateBucket</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">DeleteBucket</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">DeleteObjects</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">GetObject</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">ListObjects</ulink></para></listitem>
+                        <listitem><para><ulink  url="https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation">PutObject</ulink></para></listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </varlistentry>
+</variablelist>

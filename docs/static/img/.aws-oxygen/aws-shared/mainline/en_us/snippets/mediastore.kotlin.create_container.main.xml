@@ -1,0 +1,23 @@
+<programlisting>
+suspend fun createMediaContainer(containerNameVal: String?) {
+
+        val sleepTime: Long = 10
+        val request = CreateContainerRequest {
+            containerName = containerNameVal
+        }
+
+        MediaStoreClient { region = "us-west-2" }.use { mediaStoreClient ->
+            val containerResponse = mediaStoreClient.createContainer(request)
+             var status = containerResponse.container?.status.toString()
+
+            // Wait until the container is in an active state.
+            while (!status.equals("Active", ignoreCase = true)) {
+                status = checkContainer(containerNameVal).toString()
+                println("Status - $status")
+                delay(sleepTime * 1000)
+            }
+            println("The container ARN value is ${containerResponse.container?.arn}")
+            println("The $containerNameVal is created")
+         }
+}
+</programlisting>

@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.GetSegmentsRequest
+import kotlin.system.exitProcess

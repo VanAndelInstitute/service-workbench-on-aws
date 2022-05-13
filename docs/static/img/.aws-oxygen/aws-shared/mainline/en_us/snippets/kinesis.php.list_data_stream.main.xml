@@ -1,0 +1,19 @@
+<programlisting>
+$kinesisClient = new Aws\Kinesis\KinesisClient([
+    'profile' => 'default',
+    'version' => '2013-12-02',
+    'region' => 'us-east-2'
+]);
+
+try {
+    $result = $kinesisClient->listStreams([
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 
+</programlisting>

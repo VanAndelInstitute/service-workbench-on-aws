@@ -1,0 +1,4 @@
+HTTP/1.x 200
+Content-Length: 0
+X-Amz-RequestID: 123456
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5

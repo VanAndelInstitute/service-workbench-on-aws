@@ -1,0 +1,48 @@
+<programlisting>
+    public static void createBot( LexModelBuildingClient lexClient,
+                                  String botName,
+                                  String intentName,
+                                  String intentVersion) {
+
+        try {
+
+            // Create an Intent object for the bot.
+            Intent weatherIntent = Intent.builder()
+                    .intentName(intentName)
+                    .intentVersion(intentVersion)
+                    .build();
+
+            ArrayList<Intent> intents = new ArrayList();
+            intents.add(weatherIntent);
+
+            // Create an abort statement.
+            Message msg = Message.builder()
+                    .content("I do not understand you!")
+                    .contentType(ContentType.PLAIN_TEXT )
+                    .build();
+
+            ArrayList<Message> abortMsg = new ArrayList<>();
+            abortMsg.add(msg);
+
+            Statement statement = Statement.builder()
+                    .messages(abortMsg)
+                    .build();
+
+            PutBotRequest botRequest = PutBotRequest.builder()
+                    .abortStatement(statement)
+                    .description("Created by using the Amazon Lex Java API")
+                    .childDirected(true)
+                    .locale("en-US")
+                    .name(botName)
+                    .intents(intents)
+                    .build();
+
+            lexClient.putBot(botRequest);
+            System.out.println("The Amazon Lex bot was successfully created");
+
+        } catch (LexModelBuildingException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

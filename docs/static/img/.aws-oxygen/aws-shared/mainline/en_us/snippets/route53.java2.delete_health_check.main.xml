@@ -1,0 +1,19 @@
+<programlisting>
+    public static void delHealthCheck( Route53Client route53Client, String id) {
+
+        try {
+
+            DeleteHealthCheckRequest delRequest = DeleteHealthCheckRequest.builder()
+                    .healthCheckId(id)
+                     .build();
+
+            // Delete the Health Check
+            route53Client.deleteHealthCheck(delRequest);
+            System.out.println("The hosted zone was deleted");
+
+        } catch (Route53Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

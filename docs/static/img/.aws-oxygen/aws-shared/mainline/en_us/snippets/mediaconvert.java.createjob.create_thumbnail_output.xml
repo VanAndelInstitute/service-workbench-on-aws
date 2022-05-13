@@ -1,0 +1,19 @@
+<programlisting>
+            OutputGroup thumbs = OutputGroup.builder().name("File Group").customName("thumbs")
+                    .outputGroupSettings(OutputGroupSettings.builder().type(OutputGroupType.FILE_GROUP_SETTINGS)
+                            .fileGroupSettings(FileGroupSettings.builder().destination(thumbsOutput).build()).build())
+                    .outputs(Output.builder().extension("jpg")
+                            .containerSettings(ContainerSettings.builder().container(ContainerType.RAW).build())
+                            .videoDescription(VideoDescription.builder().scalingBehavior(ScalingBehavior.DEFAULT)
+                                    .sharpness(50).antiAlias(AntiAlias.ENABLED)
+                                    .timecodeInsertion(VideoTimecodeInsertion.DISABLED)
+                                    .colorMetadata(ColorMetadata.INSERT).dropFrameTimecode(DropFrameTimecode.ENABLED)
+                                    .codecSettings(VideoCodecSettings.builder().codec(VideoCodec.FRAME_CAPTURE)
+                                            .frameCaptureSettings(FrameCaptureSettings.builder().framerateNumerator(1)
+                                                    .framerateDenominator(1).maxCaptures(10000000).quality(80).build())
+                                            .build())
+                                    .build())
+                            .build())
+                    .build();
+
+</programlisting>

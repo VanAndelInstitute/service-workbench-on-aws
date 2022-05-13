@@ -1,0 +1,1949 @@
+<!ENTITY url-mesh-cli '&url-doc-domain;cli/latest/reference/appmesh/'>
+<!ENTITY url-envoy-user 'https://www.envoyproxy.io/docs/envoy/latest/'>
+<!ENTITY service '&MESH;'>
+<!ENTITY aws_cli_min_version '1.18.116'>
+<!ENTITY aws_cli_min_version_2 '2.0.38'>
+<!ENTITY ARNlong 'Amazon Resource Name (ARN)' >
+<!ENTITY ARN 'ARN' >
+<!ENTITY AZ 'Availability Zone' >
+<!ENTITY awscli-min-version '&aws_cli_min_version;' >
+<!ENTITY MESHConsoleSwitch 'Open the &MESH; console at <ulink type="console" url="appmesh/">&url-console-domain;appmesh/</ulink>.' >
+<!ENTITY url-mesh-console '&url-console-domain;appmesh/'>
+<!ENTITY appmesh-default-region 'us-west-2'>
+<!ENTITY mesh-example-uid '111a11b1-c11d-1e1f-gh1i-j11k1l111m711' >
+
+<!ENTITY envoy-image-version 'v1.15.1.0-prod'>
+<!ENTITY envoy-min-supported-version 'v1.9.0.0-prod'>
+<!ENTITY envoy-min-supported-version-note '<important><para>Only version &envoy-min-supported-version; or later is supported for use with &MESH;.</para></important>'>
+<!ENTITY envoy-image-registry-id '840364872350'>
+<!ENTITY envoy-image-registry-id-me-south-1 '772975370895'>
+<!ENTITY envoy-image-registry-id-ap-east-1 '856666278305'>
+
+<!ENTITY envoy-image '&envoy-image-registry-id;.dkr.ecr.<replaceable>region-code</replaceable>.amazonaws.com/aws-appmesh-envoy:&envoy-image-version;' >
+<!ENTITY envoy-image-me-south-1 '&envoy-image-registry-id-me-south-1;.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:&envoy-image-version;' >
+<!ENTITY envoy-image-ap-east-1 '&envoy-image-registry-id-ap-east-1;.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:&envoy-image-version;' >
+<!ENTITY envoy-image-replaceable-registry '<replaceable>&envoy-image-registry-id;</replaceable>.dkr.ecr.<replaceable>&appmesh-default-region;</replaceable>.amazonaws.com/aws-appmesh-envoy:&envoy-image-version;' >
+<!ENTITY envoy-image-region-exceptions '<code>me-south-1</code> and <code>ap-east-1</code>'>
+<!-- <!ENTITY envoy-image-availability '<para>You can retrieve the latest version of the container image using the &CLI;, by replacing <replaceable>region-code</replaceable> in the following command with one of the <ulink type="documentation" url="general/latest/gr/appmesh.html">&MESH; supported regions.</ulink></para>
+<programlisting>aws ssm get-parameter -name /aws/service/appmesh/envoy -region <replaceable>region-code</replaceable> -query "Parameter.Value" -output text</programlisting>
+<para>Output</para>
+<programlisting role="nocopy"><replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region-code</replaceable>.amazonaws.com/aws-appmesh-envoy:<replaceable>envoy-image-version</replaceable></programlisting>
+
+<para>If you prefer to use the &console;, then select the region that you want to use the Envoy proxy in. The &console; will open and show you the latest version of the Envoy container image in the <guilabel>Value</guilabel> attribute.</para>
+<itemizedlist>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=us-east-2">&region-us-east-2; (<code>us-east-2</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=us-east-1">&region-us-east-1; (<code>us-east-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=us-west-1">&region-us-west-1; (<code>us-west-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=us-west-2">&region-us-west-2; (<code>us-west-2</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ap-east-1">&region-ap-east-1; (<code>ap-east-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ap-south-1">&region-ap-south-1; (<code>ap-south-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ap-northeast-2">&region-ap-northeast-2; (<code>ap-northeast-2</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ap-southeast-1">&region-ap-southeast-1; (<code>ap-southeast-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ap-southeast-2">&region-ap-southeast-2; (<code>ap-southeast-2</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=us-ap-northeast-1">&region-ap-northeast-1; (<code>ap-northeast-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=ca-central-1">&region-ca-central-1; (<code>ca-central-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=eu-central-1">&region-eu-central-1; (<code>eu-central-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=eu-west-1">&region-eu-west-1; (<code>eu-west-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=eu-west-2">&region-eu-west-2; (<code>eu-west-2</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=eu-west-3">&region-eu-west-3; (<code>eu-west-3</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=eu-north-1">&region-eu-north-1; (<code>eu-north-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=me-south-1">&region-me-south-1; (<code>me-south-1</code>)</ulink></para></listitem>
+<listitem><para><ulink type="console" url="systems-manager/parameters/aws/service/appmesh/envoy/description?region=sa-east-1">&region-sa-east-1; (<code>sa-east-1</code>)</ulink></para></listitem>
+</itemizedlist> '>-->
+<!ENTITY envoy-image-availability '<itemizedlist>
+                                       <listitem>
+                                          <para>All <ulink type="documentation" url="general/latest/gr/appmesh.html">supported</ulink> Regions other than &envoy-image-region-exceptions;. You can replace <replaceable>region-code</replaceable>
+                                                with any Region other than &envoy-image-region-exceptions;.
+                                          </para>
+                                          <programlisting>&envoy-image;</programlisting>
+                                       </listitem>
+                                       <listitem>
+                                          <para><code>me-south-1</code> Region:</para>
+                                          <programlisting>&envoy-image-me-south-1;</programlisting>
+                                       </listitem>
+                                       <listitem>
+                                          <para><code>ap-east-1</code> Region:</para>
+                                          <programlisting>&envoy-image-ap-east-1;</programlisting>
+                                       </listitem>
+                                    </itemizedlist> ' >
+<!ENTITY envoy-image-description 'Envoy uses the configuration defined in the &MESH; control plane to determine where to send your application traffic.' >
+<!ENTITY router-image '111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-proxy-route-manager:v2' >
+<!ENTITY router-image-description 'The route manager sets up a pod’s network namespace with <code>iptables</code> rules that route ingress and egress traffic through Envoy.' >
+<!ENTITY custom-envoy-image '<para>You must use the App Mesh Envoy container image until the Envoy project team merges changes that support App Mesh. For additional details, see the <ulink
+                url="https://github.com/aws/aws-app-mesh-roadmap/issues/10">GitHub roadmap
+                issue</ulink>.</para>'>
+<!ENTITY existing-app-caveat '<para>&MESH; supports services that use service discovery naming for their
+            components. To use &MESH;, you must have an existing application running on &AWS;
+            Fargate, &ECS;, &EKS;, Kubernetes on &AWS;, or &EC2;.</para>' >
+<!ENTITY awscli-note '<note>
+            <para>You must use at least version &aws_cli_min_version; of the &CLI; with &MESH;. To
+                install the latest version of the &CLI;, see <ulink 
+                url="&url-cli-ug;installing.html">Installing the &CLIlong;</ulink> in the 
+                <emphasis>&guide-cli-ug;</emphasis>.</para>
+        </note>' >
+<!ENTITY appmesh-unsupported-region '<para>&MESH; is not supported in this Region.</para>' >
+
+<!-- Entities used between App Mesh and EKS -->
+<!ENTITY appmesh-intro-text '<para>&MESHlong; is a service mesh based on the <ulink url="https://www.envoyproxy.io/"
+                >Envoy</ulink> proxy that makes it easy to monitor and control services. &MESH; standardizes how
+                your services communicate, giving you end-to-end visibility and helping to ensure high availability for your applications.</para>
+
+               <para>&MESH; gives you consistent visibility and network traffic controls for every service in an application. For more information,
+               see the <ulink url="https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html">&MESH; User Guide</ulink>.</para>' >
+
+<!ENTITY update-pod-spec-text '<para>&MESH; is a service mesh based on the <ulink url="https://www.envoyproxy.io/"
+                >Envoy</ulink> proxy. After you create your service mesh, virtual services, virtual nodes, virtual
+            routers, and routes, you must update your services to be compatible with
+            &MESH;.</para>
+        <para>&MESH; vends the following custom container images that you must add to your
+            Kubernetes pod specifications:</para>
+        <itemizedlist>
+            <listitem>
+                <para>&MESH; Envoy container image &endash; &envoy-image-availability;
+                    &envoy-image-description;</para>&custom-envoy-image;
+            </listitem>
+            <listitem>
+                <para>&MESH; proxy route manager &endash; <code>&router-image;</code>.
+                    &router-image-description;</para>
+            </listitem>
+        </itemizedlist>
+        <para>The following text is an example Kubernetes pod specification that you can merge with your
+            existing application. Substitute your mesh name and virtual node name for the
+                <code>APPMESH_VIRTUAL_NODE_NAME</code> value, and a list of ports that your
+            application listens on for the <code>APPMESH_APP_PORTS</code> value. Substitute the
+            &EC2; instance &AWS; Region for the <code>AWS_REGION</code> value.</para> 
+            <para>Update each pod specification in your application to include these containers,
+            and then deploy the new specifications to update your services and start using App Mesh with
+            your Kubernetes application.</para>' >
+
+<!--  Start remove after loc, it's in local pkg entity file. -->
+<!ENTITY preview-name 'Preview Channel'>
+<!ENTITY preview-note '(<ulink url="&url-mesh-user;preview.html">&MESH; &preview-name;</ulink> only)'>
+<!ENTITY preview-howto 'For instructions on how to use features in the &preview-name;, see <link linkend="try-out" endterm="try-out.title"/>.'>
+
+<!ENTITY appmesh-beta-feature '
+    <table frame="all">
+        <tgroup cols="1">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <tbody>
+                <row>
+                    <entry><?dbhtml bgcolor="#FFFCEC" ?><emphasis><emphasis role="bold">The &MESH; features discussed in this topic are in beta release and are subject to change.</emphasis></emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+' >
+<!ENTITY mesh-route-intro 'A route is associated with a virtual router, and it&apos; used to match requests for a
+            virtual router and distribute traffic accordingly to its associated virtual nodes. '>
+<!ENTITY mesh-route-more-info 'For more information, see <ulink
+                url="&url-mesh-user;routes.html">Routes</ulink> in the
+                <emphasis>&guide-mesh-user;</emphasis>.'>
+<!ENTITY mesh-route-mesh 'Choose the mesh that you want to create the route in.'>
+<!ENTITY mesh-route-vr-list 'Choose <guilabel>Virtual routers</guilabel> in the left navigation.'>
+<!ENTITY mesh-route-vr 'Choose the virtual router that you want to associate a new route with. '> 
+<!ENTITY mesh-route-vr-none 'If none are listed, then you
+            need to <ulink url="&url-mesh-user;virtual_routers.html">create a virtual router</ulink> first.'>           
+<!ENTITY mesh-route-create 'In the <guilabel>Routes</guilabel> table, choose <guilabel>Create
+            route</guilabel>.'>
+<!ENTITY mesh-route-name 'For <guilabel>Route name</guilabel>, specify the name to use for your
+            route.'>
+<!ENTITY mesh-route-protocol 'For <guilabel>Route type</guilabel>, choose the protocol that you want to route.'>
+<!ENTITY mesh-route-protocol-note 'The protocol that you select must
+                            match the listener protocol that you selected for your virtual router
+                            and the virtual node that you&apos;re routing traffic to.'>
+<!ENTITY mesh-route-priority '(Optional) For <guilabel>Route priority</guilabel>, specify a priority from 0-1000 to use for your
+            route. Routes are matched based on the specified value, where 0 is the highest priority.'>
+<!ENTITY mesh-route-prefix 'Specify the <guilabel>Prefix</guilabel> that the route should match.
+                            For example, if your virtual service name is
+                                <code>service-b.local</code> and you want the route to match
+                            requests to <code>service-b.local/metrics</code>, your prefix should be
+                                <code>/metrics</code>. Specifying <code>/</code> routes all traffic.'>
+<!ENTITY mesh-route-vn-name 'For <guilabel>Virtual node name</guilabel>, choose the virtual node that this route
+            will serve traffic to. '>
+<!ENTITY mesh-route-vn-none 'If none are listed, then you need to <ulink url="&url-mesh-user;virtual_nodes.html">create a virtual node</ulink>
+            first.'>
+<!ENTITY mesh-route-weight 'For <guilabel>Weight</guilabel>, choose a relative weight for the route. Select
+                <guilabel>Add target</guilabel> to add additional virtual nodes. The total weight for all
+            targets combined must be less than or equal to 100.'>
+<!ENTITY  mesh-route-addtl-config '(Optional) To use HTTP path and header-based routing, choose <guilabel>Additional
+            configuration</guilabel>. '>
+<!ENTITY mesh-route-path '(Optional) To use HTTP path-based routing, specify the <guilabel>Prefix</guilabel> that the route should
+            match. '>
+<!ENTITY mesh-route-path-addtl-info 'For additional information about path-based routing, see <ulink url="&url-mesh-user;route-path.html">Path-based Routing</ulink>. '>
+<!ENTITY mesh-route-path-example 'For example, if your virtual service name is
+            <code>service-b.local</code> and you want the route to match requests to
+            <code>service-b.local/metrics</code>, your prefix should be
+            <code>/metrics</code>.'>
+<!ENTITY mesh-route-method '(Optional) Select a <guilabel>Method</guilabel>. '>    
+<!ENTITY mesh-route-scheme '(Optional) Select a <guilabel>Scheme</guilabel>. '>
+<!ENTITY mesh-route-header '(Optional) Select <guilabel>Add header</guilabel>. Enter the <guilabel>Header name</guilabel> that you want to route based on, select a <guilabel>Match type</guilabel>,
+                            and enter a <guilabel>Match value</guilabel>. Selecting <guilabel>Invert</guilabel> will match the opposite.'>
+<!ENTITY mesh-route-header-addtl '(Optional) Select <guibutton>Add header</guibutton>. You can add up to ten headers. '>
+<!ENTITY mesh-route-header-addtl-info 'For additional information about HTTP header-based routing, see <ulink url="&url-mesh-user;route-http-headers.html">HTTP Headers</ulink>. '>
+<!ENTITY mesh-route-header-example 'For example, if you specify a header named <code>clientRequestId</code> with a <guilabel>Prefix</guilabel>
+                                    of <code>123</code>, and select <guilabel>Invert</guilabel>, then the route is matched for any
+                                    request that has a header that starts with anything other than <code>123</code>.'>
+<!ENTITY mesh-route-metadata '(Optional) Enter the <guilabel>Metadata name</guilabel> that you want to route based on, select a <guilabel>Match type</guilabel>,
+                              and enter a <guilabel>Match value</guilabel>. Selecting <guilabel>Invert</guilabel> will match the opposite. For example, if you specify a <guilabel>Metadata name</guilabel>
+                              of <code>myMetadata</code>, a <guilabel>Match type</guilabel> of <guimenuitem>Exact</guimenuitem>, a <guilabel>Match value</guilabel>
+                              of <code>123</code>, and select <guilabel>Invert</guilabel>, then the route is matched for any
+                              request that has a metadata name that starts with anything other than <code>123</code>.'>
+<!ENTITY mesh-route-metadata-addtl '(Optional) Select <guibutton>Add metadata</guibutton> to add up to ten metadata items. '>
+<!ENTITY mesh-route-service-name '(Optional) Enter the <guilabel>Service name</guilabel> of the destination service to match the request
+                    for. If you don&apos;t specify a name, requests to any service are matched. '>
+<!ENTITY mesh-route-method-name '(Optional) Enter the <guilabel>Method name</guilabel> of the destination method to match the request
+                    for. If you don&apos;t specify a name, requests to any method are matched. If you specify a method name, you must specify a service name.'>
+<!ENTITY mesh-route-retry-intro 'A retry policy enables clients to protect themselves from intermittent network failures or intermittent server-side
+                                 failures. A retry policy is optional. The retry timeout values define the duration of time between retry attempts.'>
+<!ENTITY mesh-route-retry-timeout 'For <guilabel>Retry timeout</guilabel>, enter the number of units for the timeout duration. A value is required if you select any protocol retry event.'>
+<!ENTITY mesh-route-retry-timeout-unit 'For <guilabel>Retry timeout unit</guilabel>, select a unit. A value is required if you select any protocol retry event.'>
+<!ENTITY mesh-route-retry-max-retries 'For <guilabel>Max retries</guilabel>, enter the maximum number of retry attempts when the request fails. A value is required if you select any protocol retry event.'>
+<!ENTITY mesh-route-retry-grpc-events 'Select one or more <guilabel>gRPC retry events</guilabel>.'>
+<!ENTITY mesh-route-retry-http-events 'Select one or more <guilabel>HTTP retry events</guilabel>.'>
+<!ENTITY mesh-route-retry-tcp-events 'Select a <guilabel>TCP retry event</guilabel>.'>
+<!ENTITY mesh-route-create-finish 'Choose <guilabel>Create route</guilabel> to finish.'>
+<!ENTITY mesh-route-retry-addtl-info 'For additional information about retry policy, see <ulink url="&url-mesh-user;route-retry-policy.html">Retry Policy</ulink>. '>
+<!ENTITY mesh-route-retry-example 'For example, you can can define a retry policy that attempts to route traffic three times when the routing attempt receives a TCP connection error or an HTTP server-error or gateway-error. You might specify a duration of 15 seconds between retry attempts.'>
+<!ENTITY mesh-route-repeat 'Repeat this procedure as necessary to create routes for each remaining
+                    service in your application.'>
+<!ENTITY route-cli-create '<para>Create the route with the following command.</para>
+<programlisting><userinput>aws appmesh create-route cli-input-json file://<replaceable>route.json</replaceable></userinput></programlisting> '>
+<!ENTITY route-cli-more-info '<para>For more information about creating routes with the &CLI;, see <ulink
+    url="&url-cli-ref;appmesh/create-route.html">create-route</ulink> in the
+    <emphasis>&guide-cli-ug;</emphasis>.</para>'>
+<!ENTITY route-cli-generate-skeleton '<para>You can always find the latest options that you can specify in an input
+     JSON file by running the <code>aws appmesh create-route generate-cli-skeleton</code> command. </para> '>
+
+
+<!ENTITY SERVICENAMElong '&MESHlong;'>
+<!ENTITY SERVICENAME '&MESH;'>
+<!ENTITY SLR-NAME 'AWSServiceRoleForAppMesh'>
+<!ENTITY SLR-DESCRIPTION 'The role allows &MESH; to call &AWS; services on your behalf'>
+<!ENTITY SLR-USECASE-NAME 'App Mesh'>
+<!ENTITY TRUSTED-ENTITY-NAME 'appmesh.amazonaws.com'>
+<!ENTITY PERMISSIONS-ACTION 'servicediscovery:DiscoverInstances'>
+<!ENTITY PERMISSIONS-RESOURCE 'all &AWS; resources'>
+<!ENTITY BACKFILLDATE 'June 5, 2019'>
+<!ENTITY INTRO-ACTION-IN-SERVICE 'create a mesh'>
+<!ENTITY REMOVE-ACTION-IN-SERVICE 'delete a mesh'>
+<!ENTITY REGIONLINK '<ulink type="documentation" url="general/latest/gr/appmesh.html">&MESH; Endpoints and Quotas</ulink>'>
+
+<!ENTITY AA-SERVICENAMElong '&MESHlong;'>
+<!ENTITY AA-SERVICENAME '&MESH;'>
+<!ENTITY AA-SERVICEPREFIX 'appmesh'>
+<!ENTITY AA-SERVICE-LIST-URL '<ulink url="&url-iam-user;list_awsappmesh.html">Actions, Resources, and Condition Keys for &AA-SERVICENAMElong;</ulink>'>
+<!ENTITY AA-SERVICE-RESOURCES-URL '<ulink url="&url-iam-user;list_awsappmesh.html#awsappmesh-resources-for-iam-policies">Resources Defined by &AA-SERVICENAMElong;</ulink>'>
+<!ENTITY AA-SERVICE-ACTIONS-URL '<ulink url="&url-iam-user;list_awsappmesh.html#awsappmesh-actions-as-permissions">Actions Defined by &AA-SERVICENAMElong;</ulink>'>
+<!ENTITY AA-SERVICE-CONDITIONS-URL '<ulink url="&url-iam-user;list_awsappmesh.html#awsappmesh-policy-keys">Condition Keys for &AA-SERVICENAMElong;</ulink>'>
+
+<!-- This entity is so we can share the App Mesh Getting Started content in two separate files, for a chapter and a section -->
+<!ENTITY mesh-gs '
+<important region="BJS">&appmesh-unsupported-region;</important>
+    <para features="mesh-gs-ecs">&MESHlong; is a service mesh based on the <ulink
+            url="https://www.envoyproxy.io/">Envoy</ulink> proxy that helps you monitor and control
+        services. &MESH; standardizes how your services communicate, giving you end-to-end
+        visibility into and helping to ensure high-availability for your applications. &MESH; gives
+        you consistent visibility and network traffic controls for every service in an application.
+        For more information, see the &link-mesh-user;.</para>
+
+    <para>This topic helps you use &MESHlong; with an actual service that is running on <phrase
+            features="mesh-gs-ecs">&ECS;</phrase><phrase features="mesh-gs">&ECS; or &EC2;. To use &MESH; with Kubernetes, see <ulink type="documentation" url="eks/latest/userguide/mesh-k8s-integration.html">Tutorial: Configure App Mesh integration with Kubernetes</ulink></phrase>.
+        This tutorial covers basic features of several &MESH; resource types. To learn more about features of resources that aren&apos;t used when completing this tutorial, see the topics for <ulink
+            type="documentation" url="app-mesh/latest/userguide/virtual_nodes.html">virtual
+            nodes</ulink>, <ulink type="documentation"
+            url="app-mesh/latest/userguide/virtual_services.html">virtual services</ulink>, <ulink
+            type="documentation" url="app-mesh/latest/userguide/virtual_routers.html">virtual
+            routers</ulink>, <ulink type="documentation" url="app-mesh/latest/userguide/routes.html"
+            >routes</ulink>, and the <ulink type="documentation"
+            url="app-mesh/latest/userguide/envoy.html">Envoy proxy</ulink>.</para>
+    <para></para>
+
+    <section id="scenario">
+        <info>
+            <title id="scenario.title">Scenario</title>
+        </info>
+        <para>To illustrate how to use &MESH;<phrase features="mesh-gs-ecs"> with
+                &ECS;</phrase>, assume that
+            you have an application with the following characteristics:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Includes two services named <code>serviceA</code> and <code>serviceB</code>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>Both services are registered to a namespace named
+                    <code>apps.local</code>.</para>
+            </listitem>
+            <listitem>
+                <para><code>ServiceA</code> communicates with <code>serviceB</code> over HTTP/2,
+                    port 80.</para>
+            </listitem>
+            <listitem>
+                <para> You have already deployed version 2 of <code>serviceB</code> and registered it
+                    with the name <code>serviceBv2</code> in the <code>apps.local</code>
+                    namespace.</para>
+            </listitem>
+        </itemizedlist>
+        <para>You have the following requirements:</para>
+        <itemizedlist>
+            <listitem>
+                <para>You want to send 75 percent of the traffic from <code>serviceA</code> to
+                        <code>serviceB</code> and 25 percent of the traffic to
+                        <code>serviceBv2</code> to ensure that <code>serviceBv2</code> is bug free
+                    before you send 100 percent of the traffic from <code>serviceA</code> to it.
+                </para>
+            </listitem>
+            <listitem>
+                <para>You want to be able to easily adjust the traffic weighting so that 100 percent
+                    of the traffic goes to <code>serviceBv2</code> once it is proven to be reliable.
+                    Once all traffic is being sent to <code>serviceBv2</code>, you want to deprecate
+                        <code>serviceB</code>.</para>
+            </listitem>
+            <listitem>
+                <para>You do not want to have to change any existing application code or service
+                    discovery registration for your actual services to meet the previous
+                    requirements. </para>
+            </listitem>
+        </itemizedlist>
+        <para>To meet your requirements, you have decided to create an &MESH; service mesh with
+            virtual services, virtual nodes, a virtual router, and a route. After implementing your
+            mesh, you update the <phrase features="mesh-gs"> services hosting your actual</phrase>
+            <phrase features="mesh-gs-ecs">task definitions for your</phrase> services to use the Envoy proxy.
+            Once updated, your services communicate with each other through the Envoy proxy rather
+            than directly with each other.</para>
+    </section>
+    <section id="prerequisites">
+        <info>
+            <title id="prerequisites.title">Prerequisites</title>
+        </info>
+        <para>&MESH; supports Linux services that are registered with DNS, &CMAP;, or both. To use
+            this getting started guide, we recommend that you have three existing services that are
+            registered with DNS. You can create a service mesh and its resources even if the
+            services don&apos;t exist, but you cannot use the mesh until you have deployed actual
+            services.</para>
+        <para features="mesh-gs-ecs">For more information about service discovery on &ECS;, see
+                <ulink url="&url-ecs-dev;service-discovery.html">Service Discovery</ulink>. To
+            create an &ECS; service with service discovery, see <ulink
+                url="&url-ecs-dev;create-service-discovery.html">Tutorial: Creating a Service Using
+                Service Discovery</ulink>.</para>
+        <para features="mesh-gs">If you don&apos;t already have services running, you can:</para>
+        <itemizedlist features="mesh-gs">
+            <listitem>
+                <para><ulink url="&url-ecs-dev;create-service-discovery.html">Create an &ECS;
+                        service with service discovery</ulink>.</para>
+            </listitem>
+            <listitem>
+                <para><ulink url="&url-mesh-user;appmesh-getting-started.html#update-services"
+                        >Launch &EC2; instances</ulink> and deploy applications to them.</para>
+            </listitem>
+        </itemizedlist>
+
+        <para>The remaining steps assume that the actual services are named <code>serviceA</code>,
+                <code>serviceB</code>, and <code>serviceBv2</code> and that all services are
+            discoverable through a namespace named <code>apps.local</code>. </para>
+    </section>
+    <section id="create-mesh-and-virtual-service">
+        <info>
+            <title id="create-mesh-and-virtual-service.title">Step 1: Create a mesh and virtual
+                service</title>
+        </info>
+        <para>A service mesh is a logical boundary for network traffic between the services that
+            reside within it. For more information, see <ulink url="&url-mesh-user;meshes.html"
+                >Service Meshes</ulink><phrase features="mesh-gs-ecs"> in the
+                    <emphasis>&guide-mesh-user;</emphasis></phrase>. A virtual service is an
+            abstraction of an actual service. For more information, see <ulink
+                url="&url-mesh-user;virtual_services.html">Virtual Services</ulink><phrase
+                features="mesh-gs-ecs"> in the
+                <emphasis>&guide-mesh-user;</emphasis></phrase>. </para>
+        <para>Create the following resources:</para>
+        <itemizedlist>
+            <listitem>
+                <para>A mesh named <code>apps</code>, since all of the services in the scenario are
+                    registered to the <code>apps.local</code> namespace.</para>
+            </listitem>
+            <listitem>
+                <para>A virtual service named <code>serviceb.apps.local</code>, since the virtual
+                    service represents a service that is discoverable with that name, and you don&apos;t
+                    want to change your code to reference another name. A virtual service named
+                        <code>servicea.apps.local</code> is added in a later step.</para>
+            </listitem>
+        </itemizedlist>
+        <para>You can use the &console; or the &CLI; version &aws_cli_min_version; or higher or
+            &aws_cli_min_version_2; or higher to complete the following steps. If using the &CLI;,
+            use the <code>aws --version</code> command to check your installed &CLI; version. If you
+            don&apos;t have version &aws_cli_min_version; or higher or &aws_cli_min_version_2; or higher
+            installed, then you must <ulink url="&url-cli-ug;cli-chap-install.html">install or
+                update the &CLI;</ulink>. Select the tab for the tool that you want to use.</para>
+
+        <tablist>
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>Open the &MESH; console first-run wizard at <ulink
+                                    url="https://console.aws.amazon.com/appmesh/get-started"
+                                    >https://console.aws.amazon.com/appmesh/get-started</ulink>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Mesh name</guilabel>, enter
+                                    <userinput>apps</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Virtual service name</guilabel>, enter
+                                    <userinput>serviceb.apps.local</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>To continue, choose <guilabel>Next</guilabel>.</para>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>&CLI;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>Create a mesh with the <code><ulink
+                                        url="&url-mesh-cli;create-mesh.html"
+                                    >create-mesh</ulink></code> command.</para>
+                            <programlisting><userinput>aws appmesh create-mesh --mesh-name apps</userinput></programlisting>
+                        </step>
+                        <step>
+                            <para>Create a virtual service with the <code><ulink type="documentation"
+                                        url="cli/latest/reference/appmesh/create-virtual-service.html"
+                                        >create-virtual-service</ulink></code> command.</para>
+                            <programlisting><userinput>aws appmesh create-virtual-service --mesh-name apps --virtual-service-name serviceb.apps.local --spec {}</userinput></programlisting>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+    </section>
+    <section id="create-virtual-node">
+        <info>
+            <title id="create-virtual-node.title">Step 2: Create a virtual node</title>
+        </info>
+        <para>A virtual node acts as a logical pointer to an actual service. For more information,
+            see <ulink url="&url-mesh-user;virtual_nodes.html">Virtual Nodes</ulink><phrase
+                features="mesh-gs-ecs">
+                <emphasis>in the &guide-mesh-user;</emphasis></phrase>. </para>
+        <para>Create a virtual node named <code>serviceB</code>, since one of the virtual nodes
+            represents the actual service named <code>serviceB</code>. The actual service that the
+            virtual node represents is discoverable through <code>DNS</code> with a hostname of
+                <code>serviceb.apps.local</code>. Alternately, you can discover actual services
+            using &CMAP;. The virtual node will listen for traffic using the HTTP/2 protocol on port
+            80. Other protocols are also supported, as are health checks. You will create virtual
+            nodes for <code>serviceA</code> and <code>serviceBv2</code> in a later step.</para>
+        <tablist>
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>For <guilabel>Virtual node name</guilabel>, enter
+                                    <userinput>serviceB</userinput>. </para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Service discovery method</guilabel>, choose
+                                    <guilabel>DNS</guilabel> and enter
+                                    <userinput>serviceb.apps.local</userinput> for <guilabel>DNS
+                                    hostname</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Under <guilabel>Listener configuration</guilabel>, choose
+                                    <guilabel>http2</guilabel> for <guilabel>Protocol</guilabel> and
+                                enter <userinput>80</userinput> for
+                                <guilabel>Port</guilabel>.</para>
+                        </step>
+
+                        <step>
+                            <para>To continue, choose <guilabel>Next</guilabel>.</para>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>&CLI;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>Create a file named <code>create-virtual-node-serviceb.json</code>
+                                with the following contents:</para>
+                            <programlisting language="json">{
+    "meshName": "apps",
+    "spec": {
+        "listeners": [
+            {
+                "portMapping": {
+                    "port": 80,
+                    "protocol": "http2"
+                }
+            }
+        ],
+        "serviceDiscovery": {
+            "dns": {
+                "hostname": "serviceB.apps.local"
+            }
+        }
+    },
+    "virtualNodeName": "serviceB"
+}</programlisting>
+                        </step>
+                        <step>
+                            <para>Create the virtual node with the <ulink type="documentation"
+                                    url="cli/latest/reference/appmesh/create-virtual-node.html"
+                                    >create-virtual-node</ulink> command using the JSON file as
+                                input.</para>
+                            <programlisting><userinput>aws appmesh create-virtual-node --cli-input-json file://create-virtual-node-serviceb.json</userinput></programlisting>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+    </section>
+    <section id="create-virtual-router-and-route">
+        <info>
+            <title id="create-virtual-router-and-route.title">Step 3: Create a virtual router and
+                route</title>
+        </info>
+        <para>Virtual routers route traffic for one or more virtual services within your mesh. For
+            more information, see <ulink url="&url-mesh-user;virtual_routers.html">Virtual
+                Routers</ulink> and <ulink url="&url-mesh-user;routes.html">Routes</ulink><phrase
+                features="mesh-gs-ecs"> in the
+                <emphasis>&guide-mesh-user;</emphasis></phrase>.</para>
+        <para>Create the following resources:</para>
+        <itemizedlist>
+            <listitem>
+                <para>A virtual router named <code>serviceB</code>, since the
+                        <code>serviceB.apps.local</code> virtual service does not initiate outbound
+                    communication with any other service. Remember that the virtual service that you
+                    created previously is an abstraction of your actual
+                        <code>serviceb.apps.local</code> service. The virtual service sends traffic
+                    to the virtual router. The virtual router will listen for traffic using the
+                    HTTP/2 protocol on port 80. Other protocols are also supported. </para>
+            </listitem>
+            <listitem>
+                <para>A route named <code>serviceB</code>. It will route 100 percent of its traffic
+                    to the <code>serviceB</code> virtual node. You will change the weight in a later
+                    step once you have added the <code>serviceBv2</code> virtual node. Though not
+                    covered in this guide, you can add additional filter criteria for the route and
+                    add a retry policy to cause the Envoy proxy to make multiple attempts to send
+                    traffic to a virtual node when it experiences a communication problem.</para>
+            </listitem>
+        </itemizedlist>
+        <tablist>
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>For <guilabel>Virtual router name,</guilabel> enter
+                                    <userinput>serviceB</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>Under <guilabel>Listener configuration</guilabel>, choose
+                                    <guilabel>http2</guilabel> for <guilabel>Protocol</guilabel> and
+                                specify <userinput>80</userinput> for
+                                <guilabel>Port</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Route name</guilabel>, enter
+                                    <userinput>serviceB</userinput>. </para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Route type</guilabel>, choose
+                                    <guilabel>http2</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Virtual node name</guilabel> under <guilabel>Route
+                                    configuration</guilabel>, select <code>serviceB</code> and enter
+                                    <userinput>100</userinput> for
+                                <guilabel>Weight</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>To continue, choose <guilabel>Next</guilabel>.</para>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>&CLI;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>Create a virtual router.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named
+                                            <code>create-virtual-router.json</code> with the
+                                        following contents:</para>
+                                    <programlisting language="json">{
+    "meshName": "apps",
+    "spec": {
+        "listeners": [
+            {
+                "portMapping": {
+                    "port": 80,
+                    "protocol": "http2"
+                }
+            }
+        ]
+    },
+    "virtualRouterName": "serviceB"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Create the virtual router with the <ulink type="documentation"
+                                            url="cli/latest/reference/appmesh/create-virtual-router.html"
+                                            >create-virtual-router</ulink> command using the JSON
+                                        file as input.</para>
+                                    <programlisting><userinput>aws appmesh create-virtual-router --cli-input-json file://create-virtual-router.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Create a route.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named <code>create-route.json</code> with
+                                        the following contents:</para>
+                                    <programlisting language="json">{
+    "meshName" : "apps",
+    "routeName" : "serviceB",
+    "spec" : {
+        "httpRoute" : {
+            "action" : {
+                "weightedTargets" : [
+                    {
+                        "virtualNode" : "serviceB",
+                        "weight" : 100
+                    }
+                ]
+            },
+            "match" : {
+                "prefix" : "/"
+            }
+        }
+    },
+    "virtualRouterName" : "serviceB"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Create the route with the <ulink type="documentation"
+                                            url="cli/latest/reference/appmesh/create-route.html"
+                                            >create-route</ulink> command using the JSON file as
+                                        input.</para>
+                                    <programlisting><userinput>aws appmesh create-route --cli-input-json file://create-route.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+
+    </section>
+    <section id="review-create">
+        <info>
+            <title id="review-create.title">Step 4: Review and create</title>
+        </info>
+        <para>Review the settings against the previous instructions.</para>
+        <tablist>
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <para>Choose <guilabel>Edit</guilabel> if you need to make changes in any
+                        section. Once you are satisfied with the settings, choose <guilabel>Create
+                            mesh</guilabel>.</para>
+                    <para>The <guilabel>Status</guilabel> screen shows you all of the mesh resources
+                        that were created. You can see the created resources in the console by
+                        selecting <guilabel>View mesh</guilabel>.</para>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>&CLI;</tabname>
+                <tabcontent>
+                    <para>Review the settings of the mesh you created with the <ulink type="documentation"
+                            url="cli/latest/reference/appmesh/describe-mesh.html">describe-mesh</ulink>
+                        command.</para>
+                    <programlisting><userinput>aws appmesh describe-mesh --mesh-name apps</userinput></programlisting>
+
+                    <para>Review the settings of the virtual service that you created with the
+                            <ulink type="documentation" url="cli/latest/reference/appmesh/describe-virtual-service.html"
+                            >describe-virtual-service</ulink> command.</para>
+                    <programlisting><userinput>aws appmesh describe-virtual-service --mesh-name apps --virtual-service-name serviceb.apps.local</userinput></programlisting>
+
+                    <para>Review the settings of the virtual node that you created with the <ulink type="documentation"
+                            url="cli/latest/reference/appmesh/describe-virtual-node.html"
+                            >describe-virtual-node</ulink> command.</para>
+                    <programlisting><userinput>aws appmesh describe-virtual-node --mesh-name apps --virtual-node-name serviceB</userinput></programlisting>
+
+                    <para>Review the settings of the virtual router that you created with the <ulink type="documentation"
+                            url="cli/latest/reference/appmesh/describe-virtual-router.html"
+                            >describe-virtual-router</ulink> command.</para>
+                    <programlisting><userinput>aws appmesh describe-virtual-router --mesh-name apps --virtual-router-name serviceB</userinput></programlisting>
+
+                    <para>Review the settings of the route that you created with the <ulink type="documentation"
+                            url="cli/latest/reference/appmesh/describe-route.html">describe-route</ulink>
+                        command.</para>
+                    <programlisting><userinput>aws appmesh describe-route --mesh-name apps \
+    --virtual-router-name serviceB  --route-name serviceB</userinput></programlisting>
+
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+    </section>
+    <section id="create-additional-resources">
+        <info>
+            <title id="create-additional-resources.title">Step 5: Create additional
+                resources</title>
+        </info>
+        <para>To complete the scenario, you need to:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Create one virtual node named <code>serviceBv2</code> and another named
+                        <code>serviceA</code>. Both virtual nodes listen for requests over HTTP/2
+                    port 80. For the <code>serviceA</code> virtual node, configure a backend of
+                        <code>serviceb.apps.local</code>, since all outbound traffic from the
+                        <code>serviceA</code> virtual node is sent to the virtual service named
+                        <code>serviceb.apps.local</code>. Though not covered in this guide, you can
+                    also specify a file path to write access logs to for a virtual node.</para>
+            </listitem>
+            <listitem>
+                <para>Create one additional virtual service named <code>servicea.apps.local</code>,
+                    which will send all traffic directly to the <code>serviceA</code> virtual
+                    node.</para>
+            </listitem>
+            <listitem>
+                <para>Update the <code>serviceB</code> route that you created in a previous step to
+                    send 75 percent of its traffic to the <code>serviceB</code> virtual node and 25
+                    percent of its traffic to the <code>serviceBv2</code> virtual node. Over time,
+                    you can continue to modify the weights until <code>serviceBv2</code> receives
+                    100 percent of the traffic. Once all traffic is sent to <code>serviceBv2</code>,
+                    you can deprecate the <code>serviceB</code> virtual node and actual service. As
+                    you change weights, your code does not require any modification, because the
+                        <code>serviceb.apps.local</code> virtual and actual service names don&apos;t
+                    change. Recall that the <code>serviceb.apps.local</code> virtual service sends
+                    traffic to the virtual router, which routes the traffic to the virtual nodes.
+                    The service discovery names for the virtual nodes can be changed at any
+                    time.</para>
+            </listitem>
+        </itemizedlist>
+        <tablist>
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>In the left navigation pane, select
+                                <guilabel>Meshes</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Select the <code>apps</code> mesh that you created in a previous
+                                step.</para>
+                        </step>
+                        <step>
+                            <para>In the left navigation pane, select <guilabel>Virtual
+                                    nodes</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Create virtual node</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Virtual node name</guilabel>, enter
+                                    <userinput>serviceBv2</userinput>, for <guilabel>Service
+                                    discovery method</guilabel>, choose <guilabel>DNS</guilabel>,
+                                and for <guilabel>DNS hostname</guilabel>, enter
+                                    <userinput>servicebv2.apps.local</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Listener configuration</guilabel>, select
+                                    <guilabel>http2</guilabel> for <guilabel>Protocol</guilabel> and
+                                enter <userinput>80</userinput> for
+                                <guilabel>Port</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Create virtual node</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Create virtual node</guilabel> again. Enter
+                                    <userinput>serviceA</userinput> for the <guilabel>Virtual node
+                                    name</guilabel>. For <guilabel>Service discovery
+                                    method</guilabel>, choose <guilabel>DNS</guilabel>, and for
+                                    <guilabel>DNS hostname</guilabel>, enter
+                                    <userinput>servicea.apps.local</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>For <guilabel>Enter a virtual service name</guilabel> under
+                                    <guilabel>New backend</guilabel>, enter
+                                    <userinput>servicea.apps.local</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>Under <guilabel>Listener configuration</guilabel>, choose
+                                    <guilabel>http2</guilabel> for <guilabel>Protocol</guilabel>,
+                                enter <userinput>80</userinput> for <guilabel>Port</guilabel>, and
+                                then choose <guilabel>Create virtual node</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>In the left navigation pane, select<guilabel> Virtual
+                                    routers</guilabel> and then select the <code>serviceB</code>
+                                virtual router from the list.</para>
+                        </step>
+                        <step>
+                            <para>Under <guilabel>Routes</guilabel>, select the route named
+                                    <code>ServiceB</code> that you created in a previous step, and
+                                choose <guilabel>Edit</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Under <guilabel>Targets</guilabel>, <guilabel>Virtual node
+                                    name</guilabel>, change the value of <guilabel>Weight</guilabel>
+                                for <code>serviceB</code> to <userinput>75</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Add target</guilabel>, choose
+                                    <code>serviceBv2</code> from the drop-down list, and set the
+                                value of <guilabel>Weight</guilabel> to
+                                <userinput>25</userinput>.</para>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Save</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>In the left navigation pane, select<guilabel> Virtual
+                                    services</guilabel> and then choose <guilabel>Create virtual
+                                    service</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Enter <userinput>servicea.apps.local</userinput> for
+                                    <guilabel>Virtual service name</guilabel>, select
+                                    <guilabel>Virtual node</guilabel> for
+                                    <guilabel>Provider</guilabel>, select <code>serviceA</code> for
+                                    <guilabel>Virtual node</guilabel>, and then choose
+                                    <guilabel>Create virtual service.</guilabel></para>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>&CLI;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>
+                            <para>Create the <code>serviceBv2</code> virtual node.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named
+                                            <code>create-virtual-node-servicebv2.json</code> with
+                                        the following contents:</para>
+                                    <programlisting language="json">{
+    "meshName": "apps",
+    "spec": {
+        "listeners": [
+            {
+                "portMapping": {
+                    "port": 80,
+                    "protocol": "http2"
+                }
+            }
+        ],
+        "serviceDiscovery": {
+            "dns": {
+                "hostname": "serviceBv2.apps.local"
+            }
+        }
+    },
+    "virtualNodeName": "serviceBv2"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Create the virtual node.</para>
+                                    <programlisting><userinput>aws appmesh create-virtual-node --cli-input-json file://create-virtual-node-servicebv2.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Create the <code>serviceA</code> virtual node.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named
+                                            <code>create-virtual-node-servicea.json</code> with the
+                                        following contents:</para>
+                                    <programlisting language="json">{
+   "meshName" : "apps",
+   "spec" : {
+      "backends" : [
+         {
+            "virtualService" : {
+               "virtualServiceName" : "serviceb.apps.local"
+            }
+         }
+      ],
+      "listeners" : [
+         {
+            "portMapping" : {
+               "port" : 80,
+               "protocol" : "http2"
+            }
+         }
+      ],
+      "serviceDiscovery" : {
+         "dns" : {
+            "hostname" : "servicea.apps.local"
+         }
+      }
+   },
+   "virtualNodeName" : "serviceA"
+}
+</programlisting>
+                                </step>
+                                <step>
+                                    <para>Create the virtual node.</para>
+                                    <programlisting><userinput>aws appmesh create-virtual-node --cli-input-json file://create-virtual-node-servicea.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Update the <code>serviceb.apps.local</code> virtual service that
+                                you created in a previous step to send its traffic to the
+                                    <code>serviceB</code> virtual router. When the virtual service
+                                was originally created, it did not send traffic anywhere, since the
+                                    <code>serviceB</code> virtual router had not been created
+                                yet.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named
+                                            <code>update-virtual-service.json</code> with the
+                                        following contents:</para>
+                                    <programlisting language="json">{
+   "meshName" : "apps",
+   "spec" : {
+      "provider" : {
+         "virtualRouter" : {
+            "virtualRouterName" : "serviceB"
+         }
+      }
+   },
+   "virtualServiceName" : "serviceb.apps.local"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Update the virtual service with the <ulink type="documentation"
+                                            url="cli/latest/reference/appmesh/update-virtual-service.html"
+                                            >update-virtual-service</ulink> command.</para>
+                                    <programlisting><userinput>aws appmesh update-virtual-service --cli-input-json file://update-virtual-service.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Update the <code>serviceB</code> route that you created in a
+                                previous step.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named <code>update-route.json</code> with
+                                        the following contents:</para>
+                                    <programlisting language="json">{
+   "meshName" : "apps",
+   "routeName" : "serviceB",
+   "spec" : {
+      "http2Route" : {
+         "action" : {
+            "weightedTargets" : [
+               {
+                  "virtualNode" : "serviceB",
+                  "weight" : 75
+               },
+               {
+                  "virtualNode" : "serviceBv2",
+                  "weight" : 25
+               }
+            ]
+         },
+         "match" : {
+            "prefix" : "/"
+         }
+      }
+   },
+   "virtualRouterName" : "serviceB"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Update the route with the <ulink type="documentation"
+                                            url="cli/latest/reference/appmesh/update-route.html"
+                                            >update-route</ulink> command.</para>
+                                    <programlisting><userinput>aws appmesh update-route --cli-input-json file://update-route.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Create the <code>serviceA</code> virtual service.</para>
+                            <substeps>
+                                <step>
+                                    <para>Create a file named
+                                            <code>create-virtual-servicea.json</code> with the
+                                        following contents:</para>
+                                    <programlisting language="json">{
+   "meshName" : "apps",
+   "spec" : {
+      "provider" : {
+         "virtualNode" : {
+            "virtualNodeName" : "serviceA"
+         }
+      }
+   },
+   "virtualServiceName" : "servicea.apps.local"
+}</programlisting>
+                                </step>
+                                <step>
+                                    <para>Create the virtual service.</para>
+                                    <programlisting><userinput>aws appmesh create-virtual-service --cli-input-json file://create-virtual-servicea.json</userinput></programlisting>
+                                </step>
+                            </substeps>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+        <formalpara>
+            <title>Mesh summary</title>
+            <para>Before you created the service mesh, you had three actual services named
+                    <code>servicea.apps.local</code>, <code>serviceb.apps.local</code>, and
+                    <code>servicebv2.apps.local</code>. In addition to the actual services, you now
+                have a service mesh that contains the following resources that represent the actual
+                services:</para>
+        </formalpara>
+        <itemizedlist>
+            <listitem>
+                <para>Two virtual services. The proxy sends all traffic from the
+                        <code>servicea.apps.local</code> virtual service to the
+                        <code>serviceb.apps.local</code> virtual service through a virtual router.
+                </para>
+            </listitem>
+            <listitem>
+                <para>Three virtual nodes named <code>serviceA</code>, <code>serviceB</code>, and
+                        <code>serviceBv2</code>. The Envoy proxy uses the service discovery
+                    information configured for the virtual nodes to look up the IP addresses of the
+                    actual services. </para>
+            </listitem>
+            <listitem>
+                <para>One virtual router with one route that instructs the Envoy proxy to route 75
+                    percent of inbound traffic to the <code>serviceB</code> virtual node and 25
+                    percent of the traffic to the <code>serviceBv2</code> virtual node. </para>
+            </listitem>
+        </itemizedlist>
+    </section>
+    <section id="update-services">
+        <info>
+            <title id="update-services.title">Step 6: Update services</title>
+        </info>
+        <para>After creating your mesh, you need to complete the following tasks:</para>
+        <itemizedlist>
+            <listitem>
+                <para>Authorize the Envoy proxy that you deploy with each <phrase
+                        features="mesh-gs-ecs">&ECS; task</phrase><phrase features="mesh-gs">service</phrase> to read
+                    the configuration of one or more virtual nodes. For more information about how
+                    to authorize the proxy, see <ulink url="&url-mesh-user;proxy-authorization.html"
+                        >Proxy authorization</ulink>.</para>
+            </listitem>
+            <listitem>
+                <para>Update each of your existing <phrase features="mesh-gs-ecs">&ECS; task
+                        definitions</phrase><phrase features="mesh-gs">services</phrase>
+                    to use the Envoy
+                    proxy. <phrase features="mesh-gs">To update your existing service that is
+                        running on &ECS;, see <ulink
+                            url="&url-ecs-dev;appmesh-getting-started.html#update-services">Getting
+                            Started with &MESH; and &ECS;</ulink>. To update your existing
+                        service that is running on &EC2;, complete the steps that
+                    follow.</phrase></para>
+            </listitem>
+        </itemizedlist>
+
+        <!--                                  Instructions for EC2                               -->
+        <procedure features="mesh-gs">
+            <title>To configure an &EC2; instance as a virtual node member</title>
+            <step>
+                <para>Create an &IAM; role.</para>
+                <substeps>
+                    <step>
+                        <para>Create a file named <code>ec2-trust-relationship.json</code> with the
+                            following contents.</para>
+                        <programlisting language="json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}</programlisting>
+                    </step>
+                    <step>
+                        <para>Create an &IAM; role with the following command.</para>
+                        <programlisting><userinput>aws iam create-role --role-name <replaceable>mesh-virtual-node-service-b</replaceable> --assume-role-policy-document file://ec2-trust-relationship.json</userinput></programlisting>
+                    </step>
+                </substeps>
+            </step>
+            <step>
+                <para>Attach &IAM; policies to the role that allow it to read from &ECR; and only the
+                    configuration of a specific &MESH; virtual node.</para>
+                <substeps>
+                    <step>
+                        <para>Create a file named <code>virtual-node-policy.json</code> with the
+                            following contents. <code>apps</code> is the name of the mesh you
+                            created in <xref linkend="create-mesh-and-virtual-service"/> and
+                                <code>serviceB</code> is the name of the virtual node that you
+                            created in <xref linkend="create-virtual-node"/>. Replace
+                                <replaceable>&ExampleAWSAccountNo1;</replaceable> with your account
+                            ID and <replaceable>us-west-2</replaceable> with the region that you
+                            created your mesh in.</para>
+                        <programlisting language="json">{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "appmesh:StreamAggregatedResources",
+            "Resource": [
+                "arn:aws:appmesh:<replaceable>us-west-2</replaceable>:<replaceable>&ExampleAWSAccountNo1;</replaceable>:mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable>"
+            ]
+        }
+    ]
+}</programlisting>
+                    </step>
+                    <step>
+                        <para>Create the policy with the following command.</para>
+                        <programlisting><userinput>aws iam create-policy --policy-name <replaceable>virtual-node-policy</replaceable> --policy-document file://virtual-node-policy.json</userinput></programlisting>
+                    </step>
+                    <step>
+                        <para>Attach the policy that you created in the previous step to the role so
+                            the role can read the configuration for only the <code>serviceB</code>
+                            virtual node from &MESH;.</para>
+                        <programlisting><userinput>aws iam attach-role-policy --policy-arn arn:aws:iam::<replaceable>&ExampleAWSAccountNo1;</replaceable>:policy/virtual-node-policy --role-name <code>mesh-virtual-node-service-b</code></userinput></programlisting>
+                    </step>
+                    <step>
+                        <para>Attach the <code>AmazonEC2ContainerRegistryReadOnly</code> managed
+                            policy to the role so that it can pull the Envoy container image from
+                            &ECR;.</para>
+                        <programlisting><userinput>aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly --role-name <replaceable>mesh-virtual-node-service-b</replaceable></userinput></programlisting>
+                    </step>
+                </substeps>
+            </step>
+            <step>
+                <para><ulink type="documentation"
+                        url="AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#launch-instance-with-role"
+                        >Launch an &EC2; instance with the &IAM; role</ulink> that you created.
+                </para>
+            </step>
+            <step>
+                <para>Connect to your instance via SSH.</para>
+            </step>
+<step>
+                <para>Install Docker and the &CLI; on your instance according to your operating
+                    system documentation.</para>
+            </step>
+            <step>
+                <para>Authenticate to the Envoy &ECR; repository in the Region that you want your
+                    Docker client to pull the image from.</para>
+                    <itemizedlist>
+                    <listitem>
+                        <para>All Regions except &envoy-image-region-exceptions;. You can replace
+                                <replaceable>&appmesh-default-region;</replaceable> with any <ulink
+                                type="documentation" url="general/latest/gr/appmesh.html">supported
+                                Region</ulink> except &envoy-image-region-exceptions;.</para>
+                        <programlisting>$<userinput>aws ecr get-login-password \
+    --region <replaceable>us-west-2</replaceable> \
+| docker login \
+    --username AWS \
+    --password-stdin 840364872350.dkr.ecr.<replaceable>us-west-2</replaceable>.amazonaws.com</userinput></programlisting>
+                    </listitem>
+                    <listitem>
+                        <para><code>me-south-1</code> Region</para>
+                        <programlisting>$<userinput>aws ecr get-login-password \
+    --region me-south-1 \
+| docker login \
+    --username AWS \
+    --password-stdin 772975370895.dkr.ecr.me-south-1.amazonaws.com</userinput></programlisting>
+                    </listitem>
+                    <listitem>
+                        <para><code>ap-east-1</code> Region</para>
+                        <programlisting>$<userinput>aws ecr get-login-password \
+    --region ap-east-1 \
+| docker login \
+    --username AWS \
+    --password-stdin 856666278305.dkr.ecr.ap-east-1.amazonaws.com</userinput></programlisting>
+                    </listitem>
+</itemizedlist>
+                <!--  <substeps>
+                <step><para>Retrieve the &ECR; repository account ID and latest version of the container image for your
+                            Region, replacing <replaceable>region-code</replaceable> with a <ulink
+                                type="documentation" url="general/latest/gr/appmesh.html">supported
+                                &MESH; Region code</ulink>.</para>
+                <programlisting><userinput>aws ssm get-parameter -name "/aws/service/appmesh/envoy" -region <replaceable>region-code</replaceable> -query "Parameter.Value" -output text</userinput></programlisting>
+                <para>Output</para>
+                <programlisting><replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region-code</replaceable>.amazonaws.com/aws-appmesh-envoy:<replaceable>envoy-image-version</replaceable></programlisting></step>
+                <step><para>Log into the appropriate &ECR; repository.</para><programlisting><userinput>aws ecr get-login-password \
+    -region <replaceable>region-code</replaceable> \
+| docker login \
+    -username AWS \
+    -password-stdin <replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region-code</replaceable>.amazonaws.com</userinput></programlisting>
+            </step>
+            </substeps> -->
+            </step>
+            <step>
+                <para>Run one of the following commands to start the &MESH; Envoy container on your instance, depending on which Region you want to pull the image from. The <replaceable>apps</replaceable> and <replaceable>serviceB</replaceable>
+                    values are the mesh and virtual node names defined in the scenario. This information tells the proxy which virtual node configuration to read from &MESH;. To complete the scenario, you also need to complete these steps for the
+                    &EC2; instances that host the services represented by the <code>serviceBv2</code> and <code>serviceA</code> virtual nodes. For your own application, replace these values with your own.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>All Regions except &envoy-image-region-exceptions;. You can replace <replaceable>region-code</replaceable> with any <ulink type="documentation" url="general/latest/gr/appmesh.html">supported
+                                Region</ulink> except the &envoy-image-region-exceptions; Regions. You can replace <code><replaceable>1337</replaceable></code> with any value between <code>0</code> and <code>2147483647</code>.</para>
+                        <programlisting><userinput>sudo docker run --detach --env APPMESH_VIRTUAL_NODE_NAME=<code>mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable></code>  \
+-u <replaceable>1337</replaceable> --network host &envoy-image;</userinput></programlisting>
+                    </listitem>
+                    <listitem>
+                        <para><code>me-south-1</code> Region. You can replace <code><replaceable>1337</replaceable></code> with any value between <code>0</code> and <code>2147483647</code>.</para>
+                        <programlisting><userinput>sudo docker run --detach --env APPMESH_VIRTUAL_NODE_NAME=<code>mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable></code>  \
+-u <replaceable>1337</replaceable> --network host &envoy-image-me-south-1;</userinput></programlisting>
+                    </listitem>
+                    <listitem>
+                        <para><code>ap-east-1</code> Region. You can replace
+                                    <code><replaceable>1337</replaceable></code> with any value between <code>0</code> and <code>2147483647</code>.</para>
+                        <programlisting><userinput>sudo docker run --detach --env APPMESH_VIRTUAL_NODE_NAME=<code>mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable></code>  \
+-u <replaceable>1337</replaceable> --network host &envoy-image-ap-east-1;</userinput></programlisting>
+                    </listitem>
+                </itemizedlist>
+                &envoy-min-supported-version-note;
+            </step>
+           <!--  <step>
+                <para>Run the following command to start the &MESH; Envoy container on your instance. The <replaceable>apps</replaceable> and <replaceable>serviceB</replaceable> values are the mesh and virtual node
+                    names defined in the scenario. This information tells the proxy which virtual node configuration to read from &MESH;. To complete the scenario, you also need to complete these steps for the &EC2; instances that host the services
+                    represented by the <code>serviceBv2</code> and <code>serviceA</code> virtual nodes. For your own application, replace these values with your own. Replace <replaceable>envoy-image</replaceable> with the value returned in the
+                    previous step. You can replace <code><replaceable>1337</replaceable></code> with any value between <code>0</code>&endash;<code>2147483647</code>.</para>
+                        <programlisting><userinput>sudo docker run -detach -env APPMESH_VIRTUAL_NODE_NAME=<code>mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable></code>  \
+-u <replaceable>1337</replaceable> -network host <replaceable>envoy-image</replaceable>;</userinput></programlisting>
+            </step> -->
+            <step minimized="true">
+                <para>Select <code>Show more</code> below. Create a file named <code>envoy-networking.sh</code> on your instance with the following contents. Replace <replaceable>8000</replaceable> with the port that your
+                    application code uses for ingress. You can change the value for <code>APPMESH_IGNORE_UID</code>, but the value must be the same as the value that you specified in the previous step; for example <code>1337</code>. You can
+                    add additional addresses to <code>APPMESH_EGRESS_IGNORED_IP</code> if necessary.
+                    Do not modify any other lines.</para>
+                <programlisting language="bash">#!/bin/bash -e
+
+#
+# Start of configurable options
+#
+
+
+#APPMESH_START_ENABLED="0"
+APPMESH_IGNORE_UID="<replaceable>1337</replaceable>"
+APPMESH_APP_PORTS="<replaceable>8000</replaceable>"
+APPMESH_ENVOY_EGRESS_PORT="15001"
+APPMESH_ENVOY_INGRESS_PORT="15000"
+APPMESH_EGRESS_IGNORED_IP="169.254.169.254,169.254.170.2" 
+
+# Enable routing on the application start.
+[ -z "$APPMESH_START_ENABLED" ] &amp;&amp; APPMESH_START_ENABLED="0"
+
+# Egress traffic from the processess owned by the following UID/GID will be ignored.
+if [ -z "$APPMESH_IGNORE_UID" ] &amp;&amp; [ -z "$APPMESH_IGNORE_GID" ]; then
+    echo "Variables APPMESH_IGNORE_UID and/or APPMESH_IGNORE_GID must be set."
+    echo "Envoy must run under those IDs to be able to properly route its egress traffic."
+    exit 1
+fi
+
+# Port numbers Application and Envoy are listening on.
+if [ -z "$APPMESH_ENVOY_INGRESS_PORT" ] || [ -z "$APPMESH_ENVOY_EGRESS_PORT" ] || [ -z "$APPMESH_APP_PORTS" ]; then
+    echo "All of APPMESH_ENVOY_INGRESS_PORT, APPMESH_ENVOY_EGRESS_PORT and APPMESH_APP_PORTS variables must be set."
+    echo "If any one of them is not set we will not be able to route either ingress, egress, or both directions."
+    exit 1
+fi
+
+# Comma separated list of ports for which egress traffic will be ignored, we always refuse to route SSH traffic.
+if [ -z "$APPMESH_EGRESS_IGNORED_PORTS" ]; then
+    APPMESH_EGRESS_IGNORED_PORTS="22"
+else
+    APPMESH_EGRESS_IGNORED_PORTS="$APPMESH_EGRESS_IGNORED_PORTS,22"
+fi
+
+#
+# End of configurable options
+#
+
+APPMESH_LOCAL_ROUTE_TABLE_ID="100"
+APPMESH_PACKET_MARK="0x1e7700ce"
+
+function initialize() {
+    echo "=== Initializing ==="
+    iptables -t mangle -N APPMESH_INGRESS
+    iptables -t nat -N APPMESH_INGRESS
+    iptables -t nat -N APPMESH_EGRESS
+
+    ip rule add fwmark "$APPMESH_PACKET_MARK" lookup $APPMESH_LOCAL_ROUTE_TABLE_ID
+    ip route add local default dev lo table $APPMESH_LOCAL_ROUTE_TABLE_ID
+}
+
+function enable_egress_routing() {
+    # Stuff to ignore
+    [ ! -z "$APPMESH_IGNORE_UID" ] &amp;&amp; \
+        iptables -t nat -A APPMESH_EGRESS \
+        -m owner --uid-owner $APPMESH_IGNORE_UID \
+        -j RETURN
+
+    [ ! -z "$APPMESH_IGNORE_GID" ] &amp;&amp; \
+        iptables -t nat -A APPMESH_EGRESS \
+        -m owner --gid-owner $APPMESH_IGNORE_GID \
+        -j RETURN
+
+    [ ! -z "$APPMESH_EGRESS_IGNORED_PORTS" ] &amp;&amp; \
+        iptables -t nat -A APPMESH_EGRESS \
+        -p tcp \
+        -m multiport --dports "$APPMESH_EGRESS_IGNORED_PORTS" \
+        -j RETURN
+
+    [ ! -z "$APPMESH_EGRESS_IGNORED_IP" ] &amp;&amp; \
+        iptables -t nat -A APPMESH_EGRESS \
+        -p tcp \
+        -d "$APPMESH_EGRESS_IGNORED_IP" \
+        -j RETURN
+
+    # Redirect everything that is not ignored
+    iptables -t nat -A APPMESH_EGRESS \
+        -p tcp \
+        -j REDIRECT --to $APPMESH_ENVOY_EGRESS_PORT
+
+    # Apply APPMESH_EGRESS chain to non local traffic
+    iptables -t nat -A OUTPUT \
+        -p tcp \
+        -m addrtype ! --dst-type LOCAL \
+        -j APPMESH_EGRESS
+}
+
+function enable_ingress_redirect_routing() {
+    # Route everything arriving at the application port to Envoy
+    iptables -t nat -A APPMESH_INGRESS \
+        -p tcp \
+        -m multiport --dports "$APPMESH_APP_PORTS" \
+        -j REDIRECT --to-port "$APPMESH_ENVOY_INGRESS_PORT"
+
+    # Apply AppMesh ingress chain to everything non-local
+    iptables -t nat -A PREROUTING \
+        -p tcp \
+        -m addrtype ! --src-type LOCAL \
+        -j APPMESH_INGRESS
+}
+
+function enable_routing() {
+    echo "=== Enabling routing ==="
+    enable_egress_routing
+    enable_ingress_redirect_routing
+}
+
+function disable_routing() {
+    echo "=== Disabling routing ==="
+    iptables -F
+    iptables -F -t nat
+    iptables -F -t mangle
+}
+
+function dump_status() {
+    echo "=== Routing rules ==="
+    ip rule
+    echo "=== AppMesh routing table ==="
+    ip route list table $APPMESH_LOCAL_ROUTE_TABLE_ID
+    echo "=== iptables FORWARD table ==="
+    iptables -L -v -n
+    echo "=== iptables NAT table ==="
+    iptables -t nat -L -v -n
+    echo "=== iptables MANGLE table ==="
+    iptables -t mangle -L -v -n
+}
+
+function main_loop() {
+    echo "=== Entering main loop ==="
+    while read -p &apos;&gt; &apos; cmd; do
+        case "$cmd" in
+            "quit")
+                break
+                ;;
+            "status")
+                dump_status
+                ;;
+            "enable")
+                enable_routing
+                ;;
+            "disable")
+                disable_routing
+                ;;
+            *)
+                echo "Available commands: quit, status, enable, disable"
+                ;;
+        esac
+    done
+}
+
+function print_config() {
+    echo "=== Input configuration ==="
+    env | grep APPMESH_ || true
+}
+
+print_config
+
+initialize
+
+if [ "$APPMESH_START_ENABLED" == "1" ]; then
+    enable_routing
+fi
+
+main_loop</programlisting>
+            </step>
+            <step>
+                <para>To configure <code>iptables</code> rules to route application traffic to the
+                    Envoy proxy, run the script that you created in the previous step.</para>
+                <programlisting><userinput>sudo ./envoy-networking.sh</userinput></programlisting>
+            </step>
+            <step>
+                <para>Start your virtual node application code.</para>
+            </step>
+        </procedure>
+
+        <!--                                  Instructions for ECS                               -->
+
+        <formalpara features="mesh-gs-ecs">
+            <title>Credentials</title>
+            <para>The Envoy container requires &IAMlong; credentials for signing requests that are
+                sent to the &MESH; service. For &ECS; tasks deployed with the &EC2; launch type, the
+                credentials can come from the <ulink url="&url-ecs-dev;instance_IAM_role.html"
+                    >instance role</ulink> or from a <ulink url="&url-ecs-dev;task-iam-roles.html"
+                    >task IAM role</ulink>. &ECS; tasks deployed with the Fargate launch type don&apos;t
+                have access to the &EC2; metadata server that supplies instance &IAM; profile
+                credentials. To supply the credentials, you must attach an &IAM; task role to any
+                tasks deployed with the Fargate launch type. If a task is deployed with the &EC2;
+                launch type and access is blocked to the &EC2; metadata server, as described in the
+                    <emphasis role="italic">Important</emphasis> annotation in <ulink
+                    url="&url-ecs-dev;task-iam-roles.html">IAM Role for Tasks</ulink>, then a task
+                &IAM; role must also be attached to the task. The role that you assign to the
+                instance or task must have an &IAM; policy attached to it as described in <ulink
+                    url="&url-mesh-user;proxy-authorization.html">Proxy
+                authorization</ulink>.</para>
+        </formalpara>
+
+        <formalpara features="mesh-gs-ecs">
+            <title>Update task definitions</title>
+            <para>You can update your task definitions by using the &console; or by modifying the
+                JSON file for a task definition. The following steps only show updating the
+                    <code>taskB</code> task for the scenario. You also need to update the
+                    <code>taskBv2</code> and <code>taskA</code> tasks by changing the values
+                appropriately. Select the method you prefer to use to update the task
+                definition.</para>
+        </formalpara>
+
+
+        <tablist features="mesh-gs-ecs">
+            <tablistentry>
+                <tabname>&console;</tabname>
+                <tabcontent>
+                    <procedure>
+                        <step>&ECSConsole_switch;</step>
+                        <step>
+                            <para>From the navigation bar, choose the Region that contains your task
+                                definition.</para>
+                        </step>
+                        <step>
+                            <para>In the navigation pane, choose <guilabel>Task
+                                    Definitions</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>On the <guilabel>Task Definitions</guilabel> page, select the box
+                                to the left of the task definition to revise. From the
+                                pre-requisites and previous steps, you might have task definitions
+                                named <code>taskA</code>, <code>taskB</code>, and
+                                    <code>taskBv2</code>. Select <code>taskB</code> and choose
+                                    <guilabel>Create new revision</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>On the <guilabel>Create new revision of Task Definition</guilabel>
+                                page, make the following changes to enable &MESH;
+                                integration.</para>
+                            <substeps>
+                                <step>
+                                    <para>For <guilabel>Service Integration</guilabel>, to configure
+                                        the parameters for &MESH; integration choose
+                                            <guilabel>Enable &MESH; integration</guilabel> and then
+                                        do the following:</para>
+                                    <substeps>
+                                        <step>
+                                            <para>For <guilabel>Application container
+                                                  name</guilabel>, choose the container name to use
+                                                for the &MESH; application. This container must
+                                                already be defined within the task
+                                                definition.</para>
+                                        </step>
+                                        <step>
+                                            <para>For <guilabel>Envoy image</guilabel>, complete the following task and enter the value that is returned.</para>
+                                            &envoy-image-availability; &envoy-min-supported-version-note;</step>
+                                        <step>
+                                            <para>For <guilabel>Mesh name</guilabel>, choose the
+                                                &MESH; service mesh to use. In this topic, the name
+                                                of the mesh that was created is
+                                                <code>apps.</code></para>
+                                        </step>
+                                        <step>
+                                            <para>For <guilabel>Virtual node name</guilabel>, choose
+                                                the App Mesh virtual node to use. For example, for
+                                                the <code>taskB</code> task, you would choose the
+                                                  <code>serviceB</code> virtual node that you
+                                                created in a previous step.</para>
+                                        </step>
+                                        <step>
+                                            <para>The value for <guilabel>Virtual node
+                                                  port</guilabel> is pre-populated with the listener
+                                                port that you specified when you created the virtual
+                                                node.</para>
+                                        </step>
+                                        <step>
+                                            <para>Choose <guilabel>Apply</guilabel>, and then choose
+                                                  <guilabel>Confirm</guilabel>. A new Envoy proxy
+                                                container is created and added to the task
+                                                definition, and the settings to support the
+                                                container are also created. The Envoy proxy
+                                                container then pre-populates the &MESH;
+                                                  <guilabel>Proxy Configuration</guilabel> settings
+                                                for the next step.</para>
+                                        </step>
+                                    </substeps>
+                                </step>
+                                <step>
+                                    <para>For <guilabel>Proxy Configuration</guilabel>, verify all
+                                        of the pre-populated values.</para>
+                                </step>
+                                <step>
+                                    <para>For <guilabel>Network Mode</guilabel>, ensure that
+                                            <code>awsvpc</code> is selected. To learn more about the
+                                            <code>awsvpc</code> network mode, see <ulink
+                                            url="&url-ecs-dev;task-networking.html">Task Networking
+                                            with the <code>awsvpc</code> Network
+                                        Mode</ulink>.</para>
+                                </step>
+                            </substeps>
+                        </step>
+                        <step>
+                            <para>Choose <guilabel>Create</guilabel>.</para>
+                        </step>
+                        <step>
+                            <para>Update your service with the updated task definition. For more
+                                information, see <ulink url="&url-ecs-dev;update-service.html"
+                                    >Updating a service</ulink>.</para>
+                        </step>
+                    </procedure>
+                </tabcontent>
+            </tablistentry>
+            <tablistentry>
+                <tabname>JSON</tabname>
+                <tabcontent>
+
+                    <formalpara>
+                        <title>Proxy configuration</title>
+                        <para>To configure your &ECS; service to use &MESH;, your service&apos;s task
+                            definition must have the following proxy configuration section. Set the
+                            proxy configuration <code>type</code> to <code>APPMESH</code> and the
+                                <code>containerName</code> to <code>envoy</code>. Set the following
+                            property values accordingly.</para>
+                    </formalpara>
+                    <variablelist>
+                        <varlistentry>
+                            <term><code>IgnoredUID</code></term>
+                            <listitem>
+                                <para>The Envoy proxy doesn&apos;t route traffic from processes that use
+                                    this user ID. You can choose any user ID that you want for this
+                                    property value, but this ID must be the same as the
+                                        <code>user</code> ID for the Envoy container in your task
+                                    definition. This matching allows Envoy to ignore its own traffic
+                                    without using the proxy. Our examples use
+                                            <code><replaceable>1337</replaceable></code> for
+                                    historical purposes.</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><code>ProxyIngressPort</code></term>
+                            <listitem>
+                                <para>This is the ingress port for the Envoy proxy container. Set
+                                    this value to <code>15000</code>.</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><code>ProxyEgressPort</code></term>
+                            <listitem>
+                                <para>This is the egress port for the Envoy proxy container. Set
+                                    this value to <code>15001</code>.</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><code>AppPorts</code></term>
+                            <listitem>
+                                <para>Specify any ingress ports that your application containers
+                                    listen on. In this example, the application container listens on
+                                    port <code><replaceable>9080</replaceable></code>. The port that
+                                    you specify must match the port configured on the virtual node
+                                    listener.</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><code>EgressIgnoredIPs</code></term>
+                            <listitem>
+                                <para>Envoy doesn&apos;t proxy traffic to these IP addresses. Set this
+                                    value to <code>169.254.170.2,169.254.169.254</code>, which
+                                    ignores the &EC2; metadata server and the &ECS; task metadata
+                                    endpoint. The metadata endpoint provides &IAM; roles for tasks
+                                    credentials. You can add additional addresses.</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><code>EgressIgnoredPorts</code></term>
+                            <listitem>
+                                <para>You can add a comma separated list of ports. Envoy doesn&apos;t
+                                    proxy traffic to these ports. Even if you list no ports, port 22
+                                    is ignored.</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                    <programlisting language="JSON">"proxyConfiguration": {
+	"type": "APPMESH",
+	"containerName": "envoy",
+	"properties": [{
+			"name": "IgnoredUID",
+			"value": "<replaceable>1337</replaceable>"
+		},
+		{
+			"name": "ProxyIngressPort",
+			"value": "15000"
+		},
+		{
+			"name": "ProxyEgressPort",
+			"value": "15001"
+		},
+		{
+			"name": "AppPorts",
+			"value": "<replaceable>9080</replaceable>"
+		},
+		{
+			"name": "EgressIgnoredIPs",
+			"value": "169.254.170.2,169.254.169.254"
+		},
+		{
+			"name": "EgressIgnoredPorts",
+			"value": "<replaceable>22</replaceable>"
+		}
+	]
+}</programlisting>
+
+                    <formalpara>
+                        <title>Application container Envoy dependency</title>
+                        <para>The application containers in your task definitions must wait for the
+                            Envoy proxy to bootstrap and start before they can start. To ensure that
+                            this happens, you set a <code>dependsOn</code> section in each
+                            application container definition to wait for the Envoy container to
+                            report as <code>HEALTHY</code>. The following code shows an application
+                            container definition example with this dependency. All of the properties
+                            in the following example are required. Some of the property values are
+                            also required, but some are
+                            <replaceable>replaceable</replaceable>.</para>
+                    </formalpara>
+                    <programlisting language="JSON">{
+	"name": "<replaceable>appName</replaceable>",
+	"image": "<replaceable>appImage</replaceable>",
+	"portMappings": [{
+		"containerPort": <replaceable>9080</replaceable>,
+		"hostPort": <replaceable>9080</replaceable>,
+		"protocol": "tcp"
+	}],
+	"essential": true,
+	"dependsOn": [{
+		"containerName": "envoy",
+		"condition": "HEALTHY"
+	}]
+}</programlisting>
+
+                    <para><emphasis role="bold">Envoy container definition</emphasis></para>
+                    <para>Your &ECS; task definitions must contain an &MESH; Envoy container
+                        image.</para> &envoy-image-availability; &envoy-min-supported-version-note; &custom-envoy-image;
+                        <para>All of the properties in the following example are required. Some of
+                        the property values are also required, but some are
+                            <replaceable>replaceable</replaceable>. The Envoy container definition
+                        must be marked as <code>essential</code>. The virtual node name for the
+                        &ECS; service must be set to the value of the
+                            <code>APPMESH_VIRTUAL_NODE_NAME</code> property. The value for the
+                            <code>user</code> setting must match the <code>IgnoredUID</code> value
+                        from the task definition proxy configuration. In this example, we use
+                                <code><replaceable>1337</replaceable></code>. The health check shown
+                        here waits for the Envoy container to bootstrap properly before reporting to
+                        &ECS; that the Envoy container is healthy and ready for the application
+                        containers to start.</para>
+                    <para>The following code shows an Envoy container definition example.</para>
+                    <programlisting language="JSON">{
+	"name": "envoy",
+	"image": "&envoy-image-replaceable-registry;",
+	"essential": true,
+	"environment": [{
+		"name": "APPMESH_VIRTUAL_NODE_NAME",
+		"value": "mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable>"
+	}],
+	"healthCheck": {
+		"command": [
+			"CMD-SHELL",
+			"curl -s http://localhost:9901/server_info | grep state | grep -q LIVE"
+		],
+		"startPeriod": <replaceable>10</replaceable>,
+		"interval": <replaceable>5</replaceable>,
+		"timeout": <replaceable>2</replaceable>,
+		"retries": <replaceable>3</replaceable>
+	},
+	"user": "<replaceable>1337</replaceable>"
+}</programlisting>
+
+                    <formalpara>
+                        <title>Example task definitions</title>
+                        <para>The following example &ECS; task definitions show how to merge the
+                            examples from above into a task definition for <code>taskB</code>.
+                            Examples are provided for creating tasks for both &ECS; launch types
+                            with or without using &xraylong;. Change the
+                                <replaceable>replaceable</replaceable> values, as appropriate, to
+                            create task definitions for the tasks named <code>taskBv2</code> and
+                                <code>taskA</code> from the scenario. Substitute your mesh name and
+                            virtual node name for the <code>APPMESH_VIRTUAL_NODE_NAME</code> value
+                            and a list of ports that your application listens on for the proxy
+                            configuration <code>AppPorts</code> value. All of the properties in the
+                            following examples are required. Some of the property values are also
+                            required, but some are <replaceable>replaceable</replaceable>.</para>
+                    </formalpara>
+
+
+                    <para>If you&apos;re running an &ECS; task as described in the Credentials section,
+                        then you need to add an existing <ulink
+                            url="&url-ecs-dev;task-iam-roles.html">task &IAM; role</ulink>, to the
+                        examples.</para>
+
+                    <xi:include
+                        href="file://AWSShared/ec2-container-shared//mesh-ecs-task-example-fargate.xml"/>
+                    <xi:include
+                        href="file://AWSShared/ec2-container-shared//mesh-ecs-task-example-fargate-xray.xml"/>
+                    <xi:include
+                        href="file://AWSShared/ec2-container-shared//mesh-ecs-task-example-ec2.xml"/>
+                    <xi:include
+                        href="file://AWSShared/ec2-container-shared//mesh-ecs-task-example-ec2-xray.xml"
+                    />
+                </tabcontent>
+            </tablistentry>
+        </tablist>
+
+        <!--                                  Instructions for EKS                               
+
+        <para features="mesh-gs-eks">&MESH; vends the following custom container images that you
+            must add to your Kubernetes pod specifications:</para>
+        <itemizedlist features="mesh-gs-eks">
+            <listitem>
+                <para>Specify one of the following &MESH; Envoy container images, depending on which
+                    region you want to pull the image from.</para> &envoy-image-availability;
+                    <para>&envoy-image-description;</para> &custom-envoy-image; </listitem>
+            <listitem>
+                <para>&MESH; proxy route manager &endash; <code>&router-image;</code>.
+                    &router-image-description;</para>
+            </listitem>
+        </itemizedlist>
+        <para features="mesh-gs-eks">Update each pod specification in your application to include
+            these containers, as shown in the following example. Once updated, deploy the new
+            specifications to update your services and start using &MESH; with your Kubernetes
+            application. The following example shows updating the <code>serviceB</code> pod
+            specification, that aligns to the scenario. To complete the scenario, you also need to
+            update the <code>serviceBv2</code> and <code>serviceA</code> pod specifications by
+            changing the values appropriately. For your own applications, substitute your mesh name
+            and virtual node name for the <code>APPMESH_VIRTUAL_NODE_NAME</code> value, and add a
+            list of ports that your application listens on for the <code>APPMESH_APP_PORTS</code>
+            value. Substitute the &EC2; instance &AWS; Region for the <code>AWS_REGION</code>
+            value.</para>
+        <example features="mesh-gs-eks">
+            <title>Kubernetes pod spec</title>
+            <programlisting language="yaml">spec:
+  containers:
+    - name: envoy
+      image: &envoy-image-replaceable-registry;
+      securityContext:
+        runAsUser: 1337
+      env:
+        - name: "APPMESH_VIRTUAL_NODE_NAME"
+          value: "mesh/<replaceable>apps</replaceable>/virtualNode/<replaceable>serviceB</replaceable>"
+        - name: "ENVOY_LOG_LEVEL"
+          value: "info"
+        - name: "AWS_REGION"
+          value: "<replaceable>aws_region_name</replaceable>"
+  initContainers:
+    - name: proxyinit
+      image: &router-image;
+      securityContext:
+        capabilities:
+          add: 
+            - NET_ADMIN
+      env:
+        - name: "APPMESH_START_ENABLED"
+          value: "1"
+        - name: "APPMESH_IGNORE_UID"
+          value: "1337"
+        - name: "APPMESH_ENVOY_INGRESS_PORT"
+          value: "15000"
+        - name: "APPMESH_ENVOY_EGRESS_PORT"
+          value: "15001"
+        - name: "APPMESH_APP_PORTS"
+          value: "<replaceable>application_port_list</replaceable>"
+        - name: "APPMESH_EGRESS_IGNORED_IP"
+          value: "169.254.169.254"
+        - name: "APPMESH_EGRESS_IGNORED_PORTS"
+          value: "22"</programlisting>
+        </example> -->
+    </section>
+'>
+
+
+<!--  End remove after loc -->
+
+<!--  Not used -remove
+<!ENTITY mesh-intro 'A service mesh is a logical boundary for network traffic between the services that
+            reside within it. For more information, see <ulink url="&url-mesh-user;meshes.html"
+                >Service Meshes</ulink> in the <emphasis>&guide-mesh-user;</emphasis>.'>
+<!ENTITY mesh-intro2 'After you create your service mesh, you can create virtual services, virtual nodes,
+            virtual routers, and routes to distribute traffic between the applications in your
+            mesh.'>               
+<!ENTITY mesh-choose-mesh 'Choose <guilabel>Create mesh</guilabel>. '>
+<!ENTITY mesh-name 'For <guilabel>Mesh name</guilabel>, specify a name for your service
+                    mesh. '>
+<!ENTITY mesh-create-finish 'Choose <guilabel>Create mesh</guilabel> to finish. '>
+
+<!ENTITY mesh-vn-intro 'A virtual node acts as a logical pointer to a particular task group, such as a
+            Kubernetes deployment or &ECS; service. For more information, see <ulink
+                url="&url-mesh-user;virtual_nodes.html">Virtual Nodes</ulink>.'>
+<!ENTITY mesh-vn-intro-ecs 'A virtual node acts as a logical pointer to an &ECS; service. For more information, see <ulink
+                url="&url-mesh-user;virtual_nodes.html">Virtual Nodes</ulink> in the
+                <emphasis>&guide-mesh-user;</emphasis>.'>
+<!ENTITY  mesh-vn-intro2 'When you create a virtual node, you must specify a service discovery method for your
+            task group. Any inbound traffic that your virtual node expects should be specified as a
+            <emphasis>listener</emphasis>. Any outbound traffic that your virtual node expects to reach should be
+            specified as a <emphasis>backend</emphasis>.'>
+<!ENTITY mesh-vn-choose-mesh 'Choose the mesh that you created in the previous steps.'>
+<!ENTITY mesh-vn-choose-vn 'Choose <guilabel>Virtual nodes</guilabel> in the left navigation.'>
+<!ENTITY mesh-vn-create 'Choose <guilabel>Create virtual node</guilabel>. '>
+<!ENTITY mesh-vn-name 'For <guilabel>Virtual node name</guilabel>, enter a name for your virtual
+                    node. '>
+<!ENTITY mesh-vn-sd-method 'For <guilabel>Service discovery method</guilabel>, choose one of the following
+                    options:'>
+<!ENTITY mesh-vn-sd-method-dns '<guilabel>DNS</guilabel> &endash; Specify the DNS-registered hostname of the actual service
+                               that the virtual node represents. '>
+<!ENTITY mesh-vn-sd-method-dns-addtl-info 'For additional information about using DNS as a service discovery method, see <ulink url="&url-mesh-user;virtual_nodes.html">Virtual Nodes</ulink>. '>
+<!ENTITY mesh-vn-sd-method-dns-long 'The Envoy proxy is deployed in an &VPC;. The proxy sends name resolution requests to the DNS server that is configured for the VPC. If the hostname resolves,
+                               the DNS server returns one or more IP addresses.
+                               For more information about VPC DNS settings, see <ulink url="&url-vpc-user;vpc-dns.html">Using DNS with your VPC</ulink>. If the DNS server returns
+                               multiple IP addresses, then the Envoy proxy chooses one of the addresses using the
+                               <ulink url="&url-envoy-user;intro/arch_overview/upstream/service_discovery#arch-overview-service-discovery-types-logical-dns">Logical DNS</ulink> service discovery type. '>
+<!ENTITY mesh-vn-sd-method-cmap '<guilabel>&CMAP;</guilabel> &endash; Specify the service name and
+                            namespace. Optionally, you can also specify attributes that &MESH; can
+                            query &CMAP; for. Only instances that match all of the specified
+                            key/value pairs will be returned. To use &CMAP;, your account must have
+                            the <code>AWSServiceRoleForAppMesh</code>
+                            <link linkend="using-service-linked-roles">service-linked
+                            role</link>. '>
+<!ENTITY mesh-vn-sd-method-dns-none '<guilabel>None</guilabel> &endash; Select if your virtual node doesn&apos;t
+                            expect any inbound traffic. '>
+<!ENTITY mesh-vn-additional-config 'To specify any backends (for egress traffic) for your virtual node, or to
+                    configure inbound and outbound access logging information, choose
+                        <guilabel>Additional configuration</guilabel>.'>
+<!ENTITY mesh-vn-add-backend 'To specify a backend, choose <guilabel>Add backend</guilabel> and
+                            enter a virtual service name or full &ARNlong; for the
+                            virtual service that your virtual node communicates with. Repeat this
+                            step until all of your virtual node backends are accounted for. '>
+<!ENTITY mesh-vn-http-access-logs 'To configure logging, enter the HTTP access logs path that you want
+                            Envoy to use. We recommend the <filename>/dev/stdout</filename> path so
+                            that you can use Docker log drivers to export your Envoy logs to a
+                            service such as &CWLlong;. '>
+<!ENTITY mesh-vn-logs-note 'Logs must still be ingested by an agent in your application and
+                                sent to a destination. This file path only instructs Envoy where to
+                                send the logs. '>
+<!ENTITY mesh-vn-port-protocol-non-ecs 'If your virtual node expects ingress traffic, specify a
+                        <guilabel>Port</guilabel> and <guilabel>Protocol</guilabel> for the
+                        <guilabel>Listener</guilabel>. '>
+<!ENTITY mesh-vn-port-protocol-ecs 'Specify a
+                        <guilabel>Port</guilabel> and <guilabel>Protocol</guilabel> for the
+                        <guilabel>Listener</guilabel>. '>
+<!ENTITY mesh-vn-health-check 'If you want to configure a health check for your listener, ensure that
+                        <guilabel>Health check enabled</guilabel> is selected and then complete the
+                    following substeps. If not, clear this check box. A health check policy is optional, but if you specify any values for
+                    a health policy, then you must specify values for <guilabel>Healthy threshold</guilabel>, <guilabel>Health check interval</guilabel>,
+                    <guilabel>Health check protocol</guilabel>, <guilabel>Timeout period</guilabel>, and <guilabel>Unhealthy threshold</guilabel>.'>
+<!ENTITY mesh-vn-hc-protocol 'For <guilabel>Health check protocol</guilabel>, choose a protocol. If you select <guimenuitem>grpc</guimenuitem>, then your service must conform to the <ulink
+                url="https://github.com/grpc/grpc/blob/master/doc/health-checking.md"
+                >GRPC Health Checking Protocol</ulink>. '>
+<!ENTITY mesh-vn-hc-port 'For <guilabel>Health check port</guilabel>, specify the port that the
+                            health check should run on. '>
+<!ENTITY mesh-vn-hc-healthy-threshold 'For <guilabel>Healthy threshold</guilabel>, specify the number of
+                            consecutive successful health checks that must occur before declaring
+                            the listener healthy. '>
+<!ENTITY mesh-vn-hc-interval 'For <guilabel>Health check interval</guilabel>, specify the time
+                            period in milliseconds between each health check execution. '>
+<!ENTITY mesh-vn-hc-path 'For <guilabel>Path</guilabel>, specify the destination path for the
+                            health check request. This value is only used if the <guilabel>Health check protocol</guilabel> is
+                            <code>http</code> or <code>http2</code>. The value is ignored for other protocols. '>
+<!ENTITY mesh-vn-hc-timeout 'For <guilabel>Timeout period</guilabel>, specify the amount of time to
+                            wait when receiving a response from the health check, in
+                            milliseconds. '>
+<!ENTITY mesh-vn-hc-unhealthy-threshold 'For <guilabel>Unhealthy threshold</guilabel>, specify the number of
+                            consecutive failed health checks that must occur before declaring the
+                            listener unhealthy. '>
+<!ENTITY mesh-vn-create-vn-finish 'Choose <guilabel>Create virtual node</guilabel> to finish. '>
+<!ENTITY mesh-vn-repeat 'Repeat this procedure as necessary to create virtual nodes for each remaining
+                    service in your application. '>
+
+<!ENTITY mesh-vs-intro 'A virtual service is an abstraction of a real service that is provided by a virtual
+            node directly or indirectly by means of a virtual router. Dependent services call your
+            virtual service by its <code>virtualServiceName</code>, and those requests are routed to
+            the virtual node or virtual router that is specified as the provider for the virtual
+            service. '>
+<!ENTITY mesh-vs-more-info 'For more information, see <ulink url="&url-mesh-user;virtual_services.html"
+                >Virtual Services</ulink> in the <emphasis>&guide-mesh-user;</emphasis>.'>
+
+<!ENTITY mesh-vs-vs 'Choose <guilabel>Virtual services</guilabel> in the left navigation. '>
+<!ENTITY mesh-vs-create 'Choose <guilabel>Create virtual service</guilabel> '>
+<!ENTITY mesh-vs-name 'For <guilabel>Virtual service name</guilabel>, choose a name for your virtual
+                    service. We recommend that you use the service discovery name of the real
+                    service that you&apos;re targeting (such as
+                        <code>service-a.default.svc.cluster.local</code>). The name that you
+                    specify must resolve to a non-loopback IP address.'>
+<!ENTITY mesh-vs-provider 'For <guilabel>Provider</guilabel>, choose the provider type for your virtual
+                    service: '>
+<!ENTITY mesh-vs-provider-vr 'If you want the virtual service to spread traffic across multiple
+                            virtual nodes, select <guilabel>Virtual router</guilabel> and then
+                            choose the virtual router to use from the drop-down menu. '>
+<!ENTITY mesh-vs-provider-vn 'If you want the virtual service to reach a virtual node directly,
+                            without a virtual router, select <guilabel>Virtual node</guilabel> and
+                            then choose the virtual node to use from the drop-down menu. '>
+<!ENTITY mesh-vs-provider-none 'If you don&apos;t want the virtual service to route traffic at this time
+                            (for example, if your virtual nodes or virtual router doesn&apos;t exist
+                            yet), choose <guilabel>None</guilabel>. You can update the provider for
+                            this virtual service later. '>
+<!ENTITY mesh-vs-create-finish 'Choose <guilabel>Create virtual service</guilabel> to finish. '>
+<!ENTITY mesh-vs-repeat 'Repeat this procedure as necessary to create virtual services for each
+                    remaining service in your application. '>
+
+<!ENTITY mesh-vr-intro 'Virtual routers handle traffic for one or more virtual services within your mesh.
+            After you create a virtual router, you can create and associate routes for your virtual
+            router that direct incoming requests to different virtual nodes. '>
+<!ENTITY mesh-vr-more-info 'For more information,
+            see <ulink url="&url-mesh-user;virtual_routers.html">Virtual Routers</ulink> in the
+                <emphasis>&guide-mesh-user;</emphasis>.'>            
+<!ENTITY mesh-vr-routers 'Choose <guilabel>Virtual routers</guilabel> in the left navigation.'>
+<!ENTITY mesh-vr-create 'Choose <guilabel>Create virtual router</guilabel>.'>
+<!ENTITY mesh-vr-name 'For <guilabel>Virtual router name</guilabel>, specify a name for your virtual
+                    router. Up to 255 letters, numbers, hyphens, and underscores are allowed. '>
+<!ENTITY mesh-vr-listener 'For <guilabel>Listener</guilabel>, specify a <guilabel>Port</guilabel> and
+                        <guilabel>Protocol</guilabel> for your virtual router. '>
+<!ENTITY mesh-vr-create-finish 'Choose <guilabel>Create virtual router</guilabel> to finish. '>
+<!ENTITY mesh-vr-repeat 'Repeat this procedure as necessary to create virtual routers for each
+                    remaining service in your application. '>
+-->

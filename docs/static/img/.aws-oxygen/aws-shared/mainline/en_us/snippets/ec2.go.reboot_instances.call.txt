@@ -1,0 +1,17 @@
+    // Set DryRun to true to check whether the instance exists and we have the
+    // necessary permissions to monitor the instance.
+    input := &ec2.RebootInstancesInput{
+        InstanceIds: []*string{
+            instanceID,
+        },
+        DryRun: aws.Bool(true),
+    }
+    _, err := svc.RebootInstances(input)
+    awsErr, ok := err.(awserr.Error)
+
+    // If the error code is `DryRunOperation` it means we have the necessary
+    // permissions to start this instance
+    if ok && awsErr.Code() == "DryRunOperation" {
+        // Set DryRun to false to reboot the instance
+        input.DryRun = aws.Bool(false)
+        _, err := svc.RebootInstances(input)

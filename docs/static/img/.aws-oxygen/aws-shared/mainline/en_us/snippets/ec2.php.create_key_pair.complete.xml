@@ -1,0 +1,33 @@
+<programlisting>
+
+require 'vendor/autoload.php';
+
+use Aws\Ec2\Ec2Client;
+/**
+ * Create a Key Pair
+ *
+ * This code expects that you have AWS credentials set up per:
+ * https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html
+ */
+ 
+$ec2Client = new Aws\Ec2\Ec2Client([
+    'region' => 'us-west-2',
+    'version' => '2016-11-15',
+    'profile' => 'default'
+]);
+
+$keyPairName = 'my-keypair';
+
+$result = $ec2Client->createKeyPair(array(
+    'KeyName' => $keyPairName
+));
+
+// Save the private key
+$saveKeyLocation = getenv('HOME') . "/.ssh/{$keyPairName}.pem";
+file_put_contents($saveKeyLocation, $result['keyMaterial']);
+
+// Update the key's permissions so it can be used with SSH
+chmod($saveKeyLocation, 0600);
+ 
+ 
+</programlisting>

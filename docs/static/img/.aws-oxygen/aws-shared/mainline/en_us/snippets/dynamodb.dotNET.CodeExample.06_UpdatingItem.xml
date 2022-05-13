@@ -1,0 +1,28 @@
+<programlisting>
+using System;
+using System.Threading.Tasks;
+using Amazon.DynamoDBv2.Model;
+
+namespace DynamoDB_intro
+{
+    public static partial class DdbIntro
+    {
+        public static async Task<bool> UpdatingMovie_async(UpdateItemRequest updateRequest)
+        {
+            var result = false;
+
+            try
+            {
+                await Client.UpdateItemAsync(updateRequest);
+                result = true;
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+
+            return result;
+        }
+    }
+}
+</programlisting>

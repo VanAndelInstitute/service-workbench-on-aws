@@ -1,0 +1,21 @@
+<programlisting>
+pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError> {
+    let role = role.clone();
+    loop {
+        match client
+            .delete_role()
+            .role_name(role.role_name.as_ref().unwrap())
+            .send()
+            .await
+        {
+            Ok(_) => {
+                break;
+            }
+            Err(_) => {
+                sleep(Duration::from_secs(2)).await;
+            }
+        }
+    }
+    Ok(())
+}
+</programlisting>

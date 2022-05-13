@@ -1,0 +1,15 @@
+def create_alias(alias):
+    """
+    Creates an alias for the current account. The alias can be used in place of the
+    account ID in the sign-in URL. An account can have only one alias. When a new
+    alias is created, it replaces any existing alias.
+
+    :param alias: The alias to assign to the account.
+    """
+
+    try:
+        iam.create_account_alias(AccountAlias=alias)
+        logger.info("Created an alias '%s' for your account.", alias)
+    except ClientError:
+        logger.exception("Couldn't create alias '%s' for your account.", alias)
+        raise

@@ -1,0 +1,7 @@
+<programlisting>
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.GetEndpointRequest
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
+import kotlin.system.exitProcess
+</programlisting>

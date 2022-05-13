@@ -1,0 +1,16 @@
+<programlisting>
+    public static void deleteMediaContainer(MediaStoreClient mediaStoreClient, String containerName) {
+
+     try{
+        DeleteContainerRequest deleteContainerRequest = DeleteContainerRequest.builder()
+            .containerName(containerName)
+            .build();
+
+        mediaStoreClient.deleteContainer(deleteContainerRequest);
+
+    } catch (MediaStoreException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

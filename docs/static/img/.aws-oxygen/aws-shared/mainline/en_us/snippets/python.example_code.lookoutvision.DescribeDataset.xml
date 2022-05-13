@@ -1,0 +1,32 @@
+<programlisting>
+    @staticmethod
+    def describe_dataset(lookoutvision_client, project_name, dataset_type):
+        """
+        Gets information about a Lookout for Vision dataset.
+
+        :param lookoutvision_client: A Boto3 Lookout for Vision client.
+        :param project_name: The name of the project that contains the dataset that
+                             you want to describe.
+        :param dataset_type: The type (train or test) of the dataset that you want
+                             to describe.
+        """
+        try:
+            response = lookoutvision_client.describe_dataset(
+                ProjectName=project_name, DatasetType=dataset_type)
+            print(f"Name: {response['DatasetDescription']['ProjectName']}")
+            print(f"Type: {response['DatasetDescription']['DatasetType']}")
+            print(f"Status: {response['DatasetDescription']['Status']}")
+            print(f"Message: {response['DatasetDescription']['StatusMessage']}")
+            print(
+                f"Images: {response['DatasetDescription']['ImageStats']['Total']}")
+            print(
+                f"Labeled: {response['DatasetDescription']['ImageStats']['Labeled']}")
+            print(
+                f"Normal: {response['DatasetDescription']['ImageStats']['Normal']}")
+            print(
+                f"Anomaly: {response['DatasetDescription']['ImageStats']['Anomaly']}")
+        except ClientError:
+            logger.exception("Service error: problem listing datasets.")
+            raise
+        print("Done.")
+</programlisting>

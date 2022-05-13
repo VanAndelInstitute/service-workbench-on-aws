@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun getAllDeployments(restApiIdVal: String?) {
+
+    val request = GetDeploymentsRequest {
+        restApiId = restApiIdVal
+    }
+
+    ApiGatewayClient { region = "us-east-1" }.use { apiGateway ->
+        val response = apiGateway.getDeployments(request)
+        response.items?.forEach { deployment ->
+            println("The deployment id is ${deployment.id}")
+            println("The deployment description is ${deployment.description}")
+        }
+    }
+}
+</programlisting>

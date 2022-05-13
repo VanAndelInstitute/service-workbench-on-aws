@@ -1,0 +1,3 @@
+<programlisting>
+$names = $result->search('Buckets[].Name');
+</programlisting>

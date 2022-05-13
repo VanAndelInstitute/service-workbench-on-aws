@@ -1,0 +1,11 @@
+<programlisting>
+{
+  "Sid": "AllowAccessToPublishSNSNotifications",
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "budgets.amazonaws.com"
+  },
+  "Action": "SNS:Publish",
+  "Resource": "<your topic ARN>"
+}
+</programlisting>

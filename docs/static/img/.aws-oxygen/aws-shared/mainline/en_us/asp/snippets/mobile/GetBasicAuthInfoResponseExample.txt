@@ -1,0 +1,23 @@
+HTTP/1.x 200
+Content-Type: application/xml
+Content-Length: 861
+X-Amz-Session: bbfd4489-d504-4b20-ad90-2e3ec5c409a5
+X-Amz-RequestID: 123457
+
+<PayAuthorization>
+   <Id>amzn1.mps.PA28423878234</Id>
+   <TokenType>SingleUse</TokenType>
+   <Status>Pending</Status>
+   <Originator/>
+   <PaymentReason>Breadsticks</PaymentReason>
+   <TransactionAmount>
+      <Amount>
+         <Value>1.99</Value>
+         <CurrencyCode>USD</CurrencyCode>
+      </Amount>
+   </TransactionAmount>
+   <Reserve>false</Reserve>
+   <Recipient/>
+   <AddressId/>
+   <InstrumentId/>
+</PayAuthorization>

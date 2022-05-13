@@ -1,0 +1,6 @@
+<programlisting>
+#include <aws/core/Aws.h>
+#include <aws/iam/IAMClient.h>
+#include <aws/iam/model/UpdateServerCertificateRequest.h>
+#include <iostream>
+</programlisting>

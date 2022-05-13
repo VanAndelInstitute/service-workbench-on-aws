@@ -1,0 +1,17 @@
+<programlisting>
+    public static void getGlueJobRun(GlueClient glueClient, String jobName, String runId) {
+
+        try {
+              GetJobRunRequest jobRunRequest = GetJobRunRequest.builder()
+                .jobName(jobName)
+                .runId(runId)
+                .build();
+
+              GetJobRunResponse runResponse = glueClient.getJobRun(jobRunRequest);
+              System.out.println("Job status is : "+runResponse.jobRun().jobRunStateAsString());
+        } catch (GlueException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

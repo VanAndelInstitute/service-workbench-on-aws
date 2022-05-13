@@ -1,0 +1,14 @@
+import { DetectLabelsCommand } from "@aws-sdk/client-rekognition";
+import { rekognitionClient } from "../libs/rekognitionClient.js";
+import { ListObjectsCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import { REGION, s3Client } from "../libs/s3Client.js";
+import { sesClient } from "../libs/sesClient.js";
+import { SendEmailCommand } from "@aws-sdk/client-ses";
+
+// Set global parameters.
+const BUCKET_IMAGES =
+    "BUCKET_IMAGES";
+const BUCKET_REPORTS =
+    "BUCKET_REPORTs";
+const EMAIL_SENDER_ADDRESS = "EMAIL_SENDER_ADDRESS"; // A verified Amazon SES email address.
+

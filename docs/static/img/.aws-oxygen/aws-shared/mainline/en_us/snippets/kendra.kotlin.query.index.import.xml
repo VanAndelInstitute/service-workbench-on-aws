@@ -1,0 +1,6 @@
+<programlisting>
+import aws.sdk.kotlin.services.kendra.KendraClient
+import aws.sdk.kotlin.services.kendra.model.QueryRequest
+import aws.sdk.kotlin.services.kendra.model.QueryResultType
+import kotlin.system.exitProcess
+</programlisting>

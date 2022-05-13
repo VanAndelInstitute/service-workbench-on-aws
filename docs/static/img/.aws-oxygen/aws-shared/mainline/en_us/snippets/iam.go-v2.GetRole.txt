@@ -1,0 +1,15 @@
+	// GetRole
+
+	getRoleResult, err := service.GetRole(context.Background(), &iam.GetRoleInput{
+		RoleName: aws.String(ExampleRoleName),
+	})
+
+	if err != nil {
+		panic("Couldn't get role! " + err.Error())
+	}
+
+	fmt.Println("☑️ GetRole results: ")
+	fmt.Println("ARN: ", *getRoleResult.Role.Arn)
+	fmt.Println("Name: ", *getRoleResult.Role.RoleName)
+	fmt.Println("Created On: ", *getRoleResult.Role.CreateDate)
+

@@ -1,0 +1,18 @@
+<programlisting>
+    currentTime := time.Now()
+    snapshotTime := currentTime.Format("2006-01-02")
+    rdsSnapshot := *rdsSnapshotName + snapshotTime
+    IndentifierSnapshotTime := currentTime.Format("20060102")
+    exportIdentifier := *exportRDSSnapshotName + IndentifierSnapshotTime
+
+    // Get latest snapshot from RDS snapshot list
+    for _, s := range result.DBSnapshots {
+        if strings.Contains(*s.DBSnapshotArn, rdsSnapshot) {
+            result, err := svc.StartExportTask(&rds.StartExportTaskInput{
+                ExportTaskIdentifier: aws.String(exportIdentifier),
+                IamRoleArn:           roleArn,
+                KmsKeyId:             kmsKey,
+                S3BucketName:         bucketName,
+                SourceArn:            aws.String(*s.DBSnapshotArn),
+            })
+</programlisting>

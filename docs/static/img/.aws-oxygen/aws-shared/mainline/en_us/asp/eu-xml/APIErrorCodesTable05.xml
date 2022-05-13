@@ -1,0 +1,1925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % fps-sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %fps-sig2-migration;
+   <!ENTITY % phrases-common SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases-common;   
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+<section id="APIErrorCodesTable"> 
+  <title id="APIErrorCodesTable.title">Error Codes</title>
+  <indexterm>
+    <primary>errors</primary>
+  </indexterm>
+  <informaltable>
+    <tgroup cols="2">
+      <?dbhtml table-width="100%" ?>
+      <?dbfo table-width="95%" ?>
+      <colspec colname="c1" colwidth="4*"/>
+      <colspec colname="c2" colwidth="5*"/>
+      <colspec colname="c3" colnum="3" colwidth="1.6*"/>
+      <thead>
+        <row>
+          <entry>
+            <para>Error</para>
+          </entry>
+          <entry>
+            <para>Description</para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>APIs that return this error code</para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter role="LimitWidthTo05" id="AccessFailure">AccessFailure</parameter></para>
+          </entry>
+          <entry>
+            <para>Account cannot be accessed.</para>
+            <para>You can display the following message to your customers: </para>
+            <para>Your account cannot be accessed.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>CancelToken</entry>
+              </row>
+              <row>
+                <entry>GetPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>GetTokenByCaller</entry>
+              </row>
+              <row>
+                <entry>InstallPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="AccountClosed">AccountClosed</parameter></para>
+          </entry>
+          <entry>
+            <para>Account is not active.</para>
+            <para>You can display the following message to your customers: <emphasis>Your account is closed.</emphasis></para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>CancelToken</entry>
+              </row>
+              <row>
+                <entry>GetPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>GetTokenByCaller</entry>
+              </row>
+              <row>
+                <entry>InstallPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="AccountLimitsExceeded">AccountLimitsExceeded</parameter></para>
+          </entry>
+          <entry>
+            <para>The spending or the receiving limit on the account is exceeded.</para>
+            <para>You can display the following message to your customers: <emphasis>You have exceeded your spending or receiving limits. Please visit http://payments.amazon.com to update your payment limits.</emphasis></para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="AmountOutOfRange">AmountOutOfRange</parameter></para>
+          </entry>
+          <entry>
+            <para>The transaction amount is more than the allowed range. </para>
+            <para>Ensure that you pass an amount within the allowed range. The transaction amount in a Pay operation using credit card or bank account must be greater than $0.01.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry><parameter id="AuthFailure">AuthFailure</parameter></entry>
+          <entry>
+            <para>AWS was not able to validate the provided access credentials.</para>
+            <para>Please make sure that your AWS developer account is signed up for FPS. </para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="ConcurrentModification">ConcurrentModification</parameter></para>
+          </entry>
+          <entry>
+            <para>A retriable error can happen when two processes try to modify the same data at the same time.</para>
+            <para>The developer should retry the request if this error is encountered.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>RetryTransaction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="DuplicateRequest">DuplicateRequest</parameter></para>
+          </entry>
+          <entry>
+            <para>A different request associated with this caller reference already exists.</para>
+            <para>You have used the same caller reference in an earlier request. Ensure that you use unique caller references for every new request. </para>
+            <para>Even if your earlier request resulted in an error, you should still use a unique caller reference with every request and avoid this error.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>CancelToken</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>InstallPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="InactiveInstrument">InactiveInstrument</parameter></para>
+          </entry>
+          <entry>
+            <para>Payment instrument is inactive.</para>
+            <para>The payment instrument is inactive, for example, a credit card has expired.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="IncompatibleTokens">IncompatibleTokens</parameter></entry>
+          <entry>
+            <para>The transaction could not be completed because the tokens have incompatible payment instructions.</para>
+            <simpara>If any assertion in one of the payment instructions fails, this error is displayed. As such, it may be caused by a number of reasons, for example:</simpara>
+            <itemizedlist>
+              <listitem>
+                <para>One or more tokens has expired.</para>
+              </listitem>
+              <listitem>
+                <para>The recipient specified in the token is different from the actual recipient in the transaction.</para>
+              </listitem>
+              <listitem>
+                <para>There is violation on the amount restriction.</para>
+              </listitem>
+              <listitem>
+                <para>This token cannot be used with your application as another application has installed it.</para>
+              </listitem>
+            </itemizedlist>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InstrumentAccessDenied">InstrumentAccessDenied</parameter></entry>
+          <entry>
+            <para>The external calling application is not the recipient for this postpaid or prepaid instrument. The caller should be the liability holder.</para>
+            <simpara>You are trying to access an instrument that you do not own.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InstrumentExpired">InstrumentExpired</parameter></entry>
+          <entry>
+            <para>The prepaid or the postpaid instrument has expired.</para>
+            <simpara>You must ask your customers to set up a new prepaid or postpaid agreement</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InsufficientBalance">InsufficientBalance</parameter></para>
+          </entry>
+          <entry>
+            <para>The sender, caller, or recipient’s account balance has insufficient funds to complete the transaction.</para>
+            <para>You must ask your customers to fund their accounts. You can then retry this request. </para>
+            <para>Funding an account can take up to three to four business days using a bank account transfer. This error is also displayed if the party paying the FPS fees does not have a sufficient account balance.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>RetryTransaction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InternalError">InternalError</parameter></para>
+          </entry>
+          <entry>
+            <para>A retriable error that happens due to some transient problem in the system.</para>
+            <para>The caller should retry the API call if this error is encountered.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>All</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry>
+            <para><parameter id="InvalidAccountState">InvalidAccountState</parameter></para>
+          </entry>
+          <entry>
+            <para>The account is either suspended or closed. Payment instructions cannot be installed on this account.</para>
+            <para>You must ask your customer to set up a new account if the account is closed.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>InstallPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidAccountState_Caller">InvalidAccountState_Caller</parameter></para>
+          </entry>
+          <entry>
+            <para>The developer account cannot participate in the transaction.</para>
+            <para>Your account is not active. Contact your AWS Representative for more information.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidAccountState_Recipient">InvalidAccountState_Recipient</parameter></para>
+          </entry>
+          <entry>
+            <para>Recipient account cannot participate in the transaction.</para>
+            <para>You can display the following message to your customer (sender): <emphasis>Your Amazon Payments account is not active. Please visit http:// payments.amazon.com for more details.</emphasis></para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidAccountState_Sender">InvalidAccountState_Sender</parameter></para>
+          </entry>
+          <entry>
+            <para>Sender account cannot participate in the transaction.</para>
+            <para>You can display the following message to your customer (sender): <emphasis>Your Amazon Payments account is not active. Please visit http://payments.amazon.com for more details.</emphasis></para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InvalidCallerReference">InvalidCallerReference</parameter></entry>
+          <entry>
+            <para>The Caller Reference does not have a token associated with it.</para>
+            <simpara>Use the caller reference value that was passed to the InstallPaymentInstruction operation or the Amazon FPS Co-Branded UI pipeline.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry><parameter id="InvalidClientTokenId">InvalidClientTokenId</parameter></entry>
+          <entry>
+            <para>The AWS Access Key Id you provided does not exist in our records.</para>
+            <para>Please check that the AWS Access Key Id used to make the request is valid.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InvalidDateRange">InvalidDateRange</parameter></entry>
+          <entry>
+            <para>The end date specified is before the start date or the start date is in the future.</para>
+            <simpara>Specify the correct end date.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidParams">InvalidParams</parameter></para>
+          </entry>
+          <entry>
+            <para>One or more parameters in the request is invalid.</para>
+            <para>For more information, see the parameter descriptions for the action in the API Reference. Parameters are case sensitive. </para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>All</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InvalidPaymentInstrument">InvalidPaymentInstrument</parameter></entry>
+          <entry>
+            <para>The payment method used in the transaction is invalid.</para>
+            <simpara>Specify a valid payment method</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InvalidPaymentMethod">InvalidPaymentMethod</parameter></entry>
+          <entry>
+            <itemizedlist>
+              <listitem>
+                <para>For InstallPaymentInstruction, payment method specified in the GK construct is invalid.</para>
+                <simpara>Specify the correct payment method.</simpara>
+              </listitem>
+              <listitem>
+                <para>For FundPrepaid and SettleDebt, the payment method specified in the token is invalid</para>
+                <simpara>Use a token with payment method specified as any of ABT, ACH, and CC. For Quick accounts, only CC is acceptable.</simpara>
+              </listitem>
+            </itemizedlist>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="InvalidRecipientForCCTransaction">InvalidRecipientForCCTransaction</parameter></entry>
+          <entry>
+            <para> This account cannot receive credit card payments.</para>
+            <simpara>You can display the following message to your customers: You cannot receive credit card payment. Please visit http://payments.amazon.com to update your account to receive credit card payments."</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry>
+            <para><parameter id="InvalidSubscriptionID">InvalidSubscriptionID</parameter></para>
+            <simpara> </simpara>
+          </entry>
+          <entry>
+            <para>The supplied subscription ID is invalid.</para>
+            <para>Please ensure that the subscription id passed in the input is correct and is owned by the calling account. </para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry><parameter id="InvalidSubscriptionState">InvalidSubscriptionState</parameter></entry>
+          <entry>
+            <para>This subscription is already canceled or completed.</para>
+            <para>None</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="InvalidSenderRoleForAccountType">InvalidSenderRoleFor</parameter></para>
+            <simpara>&nbsp;&nbsp;<parameter>AccountType</parameter></simpara>
+          </entry>
+          <entry>
+            <para>This token cannot be used for this operation.</para>
+            <para>Ensure that the account used in this transaction is the same account used in the original transaction. In a refund transaction, the recipient making the refund payment must the be same recipient as in the original transaction.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidTokenId">InvalidTokenId</parameter></para>
+          </entry>
+          <entry>
+            <para>You did not install the token that you are trying to cancel.</para>
+            <para>You do not have permission to cancel this token. You can cancel only the tokens that you own.</para>
+            <para>Retriable: No</para>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>CancelToken</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+              <row>
+                <entry>GetPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>GetTokenByCaller</entry>
+              </row>
+              <row>
+                <entry>GetTokenUsage</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="InvalidTokenId_Recipient">InvalidTokenId_Recipient</parameter></para>
+          </entry>
+          <entry>
+            <para>The recipient token specified is either invalid or canceled.</para>
+            <para>You must install a new token if you are the recipient. If you are not the recipient, get a new payment authorization from the recipient.</para>
+            <para>Retriable: No</para>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="InvalidTokenId_Sender">InvalidTokenId_Sender</parameter></para>
+          </entry>
+          <entry>
+            <para>The send token specified is either invalid or canceled or the token is not active.</para>
+            <para>You must ask your customer to set up a new payment authorization.</para>
+            <para>Retriable: No</para>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="InvalidTokenType">InvalidTokenType</parameter></para>
+          </entry>
+          <entry>
+            <para>An invalid operation was performed on the token, for example, getting the token usage information on a single use token.</para>
+            <para>Retriable: No</para>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>GetTokenUsage</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidTransactionId">InvalidTransactionId</parameter></para>
+          </entry>
+          <entry>
+            <para>The specified transaction could not be found or the caller did not execute the transaction or this is not a Pay or Reserve call.</para>
+            <para>Specify the correct the transaction ID.</para>
+            <para>Retriable: No</para>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>GetTransaction</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>RetryTransaction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="InvalidTransactionState">InvalidTransactionState</parameter></para>
+          </entry>
+          <entry>
+            <para>The transaction is not complete, or it has temporarily failed.</para>
+            <para>Specify a duration of more than one hour.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>RetryTransaction</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry>
+            <para><parameter id="MissingRequiredParameter">MissingRequiredParameter</parameter></para>
+          </entry>
+          <entry>
+            <para>The request is missing a required parameter.</para>
+            <para>Check that you have specified all the parameters and values required by the action.</para>
+            <simpara>Retriable: After you have provided the complete parameter set.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="NotMarketplaceApp">NotMarketplaceApp</parameter></entry>
+          <entry>
+            <para>This is not an marketplace application or the caller does not match either the sender or the recipient.</para>
+            <para>Please check that you are specifying the correct tokens.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="OriginalTransactionFailed">OriginalTransactionFailed</parameter></para>
+          </entry>
+          <entry>
+            <para>The original transaction has failed.</para>
+            <para>You cannot refund a transaction that has originally failed.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry><parameter id="OriginalTransactionIncomplete">OriginalTransactionIncomplete</parameter></entry>
+          <entry>
+            <para>The original transaction is still in progress.</para>
+            <para>Retry after the original transaction has completed.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="PaymentInstrumentNotCC">PaymentInstrumentNotCC</parameter></entry>
+          <entry>
+            <para>The payment method specified in the transaction is not a credit card. You can only use a credit card for this transaction.</para>
+            <simpara>Use only a credit card for this transaction.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="PaymentMethodNotDefined">PaymentMethodNotDefined</parameter></entry>
+          <entry>
+            <para>An attempt has been made to fund the prepaid instrument at a level greater than its recharge limit.</para>
+            <simpara>Retriable: Yes, after adjusting the amount of funds to a valid level.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="PrepaidFundingLimitExceeded">PrepaidFundingLimitExceeded</parameter></entry>
+          <entry>
+            <para>Payment method is not defined in the transaction.</para>
+            <simpara>Specify the payment method in the sender token.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="RefundAmountExceeded">RefundAmountExceeded</parameter></para>
+          </entry>
+          <entry>
+            <para>The refund amount is more than the refundable amount.</para>
+            <para>You are not allowed to refund more than the original transaction amount.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry>
+            <para><parameter id="RefundDenied">RefundDenied</parameter></para>
+          </entry>
+          <entry>
+            <para>The refund was denied.</para>
+            <para>There are no successful transactions associated with this subscription that can be canceled. </para>
+            <para>Please wait for a successful payment to be made for this transaction.</para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="SameSenderAndRecipient">SameSenderAndRecipient</parameter></entry>
+          <entry>
+            <para>The sender and receiver are identical, which is not allowed.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="SameTokenIdUsedMultipleTimes">SameTokenIdUsedMultipleTimes</parameter></entry>
+          <entry>
+            <para>This token is already used in earlier transactions.</para>
+            <simpara>The tokens used in a transaction should be unique.</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="SenderNotOriginalRecipient">SenderNotOriginalRecipient</parameter></para>
+          </entry>
+          <entry>
+            <para>The sender in the refund transaction is not the recipient of the original transaction.</para>
+            <para>The token you passed as the refund sender token does not belong to the recipient of the original transaction. Pass the correct refund sender token.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="SettleAmountGreaterThanDebt">SettleAmountGreaterThanDebt</parameter></para>
+          </entry>
+          <entry>
+            <para>The amount being settled or written off is greater than the current debt.</para>
+            <para>You cannot settle an amount greater than what is owed.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="SettleAmountGreaterThanReserveAmount">SettleAmountGreaterThan</parameter></para>
+            <simpara><parameter>ReserveAmount</parameter></simpara>
+          </entry>
+          <entry>
+            <para>The amount being settled is greater than the reserved amount.</para>
+            <para>You cannot settle an amount greater than what is reserved.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Settle</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <parameter id="SignatureDoesNotMatch">SignatureDoesNotMatch</parameter>
+          </entry>
+          <entry>
+            <para>The request signature calculated by Amazon does not match the signature you provided.</para>
+            <para>Check your AWS Secret Access Key and signing method. </para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry/>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp">
+          <entry>
+            <para><parameter id="SystemError">SystemError</parameter></para>
+            <simpara> </simpara>
+          </entry>
+          <entry>
+            <para>There was a system error. </para>
+            <para>The transaction did not complete. </para>
+            <simpara>Retriable: Yes</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="TokenAccessDenied">TokenAccessDenied</parameter></para>
+          </entry>
+          <entry>
+            <para>Permission is denied to cancel the token.</para>
+            <para>You are not allowed to cancel this token.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>CancelToken</entry>
+              </row>
+              <row>
+                <entry>GetPaymentInstruction</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="TokenNotActive_Recipient">TokenNotActive_Recipient</parameter></para>
+          </entry>
+          <entry>
+            <para>The recipient token is canceled.</para>
+            <para>If you are the recipient, set up a new recipient token using the <function>InstallPaymentInstruction</function> operation or direct your customers to the Recipient Token Installation Pipeline to set up recipient token.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="TokenNotActive_Sender">TokenNotActive_Sender</parameter></para>
+          </entry>
+          <entry>
+            <para>The sender token is canceled.</para>
+            <para>You must ask your customer to set up a new payment authorization because the current authorization is not active.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry><parameter id="TokenUsageError">TokenUsageError</parameter></entry>
+          <entry>
+            <para>The token usage limit is exceeded.</para>
+            <simpara>If the usage has exceeded for this period, then wait for the next period before making another transaction. If the usage has exceeded for the entire authorization period, then ask your customer to set up a new payment authorization.</simpara>
+          </entry>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="TransactionDenied">TransactionDenied</parameter></para>
+          </entry>
+          <entry>
+            <para>This transaction is not allowed.</para>
+            <para>You are not allowed to do this transaction. Check your credentials.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>RetryTransaction</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="TransactionFullyRefundedAlready">TransactionFullyRefunded</parameter></para>
+            <simpara>&nbsp;&nbsp;<parameter>Already</parameter>
+            </simpara>
+          </entry>
+          <entry>
+            <para>This transaction has already been completely refunded.</para>
+            <para>You are not allowed to refund more than the original transaction amount.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="TransactionTypeNotRefundable">TransactionTypeNotRefundable</parameter></para>
+          </entry>
+          <entry>
+            <para>You cannot refund this transaction.</para>
+            <para>Refund is allowed only on the <function>Pay</function> operation.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="UnverifiedAccount_Recipient">UnverifiedAccount_Recipient</parameter></para>
+          </entry>
+          <entry>
+            <para>The recipient&apos;s account must have a verified bank account or a credit card before this transaction can be initiated.</para>
+            <para>You can display the following message to your customer (recipient): <emphasis>Your Amazon Payments account is not active. Please visit http://payments.amazon.com for more details.</emphasis></para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="UnverifiedAccount_Sender">UnverifiedAccount_Sender</parameter></para>
+          </entry>
+          <entry>
+            <para>The sender&apos;s account must have a verified U.S. credit card or a verified U.S bank account before this transaction can be initiated.</para>
+            <para>You can display the following message to your customers: <emphasis>Please add a U.S. credit card or U.S. bank account and verify your bank account before making this payment.</emphasis></para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="fps">
+          <entry>
+            <para><parameter id="UnverifiedBankAccount">UnverifiedBankAccount</parameter></para>
+          </entry>
+          <entry>
+            <para>A verified bank account should be used for this transaction.</para>
+            <para>Visit the http://payments.amazon.com web site to verify your bank account.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="UnverifiedEmailAddress_Caller">UnverifiedEmailAddress_Caller</parameter></para>
+          </entry>
+          <entry>
+            <para>The caller account must have a verified email address.</para>
+            <para>You cannot make a web service API call without verifying your email address. Go to http://payments.amazon.com web site and make payments.</para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="UnverifiedEmailAddress_Recipient">UnverifiedEmailAddress_</parameter></para>
+            <simpara>&nbsp;&nbsp;<parameter>Recipient</parameter>
+            </simpara>
+          </entry>
+          <entry>
+            <para>The recipient account must have a verified email address for receiving payments.</para>
+            <para>You can display the following message to your customers: <emphasis>You cannot receive payments. Please verify your email address. Go to http://payments.amazon.com to verify your account and receive payments.</emphasis></para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+        <row condition="asp;fps">
+          <entry>
+            <para><parameter id="UnverifiedEmailAddress_Sender">UnverifiedEmailAddress_Sender</parameter></para>
+          </entry>
+          <entry>
+            <para>The sender account must have a verified email address for this payment</para>
+            <para>You can display the following message to your customers: <emphasis>You cannot receive payments. Please verify your email address. Go to http://payments.amazon.com to verify your account and receive payments.</emphasis></para>
+            <simpara>Retriable: No</simpara>
+          </entry>
+          <entrytbl cols="1" condition="DATABASE">
+            <tbody>
+              <row>
+                <entry>Pay</entry>
+              </row>
+              <row>
+                <entry>Reserve</entry>
+              </row>
+              <row>
+                <entry>Settle</entry>
+              </row>
+              <row>
+                <entry>FundPrepaid</entry>
+              </row>
+              <row>
+                <entry>SettleDebt</entry>
+              </row>
+              <row>
+                <entry>WriteOffDebt</entry>
+              </row>
+              <row>
+                <entry>Refund</entry>
+              </row>
+            </tbody>
+          </entrytbl>
+        </row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  <section id="Async-Errors"  condition="ASYNC-ERRORS">
+    <title id="Async-Errors.title">Asynchronous Backend Errors</title>
+  <para>The following errors may be returned as the result of an asynchronous transaction initiated by a call to the <link linkend="GetTransaction" endterm="GetTransaction"/> action. Asynchronous errors are contained in the REST response within the <code>GetTransactionResponse/Transaction/ErrorMessage</code> node, and can occur even if the value for the <code>GetTransactionResponse/Transaction/Status</code> node is <code>SUCCESS</code></para>
+  <note><para>These same codes may be returned within the IPN response, within the <code>errorMessage</code> entry.</para></note>
+  <informaltable id="fps-lite-new">
+    <tgroup cols="3">
+      <?dbhtml table-width="100%" ?>
+      <?dbfo table-width="95%" ?>
+      <colspec colname="c1"/>
+      <colspec colname="c2"/>
+      <colspec colname="c3"/>
+      <thead>
+        <row>
+          <entry>
+            <para>Error Code and Type</para>
+          </entry>
+          <entry>
+            <para>Description and Action</para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>APIs that return this error code</para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry><parameter>1000</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Credit Card Details are not valid</para>
+            <para>Ask buyer to verify the Credit Card details</para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1001</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Amount entered is not valid</para>
+            <para>Verify if amount specified in request is valid. If amount is entered directly by buyer, prompt buyer to validate the amount.</para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1002</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Credit Card Account does not exist </para>
+            <para>Ask buyer to verify the Credit Card details </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1500</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Account number is invalid </para>
+            <para>Ask buyer to verify bank account details. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1501</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Transaction Amount is not valid </para>
+            <para>Verify if amount specified in request is valid. If amount is entered directly by buyer, prompt buyer to validate the amount. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1502</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Improper information in one of the mandatory fields </para>
+            <para>Ask buyer to verify the information entered. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>1504</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Check digit in the routing number is not valid </para>
+            <para>Ask buyer to verify the routing number, </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>2000</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>No response from the credit card network </para>
+            <para>FPS will automatically retry these transactions till the timeout value specified in Pay API.  Alternatively you can call Cancel API to cancel this transaction. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>2001</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Credit card network is not reachable </para>
+            <para>Ask buyer to try after some time </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>2500</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank has limited information for the originating bank </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>2501</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank not qualified to participate in the transaction </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3000</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Buyers' Credit Card exceeded credit limit </para>
+            <para>Ask buyer to settle credit card debt and try again. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3001</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Card Issuer declined the transaction </para>
+            <para>Ask buyer to contact the bank. FPS will automatically retry this transaction till the timeout value specified in Pay API. Alternatively you can call Cancel API to cancel this transaction. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3002</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Credit Card is no longer valid </para>
+            <para>Ask buyer to contact the issuer. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3003</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Backend Payment Processor declined the transaction </para>
+            <para><emphasis>REVIEW: IS THERE ANY CORRECTIVE ACTION?</emphasis></para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3005</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Backend Payment Processor declined the transaction because of increased buyer activity </para>
+            <para><emphasis>REVIEW: IS THERE ANY CORRECTIVE ACTION?</emphasis></para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3006</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Backend Payment Processor declined the transaction without providing any further information </para>
+            <para><emphasis>REVIEW: IS THERE ANY CORRECTIVE ACTION?</emphasis></para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3007</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Card Issuer declined the transaction </para>
+            <para>Ask buyer to contact the issuing bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3008</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Card holder has requested a stop on the recurring payment. </para>
+            <para>Ask buyer to contact the issuing bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3009</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Credit Card account closed</para>
+            <para>Ask buyer to contact the issuing bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3010</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>Either the Credit Card has expired or Credit Card details are incorrect </para>
+            <para>Ask buyer to verify the credit card details </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3011</parameter>
+            <para>CC</para></entry>
+          <entry>
+            <para>No transactions are allowed on this credit card </para>
+            <para>Ask buyer to contact the issuing bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3500</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Bank Account has been closed </para>
+            <para>Ask buyer to verify bank account details or contact the bank </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3501</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Bank Account does not exist </para>
+            <para>Ask buyer to verify bank account details or contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3502</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Funds available in the Bank Account have been frozen </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3503</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Bank Account not eligible for transactions </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3504</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Bank Account has insufficient funds to complete the transaction </para>
+            <para>Ask buyer to add funds to the bank account. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3505</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Account balance insufficient to complete this transaction and pending collections </para>
+            <para>Ask buyer to add funds to the bank account. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3506</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Stop payment requested on the transaction </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3507</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank declined the transaction </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3508</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank found a duplicate entry for this transaction </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3510</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Debit not authorized by receiver </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3511</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank is not able to settle this transaction </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3512</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>ACH Debit not permitted </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3513</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>ACH Credit not permitted </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3514</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Unauthorized Debit </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3515</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Transaction declined by the originating bank </para>
+            <para>Ask buyer to contact the bank. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3516</parameter>
+            <para>ACH</para></entry>
+          <entry>
+            <para>Receiving bank declined the transaction </para>
+            <para>Ask buyer to contact Amazon Payments customer service or representative with the error code/description </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3800</parameter>
+            <para>Amazon Payments</para></entry>
+          <entry>
+            <para>Amazon Payments has queued this transaction for manual review </para>
+            <para>FPS will automatically retry this transaction till the timeout value specified in Pay API.  Alternatively you can call Cancel API to cancel this transaction. </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>3801</parameter>
+            <para>Amazon Payments</para></entry>
+          <entry>
+            <para>Transaction declined after manual review </para>
+            <para><emphasis>REVIEW: IS THERE ANY CORRECTIVE ACTION?</emphasis></para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>4000</parameter>
+            <para>Amazon Payments</para></entry>
+          <entry>
+            <para>Amazon Payments is not configured to process this request. </para>
+            <para>Contact Amazon Payments customer service or representative with the error code/description </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+        <row>
+          <entry><parameter>4001</parameter>
+            <para>Amazon Payments</para></entry>
+          <entry>
+            <para>Transaction not successful </para>
+            <para>Contact Amazon Payments customer service or representative with the error code/description </para>
+          </entry>
+          <entry condition="DATABASE">
+            <para>Pay</para>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </section>
+</section>

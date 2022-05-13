@@ -1,0 +1,30 @@
+<programlisting>
+    using System;
+    using System.Threading.Tasks;
+    using Amazon.KeyManagementService;
+    using Amazon.KeyManagementService.Model;
+
+    public class ListAliases
+    {
+        public static async Task Main()
+        {
+            var client = new AmazonKeyManagementServiceClient();
+            var request = new ListAliasesRequest();
+            var response = new ListAliasesResponse();
+
+            do
+            {
+                response = await client.ListAliasesAsync(request);
+
+                response.Aliases.ForEach(alias =>
+                {
+                    Console.WriteLine($"Created: {alias.CreationDate} Last Update: {alias.LastUpdatedDate} Name: {alias.AliasName}");
+                });
+
+                request.Marker = response.NextMarker;
+            }
+            while (response.Truncated);
+        }
+    }
+
+</programlisting>

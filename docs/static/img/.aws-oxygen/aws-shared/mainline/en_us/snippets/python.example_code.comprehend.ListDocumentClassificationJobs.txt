@@ -1,0 +1,15 @@
+    def list_jobs(self):
+        """
+        Lists the classification jobs for the current account.
+
+        :return: The list of jobs.
+        """
+        try:
+            response = self.comprehend_client.list_document_classification_jobs()
+            jobs = response['DocumentClassificationJobPropertiesList']
+            logger.info("Got %s document classification jobs.", len(jobs))
+        except ClientError:
+            logger.exception("Couldn't get document classification jobs.", )
+            raise
+        else:
+            return jobs

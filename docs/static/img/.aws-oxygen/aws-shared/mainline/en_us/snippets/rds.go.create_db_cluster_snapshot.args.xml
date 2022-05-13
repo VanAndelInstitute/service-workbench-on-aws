@@ -1,0 +1,9 @@
+<programlisting>
+    clusterID := flag.String("c", "", "The cluster ID")
+    flag.Parse()
+
+    if *clusterID == "" {
+        fmt.Println("You must supply a cluster ID (-c CLUSTER-ID)")
+        return
+    }
+</programlisting>

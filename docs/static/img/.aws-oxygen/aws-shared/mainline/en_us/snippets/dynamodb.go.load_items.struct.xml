@@ -1,0 +1,9 @@
+<programlisting>
+// Create struct to hold info about new item
+type Item struct {
+    Year   int
+    Title  string
+    Plot   string
+    Rating float64
+}
+</programlisting>

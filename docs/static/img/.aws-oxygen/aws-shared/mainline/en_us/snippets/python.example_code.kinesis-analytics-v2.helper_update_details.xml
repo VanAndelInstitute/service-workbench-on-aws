@@ -1,0 +1,12 @@
+<programlisting>
+    def _update_details(self, details):
+        """
+        Updates object properties with application details retrieved from the service.
+
+        :param details: Application details from the service.
+        """
+        self.name = details['ApplicationName']
+        self.version_id = details['ApplicationVersionId']
+        self.arn = details['ApplicationARN']
+        self.create_timestamp = details['CreateTimestamp']
+</programlisting>

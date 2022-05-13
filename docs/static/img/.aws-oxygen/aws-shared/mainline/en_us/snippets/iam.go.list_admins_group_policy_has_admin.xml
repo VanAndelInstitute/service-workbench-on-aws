@@ -1,0 +1,21 @@
+<programlisting>
+func groupPolicyHasAdmin(svc *iam.IAM, group *iam.Group, admin string) (bool, error) {
+    input := &iam.ListGroupPoliciesInput{
+        GroupName: group.GroupName,
+    }
+
+    result, err := svc.ListGroupPolicies(input)
+    if err != nil {
+        return false, err
+    }
+
+    // Wade through policies
+    for _, policyName := range result.PolicyNames {
+        if *policyName == admin {
+            return true, nil
+        }
+    }
+
+    return false, nil
+}
+</programlisting>

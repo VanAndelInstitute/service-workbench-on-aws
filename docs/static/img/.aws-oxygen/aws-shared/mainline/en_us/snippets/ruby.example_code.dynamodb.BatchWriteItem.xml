@@ -1,0 +1,25 @@
+<programlisting>
+  # Fills an Amazon DynamoDB table with the specified data. Items are sent in
+  # batches of 25 until all items are written.
+  #
+  # @param movies [Enumerable] The data to put in the table. Each item must contain at least
+  #                            the keys required by the schema that was specified when the
+  #                            table was created.
+  def write_batch(movies)
+    index = 0
+    slice_size = 25
+    while index < movies.length
+      movie_items = []
+      movies[index, slice_size].each do |movie|
+        movie_items.append({put_request: { item: movie }})
+      end
+      @dynamo_resource.batch_write_item({request_items: { @table.name => movie_items }})
+      index += slice_size
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts(
+      "Couldn't load data into table #{@table.name}. Here's why:")
+      puts("\t#{e.code}: #{e.message}")
+    raise
+  end
+</programlisting>

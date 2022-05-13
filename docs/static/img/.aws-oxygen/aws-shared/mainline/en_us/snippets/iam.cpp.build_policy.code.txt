@@ -1,0 +1,33 @@
+static const char* const POLICY_TEMPLATE =
+"{"
+"  \"Version\": \"2012-10-17\","
+"  \"Statement\": ["
+"    {"
+"        \"Effect\": \"Allow\","
+"        \"Action\": \"logs:CreateLogGroup\","
+"        \"Resource\": \"%s\""
+"    },"
+"    {"
+"        \"Effect\": \"Allow\","
+"        \"Action\": ["
+"            \"dynamodb:DeleteItem\","
+"            \"dynamodb:GetItem\","
+"            \"dynamodb:PutItem\","
+"            \"dynamodb:Scan\","
+"            \"dynamodb:UpdateItem\""
+"       ],"
+"       \"Resource\": \"%s\""
+"    }"
+"   ]"
+"}";
+
+Aws::String BuildSamplePolicyDocument(const Aws::String& rsrc_arn)
+{
+    char policyBuffer[512];
+#ifdef WIN32
+    sprintf_s(policyBuffer, POLICY_TEMPLATE, rsrc_arn.c_str(), rsrc_arn.c_str());
+#else
+    sprintf(policyBuffer, POLICY_TEMPLATE, rsrc_arn.c_str(), rsrc_arn.c_str());
+#endif // WIN32
+    return Aws::String(policyBuffer);
+}

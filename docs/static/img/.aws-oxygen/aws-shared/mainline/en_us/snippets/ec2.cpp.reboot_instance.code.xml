@@ -1,0 +1,31 @@
+<programlisting>
+    Aws::EC2::EC2Client ec2;
+
+    Aws::EC2::Model::RebootInstancesRequest request;
+    request.AddInstanceIds(instanceId);
+    request.SetDryRun(true);
+
+    auto dry_run_outcome = ec2.RebootInstances(request);
+    assert(!dry_run_outcome.IsSuccess());
+
+    if (dry_run_outcome.GetError().GetErrorType()
+        != Aws::EC2::EC2Errors::DRY_RUN_OPERATION)
+    {
+        std::cout << "Failed dry run to reboot instance " << instanceId << ": "
+            << dry_run_outcome.GetError().GetMessage() << std::endl;
+        return;
+    }
+
+    request.SetDryRun(false);
+    auto outcome = ec2.RebootInstances(request);
+    if (!outcome.IsSuccess())
+    {
+        std::cout << "Failed to reboot instance " << instanceId << ": " <<
+            outcome.GetError().GetMessage() << std::endl;
+    }
+    else
+    {
+        std::cout << "Successfully rebooted instance " << instanceId <<
+            std::endl;
+    }
+</programlisting>

@@ -1,0 +1,43 @@
+<programlisting>
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::ListUsersRequest request;
+
+        bool done = false;
+        bool header = false;
+        while (!done)
+        {
+            auto outcome = iam.ListUsers(request);
+            if (!outcome.IsSuccess())
+            {
+                std::cout << "Failed to list iam users:" <<
+                    outcome.GetError().GetMessage() << std::endl;
+                break;
+            }
+
+            if (!header)
+            {
+                std::cout << std::left << std::setw(32) << "Name" <<
+                    std::setw(30) << "ID" << std::setw(64) << "Arn" <<
+                    std::setw(20) << "CreateDate" << std::endl;
+                header = true;
+            }
+
+            const auto &users = outcome.GetResult().GetUsers();
+            for (const auto &user : users)
+            {
+                std::cout << std::left << std::setw(32) << user.GetUserName() <<
+                    std::setw(30) << user.GetUserId() << std::setw(64) <<
+                    user.GetArn() << std::setw(20) <<
+                    user.GetCreateDate().ToGmtString(DATE_FORMAT) << std::endl;
+            }
+
+            if (outcome.GetResult().GetIsTruncated())
+            {
+                request.SetMarker(outcome.GetResult().GetMarker());
+            }
+            else
+            {
+                done = true;
+            }
+        }
+</programlisting>

@@ -1,0 +1,18 @@
+<programlisting>
+  # Queries for movies that were released in the specified year.
+  #
+  # @param year [Integer] The year to query.
+  # @return [Array] The list of movies that were released in the specified year.
+  def query_movies(year)
+    response = @table.query(
+      key_condition_expression: "#yr = :year",
+      expression_attribute_names: {"#yr" => "year"},
+      expression_attribute_values: {":year" => year})
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't query for movies released in #{year}. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    response.items
+  end
+</programlisting>

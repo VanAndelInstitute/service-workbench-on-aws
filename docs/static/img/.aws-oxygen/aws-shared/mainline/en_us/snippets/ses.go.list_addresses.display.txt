@@ -1,0 +1,3 @@
+    for _, address := range addresses {
+        fmt.Println(address)
+    }

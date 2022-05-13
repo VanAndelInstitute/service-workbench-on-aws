@@ -1,0 +1,33 @@
+<programlisting>
+        Aws::Client::ClientConfiguration clientConfig;
+        Aws::DynamoDB::DynamoDBClient dynamoClient(clientConfig);
+
+        Aws::DynamoDB::Model::PutItemRequest putItemRequest;
+        putItemRequest.SetTableName(table);
+               
+        Aws::DynamoDB::Model::AttributeValue av;
+        av.SetS(keyVal);
+        
+        Aws::DynamoDB::Model::AttributeValue album;
+        album.SetS(AlbumTitleValue);
+
+        Aws::DynamoDB::Model::AttributeValue awards;
+        awards.SetS(AwardVal);
+
+        Aws::DynamoDB::Model::AttributeValue song;
+        song.SetS(SongTitleVal);
+
+        // Add all AttributeValue objects.
+        putItemRequest.AddItem(key, av);
+        putItemRequest.AddItem(albumTitle, album);
+        putItemRequest.AddItem(Awards, awards);
+        putItemRequest.AddItem(SongTitle, song);
+
+        const Aws::DynamoDB::Model::PutItemOutcome result = dynamoClient.PutItem(putItemRequest);
+        if (!result.IsSuccess())
+        {
+            std::cout << result.GetError().GetMessage() << std::endl;
+            return 1;
+        }
+        std::cout << "Successfully added Item!" << std::endl;
+</programlisting>

@@ -1,0 +1,20 @@
+<programlisting>
+    @staticmethod
+    def initiate_inventory_retrieval(vault):
+        """
+        Initiates an inventory retrieval job. The inventory describes the contents
+        of the vault. Standard retrievals typically complete within 3—5 hours.
+        When the job completes, you can get the inventory by calling get_output().
+
+        :param vault: The vault to inventory.
+        :return: The inventory retrieval job.
+        """
+        try:
+            job = vault.initiate_inventory_retrieval()
+            logger.info("Started %s job with ID %s.", job.action, job.id)
+        except ClientError:
+            logger.exception("Couldn't start job on vault %s.", vault.name)
+            raise
+        else:
+            return job
+</programlisting>

@@ -1,0 +1,18 @@
+$client = new Aws\Lightsail\LightsailClient([
+    'profile' => 'default',
+    'version' => '2016-11-28',
+    'region' => 'us-east-2'
+]);
+
+$instanceName = 'AWS_SDK_PHP-Amazon_Linux';
+
+try {
+    $result = $client->getInstanceState([
+        'instanceName' => $instanceName,
+    ]);
+    print("Status Code: " . $result['@metadata']['statusCode'] . ", " . $instanceName . " is " . $result['state']['name'] . ".\n");
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage() . "\n";
+}

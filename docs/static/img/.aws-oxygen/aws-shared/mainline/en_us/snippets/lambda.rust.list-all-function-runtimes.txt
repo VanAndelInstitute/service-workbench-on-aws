@@ -1,0 +1,33 @@
+async fn show_lambdas(verbose: bool, language: &str, reg: &'static str) {
+    let region_provider = RegionProviderChain::default_provider().or_else(reg);
+    let config = aws_config::from_env().region(region_provider).load().await;
+    let client = Client::new(&config);
+
+    let resp = client.list_functions().send().await;
+    let functions = resp.unwrap().functions.unwrap_or_default();
+    let max_functions = functions.len();
+    let mut num_functions = 0;
+
+    for function in functions {
+        let rt_str: String = String::from(function.runtime().unwrap().as_ref());
+        // If language is set (!= ""), show only those with that runtime.
+        let ok = rt_str
+            .to_ascii_lowercase()
+            .contains(&language.to_ascii_lowercase());
+        if ok || language.is_empty() {
+            println!("  ARN:     {}", function.function_arn().unwrap());
+            println!("  Runtime: {}", rt_str);
+            println!();
+
+            num_functions += 1;
+        }
+    }
+
+    if num_functions > 0 || verbose {
+        println!(
+            "Found {} function(s) (out of {}) in {} region.",
+            num_functions, max_functions, reg
+        );
+        println!();
+    }
+}

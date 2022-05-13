@@ -1,0 +1,17 @@
+  # Lists up to a specified number of policies in the account.
+  #
+  # @param count [Integer] The maximum number of policies to list.
+  # @return [Array] The Amazon Resource Names (ARNs) of the policies listed.
+  def list_policies(count)
+    policy_arns = []
+    @iam_resource.policies.limit(count).each_with_index do |policy, index|
+      puts("\t#{index + 1}: #{policy.policy_name}: #{policy.arn}")
+      policy_arns.append(policy.arn)
+    end
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't list policies for the account. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    policy_arns
+  end

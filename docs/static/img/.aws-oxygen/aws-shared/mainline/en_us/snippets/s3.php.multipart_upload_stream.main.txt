@@ -1,0 +1,25 @@
+// Create an S3Client
+$s3Client = new S3Client([
+    'profile' => 'default',
+    'region' => 'us-west-2',
+    'version' => '2006-03-01'
+]);
+
+//Using stream instead of file path
+$source = fopen('/path/to/large/file.zip', 'rb');
+$uploader = new MultipartUploader($s3Client, $source, [
+    'bucket' => 'your-bucket',
+    'key' => 'my-file.zip',
+]);
+
+do {
+    try {
+        $result = $uploader->upload();
+    } catch (MultipartUploadException $e) {
+        rewind($source);
+        $uploader = new MultipartUploader($s3Client, $source, [
+            'state' => $e->getState(),
+        ]);
+    }
+} while (!isset($result));
+ 

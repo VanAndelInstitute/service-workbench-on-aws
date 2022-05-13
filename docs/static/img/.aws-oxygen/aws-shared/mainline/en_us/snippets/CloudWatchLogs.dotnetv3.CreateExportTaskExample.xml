@@ -1,0 +1,32 @@
+<programlisting>
+        public static async Task Main()
+        {
+            // This client object will be associated with the same AWS Region
+            // as the default user on this system. If you need to use a
+            // different AWS Region, pass it as a parameter to the client
+            // constructor.
+            var client = new AmazonCloudWatchLogsClient();
+            string taskName = "export-task-example";
+            string logGroupName = "cloudwatchlogs-example-loggroup";
+            string destination = "doc-example-bucket";
+            var fromTime = 1437584472382;
+            var toTime = 1437584472833;
+
+            var request = new CreateExportTaskRequest
+            {
+                From = fromTime,
+                To = toTime,
+                TaskName = taskName,
+                LogGroupName = logGroupName,
+                Destination = destination,
+            };
+
+            var response = await client.CreateExportTaskAsync(request);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine($"The task, {taskName} with ID: {response.TaskId} has been created successfully.");
+            }
+        }
+
+</programlisting>

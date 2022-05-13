@@ -1,0 +1,9 @@
+<programlisting>
+class CloudFrontWrapper:
+    """Encapsulates Amazon CloudFront operations."""
+    def __init__(self, cloudfront_client):
+        """
+        :param cloudfront_client: A Boto3 CloudFront client
+        """
+        self.cloudfront_client = cloudfront_client
+</programlisting>

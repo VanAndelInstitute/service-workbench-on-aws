@@ -1,0 +1,9 @@
+GET\n
+fps.payments.amazon.com\n
+Action=GetOutstandingDebtBalance
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Signature=hy5DUE2o85mI6cEIeT%2BcicKn19OdFpjHfZKICS8IM5Y%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A21%3A21.750Z
+&Version=2008-09-17

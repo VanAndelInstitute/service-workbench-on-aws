@@ -1,0 +1,18 @@
+    def get_detection_job(self, job_id):
+        """
+        Gets data for a previously started text detection job.
+
+        :param job_id: The ID of the job to retrieve.
+        :return: The job data, including a list of blocks that describe elements
+                 detected in the image.
+        """
+        try:
+            response = self.textract_client.get_document_text_detection(
+                JobId=job_id)
+            job_status = response['JobStatus']
+            logger.info("Job %s status is %s.", job_id, job_status)
+        except ClientError:
+            logger.exception("Couldn't get data for job %s.", job_id)
+            raise
+        else:
+            return response

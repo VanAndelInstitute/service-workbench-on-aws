@@ -1,0 +1,2 @@
+import aws.sdk.kotlin.services.ses.SesClient
+import aws.sdk.kotlin.services.ses.model.ListIdentitiesRequest

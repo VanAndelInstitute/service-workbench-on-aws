@@ -1,0 +1,11 @@
+suspend fun deleteSNSTopic(topicArnVal: String) {
+
+    val request = DeleteTopicRequest {
+        topicArn = topicArnVal
+    }
+
+    SnsClient { region = "us-east-1" }.use { snsClient ->
+      snsClient.deleteTopic(request)
+      println("$topicArnVal was successfully deleted.")
+    }
+}

@@ -1,0 +1,26 @@
+<programlisting>
+    public static void getSpecificFinding(GuardDutyClient guardDutyClient, String findingId, String detectorId) {
+
+        try {
+            List<String> myIds = new ArrayList<>();
+            myIds.add(findingId);
+
+            GetFindingsRequest findingsRequest = GetFindingsRequest.builder()
+                    .findingIds(myIds)
+                    .detectorId(detectorId)
+                    .build();
+
+            GetFindingsResponse findingsResponse = guardDutyClient.getFindings(findingsRequest);
+            List<Finding> findings = findingsResponse.findings();
+
+            for (Finding finding : findings) {
+                System.out.println("The finding ARN is " + finding.arn());
+                System.out.println("The resource type is " + finding.resource().resourceType());
+            }
+
+        } catch (GuardDutyException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

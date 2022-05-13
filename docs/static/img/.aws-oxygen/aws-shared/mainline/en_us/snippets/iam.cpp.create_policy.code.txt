@@ -1,0 +1,17 @@
+        Aws::IAM::IAMClient iam;
+
+        Aws::IAM::Model::CreatePolicyRequest request;
+        request.SetPolicyName(policy_name);
+        request.SetPolicyDocument(BuildSamplePolicyDocument(rsrc_arn));
+
+        auto outcome = iam.CreatePolicy(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error creating policy " << policy_name << ": " <<
+                outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully created policy " << policy_name <<
+                std::endl;
+        }

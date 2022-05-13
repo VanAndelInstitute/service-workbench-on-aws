@@ -1,0 +1,78 @@
+    public static void createCluster(RedshiftClient redshiftClient, String clusterId, String masterUsername, String masterUserPassword ) {
+
+       try {
+
+           CreateClusterRequest clusterRequest = CreateClusterRequest.builder()
+                .clusterIdentifier(clusterId)
+                .masterUsername(masterUsername) // set the user name here
+                .masterUserPassword(masterUserPassword) // set the user password here
+                .nodeType("ds2.xlarge")
+                .publiclyAccessible(true)
+                .numberOfNodes(2)
+                .build();
+
+        CreateClusterResponse clusterResponse = redshiftClient.createCluster(clusterRequest);
+        System.out.println("Created cluster " + clusterResponse.cluster().clusterIdentifier());
+
+       } catch (RedshiftException e) {
+
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+    }
+
+    // Waits until the cluster is available
+    public static void waitForClusterReady(RedshiftClient redshiftClient, String clusterId) {
+
+        Boolean clusterReady = false;
+        String clusterReadyStr = "";
+        System.out.println("Waiting for cluster to become available.");
+
+       try {
+        DescribeClustersRequest clustersRequest = DescribeClustersRequest.builder()
+                .clusterIdentifier(clusterId)
+                .build();
+
+       // Loop until the cluster is ready
+         while (!clusterReady) {
+
+             DescribeClustersResponse clusterResponse = redshiftClient.describeClusters(clustersRequest);
+             List<Cluster> clusterList = clusterResponse.clusters();
+
+             for (Cluster cluster : clusterList) {
+
+                 clusterReadyStr = cluster.clusterStatus();
+                 if (clusterReadyStr.contains("available"))
+                     clusterReady = true;
+                 else {
+                     System.out.print(".");
+                     Thread.sleep(sleepTime * 1000);
+                 }
+             }
+         }
+           System.out.println("Cluster is available!");
+
+    } catch (RedshiftException | InterruptedException e) {
+
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+
+    public static void modifyCluster(RedshiftClient redshiftClient, String clusterId) {
+
+        try {
+        ModifyClusterRequest modifyClusterRequest = ModifyClusterRequest.builder()
+                 .clusterIdentifier(clusterId)
+                  .preferredMaintenanceWindow("wed:07:30-wed:08:00")
+                 .build();
+
+        ModifyClusterResponse clusterResponse = redshiftClient.modifyCluster(modifyClusterRequest);
+        System.out.println("The modified cluster was successfully modified and has "+ clusterResponse.cluster().preferredMaintenanceWindow() +" as the maintenance window");
+
+        } catch (RedshiftException e) {
+
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

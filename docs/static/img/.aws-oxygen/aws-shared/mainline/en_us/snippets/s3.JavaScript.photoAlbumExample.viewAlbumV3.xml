@@ -1,0 +1,83 @@
+<programlisting>
+
+// View the contents of an album
+
+const viewAlbum = async (albumName) => {
+  const albumPhotosKey = encodeURIComponent(albumName) + "/";
+  try {
+    const data = await s3.send(
+        new ListObjectsCommand({
+          Prefix: albumPhotosKey,
+          Bucket: albumBucketName,
+        })
+    );
+    if (data.Contents.length === 1) {
+      var htmlTemplate = [
+        "<p>You don't have any photos in this album. You need to add photos.</p>",
+        '<input id="photoupload" type="file" accept="image/*">',
+        '<button id="addphoto" onclick="addPhoto(\'' + albumName + "')\">",
+        "Add photo",
+        "</button>",
+        '<button onclick="listAlbums()">',
+        "Back to albums",
+        "</button>",
+      ];
+      document.getElementById("app").innerHTML = getHtml(htmlTemplate);
+    } else {
+      console.log(data);
+      const href = "https://s3." + REGION + ".amazonaws.com/";
+      const bucketUrl = href + albumBucketName + "/";
+      const photos = data.Contents.map(function (photo) {
+        const photoKey = photo.Key;
+        console.log(photo.Key);
+        const photoUrl = bucketUrl + encodeURIComponent(photoKey);
+        return getHtml([
+          "<span>",
+          "<div>",
+          '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
+          "</div>",
+          "<div>",
+          "<span onclick=\"deletePhoto('" +
+          albumName +
+          "','" +
+          photoKey +
+          "')\">",
+          "X",
+          "</span>",
+          "<span>",
+          photoKey.replace(albumPhotosKey, ""),
+          "</span>",
+          "</div>",
+          "</span>",
+        ]);
+      });
+      var message = photos.length
+          ? "<p>Click the X to delete the photo.</p>"
+          : "<p>You don't have any photos in this album. You need to add photos.</p>";
+      const htmlTemplate = [
+        "<h2>",
+        "Album: " + albumName,
+        "</h2>",
+        message,
+        "<div>",
+        getHtml(photos),
+        "</div>",
+        '<input id="photoupload" type="file" accept="image/*">',
+        '<button id="addphoto" onclick="addPhoto(\'' + albumName + "')\">",
+        "Add photo",
+        "</button>",
+        '<button onclick="listAlbums()">',
+        "Back to albums",
+        "</button>",
+      ];
+      document.getElementById("app").innerHTML = getHtml(htmlTemplate);
+      document.getElementsByTagName("img")[0].remove();
+    }
+  } catch (err) {
+    return alert("There was an error viewing your album: " + err.message);
+  }
+};
+// Make viewAlbum function available to the browser
+window.viewAlbum = viewAlbum;
+
+</programlisting>

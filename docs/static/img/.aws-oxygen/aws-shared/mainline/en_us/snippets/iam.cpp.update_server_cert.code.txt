@@ -1,0 +1,18 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::UpdateServerCertificateRequest request;
+        request.SetServerCertificateName(old_name);
+        request.SetNewServerCertificateName(new_name);
+
+        auto outcome = iam.UpdateServerCertificate(request);
+        if (outcome.IsSuccess())
+        {
+            std::cout << "Server certificate " << old_name
+                << " successfully renamed as " << new_name
+                << std::endl;
+        }
+        else
+        {
+            std::cout << "Error changing name of server certificate " <<
+                old_name << " to " << new_name << ":" <<
+                outcome.GetError().GetMessage() << std::endl;
+        }

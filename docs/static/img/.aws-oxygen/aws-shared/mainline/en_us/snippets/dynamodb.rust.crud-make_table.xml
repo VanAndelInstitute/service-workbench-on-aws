@@ -1,0 +1,35 @@
+<programlisting>
+async fn make_table(
+    client: &Client,
+    table: &str,
+    key: &str,
+) -> Result<(), SdkError<aws_sdk_dynamodb::error::CreateTableError>> {
+    let ad = AttributeDefinition::builder()
+        .attribute_name(key)
+        .attribute_type(ScalarAttributeType::S)
+        .build();
+
+    let ks = KeySchemaElement::builder()
+        .attribute_name(key)
+        .key_type(KeyType::Hash)
+        .build();
+
+    let pt = ProvisionedThroughput::builder()
+        .read_capacity_units(10)
+        .write_capacity_units(5)
+        .build();
+
+    match client
+        .create_table()
+        .table_name(table)
+        .key_schema(ks)
+        .attribute_definitions(ad)
+        .provisioned_throughput(pt)
+        .send()
+        .await
+    {
+        Ok(_) => Ok(()),
+        Err(e) => Err(e),
+    }
+}
+</programlisting>

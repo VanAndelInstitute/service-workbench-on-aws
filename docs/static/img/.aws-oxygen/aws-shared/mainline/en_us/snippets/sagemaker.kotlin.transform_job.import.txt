@@ -1,0 +1,11 @@
+import aws.sdk.kotlin.services.sagemaker.SageMakerClient
+import aws.sdk.kotlin.services.sagemaker.model.TransformS3DataSource
+import aws.sdk.kotlin.services.sagemaker.model.S3DataType
+import aws.sdk.kotlin.services.sagemaker.model.TransformDataSource
+import aws.sdk.kotlin.services.sagemaker.model.TransformInput
+import aws.sdk.kotlin.services.sagemaker.model.SplitType
+import aws.sdk.kotlin.services.sagemaker.model.TransformOutput
+import aws.sdk.kotlin.services.sagemaker.model.TransformResources
+import aws.sdk.kotlin.services.sagemaker.model.TransformInstanceType
+import aws.sdk.kotlin.services.sagemaker.model.CreateTransformJobRequest
+import kotlin.system.exitProcess

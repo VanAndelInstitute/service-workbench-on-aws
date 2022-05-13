@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.comprehend.ComprehendClient
+import aws.sdk.kotlin.services.comprehend.model.DetectSyntaxRequest
+import aws.sdk.kotlin.services.comprehend.model.SyntaxLanguageCode

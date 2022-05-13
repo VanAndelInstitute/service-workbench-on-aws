@@ -1,0 +1,26 @@
+--------------------------
+transactionId: 14GN2BUHUAV4KG5S8USHN79PQH1NGN5ADK4
+statusMessage: The transaction is awaiting a response from the backend payment processor.
+transactionDate: 1254904691
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+buyerEmail: new_premium@amazon.com
+notificationType: TransactionStatus
+callerReference: CallerReference10
+transactionAmount: USD 1.00
+transactionStatus: PENDING
+operation: FUND_PREPAID
+recipientEmail: test-caller@amazon.com
+buyerName: Test Business
+signature: iySHTqfzaF7bwypiE6BwBYiRCsB1SOy/RhDuiwvPZNzNPhDQW9TqGgFI2U1kjiXuTHKR42xBmocm
+3GNdh3hI8foYqzGHFVn2NQKr8ewUxr16KlrDC7cB+3beFD8TemsH8eGQeTwikgheMxiZEkoLHFpo
+ZfVSBawjVtkG72s+/4lXVVY2bf1D8rhb67cXSDMbyb4TxYoJRZCpLCyH956GB/pexoNKKFCcBLNm
+9Vd50ObSnhHTC/0oyk+Lf8G6OdVLHLFEATQQ57kKBND7mlH0wRG2xjgtObDM8xncVFGWkNQbaHH3
+GqG5wsB5t1mcfpMPRXjQ4GAEFnUi9VQgAltyWQ==
+recipientName: Test Business
+paymentMethod: CC
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+paymentReason: MyWish
+statusCode: PendingNetworkResponse
+--------------------------
+

@@ -1,0 +1,12 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudtrail.CloudTrailClient;
+import software.amazon.awssdk.services.cloudtrail.model.CloudTrailException;
+import software.amazon.awssdk.services.cloudtrail.model.GetTrailStatusRequest;
+import software.amazon.awssdk.services.cloudtrail.model.GetTrailStatusResponse;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
+</programlisting>

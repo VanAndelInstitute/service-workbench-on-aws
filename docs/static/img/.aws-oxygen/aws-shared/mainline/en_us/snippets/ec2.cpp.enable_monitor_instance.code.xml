@@ -1,0 +1,31 @@
+<programlisting>
+    Aws::EC2::EC2Client ec2;
+    Aws::EC2::Model::MonitorInstancesRequest request;
+    request.AddInstanceIds(instance_id);
+    request.SetDryRun(true);
+
+    auto dry_run_outcome = ec2.MonitorInstances(request);
+    assert(!dry_run_outcome.IsSuccess());
+    if (dry_run_outcome.GetError().GetErrorType()
+        != Aws::EC2::EC2Errors::DRY_RUN_OPERATION)
+    {
+        std::cout << "Failed dry run to enable monitoring on instance " <<
+            instance_id << ": " << dry_run_outcome.GetError().GetMessage() <<
+            std::endl;
+        return;
+    }
+
+    request.SetDryRun(false);
+    auto monitorInstancesOutcome = ec2.MonitorInstances(request);
+    if (!monitorInstancesOutcome.IsSuccess())
+    {
+        std::cout << "Failed to enable monitoring on instance " <<
+            instance_id << ": " <<
+            monitorInstancesOutcome.GetError().GetMessage() << std::endl;
+    }
+    else
+    {
+        std::cout << "Successfully enabled monitoring on instance " <<
+            instance_id << std::endl;
+    }
+</programlisting>

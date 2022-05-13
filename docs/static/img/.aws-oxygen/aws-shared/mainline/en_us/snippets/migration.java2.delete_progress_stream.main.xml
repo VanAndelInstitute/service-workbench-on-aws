@@ -1,0 +1,20 @@
+<programlisting>
+    public static void deleteStream(MigrationHubClient migrationClient,String streamName ) {
+
+        try {
+
+        DeleteProgressUpdateStreamRequest deleteProgressUpdateStreamRequest = DeleteProgressUpdateStreamRequest.builder()
+                .progressUpdateStreamName(streamName)
+                .build();
+
+        migrationClient.deleteProgressUpdateStream(deleteProgressUpdateStreamRequest);
+
+        // Display the results
+        System.out.println(streamName + " is deleted" );
+
+    } catch(MigrationHubException e) {
+        System.out.println(e.getMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

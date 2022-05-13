@@ -1,0 +1,18 @@
+<programlisting>
+        String functionName = args[0];
+        try {
+            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(Regions.US_WEST_2).build();
+
+            DeleteFunctionRequest delFunc = new DeleteFunctionRequest();
+            delFunc.withFunctionName(functionName);
+
+            //Delete the function
+            awsLambda.deleteFunction(delFunc);
+            System.out.println("The function is deleted");
+
+        } catch (ServiceException e) {
+            System.out.println(e);
+        }
+</programlisting>

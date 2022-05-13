@@ -1,0 +1,17 @@
+    public static void createPersonalCompaign(PersonalizeClient personalizeClient, String solutionVersionArn, String name) {
+
+        try {
+            CreateCampaignRequest createCampaignRequest = CreateCampaignRequest.builder()
+                .minProvisionedTPS(1)
+                .solutionVersionArn(solutionVersionArn)
+                .name(name)
+                .build();
+
+            CreateCampaignResponse campaignResponse = personalizeClient.createCampaign(createCampaignRequest);
+            System.out.println("The campaign ARN is "+campaignResponse.campaignArn());
+
+        } catch (PersonalizeException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

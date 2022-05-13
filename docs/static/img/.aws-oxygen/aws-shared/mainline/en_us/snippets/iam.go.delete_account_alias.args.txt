@@ -1,0 +1,6 @@
+    alias := flag.String("a", "", "The account alias")
+    flag.Parse()
+
+    if *alias == "" {
+        fmt.Println("You must supply an account alias (-a ALIAS)")
+    }

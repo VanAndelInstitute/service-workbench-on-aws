@@ -1,0 +1,53 @@
+int main()
+{
+    Aws::SDKOptions options;
+    Aws::InitAPI(options);
+    {
+        // TODO: Change bucket_name to the name of a bucket in your account.
+        const Aws::String bucket_name = "DOC-EXAMPLE-BUCKET";
+        //TODO: Create a file called "my-file.txt" in the local folder where your executables are built to.
+        const Aws::String object_name = "my-file.txt";
+        //TODO: Set to the AWS Region in which the bucket was created.
+        const Aws::String region = "us-east-1";
+
+        // A unique_lock is a general-purpose mutex ownership wrapper allowing 
+        // deferred locking, time-constrained attempts at locking, recursive 
+        // locking, transfer of lock ownership, and use with 
+        // condition variables.
+        std::unique_lock<std::mutex> lock(upload_mutex);
+
+        // Create and configure the Amazon S3 client. 
+        // This client must be declared here, as this client must exist 
+        // until the put object operation finishes.
+        Aws::Client::ClientConfiguration config;
+
+        if (!region.empty())
+        {
+            config.region = region;
+        }
+
+        Aws::S3::S3Client s3_client(config);
+
+        if (AwsDoc::S3::PutObjectAsync(s3_client, bucket_name, object_name, region)) {
+
+            std::cout << "main: Waiting for file upload attempt..." << 
+                std::endl << std::endl;
+            
+            // While the put object operation attempt is in progress, 
+            // you can perform other tasks.
+            // This example simply blocks until the put object operation 
+            // attempt finishes.
+            upload_variable.wait(lock);
+
+            std::cout << std::endl << "main: File upload attempt completed." 
+                << std::endl;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+    Aws::ShutdownAPI(options);
+
+    return 0;
+}

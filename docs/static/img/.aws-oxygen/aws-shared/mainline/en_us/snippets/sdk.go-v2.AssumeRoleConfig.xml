@@ -1,0 +1,14 @@
+<programlisting>
+
+	// To acquire credentials for temporary use, STS should be used.
+	// An AssumeRoleProvider can be used to retrieve the appropriate credentials as needed.
+	stsSvc := sts.NewFromConfig(cfg)
+	creds := stscreds.NewAssumeRoleProvider(stsSvc, "myRoleArn")
+	// If you want, you can overwrite the current credentials and pivot to the assumed role
+	cfg.Credentials = aws.NewCredentialsCache(creds)
+	// If you wish to continue using the original credentials alongside the assumed credentials,
+	// copy the configuration into a new variable.
+	cloneCfg := cfg.Copy()
+	cloneCfg.Credentials = aws.NewCredentialsCache(creds)
+
+</programlisting>

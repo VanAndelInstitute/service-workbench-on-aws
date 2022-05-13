@@ -1,0 +1,7 @@
+    name := flag.String("v", "", "The name of the vault")
+    flag.Parse()
+
+    if *name == "" {
+        fmt.Println("You must supply the name of the vault (-v VAULT-NAME)")
+        return
+    }

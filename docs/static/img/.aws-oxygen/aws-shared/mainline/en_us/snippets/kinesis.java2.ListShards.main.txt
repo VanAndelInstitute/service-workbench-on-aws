@@ -1,0 +1,16 @@
+        public static void listKinShards(KinesisClient kinesisClient, String name) {
+
+        try {
+        ListShardsRequest request = ListShardsRequest.builder()
+                .streamName(name)
+                .build();
+
+            ListShardsResponse response = kinesisClient.listShards(request);
+            System.out.println(request.streamName() + " has " + response.shards());
+
+        } catch (KinesisException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }

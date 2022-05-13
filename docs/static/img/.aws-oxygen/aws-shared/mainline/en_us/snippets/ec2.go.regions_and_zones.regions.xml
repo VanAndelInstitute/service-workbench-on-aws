@@ -1,0 +1,5 @@
+<programlisting>
+    svc := ec2.New(sess)
+
+    resultRegions, err := svc.DescribeRegions(nil)
+</programlisting>

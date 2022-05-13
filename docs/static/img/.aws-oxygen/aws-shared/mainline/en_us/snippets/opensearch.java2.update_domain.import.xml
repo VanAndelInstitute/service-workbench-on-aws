@@ -1,0 +1,8 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.opensearch.OpenSearchClient;
+import software.amazon.awssdk.services.opensearch.model.ClusterConfig;
+import software.amazon.awssdk.services.opensearch.model.OpenSearchException;
+import software.amazon.awssdk.services.opensearch.model.UpdateDomainConfigRequest;
+import software.amazon.awssdk.services.opensearch.model.UpdateDomainConfigResponse;
+</programlisting>

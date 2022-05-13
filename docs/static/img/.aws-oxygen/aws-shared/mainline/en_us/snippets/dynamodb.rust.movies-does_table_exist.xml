@@ -1,0 +1,15 @@
+<programlisting>
+async fn does_table_exist(client: &Client, table: &str) -> Result<bool, Error> {
+    let table_exists = client
+        .list_tables()
+        .send()
+        .await
+        .expect("should succeed")
+        .table_names()
+        .as_ref()
+        .unwrap()
+        .contains(&table.into());
+
+    Ok(table_exists)
+}
+</programlisting>

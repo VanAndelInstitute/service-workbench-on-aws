@@ -1,0 +1,18 @@
+<programlisting>
+    def delete_alias(self):
+        """
+        Deletes an alias.
+        """
+        alias = input(f"Enter an alias that you'd like to delete: ")
+        if alias != '':
+            try:
+                self.kms_client.delete_alias(AliasName=alias)
+            except ClientError as err:
+                logger.error(
+                    "Couldn't delete alias %s. Here's why: %s",
+                    alias, err.response['Error']['Message'])
+            else:
+                print(f"Deleted alias {alias}.")
+        else:
+            print("Skipping alias deletion.")
+</programlisting>

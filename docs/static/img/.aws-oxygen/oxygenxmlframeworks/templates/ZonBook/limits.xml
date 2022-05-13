@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0-Oxygen" service="//Service Quotas//" origin="oxygen" value="csctemplate-awsdocs-service-quotas-1.0-oxygen"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent"> 
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="limits" role="topic">
+ <info>
+  <title id="limits.title">Limits in ServiceNameEntity</title>
+  <titleabbrev>Limits</titleabbrev>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/WritingAboutLimits.html">Limits</ulink>. Locate
+  this topic near the end of the TOC, before Resources and Document History. Remove this remark before using this
+  template code in your doc package. Save the file as <emphasis role="bold">limits.xml</emphasis>.</remark>
+ <para>The following table describes limits within ServiceNameEntity. For information about limits that can be changed,
+  see <ulink url="&url-aws-gen-limits;">&SQlong;</ulink>.</para>
+ <table id="limits-table">
+  <tgroup cols="2">
+   <colspec colname="limit" colnum="1"/>
+   <colspec colname="description" colnum="2"/>
+   <thead>
+    <row>
+     <entry>Resource</entry>
+     <entry>Default Limit</entry>
+    </row>
+   </thead>
+   <tbody>
+    <row>
+     <entry>Limit</entry>
+     <entry>Description</entry>
+    </row>
+    <row>
+     <entry>Limit</entry>
+     <entry>Description</entry>
+    </row>
+   </tbody>
+  </tgroup>
+ </table>
+</chapter>

@@ -1,0 +1,13 @@
+<programlisting>
+    def stop(self):
+        """
+        Stops an application. This stops the application from processing data but
+        does not delete any resources.
+        """
+        try:
+            self.analytics_client.stop_application(ApplicationName=self.name)
+            logger.info("Stopping application %s.", self.name)
+        except ClientError:
+            logger.exception("Couldn't stop application %s.", self.name)
+            raise
+</programlisting>

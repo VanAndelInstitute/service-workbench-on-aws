@@ -1,0 +1,8 @@
+<programlisting>
+	cfg, err := config.LoadDefaultConfig(context.Background())
+	if err != nil {
+		panic("Couldn't load config!")
+	}
+	fmt.Println("The loaded default region is:" + cfg.Region)
+
+</programlisting>

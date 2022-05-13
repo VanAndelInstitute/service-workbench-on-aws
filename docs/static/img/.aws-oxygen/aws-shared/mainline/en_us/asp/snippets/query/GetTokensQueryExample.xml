@@ -1,0 +1,10 @@
+GET\n
+fps.payments.amazon.com\n
+Action=GetTokens
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerReference=CallerReference12
+&Signature=Dzp4usKpQujx9x74WFxl5BO2C3ID65PlEb2MXwkyV8M%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-07T11%3A38%3A11.796Z
+&Version=2008-09-17

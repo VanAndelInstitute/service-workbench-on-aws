@@ -1,0 +1,19 @@
+<programlisting>
+async fn show_arns(client: &Client) -> Result<(), Error> {
+    let resp = client.list_functions().send().await?;
+
+    println!("Function ARNs:");
+
+    let functions = resp.functions().unwrap_or_default();
+    let num_funcs = functions.len();
+
+    for function in functions {
+        println!("{}", function.function_arn().unwrap_or_default());
+    }
+
+    println!();
+    println!("Found {} functions in the region", num_funcs);
+
+    Ok(())
+}
+</programlisting>

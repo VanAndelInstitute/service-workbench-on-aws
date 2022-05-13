@@ -1,0 +1,23 @@
+    def recognize_celebrities(self):
+        """
+        Detects celebrities in the image.
+
+        :return: A tuple. The first element is the list of celebrities found in
+                 the image. The second element is the list of faces that were
+                 detected but did not match any known celebrities.
+        """
+        try:
+            response = self.rekognition_client.recognize_celebrities(
+                Image=self.image)
+            celebrities = [RekognitionCelebrity(celeb)
+                           for celeb in response['CelebrityFaces']]
+            other_faces = [RekognitionFace(face)
+                           for face in response['UnrecognizedFaces']]
+            logger.info(
+                "Found %s celebrities and %s other faces in %s.", len(celebrities),
+                len(other_faces), self.image_name)
+        except ClientError:
+            logger.exception("Couldn't detect celebrities in %s.", self.image_name)
+            raise
+        else:
+            return celebrities, other_faces

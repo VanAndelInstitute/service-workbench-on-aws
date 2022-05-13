@@ -1,0 +1,15 @@
+<programlisting>
+    public static void deleteRule( XRayClient xRayClient, String ruleName ) {
+
+        try {
+            DeleteSamplingRuleRequest ruleRequest = DeleteSamplingRuleRequest.builder()
+                .ruleName(ruleName)
+                .build();
+
+            xRayClient.deleteSamplingRule(ruleRequest);
+        } catch (XRayException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

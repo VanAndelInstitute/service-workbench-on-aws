@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope 
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    MESSAGE123
+   </wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    http://www.w3.org/2005/08/addressing/anonymous
+   </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+	GetTokenByCaller:Response
+	</wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+	urn:uuid:4802991b-76dd-4f7b-8bd7-a1428cfbb9f2
+	</wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <GetTokenByCallerResponse xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <GetTokenByCallerResult>
+       <Token>
+         <TokenId>
+          M157V8ZXS4AF9C132FNT5HXNNX8ZK7K1C5IHVRE4VZJTCEBLP8X1CTBCSFTFHKCK
+         </TokenId>
+         <FriendlyName>
+          FriendlyName-pHhq12275863261891
+         </FriendlyName>
+         <TokenStatus>Active</TokenStatus>
+         <DateInstalled>2008-04-24T20:12:06.200-08:00</DateInstalled>
+         <CallerReference>ReferenceStringAxaM12275863261891</CallerReference>
+         <TokenType>Unrestricted</TokenType>
+         <OldTokenId>
+          M157V8ZXS4AF9C132FNT5HXNNX8ZK7K1C5IHVRE4VZJTCEBLP8X1CTBCSFTFHKCK
+         </OldTokenId>
+         <PaymentReason>Testing</PaymentReason>
+       </Token>
+     </GetTokenByCallerResult>
+     <ResponseMetadata>
+       <RequestId>4802991b-76dd-4f7b-8bd7-a1428cfbb9f2:0</RequestId>
+     </ResponseMetadata>
+   </GetTokenByCallerResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

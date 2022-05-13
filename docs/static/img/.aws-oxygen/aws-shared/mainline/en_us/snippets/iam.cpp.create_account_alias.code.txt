@@ -1,0 +1,15 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::CreateAccountAliasRequest request;
+        request.SetAccountAlias(alias_name);
+
+        auto outcome = iam.CreateAccountAlias(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error creating account alias " << alias_name << ": "
+                << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully created account alias " << alias_name <<
+                std::endl;
+        }

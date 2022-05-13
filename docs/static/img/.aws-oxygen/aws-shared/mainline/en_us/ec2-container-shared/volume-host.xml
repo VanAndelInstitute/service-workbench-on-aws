@@ -1,0 +1,52 @@
+<!DOCTYPE varlistentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+    <!ENTITY % phrases-shared-ecs SYSTEM "phrases-shared-ecs.ent"> 
+    %phrases-shared-ecs;
+]>
+<varlistentry>
+    <term><code>host</code></term>
+    <listitem>
+        <para>Required: No</para>
+        <para>This parameter is specified when using bind mounts. To use Docker
+            volumes, specify a <code>dockerVolumeConfiguration</code> instead. The
+            contents of the <code>host</code> parameter determine whether your bind
+            mount data volume persists on the host container instance and where it
+            is stored. If the <code>host</code> parameter is empty, then the Docker
+            daemon assigns a host path for your data volume, but the data is not
+            guaranteed to persist after the containers associated with it stop
+            running.</para>
+        <para>Bind mount host volumes are supported when using either the
+            &ec2-launch-type; or &fargate-launch-type; launch types.</para>
+        <para>Windows containers can mount whole directories on the same drive as
+            <code>$env:ProgramData</code>.</para>
+        <variablelist>
+            <varlistentry>
+                <term><code>sourcePath</code></term>
+                <listitem>
+                    <para>Type: String</para>
+                    <para>Required: No</para>
+                    <para>When the <code>host</code> parameter is used, specify a
+                        <code>sourcePath</code> to declare the path on the host
+                        container instance that is presented to the container. If
+                        this parameter is empty, then the Docker daemon has assigned
+                        a host path for you. If the <code>host</code> parameter
+                        contains a <code>sourcePath</code> file location, then the
+                        data volume persists at the specified location on the host
+                        container instance until you delete it manually. If the
+                        <code>sourcePath</code> value does not exist on the host
+                        container instance, the Docker daemon creates it. If the
+                        location does exist, the contents of the source path folder
+                        are exported.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </listitem>
+</varlistentry>

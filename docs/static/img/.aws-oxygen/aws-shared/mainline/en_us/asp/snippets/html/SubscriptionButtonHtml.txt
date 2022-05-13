@@ -1,0 +1,46 @@
+<form 
+  action="https://authorize.payments.amazon.com/pba/paypipeline"
+  method="POST">
+  <input type="hidden" name="immediateReturn"
+    value="1" >
+  <input type="hidden" name="noOfPromotionTransactions"
+    value="2" >
+  <input type="hidden" name="recurringStartDate"
+    value="1250161950" >
+  <input type="hidden" name="collectShippingAddress"
+    value="1" >
+  <input type="hidden" name="promotionAmount"
+    value="USD 1" >
+  <input type="hidden" name="accessKey"
+    value="YourAccessKeyId" >
+  <input type="hidden" name="referenceId"
+    value="MyTransaction-001" >
+  <input type="hidden" name="recurringFrequency"
+    value="1 month" >
+  <input type="hidden" name="amount"
+    value="USD 10.05" >
+  <input type="hidden" name="signature"
+    value="L8I/R5inJ3RtGIz/uYvyYlIu1ibDcSlaSn3/IwK6ciA=" >
+  <input type="hidden" name="isAutoRenewal"
+    value="0" >
+  <input type="hidden" name="description"
+    value="Daily NYT Delivery" >
+  <input type="hidden" name="ipnUrl"
+    value="http://yourwebsite.com/instantpaymentnotification" >
+  <input type="hidden" name="returnUrl"
+    value="http://yourwebsite.com/success" >
+  <input type="hidden" name="processImmediate"
+    value="0" >
+  <input type="hidden" name="cobrandingStyle"
+    value="logo" >
+  <input type="hidden" name="abandonUrl"
+    value="http://yourwebsite.com/cancel" >
+  <input type="image"
+    src=
+"https://authorize.payments-sandbox.amazon.com/pba/images/GMSubscribeWithLogo.png"
+    border="0">
+  <input type="hidden" name="signatureVersion"
+    value="2" >
+  <input type="hidden" name="signatureMethod"
+    value="HmacSHA256" >
+</form>

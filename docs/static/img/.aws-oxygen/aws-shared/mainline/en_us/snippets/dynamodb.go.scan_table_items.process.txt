@@ -1,0 +1,2 @@
+
+    fmt.Println("Found", strconv.Itoa(len(*result)), "movie(s) with a rating above", *minRating, "in", *year)

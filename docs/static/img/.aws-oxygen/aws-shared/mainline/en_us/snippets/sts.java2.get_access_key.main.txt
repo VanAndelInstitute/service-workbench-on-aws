@@ -1,0 +1,15 @@
+    public static void getKeyInfo(StsClient stsClient, String accessKeyId ) {
+
+        try {
+            GetAccessKeyInfoRequest accessRequest = GetAccessKeyInfoRequest.builder()
+                    .accessKeyId(accessKeyId)
+                    .build();
+
+            GetAccessKeyInfoResponse accessResponse = stsClient.getAccessKeyInfo(accessRequest);
+            System.out.println("The account associated with the access key is "+accessResponse.account());
+
+        } catch (StsException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

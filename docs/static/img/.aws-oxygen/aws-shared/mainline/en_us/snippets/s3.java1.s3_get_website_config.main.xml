@@ -1,0 +1,19 @@
+<programlisting>
+        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+        try {
+            BucketWebsiteConfiguration config =
+                    s3.getBucketWebsiteConfiguration(bucket_name);
+            if (config == null) {
+                System.out.println("No website configuration found!");
+            } else {
+                System.out.format("Index document: %s\n",
+                        config.getIndexDocumentSuffix());
+                System.out.format("Error document: %s\n",
+                        config.getErrorDocument());
+            }
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            System.out.println("Failed to get website configuration!");
+            System.exit(1);
+        }
+</programlisting>

@@ -1,0 +1,12 @@
+    namespace := flag.String("n", "", "The namespace for the metric")
+    metricName := flag.String("m", "", "The name of the metric")
+    unit := flag.String("u", "", "The units for the metric")
+    value := flag.Float64("v", 0.0, "The value of the units")
+    dimensionName := flag.String("dn", "", "The name of the dimension")
+    dimensionValue := flag.String("dv", "", "The value of the dimension")
+    flag.Parse()
+
+    if *namespace == "" || *metricName == "" ||*unit == "" || *dimensionName == "" || *dimensionValue == "" {
+        fmt.Println("You must supply a namespace, metric name, value, dimension name, and dimension value")
+        return
+    }

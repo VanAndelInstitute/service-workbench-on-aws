@@ -1,0 +1,30 @@
+    def remove_actors(self, title, year, actor_threshold):
+        """
+        Removes an actor from a movie, but only when the number of actors is greater
+        than a specified threshold. If the movie does not list more than the threshold,
+        no actors are removed.
+
+        :param title: The title of the movie to update.
+        :param year: The release year of the movie to update.
+        :param actor_threshold: The threshold of actors to check.
+        :return: The movie data after the update.
+        """
+        try:
+            response = self.table.update_item(
+                Key={'year': year, 'title': title},
+                UpdateExpression="remove info.actors[0]",
+                ConditionExpression="size(info.actors) > :num",
+                ExpressionAttributeValues={':num': actor_threshold},
+                ReturnValues="ALL_NEW")
+        except ClientError as err:
+            if err.response['Error']['Code'] == "ConditionalCheckFailedException":
+                logger.warning(
+                    "Didn't update %s because it has fewer than %s actors.",
+                    title, actor_threshold + 1)
+            else:
+                logger.error(
+                    "Couldn't update movie %s. Here's why: %s: %s", title,
+                    err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+        else:
+            return response['Attributes']

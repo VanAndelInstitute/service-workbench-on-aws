@@ -1,0 +1,16 @@
+<programlisting>
+suspend fun describeEC2RegionsAndZones() {
+
+    Ec2Client { region = "us-west-2" }.use { ec2 ->
+        val regionsResponse = ec2.describeRegions(DescribeRegionsRequest{})
+        regionsResponse.regions?.forEach { region ->
+            println("Found Region ${region.regionName} with endpoint ${region.endpoint}")
+        }
+
+       val zonesResponse = ec2.describeAvailabilityZones(DescribeAvailabilityZonesRequest{})
+        zonesResponse.availabilityZones?.forEach { zone ->
+            println("Found Availability Zone ${zone.zoneName} with status  ${zone.state} in Region ${zone.regionName}")
+        }
+     }
+}
+</programlisting>

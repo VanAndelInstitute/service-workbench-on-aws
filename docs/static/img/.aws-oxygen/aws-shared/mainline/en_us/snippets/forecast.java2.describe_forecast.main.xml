@@ -1,0 +1,17 @@
+<programlisting>
+    public static void describe(ForecastClient forecast, String forecastarn) {
+
+    try {
+        DescribeForecastRequest request = DescribeForecastRequest.builder()
+                .forecastArn(forecastarn)
+                .build();
+
+        DescribeForecastResponse response = forecast.describeForecast(request);
+        System.out.println("The name of the forecast is " +response.forecastName());
+
+    } catch (ForecastException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+   }
+</programlisting>

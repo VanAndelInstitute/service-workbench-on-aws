@@ -1,0 +1,19 @@
+    def detect_key_phrases(self, text, language_code):
+        """
+        Detects key phrases in a document. A key phrase is typically a noun and its
+        modifiers.
+
+        :param text: The document to inspect.
+        :param language_code: The language of the document.
+        :return: The list of key phrases along with their confidence scores.
+        """
+        try:
+            response = self.comprehend_client.detect_key_phrases(
+                Text=text, LanguageCode=language_code)
+            phrases = response['KeyPhrases']
+            logger.info("Detected %s phrases.", len(phrases))
+        except ClientError:
+            logger.exception("Couldn't detect phrases.")
+            raise
+        else:
+            return phrases

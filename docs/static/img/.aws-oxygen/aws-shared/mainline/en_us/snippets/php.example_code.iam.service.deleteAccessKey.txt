@@ -1,0 +1,8 @@
+    public function deleteAccessKey($accessKeyId)
+    {
+        return $this->customWaiter(function () use ($accessKeyId) {
+            return $this->iamClient->deleteAccessKey([
+                'AccessKeyId' => $accessKeyId,
+            ]);
+        });
+    }

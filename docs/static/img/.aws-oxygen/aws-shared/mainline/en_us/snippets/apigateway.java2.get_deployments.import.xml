@@ -1,0 +1,9 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.apigateway.ApiGatewayClient;
+import software.amazon.awssdk.services.apigateway.model.GetDeploymentsRequest;
+import software.amazon.awssdk.services.apigateway.model.GetDeploymentsResponse;
+import software.amazon.awssdk.services.apigateway.model.Deployment;
+import software.amazon.awssdk.services.apigateway.model.ApiGatewayException;
+import java.util.List;
+</programlisting>

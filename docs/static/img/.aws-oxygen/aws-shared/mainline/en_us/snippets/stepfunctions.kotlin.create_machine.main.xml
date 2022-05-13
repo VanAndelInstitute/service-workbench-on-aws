@@ -1,0 +1,31 @@
+<programlisting>
+suspend fun createMachine(roleARNVal: String?, stateMachineName: String?, jsonFile: String): String? {
+        val json = getJSONString(jsonFile)
+
+        val machineRequest = CreateStateMachineRequest {
+            definition= json
+            name = stateMachineName
+            roleArn= roleARNVal
+            type = StateMachineType.Standard
+        }
+
+        SfnClient { region = "us-east-1" }.use { sfnClient ->
+            val response = sfnClient.createStateMachine(machineRequest)
+            return response.stateMachineArn
+        }
+    }
+
+    private fun getJSONString(path: String): String {
+        try {
+            val parser = JSONParser()
+            val data: JSONObject = parser.parse(FileReader(path)) as JSONObject //path to the JSON file.
+            return data.toJSONString()
+
+        } catch (e: IOException) {
+            print(e.message)
+        } catch (e: org.json.simple.parser.ParseException) {
+            print(e.message)
+        }
+        return ""
+ }
+</programlisting>

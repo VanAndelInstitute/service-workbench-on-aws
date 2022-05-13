@@ -1,0 +1,13 @@
+    dps := result.SendDataPoints
+
+    fmt.Println("Got", len(dps), "datapoints")
+    fmt.Println("")
+
+    for _, dp := range dps {
+        fmt.Println("Timestamp: ", dp.Timestamp)
+        fmt.Println("Attempts:  ", aws.Int64Value(dp.DeliveryAttempts))
+        fmt.Println("Bounces:   ", aws.Int64Value(dp.Bounces))
+        fmt.Println("Complaints:", aws.Int64Value(dp.Complaints))
+        fmt.Println("Rejects:   ", aws.Int64Value(dp.Rejects))
+        fmt.Println("")
+    }

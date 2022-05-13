@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+    section 
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+  "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   ]
+>
+ <section id="DownloadSamples" role="topic">
+  <title id="DownloadSamples.title">Getting the Samples</title>
+  <para> The <phrase condition="fps">&fps_product_short; </phrase><phrase condition="asp">&asp_product;</phrase> sample applications are available from the Amazon Web Services developer center.</para>
+  <orderedlist>
+   <title>To download <phrase condition="fps">&fps_product_short; </phrase><phrase condition="asp">&asp_product;</phrase> samples:</title>
+   <listitem>
+    <para>Go to <ulink url="http://developer.amazonwebservices.com/connect/forumindex.jspa">http://developer.amazonwebservices.com/connect/forumindex.jspa</ulink>.</para>
+    <para>The <guilabel>Discussion Forums</guilabel> page opens.</para>
+   </listitem>
+   <listitem>
+    <para>From the <guilabel>Resources</guilabel> menu, choose <guilabel>Sample Code &amp; Libraries</guilabel>.</para>
+   </listitem>
+   <listitem>
+    <para>In the <guilabel>Browse by Category</guilabel> area, choose <guilabel>Amazon Flexible Payments Service</guilabel>.</para>
+   </listitem>
+   <listitem>
+    <para condition="asp">Choose your sample of interest in the programming language you prefer. To obtain the sample applications listed in this guide, look for sample applications whose package name resembles the format "ASP<replaceable>Button name</replaceable>-<replaceable>LANGUAGE</replaceable>-2.0". For example, the Java sample for the standard button is available in the file <emphasis role="bold">ASPStandard-JAVA-2.0.zip</emphasis>.</para>
+    <para condition="fps">Choose your sample of interest in the programming language you prefer. To obtain the sample applications listed in this guide, look for sample applications whose package name resembles the format "amazon-fps-2008-09-17-<replaceable>LANGUAGE</replaceable>-library". For example, the Java sample is available in the file <emphasis role="bold">amazon-fps-2008-09-17-java-library.zip</emphasis>.</para>
+   </listitem>
+   <listitem>
+    <para>Read the instructions on the page. Note that this page enables you to start a community discussion about sample. You can also review it. When you are ready to proceed, click <guilabel>Download</guilabel>.</para>
+    <para>The <guilabel>Opening Amazon</guilabel> window opens. Ensure it is the sample you want, and Click <guilabel>OK</guilabel></para>
+   </listitem>
+   <listitem>
+    <para>Extract the zipped files to a convenient location on your workstation.</para>
+   </listitem>
+  </orderedlist>
+  <para>Each download includes sample-specific instructions in its README.txt file. For general guidance on the samples applicable to this edition of <phrase condition="fps">&fps_product_short; </phrase><phrase condition="asp">&asp_product;</phrase>, see <link condition="asp" linkend="APPNDX_SampleCode" endterm="APPNDX_SampleCode.title"/><link condition="fps" linkend="APPNDX_CodeSamples" endterm="APPNDX_CodeSamples.title"/>.</para>
+ </section>

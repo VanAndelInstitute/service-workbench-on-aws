@@ -1,0 +1,7 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ec2.Ec2Client;
+import software.amazon.awssdk.services.ec2.model.TerminateInstancesRequest;
+import software.amazon.awssdk.services.ec2.model.TerminateInstancesResponse;
+import software.amazon.awssdk.services.ec2.model.InstanceStateChange;
+import software.amazon.awssdk.services.ec2.model.Ec2Exception;
+import java.util.List;

@@ -1,0 +1,32 @@
+<programlisting>
+    public static void addTopicTags(SnsClient snsClient, String topicArn) {
+
+     try {
+        Tag tag = Tag.builder()
+                .key("Team")
+                .value("Development")
+                .build();
+
+        Tag tag2 = Tag.builder()
+                .key("Environment")
+                .value("Gamma")
+                .build();
+
+        List<Tag> tagList = new ArrayList<>();
+        tagList.add(tag);
+        tagList.add(tag2);
+
+        TagResourceRequest tagResourceRequest = TagResourceRequest.builder()
+                .resourceArn(topicArn)
+                .tags(tagList)
+                .build();
+
+        snsClient.tagResource(tagResourceRequest);
+        System.out.println("Tags have been added to "+topicArn);
+
+      } catch (SnsException e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+      }
+   }
+</programlisting>

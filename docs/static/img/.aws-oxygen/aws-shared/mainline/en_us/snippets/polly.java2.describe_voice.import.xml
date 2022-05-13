@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.polly.PollyClient;
+import software.amazon.awssdk.services.polly.model.DescribeVoicesRequest;
+import software.amazon.awssdk.services.polly.model.DescribeVoicesResponse;
+import software.amazon.awssdk.services.polly.model.PollyException;
+import software.amazon.awssdk.services.polly.model.Voice;
+import java.util.Collection;
+import java.util.Iterator;
+</programlisting>

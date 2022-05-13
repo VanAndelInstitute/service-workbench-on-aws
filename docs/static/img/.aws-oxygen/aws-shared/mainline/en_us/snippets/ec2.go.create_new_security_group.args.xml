@@ -1,0 +1,13 @@
+<programlisting>
+    name := flag.String("n", "", "Group Name")
+    description := flag.String("d", "", "Group Description")
+    vpcID := flag.String("vpc", "", "(Optional) VPC ID to associate security group with")
+
+    flag.Parse()
+
+    if *name == "" || *description == "" {
+        fmt.Println("You must supply a group name and description")
+        fmt.Println("-n GROUP-NAME -d GROUP-DESCRIPTION [-v VPC-ID]")
+        return
+    }
+</programlisting>

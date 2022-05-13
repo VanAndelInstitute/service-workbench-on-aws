@@ -1,0 +1,28 @@
+    public static void abortUploads( S3Client s3, String bucketName, String accountId ) {
+
+        try {
+            ListMultipartUploadsRequest listMultipartUploadsRequest = ListMultipartUploadsRequest.builder()
+                    .bucket(bucketName)
+                    .build();
+
+            ListMultipartUploadsResponse response = s3.listMultipartUploads(listMultipartUploadsRequest);
+            List<MultipartUpload> uploads = response.uploads();
+
+            AbortMultipartUploadRequest abortMultipartUploadRequest = null;
+
+            for (MultipartUpload upload: uploads) {
+                abortMultipartUploadRequest = AbortMultipartUploadRequest.builder()
+                        .bucket(bucketName)
+                        .key(upload.key())
+                        .expectedBucketOwner(accountId)
+                        .uploadId(upload.uploadId())
+                        .build();
+
+                s3.abortMultipartUpload(abortMultipartUploadRequest);
+            }
+
+        } catch (S3Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

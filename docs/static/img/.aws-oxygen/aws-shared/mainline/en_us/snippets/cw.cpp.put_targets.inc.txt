@@ -1,0 +1,6 @@
+#include <aws/core/Aws.h>
+#include <aws/events/EventBridgeClient.h>
+#include <aws/events/model/PutTargetsRequest.h>
+#include <aws/events/model/PutTargetsResult.h>
+#include <aws/core/utils/Outcome.h>
+#include <iostream>

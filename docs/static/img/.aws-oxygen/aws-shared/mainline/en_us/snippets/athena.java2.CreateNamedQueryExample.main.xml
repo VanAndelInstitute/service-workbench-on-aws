@@ -1,0 +1,20 @@
+<programlisting>
+    public static void createNamedQuery(AthenaClient athenaClient, String name) {
+
+        try {
+            // Create the named query request.
+            CreateNamedQueryRequest createNamedQueryRequest = CreateNamedQueryRequest.builder()
+                    .database(ExampleConstants.ATHENA_DEFAULT_DATABASE)
+                    .queryString(ExampleConstants.ATHENA_SAMPLE_QUERY)
+                    .description("Sample Description")
+                    .name(name)
+                    .build();
+
+            athenaClient.createNamedQuery(createNamedQueryRequest);
+            System.out.println("Done");
+        } catch (AthenaException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,71 @@
+<programlisting>
+def usage_demo():
+    print('-'*88)
+    print("Welcome to the Amazon S3 object demo!")
+    print('-'*88)
+
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+    s3_resource = boto3.resource('s3')
+    bucket = s3_resource.Bucket(f'doc-example-bucket-{uuid.uuid4()}')
+    try:
+        bucket.create(
+            CreateBucketConfiguration={
+                'LocationConstraint': s3_resource.meta.client.meta.region_name})
+    except ClientError as err:
+        print(
+            f"Couldn't create a bucket for the demo. Here's why: "
+            f"{err.response['Error']['Message']}.")
+
+    object_key = 'doc-example-object'
+    obj_wrapper = ObjectWrapper(bucket.Object(object_key))
+    obj_wrapper.put(__file__)
+    print(f"Put file object with key {object_key} in bucket {bucket.name}.")
+
+    with open(__file__) as file:
+        lines = file.readlines()
+
+    line_wrappers = []
+    for _ in range(10):
+        line = random.randint(0, len(lines))
+        line_wrapper = ObjectWrapper(bucket.Object(f'line-{line}'))
+        line_wrapper.put(bytes(lines[line], 'utf-8'))
+        line_wrappers.append(line_wrapper)
+    print(f"Put 10 random lines from this script as objects.")
+
+    listed_lines = ObjectWrapper.list(bucket, 'line-')
+    print(f"Their keys are: {', '.join(l.key for l in listed_lines)}")
+
+    line = line_wrappers.pop()
+    line_body = line.get()
+    print(f"Got object with key {line.key} and body {line_body}.")
+    line.delete()
+    print(f"Deleted object with key {line.key}.")
+
+    copied_obj = bucket.Object(line_wrappers[0].key + '-copy')
+    line_wrappers[0].copy(copied_obj)
+    print(f"Made a copy of object {line_wrappers[0].key}, named {copied_obj.key}.")
+
+    try:
+        obj_wrapper.put_acl('arnav@example.net')
+        acl = obj_wrapper.get_acl()
+        print(f"Put ACL grants on object {obj_wrapper.key}: {json.dumps(acl.grants)}")
+    except ClientError as error:
+        if error.response['Error']['Code'] == 'UnresolvableGrantByEmailAddress':
+            print('*'*88)
+            print("This demo couldn't apply the ACL to the object because the email\n"
+                  "address specified as the grantee is for a test user who does not\n"
+                  "exist. For this request to succeed, you must replace the grantee\n"
+                  "email with one for an existing AWS user.")
+            print('*' * 88)
+        else:
+            raise
+
+    ObjectWrapper.empty_bucket(bucket)
+    print(f"Emptied bucket {bucket.name} in preparation for deleting it.")
+
+    bucket.delete()
+    print(f"Deleted bucket {bucket.name}.")
+    print("Thanks for watching!")
+    print('-'*88)
+</programlisting>

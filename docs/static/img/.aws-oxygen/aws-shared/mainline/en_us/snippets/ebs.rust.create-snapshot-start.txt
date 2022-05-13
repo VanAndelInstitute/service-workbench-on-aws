@@ -1,0 +1,11 @@
+async fn start(client: &Client, description: &str) -> Result<String, Error> {
+    let snapshot = client
+        .start_snapshot()
+        .description(description)
+        .encrypted(false)
+        .volume_size(1)
+        .send()
+        .await?;
+
+    Ok(snapshot.snapshot_id.unwrap())
+}

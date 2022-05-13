@@ -1,0 +1,15 @@
+    public static void listAllDetectors(GuardDutyClient guardDutyClient) {
+
+        try {
+            ListDetectorsResponse response = guardDutyClient.listDetectors();
+            List<String> detectors = response.detectorIds();
+
+            for (String detector: detectors) {
+                System.out.println("The detector id is : "+detector);
+            }
+
+        } catch (GuardDutyException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

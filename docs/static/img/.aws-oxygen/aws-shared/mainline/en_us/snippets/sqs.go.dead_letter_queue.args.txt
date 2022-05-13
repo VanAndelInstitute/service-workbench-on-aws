@@ -1,0 +1,8 @@
+    queue := flag.String("q", "", "The name of the queue")
+    dlQueue := flag.String("d", "", "The name of the dead-letter queue")
+    flag.Parse()
+
+    if *queue == "" || *dlQueue == "" {
+        fmt.Println("You must supply the names of the queue (-q QUEUE) and the dead-letter queue (-d DLQUEUE)")
+        return
+    }

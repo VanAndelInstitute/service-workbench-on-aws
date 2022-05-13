@@ -1,0 +1,18 @@
+suspend  fun getSpecificPipeline(nameVal: String?) {
+
+    val request = GetPipelineRequest {
+        name = nameVal
+        version = 1
+    }
+    CodePipelineClient { region = "us-east-1" }.use { pipelineClient ->
+          val response = pipelineClient.getPipeline(request)
+          response.pipeline?.stages?.forEach { stage ->
+            println("Stage name is " + stage.name.toString() + " and actions are:")
+
+            stage.actions?.forEach { action ->
+                println("Action name is ${action.name}")
+                println("Action type id is ${action.actionTypeId}")
+            }
+        }
+    }
+}

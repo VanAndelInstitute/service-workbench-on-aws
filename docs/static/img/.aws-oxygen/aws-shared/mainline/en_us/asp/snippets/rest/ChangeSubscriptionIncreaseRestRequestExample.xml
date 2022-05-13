@@ -1,0 +1,13 @@
+https://fps.sandbox.amazonaws.com?
+Action=ChangeSubscription
+&SubscriptionId=553IBMFCG7Z8J4D1H7BB3HMNPFQQUPVUNT8RHCT1AXDJNXE6LJZ4KSKU2PI1TTIG
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Timestamp=2011-04-07T11%3A20%3A33.609Z
+&Version=2010-08-28
+&Description=Annual Discount
+&Amount=2.00USD
+&AmountChangeType=NextXPayments
+&x=2
+&Signature=4nwBSR0wrlBcy%2BWZz08TXcnGth1Qbln15IxocPDNukQ%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2

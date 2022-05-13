@@ -1,0 +1,30 @@
+<programlisting>
+$firehoseClient = new Aws\Firehose\FirehoseClient([
+    'profile' => 'default',
+    'version' => '2015-08-04',
+    'region' => 'us-east-2'
+]);
+
+$name = "my_stream_name";
+$stream_type = "KinesisStreamAsSource";
+$kinesis_stream = "arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name";
+$role = "arn:aws:iam::0123456789:policy/Role";
+
+try {
+    $result = $firehoseClient->createDeliveryStream([
+        'DeliveryStreamName' => $name,
+        'DeliveryStreamType' => $stream_type,
+        'KinesisStreamSourceConfiguration' => [
+            'KinesisStreamARN' => $kinesis_stream,
+            'RoleARN' => $role,
+        ],
+    ]);
+    var_dump($result);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}
+ 
+ 
+</programlisting>

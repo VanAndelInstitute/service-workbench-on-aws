@@ -1,0 +1,3 @@
+    result, err := svc.GetAccessKeyLastUsed(&iam.GetAccessKeyLastUsedInput{
+        AccessKeyId: keyID,
+    })

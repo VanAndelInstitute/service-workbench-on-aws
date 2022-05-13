@@ -1,0 +1,16 @@
+<programlisting>
+  # Gets data about a policy.
+  #
+  # @param policy_arn [String] The ARN of the policy to look up.
+  # @return [Aws::IAM::Policy] The retrieved policy.
+  def get_policy(policy_arn)
+    policy = @iam_resource.policy(policy_arn)
+    puts("Got policy '#{policy.policy_name}'. Its ID is: #{policy.policy_id}.")
+  rescue Aws::Errors::ServiceError => e
+    puts("Couldn't get policy '#{policy_arn}'. Here's why:")
+    puts("\t#{e.code}: #{e.message}")
+    raise
+  else
+    policy
+  end
+</programlisting>

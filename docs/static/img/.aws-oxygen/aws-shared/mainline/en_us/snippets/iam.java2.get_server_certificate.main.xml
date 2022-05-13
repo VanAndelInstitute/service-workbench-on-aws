@@ -1,0 +1,18 @@
+<programlisting>
+    public static void getCertificate(IamClient iam,String certName ) {
+
+        try {
+            GetServerCertificateRequest request = GetServerCertificateRequest.builder()
+                    .serverCertificateName(certName)
+                    .build();
+
+            GetServerCertificateResponse response = iam.getServerCertificate(request);
+            System.out.format("Successfully retrieved certificate with body %s",
+                response.serverCertificate().certificateBody());
+
+         } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

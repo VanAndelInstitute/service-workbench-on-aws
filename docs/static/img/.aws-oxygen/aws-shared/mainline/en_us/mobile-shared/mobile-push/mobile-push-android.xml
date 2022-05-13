@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+
+<section id="mobile-push-android" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to set up &GCMlong; to send a push notification to a mobile endpoint using &SNS;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android.title">Setting Up Android Push Notifications</title>
+    <para>This section describes how you can create an Android app to receive push notifications.
+        The platform notification services you can use for push notifications on Android are
+        &FCMlong; (&FCM;) and its predecessor, &GCMlong; (&GCM;). </para>
+    <para role="topiclist"/>
+    
+<!--    <para>We use the quickstart app from &AMHlong; as an example of how you can use &SNS; to send push notifications to an Android device. 
+        If you want to use your own Android app, you can examine the &AMHlong; quickstart app code for guidance 
+        on how you can include support for push notifications in your own app.</para>
+
+    <para>To set up an Android app to receive push notifications from &SNS;, perform the following steps:</para>
+
+    <orderedlist>
+        <listitem><para><xref linkend="mobile-push-android-prerequisites" endterm="mobile-push-android-prerequisites.titleabbrev"/></para></listitem>
+        <listitem><para><xref linkend="mobile-push-android-create" endterm="mobile-push-android-create.title"/></para></listitem>
+        <listitem><para><xref linkend="mobile-push-android-virtual-device" endterm="mobile-push-android-virtual-device.title"/></para></listitem>
+        <listitem><para><xref linkend="mobile-push-android-build" endterm="mobile-push-android-build.title"/></para></listitem>
+        <listitem><para><xref linkend="mobile-push-android-test" endterm="mobile-push-android-test.title"/></para></listitem>
+    </orderedlist>
+
+    <para>For an overview of &SNS; mobile push, see <ulink url="&url-sns-dg;SNSMobilePush.html"
+            >Amazon SNS Mobile Push Notifications</ulink>.</para>-->
+<!--    <xi:include href="mobile-push-android-prerequisites.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>-->
+<!--    <xi:include href="mobile-push-android-create.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mobile-push-android-virtual-device.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mobile-push-android-build.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mobile-push-android-test.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/> -->
+    <xi:include href="mobile-push-android-cloud-messaging-project.xml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mobile-push-android-creds.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</section>
+
+
+

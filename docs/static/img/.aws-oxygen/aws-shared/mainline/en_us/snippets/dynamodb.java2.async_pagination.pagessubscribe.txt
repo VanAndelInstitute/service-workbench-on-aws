@@ -1,0 +1,29 @@
+        // Or subscribe method should be called to create a new Subscription.
+        // A Subscription represents a one-to-one life-cycle of a Subscriber subscribing to a Publisher.
+        publisher.subscribe(new Subscriber<ListTablesResponse>() {
+            // Maintain a reference to the subscription object, which is required to request data from the publisher
+            private Subscription subscription;
+
+            @Override
+            public void onSubscribe(Subscription s) {
+                subscription = s;
+                // Request method should be called to demand data. Here we request a single page
+                subscription.request(1);
+            }
+
+            @Override
+            public void onNext(ListTablesResponse response) {
+                response.tableNames().forEach(System.out::println);
+                // Once you process the current page, call the request method to signal that you are ready for next page
+                subscription.request(1);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                // Called when an error has occurred while processing the requests
+            }
+
+            @Override
+            public void onComplete() {
+                // This indicates all the results are delivered and there are no more pages left
+            }

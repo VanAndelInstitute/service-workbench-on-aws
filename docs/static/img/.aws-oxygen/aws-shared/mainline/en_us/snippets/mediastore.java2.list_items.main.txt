@@ -1,0 +1,39 @@
+    public static void listAllItems(MediaStoreDataClient mediaStoreData, String completePath) {
+
+       try {
+            ListItemsRequest itemsRequest = ListItemsRequest.builder()
+                .path(completePath)
+                .build();
+
+            ListItemsResponse itemsResponse = mediaStoreData.listItems(itemsRequest);
+
+            Boolean hasItems = itemsResponse.hasItems();
+            if (hasItems) {
+                List<Item> items = itemsResponse.items();
+                for (Item item : items) {
+                    System.out.println("Item name is: " + item.name());
+                    System.out.println("Content type is:  " + item.contentType());
+                }
+            } else {
+                System.out.println("There are no items");
+            }
+       } catch (MediaStoreDataException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+    }
+
+    private static String getEndpoint(String containerName){
+
+        Region region = Region.US_EAST_1;
+        MediaStoreClient mediaStoreClient = MediaStoreClient.builder()
+                .region(region)
+                .build();
+
+        DescribeContainerRequest containerRequest = DescribeContainerRequest.builder()
+                .containerName(containerName)
+                .build();
+
+        DescribeContainerResponse response = mediaStoreClient.describeContainer(containerRequest);
+        return response.container().endpoint();
+    }

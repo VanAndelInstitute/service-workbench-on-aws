@@ -1,0 +1,23 @@
+<programlisting>
+    public static void describeEC2Tags(Ec2Client ec2,  String resourceId ) {
+
+        try {
+
+            Filter filter = Filter.builder()
+                    .name("resource-id")
+                    .values(resourceId)
+                    .build();
+
+            DescribeTagsResponse describeTagsResponse = ec2.describeTags(DescribeTagsRequest.builder().filters(filter).build());
+            List<TagDescription> tags = describeTagsResponse.tags();
+            for (TagDescription tag: tags) {
+                System.out.println("Tag key is: "+tag.key());
+                System.out.println("Tag value is: "+tag.value());
+            }
+
+        } catch ( Ec2Exception e) {
+         System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

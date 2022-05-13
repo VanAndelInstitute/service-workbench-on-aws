@@ -1,0 +1,14 @@
+--------------------------
+signatureVersion: 2
+signatureMethod: RSA-SHA1
+status: SubscriptionCancelled
+signature: sNaPeP1aNg5pjehHYJ97BAPWoZVPxFpXGOmDmprYkPq8KN1cuZotBW2j+goUqA5tue/2FDlNk5+Z
+KMBtshSLiqtG1R6AH9qaNjZQwg4dm4t0OqP2eOjoH73wQwIaCCEr690o2lxjN+vx7KO+w4wmnyqF
+xL9/j5wBjC2zpoy3NrN8uM0R547rYjjOaTODYb0cesYfvXXPGvFBniDloPGpxx7G2ryIVZpFaeJ9
+2XF2k6ho8M8rkdTp3MHPLiyZHjFl6+cKen2XynOqHD5RkG/aIgG9waus3E3esn9Zweo8m4vdiL67
+MyS4zQzyRg973bi45+Knv6AuuhhcTta41zSR8g==
+subscriptionId: 17d62772-c53e-4bdb-9667-65d7b7841cfc
+certificateUrl: https://fps.sandbox.amazonaws.com/certs/090909/PKICert.pem
+statusReason: CancelledByRecipient
+--------------------------
+

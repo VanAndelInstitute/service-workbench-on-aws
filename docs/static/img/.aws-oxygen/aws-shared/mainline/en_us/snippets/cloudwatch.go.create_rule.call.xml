@@ -1,0 +1,9 @@
+<programlisting>
+    svc := cloudwatchevents.New(sess)
+
+    result, err := svc.PutRule(&cloudwatchevents.PutRuleInput{
+        Name:               ruleName,
+        RoleArn:            roleARN,
+        ScheduleExpression: schedule,
+    })
+</programlisting>

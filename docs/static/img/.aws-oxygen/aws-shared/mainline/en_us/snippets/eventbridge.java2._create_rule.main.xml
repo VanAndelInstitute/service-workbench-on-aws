@@ -1,0 +1,22 @@
+<programlisting>
+    public static void createEBRule(EventBridgeClient eventBrClient, String ruleName) {
+
+    try {
+
+        PutRuleRequest ruleRequest = PutRuleRequest.builder()
+                 .name(ruleName)
+                .eventBusName("default")
+                .eventPattern("{\"source\":[\"aws.s3\"],\"detail-type\":[\"AWS API Call via CloudTrail\"],\"detail\":{\"eventSource\":[\"s3.amazonaws.com\"],\"eventName\":[\"DeleteBucket\"]}}")
+                .description("A test rule created by the Java API")
+                .build();
+
+        PutRuleResponse ruleResponse = eventBrClient.putRule(ruleRequest);
+        System.out.println("The ARN of the new rule is "+ ruleResponse.ruleArn());
+
+    } catch (EventBridgeException e) {
+
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+  }
+</programlisting>

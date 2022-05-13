@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun delPool(userPoolId:String) {
+
+    val request = DeleteUserPoolRequest{
+        this.userPoolId = userPoolId
+    }
+
+   CognitoIdentityProviderClient { region = "us-east-1" }.use { cognitoClient ->
+            cognitoClient.deleteUserPool(request)
+            print("$userPoolId was successfully deleted")
+    }
+ }
+</programlisting>

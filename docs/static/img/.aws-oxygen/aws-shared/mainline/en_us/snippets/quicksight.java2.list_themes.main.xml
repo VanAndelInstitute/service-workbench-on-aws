@@ -1,0 +1,25 @@
+<programlisting>
+    public static void listAllThemes(QuickSightClient qsClient,  String account ) {
+
+        try {
+
+            ListThemesRequest themeRequest = ListThemesRequest.builder()
+                    .awsAccountId(account)
+                    .build();
+
+            ListThemesResponse analysisResponse = qsClient.listThemes(themeRequest);
+            List<ThemeSummary> themes = analysisResponse.themeSummaryList();
+
+            for (ThemeSummary theme: themes) {
+                System.out.println("Theme id is "+theme.themeId());
+                System.out.println("Theme name is "+theme.name());
+                System.out.println("Theme ARN is "+theme.arn());
+                System.out.println("Theme version is "+theme.latestVersionNumber());
+            }
+
+        } catch (QuickSightException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

@@ -1,0 +1,22 @@
+    def describe_snapshot(self, application_name, snapshot_name):
+        """
+        Gets metadata about a previously saved application snapshot.
+
+        :param application_name: The name of the application.
+        :param snapshot_name: The name of the snapshot.
+        :return: Metadata about the snapshot.
+        """
+        try:
+            response = self.analytics_client.describe_application_snapshot(
+                ApplicationName=application_name, SnapshotName=snapshot_name)
+            snapshot = response['SnapshotDetails']
+            logger.info(
+                "Got metadata for snapshot %s of application %s.", snapshot_name,
+                application_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't get metadata for snapshot %s of application %s.",
+                snapshot_name, application_name)
+            raise
+        else:
+            return snapshot

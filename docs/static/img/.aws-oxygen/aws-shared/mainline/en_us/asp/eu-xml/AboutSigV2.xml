@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="AboutSigV2">
+    <title id="AboutSigV2.title">About Signature Version 2</title>
+    <para>For <glossterm linkend="inboundrequest">inbound requests</glossterm>, signature version 2 signing uses the entire <phrase condition="asp">HTML button form</phrase><phrase condition="fps">request uri</phrase> as the basis for the signature, and encryption is based on the unique security credentials for your account. </para>
+    <para>For <glossterm>outbound notifications</glossterm>, signature version 2 provides the &fps_product_short; action, <parameter>VerifySignature</parameter>, which enables you to securely check a response using a server-side call.</para>
+    &SIG2CLIENTVALIDREVOKE;
+    <para>Signature version 2 supports AWS <glossterm>access key rotation</glossterm>, further enhancing the security of your button content. For more information, see <link endterm="access-key-rotation.title" linkend="access-key-rotation">Access Key Rotation</link>.</para>
+    &SIGEXPIRENOTE;
+</section>

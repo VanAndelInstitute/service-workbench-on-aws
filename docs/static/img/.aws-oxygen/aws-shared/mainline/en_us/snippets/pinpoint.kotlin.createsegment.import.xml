@@ -1,0 +1,16 @@
+<programlisting>
+import aws.sdk.kotlin.services.pinpoint.PinpointClient
+import aws.sdk.kotlin.services.pinpoint.model.AttributeDimension
+import aws.sdk.kotlin.services.pinpoint.model.AttributeType
+import aws.sdk.kotlin.services.pinpoint.model.RecencyDimension
+import aws.sdk.kotlin.services.pinpoint.model.Duration
+import aws.sdk.kotlin.services.pinpoint.model.RecencyType
+import aws.sdk.kotlin.services.pinpoint.model.SegmentBehaviors
+import aws.sdk.kotlin.services.pinpoint.model.SegmentDemographics
+import aws.sdk.kotlin.services.pinpoint.model.SegmentLocation
+import aws.sdk.kotlin.services.pinpoint.model.SegmentDimensions
+import aws.sdk.kotlin.services.pinpoint.model.WriteSegmentRequest
+import aws.sdk.kotlin.services.pinpoint.model.CreateSegmentRequest
+import aws.sdk.kotlin.services.pinpoint.model.CreateSegmentResponse
+import kotlin.system.exitProcess
+</programlisting>

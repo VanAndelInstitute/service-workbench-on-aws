@@ -1,0 +1,6 @@
+<programlisting>
+require 'vendor/autoload.php';
+
+use Aws\CloudFront\CloudFrontClient;
+use Aws\Exception\AwsException;
+</programlisting>

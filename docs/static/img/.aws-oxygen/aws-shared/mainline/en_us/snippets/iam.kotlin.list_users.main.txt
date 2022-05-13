@@ -1,0 +1,9 @@
+suspend fun listAllUsers() {
+
+        IamClient { region = "AWS_GLOBAL" }.use { iamClient ->
+            val response = iamClient.listUsers(ListUsersRequest { })
+            response.users?.forEach { user ->
+                println("Retrieved user ${user.userName}")
+            }
+        }
+ }

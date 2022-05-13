@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- DynamoDB Primary Key -->
+<section id="aws-properties-dynamodb-provisionedthroughput" role="topic">
+   <title id="aws-properties-dynamodb-provisionedthroughput.title">DynamoDB Provisioned Throughput</title>
+
+   <para>Describes a set of provisioned throughput values for an <link linkend="aws-resource-dynamodb-table"
+         endterm="aws-resource-dynamodb-table.title"/> resource. &DDB; uses these capacity units to allocate
+      sufficient resources to provide the requested throughput.</para>
+
+   <para>For a complete discussion of &DDB; provisioned throughput values, see <ulink
+         url="http://&domain;/amazondynamodb/2011-12-05/developerguide/WorkingWithDDTables.html#ProvisionedThroughput"
+      >Specifying Read and Write Requirements (Provisioned Throughput)</ulink> in the <citetitle>&DDB; Developer Guide</citetitle>.</para>
+
+   <section condition="json">
+      <title>Syntax</title>
+      <programlisting>
+{
+   "<link linkend="cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</link>" : <replaceable>Number</replaceable>,
+   "<link linkend="cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</link>" : <replaceable>Number</replaceable>
+}</programlisting>
+   </section>
+	
+	<section condition="yaml">
+		<title>Syntax</title>
+		<programlisting><link linkend="cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</link>: <replaceable>Number</replaceable>
+<link linkend="cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</link>: <replaceable>Number</replaceable></programlisting>
+	</section>
+
+   <section>
+      <title>Parameters</title>
+      <variablelist>
+         <varlistentry id="cfn-dynamodb-provisionedthroughput-readcapacityunits">
+            <term>ReadCapacityUnits</term>
+            <listitem>
+               <para>Sets the desired minimum number of consistent reads of items (of up to 1KB in size) per second for
+                  the specified table before Amazon DynamoDB balances the load.</para>
+               <para><emphasis>Required</emphasis>: Yes</para>
+               <para><emphasis>Type</emphasis>: Number</para>
+            </listitem>
+         </varlistentry>
+         <varlistentry id="cfn-dynamodb-provisionedthroughput-writecapacityunits">
+            <term>WriteCapacityUnits</term>
+            <listitem>
+               <para>Sets the desired minimum number of consistent writes of items (of up to 1KB in size) per second for
+                  the specified table before Amazon DynamoDB balances the load.</para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+      <note>
+         <para>For detailed information about the limits of provisioned throughput values in &DDB;, see <ulink
+               url="http://&domain;/amazondynamodb/2011-12-05/developerguide/Limits.html">Limits in
+               Amazon DynamoDB</ulink> in the <citetitle>&DDB; Developer Guide</citetitle>.</para>
+      </note>
+   </section>
+
+   <section>
+      <title>Examples</title>
+      <para>For an example of declared provisioned throughput values, see <link linkend="aws-resource-dynamodb-table"
+            endterm="aws-resource-dynamodb-table.title"/>.</para>
+   </section>
+</section>

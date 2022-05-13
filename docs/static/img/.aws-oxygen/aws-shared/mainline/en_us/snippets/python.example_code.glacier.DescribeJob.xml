@@ -1,0 +1,20 @@
+<programlisting>
+    @staticmethod
+    def get_job_status(job):
+        """
+        Gets the status of a job.
+
+        :param job: The job to query.
+        :return: The current status of the job.
+        """
+        try:
+            job.load()
+            logger.info(
+                "Job %s is performing action %s and has status %s.", job.id,
+                job.action, job.status_code)
+        except ClientError:
+            logger.exception("Couldn't get status for job %s.", job.id)
+            raise
+        else:
+            return job.status_code
+</programlisting>

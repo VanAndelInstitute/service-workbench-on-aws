@@ -1,0 +1,14 @@
+<programlisting>
+suspend fun removeTag(topicArn: String, tagKey: String) {
+
+
+    val resourceRequest = UntagResourceRequest {
+        resourceArn = topicArn
+        tagKeys = listOf(tagKey)
+    }
+    SnsClient { region = "us-east-1" }.use { snsClient ->
+        snsClient.untagResource(resourceRequest)
+        println("$tagKey was deleted from $topicArn")
+    }
+}
+</programlisting>

@@ -1,0 +1,12 @@
+            DescribeAvailabilityZonesResponse zonesResponse =
+                    ec2.describeAvailabilityZones();
+
+            for(AvailabilityZone zone : zonesResponse.availabilityZones()) {
+                System.out.printf(
+                        "Found Availability Zone %s " +
+                                "with status %s " +
+                                "in region %s",
+                        zone.zoneName(),
+                        zone.state(),
+                        zone.regionName());
+                System.out.println();

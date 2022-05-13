@@ -1,0 +1,6 @@
+    public function deletePolicy($policyArn)
+    {
+        return $this->iamClient->deletePolicy([
+            'PolicyArn' => $policyArn,
+        ]);
+    }

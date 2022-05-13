@@ -1,0 +1,70 @@
+<programlisting>
+    public static void listReservedNodes(RedshiftClient redshiftClient) {
+
+        try {
+
+            DescribeReservedNodesResponse reservedNodesResponse = redshiftClient.describeReservedNodes();
+            System.out.println("Listing nodes already purchased.");
+
+            for (ReservedNode node : reservedNodesResponse.reservedNodes()) {
+                printReservedNodeDetails(node);
+            }
+
+        } catch (RedshiftException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void findReservedNodeOffer(RedshiftClient redshiftClient) {
+     try {
+        DescribeReservedNodeOfferingsRequest request = DescribeReservedNodeOfferingsRequest.builder()
+                .build();
+
+        DescribeReservedNodeOfferingsResponse response = redshiftClient.describeReservedNodeOfferings(request);
+        Integer count = 0;
+        System.out.println("\nFinding nodes to purchase.");
+
+        for (ReservedNodeOffering offering : response.reservedNodeOfferings()) {
+            if (offering.nodeType().equals(nodeTypeToPurchase)){
+
+                if (offering.fixedPrice() < fixedPriceLimit) {
+                    matchingNodes.add(offering);
+                    printOfferingDetails(offering);
+                    count +=1;
+                }
+            }
+        }
+        if (count == 0) {
+            System.out.println("\nNo reserved node offering matches found.");
+        } else {
+            System.out.println("\nFound " + count + " matches.");
+        }
+
+     } catch (RedshiftException e) {
+           System.err.println(e.getMessage());
+           System.exit(1);
+       }
+    }
+
+    private static void printReservedNodeDetails(ReservedNode node) {
+        System.out.println("\nPurchased Node Details:");
+        System.out.format("Id: %s\n", node.reservedNodeOfferingId());
+        System.out.format("State: %s\n", node.state());
+        System.out.format("Node Type: %s\n", node.nodeType());
+        System.out.format("Start Time: %s\n", node.startTime());
+        System.out.format("Fixed Price: %s\n", node.fixedPrice());
+        System.out.format("Offering Type: %s\n", node.offeringType());
+        System.out.format("Duration: %s\n", node.duration());
+    }
+
+    private static void printOfferingDetails(
+            ReservedNodeOffering offering) {
+        System.out.println("\nOffering Match:");
+        System.out.format("Id: %s\n", offering.reservedNodeOfferingId());
+        System.out.format("Node Type: %s\n", offering.nodeType());
+        System.out.format("Fixed Price: %s\n", offering.fixedPrice());
+        System.out.format("Offering Type: %s\n", offering.offeringType());
+        System.out.format("Duration: %s\n", offering.duration());
+    }
+</programlisting>

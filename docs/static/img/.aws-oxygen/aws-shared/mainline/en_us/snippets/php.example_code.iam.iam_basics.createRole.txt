@@ -1,0 +1,10 @@
+$assumeRolePolicyDocument = "{
+                \"Version\": \"2012-10-17\",
+                \"Statement\": [{
+                    \"Effect\": \"Allow\",
+                    \"Principal\": {\"AWS\": \"{$user['Arn']}\"},
+                    \"Action\": \"sts:AssumeRole\"
+                }]
+            }";
+$assumeRoleRole = $service->createRole("iam_demo_role_$uuid", $assumeRolePolicyDocument);
+echo "Created role: {$assumeRoleRole['RoleName']}\n";

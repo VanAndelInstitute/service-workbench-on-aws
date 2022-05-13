@@ -1,0 +1,4 @@
+        swf.respondDecisionTaskCompleted(
+            new RespondDecisionTaskCompletedRequest()
+                .withTaskToken(taskToken)
+                .withDecisions(decisions));

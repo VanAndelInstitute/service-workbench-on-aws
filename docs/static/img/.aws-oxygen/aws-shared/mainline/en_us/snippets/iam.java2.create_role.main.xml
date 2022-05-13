@@ -1,0 +1,31 @@
+<programlisting>
+    public static String createIAMRole(IamClient iam, String rolename, String fileLocation ) {
+
+        try {
+
+            JSONObject jsonObject = (JSONObject) readJsonSimpleDemo(fileLocation);
+
+            CreateRoleRequest request = CreateRoleRequest.builder()
+                    .roleName(rolename)
+                    .assumeRolePolicyDocument(jsonObject.toJSONString())
+                    .description("Created using the AWS SDK for Java")
+                    .build();
+
+            CreateRoleResponse response = iam.createRole(request);
+            System.out.println("The ARN of the role is "+response.role().arn());
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static Object readJsonSimpleDemo(String filename) throws Exception {
+        FileReader reader = new FileReader(filename);
+        JSONParser jsonParser = new JSONParser();
+        return jsonParser.parse(reader);
+    }
+</programlisting>

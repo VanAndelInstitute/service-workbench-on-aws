@@ -1,0 +1,7 @@
+<programlisting>
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use Aws\Ses\SesClient;
+use Aws\Ses\Exception\SesException;
+</programlisting>

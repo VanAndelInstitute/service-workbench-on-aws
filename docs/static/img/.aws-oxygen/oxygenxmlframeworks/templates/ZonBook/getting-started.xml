@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!-- Remove the comment tags and add your service-specific entity file name here if you have one:
+  <!ENTITY % phrases-servicename SYSTEM "../shared/phrases-servicename.ent">
+  %phrases-servicename; -->
+
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+ ]>
+<chapter id="getting-started" role="topic">
+ <info>
+  <title id="getting-started.title">Getting Started with ServiceNameEntity</title>
+  <titleabbrev>Getting Started</titleabbrev>
+  <abstract>
+   <para>Insert chapter abstract text here. <remark>For tips on writing effective abstract text, see <ulink
+      url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/seo_description.html">Search-Optimized
+      Descriptions and Abstracts</ulink>. </remark></para>
+  </abstract>
+ </info>
+ <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Replace <emphasis role="bold"
+   >ServiceNameEntity</emphasis> with the appropriate entity for your service (see <ulink
+    url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/phrases.html">&AWS; Shared Entities</ulink>).
+  Follow the instructions in the &AWS; Style Guide at <ulink
+   url="http://alpha-docs-aws.amazon.com/awsstyleguide/latest/styleguide/WritingGettingStarted.html">Getting
+   Started</ulink>. Your Getting Started section can contain a Setting Up section if you don't have a lot of setup
+  steps. If you have a lot of Getting Started steps that make your topic too long, change the steps sections to separate
+  topics by adding the <code>role="topic"</code> attribute. Remove this remark before using this template code in your
+  doc package. Save the file as <emphasis role="bold">getting-started.xml</emphasis>.</remark>
+ <para>Insert your introductory paragraph here.</para>
+ <para role="topiclist">Topics</para>
+ <section id="getting-started-prerequisites">
+  <info>
+   <title id="getting-started-prerequisites.title">Prerequisites</title>
+  </info>
+  <para>Introductory text:</para>
+  <itemizedlist>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+   <listitem>
+    <para>Text</para>
+   </listitem>
+  </itemizedlist>
+ </section>
+ <section id="getting-started-setting-up">
+  <info>
+   <title id="getting-started-setting-up.title">Setting Up</title>
+  </info>
+  <remark><emphasis role="bold">WRITER INSTRUCTIONS:</emphasis> Delete this Setting Up section if you decide to use a
+   separate Setting Up topic. Keep or delete the entities included below as needed. </remark> &console_signup;
+  &iam-create-admin-group-and-user; <procedure>
+   <title>To sign up for &AWSlong; and create an administrator account</title>
+   <step>
+    <para>If you do not have an &AWS-account;, open <ulink url="&url-mkt-domain;">&url-mkt-domain;</ulink>, choose
+     <guilabel>Create an &AWS-account;</guilabel>, and then follow the online instructions.</para>
+    <para>Part of the sign-up procedure involves receiving a phone call and entering a PIN using the phone
+     keypad.</para>
+   </step>
+   <step>&IAMConsole_DirectURL;</step>
+   <step>
+    <para>In the navigation pane, choose <guilabel>Groups</guilabel>, and then choose <guilabel>Create New
+      Group</guilabel>.</para>
+   </step>
+   <step>
+    <para>For <guilabel>Group Name</guilabel>, type a name for your group, such as
+     <userinput>Administrators</userinput>, and then choose <guilabel>Next Step</guilabel>.</para>
+   </step>
+   <step>
+    <para>In the list of policies, select the check box next to the <guilabel>AdministratorAccess</guilabel> policy. You
+     can use the <guilabel>Filter</guilabel> menu and the <guilabel>Search</guilabel> box to filter the list of
+     policies.</para>
+   </step>
+   <step>
+    <para>Choose <guilabel>Next Step</guilabel>, choose <guilabel>Create Group</guilabel>, and then your new group
+     appears under <guilabel>Group Name</guilabel>.</para>
+   </step>
+   <step>
+    <para>In the navigation pane, choose <guilabel>Users</guilabel>, and then choose <guilabel>Create New
+      Users</guilabel>.</para>
+   </step>
+   <step>
+    <para>In box <guilabel>1</guilabel>, type a user name, clear the check box next to <guilabel>Generate an access key
+      for each user</guilabel>, and then choose <guilabel>Create</guilabel>.</para>
+   </step>
+   <step>
+    <para>In the list of users, choose the name (not the check box) of the user you just created. You can use the
+      <guilabel>Search</guilabel> box to search for the user name.</para>
+   </step>
+   <step>
+    <para>Choose the <guilabel>Groups</guilabel> tab and then choose <guilabel>Add User to Groups</guilabel>.</para>
+   </step>
+   <step>
+    <para>Select the check box next to the administrators group and then choose <guilabel>Add to
+     Groups</guilabel>.</para>
+   </step>
+   <step>
+    <para>Choose the <guilabel>Security Credentials</guilabel> tab and then, under <guilabel>Sign-In
+      Credentials</guilabel>, choose <guilabel>Manage Password</guilabel>.</para>
+   </step>
+   <step>
+    <para>Select <guilabel>Assign a custom password</guilabel>, type a password in the <guilabel>Password</guilabel> and
+      <guilabel>Confirm Password</guilabel> boxes, and then choose <guilabel>Apply</guilabel>.</para>
+   </step>
+  </procedure>
+ </section>
+ <section id="getting-started-step1">
+  <info>
+   <title id="getting-started-step1.title">Step 1: </title>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+ </section>
+ <section id="getting-started-step2">
+  <info>
+   <title id="getting-started-step2.title">Step 2: </title>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+ </section>
+ <section id="getting-started-step3">
+  <info>
+   <title id="getting-started-step3.title">Step 3: </title>
+  </info>
+  <para>Text</para>
+  <procedure>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+   <step>
+    <para>Text</para>
+   </step>
+  </procedure>
+ </section>
+</chapter>

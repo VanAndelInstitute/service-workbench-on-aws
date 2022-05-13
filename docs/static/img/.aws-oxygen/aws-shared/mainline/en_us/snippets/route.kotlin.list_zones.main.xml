@@ -1,0 +1,11 @@
+<programlisting>
+suspend fun listZones() {
+
+        Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+            val response = route53Client.listHostedZones(ListHostedZonesRequest{})
+            response.hostedZones?.forEach { check ->
+                 println("The name is ${check.name}")
+            }
+        }
+ }
+</programlisting>

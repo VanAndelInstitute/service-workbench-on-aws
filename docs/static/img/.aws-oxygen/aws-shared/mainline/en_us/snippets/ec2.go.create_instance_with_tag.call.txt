@@ -1,0 +1,6 @@
+    result, err := svc.RunInstances(&ec2.RunInstancesInput{
+        ImageId:      aws.String("ami-e7527ed7"),
+        InstanceType: aws.String("t2.micro"),
+        MinCount:     aws.Int64(1),
+        MaxCount:     aws.Int64(1),
+    })

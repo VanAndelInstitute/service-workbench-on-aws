@@ -1,0 +1,11 @@
+GET\
+fps.sandbox.amazonaws.com\
+Action=Settle
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&Signature=SJJLsIBghi7VIycBjX7c3hnfgZ%2FBvZbzqLtAZXDL8ys%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-06T07%3A53%3A11.750Z
+&TransactionAmount.CurrencyCode=USD
+&TransactionAmount.Value=1
+&Version=2008-09-17

@@ -1,0 +1,4 @@
+use aws_endpoint::partition;
+use aws_endpoint::partition::endpoint;
+use aws_endpoint::{CredentialScope, Partition, PartitionResolver};
+use aws_sdk_s3 as s3;

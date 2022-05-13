@@ -1,0 +1,24 @@
+        String accountId = "Account ID";
+
+        try {
+            AWSS3Control s3ControlClient = AWSS3ControlClient.builder()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(US_WEST_2)
+                    .build();
+
+
+            ListJobsResult result = s3ControlClient.listJobs(new ListJobsRequest()
+
+                    .withAccountId(accountId)
+                    .withMaxResults(20)
+                    .withJobStatuses("Active", "Complete")
+            ).withJobs(new JobListDescriptor()
+                    .withStatus("Active")
+                    .withStatus("Complete"));
+            
+            for (JobListDescriptor jobSummary : result.getJobs()) {
+                    System.out.printf("%s - %s (status: %s)\n", jobSummary.getJobId(), jobSummary.getCreationTime(), jobSummary.getStatus());
+                }
+                   
+
+

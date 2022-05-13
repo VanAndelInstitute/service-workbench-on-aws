@@ -1,0 +1,15 @@
+<programlisting>
+class ApiGatewayToService:
+    """
+    Encapsulates Amazon API Gateway functions that are used to create a REST API that
+    integrates with another AWS service.
+    """
+    def __init__(self, apig_client):
+        """
+        :param apig_client: A Boto3 API Gateway client.
+        """
+        self.apig_client = apig_client
+        self.api_id = None
+        self.root_id = None
+        self.stage = None
+</programlisting>

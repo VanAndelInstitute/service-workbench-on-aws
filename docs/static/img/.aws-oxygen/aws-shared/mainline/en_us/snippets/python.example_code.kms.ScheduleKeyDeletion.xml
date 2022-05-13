@@ -1,0 +1,21 @@
+<programlisting>
+    def delete_keys(self, keys):
+        """
+        Deletes a list of keys.
+
+        :param keys: The list of keys to delete.
+        """
+        answer = input("Do you want to delete these keys (y/n)? ")
+        if answer.lower() == 'y':
+            window = 7
+            for key in keys:
+                try:
+                    self.kms_client.schedule_key_deletion(
+                        KeyId=key['KeyId'], PendingWindowInDays=window)
+                except ClientError as err:
+                    logging.error(
+                        "Couldn't delete key %s. Here's why: %s",
+                        key['KeyId'], err.response['Error']['Message'])
+                else:
+                    print(f"Key {key['KeyId']} scheduled for deletion in {window} days.")
+</programlisting>

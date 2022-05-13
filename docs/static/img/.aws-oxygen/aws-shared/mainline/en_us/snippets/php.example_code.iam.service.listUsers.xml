@@ -1,0 +1,17 @@
+<programlisting>
+    public function listUsers($pathPrefix = "", $marker = "", $maxItems = 0)
+    {
+        $listUsersArguments = [];
+        if ($pathPrefix) {
+            $listUsersArguments["PathPrefix"] = $pathPrefix;
+        }
+        if ($marker) {
+            $listUsersArguments["Marker"] = $marker;
+        }
+        if ($maxItems) {
+            $listUsersArguments["MaxItems"] = $maxItems;
+        }
+
+        return $this->iamClient->listUsers($listUsersArguments);
+    }
+</programlisting>

@@ -1,0 +1,17 @@
+    public static void DescribeSpecificRule(CloudWatchEventsClient cwe, String ruleName) {
+
+        try {
+
+            DescribeRuleRequest ruleRequest = DescribeRuleRequest.builder()
+                    .name(ruleName)
+                    .build();
+
+            DescribeRuleResponse ruleResp = cwe.describeRule(ruleRequest);
+            String schedule = ruleResp.scheduleExpression();
+            System.out.println("The schedule for this rule is "+schedule);
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

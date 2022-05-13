@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+<section id="ReturnValues" role="topic">
+    <title id="ReturnValues.title">API Return Values</title>
+    <informaltable>
+        <?dbhtml table-width="100%" ?>
+        <?dbfo table-width="95%" ?>
+        <tgroup cols="2">
+            <colspec colname="col1" colnum="1" colwidth="1.68*"/>
+            <colspec colname="col2" colnum="2" colwidth="4.32*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Parameter </para>
+                    </entry>
+                    <entry>
+                        <para>Description</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para><parameter>addressLine1</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The line 1 of the address of the buyer. This parameter is returned in
+                            case the <parameter>collectShippingAddress</parameter> parameter was
+                            passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>addressLine2</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The line 2 of the address of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>addressName</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The name of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form. </para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>buyerEmail</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The email address of the buyer. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>buyerNames</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The name of the buyer. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>city</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The city of the address of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>country</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The country of the address of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>errorMessage</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>A human-readable string returned for the ME status (see the following list of status codes). </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <!-- Comment ou Guest c 
+                <row>
+                    <entry>
+                        <para><parameter>IsSenderGuest</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Returned containing <code>true</code>, if the payment went through
+                            guest checkout. Otherwise this element is not present in the
+                            response.</para>
+                        <simpara>Type: </simpara>
+                    </entry>
+                </row>
+                -->
+                <row>
+                    <entry>
+                        <para><parameter>operation</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The payment operation for this transaction. Can take values <emphasis>reserve</emphasis> and <emphasis>pay</emphasis>. </para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Valid values: pay, reserve</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>paymentMethod</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The payment method used by the buyer. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>paymentReason</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The payment reason as specified in the user interface. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>phoneNumber</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The phoneNumber of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>recipientEmail</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The email address of the seller. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>recipientName</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The name of payment recipient (the seller).</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>referenceId</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>If you specified a referenceId in the button, Amazon Payments returns the referenceId to you. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>signature</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>Amazon Payments calculates the signature using all the parameters in the returnUrl. We recommend that you calculate the return URL&apos;s signature using the same method that you used to calculate the signature while customizing the &asp_product; standard button. This is to be sure that you are receiving the response from Amazon Payments. The signature is only returned when the request is signed using the seller or developer&apos;s access key. If the seller or developer chooses to use unsigned &asp_product; standard buttons, this parameter is not provided. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>state</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The state of the address of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>status</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The status of the transaction. See <xref endterm="ReturnValueStatusCodes.title" linkend="ReturnValueStatusCodes"/> for possible values for this field.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Valid values: </simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>transactionAmount</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The amount of this transaction, for example, USD 10.00. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>transactionDate</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The date when this transaction occurred, specified in seconds since January 1, 1970. </para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><parameter>transactionId</parameter></para>
+                    </entry>
+                    <entry>
+                        <para>The Amazon Payments transaction ID.&nbsp; This ID is displayed on the transaction details page at on the Amazon Payments websiate
+                            and in the confirmation emails.&nbsp; You can use the transaction ID in any communications with Amazon Payments. 
+                            For a list by country of the Amazon Payments websites and FPS endpoints, go to <xref linkend="EndPoints" endterm="EndPoints.title"/>.</para>
+                        <simpara>Type: String</simpara>
+                    </entry>
+                </row>
+                <row>
+                    <entry><parameter>zip</parameter></entry>
+                    <entry>
+                        <para>The zip of the address of the buyer. This parameter is returned in case the <parameter>collectShippingAddress</parameter> parameter was passed as true in the &asp_product; HTML form.</para>
+                        <simpara>Type: String</simpara>
+                        <simpara>Constraint: All address-related parameters associated with <parameter>collectshippingaddress</parameter> except <parameter>addressLine2</parameter>, must have values, or else none of the parameters apply.</simpara>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+</section>

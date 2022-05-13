@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;
+    <!ENTITY % phrases-shared-ec2 SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ec2.ent"> 
+    %phrases-shared-ec2;
+    <!ENTITY % phrases-shared-ecs-ecr SYSTEM "file://AWSShared/ec2-container-shared/phrases-shared-ecs-ecr.ent"> 
+    %phrases-shared-ecs-ecr;
+]>
+<section id="using_efs" role="topic" features="ec2">
+    <info>
+        <title id="using_efs.title">Tutorial: Using &EFS; File Systems with <phrase revision="ecs"
+                >&ECS;</phrase><phrase revision="batch">&BATCH;</phrase></title>
+        <titleabbrev>Tutorial: Using &EFS;</titleabbrev>
+    </info>
+    <table frame="all">
+        <tgroup cols="1">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <tbody>
+                <row>
+                    <entry>Using the efsVolumeConfiguration task definition parameter remains in
+                        preview and is a Beta Service as defined by and subject to the Beta Service
+                        Participation Service Terms located at <ulink
+                            url="https://aws.amazon.com/service-terms"
+                            >https://aws.amazon.com/service-terms</ulink> ("Beta Terms"). These Beta
+                        Terms apply to your participation in this preview of the
+                        efsVolumeConfiguration task definition parameter.</entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+    <para>&EFSlong; (&EFS;) provides simple, scalable file storage for use with &EC2; instances.
+        With &EFS;, storage capacity is elastic, growing and shrinking automatically as you add and
+        remove files. Your applications can have the storage they need, when they need it. </para>
+    <para>You can use &EFS; file systems with <phrase revision="ecs">&ECS;</phrase><phrase
+            revision="batch">&BATCH;</phrase> to export file system data across your fleet of
+            <phrase revision="ecs">container instances</phrase><phrase revision="batch">compute
+            resources</phrase>. That way, your <phrase revision="ecs">tasks</phrase><phrase
+            revision="batch">jobs</phrase> have access to the same persistent storage, no matter the
+        instance on which they land.  The following sections help you get started using &EFS; with
+            <phrase revision="ecs">&ECS;</phrase><phrase revision="batch">&BATCH;</phrase>.</para>
+    <section id="efs-cluster-info">
+        <info>
+            <title id="efs-cluster-info.title">Step 1: Gather <phrase revision="ecs"
+                    >Cluster</phrase><phrase revision="batch">Compute Environment</phrase>
+                Information</title>
+        </info>
+
+        <para>Before you can create all of the required resources to use &EFS; with your <phrase
+                revision="ecs">&ECS; cluster</phrase><phrase revision="batch">&BATCH; compute
+                environment</phrase>, gather some basic information about the <phrase revision="ecs"
+                >cluster</phrase><phrase revision="batch">compute environment</phrase>, such as the
+            VPC it is hosted inside of, and the security group that it uses.</para>
+        <procedure>
+            <title>To gather the VPC and security group IDs for a <phrase revision="ecs"
+                    >cluster</phrase><phrase revision="batch">compute environment</phrase></title>
+            <step>&EC2Console_switch;</step>
+            <step>
+                <para>Select one of the <phrase revision="ecs">container instances</phrase><phrase
+                        revision="batch">compute resources</phrase> from your <phrase revision="ecs"
+                        >cluster</phrase><phrase revision="batch">compute environment</phrase> and
+                    view the <guilabel>Description</guilabel> tab of the instance details.<phrase
+                        revision="ecs"> If you created your cluster with the &ECS; first-run or
+                        cluster creation wizards, the cluster name should be part of the EC2
+                        instance name. For example, a cluster named <code>default</code> has this
+                        EC2 instance name: <code>ECS Instance -
+                                EC2ContainerService-<replaceable>default</replaceable></code>.</phrase></para>
+            </step>
+            <step>
+                <para>Record the <guilabel>VPC ID</guilabel> value for your <phrase revision="ecs"
+                        >container instance</phrase><phrase revision="batch">compute
+                        resource</phrase>. Later, you create a security group and an &EFS; file
+                    system in this VPC.</para>
+            </step>
+            <step>
+                <para>Open the security group to view its details.</para>
+            </step>
+            <step>
+                <para>Record the <guilabel>Group ID</guilabel>. Later, you allow inbound traffic
+                    from this security group to your &EFS; file system.</para>
+            </step>
+        </procedure>
+    </section>
+    <section id="efs-security-group">
+        <info>
+            <title id="efs-security-group.title">Step 2: Create a Security Group for an &EFS; File
+                System</title>
+        </info>
+
+        <para>In this section, you create a security group for your &EFS; file system that allows
+            inbound access from your <phrase revision="ecs">container instances</phrase><phrase
+                revision="batch">compute resources</phrase>.</para>
+        <procedure>
+            <title>To create a security group for an &EFS; file system</title>
+            <step>&EC2Console_switch;</step>
+            <step>
+                <para>In the left navigation pane, choose <guilabel>Security Groups</guilabel>,
+                        <guilabel>Create Security Group</guilabel>.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Security group name</guilabel>, enter a unique name for your
+                    security group. For example,
+                            <code>EFS-access-for-sg-<replaceable>dc025fa2</replaceable></code>.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Description</guilabel>, enter a description for your security
+                    group.</para>
+            </step>
+            <step>
+                <para>For <guilabel>VPC</guilabel>, choose the VPC that you identified earlier for
+                    your <phrase revision="ecs">cluster</phrase><phrase revision="batch">compute
+                        environment</phrase>.</para>
+            </step>
+            <step>
+                <para>Choose <guilabel>Inbound</guilabel>, <guilabel>Add rule</guilabel>.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Type</guilabel>, choose <guilabel>NFS</guilabel>.</para>
+            </step>
+            <step>
+                <para>For <guilabel>Source</guilabel>, choose <guilabel>Custom</guilabel> and then
+                    enter the security group ID that you identified earlier for your <phrase
+                        revision="ecs">cluster</phrase><phrase revision="batch">compute
+                        environment</phrase>.</para>
+            </step>
+            <step>
+                <para>Choose <guilabel>Create</guilabel>.</para>
+            </step>
+        </procedure>
+    </section>
+    <section id="efs-create">
+        <info>
+            <title id="efs-create.title">Step 3: Create an &EFS; File System</title>
+        </info>
+
+        <para>Before you can use &EFS; with your <phrase revision="ecs">container
+                instances</phrase><phrase revision="batch">compute resources</phrase>, you must
+            create an &EFS; file system.</para>
+        <procedure>
+            <title>To create an &EFS; file system for <phrase revision="ecs">&ECS; container
+                    instances</phrase><phrase revision="batch">&BATCH; compute
+                resources</phrase></title>
+            <step> &EFSConsole_switch; <note>
+                    <para>&EFS; is not available in all regions. For more information about which
+                        regions support &EFS;, see <ulink
+                            url="&url-aws-gen-endp;#elasticfilesystem-region">&EFSlong;</ulink> in
+                        the <ulink url="&url-aws-gen-endp;">&AWS; Regions and Endpoints</ulink>
+                        section of the <emphasis>&AWS-GEN-REF;</emphasis>.</para>
+                </note>
+            </step>
+            <step>
+                <para>Choose <guilabel>Create file system</guilabel>.</para>
+            </step>
+            <step>
+                <para>On the <guilabel>Configure file system access</guilabel> page, choose the VPC
+                    that your <phrase revision="ecs"> container instances</phrase><phrase
+                        revision="batch">compute resources</phrase> are hosted in. By default, each
+                    subnet in the specified VPC receives a mount target that uses the default
+                    security group for that VPC.</para>
+                <note>
+                    <para>Your &EFS; file system and your <phrase revision="ecs">container
+                            instances</phrase><phrase revision="batch">compute resources</phrase>
+                        must be in the same VPC.</para>
+                </note>
+            </step>
+            <step>
+                <para>Under <guilabel>Create mount targets</guilabel>, for <guilabel>Security
+                        groups</guilabel>, add the security group that you created in the previous
+                    section. Choose <guilabel>Next step</guilabel>.</para>
+            </step>
+            <step>
+                <para>Configure optional settings and then choose <guilabel>Next step</guilabel> to
+                    proceed.</para>
+                <substeps>
+                    <step>
+                        <para>(Optional) Add tags for your file system. For example, you could
+                            specify a unique name for the file system by entering that name in the
+                                <guilabel>Value</guilabel> column next to the
+                                <guilabel>Name</guilabel> key.</para>
+                    </step>
+                    <step>
+                        <para>(Optional) Enable lifecycle management to save money on infrequently
+                            accessed storage. For more information, see <ulink
+                                url="&url-efs-ug;lifecycle-management-efs.html">EFS Lifecycle
+                                Management</ulink> in the
+                            <emphasis>&guide-efs-ug;</emphasis>.</para>
+                    </step>
+                    <step>
+                        <para>Choose a throughput mode for your file system.</para>
+                        <note>
+                            <para><guilabel>Bursting</guilabel> is the default, and it is
+                                recommended for most file systems.</para>
+                        </note>
+                    </step>
+                    <step>
+                        <para>Choose a performance mode for your file system.</para>
+                        <note>
+                            <para><guilabel>General Purpose</guilabel> is the default, and it is
+                                recommended for most file systems.</para>
+                        </note>
+                    </step>
+                    <step>
+                        <para>(Optional) Enable encryption. Select the check box to enable
+                            encryption of your &EFS; file system at rest.</para>
+                    </step>
+                </substeps>
+            </step>
+
+            <step>
+                <para>Review your file system options and choose <guilabel>Create File
+                        System</guilabel>.</para>
+            </step>
+        </procedure>
+    </section>
+    <!--
+    <section id="efs-config-instance">
+        <info>
+            <title id="efs-config-instance.title">Step 4: Configure <phrase revision="ecs">Container
+                    Instances</phrase><phrase revision="batch">Compute Resources</phrase></title>
+        </info>
+
+        <para>After you've created your &EFS; file system in the same VPC as your <phrase
+                revision="ecs">container instances</phrase><phrase revision="batch">compute
+                resources</phrase>, you must configure the <phrase revision="ecs">container
+                instances</phrase><phrase revision="batch">compute resources</phrase> to access and
+            use the file system.</para>
+        <procedure>
+            <title>Configure a running <phrase revision="ecs">container instance</phrase><phrase
+                    revision="batch">compute resource</phrase> to use an &EFS; file system</title>
+            <step>
+                <para>Log in to the <phrase revision="ecs">container instance</phrase><phrase
+                        revision="batch">compute resource</phrase> via SSH.<phrase revision="ecs">
+                        For more information, see <xref linkend="instance-connect"
+                            endterm="instance-connect.title"/>.</phrase></para>
+            </step>
+            <step>
+                <para>Create a mount point for your &EFS; file system. For example,
+                        <filename>/efs</filename>.</para>
+                <programlisting><userinput>sudo mkdir <replaceable>/mnt/efs</replaceable></userinput></programlisting>
+            </step>
+            <step>
+                <para>Install the <code>amazon-efs-utils</code> client software on your <phrase
+                        revision="ecs">container instance</phrase><phrase revision="batch">compute
+                        resource</phrase>.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>For &AL;:</para>
+                        <programlisting><userinput>sudo yum install -y amazon-efs-utils</userinput></programlisting>
+                    </listitem>
+                    <listitem>
+                        <para>For other Linux distributions, see <ulink
+                                url="&url-efs-ug;using-amazon-efs-utils.html#installing-other-distro"
+                                >Installing the amazon-efs-utils Package on Other Linux
+                                Distributions</ulink> in the
+                            <emphasis>&guide-efs-ug;</emphasis>.</para>
+                    </listitem>
+                </itemizedlist>
+            </step>
+            <step>
+                <para>Make a backup of the <filename>/etc/fstab</filename> file.</para>
+                <programlisting><userinput>sudo cp /etc/fstab /etc/fstab.bak</userinput></programlisting>
+            </step>
+            <step>
+                <para>Update the <filename>/etc/fstab</filename> file to automatically mount the
+                    file system at boot.</para>
+                <programlisting><userinput>echo '<replaceable>fs-12345678</replaceable>:/ /mnt/efs efs defaults,_netdev 0 0' | sudo tee -a /etc/fstab</userinput></programlisting>
+            </step>
+            <step>
+                <para>Reload the file system table to verify that your mounts are working
+                    properly.</para>
+                <programlisting><userinput>sudo mount -a</userinput></programlisting>
+                <note>
+                    <para>If you receive an error while running the above command, examine your
+                            <filename>/etc/fstab</filename> file for problems. If necessary, restore
+                        it with the backup that you created earlier.</para>
+                </note>
+            </step>
+            <step>
+                <para>Validate that the file system is mounted correctly with the following command.
+                    You should see a file system entry that matches your &EFS; file system. If not,
+                    see <ulink url="&url-efs-ug;troubleshooting.html">Troubleshooting &EFS;</ulink>
+                    in the <emphasis>&guide-efs-ug;</emphasis>.</para>
+                <programlisting><userinput>mount | grep efs</userinput></programlisting>
+            </step>
+        </procedure>
+        <procedure revision="ecs">
+            <title>Bootstrap an instance to use &EFS; with user data</title>
+            <para>You can use an &EC2; user data script to bootstrap an &ECS;&ndash;optimized &AMI;
+                at boot. For more information, see <xref linkend="bootstrap_container_instance"
+                    endterm="bootstrap_container_instance.title"/>.</para>
+            <step>
+                <para>Follow the container instance launch instructions at <xref
+                        linkend="launch_container_instance"
+                        endterm="launch_container_instance.title"/>.</para>
+            </step>
+            <step>
+                <para>On <xref linkend="instance-launch-user-data-step"/>, pass the following user
+                    data to configure your instance. If you are not using the <code>default</code>
+                    cluster, be sure to replace the
+                            <code>ECS_CLUSTER=<replaceable>default</replaceable></code> line in the
+                    configuration file to specify your own cluster name.</para>
+                <xi:include href="file://AWSShared/ec2-container-shared/scripts/efs-multi.xml"/>
+            </step>
+        </procedure>
+    </section>
+    -->
+    <section id="efs-task-def">
+        <info>
+            <title id="efs-task-def.title">Step 4: Create a <phrase revision="ecs">Task
+                    Definition</phrase><phrase revision="batch">Job Definition</phrase> to Use the
+                &EFS; File System</title>
+        </info>
+
+        <para>Because the file system is mounted on the host <phrase revision="ecs">container
+                instance</phrase><phrase revision="batch">compute resource</phrase>, you must create
+            a volume mount in your <phrase revision="ecs">&ECS; task definition</phrase><phrase
+                revision="batch">&BATCH; job definition</phrase> that allows your containers to
+            access the file system.<phrase revision="ecs"> For more information, see <xref
+                    linkend="using_data_volumes" endterm="using_data_volumes.title"
+            />.</phrase></para>
+        <para>The following <phrase revision="ecs">task definition</phrase><phrase revision="batch"
+                >job definition</phrase> creates a data volume called <code>efs-html</code> at
+                <filename>/efs/html</filename> on the host <phrase revision="ecs">container
+                instance</phrase><phrase revision="batch">compute resource</phrase> &EFS; file
+            system. The <code>nginx</code> container mounts the host data volume at the NGINX root,
+                <filename>/usr/share/nginx/html</filename>.</para>
+        <programlisting revision="ecs"><xi:include href="file://AWSShared/ec2-container-shared/tasks/nginx-efs.json" parse="text"/></programlisting>
+        <programlisting revision="batch"><xi:include href="jobs/nginx-efs.json" parse="text"/></programlisting>
+        <para>You can save this <phrase revision="ecs">task definition</phrase><phrase revision="batch">job
+    definition</phrase> to a file called <filename>nginx-efs.json</filename> and register it to use in your own <phrase
+    revision="ecs">clusters</phrase><phrase revision="batch">job queues</phrase> with the following &CLI; command. For
+   more information, see <ulink url="&url-cli-ug;installing.html">Installing the &CLIlong;</ulink> in the
+    <emphasis>&guide-cli-ug;</emphasis>.</para>
+        <programlisting revision="ecs"><userinput>aws ecs register-task-definition --cli-input-json file://nginx-efs.json</userinput></programlisting>
+        <programlisting revision="batch"><userinput>aws ecs register-job-definition --cli-input-json file://nginx-efs.json</userinput></programlisting>
+    </section>
+    <section id="efs-add-content">
+        <info>
+            <title id="efs-add-content.title">Step 5: Add Content to the &EFS; File System</title>
+        </info>
+
+        <para>For the NGINX example task, you created a directory at <filename>/efs/html</filename>
+            on the <phrase revision="ecs">container instance</phrase><phrase revision="batch"
+                >compute resource</phrase> to host the web content. Before the NGINX containers can
+            serve any web content, you must add the content to the file system. In this section, you
+            log in to a <phrase revision="ecs">container instance</phrase><phrase revision="batch"
+                >compute resource</phrase> and add an <filename>index.html</filename> file.</para>
+        <procedure>
+            <title>To add content to the file system</title>
+            <step>
+                <para>Connect using SSH to one of your <phrase revision="ecs">container
+                        instances</phrase><phrase revision="batch">compute resources</phrase> that
+                    is using the &EFS; file system.<phrase revision="ecs"> For more information, see
+                            <xref linkend="instance-connect" endterm="instance-connect.title"
+                        />.</phrase></para>
+            </step>
+            <step>
+                <para>Write a simple HTML file by copying and pasting the following block of text
+                    into a terminal.</para>
+                <programlisting><userinput>sudo bash -c "cat &gt;/efs/html/index.html" &lt;&lt;'EOF'
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;It Works!&lt;/h1&gt;
+        &lt;p&gt;You are using an Amazon EFS file system for persistent container storage.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+EOF</userinput></programlisting>
+            </step>
+        </procedure>
+    </section>
+    <section id="efs-run-task">
+        <info>
+            <title id="efs-run-task.title">Step 6: <phrase revision="ecs">Run a Task</phrase><phrase
+                    revision="batch">Submit a Job</phrase><phrase revision="ecs"> and View the
+                    Results</phrase></title>
+        </info>
+
+        <para>Now that your &EFS; file system is available on your <phrase revision="ecs">container
+                instances</phrase><phrase revision="batch">compute resources</phrase> and there is
+            web content for the NGINX containers to serve, you can run a <phrase revision="ecs"
+                >task</phrase><phrase revision="batch">job</phrase> using the <phrase revision="ecs"
+                >task</phrase><phrase revision="batch">job</phrase> definition that you created
+            earlier. The NGINX web servers serve your simple HTML page. If you update the content in
+            your &EFS; file system, those changes are propagated to any containers that have also
+            mounted that file system.</para>
+        <procedure>
+            <title>To <phrase revision="ecs">run a task</phrase><phrase revision="batch">submit a
+                    job</phrase> and view the results</title>
+            <step revision="ecs">&ECSConsole_switch;</step>
+            <step revision="batch">&BATCHconsole_para;</step>
+            <step revision="ecs">
+                <para>Choose the cluster that you have configured to use &EFS;.</para>
+            </step>
+            <step>
+                <para>Choose <phrase revision="ecs">
+                        <guilabel>Tasks</guilabel>, <guilabel>Run new task</guilabel>
+                    </phrase><phrase revision="batch"><guilabel>Jobs</guilabel>, <guilabel>Submit
+                            job</guilabel></phrase>.</para>
+            </step>
+            <step revision="batch">
+                <para>For <guilabel>Job name</guilabel>, enter a name for your job.</para>
+            </step>
+            <step>
+                <para>For <guilabel revision="ecs">Task Definition</guilabel><guilabel
+                        revision="batch">Job Definition</guilabel>, choose the
+                        <code>nginx-efs</code>
+                    <phrase revision="ecs">task</phrase><phrase revision="ecs">job</phrase>
+                    definition that you created earlier<phrase revision="ecs"> and choose
+                            <guilabel>Run Task</guilabel>. For more information on the other options
+                        in the run task workflow, see <xref linkend="ecs_run_task"
+                            endterm="ecs_run_task.title"/></phrase>.</para>
+            </step>
+            <step revision="batch">
+                <para>For <guilabel>Job queue</guilabel>, choose a job queue associated with the
+                    compute environment that you have configured to use &EFS; and choose
+                        <guilabel>Submit job</guilabel>.</para>
+            </step>
+            <step revision="ecs">
+                <para>Below the <guilabel>Tasks</guilabel> tab, choose the task that you just
+                    ran.</para>
+            </step>
+            <step revision="ecs">
+                <para>Expand the container name at the bottom of the page, and choose the IP address
+                    that is associated with the container. Your browser should open a new tab with
+                    the following message:</para>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/it_works.png"/>
+                    </imageobject>
+                </mediaobject>
+                <note>
+                    <para>If you do not see the message, make sure that the security group for your
+                        container instances allows inbound network traffic on port 80.</para>
+                </note>
+            </step>
+        </procedure>
+    </section>
+</section>

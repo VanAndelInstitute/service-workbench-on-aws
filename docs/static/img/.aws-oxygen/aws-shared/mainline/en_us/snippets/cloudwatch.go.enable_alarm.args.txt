@@ -1,0 +1,9 @@
+    instanceName := flag.String("n", "", "The instance name")
+    instanceID := flag.String("i", "", "The instance ID")
+    alarmName := flag.String("a", "", "The alarm name")
+    flag.Parse()
+
+    if *instanceName == "" || *instanceID == "" || *alarmName == "" {
+        fmt.Println("You must supply an instance name, instance ID, and alarm name")
+        return
+    }

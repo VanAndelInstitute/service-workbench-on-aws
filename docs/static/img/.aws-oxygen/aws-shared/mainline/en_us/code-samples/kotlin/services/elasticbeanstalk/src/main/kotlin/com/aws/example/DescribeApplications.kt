@@ -1,0 +1,44 @@
+
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: Apache-2.0
+*/
+package com.aws.example
+
+import aws.sdk.kotlin.services.elasticbeanstalk.ElasticBeanstalkClient
+import aws.sdk.kotlin.services.elasticbeanstalk.model.DescribeApplicationsRequest
+import aws.sdk.kotlin.services.elasticbeanstalk.model.DescribeEnvironmentsRequest
+
+/**
+Before running this Kotlin code example, set up your development environment,
+including your credentials.
+
+For more information, see the following documentation topic:
+https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup.html
+ */
+
+suspend fun main() {
+   describeApps()
+}
+
+suspend fun describeApps() {
+
+    ElasticBeanstalkClient { region = "us-east-1" }.use { beanstalkClient ->
+        val response = beanstalkClient.describeApplications(DescribeApplicationsRequest {})
+        response.applications?.forEach { app ->
+            println("The application name is ${app.applicationName}")
+
+            val desRequest = DescribeEnvironmentsRequest {
+                applicationName = app.applicationName
+            }
+
+            ElasticBeanstalkClient { region = "us-east-1" }.use { beanstalkClient ->
+                val res = beanstalkClient.describeEnvironments(desRequest)
+                res.environments?.forEach { desc ->
+
+                    println("The environment ARN is ${desc.environmentArn}")
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.2.0 -->
+<section id="csharp_code_examples" role="topic">
+    <info>
+        <title id="csharp_code_examples.title">Additional code examples for the &NET;</title>
+        <titleabbrev id="csharp_code_examples.titleabbrev">Additional code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &NETlong; with &AWS;.</para>
+        </abstract>
+    </info>
+    <para>The code examples in this topic show you how to use the &NETlong; with &AWS;.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Single-service actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Single-service scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by
+                calling multiple functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para role="topiclist-abbrev">Examples</para>
+    <section id="csharp_code_examples_categorized" role="topic">
+        <info>
+            <title id="csharp_code_examples_categorized.title">Single-service actions and scenarios using &NET;</title>
+            <titleabbrev id="csharp_code_examples_categorized.titleabbrev">Single-service actions and scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to implement common scenarios and perform individual service actions by using
+                    &NET; with &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show how to perform actions and implement common scenarios by using
+            the &NETlong; with &AWS; services.</para>
+        <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual service functions.</para>
+        <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task by
+            calling multiple functions within the same service.</para>
+        <para role="topiclist-abbrev">Services</para>
+        <section id="csharp_cloudwatch_code_examples" role="topic">
+            <info>
+                <title id="csharp_cloudwatch_code_examples.title">&CW; examples using &NET;</title>
+                <titleabbrev id="csharp_cloudwatch_code_examples.titleabbrev">&CW;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &CW;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &CW;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CW; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CW; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch_DeleteAlarms_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_DeleteAlarms_csharp_topic.title">Delete alarms</title>
+                            <titleabbrev id="cloudwatch_DeleteAlarms_csharp_topic.titleabbrev">Delete alarms</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete &CWlong; alarms.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DeleteAlarms_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DescribeAlarmHistory_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_DescribeAlarmHistory_csharp_topic.title">Describe alarm history</title>
+                            <titleabbrev id="cloudwatch_DescribeAlarmHistory_csharp_topic.titleabbrev">Describe alarm history</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWlong; alarm history.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DescribeAlarmHistory_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_DisableAlarmActions_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_DisableAlarmActions_csharp_topic.title">Disable alarm actions</title>
+                            <titleabbrev id="cloudwatch_DisableAlarmActions_csharp_topic.titleabbrev">Disable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_DisableAlarmActions_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_EnableAlarmActions_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_EnableAlarmActions_csharp_topic.title">Enable alarm actions</title>
+                            <titleabbrev id="cloudwatch_EnableAlarmActions_csharp_topic.titleabbrev">Enable alarm actions</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable &CWlong; alarm actions.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_EnableAlarmActions_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_GetDashboard_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_GetDashboard_csharp_topic.title">Get dashboard details</title>
+                            <titleabbrev id="cloudwatch_GetDashboard_csharp_topic.titleabbrev">Get dashboard details</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get &CWlong; dashboard details.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_GetDashboard_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_ListDashboards_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_ListDashboards_csharp_topic.title">List dashboards</title>
+                            <titleabbrev id="cloudwatch_ListDashboards_csharp_topic.titleabbrev">List dashboards</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &CWlong; dashboards.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_ListDashboards_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch_ListMetrics_csharp_topic">
+                        <info>
+                            <title id="cloudwatch_ListMetrics_csharp_topic.title">List metrics</title>
+                            <titleabbrev id="cloudwatch_ListMetrics_csharp_topic.titleabbrev">List metrics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &CWlong; metrics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch_ListMetrics_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_cloudwatch-logs_code_examples" role="topic">
+            <info>
+                <title id="csharp_cloudwatch-logs_code_examples.title">&CWL; examples using &NET;</title>
+                <titleabbrev id="csharp_cloudwatch-logs_code_examples.titleabbrev">&CWL;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &CWL;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &CWL;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CWL; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CWL; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="cloudwatch-logs_AssociateKmsKey_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_AssociateKmsKey_csharp_topic.title">Associate an &KMS; key to log group</title>
+                            <titleabbrev id="cloudwatch-logs_AssociateKmsKey_csharp_topic.titleabbrev">Associate an &KMS; key to log group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to associate an &KMS; key with an existing &CWL; log group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_AssociateKmsKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_CancelExportTask_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_CancelExportTask_csharp_topic.title">Cancel an export task</title>
+                            <titleabbrev id="cloudwatch-logs_CancelExportTask_csharp_topic.titleabbrev">Cancel an export task</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to cancel an existing &CWL; export task.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_CancelExportTask_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_CreateLogGroup_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_CreateLogGroup_csharp_topic.title">Create a log group</title>
+                            <titleabbrev id="cloudwatch-logs_CreateLogGroup_csharp_topic.titleabbrev">Create a log group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a new &CWL; log group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_CreateLogGroup_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_CreateLogStream_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_CreateLogStream_csharp_topic.title">Create a new log stream</title>
+                            <titleabbrev id="cloudwatch-logs_CreateLogStream_csharp_topic.titleabbrev">Create a new log stream</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a new &CWL; log stream.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_CreateLogStream_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DeleteLogGroup_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DeleteLogGroup_csharp_topic.title">Delete a log group</title>
+                            <titleabbrev id="cloudwatch-logs_DeleteLogGroup_csharp_topic.titleabbrev">Delete a log group</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an existing &CWL; log group.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DeleteLogGroup_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeExportTasks_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeExportTasks_csharp_topic.title">Describe export tasks</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeExportTasks_csharp_topic.titleabbrev">Describe export tasks</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWL; export tasks.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeExportTasks_.NET.xml"></xi:include>
+                    </section>
+                    <section id="cloudwatch-logs_DescribeLogGroups_csharp_topic">
+                        <info>
+                            <title id="cloudwatch-logs_DescribeLogGroups_csharp_topic.title">Describe log groups</title>
+                            <titleabbrev id="cloudwatch-logs_DescribeLogGroups_csharp_topic.titleabbrev">Describe log groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe &CWL; log groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/cloudwatch-logs_DescribeLogGroups_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_comprehend_code_examples" role="topic">
+            <info>
+                <title id="csharp_comprehend_code_examples.title">&CMP; examples using &NET;</title>
+                <titleabbrev id="csharp_comprehend_code_examples.titleabbrev">&CMP;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &CMP;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &CMP;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &CMP; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &CMP; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="comprehend_DetectEntities_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectEntities_csharp_topic.title">Detect entities in a document</title>
+                            <titleabbrev id="comprehend_DetectEntities_csharp_topic.titleabbrev">Detect entities in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect entities in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectEntities_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectKeyPhrases_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectKeyPhrases_csharp_topic.title">Detect key phrases in a document</title>
+                            <titleabbrev id="comprehend_DetectKeyPhrases_csharp_topic.titleabbrev">Detect key phrases in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect key phrases in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectKeyPhrases_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectPiiEntities_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectPiiEntities_csharp_topic.title">Detect personally identifiable information in a document</title>
+                            <titleabbrev id="comprehend_DetectPiiEntities_csharp_topic.titleabbrev">Detect personally identifiable information in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect personally identifiable information (PII) in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectPiiEntities_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectSyntax_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectSyntax_csharp_topic.title">Detect syntactical elements of a document</title>
+                            <titleabbrev id="comprehend_DetectSyntax_csharp_topic.titleabbrev">Detect syntactical elements of a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect syntactial elements of a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSyntax_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectDominantLanguage_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectDominantLanguage_csharp_topic.title">Detect the dominant language in a document</title>
+                            <titleabbrev id="comprehend_DetectDominantLanguage_csharp_topic.titleabbrev">Detect the dominant language in a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect the dominant language in a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectDominantLanguage_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_DetectSentiment_csharp_topic">
+                        <info>
+                            <title id="comprehend_DetectSentiment_csharp_topic.title">Detect the sentiment of a document</title>
+                            <titleabbrev id="comprehend_DetectSentiment_csharp_topic.titleabbrev">Detect the sentiment of a document</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect the sentiment of a document with &CMP;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_DetectSentiment_.NET.xml"></xi:include>
+                    </section>
+                    <section id="comprehend_StartTopicsDetectionJob_csharp_topic">
+                        <info>
+                            <title id="comprehend_StartTopicsDetectionJob_csharp_topic.title">Start a topic modeling job</title>
+                            <titleabbrev id="comprehend_StartTopicsDetectionJob_csharp_topic.titleabbrev">Start a topic modeling job</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to start an &CMP; topic modeling job.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/comprehend_StartTopicsDetectionJob_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_iam_code_examples" role="topic">
+            <info>
+                <title id="csharp_iam_code_examples.title">&IAM; examples using &NET;</title>
+                <titleabbrev id="csharp_iam_code_examples.titleabbrev">&IAM;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &IAM;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &IAM;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &IAM; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &IAM; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_AttachRolePolicy_csharp_topic">
+                        <info>
+                            <title id="iam_AttachRolePolicy_csharp_topic.title">Attach a policy to a role</title>
+                            <titleabbrev id="iam_AttachRolePolicy_csharp_topic.titleabbrev">Attach a policy to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to attach an &IAM; policy to a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_AttachRolePolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreatePolicy_csharp_topic">
+                        <info>
+                            <title id="iam_CreatePolicy_csharp_topic.title">Create a policy</title>
+                            <titleabbrev id="iam_CreatePolicy_csharp_topic.titleabbrev">Create a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreatePolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateRole_csharp_topic">
+                        <info>
+                            <title id="iam_CreateRole_csharp_topic.title">Create a role</title>
+                            <titleabbrev id="iam_CreateRole_csharp_topic.titleabbrev">Create a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateRole_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateUser_csharp_topic">
+                        <info>
+                            <title id="iam_CreateUser_csharp_topic.title">Create a user</title>
+                            <titleabbrev id="iam_CreateUser_csharp_topic.titleabbrev">Create a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateUser_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_CreateAccessKey_csharp_topic">
+                        <info>
+                            <title id="iam_CreateAccessKey_csharp_topic.title">Create an access key</title>
+                            <titleabbrev id="iam_CreateAccessKey_csharp_topic.titleabbrev">Create an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_CreateAccessKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteRolePolicy_csharp_topic">
+                        <info>
+                            <title id="iam_DeleteRolePolicy_csharp_topic.title">Delete a role policy</title>
+                            <titleabbrev id="iam_DeleteRolePolicy_csharp_topic.titleabbrev">Delete a role policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; role policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteRolePolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteUser_csharp_topic">
+                        <info>
+                            <title id="iam_DeleteUser_csharp_topic.title">Delete a user</title>
+                            <titleabbrev id="iam_DeleteUser_csharp_topic.titleabbrev">Delete a user</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; user.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteUser_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_DeleteAccessKey_csharp_topic">
+                        <info>
+                            <title id="iam_DeleteAccessKey_csharp_topic.title">Delete an access key</title>
+                            <titleabbrev id="iam_DeleteAccessKey_csharp_topic.titleabbrev">Delete an access key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &IAM; access key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DeleteAccessKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_DetachRolePolicy_csharp_topic">
+                        <info>
+                            <title id="iam_DetachRolePolicy_csharp_topic.title">Detach a policy from a role</title>
+                            <titleabbrev id="iam_DetachRolePolicy_csharp_topic.titleabbrev">Detach a policy from a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detach an &IAM; policy from a role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_DetachRolePolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetPolicy_csharp_topic">
+                        <info>
+                            <title id="iam_GetPolicy_csharp_topic.title">Get a policy</title>
+                            <titleabbrev id="iam_GetPolicy_csharp_topic.titleabbrev">Get a policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetPolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetRole_csharp_topic">
+                        <info>
+                            <title id="iam_GetRole_csharp_topic.title">Get a role</title>
+                            <titleabbrev id="iam_GetRole_csharp_topic.titleabbrev">Get a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetRole_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_GetAccountPasswordPolicy_csharp_topic">
+                        <info>
+                            <title id="iam_GetAccountPasswordPolicy_csharp_topic.title">Get the account password policy</title>
+                            <titleabbrev id="iam_GetAccountPasswordPolicy_csharp_topic.titleabbrev">Get the account password policy</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the &IAM; account password policy.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_GetAccountPasswordPolicy_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListSAMLProviders_csharp_topic">
+                        <info>
+                            <title id="iam_ListSAMLProviders_csharp_topic.title">List SAML providers</title>
+                            <titleabbrev id="iam_ListSAMLProviders_csharp_topic.titleabbrev">List SAML providers</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list SAML providers for &IAM;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListSAMLProviders_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListGroups_csharp_topic">
+                        <info>
+                            <title id="iam_ListGroups_csharp_topic.title">List groups</title>
+                            <titleabbrev id="iam_ListGroups_csharp_topic.titleabbrev">List groups</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; groups.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListGroups_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRolePolicies_csharp_topic">
+                        <info>
+                            <title id="iam_ListRolePolicies_csharp_topic.title">List inline policies for a role</title>
+                            <titleabbrev id="iam_ListRolePolicies_csharp_topic.titleabbrev">List inline policies for a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list inline policies for an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRolePolicies_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListPolicies_csharp_topic">
+                        <info>
+                            <title id="iam_ListPolicies_csharp_topic.title">List policies</title>
+                            <titleabbrev id="iam_ListPolicies_csharp_topic.titleabbrev">List policies</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; policies.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListPolicies_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListAttachedRolePolicies_csharp_topic">
+                        <info>
+                            <title id="iam_ListAttachedRolePolicies_csharp_topic.title">List policies attached to a role</title>
+                            <titleabbrev id="iam_ListAttachedRolePolicies_csharp_topic.titleabbrev">List policies attached to a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list policies attached to an &IAM; role.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListAttachedRolePolicies_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListRoles_csharp_topic">
+                        <info>
+                            <title id="iam_ListRoles_csharp_topic.title">List roles</title>
+                            <titleabbrev id="iam_ListRoles_csharp_topic.titleabbrev">List roles</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; roles.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListRoles_.NET.xml"></xi:include>
+                    </section>
+                    <section id="iam_ListUsers_csharp_topic">
+                        <info>
+                            <title id="iam_ListUsers_csharp_topic.title">List users</title>
+                            <titleabbrev id="iam_ListUsers_csharp_topic.titleabbrev">List users</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &IAM; users.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_ListUsers_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="iam_Scenario_CreateUserAssumeRole_csharp_topic">
+                        <info>
+                            <title id="iam_Scenario_CreateUserAssumeRole_csharp_topic.title">Create a user and assume a role</title>
+                            <titleabbrev id="iam_Scenario_CreateUserAssumeRole_csharp_topic.titleabbrev">Create a user and assume a role</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a user who has no permissions.</para></listitem>
+                            <listitem><para>Create a role that grants permission to list &S3; buckets for the account.</para></listitem>
+                            <listitem><para>Add a policy to let the user assume the role.</para></listitem>
+                            <listitem><para>Assume the role and list &S3; buckets using temporary credentials.</para></listitem>
+                            <listitem><para>Delete the policy, role, and user.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/iam_Scenario_CreateUserAssumeRole_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_kms_code_examples" role="topic">
+            <info>
+                <title id="csharp_kms_code_examples.title">&KMS; examples using &NET;</title>
+                <titleabbrev id="csharp_kms_code_examples.titleabbrev">&KMS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &KMS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &KMS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &KMS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &KMS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="kms_CreateGrant_csharp_topic">
+                        <info>
+                            <title id="kms_CreateGrant_csharp_topic.title">Create a grant for a key</title>
+                            <titleabbrev id="kms_CreateGrant_csharp_topic.titleabbrev">Create a grant for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create a grant for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateGrant_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateKey_csharp_topic">
+                        <info>
+                            <title id="kms_CreateKey_csharp_topic.title">Create a key</title>
+                            <titleabbrev id="kms_CreateKey_csharp_topic.titleabbrev">Create a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &kms-key-long;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_CreateAlias_csharp_topic">
+                        <info>
+                            <title id="kms_CreateAlias_csharp_topic.title">Create an alias for a key</title>
+                            <titleabbrev id="kms_CreateAlias_csharp_topic.titleabbrev">Create an alias for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an alias for a &kms-key; key.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_CreateAlias_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_DescribeKey_csharp_topic">
+                        <info>
+                            <title id="kms_DescribeKey_csharp_topic.title">Describe a key</title>
+                            <titleabbrev id="kms_DescribeKey_csharp_topic.titleabbrev">Describe a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DescribeKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_DisableKey_csharp_topic">
+                        <info>
+                            <title id="kms_DisableKey_csharp_topic.title">Disable a key</title>
+                            <titleabbrev id="kms_DisableKey_csharp_topic.titleabbrev">Disable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to disable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_DisableKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_EnableKey_csharp_topic">
+                        <info>
+                            <title id="kms_EnableKey_csharp_topic.title">Enable a key</title>
+                            <titleabbrev id="kms_EnableKey_csharp_topic.titleabbrev">Enable a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to enable a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_EnableKey_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListAliases_csharp_topic">
+                        <info>
+                            <title id="kms_ListAliases_csharp_topic.title">List aliases for a key</title>
+                            <titleabbrev id="kms_ListAliases_csharp_topic.titleabbrev">List aliases for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list aliases for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListAliases_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListGrants_csharp_topic">
+                        <info>
+                            <title id="kms_ListGrants_csharp_topic.title">List grants for a key</title>
+                            <titleabbrev id="kms_ListGrants_csharp_topic.titleabbrev">List grants for a key</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list grants for a &kms-key;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListGrants_.NET.xml"></xi:include>
+                    </section>
+                    <section id="kms_ListKeys_csharp_topic">
+                        <info>
+                            <title id="kms_ListKeys_csharp_topic.title">List keys</title>
+                            <titleabbrev id="kms_ListKeys_csharp_topic.titleabbrev">List keys</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &kms-keys;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/kms_ListKeys_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_rekognition_code_examples" role="topic">
+            <info>
+                <title id="csharp_rekognition_code_examples.title">&REK; examples using &NET;</title>
+                <titleabbrev id="csharp_rekognition_code_examples.titleabbrev">&REK;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &REK;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &REK;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &REK; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &REK; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="rekognition_CompareFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_CompareFaces_csharp_topic.title">Compare faces in an image against a reference image</title>
+                            <titleabbrev id="rekognition_CompareFaces_csharp_topic.titleabbrev">Compare faces in an image against a reference image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to compare faces in an image against a reference image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-comparefaces.html">Comparing faces in images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CompareFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_CreateCollection_csharp_topic">
+                        <info>
+                            <title id="rekognition_CreateCollection_csharp_topic.title">Create a collection</title>
+                            <titleabbrev id="rekognition_CreateCollection_csharp_topic.titleabbrev">Create a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/create-collection-procedure.html">Creating a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_CreateCollection_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteCollection_csharp_topic">
+                        <info>
+                            <title id="rekognition_DeleteCollection_csharp_topic.title">Delete a collection</title>
+                            <titleabbrev id="rekognition_DeleteCollection_csharp_topic.titleabbrev">Delete a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteCollection_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DeleteFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_DeleteFaces_csharp_topic.title">Delete faces from a collection</title>
+                            <titleabbrev id="rekognition_DeleteFaces_csharp_topic.titleabbrev">Delete faces from a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete faces from an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-faces-procedure.html">Deleting faces from a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DescribeCollection_csharp_topic">
+                        <info>
+                            <title id="rekognition_DescribeCollection_csharp_topic.title">Describe a collection</title>
+                            <titleabbrev id="rekognition_DescribeCollection_csharp_topic.titleabbrev">Describe a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to describe an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/describe-collection-procedure.html">Describing a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DescribeCollection_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_DetectFaces_csharp_topic.title">Detect faces in an image</title>
+                            <titleabbrev id="rekognition_DetectFaces_csharp_topic.titleabbrev">Detect faces in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect faces in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-detect-images.html">Detecting faces in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectLabels_csharp_topic">
+                        <info>
+                            <title id="rekognition_DetectLabels_csharp_topic.title">Detect labels in an image</title>
+                            <titleabbrev id="rekognition_DetectLabels_csharp_topic.titleabbrev">Detect labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect labels in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/labels-detect-labels-image.html">Detecting labels in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectLabels_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectModerationLabels_csharp_topic">
+                        <info>
+                            <title id="rekognition_DetectModerationLabels_csharp_topic.title">Detect moderation labels in an image</title>
+                            <titleabbrev id="rekognition_DetectModerationLabels_csharp_topic.titleabbrev">Detect moderation labels in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect moderation labels in an image with &REK;. Moderation labels identify content that may be inappropriate for some audiences.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/procedure-moderate-images.html">Detecting inappropriate images</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectModerationLabels_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_DetectText_csharp_topic">
+                        <info>
+                            <title id="rekognition_DetectText_csharp_topic.title">Detect text in an image</title>
+                            <titleabbrev id="rekognition_DetectText_csharp_topic.titleabbrev">Detect text in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to detect text in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/text-detecting-text-procedure.html">Detecting text in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectText_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_GetCelebrityInfo_csharp_topic">
+                        <info>
+                            <title id="rekognition_GetCelebrityInfo_csharp_topic.title">Get information about celebrities</title>
+                            <titleabbrev id="rekognition_GetCelebrityInfo_csharp_topic.titleabbrev">Get information about celebrities</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get information about celebrities using &REK;.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_GetCelebrityInfo_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_IndexFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_IndexFaces_csharp_topic.title">Index faces to a collection</title>
+                            <titleabbrev id="rekognition_IndexFaces_csharp_topic.titleabbrev">Index faces to a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to index faces in an image and add them to an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/add-faces-to-collection-procedure.html">Adding faces to a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_IndexFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListCollections_csharp_topic">
+                        <info>
+                            <title id="rekognition_ListCollections_csharp_topic.title">List collections</title>
+                            <titleabbrev id="rekognition_ListCollections_csharp_topic.titleabbrev">List collections</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &REK; collections.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-collection-procedure.html">Listing collections</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListCollections_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_ListFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_ListFaces_csharp_topic.title">List faces in a collection</title>
+                            <titleabbrev id="rekognition_ListFaces_csharp_topic.titleabbrev">List faces in a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list faces in an &REK; collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-faces-in-collection-procedure.html">Listing faces in a collection</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_RecognizeCelebrities_csharp_topic">
+                        <info>
+                            <title id="rekognition_RecognizeCelebrities_csharp_topic.title">Recognize celebrities in an image</title>
+                            <titleabbrev id="rekognition_RecognizeCelebrities_csharp_topic.titleabbrev">Recognize celebrities in an image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to recognize celebrities in an image with &REK;.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/celebrities-procedure-image.html">Recognizing celebrities in an image</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_RecognizeCelebrities_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_SearchFaces_csharp_topic">
+                        <info>
+                            <title id="rekognition_SearchFaces_csharp_topic.title">Search for faces in a collection</title>
+                            <titleabbrev id="rekognition_SearchFaces_csharp_topic.titleabbrev">Search for faces in a collection</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to search for faces in an &REK; collection that match another face from the collection.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-id-procedure.html">Searching for a face (face ID)</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFaces_.NET.xml"></xi:include>
+                    </section>
+                    <section id="rekognition_SearchFacesByImage_csharp_topic">
+                        <info>
+                            <title id="rekognition_SearchFacesByImage_csharp_topic.title">Search for faces in a collection compared to a reference image</title>
+                            <titleabbrev id="rekognition_SearchFacesByImage_csharp_topic.titleabbrev">Search for faces in a collection compared to a reference image</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to search for faces in an &REK; collection compared to a reference image.</para>
+                        <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-image-procedure.html">Searching for a face (image)</ulink>.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFacesByImage_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_s3_code_examples" role="topic">
+            <info>
+                <title id="csharp_s3_code_examples.title">&S3; examples using &NET;</title>
+                <titleabbrev id="csharp_s3_code_examples.titleabbrev">&S3;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &S3;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &S3;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &S3; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &S3; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_CopyObject_csharp_topic">
+                        <info>
+                            <title id="s3_CopyObject_csharp_topic.title">Copy an object from one bucket to another</title>
+                            <titleabbrev id="s3_CopyObject_csharp_topic.titleabbrev">Copy an object from one bucket to another</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to copy an &S3; object from one bucket to another.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CopyObject_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_CreateBucket_csharp_topic">
+                        <info>
+                            <title id="s3_CreateBucket_csharp_topic.title">Create a bucket</title>
+                            <titleabbrev id="s3_CreateBucket_csharp_topic.titleabbrev">Create a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_CreateBucket_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteBucket_csharp_topic">
+                        <info>
+                            <title id="s3_DeleteBucket_csharp_topic.title">Delete an empty bucket</title>
+                            <titleabbrev id="s3_DeleteBucket_csharp_topic.titleabbrev">Delete an empty bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an empty &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteBucket_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_DeleteObjects_csharp_topic">
+                        <info>
+                            <title id="s3_DeleteObjects_csharp_topic.title">Delete multiple objects</title>
+                            <titleabbrev id="s3_DeleteObjects_csharp_topic.titleabbrev">Delete multiple objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete multiple objects from an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_DeleteObjects_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_GetObject_csharp_topic">
+                        <info>
+                            <title id="s3_GetObject_csharp_topic.title">Get an object from a bucket</title>
+                            <titleabbrev id="s3_GetObject_csharp_topic.titleabbrev">Get an object from a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to read data from an object in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_GetObject_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_ListObjects_csharp_topic">
+                        <info>
+                            <title id="s3_ListObjects_csharp_topic.title">List objects in a bucket</title>
+                            <titleabbrev id="s3_ListObjects_csharp_topic.titleabbrev">List objects in a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list objects in an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_ListObjects_.NET.xml"></xi:include>
+                    </section>
+                    <section id="s3_PutObject_csharp_topic">
+                        <info>
+                            <title id="s3_PutObject_csharp_topic.title">Upload an object to a bucket</title>
+                            <titleabbrev id="s3_PutObject_csharp_topic.titleabbrev">Upload an object to a bucket</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to upload an object to an &S3; bucket.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_PutObject_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+            <section>
+                <info>
+                    <title>Scenarios</title>
+                    <titleabbrev>Scenarios</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="s3_Scenario_GettingStarted_csharp_topic">
+                        <info>
+                            <title id="s3_Scenario_GettingStarted_csharp_topic.title">Getting started with buckets and objects</title>
+                            <titleabbrev id="s3_Scenario_GettingStarted_csharp_topic.titleabbrev">Getting started with buckets and objects</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to:</para>
+                        <itemizedlist>
+                            <listitem><para>Create a bucket.</para></listitem>
+                            <listitem><para>Upload a file to the bucket.</para></listitem>
+                            <listitem><para>Download an object from a bucket.</para></listitem>
+                            <listitem><para>Copy an object to a subfolder in a bucket.</para></listitem>
+                            <listitem><para>List the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete the objects in a bucket.</para></listitem>
+                            <listitem><para>Delete a bucket.</para></listitem>
+                        </itemizedlist>
+                        <xi:include href="file://AWSShared/code-samples/docs/s3_Scenario_GettingStarted_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_sns_code_examples" role="topic">
+            <info>
+                <title id="csharp_sns_code_examples.title">&SNS; examples using &NET;</title>
+                <titleabbrev id="csharp_sns_code_examples.titleabbrev">&SNS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &SNS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &SNS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SNS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SNS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sns_CheckIfPhoneNumberIsOptedOut_csharp_topic">
+                        <info>
+                            <title id="sns_CheckIfPhoneNumberIsOptedOut_csharp_topic.title">Check whether a phone number is opted out</title>
+                            <titleabbrev id="sns_CheckIfPhoneNumberIsOptedOut_csharp_topic.titleabbrev">Check whether a phone number is opted out</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to check whether a phone number is opted out of receiving &SNS; messages.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CheckIfPhoneNumberIsOptedOut_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_CreateTopic_csharp_topic">
+                        <info>
+                            <title id="sns_CreateTopic_csharp_topic.title">Create a topic</title>
+                            <titleabbrev id="sns_CreateTopic_csharp_topic.titleabbrev">Create a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_CreateTopic_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_DeleteTopic_csharp_topic">
+                        <info>
+                            <title id="sns_DeleteTopic_csharp_topic.title">Delete a topic</title>
+                            <titleabbrev id="sns_DeleteTopic_csharp_topic.titleabbrev">Delete a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SNS; topic and all subscriptions to that topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_DeleteTopic_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_GetTopicAttributes_csharp_topic">
+                        <info>
+                            <title id="sns_GetTopicAttributes_csharp_topic.title">Get the properties of a topic</title>
+                            <titleabbrev id="sns_GetTopicAttributes_csharp_topic.titleabbrev">Get the properties of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the properties of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_GetTopicAttributes_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListSubscriptions_csharp_topic">
+                        <info>
+                            <title id="sns_ListSubscriptions_csharp_topic.title">List the subscribers of a topic</title>
+                            <titleabbrev id="sns_ListSubscriptions_csharp_topic.titleabbrev">List the subscribers of a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to retrieve the list of subscribers of an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListSubscriptions_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_ListTopics_csharp_topic">
+                        <info>
+                            <title id="sns_ListTopics_csharp_topic.title">List topics</title>
+                            <titleabbrev id="sns_ListTopics_csharp_topic.titleabbrev">List topics</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to list &SNS; topics.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_ListTopics_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sns_Publish_csharp_topic">
+                        <info>
+                            <title id="sns_Publish_csharp_topic.title">Publish to a topic</title>
+                            <titleabbrev id="sns_Publish_csharp_topic.titleabbrev">Publish to a topic</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to publish messages to an &SNS; topic.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sns_Publish_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+        <section id="csharp_sqs_code_examples" role="topic">
+            <info>
+                <title id="csharp_sqs_code_examples.title">&SQS; examples using &NET;</title>
+                <titleabbrev id="csharp_sqs_code_examples.titleabbrev">&SQS;</titleabbrev>
+                <abstract>
+                    <para>Code examples that show how to use &NETlong; with &SQS;.</para>
+                </abstract>
+            </info>
+            <para>The following code examples show you how to perform actions and implement common scenarios by using
+                the &NETlong; with &SQS;.</para>
+            <para><emphasis>Actions</emphasis> are code excerpts that show you how to call individual
+                &SQS; functions.</para>
+            <para><emphasis>Scenarios</emphasis> are code examples that show you how to accomplish a specific task
+                by calling multiple &SQS; functions.</para>
+            <para>Each example includes a link to GitHub, where you can find
+                instructions on how to set up and run the code in context.</para>
+            <para role="topiclist-abbrev"/>
+            <section>
+                <info>
+                    <title>Actions</title>
+                    <titleabbrev>Actions</titleabbrev>
+                </info>
+                <collapsible expand-section="_collapse_all_">
+                    <section id="sqs_AuthorizeS3ToSendMessage_csharp_topic">
+                        <info>
+                            <title id="sqs_AuthorizeS3ToSendMessage_csharp_topic.title">Authorize a bucket to send messages to a queue</title>
+                            <titleabbrev id="sqs_AuthorizeS3ToSendMessage_csharp_topic.titleabbrev">Authorize a bucket to send messages to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to authorize an &S3; bucket to send messages to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_AuthorizeS3ToSendMessage_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_CreateQueue_csharp_topic">
+                        <info>
+                            <title id="sqs_CreateQueue_csharp_topic.title">Create a queue</title>
+                            <titleabbrev id="sqs_CreateQueue_csharp_topic.titleabbrev">Create a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to create an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_CreateQueue_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteMessage_csharp_topic">
+                        <info>
+                            <title id="sqs_DeleteMessage_csharp_topic.title">Delete a message from a queue</title>
+                            <titleabbrev id="sqs_DeleteMessage_csharp_topic.titleabbrev">Delete a message from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete a message from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteMessage_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_DeleteQueue_csharp_topic">
+                        <info>
+                            <title id="sqs_DeleteQueue_csharp_topic.title">Delete a queue</title>
+                            <titleabbrev id="sqs_DeleteQueue_csharp_topic.titleabbrev">Delete a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to delete an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_DeleteQueue_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_GetQueueAttributes_csharp_topic">
+                        <info>
+                            <title id="sqs_GetQueueAttributes_csharp_topic.title">Get attributes for a queue</title>
+                            <titleabbrev id="sqs_GetQueueAttributes_csharp_topic.titleabbrev">Get attributes for a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get attributes for an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_GetQueueAttributes_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_GetQueueUrl_csharp_topic">
+                        <info>
+                            <title id="sqs_GetQueueUrl_csharp_topic.title">Get the URL of a queue</title>
+                            <titleabbrev id="sqs_GetQueueUrl_csharp_topic.titleabbrev">Get the URL of a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to get the URL of an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_GetQueueUrl_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_ReceiveMessage_csharp_topic">
+                        <info>
+                            <title id="sqs_ReceiveMessage_csharp_topic.title">Receive messages from a queue</title>
+                            <titleabbrev id="sqs_ReceiveMessage_csharp_topic.titleabbrev">Receive messages from a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to receive messages from an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_ReceiveMessage_.NET.xml"></xi:include>
+                    </section>
+                    <section id="sqs_SendMessage_csharp_topic">
+                        <info>
+                            <title id="sqs_SendMessage_csharp_topic.title">Send a message to a queue</title>
+                            <titleabbrev id="sqs_SendMessage_csharp_topic.titleabbrev">Send a message to a queue</titleabbrev>
+                        </info>
+                        <para>The following code example shows how to send a message to an &SQS; queue.</para>
+                        <xi:include href="file://AWSShared/code-samples/docs/sqs_SendMessage_.NET.xml"></xi:include>
+                    </section>
+                </collapsible>
+            </section>
+        </section>
+    </section>
+    <section id="csharp_code_examples_cross_service" role="topic">
+        <info>
+            <title id="csharp_code_examples_cross_service.title">Cross-service examples using &NET;</title>
+            <titleabbrev id="csharp_code_examples_cross_service.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following sample applications use the &NETlong;
+                    to work across multiple &AWS; services.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use the &NETlong;
+            to work across multiple &AWS; services.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="cross_SnsPublishSubscription_csharp_topic" role="topic">
+            <info>
+                <title id="cross_SnsPublishSubscription_csharp_topic.title">Build a publish and subscription application that translates messages</title>
+                <titleabbrev id="cross_SnsPublishSubscription_csharp_topic.titleabbrev">Building an &SNS; application</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_SnsPublishSubscription_.NET.xml"></xi:include>
+        </section>
+        <section id="cross_DynamoDBDataTracker_csharp_topic" role="topic">
+            <info>
+                <title id="cross_DynamoDBDataTracker_csharp_topic.title">Create a dynamic web application to track &DDB; data</title>
+                <titleabbrev id="cross_DynamoDBDataTracker_csharp_topic.titleabbrev">Create a web application to track &DDB; data</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DynamoDBDataTracker_.NET.xml"></xi:include>
+        </section>
+        <section id="cross_RekognitionPhotoAnalyzer_csharp_topic" role="topic">
+            <info>
+                <title id="cross_RekognitionPhotoAnalyzer_csharp_topic.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="cross_RekognitionPhotoAnalyzer_csharp_topic.titleabbrev">Detect objects in images</titleabbrev>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_.NET.xml"></xi:include>
+        </section>
+    </section>
+</section>

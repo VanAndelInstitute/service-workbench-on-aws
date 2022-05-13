@@ -1,0 +1,13 @@
+    def to_dict(self):
+        """
+        Renders parts of the collection data to a dict.
+
+        :return: The collection data as a dict.
+        """
+        rendering = {
+            'collection_id': self.collection_id,
+            'collection_arn': self.collection_arn,
+            'face_count': self.face_count,
+            'created': self.created
+        }
+        return rendering

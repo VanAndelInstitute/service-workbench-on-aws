@@ -1,0 +1,22 @@
+<programlisting>
+    public static void listIdPools(CognitoIdentityClient cognitoClient) {
+
+        try {
+
+            ListIdentityPoolsRequest poolsRequest = ListIdentityPoolsRequest.builder()
+                    .maxResults(15)
+                    .build();
+
+            ListIdentityPoolsResponse response = cognitoClient.listIdentityPools(poolsRequest);
+            response.identityPools().forEach(pool -> {
+                        System.out.println("Pool ID: " + pool.identityPoolId());
+                        System.out.println("Pool name: "+pool.identityPoolName());
+                    }
+            );
+
+        } catch (CognitoIdentityProviderException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+</programlisting>

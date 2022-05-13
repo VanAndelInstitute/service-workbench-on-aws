@@ -1,0 +1,51 @@
+$(function () {
+  $("#myTable").DataTable({
+    scrollY: "500px",
+    scrollX: true,
+    scrollCollapse: true,
+    paging: true,
+    columnDefs: [{ width: 200, targets: 0 }],
+    fixedColumns: true,
+  });
+});
+// Upload the video.
+
+const uploadVideo = async () => {
+  try {
+    // Retrieve a list of objects in the bucket.
+    const listObjects = await s3Client.send(
+      new ListObjectsCommand({ Bucket: BUCKET })
+    );
+    console.log("Object in bucket: ", listObjects);
+    console.log("listObjects.Contents ", listObjects.Contents );
+
+    const noOfObjects = listObjects.Contents;
+    // If the Amazon S3 bucket is not empty, delete the existing content.
+    if(noOfObjects != null) {
+      for (let i = 0; i < noOfObjects.length; i++) {
+        const data = await s3Client.send(
+            new DeleteObjectCommand({
+              Bucket: BUCKET,
+              Key: listObjects.Contents[i].Key
+            })
+        );
+      }
+    }
+    console.log("Success - bucket empty.");
+
+    // Create the parameters for uploading the video.
+    const videoName = document.getElementById("videoname").innerHTML + ".mp4";
+    const files = document.getElementById("videoupload").files;
+    const file = files[0];
+    const uploadParams = {
+      Bucket: BUCKET,
+      Body: file,
+    };
+    uploadParams.Key = path.basename(file.name);
+    const data = await s3Client.send(new PutObjectCommand(uploadParams));
+    console.log("Success - video uploaded");
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+window.uploadVideo = uploadVideo;

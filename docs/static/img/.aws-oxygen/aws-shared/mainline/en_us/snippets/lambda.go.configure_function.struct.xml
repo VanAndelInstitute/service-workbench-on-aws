@@ -1,0 +1,9 @@
+<programlisting>
+    permArgs := &lambda.AddPermissionInput{
+        Action:       aws.String("lambda:InvokeFunction"),
+        FunctionName: functionPtr,
+        Principal:    aws.String("s3.amazonaws.com"),
+        SourceArn:    sourcePtr,
+        StatementId:  aws.String("lambda_s3_notification"),
+    }
+</programlisting>

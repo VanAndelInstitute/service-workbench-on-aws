@@ -1,0 +1,10 @@
+    bucket := flag.String("b", "", "The bucket to which the stream is uploaded")
+    filename := flag.String("f", "", "The file to upload to the bucket")
+    key := flag.String("k", "", "The name of the object in the bucket")
+    flag.Parse()
+
+    if *bucket == "" || *filename == "" || *key == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET), filename (-f FILENAME), and key value (-k KEY)")
+        return
+    }
+

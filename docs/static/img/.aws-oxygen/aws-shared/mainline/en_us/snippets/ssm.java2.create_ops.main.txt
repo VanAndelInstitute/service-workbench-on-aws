@@ -1,0 +1,24 @@
+    public static String createNewOpsItem( SsmClient ssmClient,
+                                           String title,
+                                           String source,
+                                           String category,
+                                           String severity) {
+
+        try {
+            CreateOpsItemRequest opsItemRequest = CreateOpsItemRequest.builder()
+                .description("Created by the SSM Java API")
+                .title(title)
+                .source(source)
+                .category(category)
+                .severity(severity)
+                .build();
+
+            CreateOpsItemResponse itemResponse = ssmClient.createOpsItem(opsItemRequest);
+            return itemResponse.opsItemId();
+
+    } catch (SsmException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+        return "";
+  }

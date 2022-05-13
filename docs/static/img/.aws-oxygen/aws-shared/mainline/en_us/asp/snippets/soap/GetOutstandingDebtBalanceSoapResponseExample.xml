@@ -1,0 +1,34 @@
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		MESSAGE123</wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		http://www.w3.org/2005/08/addressing/anonymous
+    </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		GetOutstandingDebtBalance:Response
+    </wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		urn:uuid:6661b766-61db-46c0-9334-5276354c4d80
+   </wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <GetOutstandingDebtBalanceResponse 
+    xmlns="http://fps.amazonaws.com/doc/2008-09-17/">
+     <GetOutstandingDebtBalanceResult>
+       <OutstandingDebt>
+         <OutstandingBalance>
+           <CurrencyCode>USD</CurrencyCode>
+           <Value>0.000000</Value>
+         </OutstandingBalance>
+         <PendingOutBalance>
+           <CurrencyCode>USD</CurrencyCode>
+           <Value>0.000000</Value>
+         </PendingOutBalance>
+       </OutstandingDebt>
+     </GetOutstandingDebtBalanceResult>
+     <ResponseMetadata>
+       <RequestId>6661b766-61db-46c0-9334-5276354c4d80:0</RequestId>
+     </ResponseMetadata>
+   </GetOutstandingDebtBalanceResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,17 @@
+<programlisting>
+        Aws::CloudWatch::CloudWatchClient cw;
+        Aws::CloudWatch::Model::DeleteAlarmsRequest request;
+        request.AddAlarmNames(alarm_name);
+
+        auto outcome = cw.DeleteAlarms(request);
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Failed to delete CloudWatch alarm:" <<
+                outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            std::cout << "Successfully deleted CloudWatch alarm " << alarm_name
+                << std::endl;
+        }
+</programlisting>

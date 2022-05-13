@@ -1,0 +1,28 @@
+# Gets sample movie data, either from a local file or by first downloading it from
+# the Amazon DynamoDB Developer Guide.
+#
+# @param movie_file_name [String] The local file name where the movie data is stored in JSON format.
+# @return [Hash] The movie data as a Hash.
+def get_sample_movie_data(movie_file_name)
+  if !File.file?(movie_file_name)
+    puts("Downloading #{movie_file_name}...")
+    movie_content = URI.open(
+      "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/moviedata.zip"
+    )
+    movie_json = ""
+    Zip::File.open_buffer(movie_content) do |zip|
+      zip.each do |entry|
+        movie_json = entry.get_input_stream.read
+      end
+    end
+  else
+    movie_json = File.read(movie_file_name)
+  end
+  movie_data = JSON.parse(movie_json)
+  # The sample file lists over 4000 movies. This returns only the first 250.
+  movie_data.slice(0, 250)
+rescue Errno::ENOENT
+  puts("File #{movie_file_name} not found. Before you can run this demo, you must "\
+       "download the file. For instructions, see the README.")
+  raise
+end

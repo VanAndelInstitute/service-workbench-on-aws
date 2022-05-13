@@ -1,0 +1,39 @@
+<programlisting>
+    public static void desCWAlarms( CloudWatchClient cw) {
+
+        try {
+
+            boolean done = false;
+            String newToken = null;
+
+            while(!done) {
+                DescribeAlarmsResponse response;
+
+                if (newToken == null) {
+                    DescribeAlarmsRequest request = DescribeAlarmsRequest.builder().build();
+                    response = cw.describeAlarms(request);
+                } else {
+                    DescribeAlarmsRequest request = DescribeAlarmsRequest.builder()
+                        .nextToken(newToken)
+                        .build();
+                    response = cw.describeAlarms(request);
+                }
+
+                for(MetricAlarm alarm : response.metricAlarms()) {
+                    System.out.printf("\n Retrieved alarm %s", alarm.alarmName());
+                }
+
+                if(response.nextToken() == null) {
+                    done = true;
+                } else {
+                    newToken = response.nextToken();
+                }
+            }
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        System.out.printf("Done");
+    }
+</programlisting>

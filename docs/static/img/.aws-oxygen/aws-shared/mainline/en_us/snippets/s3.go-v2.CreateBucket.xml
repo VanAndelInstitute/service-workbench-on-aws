@@ -1,0 +1,16 @@
+<programlisting>
+	// Create a bucket: We're going to create a bucket to hold content.
+	// Best practice is to use the preset private access control list (ACL).
+	// If you are not creating a bucket from us-east-1, you must specify a bucket location constraint.
+	// Bucket names must conform to several rules; read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
+	_, err := client.CreateBucket(context.TODO(), &s3.CreateBucketInput{
+		Bucket:                    aws.String(name),
+		ACL:                       types.BucketCannedACLPrivate,
+		CreateBucketConfiguration: &types.CreateBucketConfiguration{LocationConstraint: types.BucketLocationConstraintUsWest2},
+	})
+
+	if err != nil {
+		panic("could not create bucket: " + err.Error())
+	}
+
+</programlisting>

@@ -1,0 +1,55 @@
+<programlisting>
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/glacier"
+    "github.com/aws/aws-sdk-go/service/glacier/glacieriface"
+)
+
+// MakeVault creates an Amazon Simple Storage Service Glacier vault.
+// Inputs:
+//     svc is an Amazon S3 Glacier service client
+//     name is the name of the vault
+// Output:
+//     If success, nil
+//     Otherwise, an error from the call to CreateVault
+func MakeVault(svc glacieriface.GlacierAPI, name *string) error {
+    _, err := svc.CreateVault(&glacier.CreateVaultInput{
+        VaultName: name,
+    })
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    name := flag.String("v", "", "The name of the vault")
+    flag.Parse()
+
+    if *name == "" {
+        fmt.Println("You must supply the name of the vault (-v VAULT-NAME)")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    svc := glacier.New(sess)
+
+    err := MakeVault(svc, name)
+    if err != nil {
+        fmt.Println("Got an error creating the vault:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Created vault")
+}
+</programlisting>

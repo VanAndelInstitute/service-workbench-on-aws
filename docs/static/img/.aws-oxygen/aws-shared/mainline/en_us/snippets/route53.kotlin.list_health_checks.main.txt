@@ -1,0 +1,15 @@
+suspend fun listAllHealthChecks() {
+
+        val requestOb = ListHealthChecksRequest{
+            this.maxItems = 10
+        }
+
+        Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+          val response = route53Client.listHealthChecks(requestOb)
+            response.healthChecks?.forEach { check ->
+                    println("The health check id is ${check.id}")
+                    println("The health threshold is ${check.healthCheckConfig?.healthThreshold}")
+                    println("The type is ${check.healthCheckConfig?.type.toString()}")
+            }
+        }
+ }

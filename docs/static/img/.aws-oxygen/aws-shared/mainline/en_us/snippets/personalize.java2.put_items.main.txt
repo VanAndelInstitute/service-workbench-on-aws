@@ -1,0 +1,43 @@
+    public static int putItems(PersonalizeEventsClient personalizeEventsClient,
+                               String datasetArn,
+                               String item1Id,
+                               String item1PropertyName,
+                               String item1PropertyValue,
+                               String item2Id,
+                               String item2PropertyName,
+                               String item2PropertyValue) {
+
+        int responseCode = 0;
+        ArrayList<Item> items = new ArrayList<>();
+
+        try {
+            Item item1 = Item.builder()
+                    .itemId(item1Id)
+                    .properties(String.format("{\"%1$s\": \"%2$s\"}",
+                            item1PropertyName, item1PropertyValue))
+                    .build();
+
+            items.add(item1);
+
+            Item item2 = Item.builder()
+                    .itemId(item2Id)
+                    .properties(String.format("{\"%1$s\": \"%2$s\"}",
+                            item2PropertyName, item2PropertyValue))
+                    .build();
+
+            items.add(item2);
+
+            PutItemsRequest putItemsRequest = PutItemsRequest.builder()
+                    .datasetArn(datasetArn)
+                    .items(items)
+                    .build();
+
+            responseCode = personalizeEventsClient.putItems(putItemsRequest).sdkHttpResponse().statusCode();
+            System.out.println("Response code: " + responseCode);
+            return responseCode;
+
+        } catch (PersonalizeEventsException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+        return responseCode;
+    }

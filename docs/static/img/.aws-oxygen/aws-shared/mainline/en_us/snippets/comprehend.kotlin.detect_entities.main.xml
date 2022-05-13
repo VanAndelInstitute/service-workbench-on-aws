@@ -1,0 +1,15 @@
+<programlisting>
+suspend fun detectAllEntities(textVal: String) {
+
+        val request = DetectEntitiesRequest {
+            text = textVal
+            languageCode = LanguageCode.fromValue("en")
+        }
+        ComprehendClient { region = "us-east-1" }.use { comClient ->
+            val response = comClient.detectEntities(request)
+            response.entities?.forEach { entity ->
+                println("Entity text is ${entity.text}")
+            }
+       }
+ }
+</programlisting>

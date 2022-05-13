@@ -1,0 +1,15 @@
+<SOAP-ENV:Envelope 
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body 
+    wsu:Id="body" 
+    xmlns:wsu=
+"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    >
+  <ns2:GetTransactionsForSubscription 
+    xmlns:ns2="http://fps.amazonaws.com/doc/2008-09-17/">
+    <ns2:SubscriptionId>
+      1d221425-df27-4ae4-926d-3dcacf1c8e13
+    </ns2:SubscriptionId>
+  </ns2:GetTransactionsForSubscription>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

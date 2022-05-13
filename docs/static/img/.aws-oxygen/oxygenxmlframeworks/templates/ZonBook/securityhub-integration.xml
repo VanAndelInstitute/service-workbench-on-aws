@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?template version="1.0" service="//securityhub//" value="csctemplate-awsdocs-SecurityHub-1.0-oxygen"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+ [
+  <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+  %xinclude;
+  <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+  %phrases-shared;
+<!ENTITY SERVICElong 'SERVICE FULL NAME'>
+<!ENTITY SERVICE 'SERVICE SHORT NAME'>
+ ]>
+ <!-- This template is for services that send findings to Security Hub.-->
+ <!-- To complete the information, you need to obtain the following information -->
+ <!-- from the service team: -->
+ <!-- * Whether your service has additional configuration associated with the integration 
+*  Whether your service sends findings to Security Hub for all of the issues that it detects, or whether it only sends findings for a subset of those issues.-->
+<!--* The mechanism that it uses to retry sending findings if there is a service outage-->
+ <!-- * Whether your service sends updates to its findings, or only sends new findings -->
+ <!-- * At least one example of a finding sent by your service. Each finding is in JSON, and uses the AWS Security Finding Format (ASFF).-->
+<!--For instructions on how to complete this template, see https://w.amazon.com/bin/view/AWSDocs/testing-and-publishing/add-cross-service-content/SecurityHubIntegration/.-->
+ <chapter role="topic" id="securityhub-integration">
+ <info>
+  <title id="securityhub-integration.title">Integration with &ASHlong;</title>
+  <titleabbrev>&ASH; integration</titleabbrev>
+  <abstract>
+   <para>Learn how to use the &SERVICElong; integration with &ASHlong;.</para>
+  </abstract>
+ </info>
+ <para><ulink type="documentation" url="securityhub/latest/userguide/what-is-securityhub.html"
+   >&ASHlong;</ulink> provides you with a comprehensive view of your security state in &AWS; and
+  helps you to check your environment against security industry standards and best practices. &ASH;
+  collects security data from across &AWS-accounts;, services, and supported third-party partner
+  products and helps you to analyze your security trends and identify the highest priority security
+  issues.</para>
+ <para>The &SERVICElong; integration with &ASH; enables you to send findings from &SERVICE; to
+  &ASH;. &ASH; can then include those findings in its analysis of your security posture.</para>
+ <para role="contents"/>
+ <section id="securityhub-integration-sending-findings">
+  <info>
+   <title id="securityhub-integration-sending-findings.title">How &SERVICE; sends findings to
+        &ASH;</title>
+  </info>
+  <!--This section provides information about the findings your service sends to Security Hub. It includes example JSON of a finding from your service.-->
+  <para>In &ASH;, security issues are tracked as findings. Some findings come from issues that are
+      detected by other &AWS; services or by third-party partners. &ASH; also has a set of rules
+      that it uses to detect security issues and generate findings.</para>
+  <para>&ASH; provides tools to manage findings from across all of these sources. You can view and
+   filter lists of findings and view details for a finding. See <ulink type="documentation"
+    url="securityhub/latest/userguide/securityhub-findings-viewing.html">Viewing findings</ulink> in
+   the <emphasis role="italic">&guide-ash-user;</emphasis>. You can also track the status of an
+   investigation into a finding. See <ulink type="documentation"
+    url="securityhub/latest/userguide/securityhub-findings-taking-action.html">Taking action on
+    findings</ulink> in the <emphasis role="italic">&guide-ash-user;</emphasis>.</para>
+  <para>All findings in &ASH; use a standard JSON format called the &AWS; Security Finding Format
+      (ASFF). The ASFF includes details about the source of the issue, the affected resources, and
+      the current status of the finding. See <ulink type="documentation"
+        url="securityhub/latest/userguide/securityhub-findings-format.html">&AWS; Security Finding
+        Format (ASFF)</ulink> in the <emphasis role="italic">&guide-ash-user;</emphasis>.</para>
+  <para>&SERVICElong; is one of the &AWS; services that sends findings to &ASH;.</para>
+  <section id="securityhub-integration-finding-types">
+   <info>
+    <title id="securityhub-integration-finding-types.title">Types of findings that &SERVICE;
+     sends</title>
+   </info>
+   <!--In this section, indicate whether your service sends findings to Security Hub for all of the issues it detects, or only sends findings for a subset of the issues.-->
+   <!--If your service sends findings to Security Hub for all of the issues that it detects, then you can simply uncomment the following paragraph.-->
+   <!--<para>&SERVICE; sends all of the findings it generates to &ASH;.</para>-->
+   <!-- If your service only sends findings for a subset of the issues that it detects, then provide information about which issues it sends findings for. Does your service always send findings for the same subset of issues? Do customers configure the issues for which to send findings to Security Hub?-->
+      <!--Add the list of types from https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html#securityhub-findings-format-type-taxonomy that your service sends to Security Hub.-->
+      <para>&SERVICE; sends the findings to &ASH; using the <ulink type="documentation"
+          url="securityhub/latest/userguide/securityhub-findings-format.html">&AWS; Security Finding
+          Format (ASFF)</ulink>. In ASFF, the <code>Types</code> field provides the finding type.
+        Findings from &SERVICE; can have the following values for <code>Types</code>.</para>
+      <itemizedlist>
+        <listitem>
+          <para><!--Format is Namespace/Category/Classifier. For example, TTPs/Defense Evasion/CloudTrailStopped.--></para>
+        </listitem>
+      </itemizedlist>
+  </section>
+    <section id="securityhub-integration-finding-latency">
+      <info>
+        <title id="securityhub-integration-finding-latency.title">Latency for sending
+          findings</title>
+      </info>
+      <!--Use this section to indicate how quickly your service sends new findings to Secuirty Hub.-->
+      <para>When &SERVICE; creates a new finding, it is usually sent to &ASH; within
+        <!--length of time within which the finding is sent-->.</para>
+    </section>
+  <section id="securityhub-integration-retry-send">
+   <info>
+    <title id="securityhub-integration-retry-send.title">Retrying when &ASH; is not
+     available</title>
+   </info>
+      <!--Include in this section the mechanism used to retry sending findings if there is a service outage.-->
+   <para>If &ASH; is not available, &SERVICE; retries sending the findings until they are
+    received.</para>
+  </section>
+  <section id="securityhub-integration-finding-updates">
+   <info>
+    <title id="securityhub-integration-finding-updates.title">Updating existing findings in
+     &ASH;</title>
+   </info>
+   <!--This section is used to indicate whether your service updates findings after they are created.For example, if your service detects additional activity for the same incident, does it update the last observed date on the finding?-->
+   <!--If your service updates findings, then use the following. You can include information about specific fields that are updated.-->
+   <!--<para>After it sends a finding to &ASH;, &SERVICE; updates the finding to reflect additional observations of the finding activity.</para>-->
+   <!--If your finding does not update findings, then use the following.-->
+   <!--<para>After it sends a finding to &ASH;, &SERVICE; does not update the finding.</para>-->
+  </section>
+ </section>
+ <section id="securityhub-integration-finding-example">
+  <info>
+   <title id="securityhub-integration-finding-example.title">Typical finding from &SERVICE;</title>
+  </info>
+  <!--In this section, provide an example of finding JSON for a typical finding sent by your service.
+If your service sends different types of findings that are significantly different, you can add additional examples.
+-->
+  <para>&SERVICE; sends findings to &ASH; using the <ulink type="documentation"
+    url="securityhub/latest/userguide/securityhub-findings-format.html">&AWS; Security Finding
+    Format (ASFF)</ulink>.</para>
+  <para>Here is an example of a typical finding from &SERVICE;.</para>
+  <programlisting language="JSON"><!--Complete JSON of a typical finding from your service.--></programlisting>
+ </section>
+ <section id="securityhub-integration-enable">
+  <info>
+   <title id="securityhub-integration-enable.title">Enabling and configuring the integration</title>
+  </info>
+  <!--This section describes how your customer enables the integration with Security Hub, and how they can configure the integration. For example, your service might allow customers to select which findings to send to Security Hub.-->
+  <para>To use the integration with &ASH;, you must enable &ASH;. For information on how to enable
+      &ASH;, see <ulink type="documentation"
+        url="securityhub/latest/userguide/securityhub-settingup.html">Setting up Security
+        Hub</ulink> in the <emphasis role="italic">&guide-ash-user;</emphasis>.</para>
+  <!--If the integration is enabled automatically, then use this content.-->
+  <!--<para>When you enable both &SERVICE; and &ASH;, the integration is enabled automatically. &SERVICE; begins to send findings to &ASH;.</para>-->
+  <!--If enabling integration requires action from the customer within your service, then provide the required steps to enable the integration.-->
+  <!--If your service provides configuration options for the integration, then provide information on what customers can configure and how they can complete the configuration. For example, your service might allow customers to detemine which findings to send to Security Hub.-->
+ </section>
+ <section id="securityhub-integration-disable">
+  <info>
+   <title id="securityhub-integration-disable.title">How to stop sending findings</title>
+  </info>
+  <para>To stop sending findings to &ASH;, you can use either the &ASH; console or the API.</para>
+  <para>See <ulink
+    url="securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-console"
+    type="documentation">Disabling and enabling the flow of findings from an integration
+    (console)</ulink> or <ulink
+    url="securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-disable-api"
+    type="documentation">Disabling the flow of findings from an integration (&ASH; API, 
+    &CLI;)</ulink> in the <emphasis role="italic">&guide-ash-user;</emphasis>.</para>
+ </section>
+</chapter>

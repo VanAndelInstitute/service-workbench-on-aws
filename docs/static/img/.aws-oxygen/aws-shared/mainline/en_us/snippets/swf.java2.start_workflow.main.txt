@@ -1,0 +1,29 @@
+    public static void startWorkflow(SwfClient swf,
+                                      String workflowInput,
+                                      String domain,
+                                      String workflow,
+                                      String workflowVersion) {
+
+        try {
+            WorkflowType wfType = WorkflowType.builder()
+                    .name(workflow)
+                    .version(workflowVersion)
+                    .build();
+
+            StartWorkflowExecutionResponse run = swf.startWorkflowExecution(StartWorkflowExecutionRequest.builder()
+                    .domain(domain)
+                    .workflowType(wfType)
+                    .workflowId(WORKFLOW_EXECUTION)
+                    .input(workflowInput)
+                    .executionStartToCloseTimeout("90")
+                    .build());
+
+            System.out.println("Workflow execution started with the run id '" +
+                    run.runId() + "'.");
+
+        } catch (SwfException e){
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+}

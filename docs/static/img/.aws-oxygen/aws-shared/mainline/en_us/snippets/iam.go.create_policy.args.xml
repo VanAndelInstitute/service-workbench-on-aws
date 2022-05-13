@@ -1,0 +1,9 @@
+<programlisting>
+    policyName := flag.String("n", "", "The name of the policy")
+    flag.Parse()
+
+    if *policyName == "" {
+        fmt.Println("You must supply the name of the policy (-n POLICY)")
+        return
+    }
+</programlisting>

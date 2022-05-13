@@ -1,0 +1,4 @@
+    result, err := svc.ListAccessKeys(&iam.ListAccessKeysInput{
+        MaxItems: maxItems,
+        UserName: userName,
+    })

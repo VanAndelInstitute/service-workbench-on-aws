@@ -1,0 +1,3 @@
+import aws.sdk.kotlin.services.eventbridge.EventBridgeClient
+import aws.sdk.kotlin.services.eventbridge.model.DescribeRuleRequest
+import kotlin.system.exitProcess

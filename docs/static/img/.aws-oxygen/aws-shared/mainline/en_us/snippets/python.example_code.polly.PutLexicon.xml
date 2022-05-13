@@ -1,0 +1,16 @@
+<programlisting>
+    def create_lexicon(self, name, content):
+        """
+        Creates a lexicon with the specified content. A lexicon contains custom
+        pronunciations.
+
+        :param name: The name of the lexicon.
+        :param content: The content of the lexicon.
+        """
+        try:
+            self.polly_client.put_lexicon(Name=name, Content=content)
+            logger.info("Created lexicon %s.", name)
+        except ClientError:
+            logger.exception("Couldn't create lexicon %s.")
+            raise
+</programlisting>

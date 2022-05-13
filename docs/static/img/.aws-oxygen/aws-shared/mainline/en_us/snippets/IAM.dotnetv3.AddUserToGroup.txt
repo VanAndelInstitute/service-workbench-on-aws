@@ -1,0 +1,26 @@
+
+        /// <summary>
+        /// Adds the user represented by the userName parameter to the group
+        /// represented by the groupName parameter.
+        /// </summary>
+        /// <param name="client">The client which will be used to make the
+        /// method call to add a user to an IAM group.</param>
+        /// <param name="userName">A string representing the name of the IAM
+        /// group to which the new user will be added.</param>
+        /// <param name="groupName">A string representing the name of the group
+        /// to which to add the user.</param>
+        /// <returns>A boolean value that indicates the success or failure of
+        /// the clean up procedure.</returns>
+        public static async Task<bool> AddNewUserToGroupAsync(AmazonIdentityManagementServiceClient client, string userName, string groupName)
+        {
+            var response = await client.AddUserToGroupAsync(new AddUserToGroupRequest
+            {
+                GroupName = groupName,
+                UserName = userName,
+            });
+
+            Console.WriteLine("\n--------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"The user, {userName} has been added to {groupName}.");
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+

@@ -1,0 +1,12 @@
+<programlisting>
+    def delete_subscription(subscription):
+        """
+        Unsubscribes and deletes a subscription.
+        """
+        try:
+            subscription.delete()
+            logger.info("Deleted subscription %s.", subscription.arn)
+        except ClientError:
+            logger.exception("Couldn't delete subscription %s.", subscription.arn)
+            raise
+</programlisting>

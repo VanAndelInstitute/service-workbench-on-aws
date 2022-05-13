@@ -1,0 +1,11 @@
+<programlisting>
+    namePtr := flag.String("n", "", "Queue name")
+    timeoutPtr := flag.Int64("t", 20, "(Optional) Timeout in seconds for long polling")
+
+    flag.Parse()
+
+    if *namePtr == "" {
+        flag.PrintDefaults()
+        exitErrorf("Queue name required")
+    }
+</programlisting>

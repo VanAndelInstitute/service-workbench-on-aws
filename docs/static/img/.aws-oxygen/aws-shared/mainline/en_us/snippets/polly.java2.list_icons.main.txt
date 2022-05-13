@@ -1,0 +1,21 @@
+    public static void listLexicons(PollyClient client) {
+
+        try {
+        ListLexiconsRequest listLexiconsRequest = ListLexiconsRequest.builder()
+                .build();
+
+        ListLexiconsResponse listLexiconsResult = client.listLexicons(listLexiconsRequest);
+        List<LexiconDescription> lexiconDescription = listLexiconsResult.lexicons();
+        Iterator<LexiconDescription> iterator = lexiconDescription.iterator();
+
+        // Get each voice
+        while (iterator.hasNext()) {
+            LexiconDescription lexDescription = iterator.next();
+            System.out.println("The name of the Lexicon is " +lexDescription.name());
+        }
+
+        } catch (PollyException e) {
+            System.err.println("Exception caught: " + e);
+            System.exit(1);
+        }
+    }

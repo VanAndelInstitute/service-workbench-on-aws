@@ -1,0 +1,10 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.kendra.KendraClient;
+import software.amazon.awssdk.services.kendra.model.QueryRequest;
+import software.amazon.awssdk.services.kendra.model.QueryResultType;
+import software.amazon.awssdk.services.kendra.model.QueryResponse;
+import software.amazon.awssdk.services.kendra.model.QueryResultItem;
+import software.amazon.awssdk.services.kendra.model.KendraException;
+import java.util.List;
+</programlisting>

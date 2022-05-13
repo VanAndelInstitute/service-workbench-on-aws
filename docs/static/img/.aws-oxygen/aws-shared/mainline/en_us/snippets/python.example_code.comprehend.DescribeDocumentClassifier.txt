@@ -1,0 +1,19 @@
+    def describe(self, classifier_arn=None):
+        """
+        Gets metadata about a custom classifier, including its current status.
+
+        :param classifier_arn: The ARN of the classifier to look up.
+        :return: Metadata about the classifier.
+        """
+        if classifier_arn is not None:
+            self.classifier_arn = classifier_arn
+        try:
+            response = self.comprehend_client.describe_document_classifier(
+                DocumentClassifierArn=self.classifier_arn)
+            classifier = response['DocumentClassifierProperties']
+            logger.info("Got classifier %s.", self.classifier_arn)
+        except ClientError:
+            logger.exception("Couldn't get classifier %s.", self.classifier_arn)
+            raise
+        else:
+            return classifier

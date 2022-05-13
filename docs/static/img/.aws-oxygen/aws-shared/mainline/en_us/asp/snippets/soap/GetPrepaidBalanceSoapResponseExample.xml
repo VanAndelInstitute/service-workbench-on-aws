@@ -1,0 +1,35 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Header>
+   <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    MESSAGE123
+   </wsa:RelatesTo>
+   <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    http://www.w3.org/2005/08/addressing/anonymous
+   </wsa:To>
+   <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    GetPrepaidBalance:Response
+   </wsa:Action>
+   <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    urn:uuid:46e3f4d8-6ab7-489a-a332-5adbd12de23b
+   </wsa:MessageID>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <ns3:GetPrepaidBalanceResponse
+     xmlns:ns2="http://fps.amazonaws.com/private/doc/2007-01-08/"
+     xmlns:ns3="http://fps.amazonaws.com/doc/2007-01-08/" 
+     xmlns:ns4="http://fps.amazonaws.com/internal/doc/2007-01-08/">
+     <PrepaidBalance>
+       <AvailableBalance>
+         <CurrencyCode>USD</CurrencyCode>
+         <Amount>0.000000</Amount>
+       </AvailableBalance>
+       <PendingInBalance>
+         <CurrencyCode>USD</CurrencyCode>
+         <Amount>0.000000</Amount>
+       </PendingInBalance>
+     </PrepaidBalance>
+     <Status>Success</Status>
+     <RequestId>46e3f4d8-6ab7-489a-a332-5adbd12de23b:0</RequestId>
+   </ns3:GetPrepaidBalanceResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

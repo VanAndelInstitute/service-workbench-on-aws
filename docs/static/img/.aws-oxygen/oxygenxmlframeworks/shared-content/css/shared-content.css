@@ -1,0 +1,157 @@
+@import "folds.css";
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+/*
+    Defines the definition body. It contains all the
+    contents of the document (like text, images, colors,
+    graphics, etc.).
+*/
+
+shared-content {
+    display:block;
+    font-weight: bold;
+}
+
+ 
+/*
+    Documentation tags.
+*/
+service:before {
+    content:attr(id);
+    font-weight: bold;
+    font-size: 1.5em;
+    color: orange;
+}
+
+service {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: thin solid gray;
+    display:block;    
+}
+
+shared-text:before {
+    content: attr(id);
+    font-size: 1em;
+    color: aqua;
+}
+
+shared-text:before {
+    -oxy-prepend-content: "Shared Text (";
+}
+
+shared-text:before {
+    -oxy-append-content: "): ";
+}
+
+shared-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display:block;
+}
+
+
+longname:before {
+    content: attr(id);
+    font-size: 1em;
+    color: aqua;
+}
+
+longname:before {
+    -oxy-prepend-content: "Long Name (";
+}
+
+longname:before {
+    -oxy-append-content: "): ";
+}
+
+longname {
+    margin-left: 10px;
+    display: block;
+}
+
+
+shortname:before {
+    content: attr(id);
+    font-size: 1em;
+    color: aqua;
+}
+
+shortname:before {
+    -oxy-prepend-content: "Short Name (";
+}
+
+shortname:before {
+    -oxy-append-content: "): ";
+}
+
+shortname {
+    margin-left: 10px;
+    display:block;
+}
+
+
+regional:before {
+    content: attr(region);
+    font-size: 1em;
+    color: lightgreen;
+}
+
+regional:before {
+    -oxy-prepend-content: "Regional (";
+}
+
+regional:before {
+    -oxy-append-content: "): ";
+}
+
+regional {
+    margin-left: 10px;
+    display:block;
+}
+
+
+documentation {
+    display:block;
+    color: green;
+    font-weight: normal;
+    margin-left: 1em;
+}
+
+shortname documentation {
+    display:none;
+}
+
+longname documentation {
+    display:none;
+}
+
+noloc {
+    text-decoration: underline;
+}
+
+shared:before {
+    content: "SHARED(";
+    font-size: 1em;
+    color: lightgreen;
+}
+
+shared {
+    content: attr(id);
+    color: teal;
+}
+
+shared:after {
+    content: ")";
+}
+
+universal:before {
+    content: "Universal";
+    font-size: 1em;
+    color: lightgreen;
+}
+
+
+universal {
+    margin-left: 10px;
+    display:block;
+}

@@ -1,0 +1,18 @@
+def list_steps(cluster_id, emr_client):
+    """
+    Gets a list of steps for the specified cluster. In this example, all steps are
+    returned, including completed and failed steps.
+
+    :param cluster_id: The ID of the cluster.
+    :param emr_client: The Boto3 EMR client object.
+    :return: The list of steps for the specified cluster.
+    """
+    try:
+        response = emr_client.list_steps(ClusterId=cluster_id)
+        steps = response['Steps']
+        logger.info("Got %s steps for cluster %s.", len(steps), cluster_id)
+    except ClientError:
+        logger.exception("Couldn't get steps for cluster %s.", cluster_id)
+        raise
+    else:
+        return steps

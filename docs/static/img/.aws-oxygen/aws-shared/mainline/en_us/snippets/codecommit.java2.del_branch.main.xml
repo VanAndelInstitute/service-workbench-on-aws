@@ -1,0 +1,18 @@
+<programlisting>
+    public static void deleteSpecificBranch(CodeCommitClient codeCommitClient, String repoName, String branchName) {
+
+    try {
+        DeleteBranchRequest branchRequest = DeleteBranchRequest.builder()
+                .branchName(branchName)
+                .repositoryName(repoName)
+                .build();
+
+        codeCommitClient.deleteBranch(branchRequest);
+        System.out.println("The "+branchName + " branch was deleted!");
+
+    } catch (CodeCommitException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+    }
+ }
+</programlisting>

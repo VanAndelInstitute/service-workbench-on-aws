@@ -1,0 +1,14 @@
+    svc := cloudwatchevents.New(sess)
+
+    _, err := svc.PutEvents(&cloudwatchevents.PutEventsInput{
+        Entries: []*cloudwatchevents.PutEventsRequestEntry{
+            &cloudwatchevents.PutEventsRequestEntry{
+                Detail:     aws.String(myDetails),
+                DetailType: aws.String(event.DetailType),
+                Resources: []*string{
+                    lambdaARN,
+                },
+                Source: aws.String(event.Source),
+            },
+        },
+    })

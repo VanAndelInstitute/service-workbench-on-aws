@@ -1,0 +1,6 @@
+HadoopJarStepConfig hbaseImportSnapshotConf = new HadoopJarStepConfig()
+  .withJar("command-runner.jar")
+  .withArgs("hbase","snapshot","export",
+      "-snapshot","snapshotName","-copy-to",
+      "s3://bucketName/folder",
+      "-mappers","2","-bandwidth","50");

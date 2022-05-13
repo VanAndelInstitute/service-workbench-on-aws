@@ -1,0 +1,40 @@
+<shared-content>
+<!--
+**************************************************** 
+    This is an empty shared content XML file.
+    You can define new service entities or 
+    other text only entities at this time. All
+    service elements must be defined before 
+    entity-definition elements.
+        
+
+    <service id="vpcconsole">
+        <longname id="VPClong">
+            <noloc>Amazon Virtual Private Cloud</noloc>
+        </longname>
+        <shortname id="VPC">
+            <noloc>Amazon VPC</noloc>
+        </shortname>
+        <universal>
+            <noloc>Trusted Advisor</noloc>
+        </universal>
+    </service>
+    <entity-definition id="AWS">
+        <regional region="-BJS">
+            <noloc>AWS</noloc>
+        </regional>
+        <regional region="BJS">
+            <localize>Amazon Web Services</localize>
+        </regional>
+        <universal>
+            <noloc>Amazon Web Services</noloc>
+        </universal>
+    </entity-definition>
+
+    <entity-definition id="AWSLong">
+        <localize>Amazon Web Services</localize>
+    </entity-definition>
+
+**************************************************** 
+-->    
+</shared-content>

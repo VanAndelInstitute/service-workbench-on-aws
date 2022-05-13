@@ -1,0 +1,9 @@
+<programlisting>
+    _, err := svc.RestoreObject(&s3.RestoreObjectInput{
+        Bucket: bucket,
+        Key:    item,
+        RestoreRequest: &s3.RestoreRequest{
+            Days: days,
+        },
+    })
+</programlisting>

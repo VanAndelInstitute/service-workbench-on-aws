@@ -1,0 +1,5 @@
+<programlisting>
+    result, err := svc.CreateAccessKey(&iam.CreateAccessKeyInput{
+        UserName: userName,
+    })
+</programlisting>

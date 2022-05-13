@@ -1,0 +1,19 @@
+<programlisting>
+    public static String describeBroker(MqClient mqClient, String brokerName) {
+        try {
+            DescribeBrokerRequest request = DescribeBrokerRequest.builder()
+                .brokerId(brokerName)
+                .build();
+            
+            DescribeBrokerResponse response = mqClient.describeBroker(request);
+            System.out.print(response + "\n\n");
+            return response.brokerId();
+            
+
+        } catch (MqException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+</programlisting>

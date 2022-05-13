@@ -1,0 +1,25 @@
+    public static void createMediaContainer( MediaStoreClient mediaStoreClient, String containerName) {
+
+        try {
+            CreateContainerRequest containerRequest = CreateContainerRequest.builder()
+                .containerName(containerName)
+                .build();
+
+            CreateContainerResponse containerResponse = mediaStoreClient.createContainer(containerRequest);
+            String status = containerResponse.container().status().toString();
+
+            // Wait unitl the container is in an active state
+            while (!status.equalsIgnoreCase("Active")){
+                status = DescribeContainer.checkContainer(mediaStoreClient, containerName);
+                System.out.println("Status - "+ status);
+                Thread.sleep(sleepTime * 1000);
+                }
+
+            System.out.println("The container ARN value is "+containerResponse.container().arn());
+            System.out.println("Finished ");
+
+        } catch (MediaStoreException | InterruptedException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

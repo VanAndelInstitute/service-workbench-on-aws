@@ -1,0 +1,27 @@
+<programlisting>
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Action": [
+            "elastictranscoder:*",
+            "cloudfront:*",
+            "s3:List*",
+            "s3:Put*",
+            "s3:Get*",
+            "s3:*MultipartUpload*",
+            "iam:CreateRole",
+            "iam:PutRolePolicy",
+            "iam:GetRolePolicy",
+            "iam:List*",
+            "sns:CreateTopic",
+            "sns:List*"
+         ],
+         "Resource":[
+            "*"
+         ]
+      }
+   ]
+}
+</programlisting>

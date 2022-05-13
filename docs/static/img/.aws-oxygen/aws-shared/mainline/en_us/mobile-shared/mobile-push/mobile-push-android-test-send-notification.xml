@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section id="mobile-push-android-test-send-notification" role="topic">
+    <sectioninfo>
+        <abstract>
+            <para>Describes how to send the &AMHlong; quickstart application a push notification
+                using &SNS;.</para>
+        </abstract>
+    </sectioninfo>
+    <title id="mobile-push-android-test-send-notification.title">Send Push Notifications to a Push
+        Messaging-Enabled &AMHlong; App for Android</title>
+    <titleabbrev id="mobile-push-android-test-send-notification.titleabbrev">Send Push Notifications
+        to the App</titleabbrev>
+    <para>In this topic, you send push notifications from the &SNS; console to an Android virtual
+        device that is running a push messaging-enabled app created using &AMHlong;. You send the
+        notifications in two ways: using a direct push, and by publishing to an &SNS; topic.</para>
+    <important>
+        <para>The firewall rules of some corporate and VPN networks restrict network access. If you
+            do not receive the push notifications on your device when you follow these procedures,
+            you might need to disconnect your computer from your corporate network before you send
+            the notifications.</para>
+    </important>
+    <section id="mobile-push-android-test-send-notification-prerequisites">
+        <sectioninfo>
+            <abstract>
+                <para>Describes prerequisites you need to send notifications to the push
+                    messaging-enabled &AMHlong; quickstart app.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-test-send-notification-prerequisites.title"
+            >Prerequisites</title>
+        <para>We assume that you have downloaded the app to the virtual device, and the app is open
+            on the device. </para>
+    </section>
+    <section id="mobile-push-android-test-send-notification-steps">
+        <sectioninfo>
+            <abstract>
+                <para>Describes how to send notifications to the push messaging-enabled &AMHlong;
+                    quickstart app.</para>
+            </abstract>
+        </sectioninfo>
+        <title id="mobile-push-android-test-send-notification-steps.title">Steps</title>
+        <para>This section contains two procedures. One procedure sends a push notification from the
+            &SNS; console to the device using a direct push. The other procedure sends a push
+            notification from the &SNS; console to the device by publishing to an &SNS;
+            topic.</para>
+        <procedure>
+            <title>To send a push notification directly to the device</title>
+            <step>
+                <para>Sign in to the AWS Management Console and open the &SNS; console at
+                    &SNSConsole_link;.</para>
+            </step>
+            <step>
+                <para>In the left pane, choose <guilabel>Applications</guilabel>.</para>
+            </step>
+            <step>
+                <para>On the <guilabel>Applications</guilabel> page, find the platform application
+                    that corresponds to your app, and then choose its ARN. The platform application
+                    name includes the name of your &AMHlong; project and
+                        <guilabel>MOBILE_HUB</guilabel>.</para>
+                <para>Your app appears in the platform application list because &AMHlong; registered
+                    the app with &SNS; when you set up the quickstart app in the &AMHlong;
+                    console.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-platform-application.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>On the <guilabel>Application Details</guilabel> page, in the
+                        <guilabel>Endpoints</guilabel> list, choose your virtual device. The ARN of
+                    the endpoint includes the name of your &AMHlong; project and
+                        <guilabel>MOBILE_HUB</guilabel>.</para>
+                <para>Your device appears in the endpoint list because the &AMHlong; quickstart app
+                    includes code to obtain a registration token from &GCM; and register the
+                    endpoint with &SNS;.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-direct-push-endpoint.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>Choose <guilabel>Publish to Endpoint</guilabel>.</para>
+            </step>
+            <step>
+                <para>In the <guilabel>Message</guilabel> box, enter the message that you want to
+                    send to the app, and then choose <guilabel>Publish Message</guilabel>.</para>
+                <para>&SNS; will send the notification to &GCM;, which will then send the
+                    notification to the app on the device.</para>
+            </step>
+            <step>
+                <para>Check the app on the device. You will see the message.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-message-display.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+        </procedure>
+        <procedure>
+            <title>To send a push notification to the device by publishing to an &SNS; topic</title>
+            <step>
+                <para>Sign in to the AWS Management Console and open the &SNS; console at
+                    &SNSConsole_link;.</para>
+            </step>
+            <step>
+                <para>In the left pane, choose <guilabel>Topics</guilabel>.</para>
+            </step>
+            <step>
+                <para>On the <guilabel>Topics</guilabel> page, choose the topic that corresponds to
+                    your app. The topic name includes the name of your &AMHlong; project and
+                        <guilabel>MOBILE_HUB</guilabel>.</para>
+                <para>The topic appears in the topic list because &AMHlong; created the topic with
+                    &SNS; when you set up the quickstart app in the &AMHlong; console.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-topic-list.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+            <step>
+                <para>Choose <guilabel>Publish to Topic</guilabel>.</para>
+            </step>
+            <step>
+                <para>In the <guilabel>Message</guilabel> box, enter the message that you want to
+                    send to the app, and then choose <guilabel>Publish Message</guilabel>.</para>
+                <note>
+                    <para>You do not need to enter a subject for the message, because only the body
+                        of the message will be transmitted to the device.</para>
+                </note>
+                <para>&SNS; will send the notification to &GCM;, which will then send the
+                    notification to the app on the device.</para>
+            </step>
+            <step>
+                <para>Check the app on the device. You will see the message.</para>
+                <informalfigure>
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata
+                                fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/push-android-amh-quickstart-message-display.png"
+                                format="PNG" scale="65"/>
+                        </imageobject>
+                    </mediaobject>
+                </informalfigure>
+            </step>
+        </procedure>
+    </section>
+</section>

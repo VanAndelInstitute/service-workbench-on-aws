@@ -1,0 +1,17 @@
+    public static void deleteKey(IamClient iam ,String username, String accessKey ) {
+
+        try {
+            DeleteAccessKeyRequest request = DeleteAccessKeyRequest.builder()
+                    .accessKeyId(accessKey)
+                    .userName(username)
+                    .build();
+
+            iam.deleteAccessKey(request);
+            System.out.println("Successfully deleted access key " + accessKey +
+                " from user " + username);
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }

@@ -1,0 +1,33 @@
+<programlisting>
+
+// Query gets all movies in the DynamoDB table that were released in the specified year.
+// The function uses the `expression` package to build the key condition expression
+// that is used in the query.
+func (basics TableBasics) Query(releaseYear int) ([]Movie, error) {
+	var err error
+	var response *dynamodb.QueryOutput
+	var movies []Movie
+	keyEx := expression.Key("year").Equal(expression.Value(releaseYear))
+	expr, err := expression.NewBuilder().WithKeyCondition(keyEx).Build()
+	if err != nil {
+		log.Printf("Couldn't build epxression for query. Here's why: %v\n", err)
+	} else {
+		response, err = basics.DynamoDbClient.Query(context.TODO(), &dynamodb.QueryInput{
+			TableName:                 aws.String(basics.TableName),
+			ExpressionAttributeNames:  expr.Names(),
+			ExpressionAttributeValues: expr.Values(),
+			KeyConditionExpression:    expr.KeyCondition(),
+		})
+		if err != nil {
+			log.Printf("Couldn't query for movies released in %v. Here's why: %v\n", releaseYear, err)
+		} else {
+			err = attributevalue.UnmarshalListOfMaps(response.Items, &movies)
+			if err != nil {
+				log.Printf("Couldn't unmarshal query response. Here's why: %v\n", err)
+			}
+		}
+	}
+	return movies, err
+}
+
+</programlisting>

@@ -1,0 +1,5 @@
+<programlisting>
+    var metadata []*iam.ServerCertificateMetadata
+
+    result, err := svc.ListServerCertificates(nil)
+</programlisting>

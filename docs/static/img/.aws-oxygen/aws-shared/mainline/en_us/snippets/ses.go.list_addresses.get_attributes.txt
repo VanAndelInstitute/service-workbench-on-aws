@@ -1,0 +1,6 @@
+    for _, email := range result.Identities {
+        var e = []*string{email}
+
+        verified, err := svc.GetIdentityVerificationAttributes(&ses.GetIdentityVerificationAttributesInput{
+            Identities: e,
+        })

@@ -1,0 +1,21 @@
+        httpClient, err := NewHTTPClientWithSettings(HTTPClientSettings{
+            Connect:          5 * time.Second,
+            ExpectContinue:   1 * time.Second,
+            IdleConn:         90 * time.Second,
+            ConnKeepAlive:    30 * time.Second,
+            MaxAllIdleConns:  100,
+            MaxHostIdleConns: 10,
+            ResponseHeader:   5 * time.Second,
+            TLSHandshake:     5 * time.Second,
+        })
+        if err != nil {
+            fmt.Println("Got an error creating custom HTTP client:")
+            fmt.Println(err)
+            return
+        }
+
+        sess := session.Must(session.NewSession(&aws.Config{
+            HTTPClient: httpClient,
+        }))
+
+        svc := s3.New(sess)

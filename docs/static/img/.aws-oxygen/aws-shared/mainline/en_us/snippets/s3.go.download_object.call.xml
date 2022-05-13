@@ -1,0 +1,9 @@
+<programlisting>
+    downloader := s3manager.NewDownloader(sess)
+
+    _, err = downloader.Download(file,
+        &s3.GetObjectInput{
+            Bucket: bucket,
+            Key:    filename,
+        })
+</programlisting>

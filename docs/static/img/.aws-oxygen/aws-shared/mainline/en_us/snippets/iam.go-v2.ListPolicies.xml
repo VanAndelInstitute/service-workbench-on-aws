@@ -1,0 +1,15 @@
+<programlisting>
+	// ListPolicies
+
+	policyListResponse, err := service.ListPolicies(context.Background(), &iam.ListPoliciesInput{})
+
+	if err != nil {
+		panic("Couldn't get list of policies! " + err.Error())
+	}
+
+	fmt.Print("PolicyName\tARN")
+	for _, policy := range policyListResponse.Policies {
+		fmt.Printf("%s\t%s\n", *policy.PolicyName, *policy.Arn)
+	}
+
+</programlisting>

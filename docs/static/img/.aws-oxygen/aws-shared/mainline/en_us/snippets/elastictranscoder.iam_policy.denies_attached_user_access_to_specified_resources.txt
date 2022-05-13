@@ -1,0 +1,33 @@
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"1",
+         "Effect":"Allow",
+         "Action":[
+            "s3:ListAllMyBuckets",
+            "s3:GetBucketLocation",
+            "s3:ListBucket",
+            "s3:GetObject",
+            "s3:PutObject"
+            ],
+         "Resource":[
+             "arn:aws:s3:::<example_bucket>",
+             "arn:aws:s3:::<example_bucket/*>"
+         ]
+      },
+      {
+         "Sid":"2",
+         "Effect":"Allow",
+         "Action":[
+            "elastictranscoder:List*",
+            "elastictranscoder:Read*",
+            "elastictranscoder:CreateJob"
+         ],
+         "Resource":[
+            "arn:aws:elastictranscoder:region:account:pipeline/<example_pipeline>",
+            "arn:aws:elastictranscoder:region:account:job/*"
+         ]
+      }
+   ]
+}

@@ -1,0 +1,28 @@
+{
+    "jobDefinitionName": "nginx-efs",
+    "type": "container",
+    "parameters": {
+        
+    },
+    "containerProperties": {
+        "image": "nginx",
+        "vcpus": 1,
+        "memory": 256,
+        "volumes": [
+            {
+                "name": "efs-html",
+                "efsVolumeConfiguration": {
+                    "fileSystemId": "fs-1234",
+                    "rootDirectory": "/path/to/my/data"
+                }
+            }
+        ],
+        "mountPoints": [
+            {
+                "containerPath": "/usr/share/nginx/html",
+                "readOnly": false,
+                "sourceVolume": "efs-html"
+            }
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+    public static void detectSentiments(ComprehendClient comClient, String text){
+
+    try {
+        DetectSentimentRequest detectSentimentRequest = DetectSentimentRequest.builder()
+                .text(text)
+                .languageCode("en")
+                .build();
+
+        DetectSentimentResponse detectSentimentResult = comClient.detectSentiment(detectSentimentRequest);
+        System.out.println("The Neutral value is " +detectSentimentResult.sentimentScore().neutral() );
+
+     } catch (ComprehendException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+   }

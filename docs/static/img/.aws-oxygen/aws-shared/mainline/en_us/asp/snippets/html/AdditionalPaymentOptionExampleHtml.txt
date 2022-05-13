@@ -1,0 +1,47 @@
+<html>
+ <head></head>
+  <!-- This example assumes that you have created a new page 
+    to load the Amazon Payments HTML Form after you have 
+    detected that your user has selected Amazon Payments as a 
+    payment method.
+  
+    The following line will automatically submit the form for you
+  -->
+  
+  <body onload="document.getElementByName('TheForm').submit()"> 
+  
+  <!-- do NOT render the image on this page -->      
+  <!-- you create the form as you would create a normal dynamic button -->
+  
+  <form 
+    name="TheForm" 
+    action="https://authorize.payments.amazon.com/pba/paypipeline" 
+    method="post">
+      <input type="hidden" 
+        name="abandonUrl" 
+        value="http://www.merchantweb site.com/cancel.htm"/>
+      <input type="hidden" 
+        name="accessKey" value="AKIAIOSFODNN7EXAMPLE"/>
+      <input type="hidden" 
+        name="amount" value="USD 199.00"/>
+      <input type="hidden" 
+        name="description" value="Sale of iPod"/>
+      <input type="hidden" 
+        name="immediateReturn" value="TRUE"/>
+      <input type="hidden" 
+        name="referenceId" value="ip123"/>
+      <input type="hidden" 
+        name="returnUrl" value="http://www.merchantweb site.com/return.htm"/>
+      <input type="hidden" 
+        name="SignatureMethod" value="HmacSHA256"/> 
+      <input type="hidden" 
+        name="SignatureVersion" value="2"/> 
+      <input type="hidden" 
+        name="signature" value="<userinput>[insert the signature you created here]</userinput>"/> 
+      <input type="hidden" 
+        name="ipnUrl" 
+        value=http://www.merchantwebsite.com/instantpaymentnotification/>
+      <input type="hidden" 
+        name="processImmediate" value="FALSE"/>
+ </form>
+</html>

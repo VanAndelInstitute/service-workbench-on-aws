@@ -1,0 +1,13 @@
+https://fps.sandbox.amazonaws.com?
+Action=CancelSubscriptionAndRefund
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerReference=CallerReference07
+&CancelReason=MyWish
+&RefundAmount.CurrencyCode=USD
+&RefundAmount.Value=1
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Signature=1uFUSSFvau1zadnSzKRS5ZchuLMn9p5M3ifaHGHie7M%3D
+&SubscriptionId=17d62772-c53e-4bdb-9667-65d7b7841cfc
+&Timestamp=2009-10-06T08%3A05%3A13.296Z
+&Version=2008-09-17

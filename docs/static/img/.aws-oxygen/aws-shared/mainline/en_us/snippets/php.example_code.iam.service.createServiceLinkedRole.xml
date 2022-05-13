@@ -1,0 +1,13 @@
+<programlisting>
+    public function createServiceLinkedRole($awsServiceName, $customSuffix = "", $description = "")
+    {
+        $createServiceLinkedRoleArguments = ['AWSServiceName' => $awsServiceName];
+        if ($customSuffix) {
+            $createServiceLinkedRoleArguments['CustomSuffix'] = $customSuffix;
+        }
+        if ($description) {
+            $createServiceLinkedRoleArguments['Description'] = $description;
+        }
+        return $this->iamClient->createServiceLinkedRole($createServiceLinkedRoleArguments);
+    }
+</programlisting>

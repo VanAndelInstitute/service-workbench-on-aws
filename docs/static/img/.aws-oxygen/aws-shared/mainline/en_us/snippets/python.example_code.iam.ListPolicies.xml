@@ -1,0 +1,18 @@
+<programlisting>
+def list_policies(scope):
+    """
+    Lists the policies in the current account.
+
+    :param scope: Limits the kinds of policies that are returned. For example,
+                  'Local' specifies that only locally managed policies are returned.
+    :return: The list of policies.
+    """
+    try:
+        policies = list(iam.policies.filter(Scope=scope))
+        logger.info("Got %s policies in scope '%s'.", len(policies), scope)
+    except ClientError:
+        logger.exception("Couldn't get policies for scope '%s'.", scope)
+        raise
+    else:
+        return policies
+</programlisting>

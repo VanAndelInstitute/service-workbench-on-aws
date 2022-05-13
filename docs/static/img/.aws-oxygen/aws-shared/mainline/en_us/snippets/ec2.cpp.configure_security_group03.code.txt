@@ -1,0 +1,12 @@
+    auto ingress_req = ec2.AuthorizeSecurityGroupIngress(authorize_request);
+
+    if (!ingress_req.IsSuccess())
+    {
+        std::cout << "Failed to set ingress policy for security group " <<
+            group_name << ":" << ingress_req.GetError().GetMessage() <<
+            std::endl;
+        return;
+    }
+
+    std::cout << "Successfully added ingress policy to security group " <<
+        group_name << std::endl;

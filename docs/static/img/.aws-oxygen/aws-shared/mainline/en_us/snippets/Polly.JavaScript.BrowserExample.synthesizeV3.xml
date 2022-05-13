@@ -1,0 +1,21 @@
+<programlisting>
+const speakText = async () => {
+    // Update the Text parameter with the text entered by the user
+    speechParams.Text = document.getElementById("textEntry").value;
+    try{
+        let url = await getSynthesizeSpeechUrl({
+            client, params: speechParams
+        });
+        console.log(url);
+        // Load the URL of the voice recording into the browser
+        document.getElementById('audioSource').src = url;
+        document.getElementById('audioPlayback').load();
+        document.getElementById('result').innerHTML = "Speech ready to play.";
+    } catch (err) {
+        console.log("Error", err);
+        document.getElementById('result').innerHTML = err;
+    }
+};
+// Expose the function to the browser
+window.speakText = speakText;
+</programlisting>

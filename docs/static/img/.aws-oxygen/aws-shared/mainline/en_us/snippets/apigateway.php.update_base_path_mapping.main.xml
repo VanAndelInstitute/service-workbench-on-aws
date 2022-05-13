@@ -1,0 +1,41 @@
+<programlisting>
+function updateBasePathMapping($apiGatewayClient, $basePath, $domainName, 
+    $patchOperations)
+{
+    try {
+        $result = $apiGatewayClient->updateBasePathMapping([
+            'basePath' => $basePath,
+            'domainName' => $domainName,
+            'patchOperations' => $patchOperations
+        ]);
+        return 'The updated base path\'s URI is: ' .
+            $result['@metadata']['effectiveUri'];
+    } catch (AwsException $e) {
+        return 'Error: ' . $e['message'];
+    }
+}
+
+function updateTheBasePathMapping()
+{
+    $patchOperations = array([
+        'op' => 'replace',
+        'path' => '/stage',
+        'value' => 'stage2'
+    ]);
+
+    $apiGatewayClient = new ApiGatewayClient([
+        'profile' => 'default',
+        'region' => 'us-east-1',
+        'version' => '2015-07-09'
+    ]);
+
+    echo updateBasePathMapping(
+        $apiGatewayClient,
+        '(none)', 
+        'example.com',
+        $patchOperations);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// updateTheBasePathMapping();
+</programlisting>

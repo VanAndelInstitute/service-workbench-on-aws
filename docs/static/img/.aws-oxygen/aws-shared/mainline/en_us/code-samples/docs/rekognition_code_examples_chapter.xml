@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-code-examples SYSTEM "file://AWSShared/code-samples/docs/phrases-code-examples.ent">
+    %phrases-code-examples;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+    %phrases-shared;
+]>
+<!-- zexi 0.4.1  -->
+<chapter id="service_code_examples" role="topic">
+
+    <info>
+        <title id="service_code_examples.title">Code examples for &REK; using &AWS; SDKs</title>
+        <titleabbrev id="service_code_examples.titleabbrev">Code examples</titleabbrev>
+        <abstract>
+            <para>Code examples that show how to use &REK; with an &AWS; SDK.</para>
+        </abstract>
+    </info>
+    <para>The following code examples show how to use &REK; with an &AWS; software development kit (SDK).
+        The code examples in this chapter are intended to supplement the code examples found throughout the rest of this guide.</para>
+    <variablelist role="termdef">
+        <para>The examples are divided into the following categories:</para>
+        <varlistentry>
+            <term>Actions</term>
+            <listitem><para>Code excerpts that show you how to call individual service functions.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Scenarios</term>
+            <listitem><para>Code examples that show you how to accomplish a specific task by calling multiple
+                functions within the same service.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Cross-service examples</term>
+            <listitem><para>Sample applications that work across multiple &AWS; services.</para></listitem>
+        </varlistentry>
+    </variablelist>
+    <para>For a complete list of &AWS; SDK developer guides and code examples, see
+        <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+        This topic also includes information about getting started and details about previous SDK versions.</para>
+    <para role="contents-abbrev">Code examples</para>
+    <section id="service_code_examples_actions" role="topic">
+        <info>
+            <title id="service_code_examples_actions.title">Actions for &REK; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_actions.titleabbrev">Actions</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &REK; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples demonstrate how to perform individual &REK;
+            actions with &AWS; SDKs. These excerpts call the &REK; API and are not
+            intended to be run in isolation. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the code in context.</para>
+        <para>
+            The following examples include only the most commonly used actions.
+            For a complete list, see the <emphasis>&REK; API Reference</emphasis>.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_rekognition_CompareFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_CompareFaces_section.title">Compare faces in an image against a reference image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_CompareFaces_section.titleabbrev">Compare faces in an image against a reference image</titleabbrev>
+                <abstract>
+                    <para>Compare faces in an image against a reference image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_CompareFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-comparefaces.html">Comparing faces in images</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_CompareFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_CreateCollection_section" role="topic">
+            <info>
+                <title id="example_rekognition_CreateCollection_section.title">Create an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_CreateCollection_section.titleabbrev">Create a collection</titleabbrev>
+                <abstract>
+                    <para>Create an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_CreateCollection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/create-collection-procedure.html">Creating a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_CreateCollection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DeleteCollection_section" role="topic">
+            <info>
+                <title id="example_rekognition_DeleteCollection_section.title">Delete an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DeleteCollection_section.titleabbrev">Delete a collection</titleabbrev>
+                <abstract>
+                    <para>Delete an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteCollection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteCollection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DeleteFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_DeleteFaces_section.title">Delete faces from an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DeleteFaces_section.titleabbrev">Delete faces from a collection</titleabbrev>
+                <abstract>
+                    <para>Delete faces from an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/delete-faces-procedure.html">Deleting faces from a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DeleteFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DescribeCollection_section" role="topic">
+            <info>
+                <title id="example_rekognition_DescribeCollection_section.title">Describe an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DescribeCollection_section.titleabbrev">Describe a collection</titleabbrev>
+                <abstract>
+                    <para>Describe an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DescribeCollection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/describe-collection-procedure.html">Describing a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DescribeCollection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DetectFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_DetectFaces_section.title">Detect faces in an image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DetectFaces_section.titleabbrev">Detect faces in an image</titleabbrev>
+                <abstract>
+                    <para>Detect faces in an image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/faces-detect-images.html">Detecting faces in an image</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DetectLabels_section" role="topic">
+            <info>
+                <title id="example_rekognition_DetectLabels_section.title">Detect labels in an image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DetectLabels_section.titleabbrev">Detect labels in an image</titleabbrev>
+                <abstract>
+                    <para>Detect labels in an image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectLabels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/labels-detect-labels-image.html">Detecting labels in an image</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectLabels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DetectModerationLabels_section" role="topic">
+            <info>
+                <title id="example_rekognition_DetectModerationLabels_section.title">Detect moderation labels in an image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DetectModerationLabels_section.titleabbrev">Detect moderation labels in an image</titleabbrev>
+                <abstract>
+                    <para>Detect moderation labels in an image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectModerationLabels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/procedure-moderate-images.html">Detecting inappropriate images</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectModerationLabels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_DetectText_section" role="topic">
+            <info>
+                <title id="example_rekognition_DetectText_section.title">Detect text in an image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_DetectText_section.titleabbrev">Detect text in an image</titleabbrev>
+                <abstract>
+                    <para>Detect text in an image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectText_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/text-detecting-text-procedure.html">Detecting text in an image</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_DetectText_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_GetCelebrityInfo_section" role="topic">
+            <info>
+                <title id="example_rekognition_GetCelebrityInfo_section.title">Get information about celebrities with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_GetCelebrityInfo_section.titleabbrev">Get information about celebrities</titleabbrev>
+                <abstract>
+                    <para>Get information about celebrities with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_GetCelebrityInfo_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_GetCelebrityInfo_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_IndexFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_IndexFaces_section.title">Index faces to an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_IndexFaces_section.titleabbrev">Index faces to a collection</titleabbrev>
+                <abstract>
+                    <para>Index faces to an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_IndexFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/add-faces-to-collection-procedure.html">Adding faces to a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_IndexFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_ListCollections_section" role="topic">
+            <info>
+                <title id="example_rekognition_ListCollections_section.title">List &REK; collections using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_ListCollections_section.titleabbrev">List collections</titleabbrev>
+                <abstract>
+                    <para>List &REK; collections using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListCollections_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-collection-procedure.html">Listing collections</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListCollections_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_ListFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_ListFaces_section.title">List faces in an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_ListFaces_section.titleabbrev">List faces in a collection</titleabbrev>
+                <abstract>
+                    <para>List faces in an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/list-faces-in-collection-procedure.html">Listing faces in a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_ListFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_RecognizeCelebrities_section" role="topic">
+            <info>
+                <title id="example_rekognition_RecognizeCelebrities_section.title">Recognize celebrities in an image with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_RecognizeCelebrities_section.titleabbrev">Recognize celebrities in an image</titleabbrev>
+                <abstract>
+                    <para>Recognize celebrities in an image with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_RecognizeCelebrities_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/celebrities-procedure-image.html">Recognizing celebrities in an image</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_RecognizeCelebrities_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_SearchFaces_section" role="topic">
+            <info>
+                <title id="example_rekognition_SearchFaces_section.title">Search for faces in an &REK; collection using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_SearchFaces_section.titleabbrev">Search for faces in a collection</titleabbrev>
+                <abstract>
+                    <para>Search for faces in an &REK; collection using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-id-procedure.html">Searching for a face (face ID)</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_SearchFacesByImage_section" role="topic">
+            <info>
+                <title id="example_rekognition_SearchFacesByImage_section.title">Search for faces in an &REK; collection compared to a reference image using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_SearchFacesByImage_section.titleabbrev">Search for faces in a collection compared to a reference image</titleabbrev>
+                <abstract>
+                    <para>Search for faces in an &REK; collection compared to a reference image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFacesByImage_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/search-face-with-image-procedure.html">Searching for a face (image)</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_SearchFacesByImage_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_scenarios" role="topic">
+        <info>
+            <title id="service_code_examples_scenarios.title">Scenarios for &REK; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_scenarios.titleabbrev">Scenarios</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &REK; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following code examples show you how to implement common scenarios in &REK;
+            with &AWS; SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions
+            within &REK;. Each scenario includes a link to GitHub, where you can find instructions
+            on how to set up and run the code.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_rekognition_Usage_FindFacesInCollection_section" role="topic">
+            <info>
+                <title id="example_rekognition_Usage_FindFacesInCollection_section.title">Build an &REK; collection and find faces in it using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_Usage_FindFacesInCollection_section.titleabbrev">Build a collection and find faces in it</titleabbrev>
+                <abstract>
+                    <para>Build an &REK; collection and find faces in it using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_Usage_FindFacesInCollection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/collections.html">Searching faces in a collection</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_Usage_FindFacesInCollection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_Usage_DetectAndDisplayImage_section" role="topic">
+            <info>
+                <title id="example_rekognition_Usage_DetectAndDisplayImage_section.title">Detect and display elements in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_Usage_DetectAndDisplayImage_section.titleabbrev">Detect and display elements in images</titleabbrev>
+                <abstract>
+                    <para>Detect and display elements in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_Usage_DetectAndDisplayImage_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <para>For more information, see <ulink type="documentation" url="rekognition/latest/dg/images-displaying-bounding-boxes.html">Displaying bounding boxes</ulink>.</para>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_Usage_DetectAndDisplayImage_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_rekognition_VideoDetection_section" role="topic">
+            <info>
+                <title id="example_rekognition_VideoDetection_section.title">Detect information in videos using &REK; and the &AWS; SDK</title>
+                <titleabbrev id="example_rekognition_VideoDetection_section.titleabbrev">Detect information in videos</titleabbrev>
+                <abstract>
+                    <para>Detect information in videos using &REK; and the &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_VideoDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/rekognition_VideoDetection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+    <section id="service_code_examples_cross-service_examples" role="topic">
+        <info>
+            <title id="service_code_examples_cross-service_examples.title">Cross-service examples for &REK; using &AWS; SDKs</title>
+            <titleabbrev id="service_code_examples_cross-service_examples.titleabbrev">Cross-service examples</titleabbrev>
+            <abstract>
+                <para>The following code examples show how to use &REK; with &AWS; SDKs.</para>
+            </abstract>
+        </info>
+        <para>The following sample applications use &AWS; SDKs to combine &REK;
+            with other &AWS; services. Each example includes a link to GitHub, where you can find
+            instructions on how to set up and run the application.</para>
+        <para role="topiclist-abbrev">Examples</para>
+        <section id="example_cross_RekognitionPhotoAnalyzerPPE_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzerPPE_section.title">Detect PPE in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzerPPE_section.titleabbrev">Detect PPE in images</titleabbrev>
+                <abstract>
+                    <para>Detect PPE in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzerPPE_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_DetectFaces_section" role="topic">
+            <info>
+                <title id="example_cross_DetectFaces_section.title">Detect faces in an image using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_DetectFaces_section.titleabbrev">Detect faces in an image</titleabbrev>
+                <abstract>
+                    <para>Detect faces in an image using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectFaces_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectFaces_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionPhotoAnalyzer_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionPhotoAnalyzer_section.title">Detect objects in images with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionPhotoAnalyzer_section.titleabbrev">Detect objects in images</titleabbrev>
+                <abstract>
+                    <para>Detect objects in images with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionPhotoAnalyzer_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_RekognitionVideoDetection_section" role="topic">
+            <info>
+                <title id="example_cross_RekognitionVideoDetection_section.title">Detect people and objects in a video with &REK; using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_RekognitionVideoDetection_section.titleabbrev">Detect people and objects in a video</titleabbrev>
+                <abstract>
+                    <para>Detect people and objects in a video with &REK; using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_RekognitionVideoDetection_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+        <section id="example_cross_DetectLabels_section" role="topic">
+            <info>
+                <title id="example_cross_DetectLabels_section.title">Save EXIF and other image information using an &AWS; SDK</title>
+                <titleabbrev id="example_cross_DetectLabels_section.titleabbrev">Save EXIF and other image information</titleabbrev>
+                <abstract>
+                    <para>Save EXIF and other image information using an &AWS; SDK</para>
+                </abstract>
+            </info>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectLabels_desc.xml"></xi:include>
+            <note buildtype="markdown">
+                <para>The source code for these examples is in the
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples">&AWS; Code Examples GitHub repository</ulink>.
+                    Have feedback on a code example?
+                    <ulink url="https://github.com/awsdocs/aws-doc-sdk-examples/issues/new/choose">Create an Issue</ulink>
+                    in the code examples repo.
+                </para>
+            </note>
+            <xi:include href="file://AWSShared/code-samples/docs/cross_DetectLabels_tablist.xml"></xi:include>
+            <para>For a complete list of &AWS; SDK developer guides and code examples, see
+                <xref linkend="sdk-general-information-section" endterm="sdk-general-information-section.title"></xref>.
+                This topic also includes information about getting started and details about previous SDK versions.</para>
+        </section>
+    </section>
+</chapter>
+

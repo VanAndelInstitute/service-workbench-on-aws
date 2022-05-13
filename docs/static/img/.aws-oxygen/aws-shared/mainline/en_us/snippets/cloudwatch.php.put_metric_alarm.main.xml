@@ -1,0 +1,81 @@
+<programlisting>
+function putMetricAlarm($cloudWatchClient, $cloudWatchRegion, 
+    $alarmName, $namespace, $metricName, 
+    $dimensions, $statistic, $period, $comparison, $threshold, 
+    $evaluationPeriods)
+{
+    try {
+        $result = $cloudWatchClient->putMetricAlarm([
+            'AlarmName' => $alarmName,
+            'Namespace' => $namespace,
+            'MetricName' => $metricName,
+            'Dimensions' => $dimensions,
+            'Statistic' => $statistic,
+            'Period' => $period,
+            'ComparisonOperator' => $comparison,
+            'Threshold' => $threshold,
+            'EvaluationPeriods' => $evaluationPeriods
+        ]);
+        
+        if (isset($result['@metadata']['effectiveUri']))
+        {
+            if ($result['@metadata']['effectiveUri'] == 
+                'https://monitoring.' . $cloudWatchRegion . '.amazonaws.com')
+            {
+                return 'Successfully created or updated specified alarm.';
+            } else {
+                return 'Could not create or update specified alarm.';
+            }
+        } else {
+            return 'Could not create or update specified alarm.';
+        }
+    } catch (AwsException $e) {
+        return 'Error: ' . $e->getAwsErrorMessage();
+    }
+}
+
+function putTheMetricAlarm()
+{
+    $alarmName = 'my-ec2-resources';
+    $namespace = 'AWS/Usage';
+    $metricName = 'ResourceCount';
+    $dimensions = [
+        [
+            'Name' => 'Type',
+            'Value' => 'Resource'
+        ],
+        [
+            'Name' => 'Resource',
+            'Value' => 'vCPU'
+        ],
+        [
+            'Name' => 'Service',
+            'Value' => 'EC2'
+        ],
+        [
+            'Name' => 'Class',
+            'Value' => 'Standard/OnDemand'
+        ]
+    ];
+    $statistic = 'Average';
+    $period = 300;
+    $comparison = 'GreaterThanThreshold';
+    $threshold = 1;
+    $evaluationPeriods = 1;
+
+    $cloudWatchRegion = 'us-east-1';
+    $cloudWatchClient = new CloudWatchClient([
+        'profile' => 'default',
+        'region' => $cloudWatchRegion,
+        'version' => '2010-08-01'
+    ]);
+
+    echo putMetricAlarm($cloudWatchClient, $cloudWatchRegion, 
+        $alarmName, $namespace, $metricName, 
+        $dimensions, $statistic, $period, $comparison, $threshold, 
+        $evaluationPeriods);
+}
+
+// Uncomment the following line to run this code in an AWS account.
+// putTheMetricAlarm();
+</programlisting>

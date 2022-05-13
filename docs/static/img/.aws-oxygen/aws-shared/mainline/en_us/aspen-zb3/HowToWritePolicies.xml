@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+[
+   <!ENTITY % phrases SYSTEM "file://AWSShared/common/phrases.ent">
+   %phrases;
+   <!ENTITY % sig2-migration SYSTEM "file://AWSShared/asp/eu-xml/fps-sig2-migration.ent">
+   %sig2-migration;
+   <!ENTITY % phrases-products SYSTEM "file://AWSShared/common/aws-prod-names-and-links.ent">
+   %phrases-products;
+   <!ENTITY % phrases-shared-fps SYSTEM "file://AWSShared/asp/eu-xml/phrases-shared-fps.ent">
+   %phrases-shared-fps;
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+   <!ENTITY % aspen_phrases SYSTEM "aspen_phrases.ent">
+   %aspen_phrases;
+   <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+]>
+
+<?pagebreak?>
+<section id="AccessPolicyLanguage_HowToWritePolicies" role="topic">
+	<title id="AccessPolicyLanguage_HowToWritePolicies.title">How to Write a Policy</title>
+
+	<para role="topiclist"/>
+
+	<para>This section describes how to write policies and gives reference information about each policy
+		element.</para>
+
+
+
+
+	<section id="BasicStructure" role="topic">
+		<title id="BasicStructure.title">Basic Policy Structure</title>
+
+
+
+		<!--	<section id="AccessPolicyLanguage_BasicStructure">
+			<title id="AccessPolicyLanguage_BasicStructure.title">Basic Structure of a Policy Document</title> -->
+		<para>Each policy is a JSON document. As illustrated in the following figure, a policy
+			includes:</para>
+		<itemizedlist>
+			<listitem>
+				<para>Optional policy-wide information (at the top of the document)</para>
+			</listitem>
+			<listitem>
+				<para>One or more individual <emphasis>statements</emphasis></para>
+			</listitem>
+		</itemizedlist>
+		<para>Each statement includes the core information about a single permission. If a policy includes
+			multiple statements, we apply a logical <code>OR</code> across the statements at evaluation time.
+			If multiple policies are applicable to a request, we apply a logical <code>OR</code> across the
+			policies at evaluation time. </para>
+		<informalfigure>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/AccessPolicyLanguage_General_Policy_Structure.gif" format="GIF"
+						scale="115"/>
+				</imageobject>
+				<textobject>
+					<phrase>General policy structure</phrase>
+				</textobject>
+			</mediaobject>
+		</informalfigure>
+		<para>The information in a statement is contained within a series of <emphasis>elements</emphasis>.
+			For information about these elements, see <xref linkend="AccessPolicyLanguage_ElementDescriptions"
+				endterm="AccessPolicyLanguage_ElementDescriptions.title"/>.</para>
+
+		<!-- #### The following is profiled to show up only in the SQS appendix #### -->
+		<example audience="aspen_sqs">
+
+			<para>The following simple policy allows an AWS developer with account ID &ExampleAWSAccountNo1; to send
+				and read from the Amazon SQS queue named queue2 (owned by the developer with account ID
+				&ExampleAWSAccountNo2;) in the &useast1-name;, given that the request comes from the 10.52.176.0/24 address range, and the
+				request comes in before noon on June 30, 2009 (UTC).</para>
+
+			<programlisting>{   
+   "Version":"&apiversion;",
+   "Id":"&ex_policyid;",
+   "Statement" : [
+      {
+         "Sid":"1", 
+         "Effect":"Allow",           
+         "Principal" : {
+            "aws": "&ExampleAWSAccountNo1;"
+         },
+         "Action":["sqs:SendMessage","sqs:ReceiveMessage"], 
+         "Resource": "arn:aws:sqs:us-east-1:&ExampleAWSAccountNo2;:queue2",
+         "Condition" : {
+            "IpAddress" : {
+               "aws:SourceIp":"10.52.176.0/24"
+            },
+             "DateLessThan" : {
+               "aws:CurrentTime":"2009-06-30T12:00Z"
+            }
+         }   
+      }
+   ]
+}</programlisting>
+
+
+
+		</example>
+
+		<!-- #### The following example is profiled to show up only in the IAM DG #### -->
+		<example audience="aspen_iam">
+
+			<para>The following policy has two statements. By definition, the user (or group) the policy is
+				attached to is in the AWS account with ID &ExampleAWSAccountNo3; (policies can't reference resources in
+				other accounts). The policy lets the user do the following: </para>
+			<itemizedlist>
+				<listitem>
+					<para>Manage the access keys for any user in the AWS account, starting on July 1,
+						2010</para>
+				</listitem>
+				<listitem>
+					<para>Create and delete Amazon SimpleDB domains in the &ExampleAWSAccountNo3; AWS account for any
+						region</para>
+				</listitem>
+			</itemizedlist>
+
+
+			<programlisting>{
+   "Statement":[{
+      "Effect":"Allow",
+      "Action":["iam:CreateAccessKey",&#8203;"iam:ListAccessKeys",&#8203;"iam:UpdateAccessKey", "iam:DeleteAccessKey"],
+      "Resource":"arn:aws:iam::&ExampleAWSAccountNo3;:user/*",
+      "Condition":{
+         "DateGreaterThan":{
+            "aws:CurrentTime":"2010-07-01T00:00Z"
+            }
+         }
+      },
+      {
+      "Effect":"Allow",
+      "Action":["sdb:CreateDomain","sdb:DeleteDomain"],
+      "Resource":"arn:aws:sdb:*:&ExampleAWSAccountNo3;:domain/*"
+      }
+   ]
+}</programlisting>
+			<para>The <code>Resource</code> in each statement could instead be stated as <code>*</code>. AWS
+				would determine the applicable resources based on which AWS account owns the policy and the
+				actions specified.</para>
+		</example>
+	</section>
+
+	<!--<section os="prerelease">
+		<title>JSON or XML</title>
+		<para>You can create policies in either JSON or XML.</para>
+		<para os="prerelease">The primary reason to use XML is if you want to use <emphasis>distributed
+				capabilities</emphasis>, which are policies that come to AWS as part of the request for access
+			(this is an advanced topic; for more information, see <xref
+				linkend="AccessPolicyLanguage_Capabilities" endterm="AccessPolicyLanguage_Capabilities.title"
+			/>). Distributed capabilities must be signed, and Aspen currently provides a way to sign XML
+			policies only.</para>
+		<tip>
+			<simpara> You can hide the sections of this guide that don't apply to the serialization you are
+				using. There is a language selection menu in the upper-right corner of pages with
+				language-specific text. Select your language to hide all others, or select
+				<guilabel>All</guilabel> to show the examples in all available languages. </simpara>
+
+			<informalfigure>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/language-filter.gif" format="GIF"/>
+					</imageobject>
+					<textobject>
+						<phrase>Language Filter Tool</phrase>
+					</textobject>
+				</mediaobject>
+			</informalfigure>
+
+		</tip>
+	</section>-->
+
+	<!--</section> -->
+
+
+
+	<!-- #############  Simple Examples  ############## -->
+
+
+
+
+
+	<xi:include href="ElementDescriptions.xml"/>
+	<xi:include href="SupportedTypes.xml"/>
+	<!--<xi:include href="SQSExamples.xml"/>-->
+
+
+</section>

@@ -1,0 +1,13 @@
+    def delete_template(self):
+        """
+        Deletes an email template.
+        """
+        try:
+            self.ses_client.delete_template(TemplateName=self.template['TemplateName'])
+            logger.info("Deleted template %s.", self.template['TemplateName'])
+            self.template = None
+            self.template_tags = None
+        except ClientError:
+            logger.exception(
+                "Couldn't delete template %s.", self.template['TemplateName'])
+            raise

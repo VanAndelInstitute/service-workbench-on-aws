@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"
+   [
+   <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent">
+   %phrases-shared;   
+ <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+   %xinclude;
+   <!ENTITY % local-phrases SYSTEM "common/local-phrases.ent">
+   %local-phrases;
+   ]
+   >
+<!-- Intrinsic Function Reference -->
+<section id="intrinsic-function-reference-ref" role="topic">
+   <title id="intrinsic-function-reference-ref.title">Ref</title>
+
+   <para>The intrinsic function <function>Ref</function> returns the value of the specified
+         <emphasis>parameter</emphasis> or <emphasis>resource</emphasis>.</para>
+
+   <itemizedlist>
+      <listitem>
+         <simpara>When you specify a parameter's logical name, it returns the value of the parameter.</simpara>
+      </listitem>
+      <listitem>
+         <simpara>When you specify a resource's logical name, it returns a value that you can typically use to refer to
+            that resource.</simpara>
+      </listitem>
+   </itemizedlist>
+	
+	<para condition="yaml">When you are declaring a resource, you need to specify another resource by name, you
+		can use the <function>Ref</function> to refer to that other resource. In general, <function>Ref</function> returns
+		the name of the resource. </para>
+
+   <!--<para condition="json">When you are declaring a resource in a template and you need to specify another template resource by name, you
+      can use the <function>Ref</function> to refer to that other resource. In general, <function>Ref</function> returns
+      the name of the resource. For example, a reference to an <link linkend="aws-properties-as-group"
+         >AWS::AutoScaling::AutoScalingGroup</link> returns the name of that Auto Scaling group resource.</para>-->
+
+   <!--<para>For some resources, an identifier is returned that has another significant meaning in the context of the
+      resource. An <link linkend="aws-properties-ec2-eip">AWS::EC2::EIP</link> resource, for instance, returns the IP
+      address, and an <link linkend="aws-properties-ec2-instance">AWS::EC2::Instance</link> returns the instance ID. </para>-->
+
+   <para condition="json">At the bottom of this topic, there is a table that lists the values returned for many common resource types.
+      More information about <function>Ref</function> return values for a particular resource or property can be found
+      in the documentation for that resource or property.</para>
+
+   <tip>
+      <para>You can also use <function>Ref</function> to add values to Output messages.</para>
+   </tip>
+
+   <section condition="json">
+      <title>Declaration</title>
+      <para>"Ref" : "<replaceable>logicalName</replaceable>"</para>
+   </section>
+	
+	<section condition="yaml">
+		<title>Declaration</title>
+		<para>Ref: <replaceable>logicalName</replaceable></para>
+	</section>
+
+   <section>
+      <title>Parameters</title>
+      <variablelist>
+         <varlistentry>
+            <term>logicalName</term>
+            <listitem>
+               <simpara>The logical name of the resource or parameter you want to dereference.</simpara>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+   </section>
+
+   <section>
+      <title>Return Value</title>
+      <para>The value of the <parameter>MyInputParameter</parameter> parameter.</para>
+   </section>
+
+   <section condition="json">
+      <title>Example</title>
+      <para>The following resource declaration for an Elastic IP address needs the instance ID of an EC2 instance and
+         uses the <function>Ref</function> function to specify the instance ID of the MyEC2Instance resource:</para>
+      <programlisting>
+"MyEIP" : {
+   "Type" : "AWS::EC2::EIP",
+   "Properties" : {
+      "InstanceId" : { "Ref" : "MyEC2Instance" }
+   }
+}     </programlisting>
+   </section>
+	
+	
+	<section condition="yaml">
+		<title>Example</title>
+		<para>The following resource declaration for the security group ingress needs the security group
+			name of the ElastiCache security group and uses the <function>Ref</function> function to
+			specify the name of the ElastiCache security group resource:</para>
+		<programlisting>MyCacheSecurityGroupIngress:
+  Type: AWS::ElastiCache::SecurityGroupIngress
+  Properties:
+    CacheSecurityGroupName: 
+      Ref: MyCacheSecurityGroup     	</programlisting>
+	</section>
+
+   <!--<section condition="json">
+      <title>Resource Return Examples</title>
+
+      <para>This section lists sample values returned by <function>Ref</function> for particular &CFN; resources. For
+         more information about <function>Ref</function> return values for a particular resource or property, refer to
+         the documentation for that resource or property.</para>
+      
+      <informaltable>
+         <tgroup cols="3">
+            <colspec colnum="1" colname="col1" colwidth="1.0*"/>
+            <colspec colnum="2" colname="col2" colwidth="1.0*"/>
+            <colspec colnum="3" colname="col3" colwidth="1.16*"/>
+            <thead>
+               <row>
+                  <entry>Resource Type</entry>
+                  <entry>Reference Value</entry>
+                  <entry>Example</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-as-group"
+                        >AWS::AutoScaling::AutoScalingGroup</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myasgroup-NT5EUXTNTXXD</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-as-launchconfig"
+                           >AWS::AutoScaling::LaunchConfiguration</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mylaunchconfig-1DDYF1E3B3I</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-as-policy">AWS::AutoScaling::ScalingPolicy</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myaspolicy-1DDYF1E3B3I</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-as-trigger">AWS::AutoScaling::Trigger</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mytrigger-7GQPDS5YHI5B</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-stack">AWS::CloudFormation::Stack</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Stack ID</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>arn:aws:cloudformation:us-east-1:803981987763:stack/mystack-myembeddedstack-sggfrhxhum7w/f449b250-b969-11e0-a185-5081d0136786</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-waitcondition"
+                        >AWS::CloudFormation::WaitCondition</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>arn:aws:cloudformation:us-east-1:803981987763:stack/mystack/c325e210-bdf2-11e0-9638-50690880c386/mywaithandle</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-waitconditionhandle"
+                           >AWS::CloudFormation::WaitConditionHandle</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Wait Condition Signal URL</simpara>
+                  </entry>
+                  <entry>
+                     <simpara><![CDATA[https://cloudformation-waitcondition-us-east-1.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A803981987763%3Astack%2Fwaittest%2F054a33d0-bdee-11e0-8816-5081c490a786%2FmyWaitHandle?Expires=1312475488&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=tUsrW3WvWVT46K69zMmgbEkwVGo%3D]]></simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-cloudfront-distribution"
+                           >AWS::CloudFront::Distribution</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Distribution ID</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>E27LVI50CSW06W</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-cw-alarm">AWS::CloudWatch::Alarm</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myalarm-3AOHFRGOXR5T</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-ebs-volume">AWS::EC2::Volume</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Volume ID</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>vol-3cdd3f56</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-ebs-volumeattachment"
+                        >AWS::EC2::VolumeAttachment</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myvola-ERXHJITXMRLT</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-eip">AWS::EC2::EIP</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Elastic IP Address</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>192.0.2.0</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-eip-association"
+                        >AWS::EC2::EIPAssociation</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myeipa-1NU3IL8LJ313N</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-instance">AWS::EC2::Instance</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Instance ID</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>i-636be302</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-security-group">AWS::EC2::SecurityGroup</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mysecuritygroup-QQB406M8FISX</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-security-group-ingress"
+                           >AWS::EC2::SecurityGroupIngress</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mysecuritygroupingress</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-ec2-elb"
+                        >AWS::ElasticLoadBalancing::LoadBalancer</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myelb-1WQN7BJGDB5YQ</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-beanstalk"
+                        >AWS::ElasticBeanstalk::Application</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myapplication-FM6BIXY7U8PK</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-beanstalk-environment"
+                           >AWS::ElasticBeanstalk::Environment</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myenv-LKGNQSFHO1DB</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-iam-accesskey">AWS::IAM::AccessKey</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>AccessKeyId</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>AKIAIOSFODNN7EXAMPLE</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-iam-group">AWS::IAM::Group</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>GroupName</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mygroup-1DZETITOWEKVO</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-iam-user">AWS::IAM::User</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>UserName</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-myuser-1CCXAFG2H2U4D</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-rds-database-instance">AWS::RDS::DBInstance</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mydb-ea5ugmfvuaxg</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-rds-security-group"
+                        >AWS::RDS::DBSecurityGroup</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mydbsecuritygroup-1k5u5dxjb0nxs</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-s3-bucket">AWS::S3::Bucket</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mys3bucket-1hbsmonr9mytq</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-simpledb">AWS::SDB::Domain</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Name</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>mystack-mysdbdomain-IVNAOZTDFVXL</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-sns-topic">AWS::SNS::Topic</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Topic ARN</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>arn:aws:sns:us-east-1:803981987763:mystack-mytopic-NZJ5JSMVGFIE</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="aws-properties-sqs-queues">AWS::SQS::Queue</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>Queue URL</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>https://sqs.us-east-1.amazonaws.com/803981987763/aa4-MyQueue-Z5NOSZO2PZE9</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="pseudo-parameter-reference">Pseudo Parameter</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>AWS::Region</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>us-east-1</simpara>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <simpara><link linkend="pseudo-parameter-reference">Pseudo Parameter</link></simpara>
+                  </entry>
+                  <entry>
+                     <simpara>AWS::StackName</simpara>
+                  </entry>
+                  <entry>
+                     <simpara>MyStack</simpara>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </informaltable>
+   </section>-->
+</section>

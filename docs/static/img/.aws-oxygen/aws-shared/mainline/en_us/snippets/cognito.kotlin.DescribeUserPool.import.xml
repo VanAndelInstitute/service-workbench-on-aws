@@ -1,0 +1,5 @@
+<programlisting>
+import aws.sdk.kotlin.services.cognitoidentityprovider.CognitoIdentityProviderClient
+import aws.sdk.kotlin.services.cognitoidentityprovider.model.DescribeUserPoolRequest
+import kotlin.system.exitProcess
+</programlisting>

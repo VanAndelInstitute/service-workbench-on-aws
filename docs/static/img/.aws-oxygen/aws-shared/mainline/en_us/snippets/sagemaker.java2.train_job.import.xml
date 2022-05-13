@@ -1,0 +1,21 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sagemaker.SageMakerClient;
+import software.amazon.awssdk.services.sagemaker.model.S3DataSource;
+import software.amazon.awssdk.services.sagemaker.model.DataSource;
+import software.amazon.awssdk.services.sagemaker.model.Channel;
+import software.amazon.awssdk.services.sagemaker.model.ResourceConfig;
+import software.amazon.awssdk.services.sagemaker.model.TrainingInstanceType;
+import software.amazon.awssdk.services.sagemaker.model.CheckpointConfig;
+import software.amazon.awssdk.services.sagemaker.model.OutputDataConfig;
+import software.amazon.awssdk.services.sagemaker.model.StoppingCondition;
+import software.amazon.awssdk.services.sagemaker.model.AlgorithmSpecification;
+import software.amazon.awssdk.services.sagemaker.model.TrainingInputMode;
+import software.amazon.awssdk.services.sagemaker.model.CreateTrainingJobRequest;
+import software.amazon.awssdk.services.sagemaker.model.CreateTrainingJobResponse;
+import software.amazon.awssdk.services.sagemaker.model.SageMakerException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+</programlisting>

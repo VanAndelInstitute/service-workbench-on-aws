@@ -1,0 +1,17 @@
+<programlisting>
+    def list(self):
+        """
+        Lists custom classifiers for the current account.
+
+        :return: The list of classifiers.
+        """
+        try:
+            response = self.comprehend_client.list_document_classifiers()
+            classifiers = response['DocumentClassifierPropertiesList']
+            logger.info("Got %s classifiers.", len(classifiers))
+        except ClientError:
+            logger.exception("Couldn't get classifiers.", )
+            raise
+        else:
+            return classifiers
+</programlisting>

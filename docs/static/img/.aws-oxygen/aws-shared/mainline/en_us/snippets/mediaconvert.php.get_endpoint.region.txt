@@ -1,0 +1,14 @@
+$client = new Aws\MediaConvert\MediaConvertClient([
+    'profile' => 'default',
+    'version' => '2017-08-29',
+    'region' => 'us-east-2'
+]);
+
+//retrieve endpoint
+try {
+    $result = $client->describeEndpoints([]);
+} catch (AwsException $e) {
+    // output error message if fails
+    echo $e->getMessage();
+    echo "\n";
+}

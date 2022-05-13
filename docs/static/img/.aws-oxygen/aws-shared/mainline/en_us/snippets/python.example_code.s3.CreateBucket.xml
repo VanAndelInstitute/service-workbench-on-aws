@@ -1,0 +1,27 @@
+<programlisting>
+    def create(self, region_override=None):
+        """
+        Create an Amazon S3 bucket in the default Region for the account or in the
+        specified Region.
+
+        :param region_override: The Region in which to create the bucket. If this is
+                                not specified, the Region configured in your shared
+                                credentials is used.
+        """
+        if region_override is not None:
+            region = region_override
+        else:
+            region = self.bucket.meta.client.meta.region_name
+        try:
+            self.bucket.create(
+                CreateBucketConfiguration={'LocationConstraint': region})
+
+            self.bucket.wait_until_exists()
+            logger.info(
+                "Created bucket '%s' in region=%s", self.bucket.name, region)
+        except ClientError as error:
+            logger.exception(
+                "Couldn't create bucket named '%s' in region=%s.",
+                self.bucket.name, region)
+            raise error
+</programlisting>

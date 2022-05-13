@@ -1,0 +1,26 @@
+<programlisting>
+    public static void createDocumentClassifier(ComprehendClient comClient, String dataAccessRoleArn, String s3Uri, String documentClassifierName){
+
+     try {
+
+          DocumentClassifierInputDataConfig config = DocumentClassifierInputDataConfig.builder()
+                .s3Uri(s3Uri)
+                .build();
+
+          CreateDocumentClassifierRequest createDocumentClassifierRequest = CreateDocumentClassifierRequest.builder()
+                .documentClassifierName(documentClassifierName)
+                .dataAccessRoleArn(dataAccessRoleArn)
+                .languageCode("en")
+                .inputDataConfig(config)
+                .build();
+
+            CreateDocumentClassifierResponse createDocumentClassifierResult = comClient.createDocumentClassifier(createDocumentClassifierRequest);
+            String documentClassifierArn = createDocumentClassifierResult.documentClassifierArn();
+            System.out.println("Document Classifier ARN: " + documentClassifierArn);
+
+        } catch (ComprehendException e) {
+             System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+     }
+</programlisting>

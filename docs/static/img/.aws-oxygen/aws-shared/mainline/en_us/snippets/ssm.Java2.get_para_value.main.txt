@@ -1,0 +1,15 @@
+    public static void getParaValue(SsmClient ssmClient, String paraName) {
+
+        try {
+            GetParameterRequest parameterRequest = GetParameterRequest.builder()
+                .name(paraName)
+                .build();
+
+            GetParameterResponse parameterResponse = ssmClient.getParameter(parameterRequest);
+            System.out.println("The parameter value is "+parameterResponse.parameter().value());
+
+        } catch (SsmException e) {
+        System.err.println(e.getMessage());
+        System.exit(1);
+        }
+   }

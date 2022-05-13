@@ -1,0 +1,13 @@
+    def delete_lifecycle_configuration(self):
+        """
+        Remove the lifecycle configuration from the specified bucket.
+        """
+        try:
+            self.bucket.LifecycleConfiguration().delete()
+            logger.info(
+                "Deleted lifecycle configuration for bucket '%s'.", self.bucket.name)
+        except ClientError:
+            logger.exception(
+                "Couldn't delete lifecycle configuration for bucket '%s'.",
+                self.bucket.name)
+            raise

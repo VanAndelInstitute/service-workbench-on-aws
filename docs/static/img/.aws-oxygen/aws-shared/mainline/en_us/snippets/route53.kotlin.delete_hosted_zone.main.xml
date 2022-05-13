@@ -1,0 +1,13 @@
+<programlisting>
+suspend fun delHostedZone(hostedZoneId: String?) {
+
+         val deleteHostedZoneRequestRequest = DeleteHostedZoneRequest {
+                id = hostedZoneId
+          }
+
+        Route53Client { region = "AWS_GLOBAL" }.use { route53Client ->
+            route53Client.deleteHostedZone(deleteHostedZoneRequestRequest)
+            println("The hosted zone with id $hostedZoneId was deleted")
+        }
+}
+</programlisting>

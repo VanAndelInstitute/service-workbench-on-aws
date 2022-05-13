@@ -1,0 +1,54 @@
+package main
+
+import (
+    "flag"
+    "fmt"
+
+    "github.com/aws/aws-sdk-go/aws/awserr"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/s3"
+)
+
+// RetrieveWebSite retrieves the bucket's website configuration.
+func RetrieveWebSite(sess *session.Session, bucket *string) (*s3.GetBucketWebsiteOutput, error) {
+    svc := s3.New(sess)
+
+    result, err := svc.GetBucketWebsite(&s3.GetBucketWebsiteInput{
+        Bucket: bucket,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+func main() {
+    bucket := flag.String("b", "", "The name of the bucket")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply the name of a bucket (-b BUCKET")
+        return
+    }
+
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    result, err := RetrieveWebSite(sess, bucket)
+    if err != nil {
+        awsErr, ok := err.(awserr.Error)
+        if ok && awsErr.Code() == "NoSuchWebsiteConfiguration" {
+            fmt.Println("Bucket does not have a website configuration")
+        } else {
+            fmt.Println("Got error retrieving bucket website configuration:")
+            fmt.Println(err)
+        }
+
+        return
+    }
+
+    fmt.Println("Website Configuration:")
+    fmt.Println(result)
+}

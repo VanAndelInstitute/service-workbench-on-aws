@@ -1,0 +1,23 @@
+<programlisting>
+   public static void listSyncJobs( KendraClient kendra, String indexId, String dataSourceId){
+
+        try {
+            ListDataSourceSyncJobsRequest jobsRequest = ListDataSourceSyncJobsRequest.builder()
+                    .indexId(indexId)
+                    .maxResults(10)
+                    .id(dataSourceId)
+                    .build();
+
+            ListDataSourceSyncJobsResponse response = kendra.listDataSourceSyncJobs(jobsRequest);
+            List<DataSourceSyncJob> jobs = response.history();
+            for (DataSourceSyncJob job: jobs) {
+                System.out.println("Execution id is "+job.executionId());
+                System.out.println("Job status "+job.status());
+            }
+
+        } catch (KendraException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+   }
+</programlisting>

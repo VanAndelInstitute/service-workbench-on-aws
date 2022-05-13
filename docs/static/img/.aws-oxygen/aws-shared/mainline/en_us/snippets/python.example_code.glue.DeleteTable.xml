@@ -1,0 +1,16 @@
+<programlisting>
+    def delete_table(self, db_name, table_name):
+        """
+        Deletes a table from a metadata database.
+
+        :param db_name: The name of the database that contains the table.
+        :param table_name: The name of the table to delete.
+        """
+        try:
+            self.glue_client.delete_table(DatabaseName=db_name, Name=table_name)
+        except ClientError as err:
+            logger.error(
+                "Couldn't delete table %s. Here's why: %s: %s", table_name,
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
+</programlisting>

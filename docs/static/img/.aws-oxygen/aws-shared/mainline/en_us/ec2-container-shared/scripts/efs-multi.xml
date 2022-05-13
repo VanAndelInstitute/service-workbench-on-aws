@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE programlisting PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd">
+<programlisting>Content-Type: multipart/mixed; boundary="==BOUNDARY=="
+MIME-Version: 1.0
+
+--==BOUNDARY==
+Content-Type: text/cloud-boothook; charset="us-ascii"
+
+# Install amazon-efs-utils
+cloud-init-per once install_amazon-efs-utils yum install -y amazon-efs-utils
+
+# Create /efs folder
+cloud-init-per once mkdir_efs mkdir /efs
+
+# Mount /efs
+cloud-init-per once mount_efs echo -e '<replaceable>fs-12345678</replaceable>:/ /efs efs defaults,_netdev 0 0' >> /etc/fstab
+mount -a
+
+--==BOUNDARY==
+Content-Type: text/x-shellscript; charset="us-ascii"
+
+#!/bin/bash
+# Set any ECS agent configuration options
+echo "ECS_CLUSTER=<replaceable>default</replaceable>" >> /etc/ecs/ecs.config
+
+--==BOUNDARY==--</programlisting>

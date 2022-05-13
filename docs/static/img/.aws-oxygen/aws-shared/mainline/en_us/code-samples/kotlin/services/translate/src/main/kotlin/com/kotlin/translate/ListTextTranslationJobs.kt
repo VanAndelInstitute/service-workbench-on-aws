@@ -1,0 +1,24 @@
+
+package com.kotlin.translate
+
+import aws.sdk.kotlin.services.translate.TranslateClient
+import aws.sdk.kotlin.services.translate.model.ListTextTranslationJobsRequest
+
+suspend fun main(){
+    getTranslationJobs()
+}
+
+suspend fun getTranslationJobs() {
+
+        val textTranslationJobsRequest = ListTextTranslationJobsRequest {
+            maxResults = 10
+        }
+
+        TranslateClient { region = "us-west-2" }.use { translateClient ->
+           val response = translateClient.listTextTranslationJobs(textTranslationJobsRequest)
+            response.textTranslationJobPropertiesList?.forEach { prop ->
+                    println("The job name is ${prop.jobName}")
+                    println("The job id is: ${prop.jobId}")
+            }
+        }
+  }

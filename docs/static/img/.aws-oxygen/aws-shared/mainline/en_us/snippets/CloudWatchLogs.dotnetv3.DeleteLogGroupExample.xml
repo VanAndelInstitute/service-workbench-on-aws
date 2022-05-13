@@ -1,0 +1,20 @@
+<programlisting>
+        public static async Task Main()
+        {
+            var client = new AmazonCloudWatchLogsClient();
+            string logGroupName = "cloudwatchlogs-example-loggroup";
+
+            var request = new DeleteLogGroupRequest
+            {
+                LogGroupName = logGroupName,
+            };
+
+            var response = await client.DeleteLogGroupAsync(request);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine($"Successfully deleted CloudWatch log group, {logGroupName}.");
+            }
+        }
+
+</programlisting>

@@ -1,0 +1,20 @@
+
+// TableExists determines whether a DynamoDB table exists.
+func (basics TableBasics) TableExists() (bool, error) {
+	exists := true
+	_, err := basics.DynamoDbClient.DescribeTable(
+		context.TODO(), &dynamodb.DescribeTableInput{TableName: aws.String(basics.TableName)},
+	)
+	if err != nil {
+		var notFoundEx *types.ResourceNotFoundException
+		if errors.As(err, &notFoundEx) {
+			log.Printf("Table %v does not exist.\n", basics.TableName)
+			err = nil
+		} else {
+			log.Printf("Couldn't determine existence of table %v. Here's why: %v\n", basics.TableName, err)
+		}
+		exists = false
+	}
+	return exists, err
+}
+

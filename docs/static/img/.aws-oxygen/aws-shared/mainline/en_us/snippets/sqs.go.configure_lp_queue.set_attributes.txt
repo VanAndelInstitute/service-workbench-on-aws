@@ -1,0 +1,6 @@
+    _, err := svc.SetQueueAttributes(&sqs.SetQueueAttributesInput{
+        QueueUrl: queueURL,
+        Attributes: aws.StringMap(map[string]string{
+            "ReceiveMessageWaitTimeSeconds": strconv.Itoa(aws.IntValue(waitTime)),
+        }),
+    })

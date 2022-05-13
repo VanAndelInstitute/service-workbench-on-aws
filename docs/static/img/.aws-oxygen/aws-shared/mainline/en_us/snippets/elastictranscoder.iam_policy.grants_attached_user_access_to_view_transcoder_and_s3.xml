@@ -1,0 +1,16 @@
+<programlisting>
+{
+   "Version":"2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+            "elastictranscoder:Read*",
+            "elastictranscoder:List*",
+            "s3:List*"
+         ],
+         "Resource": "*"
+      }
+   ]
+}
+</programlisting>

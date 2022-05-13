@@ -1,0 +1,8 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+import software.amazon.awssdk.services.rekognition.model.StreamProcessorSettings;
+import software.amazon.awssdk.services.rekognition.model.StreamProcessorOutput;
+import software.amazon.awssdk.services.rekognition.model.StartStreamProcessorRequest;
+import software.amazon.awssdk.services.rekognition.model.DescribeStreamProcessorRequest;
+import software.amazon.awssdk.services.rekognition.model.DescribeStreamProcessorResponse;

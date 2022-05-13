@@ -1,0 +1,20 @@
+<programlisting>
+    def describe(self):
+        """
+        Gets metadata about a state machine.
+
+        :return: The metadata about the state machine.
+        """
+        if self.state_machine_arn is None:
+            raise ValueError
+        try:
+            response = self.stepfunctions_client.describe_state_machine(
+                stateMachineArn=self.state_machine_arn)
+            logger.info("Got metadata for state machine %s.", self.state_machine_name)
+        except ClientError:
+            logger.exception(
+                "Couldn't get metadata for state machine %s.", self.state_machine_name)
+            raise
+        else:
+            return response
+</programlisting>

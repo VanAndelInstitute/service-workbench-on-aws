@@ -1,0 +1,26 @@
+<programlisting>
+    numItems := 0
+
+    for _, i := range result.Items {
+        item := Item{}
+
+        err = dynamodbattribute.UnmarshalMap(i, &item)
+
+        if err != nil {
+            log.Fatalf("Got error unmarshalling: %s", err)
+        }
+
+        // Which ones had a higher rating than minimum?
+        if item.Rating > minRating {
+            // Or it we had filtered by rating previously:
+            //   if item.Year == year {
+            numItems++
+
+            fmt.Println("Title: ", item.Title)
+            fmt.Println("Rating:", item.Rating)
+            fmt.Println()
+        }
+    }
+
+    fmt.Println("Found", numItems, "movie(s) with a rating above", minRating, "in", year)
+</programlisting>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "file://zonbook/docbookx.dtd"[
+   <!ENTITY % phrases-mobile-shared SYSTEM "file://AWSShared/mobile-shared/phrases-mobile-shared.ent">
+    %phrases-mobile-shared;
+    <!ENTITY % xinclude SYSTEM "file://AWSShared/common/xinclude.mod">
+    %xinclude;
+    <!ENTITY % phrases-shared SYSTEM "file://AWSShared/common/phrases-shared.ent"> 
+    %phrases-shared;           
+]>
+<section role="topic" id="apns-setup-ioscert">
+	<sectioninfo>
+		<abstract>
+			<para>Create an iOS distribution certificate in the Apple Developer portal.</para>
+		</abstract>
+	</sectioninfo>
+	<title id="apns-setup-ioscert.title">Step 4: Create an iOS Distribution Certificate</title>
+	<para>An iOS distribution certificate enables you to install your app on a test device and deliver
+		push notifications to that device. You specify your iOS distribution certificate later when
+		you create a provisioning profile for your app.</para>
+	<para>If you already have an iOS distribution certificate, you can skip this step.</para>
+	<procedure>
+		<title>To create an iOS distribution certificate</title>
+		<step>
+			<para>On the <guilabel>Certificates, Identifiers &amp; Profiles</guilabel> page of your
+				Apple Developer account, in the <guilabel>Certificates section</guilabel>, choose
+					<guilabel>Production</guilabel>.</para>
+		</step>
+		<step>
+			<para>In the <guilabel>iOS Certificates (Production)</guilabel> pane, choose the Add button (+).
+				The <guilabel>Add iOS Certificate</guilabel> pane opens.</para>
+		</step>
+		<step>
+			<para>In the <guilabel>Production</guilabel> section, select <guilabel>App Store and Ad
+					Hoc</guilabel>, and then choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>On the <guilabel>About Creating a Certificate Signing Request (CSR)</guilabel> page, choose
+					<guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>In the <guilabel>About Creating a Certificate Signing Request (CSR)</guilabel> pane, follow
+				the instructions for creating a Certificate Signing Request (CSR) file. You use the
+				Keychain Access application on your Mac to create the request and save it on your
+				local disk. When you are done, choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>In the <guilabel>Generate your certificate</guilabel> pane, choose
+					<guilabel>Choose File...</guilabel>, and then select the CSR file you
+				created.</para>
+			<?oxy_insert_start author="jacowarr" timestamp="20170202T173816-0800"?>
+			<mediaobject>
+				<imageobject>
+					<imagedata
+						fileref="&url-doc-domain;images/en_us/mobile-shared/mobile-push/ios_appcert13.png"
+						format="PNG" width="100%" scalefit="1" contentdepth="100%"/>
+				</imageobject>
+				<textobject>
+					<phrase>Generate your certificate pane.</phrase>
+				</textobject>
+			</mediaobject>
+			<?oxy_insert_end?>
+		</step>
+		<step>
+			<para>Choose <guilabel>Continue</guilabel>.</para>
+		</step>
+		<step>
+			<para>When the certificate is ready, choose <guilabel>Download</guilabel> to save the
+				certificate to your computer.</para>
+		</step>
+		<step>
+			<para>Double-click the downloaded certificate to install it in Keychain on your
+				Mac.</para>
+		</step>
+	</procedure>
+</section>

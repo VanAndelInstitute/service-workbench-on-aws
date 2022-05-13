@@ -1,0 +1,22 @@
+        Aws::IAM::IAMClient iam;
+        Aws::IAM::Model::GetAccessKeyLastUsedRequest request;
+
+        request.SetAccessKeyId(key_id);
+
+        auto outcome = iam.GetAccessKeyLastUsed(request);
+
+        if (!outcome.IsSuccess())
+        {
+            std::cout << "Error querying last used time for access key " <<
+                key_id << ":" << outcome.GetError().GetMessage() << std::endl;
+        }
+        else
+        {
+            auto lastUsedTimeString =
+                outcome.GetResult()
+                .GetAccessKeyLastUsed()
+                .GetLastUsedDate()
+                .ToGmtString(Aws::Utils::DateFormat::ISO_8601);
+            std::cout << "Access key " << key_id << " last used at time " <<
+                lastUsedTimeString << std::endl;
+        }

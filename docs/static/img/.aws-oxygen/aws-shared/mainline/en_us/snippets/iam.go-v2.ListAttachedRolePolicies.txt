@@ -1,0 +1,16 @@
+
+	// ListAttachedRolePolicies
+
+	attachedPoliciesList, err := service.ListAttachedRolePolicies(context.Background(), &iam.ListAttachedRolePoliciesInput{
+		RoleName: aws.String(ExampleRoleName),
+	})
+
+	if err != nil {
+		panic("Couldn't call ListAttachedRolePolicies: " + err.Error())
+	}
+
+	fmt.Println("➡️ List attached role policies for " + ExampleRoleName)
+
+	for _, attachedPolicy := range attachedPoliciesList.AttachedPolicies {
+		fmt.Printf("attached policy: %v\n (%v) \n", attachedPolicy.PolicyArn, attachedPolicy.PolicyName)
+	}

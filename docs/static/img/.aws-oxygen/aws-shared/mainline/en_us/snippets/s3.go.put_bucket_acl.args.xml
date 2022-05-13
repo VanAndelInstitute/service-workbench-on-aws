@@ -1,0 +1,17 @@
+<programlisting>
+	bucket := flag.String("b", "", "The bucket to read")
+	address := flag.String("e", "", "The email address of the reader")
+	permission := flag.String("p", "READ", "The type of permission (FULL_CONTROL, WRITE, WRITE_ACP, READ, or READ_ACP)")
+	flag.Parse()
+
+	if *bucket == "" || *address == "" {
+		fmt.Println("You must supply a bucket (-b BUCKET) and email address (-e ADDRESS)")
+		return
+	}
+
+	if !(*permission == "FULL_CONTROL" || *permission == "WRITE" || *permission == "WRITE_ACP" || *permission == "READ" || *permission == "READ_ACP") {
+		fmt.Println("Illegal permission value. It must be one of:")
+		fmt.Println("FULL_CONTROL, WRITE, WRITE_ACP, READ, or READ_ACP")
+		return
+	}
+</programlisting>

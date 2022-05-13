@@ -1,0 +1,7 @@
+pub async fn get_role(
+    client: &iamClient,
+    role_name: String,
+) -> Result<GetRoleOutput, SdkError<GetRoleError>> {
+    let response = client.get_role().role_name(role_name).send().await?;
+    Ok(response)
+}

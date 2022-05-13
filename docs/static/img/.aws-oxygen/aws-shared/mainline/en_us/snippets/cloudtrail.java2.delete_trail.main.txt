@@ -1,0 +1,15 @@
+    public static void deleteSpecificTrail(CloudTrailClient cloudTrailClientClient, String trailName){
+
+        try {
+            DeleteTrailRequest trailRequest = DeleteTrailRequest.builder()
+                .name(trailName)
+                .build();
+
+            cloudTrailClientClient.deleteTrail(trailRequest);
+            System.out.println(trailName +" was successfully deleted");
+
+        } catch (CloudTrailException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }

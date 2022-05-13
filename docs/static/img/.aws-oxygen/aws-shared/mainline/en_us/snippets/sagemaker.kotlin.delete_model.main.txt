@@ -1,0 +1,10 @@
+suspend fun deleteSagemakerModel(modelNameVal: String?) {
+
+     val request = DeleteModelRequest {
+            modelName = modelNameVal
+     }
+
+    SageMakerClient { region = "us-west-2" }.use { sageMakerClient ->
+        sageMakerClient.deleteModel(request)
+    }
+}

@@ -1,0 +1,13 @@
+<programlisting>
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    let (region, client, bucket_name, file_name, key, target_key) = initialize_variables().await;
+
+    if let Err(e) = run_s3_operations(region, client, bucket_name, file_name, key, target_key).await
+    {
+        println!("{:?}", e);
+    };
+
+    Ok(())
+}
+</programlisting>

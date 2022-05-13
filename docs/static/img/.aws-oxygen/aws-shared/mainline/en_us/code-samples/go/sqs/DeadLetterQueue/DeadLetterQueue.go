@@ -1,0 +1,139 @@
+/*
+   Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+   This file is licensed under the Apache License, Version 2.0 (the "License").
+   You may not use this file except in compliance with the License. A copy of
+   the License is located at
+
+    http://aws.amazon.com/apache2.0/
+
+   This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations under the License.
+*/
+package main
+
+import (
+    "encoding/json"
+    "flag"
+    "fmt"
+    "strings"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/sqs"
+)
+
+// GetQueueURL gets the URL of an Amazon SQS queue
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     queueName is the name of the queue
+// Output:
+//     If success, the URL of the queue and nil
+//     Otherwise, an empty string and an error from the call to
+func GetQueueURL(sess *session.Session, queue *string) (*sqs.GetQueueUrlOutput, error) {
+    svc := sqs.New(sess)
+
+    result, err := svc.GetQueueUrl(&sqs.GetQueueUrlInput{
+        QueueName: queue,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return result, nil
+}
+
+// GetQueueArn gets the ARN of a queue based on its URL
+func GetQueueArn(queueURL *string) *string {
+    parts := strings.Split(*queueURL, "/")
+    subParts := strings.Split(parts[2], ".")
+
+    arn := "arn:aws:" + subParts[0] + ":" + subParts[1] + ":" + parts[3] + ":" + parts[4]
+
+    return &arn
+}
+
+// ConfigureDeadLetterQueue configures an Amazon SQS queue for messages that could not be delivered to another queue
+// Inputs:
+//     sess is the current session, which provides configuration for the SDK's service clients
+//     deadLetterQueueARN is the ARN of the dead-letter queue
+//     queueURL is the URL of the queue that did not get messages
+// Output:
+//     If success, the URL of the queue and nil
+//     Otherwise, an empty string and an error from the call to json.Marshal or SetQueueAttributes
+func ConfigureDeadLetterQueue(sess *session.Session, dlQueueARN *string, queueURL *string) error {
+    // Create an SQS service client
+    svc := sqs.New(sess)
+
+    // Our redrive policy for our queue
+    policy := map[string]string{
+        "deadLetterTargetArn": *dlQueueARN,
+        "maxReceiveCount":     "10",
+    }
+
+    // Marshal policy for SetQueueAttributes
+    b, err := json.Marshal(policy)
+    if err != nil {
+        return err
+    }
+
+    _, err = svc.SetQueueAttributes(&sqs.SetQueueAttributesInput{
+        QueueUrl: queueURL,
+        Attributes: map[string]*string{
+            sqs.QueueAttributeNameRedrivePolicy: aws.String(string(b)),
+        },
+    })
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func main() {
+    queue := flag.String("q", "", "The name of the queue")
+    dlQueue := flag.String("d", "", "The name of the dead-letter queue")
+    flag.Parse()
+
+    if *queue == "" || *dlQueue == "" {
+        fmt.Println("You must supply the names of the queue (-q QUEUE) and the dead-letter queue (-d DLQUEUE)")
+        return
+    }
+
+    // Create a session that gets credential values from ~/.aws/credentials
+    // and the default region from ~/.aws/config
+    sess := session.Must(session.NewSessionWithOptions(session.Options{
+        SharedConfigState: session.SharedConfigEnable,
+    }))
+
+    result, err := GetQueueURL(sess, queue)
+    if err != nil {
+        fmt.Println("Got an error getting the queue URL:")
+        fmt.Println(err)
+        return
+    }
+
+    queueURL := result.QueueUrl
+    
+    result, err = GetQueueURL(sess, dlQueue)
+    if err != nil {
+        fmt.Println("Got an error getting the queue URL:")
+        fmt.Println(err)
+        return
+    }
+
+    dlQueueURL := result.QueueUrl
+
+    // Get the ARN for the dead-letter queue
+    arn := GetQueueArn(dlQueueURL)
+
+    err = ConfigureDeadLetterQueue(sess, arn, queueURL)
+    if err != nil {
+        fmt.Println("Got an error configuring the dead-letter queue:")
+        fmt.Println(err)
+        return
+    }
+
+    fmt.Println("Created dead-letter queue")
+}

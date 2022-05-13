@@ -1,0 +1,32 @@
+<programlisting>
+def change_security_group(instance_id, old_security_group_id, new_security_group_id):
+    """
+    Changes the security group of an instance. Security groups are associated with
+    the instance's network interfaces, so this function iterates the list of
+    network interfaces associated with the specified instance and updates each
+    network interface by replacing the old security group with the new security group.
+
+    :param instance_id: The ID of the instance to update.
+    :param old_security_group_id: The ID of the security group to replace.
+    :param new_security_group_id: The ID of the new security group.
+    """
+    try:
+        for network_interface in ec2.Instance(instance_id).network_interfaces:
+            group_ids = [group['GroupId'] for group in network_interface.groups]
+            if old_security_group_id in group_ids:
+                try:
+                    network_interface.modify_attribute(
+                        Groups=[new_security_group_id
+                                if old_security_group_id == group_id else group_id
+                                for group_id in group_ids])
+                    logger.info(
+                        "Replaced %s with %s for %s.", old_security_group_id,
+                        new_security_group_id, network_interface.id)
+                except ClientError:
+                    logger.exception(
+                        "Couldn't update security groups for %s.", network_interface.id)
+    except ClientError:
+        logger.exception(
+            "Couldn't get network interfaces for instance %s.", instance_id)
+        raise
+</programlisting>

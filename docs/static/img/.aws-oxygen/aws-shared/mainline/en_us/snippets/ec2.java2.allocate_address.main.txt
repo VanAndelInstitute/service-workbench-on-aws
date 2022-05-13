@@ -1,0 +1,27 @@
+    public static String getAllocateAddress( Ec2Client ec2, String instanceId) {
+
+       try {
+           AllocateAddressRequest allocateRequest = AllocateAddressRequest.builder()
+                .domain(DomainType.VPC)
+                .build();
+
+           AllocateAddressResponse allocateResponse =
+                ec2.allocateAddress(allocateRequest);
+
+           String allocationId = allocateResponse.allocationId();
+
+           AssociateAddressRequest associateRequest =
+                AssociateAddressRequest.builder()
+                        .instanceId(instanceId)
+                        .allocationId(allocationId)
+                        .build();
+
+            AssociateAddressResponse associateResponse = ec2.associateAddress(associateRequest);
+            return associateResponse.associationId();
+
+         } catch (Ec2Exception e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+        }
+       return "";
+    }

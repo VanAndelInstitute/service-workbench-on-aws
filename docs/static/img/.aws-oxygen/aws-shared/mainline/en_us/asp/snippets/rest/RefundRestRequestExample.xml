@@ -1,0 +1,13 @@
+https://fps.sandbox.amazonaws.com?
+Action=Refund
+&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
+&CallerDescription=MyWish
+&CallerReference=CallerReference03
+&RefundAmount.CurrencyCode=USD
+&RefundAmount.Value=1
+&Signature=V6pU3PvDPkPhR9Eu7yZXnFZHuEFafLE5sBPgqqCELEU%3D
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2009-10-06T05%3A51%3A49.578Z
+&TransactionId=14GK4TNCAQ84NK9VITEHKAS94RAD9ZE2AQD
+&Version=2008-09-17

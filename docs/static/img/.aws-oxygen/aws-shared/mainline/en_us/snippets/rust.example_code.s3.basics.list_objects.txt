@@ -1,0 +1,9 @@
+pub async fn list_objects(client: &Client, bucket_name: &str) -> Result<(), Error> {
+    let objects = client.list_objects_v2().bucket(bucket_name).send().await?;
+    println!("Objects in bucket:");
+    for obj in objects.contents().unwrap_or_default() {
+        println!("{:?}", obj.key().unwrap());
+    }
+
+    Ok(())
+}

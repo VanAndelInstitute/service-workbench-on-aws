@@ -1,0 +1,6 @@
+    svc := sqs.New(sess)
+
+    _, err := svc.DeleteMessage(&sqs.DeleteMessageInput{
+        QueueUrl:      queueURL,
+        ReceiptHandle: messageHandle,
+    })

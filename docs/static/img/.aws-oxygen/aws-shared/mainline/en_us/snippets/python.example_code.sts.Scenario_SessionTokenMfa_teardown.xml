@@ -1,0 +1,20 @@
+<programlisting>
+def teardown(user, virtual_mfa_device):
+    """
+    Removes all resources created during setup.
+
+    :param user: The demo user.
+    :param role: The demo MFA device.
+    """
+    for user_pol in user.policies.all():
+        user_pol.delete()
+        print("Deleted inline user policy.")
+    for key in user.access_keys.all():
+        key.delete()
+        print("Deleted user's access key.")
+    for mfa in user.mfa_devices.all():
+        mfa.disassociate()
+    virtual_mfa_device.delete()
+    user.delete()
+    print(f"Deleted {user.name}.")
+</programlisting>

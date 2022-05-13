@@ -1,0 +1,10 @@
+    def delete_policy(self):
+        """
+        Delete the security policy from the bucket.
+        """
+        try:
+            self.bucket.Policy().delete()
+            logger.info("Deleted policy for bucket '%s'.", self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't delete policy for bucket '%s'.", self.bucket.name)
+            raise

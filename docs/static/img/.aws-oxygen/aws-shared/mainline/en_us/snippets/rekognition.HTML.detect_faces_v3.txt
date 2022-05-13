@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rekognition</title>
+</head>
+
+<body>
+<H1>Age Estimator</H1>
+<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+<p id="opResult"></p>
+<script>
+document.getElementById("fileToUpload").addEventListener("change", function (event) {
+ProcessImage();
+}, false);
+</script>
+<script src="main.js"></script>
+</body>
+    </html>

@@ -1,0 +1,7 @@
+import aws.sdk.kotlin.services.emr.EmrClient
+import aws.sdk.kotlin.services.emr.model.InstanceTypeConfig
+import aws.sdk.kotlin.services.emr.model.InstanceFleetConfig
+import aws.sdk.kotlin.services.emr.model.InstanceFleetType
+import aws.sdk.kotlin.services.emr.model.JobFlowInstancesConfig
+import aws.sdk.kotlin.services.emr.model.RunJobFlowRequest
+import aws.sdk.kotlin.services.emr.model.Application

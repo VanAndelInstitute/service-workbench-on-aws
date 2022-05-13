@@ -1,0 +1,38 @@
+<programlisting>
+#[derive(Clone, Debug)]
+pub struct TestListObjects {
+    expected_bucket: String,
+    expected_prefix: String,
+    pages: Vec<Vec<s3::model::Object>>,
+}
+
+#[async_trait]
+impl ListObjects for TestListObjects {
+    async fn list_objects(
+        &self,
+        bucket: &str,
+        prefix: &str,
+        continuation_token: Option<String>,
+    ) -> Result<ListObjectsResult, Box<dyn Error + Send + Sync + 'static>> {
+        assert_eq!(self.expected_bucket, bucket);
+        assert_eq!(self.expected_prefix, prefix);
+
+        let index = continuation_token
+            .map(|t| usize::from_str(&t).expect("valid token"))
+            .unwrap_or_default();
+        if self.pages.is_empty() {
+            Ok(ListObjectsResult {
+                objects: Vec::new(),
+                continuation_token: None,
+                has_more: false,
+            })
+        } else {
+            Ok(ListObjectsResult {
+                objects: self.pages[index].clone(),
+                continuation_token: Some(format!("{}", index + 1)),
+                has_more: index + 1 < self.pages.len(),
+            })
+        }
+    }
+}
+</programlisting>

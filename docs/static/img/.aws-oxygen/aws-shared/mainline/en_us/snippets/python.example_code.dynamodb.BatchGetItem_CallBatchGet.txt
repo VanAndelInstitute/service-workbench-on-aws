@@ -1,0 +1,29 @@
+def get_batch_data(movie_table, movie_list, actor_table, actor_list):
+    """
+    Gets data from the specified movie and actor tables. Data is retrieved in batches.
+
+    :param movie_table: The table from which to retrieve movie data.
+    :param movie_list: A list of keys that identify movies to retrieve.
+    :param actor_table: The table from which to retrieve actor data.
+    :param actor_list: A list of keys that identify actors to retrieve.
+    :return: The dictionary of retrieved items grouped under the respective
+             movie and actor table names.
+    """
+    batch_keys = {
+        movie_table.name: {
+            'Keys': [{'year': movie[0], 'title': movie[1]} for movie in movie_list]
+        },
+        actor_table.name: {
+            'Keys': [{'name': actor} for actor in actor_list]
+        }
+    }
+    try:
+        retrieved = do_batch_get(batch_keys)
+        for response_table, response_items in retrieved.items():
+            logger.info("Got %s items from %s.", len(response_items), response_table)
+    except ClientError:
+        logger.exception(
+            "Couldn't get items from %s and %s.", movie_table.name, actor_table.name)
+        raise
+    else:
+        return retrieved

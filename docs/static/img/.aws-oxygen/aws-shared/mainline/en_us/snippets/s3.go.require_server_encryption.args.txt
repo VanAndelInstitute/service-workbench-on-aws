@@ -1,0 +1,7 @@
+    bucket := flag.String("b", "", "The bucket to encrypt")
+    flag.Parse()
+
+    if *bucket == "" {
+        fmt.Println("You must supply a bucket name (-b BUCKET)")
+        return
+    }

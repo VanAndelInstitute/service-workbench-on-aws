@@ -1,0 +1,7 @@
+<programlisting>
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.eventbridge.EventBridgeClient;
+import software.amazon.awssdk.services.eventbridge.model.DescribeRuleRequest;
+import software.amazon.awssdk.services.eventbridge.model.DescribeRuleResponse;
+import software.amazon.awssdk.services.eventbridge.model.EventBridgeException;
+</programlisting>

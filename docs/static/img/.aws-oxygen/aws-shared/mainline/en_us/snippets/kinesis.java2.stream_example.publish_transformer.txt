@@ -1,0 +1,9 @@
+    private static CompletableFuture<Void> responseHandlerBuilderPublisherTransformer(KinesisAsyncClient client, SubscribeToShardRequest request) {
+        SubscribeToShardResponseHandler responseHandler = SubscribeToShardResponseHandler
+                .builder()
+                .onError(t -> System.err.println("Error during stream - " + t.getMessage()))
+                .publisherTransformer(p -> p.filter(e -> e instanceof SubscribeToShardEvent).limit(100))
+                .subscriber(e -> System.out.println("Received event - " + e))
+                .build();
+        return client.subscribeToShard(request, responseHandler);
+    }

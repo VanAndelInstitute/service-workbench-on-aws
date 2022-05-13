@@ -1,0 +1,13 @@
+<programlisting>
+    def delete(self):
+        """
+        Deletes a stream.
+        """
+        try:
+            self.kinesis_client.delete_stream(StreamName=self.name)
+            self._clear()
+            logger.info("Deleted stream %s.", self.name)
+        except ClientError:
+            logger.exception("Couldn't delete stream %s.", self.name)
+            raise
+</programlisting>

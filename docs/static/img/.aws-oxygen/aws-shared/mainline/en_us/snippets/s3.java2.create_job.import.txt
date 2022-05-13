@@ -1,0 +1,11 @@
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3control.S3ControlClient;
+import software.amazon.awssdk.services.s3control.model.S3Tag;
+import software.amazon.awssdk.services.s3control.model.S3SetObjectTaggingOperation;
+import software.amazon.awssdk.services.s3control.model.JobOperation;
+import software.amazon.awssdk.services.s3control.model.JobManifestLocation;
+import software.amazon.awssdk.services.s3control.model.JobManifestSpec;
+import software.amazon.awssdk.services.s3control.model.JobManifest;
+import software.amazon.awssdk.services.s3control.model.JobReport;
+import software.amazon.awssdk.services.s3control.model.CreateJobRequest;
+import software.amazon.awssdk.services.s3control.model.S3ControlException;

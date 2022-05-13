@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  
+  <!-- This catalog file is for use with Oxygen XML Editor -->
+  
+  <public publicId="-//AWS//DTD NextGenReef XML 4.5//EN" uri="file:documentation-model.xsd"/>
+  
+  <rewriteSystem systemIdStartString="file://AWSShared/" rewritePrefix="file:../../aws-shared/"/>
+  <rewriteSystem systemIdStartString="file://AWSSharedLoc/" rewritePrefix="file:../../aws-shared/"/>
+
+  <!-- This works around a bug in Oxygen where included files in a programlisting are not found in Author mode. -->
+  <rewriteSystem systemIdStartString="file:////AWSShared/" rewritePrefix="file:../../aws-shared/"/>
+
+</catalog>

@@ -1,0 +1,20 @@
+async fn show_state(client: &Client, ids: Option<Vec<String>>) -> Result<(), Error> {
+    let resp = client
+        .describe_instances()
+        .set_instance_ids(ids)
+        .send()
+        .await?;
+
+    for reservation in resp.reservations().unwrap_or_default() {
+        for instance in reservation.instances().unwrap_or_default() {
+            println!("Instance ID: {}", instance.instance_id().unwrap());
+            println!(
+                "State:       {:?}",
+                instance.state().unwrap().name().unwrap()
+            );
+            println!();
+        }
+    }
+
+    Ok(())
+}

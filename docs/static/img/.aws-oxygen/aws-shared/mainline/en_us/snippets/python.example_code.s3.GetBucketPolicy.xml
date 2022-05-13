@@ -1,0 +1,16 @@
+<programlisting>
+    def get_policy(self):
+        """
+        Get the security policy of the bucket.
+
+        :return: The security policy of the specified bucket, in JSON format.
+        """
+        try:
+            policy = self.bucket.Policy()
+            logger.info("Got policy %s for bucket '%s'.", policy.policy, self.bucket.name)
+        except ClientError:
+            logger.exception("Couldn't get policy for bucket '%s'.", self.bucket.name)
+            raise
+        else:
+            return json.loads(policy.policy)
+</programlisting>

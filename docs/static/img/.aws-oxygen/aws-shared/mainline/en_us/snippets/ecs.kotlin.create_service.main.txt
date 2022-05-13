@@ -1,0 +1,32 @@
+suspend fun createNewService(
+    clusterNameVal: String,
+    serviceNameVal: String,
+    securityGroupsVal: String,
+    subnetsVal: String,
+    taskDefinitionVal: String
+    ): String? {
+
+
+        val vpcConfiguration = AwsVpcConfiguration {
+            securityGroups = listOf(securityGroupsVal)
+            subnets = listOf(subnetsVal)
+        }
+
+        val configuration = NetworkConfiguration {
+            awsvpcConfiguration = vpcConfiguration
+        }
+
+        val request = CreateServiceRequest {
+            cluster = clusterNameVal
+            networkConfiguration = configuration
+            desiredCount = 1
+            launchType = LaunchType.Fargate
+            serviceName = serviceNameVal
+            taskDefinition = taskDefinitionVal
+        }
+
+        EcsClient { region = "us-east-1" }.use { ecsClient ->
+          val response = ecsClient.createService(request)
+          return response.service?.serviceArn
+        }
+}

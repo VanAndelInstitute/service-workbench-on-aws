@@ -1,0 +1,10 @@
+
+require 'vendor/autoload.php';
+
+use Aws\DynamoDb\SessionHandler;
+
+$sessionHandler = SessionHandler::fromClient($dynamoDb, [
+    'table_name' => 'sessions'
+]);
+
+$sessionHandler->register();

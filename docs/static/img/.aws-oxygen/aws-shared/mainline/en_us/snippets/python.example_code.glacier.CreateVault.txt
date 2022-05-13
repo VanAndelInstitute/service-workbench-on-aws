@@ -1,0 +1,15 @@
+    def create_vault(self, vault_name):
+        """
+        Creates a vault.
+
+        :param vault_name: The name to give the vault.
+        :return: The newly created vault.
+        """
+        try:
+            vault = self.glacier_resource.create_vault(vaultName=vault_name)
+            logger.info("Created vault %s.", vault_name)
+        except ClientError:
+            logger.exception("Couldn't create vault %s.", vault_name)
+            raise
+        else:
+            return vault
